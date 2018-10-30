@@ -8,8 +8,14 @@ Very basic words beneath - will improve this massively soon.
 Basically you find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and connect. And read the info, and show it, or write to it!
 
 Device name is "(!)Tail1"
+
 Device Service [0xffe0]
-Device Characteristic (red power led!) [0xffe1]
+
+Device Characteristic [0xffe1]
+All aspects of the Tail are controlled through this service and this characteristic
+
+Red Power LED - A0 off A1 On
+LEDs attached to tail PCB - L0-L9 to set brightness
 
 Built in Moves
 
