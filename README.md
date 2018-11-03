@@ -20,6 +20,17 @@ LEDs attached to tail PCB - L0-L9 to set brightness
 Built in Moves
 
 The remote will be literally sending a number to the tail to the right characteristic. And there will be 9 or 10 built in moves u can call up immediately.
+"S1",&SLOW_WAG1,
+"S2",&SLOW_WAG2,
+"S3",&SLOW_WAG3,
+"FA",&FAST_WAG,
+"SH",&SHORT_WAG,
+"HA",&HAPPY_WAG,
+"ER",&ERECT,
+"EP",&ERECT_PULSE,
+"T1",&TREMBLE1,
+"T2",&TREMBLE2,
+"ET",&ERECT_TREM,
 
 
 Notifications
