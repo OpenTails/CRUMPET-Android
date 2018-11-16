@@ -90,7 +90,11 @@ Kirigami.ApplicationWindow {
             opacity: 0.2;
             anchors.fill: parent;
         }
-        MouseArea { anchors.fill: parent; onClicked: {} }
+        MouseArea {
+            anchors.fill: parent;
+            enabled: connectingToTail.opacity > 0;
+            onClicked: {}
+        }
         Label {
             anchors {
                 bottom: parent.verticalCenter;
