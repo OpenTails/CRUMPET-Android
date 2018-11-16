@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/ConnectToTail.qml</file>
+        <file>qml/TailPoses.qml</file>
+        <file>qml/WelcomePage.qml</file>
+        <file>qtquickcontrols2.conf</file>
+    </qresource>
+</RCC>
