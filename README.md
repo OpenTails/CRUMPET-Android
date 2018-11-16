@@ -112,7 +112,7 @@ You may also notice some warnings during the CMake configuration step about poli
 Once the make command has completed successfully, you should find yourself with a binary named digital inside the src subdirectory of your build directory. You can run this by doing as follows:
 
 ```
-./src/digitail
+./bin/digitail
 ```
 
 You should now have a nice little app show up on your desktop which suggests the ability to control tails.
