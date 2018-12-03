@@ -18,25 +18,37 @@ All aspects of the Tail are controlled through this service and this characteris
 
 Built in Moves
 
-The remote will be literally sending a number to the tail to the right characteristic. And there will be 9 or 10 built in moves u can call up immediately.
-"S1",&SLOW_WAG1,
-"S2",&SLOW_WAG2,
-"S3",&SLOW_WAG3,
-"FA",&FAST_WAG,
-"SH",&SHORT_WAG,
-"HA",&HAPPY_WAG,
-"ER",&ERECT,
-"EP",&ERECT_PULSE,
-"T1",&TREMBLE1,
-"T2",&TREMBLE2,
-"ET",&ERECT_TREM,
+The remote will be literally sending a number to the tail to the right characteristic. And there are 11 built in moves u can call up immediately.
 
-"LO", OFF,
-"LR", BLINK,
-"LT", TRIANGULAR PATTERN (intensity up and down)
-"LS", SAW TOOTH (RAMP UP) PATTERN (intensity up then off)
+TAIL MOVES----------
+TAILS1 - SLOW_WAG1
+TAILS2 - SLOW_WAG2
+TAILS3 - SLOW_WAG3
+TAILFA - FAST_WAG
+TAILSH - SHORT_WAG
+TAILHA - HAPPY_WAG
+TAILER - ERECT
+TAILEP - ERECT_PULSE
+TAILT1 - TREMBLE1
+TAILT2 - TREMBLE2
+TAILET - ERECT_TREM
 
-"SHUTDOWN" switches off the tail.
+LEDS PATTERNS ----------
+LOFF - Leds off
+LREC - intermittent (on/off)
+LTRI - triangular (fade in/out)
+LSAW - sawtooth (fade in/off)
+LSOS - morse SOS
+LFLA - flame simulation
+LSTR - strobo
+
+OTHER COMMANDS-------
+VER - returns the firmware version number
+PING - returns OK
+SHUTDOWN - powers off the unit (will lose the connection!)
+BATT - returns Bn (n= 0,1,2,3,4 number of 'bars')
+
+Also, commands are now case insensitive
 
 
 Notifications
