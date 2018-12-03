@@ -1,4 +1,4 @@
-# DIGITAiL
+DIGITAiL
 Development of the app to control our new breed of animatronic tails!
 
 Notes!
@@ -14,7 +14,7 @@ Device Service [0xffe0]
 Device Characteristic [0xffe1]
 All aspects of the Tail are controlled through this service and this characteristic
 
-( Used to exist, but not now: Red Power LED - A0 off A1 On, LEDs attached to tail PCB - L0-L9 to set brightness)
+(Used to exist, but not now: Red Power LED - A0 off A1 On, LEDs attached to tail PCB - L0-L9 to set brightness)
 
 Built in Moves
 
@@ -35,6 +35,8 @@ The remote will be literally sending a number to the tail to the right character
 "LR", BLINK,
 "LT", TRIANGULAR PATTERN (intensity up and down)
 "LS", SAW TOOTH (RAMP UP) PATTERN (intensity up then off)
+
+"SHUTDOWN" switches off the tail.
 
 
 Notifications
