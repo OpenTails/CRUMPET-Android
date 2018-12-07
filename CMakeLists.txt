@@ -10,6 +10,16 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH} ${
 set(BREEZEICONS_DIR ${CMAKE_SOURCE_DIR}/3rdparty/breeze-icons/)
 set(DISABLE_DBUS true)
 
+# Android has no DBus, so we can't use that. Sniff things and tell the code
+if(CMAKE_SYSTEM_NAME STREQUAL Android)
+    message("Building for Android - this means no dbus, and other small details. Work with that")
+    add_definitions(-DANDROID)
+    SET(QT_QMAKE_EXECUTABLE "$ENV{Qt5_android}/bin/qmake")
+elseif(WIN32)
+    message("Building for Windows - this means no dbus, and other small details. Work with that")
+    add_definitions(-DWINDOWS)
+endif()
+
 find_package(Qt5 5.11 REQUIRED Core Quick Multimedia Test Widgets QuickControls2 Bluetooth)
 
 include(KDEInstallDirs)
