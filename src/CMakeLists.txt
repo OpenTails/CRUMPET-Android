@@ -11,17 +11,18 @@ qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")
     set(digitail_EXTRA_LIBS Qt5::AndroidExtras
+    Qt5::Gui
     #FIXME: we shouldn't have to link to it but otherwise the lib won't be packaged on Android
     Qt5::QuickControls2)
-else ()
+# else ()
 #qstyle-based qqc2 style needs a QApplication
-    set(digitail_EXTRA_LIBS Qt5::Widgets)
+#     set(digitail_EXTRA_LIBS )
 endif()
 
 
 add_executable(digitail ${digitail_SRCS} ${RESOURCES})
 #kirigamiplugin is the static library built by us
-target_link_libraries(digitail kirigamiplugin Qt5::Core  Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth ${digitail_EXTRA_LIBS})
 
 #install(TARGETS digitail ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
