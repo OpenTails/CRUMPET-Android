@@ -20,35 +20,39 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.4 as Kirigami
+import org.thetailcompany.digital 1.0
 
 import "qml"
 
 Kirigami.ApplicationWindow {
+    id: root;
     visible: true;
-    title: qsTr("Hello World");
+    title: qsTr("DIGITAiL");
 
-    pageStack.initialPage: welcomePage;
-
+    BTConnectionManager {
+        id: connectionManager;
+    }
     Component.onCompleted: {
-        initialFakery.start();
+        pageStack.replace(welcomePage, {connectionManager: connectionManager});
+//         initialFakery.start();
     }
-    Timer {
-        id: initialFakery;
-        interval: 1000; running: false; repeat: false;
-        onTriggered: {
-            connectingToTail.opacity = 1;
-            secondaryFakery.start();
-        }
-    }
-    Timer {
-        id: secondaryFakery;
-        interval: 3000; running: false; repeat: false;
-        onTriggered: {
-            connectingToTail.opacity = 0;
-            showPassiveNotification(qsTr("Connected to tail!"), 1000);
-            pageStack.replace(tailPoses);
-        }
-    }
+//     Timer {
+//         id: initialFakery;
+//         interval: 1000; running: false; repeat: false;
+//         onTriggered: {
+//             connectingToTail.opacity = 1;
+//             secondaryFakery.start();
+//         }
+//     }
+//     Timer {
+//         id: secondaryFakery;
+//         interval: 3000; running: false; repeat: false;
+//         onTriggered: {
+//             connectingToTail.opacity = 0;
+//             showPassiveNotification(qsTr("Connected to tail!"), 1000);
+//             pageStack.replace(tailPoses, {connectionManager: connectionManager});
+//         }
+//     }
 
     globalDrawer: Kirigami.GlobalDrawer {
         title: "DIGITAiL";
@@ -57,13 +61,13 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Welcome");
                 onTriggered: {
-                    pageStack.replace(welcomePage);
+                    pageStack.replace(welcomePage, {connectionManager: connectionManager});
                 }
             },
             Kirigami.Action {
                 text: qsTr("Tail Poses");
                 onTriggered: {
-                    pageStack.replace(tailPoses);
+                    pageStack.replace(tailPoses, {connectionManager: connectionManager});
                 }
             }
         ]
@@ -78,6 +82,7 @@ Kirigami.ApplicationWindow {
     }
     ConnectToTail {
         id: connectToTail;
+        connectionManager: connectionManager;
     }
 
     Item {

@@ -23,6 +23,7 @@ import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.OverlaySheet {
     id: sheet;
+    property QtObject connectionManager: null;
     header: RowLayout {
         implicitWidth: Kirigami.Units.gridUnit * 30
         Kirigami.Icon {
@@ -39,23 +40,7 @@ Kirigami.OverlaySheet {
     }
     ListView {
         implicitWidth: Kirigami.Units.gridUnit * 30
-        model: ListModel {
-            ListElement {
-                title: "Dummy Tail Name"
-                description: "Currently Connected"
-                buttonText: "Disconnect"
-            }
-            ListElement {
-                title: "Another Tail"
-                description: "Disconnected"
-                buttonText: "Connect"
-            }
-            ListElement {
-                title: "Yet Another Tail"
-                description: "Disconnected"
-                buttonText: "Connect"
-            }
-        }
+        model: connectionManager.deviceModel;
         delegate: Kirigami.AbstractListItem {
             height: Kirigami.Units.gridUnit * 6
             hoverEnabled: false
@@ -67,18 +52,21 @@ Kirigami.OverlaySheet {
                     Layout.minimumWidth: 0
                     QQC2.Label {
                         wrapMode: Text.WordWrap
-                        text: model.title
+                        text: model.name
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.minimumWidth: 0
                         wrapMode: Text.WordWrap
-                        text: model.description
+                        text: model.deviceID
                     }
                 }
                 QQC2.Button {
-                    text: model.buttonText
-                    onClicked: sheet.close()
+                    text: "Connect"
+                    onClicked: {
+                        connectionManager.connectToDevice(model.deviceID);
+                        sheet.close();
+                    }
                 }
             }
         }
