@@ -22,24 +22,105 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.ScrollablePage {
+    id: root;
     title: qsTr("Tail Poses");
+    property QtObject connectionManager: null;
     actions {
         main: Kirigami.Action {
-            text: "Sync";
-            icon.name: "folder-sync";
-            onTriggered: showPassiveNotification("Action clicked");
+            text: connectionManager.isConnected ? "Disconnect" : "Connect";
+            icon.name: connectionManager.isConnected ? "network-disconnect" : "network-connect";
+            onTriggered: {
+                if(connectionManager.isConnected) {
+                    connectionManager.disconnectDevice();
+                }
+                else {
+                    connectToTail.open();
+                }
+            }
         }
     }
-    ListView {
-        id: poseList;
-        currentIndex: 2;
-        model: 10;
-        implicitWidth: Kirigami.Units.gridUnit * 30
-        delegate: Kirigami.BasicListItem {
-            label: "Tail Pose " + modelData;
-            checkable: true;
-            checked: poseList.currentIndex == index;
-            separatorVisible: false;
+    Component {
+        id: contactDelegate
+        Item {
+            width: poseGrid.cellWidth; height: poseGrid.cellHeight
+            Rectangle {
+                anchors {
+                    fill: parent;
+                    margins: Kirigami.Units.smallSpacing;
+                }
+                border {
+                    width: (connectionManager.currentTailState === model.command) ? 1 : 0;
+                    color: "silver";
+                }
+                radius: Kirigami.Units.smallSpacing;
+            }
+            Label {
+                anchors.fill: parent;
+                horizontalAlignment: Text.AlignHCenter;
+                verticalAlignment: Text.AlignVCenter;
+                text: model.text;
+            }
+            MouseArea {
+                anchors.fill: parent;
+                onClicked: {
+                    connectionManager.currentTailState = model.command;
+                }
+            }
         }
+    }
+    ListModel {
+        id: poseModel;
+        ListElement {
+            text: "Slow Wag 1";
+            command: "S1"
+        }
+        ListElement {
+            text: "Slow Wag 2";
+            command: "S2"
+        }
+        ListElement {
+            text: "Slow Wag 3";
+            command: "S3"
+        }
+        ListElement {
+            text: "Fast Wag";
+            command: "FA"
+        }
+        ListElement {
+            text: "Short Wag";
+            command: "SH"
+        }
+        ListElement {
+            text: "Happy Wag";
+            command: "HA"
+        }
+        ListElement {
+            text: "Erect";
+            command: "ER"
+        }
+        ListElement {
+            text: "Erect Pulse";
+            command: "EP"
+        }
+        ListElement {
+            text: "Tremble 1";
+            command: "T1"
+        }
+        ListElement {
+            text: "Tremble 2";
+            command: "T2"
+        }
+        ListElement {
+            text: "Erect Trem";
+            command: "ET"
+        }
+    }
+    GridView {
+        id: poseGrid;
+        currentIndex: 2;
+        cellWidth: poseGrid.width / 3; cellHeight: cellWidth;
+        model: poseModel;
+        implicitWidth: Kirigami.Units.gridUnit * 30
+        delegate: contactDelegate;
     }
 }
