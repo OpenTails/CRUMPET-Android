@@ -38,7 +38,7 @@
 
 #endif
 
-
+#include "btconnectionmanager.h"
 
 Q_IMPORT_PLUGIN(KirigamiPlugin)
 
@@ -55,6 +55,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     //qputenv("QML_IMPORT_TRACE", "1");
 
     QQmlApplicationEngine engine;
+    qmlRegisterType<BTConnectionManager>("org.thetailcompany.digital", 1, 0, "BTConnectionManager");
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 

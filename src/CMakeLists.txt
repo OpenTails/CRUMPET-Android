@@ -3,6 +3,8 @@ include(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/KF5Kirigami2Macros.cmake)
 
 set(digitail_SRCS
     main.cpp
+    btconnectionmanager.cpp
+    btdevicemodel.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
@@ -19,7 +21,7 @@ endif()
 
 add_executable(digitail ${digitail_SRCS} ${RESOURCES})
 #kirigamiplugin is the static library built by us
-target_link_libraries(digitail kirigamiplugin Qt5::Core  Qt5::Qml Qt5::Quick Qt5::QuickControls2 ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail kirigamiplugin Qt5::Core  Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth ${digitail_EXTRA_LIBS})
 
 #install(TARGETS digitail ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
