@@ -23,12 +23,18 @@ import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.Page {
     title: qsTr("Welcome");
+    property QtObject connectionManager: null;
     actions {
         main: Kirigami.Action {
-            text: "Connect";
-            icon.name: "folder-sync";
+            text: connectionManager.isConnected ? "Disconnect" : "Connect";
+            icon.name: connectionManager.isConnected ? "network-disconnect" : "network-connect";
             onTriggered: {
-                connectToTail.open();
+                if(connectionManager.isConnected) {
+                    connectionManager.disconnectDevice();
+                }
+                else {
+                    connectToTail.open();
+                }
             }
         }
     }
