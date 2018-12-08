@@ -12,8 +12,9 @@ qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")
     set(digitail_EXTRA_LIBS Qt5::AndroidExtras
     Qt5::Gui
-    #FIXME: we shouldn't have to link to it but otherwise the lib won't be packaged on Android
-    Qt5::QuickControls2)
+    #FIXME: we shouldn't have to link to these but otherwise their libs won't be packaged on Android
+    Qt5::QuickControls2
+    Qt5::Svg)
 # else ()
 #qstyle-based qqc2 style needs a QApplication
 #     set(digitail_EXTRA_LIBS )
