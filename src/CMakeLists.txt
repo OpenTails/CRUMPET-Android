@@ -1,7 +1,7 @@
 include_directories(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/src)
 include(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/KF5Kirigami2Macros.cmake)
 
-// Make sure we can register the types from the static library
+# Make sure we can register the types from the static library
 add_definitions(-DKIRIGAMI_BUILD_TYPE_STATIC)
 
 set(digitail_SRCS
