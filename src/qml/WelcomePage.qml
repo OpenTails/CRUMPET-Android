@@ -27,7 +27,7 @@ Kirigami.Page {
     actions {
         main: Kirigami.Action {
             text: connectionManager.isConnected ? "Disconnect" : "Connect";
-            icon.name: connectionManager.isConnected ? "network-disconnect" : "network-connect";
+            icon.name: connectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
             onTriggered: {
                 if(connectionManager.isConnected) {
                     connectionManager.disconnectDevice();

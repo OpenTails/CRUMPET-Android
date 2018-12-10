@@ -56,7 +56,7 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.GlobalDrawer {
         title: "DIGITAiL";
-        titleIcon: "applications-graphics";
+        titleIcon: "://logo.svg";
         actions: [
             Kirigami.Action {
                 text: qsTr("Welcome");
