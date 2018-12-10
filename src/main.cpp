@@ -38,6 +38,7 @@
 
 #endif
 
+#include "../3rdparty/kirigami/src/kirigamiplugin.h"
 #include "btconnectionmanager.h"
 
 Q_IMPORT_PLUGIN(KirigamiPlugin)
@@ -56,6 +57,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     qmlRegisterType<BTConnectionManager>("org.thetailcompany.digital", 1, 0, "BTConnectionManager");
+    KirigamiPlugin::getInstance().registerTypes();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
