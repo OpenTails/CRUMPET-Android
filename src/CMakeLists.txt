@@ -8,6 +8,7 @@ set(digitail_SRCS
     main.cpp
     btconnectionmanager.cpp
     btdevicemodel.cpp
+    tailcommandmodel.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
