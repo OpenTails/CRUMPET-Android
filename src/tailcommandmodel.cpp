@@ -133,13 +133,13 @@ void TailCommandModel::autofill(const QString& version)
 // TAILET - ERECT_TREM
 //
 // LEDS PATTERNS ----------
-// LOFF - Leds off
-// LREC - intermittent (on/off)
-// LTRI - triangular (fade in/out)
-// LSAW - sawtooth (fade in/off)
-// LSOS - morse SOS
-// LFLA - flame simulation
-// LSTR - strobo
+// LEDOFF - Leds off
+// LEDREC - intermittent (on/off)
+// LEDTRI - triangular (fade in/out)
+// LEDSAW - sawtooth (fade in/off)
+// LEDSOS - morse SOS
+// LEDFLA - flame simulation
+// LEDSTR - strobo
 //
 // OTHER COMMANDS-------
 // VER - returns the firmware version number
@@ -201,31 +201,31 @@ void TailCommandModel::autofill(const QString& version)
 
         command = new CommandInfo();
         command->name = QLatin1String("LED Off");
-        command->command = QLatin1String("LOFF");
+        command->command = QLatin1String("LEDOFF");
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Intermittent LED");
-        command->command = QLatin1String("LREC");
+        command->command = QLatin1String("LEDREC");
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("LED Triangular Fade");
-        command->command = QLatin1String("LTRI");
+        command->command = QLatin1String("LEDTRI");
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("LED Sawtooth Fade");
-        command->command = QLatin1String("LSAW");
+        command->command = QLatin1String("LEDSAW");
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("LED Morse SOS");
-        command->command = QLatin1String("LSOS");
+        command->command = QLatin1String("LEDSOS");
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("LED Flame Simulation");
-        command->command = QLatin1String("LFLA");
+        command->command = QLatin1String("LEDFLA");
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("LED Strobe Effect");
-        command->command = QLatin1String("LSTR");
+        command->command = QLatin1String("LEDSTR");
         d->commands << command;
     }
     endResetModel();
