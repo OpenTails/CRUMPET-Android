@@ -108,3 +108,117 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
         }
     }
 }
+
+void TailCommandModel::autofill(const QString& version)
+{
+// TAIL MOVES----------
+// TAILS1 - SLOW_WAG1
+// TAILS2 - SLOW_WAG2
+// TAILS3 - SLOW_WAG3
+// TAILFA - FAST_WAG
+// TAILSH - SHORT_WAG
+// TAILHA - HAPPY_WAG
+// TAILER - ERECT
+// TAILEP - ERECT_PULSE
+// TAILT1 - TREMBLE1
+// TAILT2 - TREMBLE2
+// TAILET - ERECT_TREM
+//
+// LEDS PATTERNS ----------
+// LOFF - Leds off
+// LREC - intermittent (on/off)
+// LTRI - triangular (fade in/out)
+// LSAW - sawtooth (fade in/off)
+// LSOS - morse SOS
+// LFLA - flame simulation
+// LSTR - strobo
+//
+// OTHER COMMANDS-------
+// VER - returns the firmware version number
+// PING - returns OK
+// SHUTDOWN - powers off the unit (will lose the connection!)
+// BATT - returns Bn (n= 0,1,2,3,4 number of 'bars')
+
+    beginResetModel();
+    qDeleteAll(d->commands);
+    d->commands.clear();
+    if (version == QLatin1String()) {
+        // Herpetyderp, no version, what's this?
+    }
+    else /* if (version == QLatin1String("the version for this tail version...")) */ {
+        CommandInfo* command = new CommandInfo();
+        command->name = QLatin1String("Slow Wag 1");
+        command->command = QLatin1String("TAILS1");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Slow Wag 2");
+        command->command = QLatin1String("TAILS2");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Slow Wag 3");
+        command->command = QLatin1String("TAILS3");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Fast Wag");
+        command->command = QLatin1String("TAILFA");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Short Wag");
+        command->command = QLatin1String("TAILSH");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Happy Wag");
+        command->command = QLatin1String("TAILHA");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Erect Tail");
+        command->command = QLatin1String("ERECT");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Pulsing Erect Tail");
+        command->command = QLatin1String("ERECT_PULSE");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Trembling 1");
+        command->command = QLatin1String("TAILT1");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Trembling 2");
+        command->command = QLatin1String("TAILT2");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Trembling Erect Tail");
+        command->command = QLatin1String("TAILET");
+        d->commands << command;
+
+        command = new CommandInfo();
+        command->name = QLatin1String("LED Off");
+        command->command = QLatin1String("LOFF");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Intermittent LED");
+        command->command = QLatin1String("LREC");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("LED Triangular Fade");
+        command->command = QLatin1String("LTRI");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("LED Sawtooth Fade");
+        command->command = QLatin1String("LSAW");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("LED Morse SOS");
+        command->command = QLatin1String("LSOS");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("LED Flame Simulation");
+        command->command = QLatin1String("LFLA");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("LED Strobe Effect");
+        command->command = QLatin1String("LSTR");
+        d->commands << command;
+    }
+    endResetModel();
+}

@@ -61,6 +61,12 @@ public:
      */
     void removeCommand(CommandInfo* command);
 
+    /**
+     * Automatically fill the model with known commands for the specified version
+     * of digitail.
+     * @param version The version for the tail we've been connected to
+     */
+    void autofill(const QString& version);
     void setRunning(const QString& command, bool isRunning);
 private:
     class Private;
