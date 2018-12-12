@@ -17,6 +17,8 @@
 
 #include "tailcommandmodel.h"
 
+#include <QDebug>
+
 class TailCommandModel::Private
 {
 public:
@@ -41,6 +43,7 @@ QHash< int, QByteArray > TailCommandModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[Name] = "name";
+    roles[Command] = "command";
     roles[IsRunning] = "isRunning";
     return roles;
 }
@@ -95,11 +98,15 @@ void TailCommandModel::removeCommand(CommandInfo* command)
 
 void TailCommandModel::setRunning(const QString& command, bool isRunning)
 {
+//     qDebug() << "Command changing running state" << command << "being set to" << isRunning;
     int i = -1;
     foreach(TailCommandModel::CommandInfo* theCommand, d->commands) {
         ++i;
+//         qDebug() << "Checking" << theCommand->command << "named" << theCommand->name;
         if(theCommand->command == command) {
+//             qDebug() << "Found matching command!" << i;
             if(theCommand->isRunning != isRunning) {
+//                 qDebug() << "Changing state";
                 QModelIndex idx = index(i, 0);
                 theCommand->isRunning = isRunning;
                 dataChanged(idx, idx);
@@ -107,6 +114,7 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
             break;
         }
     }
+    qDebug() << "Done changing command running state";
 }
 
 void TailCommandModel::autofill(const QString& version)
