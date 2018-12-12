@@ -43,7 +43,7 @@ public:
     QObject* deviceModel() const;
     QObject* commandModel() const;
 
-    void runCommand(const QString& command);
+    Q_INVOKABLE void runCommand(const QString& command);
 
     bool isConnected() const;
 public Q_SLOTS:
