@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
                     margins: Kirigami.Units.smallSpacing;
                 }
                 border {
-                    width: model.isCurrent ? 1 : 0;
+                    width: model.isRunning ? 1 : 0;
                     color: "silver";
                 }
                 radius: Kirigami.Units.smallSpacing;
