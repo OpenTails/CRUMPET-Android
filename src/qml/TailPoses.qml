@@ -71,7 +71,8 @@ Kirigami.ScrollablePage {
     GridView {
         id: poseGrid;
         currentIndex: 2;
-        cellWidth: poseGrid.width / 3; cellHeight: cellWidth;
+        property int cellCount: root.width > root.height ? 6 : 3;
+        cellWidth: poseGrid.width / cellCount; cellHeight: cellWidth;
         model: connectionManager ? connectionManager.commandModel : null;
         implicitWidth: Kirigami.Units.gridUnit * 30
         delegate: contactDelegate;
