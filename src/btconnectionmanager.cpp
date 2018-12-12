@@ -17,11 +17,13 @@
 
 #include "btconnectionmanager.h"
 #include "btdevicemodel.h"
+#include "tailcommandmodel.h"
 
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothServiceDiscoveryAgent>
 #include <QBluetoothLocalDevice>
 #include <QLowEnergyController>
+#include <QTimer>
 
 class BTConnectionManager::Private {
 public:
@@ -31,6 +33,7 @@ public:
         , discoveryAgent(nullptr)
         , btControl(nullptr)
         , tailService(nullptr)
+        , commandModel(nullptr)
     {}
     ~Private() {
         deviceModel->deleteLater();
@@ -45,7 +48,7 @@ public:
     QLowEnergyCharacteristic tailCharacteristic;
     QLowEnergyDescriptor tailDescriptor;
 
-    QString currentTailState;
+    TailCommandModel* commandModel;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -154,8 +157,17 @@ void BTConnectionManager::serviceStateChanged(QLowEnergyService::ServiceState s)
             break;
         }
 
+        if(d->commandModel) {
+            d->commandModel->deleteLater();
+        }
+        d->commandModel = new TailCommandModel(this);
+        emit commandModelChanged();
+
         d->tailDescriptor = d->tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
         emit isConnectedChanged();
+        sendMessage("VER"); // Ask for the tail version, and then react to the response...
+
+        d->commandModel->autofill(QLatin1String("Sniff version from calling VER and then passing the result along"));
 
         break;
     }
@@ -175,8 +187,9 @@ void BTConnectionManager::characteristicWritten(const QLowEnergyCharacteristic &
     qDebug() << "Characteristic written:" << characteristic.uuid() << newValue;
     if(d->tailStateCharacteristicUuid == characteristic.uuid()) {
         qDebug() << "This is known to us. Make the fixing thing.";
-        d->currentTailState = newValue;
-        emit currentTailStateChanged();
+        d->commandModel->setRunning(newValue, true);
+        // hacketyhack, just while we wait for the new firmware
+        QTimer::singleShot(1500, [this,newValue](){d->commandModel->setRunning(newValue, false);});
     }
 }
 
@@ -187,6 +200,9 @@ void BTConnectionManager::disconnectDevice()
         d->btControl = nullptr;
         d->tailService->deleteLater();
         d->tailService = nullptr;
+        d->commandModel->deleteLater();
+        d->commandModel = nullptr;
+        emit commandModelChanged();
         emit isConnectedChanged();
     }
 }
@@ -203,14 +219,14 @@ void BTConnectionManager::sendMessage(const QString &message)
     }
 }
 
-void BTConnectionManager::setCurrentTailState(const QString& newState)
+void BTConnectionManager::runCommand(const QString& command)
 {
-    sendMessage(newState);
+    sendMessage(command);
 }
 
-QString BTConnectionManager::currentTailState() const
+QObject* BTConnectionManager::commandModel() const
 {
-    return d->currentTailState;
+    return d->commandModel;
 }
 
 bool BTConnectionManager::isConnected() const

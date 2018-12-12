@@ -30,8 +30,8 @@ class BTConnectionManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QObject* deviceModel READ deviceModel NOTIFY deviceModelChanged)
-    Q_PROPERTY(QString currentTailState READ currentTailState WRITE setCurrentTailState NOTIFY currentTailStateChanged)
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
+    Q_PROPERTY(QObject* commandModel READ commandModel NOTIFY commandModelChanged)
 
 public:
     explicit BTConnectionManager(QObject* parent = 0);
@@ -41,9 +41,9 @@ public:
     void connectClient(QLowEnergyService* remoteService);
 
     QObject* deviceModel() const;
+    QObject* commandModel() const;
 
-    void setCurrentTailState(const QString& newState);
-    QString currentTailState() const;
+    void runCommand(const QString& command);
 
     bool isConnected() const;
 public Q_SLOTS:
@@ -55,12 +55,12 @@ public Q_SLOTS:
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
 
 Q_SIGNALS:
-    void currentTailStateChanged();
     void isConnectedChanged();
     void messageReceived(const QString &sender, const QString &message);
     void connected(const QString &name);
     void disconnected();
     void deviceModelChanged();
+    void commandModelChanged();
 
 private:
     class Private;
