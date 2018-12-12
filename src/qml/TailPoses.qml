@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
                     margins: Kirigami.Units.smallSpacing;
                 }
                 border {
-                    width: (connectionManager.currentTailState === model.command) ? 1 : 0;
+                    width: model.isCurrent ? 1 : 0;
                     color: "silver";
                 }
                 radius: Kirigami.Units.smallSpacing;
@@ -58,68 +58,21 @@ Kirigami.ScrollablePage {
                 anchors.fill: parent;
                 horizontalAlignment: Text.AlignHCenter;
                 verticalAlignment: Text.AlignVCenter;
-                text: model.text;
+                text: model.name;
             }
             MouseArea {
                 anchors.fill: parent;
                 onClicked: {
-                    connectionManager.currentTailState = model.command;
+                    connectionManager.runCommand(model.command);
                 }
             }
-        }
-    }
-    ListModel {
-        id: poseModel;
-        ListElement {
-            text: "Slow Wag 1";
-            command: "S1"
-        }
-        ListElement {
-            text: "Slow Wag 2";
-            command: "S2"
-        }
-        ListElement {
-            text: "Slow Wag 3";
-            command: "S3"
-        }
-        ListElement {
-            text: "Fast Wag";
-            command: "FA"
-        }
-        ListElement {
-            text: "Short Wag";
-            command: "SH"
-        }
-        ListElement {
-            text: "Happy Wag";
-            command: "HA"
-        }
-        ListElement {
-            text: "Erect";
-            command: "ER"
-        }
-        ListElement {
-            text: "Erect Pulse";
-            command: "EP"
-        }
-        ListElement {
-            text: "Tremble 1";
-            command: "T1"
-        }
-        ListElement {
-            text: "Tremble 2";
-            command: "T2"
-        }
-        ListElement {
-            text: "Erect Trem";
-            command: "ET"
         }
     }
     GridView {
         id: poseGrid;
         currentIndex: 2;
         cellWidth: poseGrid.width / 3; cellHeight: cellWidth;
-        model: poseModel;
+        model: connectionManager ? connectionManager.commandModel : null;
         implicitWidth: Kirigami.Units.gridUnit * 30
         delegate: contactDelegate;
     }
