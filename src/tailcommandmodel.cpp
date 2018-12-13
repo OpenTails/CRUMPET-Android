@@ -155,6 +155,10 @@ void TailCommandModel::autofill(const QString& version)
     }
     else /* if (version == QLatin1String("the version for this tail version...")) */ {
         CommandInfo* command = new CommandInfo();
+        command->name = QLatin1String("Tail Home Position");
+        command->command = QLatin1String("TAILHM");
+        d->commands << command;
+        command = new CommandInfo();
         command->name = QLatin1String("Slow Wag 1");
         command->command = QLatin1String("TAILS1");
         d->commands << command;
@@ -204,7 +208,7 @@ void TailCommandModel::autofill(const QString& version)
         command->command = QLatin1String("LEDOFF");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("Intermittent LED");
+        command->name = QLatin1String("LED 1 Second Interval");
         command->command = QLatin1String("LEDREC");
         d->commands << command;
         command = new CommandInfo();
@@ -214,6 +218,10 @@ void TailCommandModel::autofill(const QString& version)
         command = new CommandInfo();
         command->name = QLatin1String("LED Sawtooth Fade");
         command->command = QLatin1String("LEDSAW");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("LED Beacon");
+        command->command = QLatin1String("LEDBEA");
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("LED Morse SOS");
