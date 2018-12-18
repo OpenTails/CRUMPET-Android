@@ -49,6 +49,7 @@ public:
     QLowEnergyDescriptor tailDescriptor;
 
     TailCommandModel* commandModel;
+    QString currentCall;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -163,11 +164,12 @@ void BTConnectionManager::serviceStateChanged(QLowEnergyService::ServiceState s)
         d->commandModel = new TailCommandModel(this);
         emit commandModelChanged();
 
+        // Get the descriptor, and turn on notifications
         d->tailDescriptor = d->tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+        d->tailService->writeDescriptor(d->tailDescriptor, QByteArray::fromHex("0100"));
+
         emit isConnectedChanged();
         sendMessage("VER"); // Ask for the tail version, and then react to the response...
-
-        d->commandModel->autofill(QLatin1String("Sniff version from calling VER and then passing the result along"));
 
         break;
     }
@@ -180,17 +182,23 @@ void BTConnectionManager::serviceStateChanged(QLowEnergyService::ServiceState s)
 void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
 {
     qDebug() << characteristic.uuid() << " NOTIFIED value change " << newValue;
+
+    if (d->tailStateCharacteristicUuid == characteristic.uuid()) {
+        if (d->currentCall == QLatin1String("VER")) {
+            d->commandModel->autofill(newValue);
+        }
+        else {
+            d->commandModel->setRunning(newValue, true);
+            // hacketyhack, just while we wait for the new firmware
+            QTimer::singleShot(1500, [this,newValue](){d->commandModel->setRunning(newValue, false);});
+        }
+    }
 }
 
 void BTConnectionManager::characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
 {
     qDebug() << "Characteristic written:" << characteristic.uuid() << newValue;
-    if(d->tailStateCharacteristicUuid == characteristic.uuid()) {
-        qDebug() << "This is known to us. Make the fixing thing.";
-        d->commandModel->setRunning(newValue, true);
-        // hacketyhack, just while we wait for the new firmware
-        QTimer::singleShot(1500, [this,newValue](){d->commandModel->setRunning(newValue, false);});
-    }
+    d->currentCall = newValue;
 }
 
 void BTConnectionManager::disconnectDevice()
