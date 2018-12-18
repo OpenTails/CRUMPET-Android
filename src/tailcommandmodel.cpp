@@ -114,7 +114,7 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
             break;
         }
     }
-    qDebug() << "Done changing command running state";
+//     qDebug() << "Done changing command running state";
 }
 
 void TailCommandModel::autofill(const QString& version)
