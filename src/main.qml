@@ -31,28 +31,17 @@ Kirigami.ApplicationWindow {
 
     BTConnectionManager {
         id: connectionManager;
+        onIsConnectedChanged: {
+            if (isConnected === true) {
+                showPassiveNotification(qsTr("Connected to tail!"), 1000);
+                pageStack.replace(tailPoses, {connectionManager: connectionManager});
+            }
+            connectingToTail.opacity = 0;
+        }
     }
     Component.onCompleted: {
         pageStack.replace(welcomePage, {connectionManager: connectionManager});
-//         initialFakery.start();
     }
-//     Timer {
-//         id: initialFakery;
-//         interval: 1000; running: false; repeat: false;
-//         onTriggered: {
-//             connectingToTail.opacity = 1;
-//             secondaryFakery.start();
-//         }
-//     }
-//     Timer {
-//         id: secondaryFakery;
-//         interval: 3000; running: false; repeat: false;
-//         onTriggered: {
-//             connectingToTail.opacity = 0;
-//             showPassiveNotification(qsTr("Connected to tail!"), 1000);
-//             pageStack.replace(tailPoses, {connectionManager: connectionManager});
-//         }
-//     }
 
     globalDrawer: Kirigami.GlobalDrawer {
         title: "DIGITAiL";
@@ -83,6 +72,9 @@ Kirigami.ApplicationWindow {
     ConnectToTail {
         id: connectToTail;
         connectionManager: connectionManager;
+        onAttemptToConnect: {
+            connectingToTail.opacity = 1;
+        }
     }
 
     Item {

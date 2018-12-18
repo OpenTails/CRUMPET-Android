@@ -24,6 +24,7 @@ import org.kde.kirigami 2.4 as Kirigami
 Kirigami.OverlaySheet {
     id: sheet;
     property QtObject connectionManager: null;
+    signal attemptToConnect();
     header: RowLayout {
         implicitWidth: Kirigami.Units.gridUnit * 30
         Kirigami.Icon {
@@ -66,6 +67,7 @@ Kirigami.OverlaySheet {
                     onClicked: {
                         connectionManager.connectToDevice(model.deviceID);
                         sheet.close();
+                        sheet.attemptToConnect();
                     }
                 }
             }
