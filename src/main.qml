@@ -31,6 +31,9 @@ Kirigami.ApplicationWindow {
 
     BTConnectionManager {
         id: connectionManager;
+        onMessage: {
+            showPassiveNotification(message, 5000);
+        }
         onIsConnectedChanged: {
             if (isConnected === true) {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);

@@ -115,6 +115,19 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
     connect(d->btControl, static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::error),
         this, [this](QLowEnergyController::Error error) {
             qDebug() << "Cannot connect to remote device." << error;
+            switch(error) {
+                case QLowEnergyController::UnknownError:
+                    emit message(QLatin1String("An error occurred. If you are trying to connect to your tail, make sure it is on and close to this device."));
+                    break;
+                case QLowEnergyController::RemoteHostClosedError:
+                    emit message(QLatin1String("The tail closed the connection."));
+                    break;
+                case QLowEnergyController::ConnectionError:
+                    emit message(QLatin1String("Failed to connect to your tail. Please try again (perhaps move it closer?)"));
+                    break;
+                default:
+                    break;
+            }
             disconnectDevice();
         });
     connect(d->btControl, &QLowEnergyController::connected, this, [this]() {
@@ -123,6 +136,7 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
     });
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << "LowEnergy controller disconnected";
+        emit message(QLatin1String("The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
         disconnectDevice();
     });
 
@@ -185,6 +199,10 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
 
     if (d->tailStateCharacteristicUuid == characteristic.uuid()) {
         if (d->currentCall == QLatin1String("VER")) {
+            if(!d->commandModel) {
+                d->commandModel = new TailCommandModel(this);
+                emit commandModelChanged();
+            }
             d->commandModel->autofill(newValue);
         }
         else {
