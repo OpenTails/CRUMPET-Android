@@ -206,9 +206,21 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
             d->commandModel->autofill(newValue);
         }
         else {
-            d->commandModel->setRunning(newValue, true);
-            // hacketyhack, just while we wait for the new firmware
-            QTimer::singleShot(1500, [this,newValue](){d->commandModel->setRunning(newValue, false);});
+            QStringList stateResult = QString(newValue).split(' ');
+            if(stateResult.count() == 2) {
+                if(stateResult[0] == QLatin1String("BEGIN")) {
+                    d->commandModel->setRunning(stateResult[1], true);
+                }
+                else if(stateResult[0] == QLatin1String("END")) {
+                    d->commandModel->setRunning(stateResult[1], false);
+                }
+                else {
+                    qDebug() << "Unexpected response: The first element of the two part message should be either BEGIN or END";
+                }
+            }
+            else {
+                qDebug() << "Unexpected response: The response should consist of a string of two words separated by a single space, the first word being either BEGIN or END, and the second should be the command name either just beginning its run, or having just ended its run.";
+            }
         }
     }
 }
