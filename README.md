@@ -14,28 +14,26 @@ Device Service [0xffe0]
 Device Characteristic [0xffe1]
 All aspects of the Tail are controlled through this service and this characteristic
 
-(Used to exist, but not now: Red Power LED - A0 off A1 On, LEDs attached to tail PCB - L0-L9 to set brightness)
-
 BUILT IN MOVES
 
 The remote will send a text string to the tail to the right characteristic. And there are 11 built in moves u can call up immediately.
 
-TAIL MOVES----------
-TAILS1 - SLOW_WAG1
-TAILS2 - SLOW_WAG2
-TAILS3 - SLOW_WAG3
-TAILFA - FAST_WAG
-TAILSH - SHORT_WAG
-TAILHA - HAPPY_WAG
-TAILER - ERECT
-TAILEP - ERECT_PULSE
-TAILT1 - TREMBLE1
-TAILT2 - TREMBLE2
-TAILET - ERECT_TREM
+TAIL MOVES----------duration
+TAILS1 - SLOW_WAG1 9.5 secs
+TAILS2 - SLOW_WAG2 6 secs
+TAILS3 - SLOW_WAG3 7.8 secs
+TAILFA - FAST_WAG 9 secs
+TAILSH - SHORT_WAG 6.8 secs
+TAILHA - HAPPY_WAG 16 secs
+TAILER - ERECT (Cant test)
+TAILEP - ERECT_PULSE (cant test)
+TAILT1 - TREMBLE1 4 secs
+TAILT2 - TREMBLE2 4.8 secs
+TAILET - ERECT_TREM 4.6 secs
 
 There are 6 built in LED patterns
 
-LEDS PATTERNS ----------
+LED PATTERNS----------
 LEDOFF - Leds off
 LEDREC - intermittent (on/off)
 LEDTRI - triangular (fade in/out)
@@ -70,8 +68,28 @@ potential for harm to the Tail if used inappropriately
 
 REMOTE CONTROL
 
-Needs a nice but simple way to show the 11 moves. Grouping them is probably a good idea
-Perhaps a screen toggle for a second page to bring up the LED remote control buttons.
+Grouping them is the visual way to go.
+Slower, gentler, relaxed:
+SW 1
+SW 2
+SW 3
+
+Faster, happier, excited:
+
+Fast Wag
+Short Wag
+Happy Wag
+
+Angry, frustrated, tense:
+
+Tremble 1
+Tremble 2
+Tremble Erect
+
+(Erect
+Pulse Erect) <-cant evaluate currently
+
+A screen toggle for a second page to bring up the LED remote control buttons.
 
 POSE MODE
 
