@@ -61,6 +61,7 @@ Q_SIGNALS:
     void disconnected();
     void deviceModelChanged();
     void commandModelChanged();
+    void message(const QString& message);
 
 private:
     class Private;
