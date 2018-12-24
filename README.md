@@ -64,7 +64,8 @@ ADVANCED MODE
 This will include the Move Designer page. It might also allow some different settings
 
 Perhaps the advanced mode is unlocked after a splash screen communicating the
-potential for harm to the Tail if used inappropriately
+potential for harm to the Tail if used inappropriately. Should we have a test mode
+that logs moves? For diagnosis, edge cases, etc?
 
 REMOTE CONTROL
 
