@@ -25,8 +25,8 @@ TAILS3 - SLOW_WAG3 7.8 secs
 TAILFA - FAST_WAG 9 secs
 TAILSH - SHORT_WAG 6.8 secs
 TAILHA - HAPPY_WAG 16 secs
-TAILER - ERECT (Cant test)
-TAILEP - ERECT_PULSE (cant test)
+TAILER - ERECT (Cant test, bug in firmware)
+TAILEP - ERECT_PULSE (cant test, bug in firmware)
 TAILT1 - TREMBLE1 4 secs
 TAILT2 - TREMBLE2 4.8 secs
 TAILET - ERECT_TREM 4.6 secs
