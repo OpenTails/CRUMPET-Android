@@ -105,6 +105,9 @@ which serves both to make the system cooler, and also more natural.
 
 Pauses could be defined as a range, so that they are of varying length.
 
+I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in
+These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
+
 MOVE DESIGNER
 
 See the separate doc for methods of describing moves, and how to send them to the Tail.
