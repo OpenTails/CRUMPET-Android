@@ -185,3 +185,36 @@ Once the make command has completed successfully, you should find yourself with 
 ```
 
 You should now have a nice little app show up on your desktop which suggests the ability to control tails.
+
+### Android APK
+
+Building the Android APK is done most straightforwardly by using the pre-prepared Docker image provided by the KDE community, in which all the tools are already installed for you.
+
+To do so, run the command
+
+```
+docker run -ti --rm kdeorg/android-sdk bash
+```
+
+This will download the image the first time it is run, and subsequently it will simply run what you already did.
+
+A handy trick is to also add something like "-v $HOME/apks:/output" to the command line, which will then add a directory named output at the root of the docker instance, pointed at the apks directory in your home folder. This will allow you to fairly easily transfer the apk onto your host system from inside docker.
+
+Cloning is done as in a usual Linux situation (see above), but your build steps are a little bit more involved here:
+
+```
+mkdir build
+cd build
+cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.11.0/android_armv7 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data ..
+make
+cd src # This ensures we only install the digitail binary and not the Kirigami bits
+make install
+cd ..
+make create-apk-digital
+```
+
+Once this final command completes, you should hopefully have an apk in /home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk (or where ever else you created your clone).
+
+If you added the -v bit to your docker command, then you can copy that file to your local machine by doing e.g. "cp /home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk /output", and then looking in your apks folder using whatever method you usually use.
+
+You now have an apk, which you can install to your android device in the usual way (and which that is will depend on you, though "adb install apkfile" usually does the trick).
