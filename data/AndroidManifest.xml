@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.0.1" package="org.thetailcompany.digitail" android:installLocation="auto" android:versionCode="7">
         <application android:name="org.qtproject.qt5.android.bindings.QtApplication"
                      android:label="DIGITAiL"
-                     android:icon="@mipmap/ic_launcher"
-                     android:roundIcon="@mipmap/ic_launcher_round">
+                     android:icon="@mipmap/ic_launcher">
+                     <!--This only works with API level 25 and above: android:roundIcon="@mipmap/ic_launcher_round"-->
                 <activity android:name="org.qtproject.qt5.android.bindings.QtActivity"
                           android:label="DIGITAiL"
                           android:screenOrientation="unspecified"
