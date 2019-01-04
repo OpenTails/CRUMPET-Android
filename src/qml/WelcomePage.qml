@@ -22,6 +22,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.Page {
+    id: root;
     title: qsTr("Welcome");
     property QtObject connectionManager: null;
     actions {
@@ -39,15 +40,82 @@ Kirigami.Page {
         }
     }
 
-    RowLayout {
-        anchors.horizontalCenter: parent.horizontalCenter;
-        anchors.topMargin: 20;
-        anchors.top: parent.top;
-
-        Button {
-            text: qsTr("Connect to your tail");
-            onClicked: {
-                connectToTail.open();
+    Column {
+        width: root.width - Kirigami.Units.largeSpacing * 4;
+        spacing: Kirigami.Units.largeSpacing;
+        Kirigami.AbstractCard {
+            opacity: connectionManager.isConnected ? 0 : 1;
+            width: parent.width;
+            header: Kirigami.Heading {
+                text: qsTr("Not Connected");
+                level: 2
+            }
+            contentItem: Label {
+                wrapMode: Text.Wrap;
+                text: qsTr("You are not currently connected to your tail...");
+            }
+        }
+        GridLayout {
+            id: commandLayout;
+            width: parent.width;
+            columns: root.width > root.height ? 3 : 2;
+            columnSpacing: Kirigami.Units.largeSpacing;
+            rowSpacing: Kirigami.Units.largeSpacing;
+            Button {
+                Layout.column: 0;
+                Layout.row: 0;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                text: qsTr("Alarm");
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                onClicked: {
+                    connectToTail.open();
+                }
+            }
+            Button {
+                Layout.column: 0;
+                Layout.row: 1;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                text: qsTr("Music");
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                onClicked: {
+                    connectToTail.open();
+                }
+            }
+            Button {
+                Layout.column: 1;
+                Layout.row: 0;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                text: qsTr("My Moves");
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                onClicked: {
+                    connectToTail.open();
+                }
+            }
+            Button {
+                Layout.column: 1;
+                Layout.row: 1;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                text: qsTr("Sound");
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                onClicked: {
+                    connectToTail.open();
+                }
+            }
+            Button {
+                text: connectionManager.isConnected ? qsTr("Tail Remote") : qsTr("Connect to your tail");
+                Layout.column: commandLayout.columns === 2 ? 0 : 2;
+                Layout.row: commandLayout.columns === 2 ? 2 : 0;
+                Layout.columnSpan: 2;
+                Layout.rowSpan: 2;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                onClicked: {
+                    if(connectionManager.isConnected) {
+                        pageStack.replace(tailMoves, {connectionManager: connectionManager});
+                    }
+                    else {
+                        connectToTail.open();
+                    }
+                }
             }
         }
     }
