@@ -61,6 +61,12 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     pageStack.replace(tailMoves, {connectionManager: connectionManager});
                 }
+            },
+            Kirigami.Action {
+                text: qsTr("About");
+                onTriggered: {
+                    pageStack.replace(aboutPage);
+                }
             }
         ]
     }
@@ -73,8 +79,8 @@ Kirigami.ApplicationWindow {
         TailMoves {}
     }
     Component {
-        id: tailPoses;
-        TailPoses {}
+        id: aboutPage;
+        AboutPage {}
     }
     ConnectToTail {
         id: connectToTail;

@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>qml/AboutPage.qml</file>
         <file>qml/ConnectToTail.qml</file>
         <file>qml/TailPoses.qml</file>
         <file>qml/TailMoves.qml</file>
