@@ -20,7 +20,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.4 as Kirigami
-import org.thetailcompany.digital 1.0
+import org.thetailcompany.digitail 1.0
 
 import "qml"
 
@@ -37,7 +37,7 @@ Kirigami.ApplicationWindow {
         onIsConnectedChanged: {
             if (isConnected === true) {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);
-                pageStack.replace(tailPoses, {connectionManager: connectionManager});
+                pageStack.replace(tailMoves, {connectionManager: connectionManager});
             }
             connectingToTail.opacity = 0;
         }
@@ -57,9 +57,9 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Tail Poses");
+                text: qsTr("Tail Moves");
                 onTriggered: {
-                    pageStack.replace(tailPoses, {connectionManager: connectionManager});
+                    pageStack.replace(tailMoves, {connectionManager: connectionManager});
                 }
             }
         ]
@@ -67,6 +67,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: welcomePage;
         WelcomePage {}
+    }
+    Component {
+        id: tailMoves;
+        TailMoves {}
     }
     Component {
         id: tailPoses;
