@@ -30,7 +30,8 @@ public:
     enum Roles {
         Name = Qt::UserRole + 1,
         Command,
-        IsRunning
+        IsRunning,
+        Category
     };
 
     struct CommandInfo {
@@ -39,6 +40,7 @@ public:
         QString name;
         QString command;
         bool isRunning;
+        QString category;
     };
 
     QHash< int, QByteArray > roleNames() const override;
