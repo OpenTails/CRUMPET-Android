@@ -34,10 +34,16 @@ Kirigami.ApplicationWindow {
         onMessage: {
             showPassiveNotification(message, 5000);
         }
+        property QtObject pageToPush: null;
         onIsConnectedChanged: {
             if (isConnected === true) {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);
-                pageStack.replace(tailMoves, {connectionManager: connectionManager});
+                if(pageToPush !== null) {
+                    pageStack.replace(pageToPush, {connectionManager: connectionManager});
+                }
+                else {
+                    pageStack.replace(tailMoves, {connectionManager: connectionManager});
+                }
             }
             connectingToTail.opacity = 0;
         }
@@ -63,6 +69,12 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: qsTr("Tail Lights");
+                onTriggered: {
+                    pageStack.replace(tailLights, {connectionManager: connectionManager});
+                }
+            },
+            Kirigami.Action {
                 text: qsTr("About");
                 onTriggered: {
                     pageStack.replace(aboutPage);
@@ -79,6 +91,10 @@ Kirigami.ApplicationWindow {
         TailMoves {}
     }
     Component {
+        id: tailLights;
+        TailLights {}
+    }
+    Component {
         id: aboutPage;
         AboutPage {}
     }
@@ -86,6 +102,8 @@ Kirigami.ApplicationWindow {
         id: connectToTail;
         connectionManager: connectionManager;
         onAttemptToConnect: {
+            connectionManager.pageToPush = pageToPush;
+            connectionManager.connectToDevice(deviceID);
             connectingToTail.opacity = 1;
         }
     }

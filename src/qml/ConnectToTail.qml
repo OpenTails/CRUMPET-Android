@@ -24,7 +24,9 @@ import org.kde.kirigami 2.4 as Kirigami
 Kirigami.OverlaySheet {
     id: sheet;
     property QtObject connectionManager: null;
-    signal attemptToConnect();
+    property QtObject pageToPush: null;
+    showCloseButton: true;
+    signal attemptToConnect(string deviceID, QtObject pageToPush);
     header: RowLayout {
         implicitWidth: Kirigami.Units.gridUnit * 30
         Kirigami.Icon {
@@ -65,9 +67,9 @@ Kirigami.OverlaySheet {
                 QQC2.Button {
                     text: "Connect"
                     onClicked: {
-                        connectionManager.connectToDevice(model.deviceID);
                         sheet.close();
-                        sheet.attemptToConnect();
+                        sheet.attemptToConnect(model.deviceID, pageToPush);
+                        pageToPush = null;
                     }
                 }
             }

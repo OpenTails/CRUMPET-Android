@@ -23,7 +23,7 @@ import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.ScrollablePage {
     id: root;
-    title: qsTr("Tail Poses");
+    title: qsTr("Lights");
     property QtObject connectionManager: null;
     actions {
         main: Kirigami.Action {

@@ -80,10 +80,16 @@ Kirigami.Page {
                 Layout.column: 0;
                 Layout.row: 0;
                 Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Alarm");
+                text: qsTr("Lights");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    connectToTail.open();
+                    if(connectionManager.isConnected) {
+                        pageStack.replace(tailLights, {connectionManager: connectionManager});
+                    }
+                    else {
+                        connectToTail.pageToPush = tailLights;
+                        connectToTail.open();
+                    }
                 }
             }
             Button {
@@ -93,17 +99,15 @@ Kirigami.Page {
                 text: qsTr("Music");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    connectToTail.open();
                 }
             }
             Button {
                 Layout.column: 1;
                 Layout.row: 0;
                 Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("My Moves");
+                text: qsTr("Advanced Mode");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    connectToTail.open();
                 }
             }
             Button {
@@ -113,11 +117,10 @@ Kirigami.Page {
                 text: qsTr("Sound");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    connectToTail.open();
                 }
             }
             Button {
-                text: connectionManager.isConnected ? qsTr("Tail Remote") : qsTr("Connect to your tail");
+                text: qsTr("Tail Moves");
                 Layout.column: commandLayout.columns === 2 ? 0 : 2;
                 Layout.row: commandLayout.columns === 2 ? 2 : 0;
                 Layout.columnSpan: 2;

@@ -137,7 +137,7 @@ Kirigami.ScrollablePage {
             color: "#fb6b46";
         }
         ListElement {
-            name: qsTr("LED Lights");
+            name: qsTr("LED Patterns");
             category: "lights";
             color: "white";
         }
