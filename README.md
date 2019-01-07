@@ -1,7 +1,7 @@
-DIGITAiL
+# DIGITAiL
 Development of the app to control our new breed of animatronic tails!
 
-NOTES
+## NOTES
 
 You find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
@@ -12,11 +12,11 @@ Device Service [0xffe0]
 Device Characteristic [0xffe1]
 All aspects of the Tail are controlled through this service and this characteristic
 
-BUILT IN MOVES
+## BUILT IN MOVES
 
 The remote will send a text string to the tail to the right characteristic. And there are 11 built in moves u can call up immediately.
 
-TAIL MOVES and their Duration
+### TAIL MOVES and their Duration
 
 TAILS1 - SLOW_WAG1 9.5 secs
 TAILS2 - SLOW_WAG2 6 secs
@@ -34,7 +34,7 @@ and a Home Move: TAILHM
 
 There are 6 built in LED patterns
 
-LED PATTERNS----------
+### LED PATTERNS----------
 
 LEDREC - intermittent (on/off)
 LEDTRI - triangular (fade in/out)
@@ -45,7 +45,7 @@ LEDSTR - strobo
 
 and an Leds off command: LEDOFF
 
-OTHER COMMANDS-------
+### OTHER COMMANDS-------
 
 VER - returns the firmware version number
 PING - returns OK
@@ -57,14 +57,14 @@ Also, commands are now case insensitive
 
 We will split the app in to two parts from the Users point of view.
 
-NORMAL MODE
+## NORMAL MODE
 
 This will have the Remote Control page (for moves and LEDs) as above.
 It will also have the Move playlist page and Pose Mode page.
 
 In this mode, moves cant be interrupted. All moves are followed by the homing move.
 
-ADVANCED MODE
+## ADVANCED MODE
 
 This will include the Move Designer page. It might also allow some different settings
 
@@ -72,7 +72,7 @@ Perhaps the advanced mode is unlocked after a splash screen communicating the
 potential for harm to the Tail if used inappropriately. Should we have a test mode
 that logs moves? For diagnosis, edge cases, etc?
 
-REMOTE CONTROL
+## REMOTE CONTROL
 
 
 Slower, gentler, relaxed:
@@ -99,13 +99,13 @@ Pulse Erect
 
 A screen toggle for a second page to bring up the LED remote control buttons.
 
-POSE MODE
+## POSE MODE
 
 Poses are static shapes that we can define for the Tailer, so that they can strike a pose
 and it will hold it, for the all important photo. These can be described using
 Move Designer notation, and sent on button press.
 
-MOVE PLAYLIST
+## MOVE PLAYLIST
 
 A simple way of chaining pre-defined moves together. We need a pause in between moves
 which serves both to make the system cooler, and also more natural.
@@ -115,13 +115,13 @@ Pauses could be defined as a range, so that they are of varying length.
 I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in
 These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
 
-MOVE DESIGNER
+## MOVE DESIGNER
 
 See the separate doc for methods of describing moves, and how to send them to the Tail.
 
 I've been imagining a screen with a tail viewed as if your looking back at the person wearing it. The tip of the tail is in the centre of the screen. With a mouse, you drag it one way or the other, and it "springs" back and the other way creating a pattern. If you want a shorter move, you just let it go a shorter distance. Or a higher way, drag it higher. See what i mean? And it has a kind of gravity keeping it moving until it comes to rest. Something like that.
 
-NOTIFICATIONS
+## NOTIFICATIONS
 
 Notifications will available once we are hooked in to the phone notification system
 This is not part of the project until the other two modes are complete.
@@ -129,7 +129,7 @@ This is not part of the project until the other two modes are complete.
 The most complex thing will be the move designer, from a technical and graphical
 point of view.
 
-To Do
+## TO DO
 
 Remove LED word from each LED pattern. Move the LED OFF button to below the LED section.
 Add a nice green RGB 163,210,134 behind the calm moves, a nice blue 0,192,220 behind the excited ones and a red one 251,107,70 behind the angry ones
