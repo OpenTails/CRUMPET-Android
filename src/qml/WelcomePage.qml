@@ -38,6 +38,13 @@ Kirigami.Page {
                 }
             }
         }
+        contextualActions: [
+            Kirigami.Action {
+                text: qsTr("Advanced Options");
+                checkable: true;
+                checked: true;
+            }
+        ]
     }
 
     Column {
@@ -90,7 +97,7 @@ Kirigami.Page {
                 Layout.column: 0;
                 Layout.row: 1;
                 Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Music");
+                text: qsTr("Tail Poses");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
                     showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
@@ -100,17 +107,17 @@ Kirigami.Page {
                 Layout.column: 1;
                 Layout.row: 0;
                 Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Advanced Mode");
+                text: qsTr("Move List");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
+                    showPassiveNotification(qsTr("Queue up multiple moves and commands (just not yet...)"), 1500);
                 }
             }
             Button {
                 Layout.column: 1;
                 Layout.row: 1;
                 Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Lights");
+                text: qsTr("Tail Lights");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
                     if(connectionManager.isConnected) {
