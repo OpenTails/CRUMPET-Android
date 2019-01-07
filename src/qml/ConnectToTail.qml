@@ -30,11 +30,11 @@ Kirigami.OverlaySheet {
     header: RowLayout {
         implicitWidth: Kirigami.Units.gridUnit * 30
         Kirigami.Icon {
-            source: "documentinfo"
+            source: ":/org/kde/kirigami/icons/network-connect.svg"
             width: Kirigami.Units.iconSizes.large
             height: width
         }
-        QQC2.Label {
+        Kirigami.Heading {
             Layout.fillWidth: true
             Layout.minimumWidth: 0
             wrapMode: Text.WordWrap
