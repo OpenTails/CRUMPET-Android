@@ -73,27 +73,28 @@ that logs moves? For diagnosis, edge cases, etc?
 
 REMOTE CONTROL
 
-```
+
 Slower, gentler, relaxed:
+```
 SW 1
 SW 2
 SW 3
 ```
 
 Faster, happier, excited:
-
+```
 Fast Wag
 Short Wag
 Happy Wag
-
+Erect
+```
 Angry, frustrated, tense:
-
+```
 Tremble 1
 Tremble 2
 Tremble Erect
-
-(Erect
-Pulse Erect) <-cant evaluate currently
+Pulse Erect
+```
 
 A screen toggle for a second page to bring up the LED remote control buttons.
 
