@@ -28,11 +28,11 @@ Kirigami.AboutPage {
         "productName" : "digitail/controller",
         "programLogo" : ":/logo.svg",
         "componentName" : "digitail",
-        "shortDescription" : "Controller App for DIGITAiL animatronic tails",
+        "shortDescription" : "Controller App for DIGITAiL animatronic tails\nDIGITAiL designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
         "version" : "1.0",
-        "otherText" : "",
+        "otherText" : connectionManager.isConnected ? qsTr("Connected tail is version %1").arg(connectionManager.commandModel.tailVersion) : "",
         "authors" : [
             {
                 "name" : "Dan Leinir Turthra Jensen",
