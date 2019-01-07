@@ -26,6 +26,7 @@ public:
     ~Private() {}
 
     QList<TailCommandModel::CommandInfo*> commands;
+    QString tailVersion;
 };
 
 TailCommandModel::TailCommandModel(QObject* parent)
@@ -154,6 +155,8 @@ void TailCommandModel::autofill(const QString& version)
     beginResetModel();
     qDeleteAll(d->commands);
     d->commands.clear();
+    d->tailVersion = version;
+    emit tailVersionChanged();
     if (version == QLatin1String()) {
         // Herpetyderp, no version, what's this?
     }
@@ -194,71 +197,76 @@ void TailCommandModel::autofill(const QString& version)
         command->category = QLatin1String("excited");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("Erect Tail");
+        command->name = QLatin1String("Stand up!");
         command->command = QLatin1String("TAILER");
-        command->category = QLatin1String("");
+        command->category = QLatin1String("excited");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("Pulsing Erect Tail");
-        command->command = QLatin1String("TAILEP");
-        command->category = QLatin1String("");
-        d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Trembling 1");
+        command->name = QLatin1String("Tremble 1");
         command->command = QLatin1String("TAILT1");
         command->category = QLatin1String("tense");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("Trembling 2");
+        command->name = QLatin1String("Tremble 2");
         command->command = QLatin1String("TAILT2");
         command->category = QLatin1String("tense");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("Trembling Erect Tail");
+        command->name = QLatin1String("Tremble Erect");
         command->command = QLatin1String("TAILET");
+        command->category = QLatin1String("tense");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("High Wag");
+        command->command = QLatin1String("TAILEP");
         command->category = QLatin1String("tense");
         d->commands << command;
 
         command = new CommandInfo();
-        command->name = QLatin1String("LED Off");
-        command->command = QLatin1String("LEDOFF");
-        command->category = QLatin1String("lights");
-        d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("LED 1 Second Interval");
+        command->name = QLatin1String("1 Second Interval");
         command->command = QLatin1String("LEDREC");
         command->category = QLatin1String("lights");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("LED Triangular Fade");
+        command->name = QLatin1String("Triangular Fade");
         command->command = QLatin1String("LEDTRI");
         command->category = QLatin1String("lights");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("LED Sawtooth Fade");
+        command->name = QLatin1String("Sawtooth Fade");
         command->command = QLatin1String("LEDSAW");
         command->category = QLatin1String("lights");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("LED Morse SOS");
+        command->name = QLatin1String("Morse SOS");
         command->command = QLatin1String("LEDSOS");
         command->category = QLatin1String("lights");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("LED Beacon");
+        command->name = QLatin1String("Beacon");
         command->command = QLatin1String("LEDBEA");
         command->category = QLatin1String("lights");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("LED Flame Simulation");
+        command->name = QLatin1String("Flame Simulation");
         command->command = QLatin1String("LEDFLA");
         command->category = QLatin1String("lights");
         d->commands << command;
         command = new CommandInfo();
-        command->name = QLatin1String("LED Strobe Effect");
+        command->name = QLatin1String("Strobe Effect");
         command->command = QLatin1String("LEDSTR");
+        command->category = QLatin1String("lights");
+        d->commands << command;
+        command = new CommandInfo();
+        command->name = QLatin1String("Off");
+        command->command = QLatin1String("LEDOFF");
         command->category = QLatin1String("lights");
         d->commands << command;
     }
     endResetModel();
+}
+
+QString TailCommandModel::tailVersion() const
+{
+    return d->tailVersion;
 }
