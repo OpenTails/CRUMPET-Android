@@ -17,8 +17,9 @@
  */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 import org.kde.kirigami 2.5 as Kirigami
 import org.thetailcompany.digitail 1.0
 
@@ -46,6 +47,19 @@ Kirigami.ScrollablePage {
         Kirigami.AbstractCard {
             Layout.fillHeight: true
             width: Kirigami.Units.gridUnit * 30;
+            opacity: commandGrid.count > 0 ? 1 : 0;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+            background: Rectangle {
+                color: model.color
+                layer.enabled: true
+                layer.effect: DropShadow {
+                    horizontalOffset: 0
+                    verticalOffset: 1
+                    radius: 12
+                    samples: 32
+                    color: Qt.rgba(0, 0, 0, 0.5)
+                }
+            }
             header: Kirigami.Heading {
                 text: model.name
                 level: 2
@@ -72,13 +86,18 @@ Kirigami.ScrollablePage {
                                 color: "silver";
                             }
                             radius: Kirigami.Units.smallSpacing;
+                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
                         }
                         Label {
-                            anchors.fill: parent;
+                            anchors {
+                                fill: parent;
+                                margins: Kirigami.Units.smallSpacing * 2;
+                            }
                             wrapMode: Text.Wrap;
                             horizontalAlignment: Text.AlignHCenter;
                             verticalAlignment: Text.AlignVCenter;
                             text: model.name;
+                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
                         }
                         MouseArea {
                             anchors.fill: parent;
@@ -105,22 +124,58 @@ Kirigami.ScrollablePage {
         ListElement {
             name: qsTr("Calm and Relaxed");
             category: "relaxed";
+            color: "#a3d286";
         }
         ListElement {
             name: qsTr("Fast and Excited");
             category: "excited";
+            color: "#00c0dc";
         }
         ListElement {
             name: qsTr("Frustrated and Tense");
             category: "tense";
+            color: "#fb6b46";
         }
         ListElement {
             name: qsTr("LED Lights");
             category: "lights";
+            color: "white";
         }
     }
 
     ColumnLayout {
+        Item {
+            implicitHeight: tailConnectedInfo.opacity > 0 ? tailConnectedInfo.implicitHeight : 0;
+            width: root.width - Kirigami.Units.largeSpacing * 4;
+            Kirigami.Card {
+                id: tailConnectedInfo;
+                opacity: connectionManager.isConnected ? 0 : 1;
+                Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                width: parent.width;
+                header: Kirigami.Heading {
+                    text: qsTr("Not Connected");
+                    level: 2
+                }
+                contentItem: Label {
+                    wrapMode: Text.Wrap;
+                    text: qsTr("You are not currently connected to your tail...");
+                }
+                actions: [
+                    Kirigami.Action {
+                        text: connectionManager.isConnected ? "Disconnect" : "Connect";
+                        icon.name: connectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
+                        onTriggered: {
+                            if(connectionManager.isConnected) {
+                                connectionManager.disconnectDevice();
+                            }
+                            else {
+                                connectToTail.open();
+                            }
+                        }
+                    }
+                ]
+            }
+        }
         Kirigami.CardsLayout {
             Repeater {
         //         property int cellCount: root.width > root.height ? 2 : 1;
