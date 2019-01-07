@@ -76,9 +76,9 @@ REMOTE CONTROL
 
 Slower, gentler, relaxed:
 ```
-SW 1
-SW 2
-SW 3
+Slow Wag 1
+Slow Wag 2
+Slow Wag 3
 ```
 
 Faster, happier, excited:
