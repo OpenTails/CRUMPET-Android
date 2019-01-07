@@ -23,7 +23,7 @@ BaseMovesPage {
     actions {
         main: Kirigami.Action {
             text: qsTr("Stop Lights");
-            icon.name: ":/org/kde/kirigami/icons/stop.svg";
+            icon.name: ":/org/kde/kirigami/icons/dialog-cancel.svg";
             onTriggered: {
                 connectionManager.sendMessage("LEDOFF");
             }
