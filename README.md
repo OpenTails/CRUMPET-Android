@@ -46,6 +46,7 @@ LEDSTR - strobo
 and an Leds off command: LEDOFF
 
 OTHER COMMANDS-------
+
 VER - returns the firmware version number
 PING - returns OK
 SHUTDOWN - powers off the unit (will lose the connection!)
