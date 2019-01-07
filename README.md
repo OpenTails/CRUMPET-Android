@@ -73,11 +73,12 @@ that logs moves? For diagnosis, edge cases, etc?
 
 REMOTE CONTROL
 
-Grouping them is the visual way to go.
+```
 Slower, gentler, relaxed:
 SW 1
 SW 2
 SW 3
+```
 
 Faster, happier, excited:
 
