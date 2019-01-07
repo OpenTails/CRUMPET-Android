@@ -80,6 +80,36 @@ Kirigami.Page {
                 Layout.column: 0;
                 Layout.row: 0;
                 Layout.fillWidth: true; Layout.fillHeight: true;
+                text: qsTr("Alarm");
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                onClicked: {
+                    showPassiveNotification(qsTr("Link a command to an alarm (but not yet, sorry)"), 1500);
+                }
+            }
+            Button {
+                Layout.column: 0;
+                Layout.row: 1;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                text: qsTr("Music");
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                onClicked: {
+                    showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
+                }
+            }
+            Button {
+                Layout.column: 1;
+                Layout.row: 0;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                text: qsTr("Advanced Mode");
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                onClicked: {
+                    showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
+                }
+            }
+            Button {
+                Layout.column: 1;
+                Layout.row: 1;
+                Layout.fillWidth: true; Layout.fillHeight: true;
                 text: qsTr("Lights");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
@@ -90,33 +120,6 @@ Kirigami.Page {
                         connectToTail.pageToPush = tailLights;
                         connectToTail.open();
                     }
-                }
-            }
-            Button {
-                Layout.column: 0;
-                Layout.row: 1;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Music");
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
-                onClicked: {
-                }
-            }
-            Button {
-                Layout.column: 1;
-                Layout.row: 0;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Advanced Mode");
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
-                onClicked: {
-                }
-            }
-            Button {
-                Layout.column: 1;
-                Layout.row: 1;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Sound");
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
-                onClicked: {
                 }
             }
             Button {

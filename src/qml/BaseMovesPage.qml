@@ -28,20 +28,6 @@ Kirigami.ScrollablePage {
     title: qsTr("Tail Moves (battery level: %1)").arg(connectionManager.batteryLevel);
     property QtObject categoriesModel: ListModel { }
     property QtObject connectionManager: null;
-    actions {
-        main: Kirigami.Action {
-            text: connectionManager.isConnected ? "Disconnect" : "Connect";
-            icon.name: connectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
-            onTriggered: {
-                if(connectionManager.isConnected) {
-                    connectionManager.disconnectDevice();
-                }
-                else {
-                    connectToTail.open();
-                }
-            }
-        }
-    }
 
     Component {
         id: categoryDelegate;

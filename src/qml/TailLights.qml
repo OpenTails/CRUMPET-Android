@@ -17,8 +17,18 @@
  */
 
 import QtQuick 2.7
+import org.kde.kirigami 2.5 as Kirigami
 
 BaseMovesPage {
+    actions {
+        main: Kirigami.Action {
+            text: qsTr("Stop Lights");
+            icon.name: ":/org/kde/kirigami/icons/stop.svg";
+            onTriggered: {
+                connectionManager.sendMessage("LEDOFF");
+            }
+        }
+    }
     categoriesModel: ListModel {
         ListElement {
             name: qsTr("LED Patterns");

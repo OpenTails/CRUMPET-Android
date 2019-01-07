@@ -260,7 +260,7 @@ void TailCommandModel::autofill(const QString& version)
         command = new CommandInfo();
         command->name = QLatin1String("Off");
         command->command = QLatin1String("LEDOFF");
-        command->category = QLatin1String("lights");
+        command->category = QLatin1String("");
         d->commands << command;
     }
     endResetModel();
