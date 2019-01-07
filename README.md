@@ -16,7 +16,7 @@ All aspects of the Tail are controlled through this service and this characteris
 
 The remote will send a text string to the tail to the right characteristic. And there are 11 built in moves u can call up immediately.
 
-### TAIL MOVES and their Duration
+### TAIL MOVES AND DURATION
 
 TAILS1 - SLOW_WAG1 9.5 secs
 TAILS2 - SLOW_WAG2 6 secs
@@ -34,7 +34,7 @@ and a Home Move: TAILHM
 
 There are 6 built in LED patterns
 
-### LED PATTERNS----------
+### LED PATTERNS
 
 LEDREC - intermittent (on/off)
 LEDTRI - triangular (fade in/out)
@@ -45,7 +45,7 @@ LEDSTR - strobo
 
 and an Leds off command: LEDOFF
 
-### OTHER COMMANDS-------
+### OTHER COMMANDS
 
 VER - returns the firmware version number
 PING - returns OK
