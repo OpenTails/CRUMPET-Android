@@ -10,11 +10,12 @@ Device name is "(!)Tail1"
 Device Service [0xffe0]
 
 Device Characteristic [0xffe1]
+
 All aspects of the Tail are controlled through this service and this characteristic
+The app will send a text string to the tail to the right characteristic. 
+And there are 11 built in moves u can call up immediately.
 
 ## BUILT IN MOVES
-
-The remote will send a text string to the tail to the right characteristic. And there are 11 built in moves u can call up immediately.
 
 ### TAIL MOVES AND DURATION
 
