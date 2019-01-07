@@ -82,6 +82,9 @@ Kirigami.ApplicationWindow {
             }
         ]
     }
+    contextDrawer: Kirigami.ContextDrawer {
+        id: contextDrawer
+    }
     Component {
         id: welcomePage;
         WelcomePage {}
