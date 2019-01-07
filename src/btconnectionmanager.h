@@ -32,6 +32,7 @@ class BTConnectionManager : public QObject
     Q_PROPERTY(QObject* deviceModel READ deviceModel NOTIFY deviceModelChanged)
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
     Q_PROPERTY(QObject* commandModel READ commandModel NOTIFY commandModelChanged)
+    Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
 
 public:
     explicit BTConnectionManager(QObject* parent = 0);
@@ -46,6 +47,7 @@ public:
     Q_INVOKABLE void runCommand(const QString& command);
 
     bool isConnected() const;
+    int batteryLevel() const;
 public Q_SLOTS:
     void sendMessage(const QString &message);
     void connectToDevice(const QString& deviceID);
@@ -56,6 +58,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void isConnectedChanged();
+    void batteryLevelChanged();
     void messageReceived(const QString &sender, const QString &message);
     void connected(const QString &name);
     void disconnected();

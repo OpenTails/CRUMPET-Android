@@ -34,7 +34,9 @@ public:
         , btControl(nullptr)
         , tailService(nullptr)
         , commandModel(nullptr)
-    {}
+        , batteryLevel(0)
+    {
+    }
     ~Private() {
         deviceModel->deleteLater();
     }
@@ -50,6 +52,8 @@ public:
 
     TailCommandModel* commandModel;
     QString currentCall;
+    int batteryLevel;
+    QTimer batteryTimer;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -70,6 +74,11 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, [](){ qDebug() << "Device discovery completed"; });
     // Start a discovery
     discoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
+
+    connect(&d->batteryTimer, &QTimer::timeout, [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
+    d->batteryTimer.setInterval(10000);
+    d->batteryTimer.setSingleShot(false);
+
 }
 
 BTConnectionManager::~BTConnectionManager()
@@ -204,6 +213,13 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
                 emit commandModelChanged();
             }
             d->commandModel->autofill(newValue);
+            d->batteryTimer.start();
+            sendMessage("BATT");
+        }
+        else if (d->currentCall == QLatin1String("BATT")) {
+            // Return value is BAT and a number, from 0 to 4
+            d->batteryLevel = newValue.right(1).toInt();
+            emit batteryLevelChanged();
         }
         else {
             QStringList stateResult = QString(newValue).split(' ');
@@ -223,6 +239,7 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
             }
         }
     }
+    d->currentCall = QLatin1String();
 }
 
 void BTConnectionManager::characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
@@ -234,6 +251,7 @@ void BTConnectionManager::characteristicWritten(const QLowEnergyCharacteristic &
 void BTConnectionManager::disconnectDevice()
 {
     if (d->btControl) {
+        d->batteryTimer.stop();
         d->btControl->deleteLater();
         d->btControl = nullptr;
         d->tailService->deleteLater();
@@ -270,4 +288,9 @@ QObject* BTConnectionManager::commandModel() const
 bool BTConnectionManager::isConnected() const
 {
     return d->btControl;
+}
+
+int BTConnectionManager::batteryLevel() const
+{
+    return d->batteryLevel;
 }
