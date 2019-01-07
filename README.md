@@ -122,6 +122,14 @@ This is not part of the project until the other two modes are complete.
 The most complex thing will be the move designer, from a technical and graphical
 point of view.
 
+To Do
+
+Remove LED word from each LED pattern. Move the LED OFF button to below the LED section.
+Add a nice green RGB 163,210,134 behind the calm moves, a nice blue 0,192,220 behind the excited ones and a red one 251,107,70 behind the angry ones
+Add a "DIGITAiL designed and created by The Tail Company - http://thetailcompany.com" on the about page
+Add a "VER" call on the about page
+Add a "BATT" call somewhere!
+
 # How To Compile The App
 
 Building the app is a multi step process, so please make sure you do the steps in the right order.
