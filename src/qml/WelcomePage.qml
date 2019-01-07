@@ -43,8 +43,9 @@ Kirigami.Page {
     Column {
         width: root.width - Kirigami.Units.largeSpacing * 4;
         spacing: Kirigami.Units.largeSpacing;
-        Kirigami.AbstractCard {
+        Kirigami.Card {
             opacity: connectionManager.isConnected ? 0 : 1;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             width: parent.width;
             header: Kirigami.Heading {
                 text: qsTr("Not Connected");
@@ -54,6 +55,20 @@ Kirigami.Page {
                 wrapMode: Text.Wrap;
                 text: qsTr("You are not currently connected to your tail...");
             }
+            actions: [
+                Kirigami.Action {
+                    text: connectionManager.isConnected ? "Disconnect" : "Connect";
+                    icon.name: connectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
+                    onTriggered: {
+                        if(connectionManager.isConnected) {
+                            connectionManager.disconnectDevice();
+                        }
+                        else {
+                            connectToTail.open();
+                        }
+                    }
+                }
+            ]
         }
         GridLayout {
             id: commandLayout;
