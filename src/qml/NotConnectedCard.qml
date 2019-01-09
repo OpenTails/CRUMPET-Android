@@ -19,7 +19,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.5 as Kirigami
 
 Kirigami.Card {
     id: root;
@@ -28,7 +28,22 @@ Kirigami.Card {
     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
     width: parent.width;
     header: Kirigami.Heading {
-        text: connectionManager.discoveryRunning ? qsTr("Not Connected (searching...)") : qsTr("Not Connected");
+        text: {
+            if (connectionManager.discoveryRunning === true) {
+                return qsTr("Searching for your tail...");
+            }
+            else {
+                if (connectionManager.deviceModel.count === 0) {
+                    return qsTr("No tails found");
+                }
+                else if (connectionManager.deviceModel.count === 1) {
+                    return qsTr("One tail available");
+                }
+                else {
+                    return qsTr("Multiple tails available");
+                }
+            }
+        }
         level: 2
         padding: Kirigami.Units.smallSpacing;
         BusyIndicator {
@@ -47,7 +62,7 @@ Kirigami.Card {
         wrapMode: Text.Wrap;
         text: {
             if (connectionManager.discoveryRunning === true) {
-                var base = qsTr("You are not currently connected to your tail, and we are looking for it right now. Please ensure your tail is nearby and turned on.") + " ";
+                var base = qsTr("You are not currently connected to your tail, and we are looking for it right now. Please ensure your tail is nearby and turned on.") + "\n";
                 if (connectionManager.deviceModel.count === 0) {
                     return base + qsTr("We have not found any tails yet.");
                 }
@@ -55,7 +70,7 @@ Kirigami.Card {
                     return base + qsTr("We have found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(connectionManager.deviceModel.count);
                 }
                 else {
-                    return base + qsTr("We have found 1 tail so far. Please push \"Autoconnecting shortly\" below to stop searching and connect to that tail now.");
+                    return base + qsTr("We have found 1 tail so far. You can wait and we will connect to it if we don't find any other tails, or you can push \"Connect\" below to connect to it now.");
                 }
             }
             else {
@@ -69,40 +84,26 @@ Kirigami.Card {
             }
         }
     }
-    actions: [
-        Kirigami.Action {
-            text: {
-                if (connectionManager.discoveryRunning === true) {
-                    if (connectionManager.deviceModel.count === 0) {
-                        return qsTr("Searching...");
-                    }
-                    else if (connectionManager.deviceModel.count > 1) {
-                        return qsTr("Show available tails...");
-                    }
-                    else {
-                        return qsTr("Autoconnecting shortly");
-                    }
-                }
-                else {
-                    if (connectionManager.deviceModel.count > 1) {
-                        return qsTr("Show available tails...");
-                    }
-                    else {
-                        return qsTr("Connect");
-                    }
-                }
+    footer: Button {
+        Layout.fillWidth: true; Layout.fillHeight: true;
+        text: {
+            if (connectionManager.deviceModel.count > 1) {
+                return qsTr("Show available tails...");
             }
-            enabled: connectionManager.deviceModel.count > 0;
-            icon.name: ":/org/kde/kirigami/icons/network-connect.svg";
-            onTriggered: {
-                if(connectionManager.deviceModel.count === 1) {
-                    // Calling this will stop the discovery immediately and connect to the one tail that we've found
-                    connectionManager.stopDiscovery();
-                }
-                else {
-                    connectToTail.open();
-                }
+            else {
+                return qsTr("Connect");
             }
         }
-    ]
+        enabled: connectionManager.deviceModel.count > 0;
+        visible: !(connectionManager.discoveryRunning === true && connectionManager.deviceModel.count === 0);
+        onClicked: {
+            if(connectionManager.deviceModel.count === 1) {
+                // Calling this will stop the discovery immediately and connect to the one tail that we've found
+                connectionManager.stopDiscovery();
+            }
+            else {
+                connectToTail.open();
+            }
+        }
+    }
 }
