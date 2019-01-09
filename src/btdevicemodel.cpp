@@ -74,9 +74,12 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
 
 void BTDeviceModel::addDevice(Device* device)
 {
-    beginInsertRows(QModelIndex(), 0, 0);
-    d->devices.insert(0, device);
-    endInsertRows();
+    // It feels a little dirty to do it this way...
+    if(device->name == QLatin1String("(!)Tail1")) {
+        beginInsertRows(QModelIndex(), 0, 0);
+        d->devices.insert(0, device);
+        endInsertRows();
+    }
 }
 
 void BTDeviceModel::removeDevice(Device* device)
@@ -98,4 +101,12 @@ const BTDeviceModel::Device* BTDeviceModel::getDevice(const QString& deviceID) c
         }
     }
     return nullptr;
+}
+
+QString BTDeviceModel::getDeviceID(int deviceIndex) const
+{
+    if(deviceIndex >= 0 && deviceIndex < d->devices.count()) {
+        return d->devices.at(deviceIndex)->deviceID;
+    }
+    return QLatin1String();
 }

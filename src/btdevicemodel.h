@@ -43,6 +43,7 @@ public:
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    Q_INVOKABLE int count() { return rowCount(); };
 
     /**
      * Add a new device to the model.
@@ -61,6 +62,7 @@ public:
     void removeDevice(Device* device);
 
     const BTDeviceModel::Device* getDevice(const QString& deviceID) const;
+    Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
 private:
     class Private;
     Private* d;

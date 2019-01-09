@@ -35,6 +35,16 @@ Kirigami.ApplicationWindow {
             showPassiveNotification(message, 5000);
         }
         property QtObject pageToPush: null;
+        onDiscoveryRunningChanged: {
+            if (discoveryRunning === false) {
+                if(connectionManager.deviceModel.count() === 1) {
+                    // only one tail found? Well then, connect to that!
+                    pageToPush = welcomePage;
+                    connectToDevice(deviceModel.getDeviceID(0));
+                    connectingToTail.opacity = 1;
+                }
+            }
+        }
         onIsConnectedChanged: {
             if (isConnected === true) {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);
