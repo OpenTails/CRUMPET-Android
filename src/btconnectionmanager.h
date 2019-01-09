@@ -48,6 +48,7 @@ public:
     Q_INVOKABLE void runCommand(const QString& command);
 
     Q_INVOKABLE void startDiscovery();
+    Q_INVOKABLE void stopDiscovery();
     bool discoveryRunning();
 
     bool isConnected() const;

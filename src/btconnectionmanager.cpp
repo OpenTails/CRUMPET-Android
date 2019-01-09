@@ -101,6 +101,13 @@ void BTConnectionManager::startDiscovery()
     d->deviceDiscoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
 }
 
+void BTConnectionManager::stopDiscovery()
+{
+    d->discoveryRunning = false;
+    emit discoveryRunningChanged();
+    d->deviceDiscoveryAgent->stop();
+}
+
 bool BTConnectionManager::discoveryRunning()
 {
     return d->discoveryRunning;
