@@ -72,12 +72,19 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
     return d->devices.count();
 }
 
-void BTDeviceModel::addDevice(Device* device)
+void BTDeviceModel::addDevice(Device* newDevice)
 {
     // It feels a little dirty to do it this way...
-    if(device->name == QLatin1String("(!)Tail1")) {
+    if(newDevice->name == QLatin1String("(!)Tail1")) {
+        for(const BTDeviceModel::Device* device : d->devices) {
+            if(device->deviceID == newDevice->deviceID) {
+                // Don't add the same device twice. Thanks bt discovery. Thiscovery.
+                return;
+            }
+        }
+
         beginInsertRows(QModelIndex(), 0, 0);
-        d->devices.insert(0, device);
+        d->devices.insert(0, newDevice);
         endInsertRows();
     }
 }
@@ -95,7 +102,7 @@ void BTDeviceModel::removeDevice(Device* device)
 
 const BTDeviceModel::Device* BTDeviceModel::getDevice(const QString& deviceID) const
 {
-    foreach(const BTDeviceModel::Device* device, d->devices) {
+    for(const BTDeviceModel::Device* device : d->devices) {
         if(device->deviceID == deviceID) {
             return device;
         }

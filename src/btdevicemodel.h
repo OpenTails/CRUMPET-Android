@@ -50,9 +50,9 @@ public:
      * The new device is added at the start of the unsorted model
      * The model takes ownership of the device, and deletion should not
      * be done manually.
-     * @param device The new device to show in the model
+     * @param newDevice The new device to show in the model
      */
-    void addDevice(Device* device);
+    void addDevice(Device* newDevice);
     /**
      * Remove a device from the model.
      * The entry will be deleted by this function, and you should not attempt to
