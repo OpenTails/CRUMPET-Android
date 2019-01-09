@@ -22,19 +22,22 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.Card {
+    id: root;
     property QtObject connectionManager: null;
     opacity: connectionManager.isConnected ? 0 : 1;
     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
     width: parent.width;
     header: Kirigami.Heading {
-        text: qsTr("Not Connected");
+        text: connectionManager.discoveryRunning ? qsTr("Not Connected (searching...)") : qsTr("Not Connected");
         level: 2
+        padding: Kirigami.Units.smallSpacing;
         BusyIndicator {
             anchors {
                 top: parent.top;
                 right: parent.right;
-                margins: Kirigami.Units.smallSpacing;
             }
+            height: parent.height - 2 * Kirigami.Units.smallSpacing;
+            width: height;
             opacity: running;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             running: connectionManager.discoveryRunning;
@@ -42,7 +45,12 @@ Kirigami.Card {
     }
     contentItem: Label {
         wrapMode: Text.Wrap;
-        text: qsTr("You are not currently connected to your tail...");
+        text: connectionManager.discoveryRunning
+            ? qsTr("You are not currently connected to your tail, and we are looking for it right now. Please ensure your tail is nearby and turned on.") + " " +
+                (connectionManager.deviceModel.count === 0
+                ? qsTr("We have not found any tails yet.")
+                : qsTr("We have found %1 tails so far.").arg(connectionManager.deviceModel.count))
+            : qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push Connect to see the available tails.").arg(connectionManager.deviceModel.count);
     }
     actions: [
         Kirigami.Action {
