@@ -48,18 +48,24 @@ Kirigami.Card {
         text: connectionManager.discoveryRunning
             ? qsTr("You are not currently connected to your tail, and we are looking for it right now. Please ensure your tail is nearby and turned on.") + " " +
                 (connectionManager.deviceModel.count === 0
-                ? qsTr("We have not found any tails yet.")
-                : qsTr("We have found %1 tails so far.").arg(connectionManager.deviceModel.count))
+                    ? qsTr("We have not found any tails yet.")
+                    : (connectionManager.deviceModel.count > 1
+                        ? qsTr("We have found %1 tails so far. To see them, push the button below.").arg(connectionManager.deviceModel.count)
+                        : qsTr("We have found 1 tail so far. Please push the button below to stop searching and connect to that tail now.")))
             : (connectionManager.deviceModel.count > 1
                 ? qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push Show available tails below to see the available tails.").arg(connectionManager.deviceModel.count)
-                : qsTr("You are not currently connected to your tail, but we have found one tail. Please push Connect to connect to that tail now."))
+                : qsTr("You are not currently connected to your tail, but we know of one tail. Push the button below to connect to it."))
             ;
     }
     actions: [
         Kirigami.Action {
-            text: connectionManager.deviceModel.count > 1 ? qsTr("Show available tails...") : (connectionManager.deviceModel.count === 0 ? qsTr("Searching...") : qsTr("Connect now"));
+            text: connectionManager.deviceModel.count > 1
+                ? qsTr("Show available tails...")
+                : (connectionManager.deviceModel.count === 0
+                    ? qsTr("Searching...")
+                    : qsTr("1 tail found, autoconnecting shortly"));
             enabled: connectionManager.deviceModel.count > 0;
-            icon.name: connectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
+            icon.name: ":/org/kde/kirigami/icons/network-connect.svg";
             onTriggered: {
                 if(connectionManager.deviceModel.count === 1) {
                     // Calling this will stop the discovery immediately and connect to the one tail that we've found
