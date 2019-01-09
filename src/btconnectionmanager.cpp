@@ -35,6 +35,8 @@ public:
         , tailService(nullptr)
         , commandModel(nullptr)
         , batteryLevel(0)
+        , deviceDiscoveryAgent(nullptr)
+        , discoveryRunning(false)
     {
     }
     ~Private() {
@@ -54,6 +56,9 @@ public:
     QString currentCall;
     int batteryLevel;
     QTimer batteryTimer;
+
+    QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent;
+    bool discoveryRunning;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -61,8 +66,8 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
     , d(new Private)
 {
     // Create a discovery agent and connect to its signals
-    QBluetoothDeviceDiscoveryAgent *discoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
-    connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
+    d->deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
+    connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
             [this](const QBluetoothDeviceInfo &device){
                 BTDeviceModel::Device* btDevice = new BTDeviceModel::Device();
                 btDevice->name = device.name();
@@ -71,9 +76,12 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
                 d->deviceModel->addDevice(btDevice);
             });
 
-    connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, [](){ qDebug() << "Device discovery completed"; });
-    // Start a discovery
-    discoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
+    connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, [this](){
+        qDebug() << "Device discovery completed";
+        d->discoveryRunning = false;
+        emit discoveryRunningChanged();
+    });
+    startDiscovery();
 
     connect(&d->batteryTimer, &QTimer::timeout, [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
     d->batteryTimer.setInterval(10000);
@@ -84,6 +92,18 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
 BTConnectionManager::~BTConnectionManager()
 {
     delete d;
+}
+
+void BTConnectionManager::startDiscovery()
+{
+    d->discoveryRunning = true;
+    emit discoveryRunningChanged();
+    d->deviceDiscoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
+}
+
+bool BTConnectionManager::discoveryRunning()
+{
+    return d->discoveryRunning;
 }
 
 void BTConnectionManager::connectToDevice(const QString& deviceID)
