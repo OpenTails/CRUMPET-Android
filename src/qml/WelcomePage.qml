@@ -42,7 +42,7 @@ Kirigami.Page {
             Kirigami.Action {
                 text: qsTr("Advanced Options");
                 checkable: true;
-                checked: true;
+                icon.name: checked ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
             }
         ]
     }
