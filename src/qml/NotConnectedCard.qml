@@ -50,15 +50,20 @@ Kirigami.Card {
                 (connectionManager.deviceModel.count === 0
                 ? qsTr("We have not found any tails yet.")
                 : qsTr("We have found %1 tails so far.").arg(connectionManager.deviceModel.count))
-            : qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push Connect to see the available tails.").arg(connectionManager.deviceModel.count);
+            : (connectionManager.deviceModel.count > 1
+                ? qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push Show available tails below to see the available tails.").arg(connectionManager.deviceModel.count)
+                : qsTr("You are not currently connected to your tail, but we have found one tail. Please push Connect to connect to that tail now."))
+            ;
     }
     actions: [
         Kirigami.Action {
-            text: connectionManager.isConnected ? "Disconnect" : "Connect";
+            text: connectionManager.deviceModel.count > 1 ? qsTr("Show available tails...") : (connectionManager.deviceModel.count === 0 ? qsTr("Searching...") : qsTr("Connect now"));
+            enabled: connectionManager.deviceModel.count > 0;
             icon.name: connectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
             onTriggered: {
-                if(connectionManager.isConnected) {
-                    connectionManager.disconnectDevice();
+                if(connectionManager.deviceModel.count === 1) {
+                    // Calling this will stop the discovery immediately and connect to the one tail that we've found
+                    connectionManager.stopDiscovery();
                 }
                 else {
                     connectToTail.open();
