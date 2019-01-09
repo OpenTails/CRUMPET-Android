@@ -23,6 +23,7 @@ import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.Page {
     id: root;
+    objectName: "welcomePage";
     title: qsTr("Welcome");
     property QtObject connectionManager: null;
     actions {

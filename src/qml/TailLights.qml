@@ -20,6 +20,7 @@ import QtQuick 2.7
 import org.kde.kirigami 2.5 as Kirigami
 
 BaseMovesPage {
+    objectName: "tailLights";
     actions {
         main: Kirigami.Action {
             text: qsTr("Stop Lights");

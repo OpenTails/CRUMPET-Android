@@ -20,6 +20,7 @@ import QtQuick 2.7
 import org.kde.kirigami 2.5 as Kirigami
 
 BaseMovesPage {
+    objectName: "tailMoves";
     actions {
         main: Kirigami.Action {
             text: qsTr("Tail Home Position");
