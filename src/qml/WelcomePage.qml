@@ -58,6 +58,16 @@ Kirigami.Page {
             header: Kirigami.Heading {
                 text: qsTr("Not Connected");
                 level: 2
+                BusyIndicator {
+                    anchors {
+                        top: parent.top;
+                        right: parent.right;
+                        margins: Kirigami.Units.smallSpacing;
+                    }
+                    opacity: running;
+                    Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                    running: connectionManager.discoveryRunning;
+                }
             }
             contentItem: Label {
                 wrapMode: Text.Wrap;
