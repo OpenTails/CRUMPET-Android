@@ -37,7 +37,7 @@ Kirigami.ApplicationWindow {
         property QtObject pageToPush: null;
         onDiscoveryRunningChanged: {
             if (discoveryRunning === false) {
-                if(connectionManager.deviceModel.count() === 1) {
+                if(connectionManager.deviceModel.count === 1) {
                     // only one tail found? Well then, connect to that!
                     pageToPush = welcomePage;
                     connectToDevice(deviceModel.getDeviceID(0));

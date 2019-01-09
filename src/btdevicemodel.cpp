@@ -85,6 +85,7 @@ void BTDeviceModel::addDevice(Device* newDevice)
 
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);
+        emit countChanged();
         endInsertRows();
     }
 }
@@ -95,9 +96,15 @@ void BTDeviceModel::removeDevice(Device* device)
     if (idx > -1) {
         beginRemoveRows(QModelIndex(), idx, idx);
         d->devices.removeAt(idx);
+        emit countChanged();
         endRemoveRows();
     }
     delete device;
+}
+
+int BTDeviceModel::count()
+{
+    return d->devices.count();
 }
 
 const BTDeviceModel::Device* BTDeviceModel::getDevice(const QString& deviceID) const

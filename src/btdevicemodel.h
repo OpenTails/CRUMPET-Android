@@ -24,6 +24,7 @@
 class BTDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
     explicit BTDeviceModel(QObject* parent = 0);
     virtual ~BTDeviceModel();
@@ -43,7 +44,6 @@ public:
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-    Q_INVOKABLE int count() { return rowCount(); };
 
     /**
      * Add a new device to the model.
@@ -60,6 +60,9 @@ public:
      * If the device is not maintained by this model, it will still be deleted!
      */
     void removeDevice(Device* device);
+
+    int count();
+    Q_SIGNAL void countChanged();
 
     const BTDeviceModel::Device* getDevice(const QString& deviceID) const;
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
