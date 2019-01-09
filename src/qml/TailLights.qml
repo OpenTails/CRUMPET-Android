@@ -34,7 +34,7 @@ BaseMovesPage {
         ListElement {
             name: qsTr("LED Patterns");
             category: "lights";
-            color: "white";
+            color: "#93cee9";
         }
     }
 }

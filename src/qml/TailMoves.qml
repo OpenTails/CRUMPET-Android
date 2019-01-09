@@ -34,17 +34,17 @@ BaseMovesPage {
         ListElement {
             name: qsTr("Calm and Relaxed");
             category: "relaxed";
-            color: "#a3d286";
+            color: "#1cdc9a";
         }
         ListElement {
             name: qsTr("Fast and Excited");
             category: "excited";
-            color: "#00c0dc";
+            color: "#c9ce3b";
         }
         ListElement {
             name: qsTr("Frustrated and Tense");
             category: "tense";
-            color: "#fb6b46";
+            color: "#f67400";
         }
     }
 }
