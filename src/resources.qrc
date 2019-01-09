@@ -8,6 +8,7 @@
         <file>qml/TailMoves.qml</file>
         <file>qml/WelcomePage.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file alias="logo.svg">../digitail.svg</file>
+        <file>images/logo.svg</file>
+        <file>images/bannerimage.png</file>
     </qresource>
 </RCC>

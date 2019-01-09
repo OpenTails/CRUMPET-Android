@@ -23,10 +23,11 @@ import org.kde.kirigami 2.6 as Kirigami
 import org.thetailcompany.digitail 1.0
 
 Kirigami.AboutPage {
+    objectName: "aboutPage";
     aboutData: {
         "displayName" : "DIGITAiL Controller",
         "productName" : "digitail/controller",
-        "programLogo" : ":/logo.svg",
+        "programLogo" : ":/images/logo.svg",
         "componentName" : "digitail",
         "shortDescription" : "Controller App for DIGITAiL animatronic tails\nDIGITAiL designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
