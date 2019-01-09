@@ -45,25 +45,53 @@ Kirigami.Card {
     }
     contentItem: Label {
         wrapMode: Text.Wrap;
-        text: connectionManager.discoveryRunning
-            ? qsTr("You are not currently connected to your tail, and we are looking for it right now. Please ensure your tail is nearby and turned on.") + " " +
-                (connectionManager.deviceModel.count === 0
-                    ? qsTr("We have not found any tails yet.")
-                    : (connectionManager.deviceModel.count > 1
-                        ? qsTr("We have found %1 tails so far. To see them, push the button below.").arg(connectionManager.deviceModel.count)
-                        : qsTr("We have found 1 tail so far. Please push the button below to stop searching and connect to that tail now.")))
-            : (connectionManager.deviceModel.count > 1
-                ? qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push Show available tails below to see the available tails.").arg(connectionManager.deviceModel.count)
-                : qsTr("You are not currently connected to your tail, but we know of one tail. Push the button below to connect to it."))
+        text: {
+            if (connectionManager.discoveryRunning === true) {
+                var base = qsTr("You are not currently connected to your tail, and we are looking for it right now. Please ensure your tail is nearby and turned on.") + " ";
+                if (connectionManager.deviceModel.count === 0) {
+                    return base + qsTr("We have not found any tails yet.");
+                }
+                else if (connectionManager.deviceModel.count > 1) {
+                    return base + qsTr("We have found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(connectionManager.deviceModel.count);
+                }
+                else {
+                    return base + qsTr("We have found 1 tail so far. Please push \"Autoconnecting shortly\" below to stop searching and connect to that tail now.");
+                }
+            }
+            else {
+                if (connectionManager.deviceModel.count > 1) {
+                    return qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push \"Show available tails...\" below to see the available tails.").arg(connectionManager.deviceModel.count);
+                }
+                else {
+                    return qsTr("You are not currently connected to your tail, but we know of one tail. Push \"Connect\" to connect to it.");
+                }
             ;
+            }
+        }
     }
     actions: [
         Kirigami.Action {
-            text: connectionManager.deviceModel.count > 1
-                ? qsTr("Show available tails...")
-                : (connectionManager.deviceModel.count === 0
-                    ? qsTr("Searching...")
-                    : qsTr("1 tail found, autoconnecting shortly"));
+            text: {
+                if (connectionManager.discoveryRunning === true) {
+                    if (connectionManager.deviceModel.count === 0) {
+                        return qsTr("Searching...");
+                    }
+                    else if (connectionManager.deviceModel.count > 1) {
+                        return qsTr("Show available tails...");
+                    }
+                    else {
+                        return qsTr("Autoconnecting shortly");
+                    }
+                }
+                else {
+                    if (connectionManager.deviceModel.count > 1) {
+                        return qsTr("Show available tails...");
+                    }
+                    else {
+                        return qsTr("Connect");
+                    }
+                }
+            }
             enabled: connectionManager.deviceModel.count > 0;
             icon.name: ":/org/kde/kirigami/icons/network-connect.svg";
             onTriggered: {
