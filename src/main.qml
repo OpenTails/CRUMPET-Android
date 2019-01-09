@@ -72,7 +72,7 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 text: qsTr("Welcome");
-                checked: pageStack.currentItem.objectName === "welcomePage";
+                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "welcomePage" : "";
                 icon.name: ":/org/kde/kirigami/icons/go-home.svg";
                 onTriggered: {
                     pageStack.replace(welcomePage, {connectionManager: connectionManager});
@@ -82,7 +82,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Tail Moves");
-                checked: pageStack.currentItem.objectName === "tailMoves";
+                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailMoves" : "";
                 icon.name: ":/images/tail-moves.svg";
                 onTriggered: {
                     pageStack.replace(tailMoves, {connectionManager: connectionManager});
@@ -90,7 +90,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Tail Lights");
-                checked: pageStack.currentItem.objectName === "tailLights";
+                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailLights" : "";
                 icon.name: ":/images/tail-lights.svg";
                 onTriggered: {
                     pageStack.replace(tailLights, {connectionManager: connectionManager});
@@ -100,7 +100,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("About");
-                checked: pageStack.currentItem.objectName === "aboutPage";
+                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "aboutPage" : "";
                 icon.name: ":/org/kde/kirigami/icons/help-about.svg";
                 onTriggered: {
                     pageStack.replace(aboutPage);
