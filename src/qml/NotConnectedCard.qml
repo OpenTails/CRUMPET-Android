@@ -62,15 +62,14 @@ Kirigami.Card {
         wrapMode: Text.Wrap;
         text: {
             if (connectionManager.discoveryRunning === true) {
-                var base = qsTr("You are not currently connected to your tail, and we are looking for it right now. Please ensure your tail is nearby and turned on.") + "\n";
                 if (connectionManager.deviceModel.count === 0) {
-                    return base + qsTr("We have not found any tails yet.");
+                    return qsTr("No tails found yet, still looking...");
                 }
                 else if (connectionManager.deviceModel.count > 1) {
-                    return base + qsTr("We have found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(connectionManager.deviceModel.count);
+                    return qsTr("Found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(connectionManager.deviceModel.count);
                 }
                 else {
-                    return base + qsTr("We have found 1 tail so far. You can wait and we will connect to it if we don't find any other tails, or you can push \"Connect\" below to connect to it now.");
+                    return qsTr("1 tail found. Simply wait, or push \"Connect\" below to control it.");
                 }
             }
             else {
