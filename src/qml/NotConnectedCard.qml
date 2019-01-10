@@ -102,9 +102,9 @@ Kirigami.Card {
         visible: !(connectionManager.discoveryRunning === true && connectionManager.deviceModel.count === 0);
         onClicked: {
             if (connectionManager.discoveryRunning === false && connectionManager.deviceModel.count === 0) {
-                connectionManager.startDiscovery()
+                connectionManager.startDiscovery();
             }
-            if(connectionManager.deviceModel.count === 1) {
+            else if(connectionManager.deviceModel.count === 1) {
                 // Calling this will stop the discovery immediately and connect to the one tail that we've found
                 connectionManager.stopDiscovery();
             }
