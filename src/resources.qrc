@@ -13,5 +13,6 @@
         <file>images/tail-lights.svg</file>
         <file>images/tail-moves.svg</file>
         <file>images/bannerimage.png</file>
+        <file alias="icon-round.png">../data/res/mipmap-xxxhdpi/ic_launcher_round.png</file>
     </qresource>
 </RCC>

@@ -27,9 +27,9 @@ Kirigami.AboutPage {
     aboutData: {
         "displayName" : "DIGITAiL Controller",
         "productName" : "digitail/controller",
-        "programLogo" : ":/images/logo.svg",
+        "programLogo" : ":/icon-round.png",
         "componentName" : "digitail",
-        "shortDescription" : "Controller App for DIGITAiL animatronic tails\nDIGITAiL designed and created by The Tail Company",
+        "shortDescription" : "DIGITAiL designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
         "version" : "1.0",
