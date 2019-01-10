@@ -24,7 +24,7 @@ import org.kde.kirigami 2.4 as Kirigami
 Kirigami.Page {
     id: root;
     objectName: "welcomePage";
-    title: qsTr("Welcome");
+    title: qsTr("DIGITAiL");
     property QtObject connectionManager: null;
     actions {
         main: Kirigami.Action {

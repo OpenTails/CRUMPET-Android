@@ -63,14 +63,13 @@ Kirigami.ApplicationWindow {
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
-        title: "DIGITAiL";
         bannerImageSource: "qrc:/images/bannerimage.png";
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
         // Simply replacing the rectangle means we end up removing the handles and whatnot, so that's not cool
         Component.onCompleted: { background.color = "#3daee9"; }
         actions: [
             Kirigami.Action {
-                text: qsTr("Welcome");
+                text: qsTr("DIGITAiL");
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "welcomePage" : "";
                 icon.name: ":/org/kde/kirigami/icons/go-home.svg";
                 onTriggered: {
