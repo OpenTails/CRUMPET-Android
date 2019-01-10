@@ -99,7 +99,6 @@ Kirigami.Card {
                 return qsTr("Connect");
             }
         }
-        enabled: connectionManager.deviceModel.count > 0;
         visible: !(connectionManager.discoveryRunning === true && connectionManager.deviceModel.count === 0);
         onClicked: {
             if (connectionManager.discoveryRunning === false && connectionManager.deviceModel.count === 0) {
