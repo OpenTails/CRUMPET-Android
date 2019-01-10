@@ -73,7 +73,10 @@ Kirigami.Card {
                 }
             }
             else {
-                if (connectionManager.deviceModel.count > 1) {
+                if (connectionManager.deviceModel.count === 0) {
+                    return qsTr("We were unable to find any tails. Please ensure that it is nearby and switched on.");
+                }
+                else if (connectionManager.deviceModel.count > 1) {
                     return qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push \"Show available tails...\" below to see the available tails.").arg(connectionManager.deviceModel.count);
                 }
                 else {
@@ -86,7 +89,10 @@ Kirigami.Card {
     footer: Button {
         Layout.fillWidth: true; Layout.fillHeight: true;
         text: {
-            if (connectionManager.deviceModel.count > 1) {
+            if (connectionManager.discoveryRunning === false && connectionManager.deviceModel.count === 0) {
+                return qsTr("Look for tails");
+            }
+            else if (connectionManager.deviceModel.count > 1) {
                 return qsTr("Show available tails...");
             }
             else {
@@ -96,6 +102,9 @@ Kirigami.Card {
         enabled: connectionManager.deviceModel.count > 0;
         visible: !(connectionManager.discoveryRunning === true && connectionManager.deviceModel.count === 0);
         onClicked: {
+            if (connectionManager.discoveryRunning === false && connectionManager.deviceModel.count === 0) {
+                connectionManager.startDiscovery()
+            }
             if(connectionManager.deviceModel.count === 1) {
                 // Calling this will stop the discovery immediately and connect to the one tail that we've found
                 connectionManager.stopDiscovery();
