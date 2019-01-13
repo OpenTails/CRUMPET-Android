@@ -51,6 +51,28 @@ Kirigami.ScrollablePage {
                 text: model.name
                 level: 2
             }
+            footer: CheckBox {
+                    id: idleCheck;
+                    opacity: AppSettings.idleMode === true ? 1 : 0;
+                    text: qsTr("Include in idle mode");
+                    checked: {
+                        if(AppSettings.idleCategories.includes(model.category)) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    onClicked: {
+                        var categories = AppSettings.idleCategories;
+                        if(checked === true) {
+                            categories.push(model.category);
+                        }
+                        else {
+                            var idx = categories.indexOf(model.category);
+                            categories.splice(idx, 1);
+                        }
+                        AppSettings.idleCategories = categories;
+                    }
+                }
             contentItem: Item {
                 implicitHeight: commandGrid.cellHeight * Math.ceil(commandGrid.count / 3);
                 FilterProxyModel {
