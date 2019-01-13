@@ -41,6 +41,7 @@
 #include "../3rdparty/kirigami/src/kirigamiplugin.h"
 #include "btconnectionmanager.h"
 #include "filterproxymodel.h"
+#include "settings.h"
 
 Q_IMPORT_PLUGIN(KirigamiPlugin)
 
@@ -59,6 +60,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     qmlRegisterType<BTConnectionManager>("org.thetailcompany.digitail", 1, 0, "BTConnectionManager");
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
+    qmlRegisterSingletonType<AppSettings>("org.thetailcompany.digitail", 1, 0, "AppSettings", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+
+        AppSettings *appSettings = new AppSettings();
+        return appSettings;
+    });
     KirigamiPlugin::getInstance().registerTypes();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
