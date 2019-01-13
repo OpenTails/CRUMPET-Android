@@ -30,11 +30,16 @@ Kirigami.ApplicationWindow {
     title: qsTr("DIGITAiL");
 
     function switchToPage(pageToSwitchTo) {
-        if(pageToSwitchTo !== welcomePage && pageStack.depth === 1) {
+        if (pageToSwitchTo === welcomePage) {
+            pageStack.clear();
+            pageStack.push(pageToSwitchTo, {connectionManager: connectionManager});
+        }
+        else if (pageStack.depth === 1) {
             pageStack.push(pageToSwitchTo, {connectionManager: connectionManager});
         }
         else {
-            pageStack.replace(pageToSwitchTo, {connectionManager: connectionManager});
+            pageStack.pop();
+            pageStack.push(pageToSwitchTo, {connectionManager: connectionManager});
         }
     }
 
