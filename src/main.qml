@@ -29,6 +29,15 @@ Kirigami.ApplicationWindow {
     visible: true;
     title: qsTr("DIGITAiL");
 
+    function switchToPage(pageToSwitchTo) {
+        if(pageToSwitchTo !== welcomePage && pageStack.depth === 1) {
+            pageStack.push(pageToSwitchTo, {connectionManager: connectionManager});
+        }
+        else {
+            pageStack.replace(pageToSwitchTo, {connectionManager: connectionManager});
+        }
+    }
+
     BTConnectionManager {
         id: connectionManager;
         onMessage: {
@@ -49,17 +58,17 @@ Kirigami.ApplicationWindow {
             if (isConnected === true) {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);
                 if(pageToPush !== null) {
-                    pageStack.replace(pageToPush, {connectionManager: connectionManager});
+                    switchToPage(pageToPush);
                 }
                 else {
-                    pageStack.replace(tailMoves, {connectionManager: connectionManager});
+                    switchToPage(tailMoves);
                 }
             }
             connectingToTail.opacity = 0;
         }
     }
     Component.onCompleted: {
-        pageStack.replace(welcomePage, {connectionManager: connectionManager});
+        switchToPage(welcomePage);
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
@@ -73,7 +82,7 @@ Kirigami.ApplicationWindow {
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "welcomePage" : "";
                 icon.name: ":/org/kde/kirigami/icons/go-home.svg";
                 onTriggered: {
-                    pageStack.replace(welcomePage, {connectionManager: connectionManager});
+                    switchToPage(welcomePage);
                 }
             },
             Kirigami.Action {
@@ -83,7 +92,7 @@ Kirigami.ApplicationWindow {
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailMoves" : "";
                 icon.name: ":/images/tail-moves.svg";
                 onTriggered: {
-                    pageStack.replace(tailMoves, {connectionManager: connectionManager});
+                    switchToPage(tailMoves);
                 }
             },
             Kirigami.Action {
@@ -91,7 +100,7 @@ Kirigami.ApplicationWindow {
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailLights" : "";
                 icon.name: ":/images/tail-lights.svg";
                 onTriggered: {
-                    pageStack.replace(tailLights, {connectionManager: connectionManager});
+                    switchToPage(tailLights);
                 }
             },
             Kirigami.Action {
@@ -101,7 +110,7 @@ Kirigami.ApplicationWindow {
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "aboutPage" : "";
                 icon.name: ":/org/kde/kirigami/icons/help-about.svg";
                 onTriggered: {
-                    pageStack.replace(aboutPage);
+                    switchToPage(aboutPage);
                 }
             }
         ]

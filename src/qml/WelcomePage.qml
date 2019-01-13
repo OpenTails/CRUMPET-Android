@@ -20,6 +20,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.Page {
     id: root;
@@ -42,8 +43,8 @@ Kirigami.Page {
         contextualActions: [
             Kirigami.Action {
                 text: qsTr("Advanced Options");
-                checkable: true;
-                icon.name: checked ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
+                icon.name: Digitail.AppSettings.advancedMode ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
+                onTriggered: { Digitail.AppSettings.advancedMode = !Digitail.AppSettings.advancedMode; }
             }
         ]
     }
@@ -97,13 +98,7 @@ Kirigami.Page {
                 text: qsTr("Tail Lights");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    if(connectionManager.isConnected) {
-                        pageStack.replace(tailLights, {connectionManager: connectionManager});
-                    }
-                    else {
-                        connectToTail.pageToPush = tailLights;
-                        connectToTail.open();
-                    }
+                    switchToPage(tailLights);
                 }
             }
             Button {
@@ -114,14 +109,17 @@ Kirigami.Page {
                 Layout.rowSpan: 2;
                 Layout.fillWidth: true; Layout.fillHeight: true;
                 onClicked: {
-                    if(connectionManager.isConnected) {
-                        pageStack.replace(tailMoves, {connectionManager: connectionManager});
-                    }
-                    else {
-                        connectToTail.open();
-                    }
+                    switchToPage(tailMoves);
                 }
             }
+        }
+        CheckBox {
+            opacity: connectionManager.isConnected ? 1 : 0;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+            text: qsTr("Idle Mode");
+            width: parent.width;
+            checked: Digitail.AppSettings.idleMode;
+            onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
         }
     }
 }
