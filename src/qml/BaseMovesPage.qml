@@ -139,10 +139,7 @@ Kirigami.ScrollablePage {
         }
         Kirigami.CardsLayout {
             Repeater {
-        //         property int cellCount: root.width > root.height ? 2 : 1;
-        //         cellWidth: poseGrid.width / cellCount; cellHeight: cellWidth * 0.6;
                 model: connectionManager ? categoriesModel : null;
-        //         implicitWidth: 
                 delegate: categoryDelegate;
             }
         }
