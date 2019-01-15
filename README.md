@@ -18,7 +18,7 @@ And there are 11 built in moves u can call up immediately.
 ## BUILT IN MOVES
 
 ### TAIL MOVES AND DURATION
-
+```
 TAILS1 - SLOW_WAG1 9.5 secs
 TAILS2 - SLOW_WAG2 6 secs
 TAILS3 - SLOW_WAG3 7.8 secs
@@ -30,31 +30,31 @@ TAILEP - ERECT_PULSE 8.5 secs
 TAILT1 - TREMBLE1 4 secs
 TAILT2 - TREMBLE2 4.8 secs
 TAILET - ERECT_TREM 4.6 secs
-
+```
 and a Home Move: TAILHM
 
 There are 6 built in LED patterns
 
 ### LED PATTERNS
-
+```
 LEDREC - intermittent (on/off)
 LEDTRI - triangular (fade in/out)
 LEDSAW - sawtooth (fade in/off)
 LEDSOS - Morse SOS
 LEDFLA - flame simulation
 LEDSTR - strobo
-
+```
 and an Leds off command: LEDOFF
 
 ### OTHER COMMANDS
-
+```
 VER - returns the firmware version number
 PING - returns OK
 SHUTDOWN - powers off the unit (will lose the connection!)
 BATT - returns Bn (n= 0,1,2,3,4 number of 'bars')
 USERMOVE and USERLEDS which deal with user created moves or LED patterns
-
-Also, commands are now case insensitive
+```
+Also, commands are case insensitive
 
 We will split the app in to two parts from the Users point of view.
 
