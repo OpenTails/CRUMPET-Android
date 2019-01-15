@@ -131,9 +131,6 @@ I've been imagining a screen with a tail viewed as if your looking back at the p
 Notifications will available once we are hooked in to the phone notification system
 This is not part of the project until the other two modes are complete.
 
-The most complex thing will be the move designer, from a technical and graphical
-point of view.
-
 ## TO DO
 
 Battery to the status bar. Finish off modes. More colour. Splash screen?
