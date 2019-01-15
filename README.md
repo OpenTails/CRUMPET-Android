@@ -73,7 +73,7 @@ Perhaps the advanced mode is unlocked after a splash screen communicating the
 potential for harm to the Tail if used inappropriately. Should we have a test mode
 that logs moves? For diagnosis, edge cases, etc?
 
-## REMOTE CONTROL
+## REMOTE CONTROL - Normal Mode
 
 
 Slower, gentler, relaxed:
@@ -100,13 +100,13 @@ Pulse Erect
 
 A screen toggle for a second page to bring up the LED remote control buttons.
 
-## POSE MODE
+## POSE MODE - Normal Mode
 
 Poses are static shapes that we can define for the Tailer, so that they can strike a pose
 and it will hold it, for the all important photo. These can be described using
 Move Designer notation, and sent on button press.
 
-## MOVE PLAYLIST
+## MOVE PLAYLIST - Normal mode
 
 A simple way of chaining pre-defined moves together. We need a pause in between moves
 which serves both to make the system cooler, and also more natural.
@@ -116,15 +116,15 @@ Pauses could be defined as a range, so that they are of varying length.
 I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in
 These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
 
-## MOVE DESIGNER
+## IDLE MODE - Normal mode
+
+This will be the go-to mode for people who wear their Tail a lot - at a convention or around the house! Just click the top level button to string together calm and energetic moves, with a random duration pauses in between. No other input required
+
+## MOVE DESIGNER - Advanced mode
 
 See the separate doc for methods of describing moves, and how to send them to the Tail.
 
 I've been imagining a screen with a tail viewed as if your looking back at the person wearing it. The tip of the tail is in the centre of the screen. With a mouse, you drag it one way or the other, and it "springs" back and the other way creating a pattern. If you want a shorter move, you just let it go a shorter distance. Or a higher way, drag it higher. See what i mean? And it has a kind of gravity keeping it moving until it comes to rest. Something like that.
-
-## IDLE MODE
-
-This will be the go-to mode for people who wear their Tail a lot - at a convention or around the house! Just click the top level button to string together calm and energetic moves, with a random duration pauses in between. No other input required
 
 ## NOTIFICATIONS
 
@@ -136,11 +136,7 @@ point of view.
 
 ## TO DO
 
-Remove LED word from each LED pattern. Move the LED OFF button to below the LED section.
-Add a nice green RGB 163,210,134 behind the calm moves, a nice blue 0,192,220 behind the excited ones and a red one 251,107,70 behind the angry ones
-Add a "DIGITAiL designed and created by The Tail Company - http://thetailcompany.com" on the about page
-Add a "VER" call on the about page
-Add a "BATT" call somewhere!
+Battery to the status bar. Finish off modes. More colour. Splash screen?
 
 # How To Compile The App
 
