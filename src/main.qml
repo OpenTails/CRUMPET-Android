@@ -53,7 +53,6 @@ Kirigami.ApplicationWindow {
             if (discoveryRunning === false) {
                 if(connectionManager.deviceModel.count === 1 && connectToTail.sheetOpen === false) {
                     // only one tail found? Well then, connect to that!
-                    pageToPush = welcomePage;
                     connectToDevice(deviceModel.getDeviceID(0));
                     connectingToTail.opacity = 1;
                 }
@@ -64,9 +63,7 @@ Kirigami.ApplicationWindow {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);
                 if(pageToPush !== null) {
                     switchToPage(pageToPush);
-                }
-                else {
-                    switchToPage(tailMoves);
+                    pageToPush = null;
                 }
             }
             connectingToTail.opacity = 0;

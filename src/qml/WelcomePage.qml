@@ -36,7 +36,12 @@ Kirigami.Page {
                     connectionManager.disconnectDevice();
                 }
                 else {
-                    connectToTail.open();
+                    if(connectionManager.deviceModel.count === 1) {
+                        connectionManager.stopDiscovery();
+                    }
+                    else {
+                        connectToTail.open();
+                    }
                 }
             }
         }
