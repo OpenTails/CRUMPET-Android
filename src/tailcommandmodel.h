@@ -32,16 +32,20 @@ public:
         Name = Qt::UserRole + 1,
         Command,
         IsRunning,
-        Category
+        Category,
+        Duration,
+        MinimumCooldown
     };
 
     struct CommandInfo {
     public:
-        CommandInfo() : isRunning(false) {}
+        CommandInfo() : isRunning(false), duration(0), minimumCooldown(0) {}
         QString name;
         QString command;
         bool isRunning;
         QString category;
+        int duration; // milliseconds
+        int minimumCooldown; // milliseconds
     };
 
     QHash< int, QByteArray > roleNames() const override;
