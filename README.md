@@ -58,14 +58,14 @@ Also, commands are case insensitive
 
 We will split the app in to two parts from the Users point of view.
 
-## NORMAL MODE
+### NORMAL MODE
 
 This will have the Remote Control page (for moves and LEDs) as above.
 It will also have the Move playlist page and Pose Mode page.
 
 In this mode, moves cant be interrupted. All moves are followed by the homing move.
 
-## ADVANCED MODE
+### ADVANCED MODE
 
 This will include the Move Designer page. It might also allow some different settings
 
