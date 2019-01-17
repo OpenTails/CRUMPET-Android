@@ -32,6 +32,7 @@ class BTConnectionManager : public QObject
     Q_PROPERTY(QObject* deviceModel READ deviceModel NOTIFY deviceModelChanged)
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
     Q_PROPERTY(QObject* commandModel READ commandModel NOTIFY commandModelChanged)
+    Q_PROPERTY(QObject* commandQueue READ commandQueue NOTIFY commandQueueChanged)
     Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
     Q_PROPERTY(bool discoveryRunning READ discoveryRunning NOTIFY discoveryRunningChanged)
 
@@ -44,6 +45,7 @@ public:
 
     QObject* deviceModel() const;
     QObject* commandModel() const;
+    QObject* commandQueue() const;
 
     Q_INVOKABLE void runCommand(const QString& command);
 
@@ -70,6 +72,7 @@ Q_SIGNALS:
     void disconnected();
     void deviceModelChanged();
     void commandModelChanged();
+    void commandQueueChanged();
     void message(const QString& message);
 
 private:

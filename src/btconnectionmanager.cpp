@@ -18,6 +18,7 @@
 #include "btconnectionmanager.h"
 #include "btdevicemodel.h"
 #include "tailcommandmodel.h"
+#include "commandqueue.h"
 
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothServiceDiscoveryAgent>
@@ -35,6 +36,7 @@ public:
         , tailService(nullptr)
         , commandModel(nullptr)
         , batteryLevel(0)
+        , commandQueue(nullptr)
         , deviceDiscoveryAgent(nullptr)
         , discoveryRunning(false)
     {
@@ -56,6 +58,7 @@ public:
     QString currentCall;
     int batteryLevel;
     QTimer batteryTimer;
+    CommandQueue* commandQueue;
 
     QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent;
     bool discoveryRunning;
@@ -214,6 +217,13 @@ void BTConnectionManager::serviceStateChanged(QLowEnergyService::ServiceState s)
         d->commandModel = new TailCommandModel(this);
         emit commandModelChanged();
 
+        if(d->commandQueue) {
+            d->commandQueue->deleteLater();
+        }
+        d->commandQueue = new CommandQueue(this);
+        d->commandQueue->setConnectionManager(this);
+        emit commandQueueChanged();
+
         // Get the descriptor, and turn on notifications
         d->tailDescriptor = d->tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
         d->tailService->writeDescriptor(d->tailDescriptor, QByteArray::fromHex("0100"));
@@ -240,6 +250,11 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
                 emit commandModelChanged();
             }
             d->commandModel->autofill(newValue);
+            if(!d->commandQueue) {
+                d->commandQueue = new CommandQueue(this);
+                d->commandQueue->setConnectionManager(this);
+                emit commandQueueChanged();
+            }
             d->batteryTimer.start();
             sendMessage("BATT");
         }
@@ -310,6 +325,11 @@ void BTConnectionManager::runCommand(const QString& command)
 QObject* BTConnectionManager::commandModel() const
 {
     return d->commandModel;
+}
+
+QObject * BTConnectionManager::commandQueue() const
+{
+    return d->commandQueue;
 }
 
 bool BTConnectionManager::isConnected() const
