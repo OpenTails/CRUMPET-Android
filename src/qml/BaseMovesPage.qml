@@ -111,7 +111,8 @@ Kirigami.ScrollablePage {
                         MouseArea {
                             anchors.fill: parent;
                             onClicked: {
-                                connectionManager.runCommand(model.command);
+                                connectionManager.commandQueue.clear();
+                                connectionManager.commandQueue.pushCommand(model.commandInfo);
                             }
                         }
                     }
