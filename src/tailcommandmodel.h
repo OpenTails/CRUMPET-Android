@@ -34,7 +34,8 @@ public:
         IsRunning,
         Category,
         Duration,
-        MinimumCooldown
+        MinimumCooldown,
+        CommandInfoRole
     };
 
     struct CommandInfo {
@@ -83,5 +84,6 @@ private:
     class Private;
     Private* d;
 };
+Q_DECLARE_METATYPE(TailCommandModel::CommandInfo*);
 
 #endif//TAILCOMMANDMODEL_H

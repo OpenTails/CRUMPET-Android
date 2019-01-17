@@ -49,6 +49,7 @@ QHash< int, QByteArray > TailCommandModel::roleNames() const
     roles[Category] = "category";
     roles[Duration] = "duration";
     roles[MinimumCooldown] = "minimumCooldown";
+    roles[CommandInfoRole] = "commandInfo";
     return roles;
 }
 
@@ -76,6 +77,8 @@ QVariant TailCommandModel::data(const QModelIndex& index, int role) const
             case MinimumCooldown:
                 value = command->minimumCooldown;
                 break;
+            case CommandInfoRole:
+                value.setValue<TailCommandModel::CommandInfo*>(command);
             default:
                 break;
         }
