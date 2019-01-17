@@ -47,6 +47,7 @@ public:
         int duration; // milliseconds
         int minimumCooldown; // milliseconds
     };
+    typedef QList<CommandInfo*> CommandInfoList;
 
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
