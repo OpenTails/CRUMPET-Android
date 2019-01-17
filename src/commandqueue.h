@@ -60,20 +60,20 @@ public:
     /**
      * Clear the queue of all commands
      */
-    void clear();
+    Q_INVOKABLE void clear();
     /**
      * Add a pause to the end of the queue
      *
      * @param durationMilliseconds The duration of the pause in milliseconds
      */
-    void pushPause(int durationMilliseconds);
+    Q_INVOKABLE void pushPause(int durationMilliseconds);
     /**
      * Add a specific command to the end of the queue. If there are no commands
      * currently running, the command will be run immediately.
      *
      * @param command The command you wish to add to the queue
      */
-    void pushCommand(TailCommandModel::CommandInfo* command);
+    Q_INVOKABLE void pushCommand(TailCommandModel::CommandInfo* command);
     /**
      * A convenient way of adding a whole list of commands to the queue in one go.
      * As with adding a single command, if nothing is currently running, once the
@@ -81,34 +81,34 @@ public:
      *
      * @param commands The list of commands to add to the queue
      */
-    void pushCommands(TailCommandModel::CommandInfoList commands);
+    Q_INVOKABLE void pushCommands(TailCommandModel::CommandInfoList commands);
     /**
      * Remove a specific command from the queue
      *
      * @param index The index of the command to be removed
      */
-    void removeEntry(int index);
+    Q_INVOKABLE void removeEntry(int index);
     /**
      * Swap the location of two commands in the queue
      *
      * @param swapThis The first command (which will end up at the original position of withThis)
      * @param withThis The second command (which will end up at the original position of swapThis)
      */
-    void swapEntries(int swapThis, int withThis);
+    Q_INVOKABLE void swapEntries(int swapThis, int withThis);
     /**
      * A convenience method for swapping a command with the entry above it
      * (or, in other words, move the command one position up in the queue)
      *
      * @param index The index of the command to move up one position
      */
-    void moveEntryUp(int index);
+    Q_INVOKABLE void moveEntryUp(int index);
     /**
      * A convenience method for swapping a command with the entry below it
      * (or, in other words, move the command one position down in the queue)
      *
      * @param index The index of the command to move down one position
      */
-    void moveEntryDown(int index);
+    Q_INVOKABLE void moveEntryDown(int index);
 
     QObject* connectionManager() const;
     void setConnectionManager(QObject* connectionManager);
