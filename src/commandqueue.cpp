@@ -18,23 +18,63 @@
 #include "commandqueue.h"
 #include "btconnectionmanager.h"
 
+#include <QTimer>
+
 class CommandQueue::Private
 {
 public:
-    Private()
-        : connectionManager(nullptr)
+    Private(CommandQueue* qq)
+        : q(qq)
+        , connectionManager(nullptr)
     {}
     ~Private() {}
 
+    CommandQueue* q;
+
     // These commands are owned by TailCommandModel, do not delete them
     TailCommandModel::CommandInfoList commands;
+    TailCommandModel::CommandInfoList ourCommands;
     BTConnectionManager* connectionManager;
+
+    QTimer* popTimer;
+
+    void pop()
+    {
+        // only pop if there's commands left
+        if(commands.count() > 0) {
+            q->beginRemoveRows(QModelIndex(), 0, 0);
+            TailCommandModel::CommandInfo* command = commands.takeFirst();
+            q->endRemoveRows();
+
+            // Command can be empty if it's a pause (possibly others as well,
+            // though not yet, but just never send an empty command)
+            if(!command->command.isEmpty()) {
+                connectionManager->sendMessage(command->command);
+            }
+
+            popTimer->start(command->duration + command->minimumCooldown);
+
+            // ourCommands holds the things we create in the queue itself,
+            // which is mostly pauses. Those we will need to manage the
+            // memory of ourselves, and so when we take those, get rid of
+            // them entirely.
+            if(ourCommands.contains(command)) {
+                ourCommands.removeAll(command);
+                delete command;
+            }
+
+            emit q->countChanged();
+        }
+    }
 };
 
 CommandQueue::CommandQueue(QObject* parent)
     : QAbstractListModel(parent)
-    , d(new Private)
+    , d(new Private(this))
 {
+    d->popTimer = new QTimer(this);
+    d->popTimer->setSingleShot(true);
+    connect(d->popTimer, &QTimer::timeout, this, [this](){ d->pop(); });
 }
 
 CommandQueue::~CommandQueue()
@@ -100,10 +140,22 @@ int CommandQueue::count() const
 
 void CommandQueue::clear()
 {
+    // Before doing anything else, ensure the timer doesn't suddenly pick stuff
+    // out from underneath us. Stop all functio and let's do the thing.
+    d->popTimer->stop();
     beginResetModel();
     d->commands.clear();
     endResetModel();
     emit countChanged();
+}
+
+void CommandQueue::pushPause(int durationMilliseconds)
+{
+    TailCommandModel::CommandInfo* command = new TailCommandModel::CommandInfo;
+    command->name = "Pause";
+    command->duration = durationMilliseconds;
+    d->ourCommands.append(command);
+    pushCommand(command);
 }
 
 void CommandQueue::pushCommand(TailCommandModel::CommandInfo* command)
@@ -112,6 +164,12 @@ void CommandQueue::pushCommand(TailCommandModel::CommandInfo* command)
     d->commands.append(command);
     endInsertRows();
     emit countChanged();
+
+    // If we have just pushed a command and the timer is not currently running,
+    // let's fire one off now!
+    if(!d->popTimer->isActive()) {
+        d->pop();
+    }
 }
 
 void CommandQueue::pushCommands(TailCommandModel::CommandInfoList commands)
@@ -121,6 +179,12 @@ void CommandQueue::pushCommands(TailCommandModel::CommandInfoList commands)
         d->commands.append(commands);
         endInsertRows();
         emit countChanged();
+
+        // If we have just pushed some commands and the timer is not currently
+        // running, let's fire one off now!
+        if(!d->popTimer->isActive()) {
+            d->pop();
+        }
     }
 }
 
