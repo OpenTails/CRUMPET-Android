@@ -21,6 +21,7 @@ import org.kde.kirigami 2.5 as Kirigami
 
 BaseMovesPage {
     objectName: "tailMoves";
+    title: qsTr("Tail Moves");
     actions {
         main: Kirigami.Action {
             text: qsTr("Tail Home Position");

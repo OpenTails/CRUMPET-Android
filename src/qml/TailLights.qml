@@ -21,6 +21,7 @@ import org.kde.kirigami 2.5 as Kirigami
 
 BaseMovesPage {
     objectName: "tailLights";
+    title: qsTr("Tail Lights");
     actions {
         main: Kirigami.Action {
             text: qsTr("Stop Lights");
