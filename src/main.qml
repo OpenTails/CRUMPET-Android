@@ -118,6 +118,7 @@ Kirigami.ApplicationWindow {
             }
             Row {
                 anchors.right: parent.right;
+                spacing: Kirigami.Units.smallSpacing;
                 Repeater {
                     model: 4;
                     Rectangle {
