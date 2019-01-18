@@ -73,6 +73,22 @@ Kirigami.ApplicationWindow {
         switchToPage(welcomePage);
     }
 
+    function idleModePush() {
+        if(connectionManager.commandQueue.count === 0 && AppSettings.idleMode === true && AppSettings.idleCategories.length > 0) {
+            connectionManager.commandQueue.pushCommand(connectionManager.commandModel.getRandomCommand(AppSettings.idleCategories));
+            connectionManager.commandQueue.pushPause(/* add a random pause */ 10000);
+        }
+    }
+    Connections {
+        target: connectionManager.commandQueue;
+        onCountChanged: idleModePush();
+    }
+    Connections {
+        target: AppSettings;
+        onIdleModeChanged: idleModePush();
+        onIdleCategoriesChanged: idleModePush();
+    }
+
     globalDrawer: Kirigami.GlobalDrawer {
         bannerImageSource: "qrc:/images/bannerimage.png";
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
@@ -141,6 +157,15 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: qsTr("Idle Mode Settings");
+                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "idleMode" : "";
+                icon.name: ":/org/kde/kirigami/icons/randomize.svg";
+                visible: AppSettings.idleMode;
+                onTriggered: {
+                    switchToPage(idleModePage);
+                }
+            },
+            Kirigami.Action {
             },
             Kirigami.Action {
                 text: qsTr("About");
@@ -166,6 +191,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: tailLights;
         TailLights {}
+    }
+    Component {
+        id: idleModePage;
+        IdleModePage {}
     }
     Component {
         id: aboutPage;
