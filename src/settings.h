@@ -26,6 +26,8 @@ class AppSettings : public QObject
     Q_PROPERTY(bool advancedMode READ advancedMode WRITE setAdvancedMode NOTIFY advancedModeChanged)
     Q_PROPERTY(bool idleMode READ idleMode WRITE setIdleMode NOTIFY idleModeChanged)
     Q_PROPERTY(QStringList idleCategories READ idleCategories WRITE setIdleCategories NOTIFY idleCategoriesChanged)
+    Q_PROPERTY(int idleMinPause READ idleMinPause WRITE setIdleMinPause NOTIFY idleMinPauseChanged)
+    Q_PROPERTY(int idleMaxPause READ idleMaxPause WRITE setIdleMaxPause NOTIFY idleMaxPauseChanged)
 public:
     explicit AppSettings(QObject* parent = 0);
     virtual ~AppSettings();
@@ -38,10 +40,18 @@ public:
 
     QStringList idleCategories() const;
     void setIdleCategories(const QStringList& newCategories);
+
+    int idleMinPause() const;
+    void setIdleMinPause(int pause);
+
+    int idleMaxPause() const;
+    void setIdleMaxPause(int pause);
 Q_SIGNALS:
     void advancedModeChanged();
     void idleModeChanged();
     void idleCategoriesChanged();
+    void idleMinPauseChanged();
+    void idleMaxPauseChanged();
 
 private:
     class Private;

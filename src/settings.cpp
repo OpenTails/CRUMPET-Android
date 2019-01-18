@@ -23,12 +23,16 @@ public:
     Private()
         : advancedMode(false)
         , idleMode(false)
+        , idleMinPause(10)
+        , idleMaxPause(30)
     {}
     ~Private() {}
 
     bool advancedMode;
     bool idleMode;
     QStringList idleCategories;
+    int idleMinPause;
+    int idleMaxPause;
 };
 
 AppSettings::AppSettings(QObject* parent)
@@ -73,4 +77,26 @@ void AppSettings::setIdleCategories(const QStringList& newCategories)
 {
     d->idleCategories = newCategories;
     emit idleCategoriesChanged();
+}
+
+int AppSettings::idleMinPause() const
+{
+    return d->idleMinPause;
+}
+
+void AppSettings::setIdleMinPause(int pause)
+{
+    d->idleMinPause = pause;
+    emit idleMinPauseChanged();
+}
+
+int AppSettings::idleMaxPause() const
+{
+    return d->idleMaxPause;
+}
+
+void AppSettings::setIdleMaxPause(int pause)
+{
+    d->idleMaxPause = pause;
+    emit idleMaxPauseChanged();
 }
