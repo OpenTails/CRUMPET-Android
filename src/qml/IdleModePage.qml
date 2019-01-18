@@ -28,12 +28,12 @@ Kirigami.ScrollablePage {
     Component {
         id: idleCategoryDelegate;
         Kirigami.BasicListItem {
-            icon: Digitail.AppSettings.idleCategories.includes(model.category) ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
+            icon: Digitail.AppSettings.idleCategories.indexOf(model.category) >= 0 ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
             label: model.name;
             onClicked: {
                 var categories = Digitail.AppSettings.idleCategories;
-                if(Digitail.AppSettings.idleCategories.includes(model.category)) {
-                    var idx = categories.indexOf(model.category);
+                var idx = categories.indexOf(model.category);
+                if(idx >= 0) {
                     categories.splice(idx, 1);
                 }
                 else {
