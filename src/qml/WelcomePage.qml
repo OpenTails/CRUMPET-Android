@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
@@ -118,13 +118,84 @@ Kirigami.Page {
                 }
             }
         }
-        CheckBox {
+        Kirigami.AbstractCard {
             opacity: connectionManager.isConnected ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-            text: qsTr("Idle Mode");
             width: parent.width;
-            checked: Digitail.AppSettings.idleMode;
-            onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
+            header: Kirigami.Heading {
+                text: qsTr("Idle Mode");
+                CheckBox {
+                    anchors.right: parent.right;
+                    height: parent.height;
+                    width: height;
+                    checked: Digitail.AppSettings.idleMode;
+                    onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
+                    RoundButton {
+                        opacity: parent.checked ? 1 : 0;
+                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                        anchors {
+                            right: parent.left;
+                            rightMargin: Kirigami.Units.smallSpacing;
+                            verticalCenter: parent.verticalCenter;
+                        }
+                        height: parent.height;
+                        width: height;
+                        onClicked: switchToPage(idleModePage);
+                        Image {
+                            source: "qrc:/org/kde/kirigami/icons/settings-configure.svg";
+                            anchors.fill: parent;
+                            fillMode: Image.PreserveAspectFit;
+                        }
+                    }
+                }
+            }
+            Component {
+                id: idlePauseRangePicker;
+                Column {
+                    Label {
+                        text: qsTr("Range of pause between random moves in seconds");
+                        anchors { left: parent.left; right: parent.right; }
+                    }
+                    RangeSlider {
+                        id: pauseRangeSlider;
+                        anchors { left: parent.left; right: parent.right; leftMargin: Kirigami.Units.largeSpacing; }
+                        from: 0;
+                        to: 120;
+                        stepSize: 1.0;
+                        first.onValueChanged: { Digitail.AppSettings.idleMinPause = first.value; }
+                        second.onValueChanged: { Digitail.AppSettings.idleMaxPause = second.value; }
+                        Component.onCompleted: {
+                            pauseRangeSlider.setValues(Digitail.AppSettings.idleMinPause, Digitail.AppSettings.idleMaxPause);
+                        }
+                    }
+                    Item {
+                        anchors { left: parent.left; right: parent.right; leftMargin: Kirigami.Units.largeSpacing; }
+                        height: childrenRect.height;
+                        Label {
+                            text: Math.floor(pauseRangeSlider.first.value);
+                            anchors {
+                                left: parent.left;
+                                right: parent.horizontalCentre;
+                            }
+                        }
+                        Label {
+                            text: Math.floor(pauseRangeSlider.second.value);
+                            verticalAlignment: Text.AlignRight;
+                            anchors {
+                                left: parent.horizontalCentre;
+                                right: parent.right;
+                            }
+                        }
+                    }
+                }
+            }
+            Component {
+                id: emptyNothing;
+                Item {}
+            }
+            contentItem: Loader {
+                sourceComponent: Digitail.AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
+            }
         }
         Button {
             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");

@@ -18,6 +18,6 @@
         <file alias="icons/handle-right.svg">../3rdparty/breeze-icons/icons/actions/22/handle-right.svg</file>
         <file alias="icons/view-list-icons.svg">../3rdparty/breeze-icons/icons/actions/32/view-list-icons.svg</file>
         <file alias="icons/applications-graphics.svg">../3rdparty/breeze-icons/icons/categories/32/applications-graphics.svg</file>
-        <file alias="icons/media-record-symbolic.svg">../3rdparty/breeze-icons/icons/actions/symbolic/media-record-symbolic.svg</file>
+        <file alias="icons/settings-configure.svg">../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
     </qresource>
 </RCC>
