@@ -56,6 +56,8 @@ USERMOVE and USERLEDS which deal with user created moves or LED patterns
 ```
 Also, commands are case insensitive
 
+Note about Battery Level: the batteries are read charge-wise only when the app asks. There is a super-quick flash of any connected LEDS when the reading is done. The charge level is returned BATTn with n showing charge. If the Tail determines the charge is low, the tail will flash the internal red led.
+
 We will split the app in to two parts from the Users point of view.
 
 ### NORMAL MODE
