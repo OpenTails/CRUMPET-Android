@@ -74,7 +74,7 @@ Kirigami.ScrollablePage {
             anchors { left: parent.left; right: parent.right; }
             contentItem: Column {
                 Label {
-                    text: qsTr("Range of pause between moves in seconds");
+                    text: qsTr("Range of pause between random moves in seconds");
                     anchors { left: parent.left; right: parent.right; }
                 }
                 RangeSlider {
