@@ -33,6 +33,7 @@ TailCommandModel::TailCommandModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private)
 {
+    qRegisterMetaType<TailCommandModel::CommandInfo*>();
 }
 
 TailCommandModel::~TailCommandModel()
