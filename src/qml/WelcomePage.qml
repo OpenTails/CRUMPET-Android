@@ -126,5 +126,15 @@ Kirigami.Page {
             checked: Digitail.AppSettings.idleMode;
             onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
         }
+        Button {
+            text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
+            width: parent.width;
+            onClicked: {
+                for(var i = 0; i < 1000; ++i) {
+                    connectionManager.commandQueue.pushCommand(connectionManager.commandModel.getCommand(1));
+                    connectionManager.commandQueue.pushPause(3000);
+                }
+            }
+        }
     }
 }
