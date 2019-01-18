@@ -73,10 +73,23 @@ Kirigami.ApplicationWindow {
         switchToPage(welcomePage);
     }
 
+    /**
+    * Example from MDN
+    * Returns a random integer between min (inclusive) and max (inclusive).
+    * The value is no lower than min (or the next integer greater than min
+    * if min isn't an integer) and no greater than max (or the next integer
+    * lower than max if max isn't an integer).
+    * Using Math.round() will give you a non-uniform distribution!
+    */
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
     function idleModePush() {
         if(connectionManager.commandQueue.count === 0 && AppSettings.idleMode === true && AppSettings.idleCategories.length > 0) {
             connectionManager.commandQueue.pushCommand(connectionManager.commandModel.getRandomCommand(AppSettings.idleCategories));
-            connectionManager.commandQueue.pushPause(/* add a random pause */ 10000);
+            connectionManager.commandQueue.pushPause(getRandomInt(AppSettings.idleMinPause, AppSettings.idleMaxPause) * 1000);
         }
     }
     Connections {
