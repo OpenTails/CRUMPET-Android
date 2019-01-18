@@ -18,6 +18,7 @@
 #include "tailcommandmodel.h"
 
 #include <QDebug>
+#include <QRandomGenerator>
 
 class TailCommandModel::Private
 {
@@ -319,6 +320,25 @@ TailCommandModel::CommandInfo * TailCommandModel::getCommand(int index) const
 {
     if(index >= 0 && index < d->commands.count()) {
         return d->commands[index];
+    }
+    return nullptr;
+}
+
+TailCommandModel::CommandInfo * TailCommandModel::getRandomCommand(QStringList includedCategories) const
+{
+    if(d->commands.count() > 0) {
+        TailCommandModel::CommandInfoList pickFrom;
+        if(includedCategories.isEmpty()) {
+            pickFrom.append(d->commands);
+        }
+        else {
+            for(TailCommandModel::CommandInfo* command : d->commands) {
+                if(includedCategories.contains(command->category)) {
+                    pickFrom << command;
+                }
+            }
+        }
+        return pickFrom.at(QRandomGenerator::global()->bounded(pickFrom.count()));
     }
     return nullptr;
 }

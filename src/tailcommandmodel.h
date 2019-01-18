@@ -81,7 +81,22 @@ public:
     QString tailVersion() const;
     Q_SIGNAL void tailVersionChanged();
 
+    /**
+     * Get the command at a specified index
+     *
+     * @param index The index of the command to fetch
+     * @return A command if the index was valid, or null if not
+     */
     Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(int index) const;
+    /**
+     * Get a random command, picked from the currently available commands, limited
+     * to commands with the category listed in includedCategories. If the list is
+     * empty, any command will be listed.
+     *
+     * @param includedCategories A list of strings matching the categories
+     * @return A random command matching one of the requested categories
+     */
+    Q_INVOKABLE TailCommandModel::CommandInfo* getRandomCommand(QStringList includedCategories) const;
 private:
     class Private;
     Private* d;
