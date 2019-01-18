@@ -313,3 +313,11 @@ QString TailCommandModel::tailVersion() const
 {
     return d->tailVersion;
 }
+
+TailCommandModel::CommandInfo * TailCommandModel::getCommand(int index) const
+{
+    if(index >= 0 && index < d->commands.count()) {
+        return d->commands[index];
+    }
+    return nullptr;
+}

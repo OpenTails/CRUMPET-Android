@@ -80,6 +80,8 @@ public:
 
     QString tailVersion() const;
     Q_SIGNAL void tailVersionChanged();
+
+    Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(int index) const;
 private:
     class Private;
     Private* d;
