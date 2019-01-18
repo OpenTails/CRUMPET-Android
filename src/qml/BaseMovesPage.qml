@@ -25,7 +25,7 @@ import org.thetailcompany.digitail 1.0
 
 Kirigami.ScrollablePage {
     id: root;
-    title: qsTr("Tail Moves (battery level: %1)").arg(connectionManager.batteryLevel);
+    title: qsTr("Tail Moves");
     property QtObject categoriesModel: ListModel { }
     property QtObject connectionManager: null;
 
