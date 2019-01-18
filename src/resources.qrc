@@ -4,6 +4,7 @@
         <file>qml/AboutPage.qml</file>
         <file>qml/BaseMovesPage.qml</file>
         <file>qml/ConnectToTail.qml</file>
+        <file>qml/IdleModePage.qml</file>
         <file>qml/NotConnectedCard.qml</file>
         <file>qml/TailLights.qml</file>
         <file>qml/TailMoves.qml</file>
