@@ -75,7 +75,7 @@ Perhaps the advanced mode is unlocked after a splash screen communicating the
 potential for harm to the Tail if used inappropriately. Should we have a test mode
 that logs moves? For diagnosis, edge cases, etc?
 
-## REMOTE CONTROL - Normal Mode
+## REMOTE - Normal Mode
 
 
 Slower, gentler, relaxed:
@@ -102,7 +102,7 @@ Pulse Erect
 
 A screen toggle for a second page to bring up the LED remote control buttons.
 
-## POSE MODE - Normal Mode
+## POSES - Normal Mode
 
 Poses are static shapes that we can define for the Tailer, so that they can strike a pose
 and it will hold it, for the all important photo. These can be described using
@@ -117,7 +117,7 @@ Pauses defined as a range, so that they are of varying length.
 
 I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in. These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
 
-## CASUAL MODE - Normal mode
+## CASUAL! - Normal mode
 
 This will be the go-to mode for people who wear their Tail a lot - at a convention or around the house! Just click the top level button to string together calm and energetic moves, with a random duration pauses in between. No other input required
 
