@@ -15,6 +15,8 @@ All aspects of the Tail are controlled through this service and this characteris
 The app will send a text string to the tail to the right characteristic. 
 And there are 11 built in moves u can call up immediately.
 
+*YOU CANNOT USE THE TAIL WHILE IT IS BEING POWERED BY THE POWER ADAPTOR*
+
 ## BUILT IN MOVES
 
 ### TAIL MOVES AND DURATION
