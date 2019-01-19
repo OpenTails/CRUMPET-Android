@@ -113,12 +113,11 @@ Move Designer notation, and sent on button press.
 A simple way of chaining pre-defined moves together. We need a pause in between moves
 which serves both to make the system cooler, and also more natural.
 
-Pauses could be defined as a range, so that they are of varying length.
+Pauses defined as a range, so that they are of varying length.
 
-I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in
-These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
+I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in. These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
 
-## IDLE MODE - Normal mode
+## CASUAL MODE - Normal mode
 
 This will be the go-to mode for people who wear their Tail a lot - at a convention or around the house! Just click the top level button to string together calm and energetic moves, with a random duration pauses in between. No other input required
 
