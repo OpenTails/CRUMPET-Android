@@ -6,3 +6,6 @@
 	path = 3rdparty/breeze-icons
 	url = git://anongit.kde.org/breeze-icons.git
 	branch = master
+[submodule "3rdparty/qtremoteobjects"]
+	path = 3rdparty/qtremoteobjects
+	url = git://code.qt.io/qt/qtremoteobjects.git
