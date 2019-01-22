@@ -1,4 +1,5 @@
 include_directories(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/src)
+include_directories(${Qt5RemoteObjects_INCLUDEDIR})
 include(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/KF5Kirigami2Macros.cmake)
 
 # Make sure we can register the types from the static library
@@ -30,7 +31,7 @@ endif()
 
 add_executable(digitail ${digitail_SRCS} ${RESOURCES})
 #kirigamiplugin is the static library built by us
-target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5RemoteObjects ${digitail_EXTRA_LIBS})
 
 install(TARGETS digitail ${INSTALL_TARGETS_DEFAULT_ARGS})
 
