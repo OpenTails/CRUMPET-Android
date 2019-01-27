@@ -36,7 +36,7 @@ public:
 };
 
 AppSettings::AppSettings(QObject* parent)
-    : QObject(parent)
+    : SettingsProxySource(parent)
     , d(new Private)
 {
 }
@@ -73,7 +73,7 @@ QStringList AppSettings::idleCategories() const
     return d->idleCategories;
 }
 
-void AppSettings::setIdleCategories(const QStringList& newCategories)
+void AppSettings::setIdleCategories(QStringList newCategories)
 {
     d->idleCategories = newCategories;
     emit idleCategoriesChanged();

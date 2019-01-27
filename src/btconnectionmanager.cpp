@@ -30,7 +30,7 @@ class BTConnectionManager::Private {
 public:
     Private()
         : tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
-        , deviceModel(new BTDeviceModel)
+        , deviceModel(nullptr)
         , discoveryAgent(nullptr)
         , btControl(nullptr)
         , tailService(nullptr)
@@ -41,9 +41,7 @@ public:
         , discoveryRunning(false)
     {
     }
-    ~Private() {
-        deviceModel->deleteLater();
-    }
+    ~Private() {}
 
     QBluetoothUuid tailStateCharacteristicUuid;
 
@@ -65,9 +63,16 @@ public:
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
-    : QObject(parent)
+    : BTConnectionManagerProxySource(parent)
     , d(new Private)
 {
+    d->commandModel = new TailCommandModel(this);
+    d->commandQueue = new CommandQueue(this);
+    connect(d->commandQueue, &CommandQueue::countChanged, this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
+
+    d->deviceModel = new BTDeviceModel(this);
+    connect(d->deviceModel, &BTDeviceModel::countChanged, this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
+
     // Create a discovery agent and connect to its signals
     d->deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
     connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
@@ -82,7 +87,7 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
     connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, [this](){
         qDebug() << "Device discovery completed";
         d->discoveryRunning = false;
-        emit discoveryRunningChanged();
+        emit discoveryRunningChanged(d->discoveryRunning);
     });
     startDiscovery();
 
@@ -100,24 +105,25 @@ BTConnectionManager::~BTConnectionManager()
 void BTConnectionManager::startDiscovery()
 {
     d->discoveryRunning = true;
-    emit discoveryRunningChanged();
+    emit discoveryRunningChanged(d->discoveryRunning);
     d->deviceDiscoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
 }
 
 void BTConnectionManager::stopDiscovery()
 {
     d->discoveryRunning = false;
-    emit discoveryRunningChanged();
+    emit discoveryRunningChanged(d->discoveryRunning);
     d->deviceDiscoveryAgent->stop();
 }
 
-bool BTConnectionManager::discoveryRunning()
+bool BTConnectionManager::discoveryRunning() const
 {
     return d->discoveryRunning;
 }
 
-void BTConnectionManager::connectToDevice(const QString& deviceID)
+void BTConnectionManager::connectToDevice(int deviceIndex)
 {
+    const QString& deviceID = d->deviceModel->getDeviceID(deviceIndex);
     const BTDeviceModel::Device* device = d->deviceModel->getDevice(deviceID);
     if(device) {
         qDebug() << "Attempting to connect to device" << device->name;
@@ -211,24 +217,17 @@ void BTConnectionManager::serviceStateChanged(QLowEnergyService::ServiceState s)
             break;
         }
 
-        if(d->commandModel) {
-            d->commandModel->deleteLater();
-        }
-        d->commandModel = new TailCommandModel(this);
+        d->commandModel->clear();
         emit commandModelChanged();
 
-        if(d->commandQueue) {
-            d->commandQueue->deleteLater();
-        }
-        d->commandQueue = new CommandQueue(this);
-        d->commandQueue->setConnectionManager(this);
+        d->commandQueue->clear();
         emit commandQueueChanged();
 
         // Get the descriptor, and turn on notifications
         d->tailDescriptor = d->tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
         d->tailService->writeDescriptor(d->tailDescriptor, QByteArray::fromHex("0100"));
 
-        emit isConnectedChanged();
+        emit isConnectedChanged(isConnected());
         sendMessage("VER"); // Ask for the tail version, and then react to the response...
 
         break;
@@ -245,23 +244,16 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
 
     if (d->tailStateCharacteristicUuid == characteristic.uuid()) {
         if (d->currentCall == QLatin1String("VER")) {
-            if(!d->commandModel) {
-                d->commandModel = new TailCommandModel(this);
-                emit commandModelChanged();
-            }
             d->commandModel->autofill(newValue);
-            if(!d->commandQueue) {
-                d->commandQueue = new CommandQueue(this);
-                d->commandQueue->setConnectionManager(this);
-                emit commandQueueChanged();
-            }
+            d->commandQueue->clear();
+            emit commandQueueChanged();
             d->batteryTimer.start();
             sendMessage("BATT");
         }
         else if (d->currentCall == QLatin1String("BATT")) {
             // Return value is BAT and a number, from 0 to 4
             d->batteryLevel = newValue.right(1).toInt();
-            emit batteryLevelChanged();
+            emit batteryLevelChanged(d->batteryLevel);
         }
         else {
             QStringList stateResult = QString(newValue).split(' ');
@@ -298,10 +290,9 @@ void BTConnectionManager::disconnectDevice()
         d->btControl = nullptr;
         d->tailService->deleteLater();
         d->tailService = nullptr;
-        d->commandModel->deleteLater();
-        d->commandModel = nullptr;
+        d->commandModel->clear();
         emit commandModelChanged();
-        emit isConnectedChanged();
+        emit isConnectedChanged(isConnected());
     }
 }
 
@@ -340,4 +331,14 @@ bool BTConnectionManager::isConnected() const
 int BTConnectionManager::batteryLevel() const
 {
     return d->batteryLevel;
+}
+
+int BTConnectionManager::deviceCount() const
+{
+    return d->deviceModel->count();
+}
+
+int BTConnectionManager::commandQueueCount() const
+{
+    return d->commandQueue->count();
 }

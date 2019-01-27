@@ -35,7 +35,7 @@ public:
         Category,
         Duration,
         MinimumCooldown,
-        CommandInfoRole
+        CommandIndex
     };
 
     struct CommandInfo {
@@ -53,6 +53,11 @@ public:
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+
+    /**
+     * Clear the model of all known commands
+     */
+    void clear();
 
     /**
      * Add a new command to the model.
@@ -101,6 +106,5 @@ private:
     class Private;
     Private* d;
 };
-Q_DECLARE_METATYPE(TailCommandModel::CommandInfo*);
 
 #endif//TAILCOMMANDMODEL_H

@@ -33,9 +33,7 @@ public:
 TailCommandModel::TailCommandModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private)
-{
-    qRegisterMetaType<TailCommandModel::CommandInfo*>();
-}
+{}
 
 TailCommandModel::~TailCommandModel()
 {
@@ -51,7 +49,7 @@ QHash< int, QByteArray > TailCommandModel::roleNames() const
     roles[Category] = "category";
     roles[Duration] = "duration";
     roles[MinimumCooldown] = "minimumCooldown";
-    roles[CommandInfoRole] = "commandInfo";
+    roles[CommandIndex] = "commandIndex";
     return roles;
 }
 
@@ -79,8 +77,9 @@ QVariant TailCommandModel::data(const QModelIndex& index, int role) const
             case MinimumCooldown:
                 value = command->minimumCooldown;
                 break;
-            case CommandInfoRole:
-                value.setValue<TailCommandModel::CommandInfo*>(command);
+            case CommandIndex:
+                value = index.row();
+                break;
             default:
                 break;
         }
@@ -94,6 +93,14 @@ int TailCommandModel::rowCount(const QModelIndex& parent) const
         return 0;
     }
     return d->commands.count();
+}
+
+void TailCommandModel::clear()
+{
+    beginResetModel();
+    qDeleteAll(d->commands);
+    d->commands.clear();
+    endResetModel();
 }
 
 void TailCommandModel::addCommand(CommandInfo* command)
@@ -174,6 +181,7 @@ void TailCommandModel::autofill(const QString& version)
         // Herpetyderp, no version, what's this?
     }
     else /* if (version == QLatin1String("the version for this tail version...")) */ {
+        qDebug() << "Adding commands for tail version" << version;
         CommandInfo* command = new CommandInfo();
         command->name = QLatin1String("Tail Home Position");
         command->command = QLatin1String("TAILHM");

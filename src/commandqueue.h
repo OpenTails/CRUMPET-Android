@@ -19,7 +19,9 @@
 #define COMMANDQUEUE_H
 
 #include <QAbstractListModel>
+#include "btconnectionmanager.h"
 #include "tailcommandmodel.h"
+#include "rep_commandqueueproxy_source.h"
 
 /**
  * @brief The main move and light command interface for the tails
@@ -33,13 +35,12 @@
  * the tail will not likely end up with the kind of damage which might otherwise
  * occur if we allowed commands to simply be fired off without a cooldown period.
  */
-class CommandQueue : public QAbstractListModel
+class CommandQueue : public CommandQueueProxySource
 {
     Q_OBJECT
-    Q_PROPERTY(QObject* connectionManager READ connectionManager WRITE setConnectionManager NOTIFY connectionManagerChanged)
     Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
-    explicit CommandQueue(QObject* parent = 0);
+    explicit CommandQueue(BTConnectionManager* connectionManager);
     virtual ~CommandQueue();
 
     enum Roles {
@@ -51,29 +52,30 @@ public:
         MinimumCooldown
     };
 
-    QHash< int, QByteArray > roleNames() const override;
-    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-    int count() const;
+    QHash< int, QByteArray > roleNames() const;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    int count() const override;
     Q_SIGNAL void countChanged();
+    void setCount(int count) override { Q_UNUSED(count); };
 
     /**
      * Clear the queue of all commands
      */
-    Q_INVOKABLE void clear();
+    Q_SLOT void clear() override;
     /**
      * Add a pause to the end of the queue
      *
      * @param durationMilliseconds The duration of the pause in milliseconds
      */
-    Q_INVOKABLE void pushPause(int durationMilliseconds);
+    Q_SLOT void pushPause(int durationMilliseconds) override;
     /**
      * Add a specific command to the end of the queue. If there are no commands
      * currently running, the command will be run immediately.
      *
-     * @param command The command you wish to add to the queue
+     * @param tailCommandModelIndex The index in the command model of the command you wish to add to the queue
      */
-    Q_INVOKABLE void pushCommand(TailCommandModel::CommandInfo* command);
+    Q_SLOT void pushCommand(int tailCommandModelIndex) override;
     /**
      * A convenient way of adding a whole list of commands to the queue in one go.
      * As with adding a single command, if nothing is currently running, once the
@@ -81,38 +83,34 @@ public:
      *
      * @param commands The list of commands to add to the queue
      */
-    Q_INVOKABLE void pushCommands(TailCommandModel::CommandInfoList commands);
+    Q_SLOT void pushCommands(TailCommandModel::CommandInfoList commands);
     /**
      * Remove a specific command from the queue
      *
      * @param index The index of the command to be removed
      */
-    Q_INVOKABLE void removeEntry(int index);
+    Q_SLOT void removeEntry(int index) override;
     /**
      * Swap the location of two commands in the queue
      *
      * @param swapThis The first command (which will end up at the original position of withThis)
      * @param withThis The second command (which will end up at the original position of swapThis)
      */
-    Q_INVOKABLE void swapEntries(int swapThis, int withThis);
+    Q_SLOT void swapEntries(int swapThis, int withThis) override;
     /**
      * A convenience method for swapping a command with the entry above it
      * (or, in other words, move the command one position up in the queue)
      *
      * @param index The index of the command to move up one position
      */
-    Q_INVOKABLE void moveEntryUp(int index);
+    Q_SLOT void moveEntryUp(int index) override;
     /**
      * A convenience method for swapping a command with the entry below it
      * (or, in other words, move the command one position down in the queue)
      *
      * @param index The index of the command to move down one position
      */
-    Q_INVOKABLE void moveEntryDown(int index);
-
-    QObject* connectionManager() const;
-    void setConnectionManager(QObject* connectionManager);
-    Q_SIGNAL void connectionManagerChanged();
+    Q_SLOT void moveEntryDown(int index) override;
 private:
     class Private;
     Private* d;

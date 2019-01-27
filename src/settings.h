@@ -19,8 +19,9 @@
 #define SETTINGS_H
 
 #include <QObject>
+#include "rep_settingsproxy_source.h"
 
-class AppSettings : public QObject
+class AppSettings : public SettingsProxySource
 {
     Q_OBJECT
     Q_PROPERTY(bool advancedMode READ advancedMode WRITE setAdvancedMode NOTIFY advancedModeChanged)
@@ -39,7 +40,7 @@ public:
     void setIdleMode(bool newValue);
 
     QStringList idleCategories() const;
-    void setIdleCategories(const QStringList& newCategories);
+    void setIdleCategories(QStringList newCategories);
 
     int idleMinPause() const;
     void setIdleMinPause(int pause);

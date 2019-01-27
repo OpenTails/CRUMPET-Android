@@ -5,7 +5,7 @@ if (POLICY CMP0063)
 endif()
 
 find_package(ECM 5.52.0 REQUIRED CONFIG)
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qtremoteobjects/lib/cmake)
 
 set(BREEZEICONS_DIR ${CMAKE_SOURCE_DIR}/3rdparty/breeze-icons/)
 set(DISABLE_DBUS true)
@@ -24,6 +24,7 @@ else()
     find_package(Qt5 5.11 REQUIRED Core Gui Quick Multimedia Test Widgets QuickControls2 Svg Bluetooth)
 endif()
 
+find_package(Qt5RemoteObjects)
 
 include(KDEInstallDirs)
 include(KDECompilerSettings)

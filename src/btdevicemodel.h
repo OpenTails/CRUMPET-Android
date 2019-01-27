@@ -24,7 +24,6 @@
 class BTDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
     explicit BTDeviceModel(QObject* parent = 0);
     virtual ~BTDeviceModel();
