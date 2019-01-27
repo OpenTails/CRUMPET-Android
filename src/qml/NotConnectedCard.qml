@@ -23,20 +23,19 @@ import org.kde.kirigami 2.5 as Kirigami
 
 Kirigami.Card {
     id: root;
-    property QtObject connectionManager: null;
-    opacity: connectionManager.isConnected ? 0 : 1;
+    opacity: BTConnectionManager.isConnected ? 0 : 1;
     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
     width: parent.width;
     header: Kirigami.Heading {
         text: {
-            if (connectionManager.discoveryRunning === true) {
+            if (BTConnectionManager.discoveryRunning === true) {
                 return qsTr("Searching for your tail...");
             }
             else {
-                if (connectionManager.deviceModel.count === 0) {
+                if (BTConnectionManager.deviceCount === 0) {
                     return qsTr("No tails found");
                 }
-                else if (connectionManager.deviceModel.count === 1) {
+                else if (BTConnectionManager.deviceCount === 1) {
                     return qsTr("One tail available");
                 }
                 else {
@@ -55,29 +54,29 @@ Kirigami.Card {
             width: height;
             opacity: running;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-            running: connectionManager.discoveryRunning;
+            running: BTConnectionManager.discoveryRunning;
         }
     }
     contentItem: Label {
         wrapMode: Text.Wrap;
         text: {
-            if (connectionManager.discoveryRunning === true) {
-                if (connectionManager.deviceModel.count === 0) {
+            if (BTConnectionManager.discoveryRunning === true) {
+                if (BTConnectionManager.deviceCount === 0) {
                     return qsTr("No tails found yet, still looking...");
                 }
-                else if (connectionManager.deviceModel.count > 1) {
-                    return qsTr("Found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(connectionManager.deviceModel.count);
+                else if (BTConnectionManager.deviceCount > 1) {
+                    return qsTr("Found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(BTConnectionManager.deviceCount);
                 }
                 else {
                     return qsTr("1 tail found. Simply wait, or push \"Connect\" below to control it.");
                 }
             }
             else {
-                if (connectionManager.deviceModel.count === 0) {
+                if (BTConnectionManager.deviceCount === 0) {
                     return qsTr("We were unable to find any tails. Please ensure that it is nearby and switched on.");
                 }
-                else if (connectionManager.deviceModel.count > 1) {
-                    return qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push \"Show available tails...\" below to see the available tails.").arg(connectionManager.deviceModel.count);
+                else if (BTConnectionManager.deviceCount > 1) {
+                    return qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push \"Show available tails...\" below to see the available tails.").arg(BTConnectionManager.deviceCount);
                 }
                 else {
                     return qsTr("You are not currently connected to your tail, but we know of one tail. Push \"Connect\" to connect to it.");
@@ -89,24 +88,24 @@ Kirigami.Card {
     footer: Button {
         Layout.fillWidth: true; Layout.fillHeight: true;
         text: {
-            if (connectionManager.discoveryRunning === false && connectionManager.deviceModel.count === 0) {
+            if (BTConnectionManager.discoveryRunning === false && BTConnectionManager.deviceCount === 0) {
                 return qsTr("Look for tails");
             }
-            else if (connectionManager.deviceModel.count > 1) {
+            else if (BTConnectionManager.deviceCount > 1) {
                 return qsTr("Show available tails...");
             }
             else {
                 return qsTr("Connect");
             }
         }
-        visible: !(connectionManager.discoveryRunning === true && connectionManager.deviceModel.count === 0);
+        visible: !(BTConnectionManager.discoveryRunning === true && BTConnectionManager.deviceCount === 0);
         onClicked: {
-            if (connectionManager.discoveryRunning === false && connectionManager.deviceModel.count === 0) {
-                connectionManager.startDiscovery();
+            if (BTConnectionManager.discoveryRunning === false && BTConnectionManager.deviceCount === 0) {
+                BTConnectionManager.startDiscovery();
             }
-            else if(connectionManager.deviceModel.count === 1) {
+            else if(BTConnectionManager.deviceCount === 1) {
                 // Calling this will stop the discovery immediately and connect to the one tail that we've found
-                connectionManager.stopDiscovery();
+                BTConnectionManager.stopDiscovery();
             }
             else {
                 connectToTail.open();

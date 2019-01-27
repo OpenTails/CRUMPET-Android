@@ -23,7 +23,6 @@ import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.OverlaySheet {
     id: sheet;
-    property QtObject connectionManager: null;
     property QtObject pageToPush: null;
     showCloseButton: true;
     signal attemptToConnect(string deviceID, QtObject pageToPush);
@@ -43,7 +42,7 @@ Kirigami.OverlaySheet {
     }
     ListView {
         implicitWidth: Kirigami.Units.gridUnit * 30
-        model: connectionManager.deviceModel;
+        model: DeviceModel;
         delegate: Kirigami.AbstractListItem {
             height: Kirigami.Units.gridUnit * 6
             hoverEnabled: false

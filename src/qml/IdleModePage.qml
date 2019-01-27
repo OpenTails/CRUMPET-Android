@@ -28,10 +28,10 @@ Kirigami.ScrollablePage {
     Component {
         id: idleCategoryDelegate;
         Kirigami.BasicListItem {
-            icon: Digitail.AppSettings.idleCategories.indexOf(model.category) >= 0 ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
+            icon: AppSettings.idleCategories.indexOf(model.category) >= 0 ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
             label: model.name;
             onClicked: {
-                var categories = Digitail.AppSettings.idleCategories;
+                var categories = AppSettings.idleCategories;
                 var idx = categories.indexOf(model.category);
                 if(idx >= 0) {
                     categories.splice(idx, 1);
@@ -39,7 +39,7 @@ Kirigami.ScrollablePage {
                 else {
                     categories.push(model.category);
                 }
-                Digitail.AppSettings.idleCategories = categories;
+                AppSettings.idleCategories = categories;
             }
         }
     }
@@ -83,10 +83,10 @@ Kirigami.ScrollablePage {
                     from: 0;
                     to: 120;
                     stepSize: 1.0;
-                    first.onValueChanged: { Digitail.AppSettings.idleMinPause = first.value; }
-                    second.onValueChanged: { Digitail.AppSettings.idleMaxPause = second.value; }
+                    first.onValueChanged: { AppSettings.idleMinPause = first.value; }
+                    second.onValueChanged: { AppSettings.idleMaxPause = second.value; }
                     Component.onCompleted: {
-                        pauseRangeSlider.setValues(Digitail.AppSettings.idleMinPause, Digitail.AppSettings.idleMaxPause);
+                        pauseRangeSlider.setValues(AppSettings.idleMinPause, AppSettings.idleMaxPause);
                     }
                 }
                 Item {

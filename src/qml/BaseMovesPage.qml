@@ -26,7 +26,6 @@ import org.thetailcompany.digitail 1.0
 Kirigami.ScrollablePage {
     id: root;
     property QtObject categoriesModel: ListModel { }
-    property QtObject connectionManager: null;
 
     Component {
         id: categoryDelegate;
@@ -54,7 +53,7 @@ Kirigami.ScrollablePage {
                 implicitHeight: commandGrid.cellHeight * Math.ceil(commandGrid.count / 3);
                 FilterProxyModel {
                     id: filterProxy;
-                    sourceModel: connectionManager.commandModel;
+                    sourceModel: CommandModel;
                     filterRole: 260; // the Category role ID
                     filterString: model.category;
                 }
@@ -88,8 +87,8 @@ Kirigami.ScrollablePage {
                         MouseArea {
                             anchors.fill: parent;
                             onClicked: {
-                                connectionManager.commandQueue.clear();
-                                connectionManager.commandQueue.pushCommand(model.commandInfo);
+                                CommandQueue.clear();
+                                CommandQueue.pushCommand(model.commandIndex);
                             }
                         }
                     }
@@ -112,12 +111,11 @@ Kirigami.ScrollablePage {
             width: root.width - Kirigami.Units.largeSpacing * 4;
             NotConnectedCard {
                 id: tailConnectedInfo;
-                connectionManager: root.connectionManager;
             }
         }
         Kirigami.CardsLayout {
             Repeater {
-                model: connectionManager ? categoriesModel : null;
+                model: BTConnectionManager.isConnected ? categoriesModel : null;
                 delegate: categoryDelegate;
             }
         }

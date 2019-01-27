@@ -16,4 +16,8 @@
         <file>images/bannerimage.png</file>
         <file alias="icon-round.png">../data/res/mipmap-xxxhdpi/ic_launcher_round.png</file>
     </qresource>
+    <qresource prefix="icons/breeze-internal">
+        <file>../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
+        <file alias="index.theme">icontheme-index.theme</file>
+    </qresource>
 </RCC>

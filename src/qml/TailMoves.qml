@@ -27,7 +27,7 @@ BaseMovesPage {
             text: qsTr("Tail Home Position");
             icon.name: ":/org/kde/kirigami/icons/dialog-cancel.svg";
             onTriggered: {
-                connectionManager.sendMessage("TAILHM");
+                BTConnectionManager.sendMessage("TAILHM");
             }
         }
     }

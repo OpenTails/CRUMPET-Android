@@ -27,7 +27,7 @@ BaseMovesPage {
             text: qsTr("Stop Lights");
             icon.name: ":/org/kde/kirigami/icons/dialog-cancel.svg";
             onTriggered: {
-                connectionManager.sendMessage("LEDOFF");
+                BTConnectionManager.sendMessage("LEDOFF");
             }
         }
     }

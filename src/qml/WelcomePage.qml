@@ -26,18 +26,17 @@ Kirigami.Page {
     id: root;
     objectName: "welcomePage";
     title: qsTr("DIGITAiL");
-    property QtObject connectionManager: null;
     actions {
         main: Kirigami.Action {
-            text: connectionManager.isConnected ? "Disconnect" : "Connect";
-            icon.name: connectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
+            text: BTConnectionManager.isConnected ? "Disconnect" : "Connect";
+            icon.name: BTConnectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
             onTriggered: {
                 if(connectionManager.isConnected) {
-                    connectionManager.disconnectDevice();
+                    BTConnectionManager.disconnectDevice();
                 }
                 else {
-                    if(connectionManager.deviceModel.count === 1) {
-                        connectionManager.stopDiscovery();
+                    if(BTConnectionManager.deviceCount === 1) {
+                        BTConnectionManager.stopDiscovery();
                     }
                     else {
                         connectToTail.open();
@@ -48,8 +47,8 @@ Kirigami.Page {
         contextualActions: [
             Kirigami.Action {
                 text: qsTr("Advanced Options");
-                icon.name: Digitail.AppSettings.advancedMode ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
-                onTriggered: { Digitail.AppSettings.advancedMode = !Digitail.AppSettings.advancedMode; }
+                icon.name: AppSettings.advancedMode ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
+                onTriggered: { AppSettings.advancedMode = !AppSettings.advancedMode; }
             }
         ]
     }
@@ -57,9 +56,7 @@ Kirigami.Page {
     Column {
         width: root.width - Kirigami.Units.largeSpacing * 4;
         spacing: Kirigami.Units.largeSpacing;
-        NotConnectedCard {
-            connectionManager: root.connectionManager;
-        }
+        NotConnectedCard { }
         GridLayout {
             id: commandLayout;
             width: parent.width;
@@ -119,7 +116,7 @@ Kirigami.Page {
             }
         }
         Kirigami.AbstractCard {
-            opacity: connectionManager.isConnected ? 1 : 0;
+            opacity: BTConnectionManager.isConnected ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             width: parent.width;
             header: Kirigami.Heading {
@@ -128,8 +125,8 @@ Kirigami.Page {
                     anchors.right: parent.right;
                     height: parent.height;
                     width: height;
-                    checked: Digitail.AppSettings.idleMode;
-                    onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
+                    checked: AppSettings.idleMode;
+                    onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
                     RoundButton {
                         opacity: parent.checked ? 1 : 0;
                         Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
@@ -141,10 +138,9 @@ Kirigami.Page {
                         height: parent.height;
                         width: height;
                         onClicked: switchToPage(idleModePage);
-                        Image {
-                            source: "qrc:/org/kde/kirigami/icons/settings-configure.svg";
+                        Kirigami.Icon {
+                            source: "settings-configure";
                             anchors.fill: parent;
-                            fillMode: Image.PreserveAspectFit;
                         }
                     }
                 }
@@ -194,7 +190,7 @@ Kirigami.Page {
                 Item {}
             }
             contentItem: Loader {
-                sourceComponent: Digitail.AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
+                sourceComponent: AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
             }
         }
         Button {
@@ -202,8 +198,8 @@ Kirigami.Page {
             width: parent.width;
             onClicked: {
                 for(var i = 0; i < 1000; ++i) {
-                    connectionManager.commandQueue.pushCommand(connectionManager.commandModel.getCommand(1));
-                    connectionManager.commandQueue.pushPause(3000);
+                    CommandQueue.pushCommand(CommandModel.getCommand(1));
+                    CommandQueue.pushPause(3000);
                 }
             }
         }

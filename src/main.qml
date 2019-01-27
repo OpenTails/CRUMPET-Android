@@ -32,28 +32,29 @@ Kirigami.ApplicationWindow {
     function switchToPage(pageToSwitchTo) {
         if (pageToSwitchTo === welcomePage) {
             pageStack.clear();
-            pageStack.push(pageToSwitchTo, {connectionManager: connectionManager});
+            pageStack.push(pageToSwitchTo, {connectionManager: BTConnectionManager});
         }
         else if (pageStack.depth === 1) {
-            pageStack.push(pageToSwitchTo, {connectionManager: connectionManager});
+            pageStack.push(pageToSwitchTo, {connectionManager: BTConnectionManager});
         }
         else {
             pageStack.pop();
-            pageStack.push(pageToSwitchTo, {connectionManager: connectionManager});
+            pageStack.push(pageToSwitchTo, {connectionManager: BTConnectionManager});
         }
     }
 
-    BTConnectionManager {
-        id: connectionManager;
+    property QtObject pageToPush: null;
+    Connections {
+        target: BTConnectionManager;
         onMessage: {
             showPassiveNotification(message, 5000);
         }
-        property QtObject pageToPush: null;
         onDiscoveryRunningChanged: {
-            if (discoveryRunning === false) {
-                if(connectionManager.deviceModel.count === 1 && connectToTail.sheetOpen === false) {
+            if (BTConnectionManager.discoveryRunning === false) {
+                console.log("device model count is " + BTConnectionManager.deviceCount + " and sheet is open: " + connectToTail.sheetOpen);
+                if(BTConnectionManager.deviceCount === 1 && connectToTail.sheetOpen === false) {
                     // only one tail found? Well then, connect to that!
-                    connectToDevice(deviceModel.getDeviceID(0));
+                    BTConnectionManager.connectToDevice(0);
                     connectingToTail.opacity = 1;
                 }
             }
@@ -61,12 +62,15 @@ Kirigami.ApplicationWindow {
         onIsConnectedChanged: {
             if (isConnected === true) {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);
-                if(pageToPush !== null) {
-                    switchToPage(pageToPush);
-                    pageToPush = null;
+                if(root.pageToPush !== null) {
+                    switchToPage(root.pageToPush);
+                    root.pageToPush = null;
                 }
             }
             connectingToTail.opacity = 0;
+        }
+        onCommandQueueCountChanged: {
+            idleModePush();
         }
     }
     Component.onCompleted: {
@@ -87,14 +91,10 @@ Kirigami.ApplicationWindow {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     function idleModePush() {
-        if(connectionManager.commandQueue.count === 0 && AppSettings.idleMode === true && AppSettings.idleCategories.length > 0) {
-            connectionManager.commandQueue.pushCommand(connectionManager.commandModel.getRandomCommand(AppSettings.idleCategories));
-            connectionManager.commandQueue.pushPause(getRandomInt(AppSettings.idleMinPause, AppSettings.idleMaxPause) * 1000);
+        if(CommandQueue.count === 0 && AppSettings.idleMode === true && AppSettings.idleCategories.length > 0) {
+            CommandQueue.pushCommand(TailCommandModel.getRandomCommand(AppSettings.idleCategories));
+            CommandQueue.pushPause(getRandomInt(AppSettings.idleMinPause, AppSettings.idleMaxPause) * 1000);
         }
-    }
-    Connections {
-        target: connectionManager.commandQueue;
-        onCountChanged: idleModePush();
     }
     Connections {
         target: AppSettings;
@@ -109,7 +109,7 @@ Kirigami.ApplicationWindow {
         Component.onCompleted: { background.color = "#3daee9"; }
         topContent: Item {
             visible: height > 0;
-            height: connectionManager.isConnected === true ? batteryLabel.height : 0;
+            height: BTConnectionManager.isConnected === true ? batteryLabel.height : 0;
             Layout.fillWidth: true;
             Label {
                 id: batteryLabel;
@@ -120,7 +120,7 @@ Kirigami.ApplicationWindow {
                 anchors.right: parent.right;
                 spacing: Kirigami.Units.smallSpacing;
                 Repeater {
-                    model: 4;
+                    model: 5;
                     Rectangle {
                         height: Kirigami.Units.iconSizes.small;
                         width: height;
@@ -137,7 +137,7 @@ Kirigami.ApplicationWindow {
                             height: parent.height - Kirigami.Units.smallSpacing * 2;
                             width: height;
                             color: "black";
-                            visible: modelData < connectionManager.batteryLevel;
+                            visible: modelData < BTConnectionManager.batteryLevel;
                         }
                     }
                 }
@@ -216,10 +216,9 @@ Kirigami.ApplicationWindow {
     }
     ConnectToTail {
         id: connectToTail;
-        connectionManager: connectionManager;
         onAttemptToConnect: {
-            connectionManager.pageToPush = pageToPush;
-            connectionManager.connectToDevice(deviceID);
+            root.pageToPush = pageToPush;
+            BTConnectionManager.connectToDevice(deviceID);
             connectingToTail.opacity = 1;
         }
     }
