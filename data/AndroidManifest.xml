@@ -4,6 +4,17 @@
                      android:label="DIGITAiL"
                      android:icon="@mipmap/ic_launcher">
                      <!--This only works with API level 25 and above: android:roundIcon="@mipmap/ic_launcher_round"-->
+                <service android:process=":qt" android:name=".TailService">
+                    <!-- android:process=":qt" is needed to force the service to run on a separate
+                                                        process than the Activity -->
+                    <!-- Application arguments -->
+                    <meta-data android:name="android.app.arguments" android:value="-service"/>
+                    <!-- Application arguments -->
+                    <meta-data android:name="android.app.lib_name" android:value="digitail"/>
+                    <!-- Background running -->
+                    <meta-data android:name="android.app.background_running" android:value="true"/>
+                    <!-- Background running -->
+                </service>
                 <activity android:name="org.qtproject.qt5.android.bindings.QtActivity"
                           android:label="DIGITAiL"
                           android:screenOrientation="unspecified"
