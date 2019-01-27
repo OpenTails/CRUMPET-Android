@@ -62,14 +62,14 @@ Note about Battery Level: the batteries are read charge-wise only when the app a
 
 We will split the app in to two parts from the Users point of view.
 
-### NORMAL MODE
+### EVERYDAY GROUP OF MODES
 
 This will have the Remote Control page (for moves and LEDs) as above.
 It will also have the Move playlist page and Pose Mode page.
 
 In this mode, moves cant be interrupted. All moves are followed by the homing move.
 
-### ADVANCED MODE
+### ADVANCED GROUP OF MODES
 
 This will include the Move Designer page. It might also allow some different settings
 
@@ -77,7 +77,7 @@ Perhaps the advanced mode is unlocked after a splash screen communicating the
 potential for harm to the Tail if used inappropriately. Should we have a test mode
 that logs moves? For diagnosis, edge cases, etc?
 
-## REMOTE - Normal Mode
+## REMOTE - EVERYDAY group
 
 
 Slower, gentler, relaxed:
@@ -104,13 +104,13 @@ Pulse Erect
 
 A screen toggle for a second page to bring up the LED remote control buttons.
 
-## POSES - Normal Mode
+## POSES - EVERYDAY group
 
 Poses are static shapes that we can define for the Tailer, so that they can strike a pose
 and it will hold it, for the all important photo. These can be described using
 Move Designer notation, and sent on button press.
 
-## MOVE PLAYLIST - Normal mode
+## MOVE PLAYLIST - EVERYDAY group
 
 A simple way of chaining pre-defined moves together. We need a pause in between moves
 which serves both to make the system cooler, and also more natural.
@@ -119,11 +119,11 @@ Pauses defined as a range, so that they are of varying length.
 
 I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in. These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
 
-## CASUAL! - Normal mode
+## CASUAL! - EVERYDAY group
 
 This will be the go-to mode for people who wear their Tail a lot - at a convention or around the house! Just click the top level button to string together calm and energetic moves, with a random duration pauses in between. No other input required
 
-## MOVE DESIGNER - Advanced mode
+## MOVE DESIGNER - ADVANCED group
 
 See the separate doc for methods of describing moves, and how to send them to the Tail.
 
