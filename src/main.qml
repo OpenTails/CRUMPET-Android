@@ -120,7 +120,7 @@ Kirigami.ApplicationWindow {
                 anchors.right: parent.right;
                 spacing: Kirigami.Units.smallSpacing;
                 Repeater {
-                    model: 5;
+                    model: 4;
                     Rectangle {
                         height: Kirigami.Units.iconSizes.small;
                         width: height;
