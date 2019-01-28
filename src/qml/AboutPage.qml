@@ -33,7 +33,7 @@ Kirigami.AboutPage {
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
         "version" : "1.0",
-        "otherText" : connectionManager.isConnected ? qsTr("Connected tail is version %1").arg(connectionManager.commandModel.tailVersion) : "",
+        "otherText" : BTConnectionManager.isConnected ? qsTr("Connected tail is version %1").arg(CommandModel.tailVersion) : "",
         "authors" : [
             {
                 "name" : "Dan Leinir Turthra Jensen",
