@@ -94,6 +94,13 @@ public:
      */
     Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(int index) const;
     /**
+     * Get the command with the specified actual command
+     *
+     * @param command The command to fetch information for
+     * @return The command info instance for the specified command, or null if none was found
+     */
+    Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(QString command) const;
+    /**
      * Get a random command, picked from the currently available commands, limited
      * to commands with the category listed in includedCategories. If the list is
      * empty, any command will be listed.

@@ -332,6 +332,18 @@ TailCommandModel::CommandInfo * TailCommandModel::getCommand(int index) const
     return nullptr;
 }
 
+TailCommandModel::CommandInfo * TailCommandModel::getCommand(QString command) const
+{
+    TailCommandModel::CommandInfo* cmd(nullptr);
+    for(TailCommandModel::CommandInfo* current : d->commands) {
+        if(current->command == command) {
+            cmd = current;
+            break;
+        }
+    }
+    return cmd;
+}
+
 TailCommandModel::CommandInfo * TailCommandModel::getRandomCommand(QStringList includedCategories) const
 {
     if(d->commands.count() > 0) {
