@@ -88,7 +88,7 @@ Kirigami.ScrollablePage {
                             anchors.fill: parent;
                             onClicked: {
                                 CommandQueue.clear();
-                                CommandQueue.pushCommand(model.commandIndex);
+                                CommandQueue.pushCommand(model.command);
                             }
                         }
                     }
