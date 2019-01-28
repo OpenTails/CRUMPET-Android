@@ -14,7 +14,7 @@ public class TailService extends QtService
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        return Service.START_STICKY;
+        return START_STICKY;
     }
 
     @Override
