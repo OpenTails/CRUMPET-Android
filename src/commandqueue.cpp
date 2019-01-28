@@ -166,11 +166,15 @@ void CommandQueue::pushPause(int durationMilliseconds)
     }
 }
 
-void CommandQueue::pushCommand(int tailCommandModelIndex)
+void CommandQueue::pushCommand(QString tailCommand)
 {
 //     beginInsertRows(QModelIndex(), d->commands.count(), d->commands.count());
-    TailCommandModel::CommandInfo* command = qobject_cast<TailCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommandModelIndex);
+    qDebug() << tailCommand;
+    TailCommandModel::CommandInfo* command = qobject_cast<TailCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommand);
     qDebug() << "Command to push" << command;
+    if(!command) {
+        return;
+    }
     d->commands.append(command);
 //     endInsertRows();
     emit countChanged();

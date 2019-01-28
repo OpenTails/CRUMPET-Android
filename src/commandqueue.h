@@ -73,9 +73,9 @@ public:
      * Add a specific command to the end of the queue. If there are no commands
      * currently running, the command will be run immediately.
      *
-     * @param tailCommandModelIndex The index in the command model of the command you wish to add to the queue
+     * @param tailCommand The command you wish to add to the queue
      */
-    Q_SLOT void pushCommand(int tailCommandModelIndex) override;
+    Q_SLOT void pushCommand(QString tailCommand) override;
     /**
      * A convenient way of adding a whole list of commands to the queue in one go.
      * As with adding a single command, if nothing is currently running, once the

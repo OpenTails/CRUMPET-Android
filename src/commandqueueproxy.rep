@@ -17,7 +17,7 @@ class CommandQueueProxy {
     PROP(int count=0)
     SLOT(void clear())
     SLOT(void pushPause(int durationMilliseconds))
-    SLOT(void pushCommand(int tailCommandModelIndex))
+    SLOT(void pushCommand(QString tailCommand))
     //SLOT(void pushCommands(TailCommandModel::CommandInfoList commands))
     SLOT(void removeEntry(int index))
     SLOT(void swapEntries(int swapThis, int withThis))
