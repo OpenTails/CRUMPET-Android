@@ -20,6 +20,6 @@ public class TailService extends QtService
     @Override
     public void onCreate() {
         // Check if notification should be shown and do so if needed
-
+        super.onCreate();
     }
 }
