@@ -28,7 +28,7 @@ Kirigami.ApplicationWindow {
     id: root;
     visible: true;
     title: qsTr("DIGITAiL");
-    pageStack.defaultColumnWidth = root.width;
+    pageStack.defaultColumnWidth: root.width;
 
     function switchToPage(pageToSwitchTo) {
         if (pageToSwitchTo === welcomePage) {
@@ -70,37 +70,9 @@ Kirigami.ApplicationWindow {
             }
             connectingToTail.opacity = 0;
         }
-        onCommandQueueCountChanged: {
-            idleModePush();
-        }
     }
     Component.onCompleted: {
         switchToPage(welcomePage);
-    }
-
-    /**
-    * Example from MDN
-    * Returns a random integer between min (inclusive) and max (inclusive).
-    * The value is no lower than min (or the next integer greater than min
-    * if min isn't an integer) and no greater than max (or the next integer
-    * lower than max if max isn't an integer).
-    * Using Math.round() will give you a non-uniform distribution!
-    */
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    function idleModePush() {
-        if(CommandQueue.count === 0 && AppSettings.idleMode === true && AppSettings.idleCategories.length > 0) {
-            CommandQueue.pushCommand(TailCommandModel.getRandomCommand(AppSettings.idleCategories));
-            CommandQueue.pushPause(getRandomInt(AppSettings.idleMinPause, AppSettings.idleMaxPause) * 1000);
-        }
-    }
-    Connections {
-        target: AppSettings;
-        onIdleModeChanged: idleModePush();
-        onIdleCategoriesChanged: idleModePush();
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
