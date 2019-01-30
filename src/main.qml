@@ -28,18 +28,19 @@ Kirigami.ApplicationWindow {
     id: root;
     visible: true;
     title: qsTr("DIGITAiL");
+    pageStack.defaultColumnWidth = root.width;
 
     function switchToPage(pageToSwitchTo) {
         if (pageToSwitchTo === welcomePage) {
             pageStack.clear();
-            pageStack.push(pageToSwitchTo, {connectionManager: BTConnectionManager});
+            pageStack.push(pageToSwitchTo);
         }
         else if (pageStack.depth === 1) {
-            pageStack.push(pageToSwitchTo, {connectionManager: BTConnectionManager});
+            pageStack.push(pageToSwitchTo);
         }
         else {
             pageStack.pop();
-            pageStack.push(pageToSwitchTo, {connectionManager: BTConnectionManager});
+            pageStack.push(pageToSwitchTo);
         }
     }
 
