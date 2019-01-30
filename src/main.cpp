@@ -26,6 +26,7 @@
 #include <QtQml>
 #include <QUrl>
 #include <QColor>
+#include <QTimer>
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
@@ -141,30 +142,38 @@ int serviceMain(int argc, char *argv[])
 
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
 
-    qDebug() << "Replicating application settings";
+    qDebug() << "Creating application settings";
     AppSettings appSettings;
-    srcNode.enableRemoting(&appSettings);
 
+    qDebug() << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(&app);
 
-    qDebug() << "Replicating device model";
-    BTDeviceModel* btDeviceModel = qobject_cast<BTDeviceModel*>(btConnectionManager->deviceModel());
-    QVector<int> roles;
-    roles << BTDeviceModel::Name << BTDeviceModel::DeviceID;
-    srcNode.enableRemoting(btDeviceModel, "DeviceModel", roles);
+    QTimer::singleShot(1, &app, [&srcNode, &appSettings, btConnectionManager]() {
+        qDebug() << "Replicating application settings";
+        srcNode.enableRemoting(&appSettings);
 
-    qDebug() << "Replicating command queue";
-    CommandQueue* commandQueue = qobject_cast<CommandQueue*>(btConnectionManager->commandQueue());
-    srcNode.enableRemoting(commandQueue);
+        qDebug() << "Replicating connection manager";
+        srcNode.enableRemoting(btConnectionManager);
 
-    qDebug() << "Replicating command model";
-    TailCommandModel* tailCommandModel = qobject_cast<TailCommandModel*>(btConnectionManager->commandModel());
-    roles.clear();
-    roles << TailCommandModel::Name << TailCommandModel::Command << TailCommandModel::IsRunning << TailCommandModel::Category << TailCommandModel::Duration << TailCommandModel::MinimumCooldown << TailCommandModel::CommandIndex;
-    srcNode.enableRemoting(tailCommandModel, "CommandModel", roles);
+        qDebug() << "Getting device model";
+        BTDeviceModel* btDeviceModel = qobject_cast<BTDeviceModel*>(btConnectionManager->deviceModel());
+        qDebug() << "Replicating device model";
+        QVector<int> roles;
+        roles << BTDeviceModel::Name << BTDeviceModel::DeviceID;
+        srcNode.enableRemoting(btDeviceModel, "DeviceModel", roles);
 
-    qDebug() << "Replicating connection manager";
-    srcNode.enableRemoting(btConnectionManager);
+        qDebug() << "Getting command model";
+        TailCommandModel* tailCommandModel = qobject_cast<TailCommandModel*>(btConnectionManager->commandModel());
+        qDebug() << "Replicating command model";
+        roles.clear();
+        roles << TailCommandModel::Name << TailCommandModel::Command << TailCommandModel::IsRunning << TailCommandModel::Category << TailCommandModel::Duration << TailCommandModel::MinimumCooldown << TailCommandModel::CommandIndex;
+        srcNode.enableRemoting(tailCommandModel, "CommandModel", roles);
+
+        qDebug() << "Getting command queue";
+        CommandQueue* commandQueue = qobject_cast<CommandQueue*>(btConnectionManager->commandQueue());
+        qDebug() << "Replicating command queue";
+        srcNode.enableRemoting(commandQueue);
+    });
 
     return app.exec();
 }
