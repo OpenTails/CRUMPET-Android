@@ -52,16 +52,16 @@ public:
     QObject* commandModel() const;
     QObject* commandQueue() const;
 
-    Q_SLOT void runCommand(const QString& command);
+    Q_SLOT void runCommand(const QString& command) override;
 
-    Q_SLOT void startDiscovery();
-    Q_SLOT void stopDiscovery();
+    Q_SLOT void startDiscovery() override;
+    Q_SLOT void stopDiscovery() override;
     bool discoveryRunning() const override;
 
-    bool isConnected() const;
-    int batteryLevel() const;
-    int deviceCount() const;
-    int commandQueueCount() const;
+    bool isConnected() const override;
+    int batteryLevel() const override;
+    int deviceCount() const override;
+    int commandQueueCount() const override;
 
     void setIsConnected(bool isConnected) override { Q_UNUSED(isConnected); }
     void setBatteryLevel(int batteryLevel) override { Q_UNUSED(batteryLevel); }
@@ -70,9 +70,9 @@ public:
     void setCommandQueueCount(int commandQueueCount) override { Q_UNUSED(commandQueueCount); }
 
 public Q_SLOTS:
-    void sendMessage(const QString &message);
-    void connectToDevice(int deviceIndex);
-    void disconnectDevice();
+    void sendMessage(const QString &message) override;
+    void connectToDevice(int deviceIndex) override;
+    void disconnectDevice() override;
     void serviceStateChanged(QLowEnergyService::ServiceState s);
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
