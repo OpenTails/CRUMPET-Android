@@ -31,7 +31,7 @@ Kirigami.Page {
             text: BTConnectionManager.isConnected ? "Disconnect" : "Connect";
             icon.name: BTConnectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
             onTriggered: {
-                if(connectionManager.isConnected) {
+                if(BTConnectionManager.isConnected) {
                     BTConnectionManager.disconnectDevice();
                 }
                 else {
