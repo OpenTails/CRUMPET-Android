@@ -31,15 +31,13 @@ Kirigami.ScrollablePage {
             icon: AppSettings.idleCategories.indexOf(model.category) >= 0 ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
             label: model.name;
             onClicked: {
-                var categories = AppSettings.idleCategories;
-                var idx = categories.indexOf(model.category);
+                var idx = AppSettings.idleCategories.indexOf(model.category);
                 if(idx >= 0) {
-                    categories.splice(idx, 1);
+                    AppSettings.removeIdleCategory(model.category);
                 }
                 else {
-                    categories.push(model.category);
+                    AppSettings.addIdleCategory(model.category);
                 }
-                AppSettings.idleCategories = categories;
             }
         }
     }
