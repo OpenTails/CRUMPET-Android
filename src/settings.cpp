@@ -56,8 +56,10 @@ bool AppSettings::advancedMode() const
 void AppSettings::setAdvancedMode(bool newValue)
 {
     qDebug() << Q_FUNC_INFO << newValue;
-    d->advancedMode = newValue;
-    emit  advancedModeChanged(newValue);
+    if(newValue != d->advancedMode) {
+        d->advancedMode = newValue;
+        emit  advancedModeChanged(newValue);
+    }
 }
 
 bool AppSettings::idleMode() const
@@ -68,8 +70,10 @@ bool AppSettings::idleMode() const
 void AppSettings::setIdleMode(bool newValue)
 {
     qDebug() << Q_FUNC_INFO << newValue;
-    d->idleMode = newValue;
-    emit idleModeChanged(newValue);
+    if(newValue != d->idleMode) {
+        d->idleMode = newValue;
+        emit idleModeChanged(newValue);
+    }
 }
 
 QStringList AppSettings::idleCategories() const
@@ -80,24 +84,26 @@ QStringList AppSettings::idleCategories() const
 void AppSettings::setIdleCategories(QStringList newCategories)
 {
     qDebug() << Q_FUNC_INFO << newCategories;
-    d->idleCategories = newCategories;
-    emit idleCategoriesChanged(newCategories);
+    if(newCategories != d->idleCategories) {
+        d->idleCategories = newCategories;
+        emit idleCategoriesChanged(newCategories);
+    }
 }
 
 void AppSettings::addIdleCategory(const QString& category)
 {
     if(!d->idleCategories.contains(category)) {
         d->idleCategories << category;
+        emit idleCategoriesChanged(d->idleCategories);
     }
-    emit idleCategoriesChanged(d->idleCategories);
 }
 
 void AppSettings::removeIdleCategory(const QString& category)
 {
     if(d->idleCategories.contains(category)) {
         d->idleCategories.removeAll(category);
+        emit idleCategoriesChanged(d->idleCategories);
     }
-    emit idleCategoriesChanged(d->idleCategories);
 }
 
 int AppSettings::idleMinPause() const
@@ -108,8 +114,10 @@ int AppSettings::idleMinPause() const
 void AppSettings::setIdleMinPause(int pause)
 {
     qDebug() << Q_FUNC_INFO << pause;
-    d->idleMinPause = pause;
-    emit idleMinPauseChanged(pause);
+    if(pause != d->idleMinPause) {
+        d->idleMinPause = pause;
+        emit idleMinPauseChanged(pause);
+    }
 }
 
 int AppSettings::idleMaxPause() const
@@ -120,6 +128,8 @@ int AppSettings::idleMaxPause() const
 void AppSettings::setIdleMaxPause(int pause)
 {
     qDebug() << Q_FUNC_INFO << pause;
-    d->idleMaxPause = pause;
-    emit idleMaxPauseChanged(pause);
+    if(pause != d->idleMaxPause) {
+        d->idleMaxPause = pause;
+        emit idleMaxPauseChanged(pause);
+    }
 }
