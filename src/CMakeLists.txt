@@ -12,6 +12,7 @@ set(digitail_SRCS
     btdevicemodel.cpp
     commandqueue.cpp
     filterproxymodel.cpp
+    idlemode.cpp
     settings.cpp
     tailcommandmodel.cpp
     )

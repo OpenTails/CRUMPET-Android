@@ -46,6 +46,7 @@
 #include "filterproxymodel.h"
 #include "settings.h"
 #include "commandqueue.h"
+#include "idlemode.h"
 
 #ifdef HAS_QT5REMOTEOBJECTS
 #include <QAbstractItemModelReplica>
@@ -143,14 +144,19 @@ int serviceMain(int argc, char *argv[])
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
 
     qDebug() << "Creating application settings";
-    AppSettings appSettings;
+    AppSettings* appSettings = new AppSettings(&app);
 
     qDebug() << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(&app);
 
-    QTimer::singleShot(1, &app, [&srcNode, &appSettings, btConnectionManager]() {
+    qDebug() << "Creating idle mode handler";
+    IdleMode* idleMode = new IdleMode(&app);
+    idleMode->setAppSettings(appSettings);
+    idleMode->setConnectionManager(btConnectionManager);
+
+    QTimer::singleShot(1, &app, [&srcNode, appSettings, btConnectionManager]() {
         qDebug() << "Replicating application settings";
-        srcNode.enableRemoting(&appSettings);
+        srcNode.enableRemoting(appSettings);
 
         qDebug() << "Replicating connection manager";
         srcNode.enableRemoting(btConnectionManager);
