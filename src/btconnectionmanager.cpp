@@ -23,6 +23,7 @@
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothServiceDiscoveryAgent>
 #include <QBluetoothLocalDevice>
+#include <QCoreApplication>
 #include <QLowEnergyController>
 #include <QTimer>
 
@@ -89,10 +90,11 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
         d->discoveryRunning = false;
         emit discoveryRunningChanged(d->discoveryRunning);
     });
-    startDiscovery();
+    // Don't launch the discovery immediately, let's give things a change to start up...
+    QTimer::singleShot(100, this, [this](){ startDiscovery(); });
 
     connect(&d->batteryTimer, &QTimer::timeout, [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
-    d->batteryTimer.setInterval(10000);
+    d->batteryTimer.setInterval(5 * 60000);
     d->batteryTimer.setSingleShot(false);
 
 }
@@ -304,6 +306,14 @@ QObject* BTConnectionManager::deviceModel() const
 void BTConnectionManager::sendMessage(const QString &message)
 {
     if (d->tailCharacteristic.isValid()) {
+        // Don't send out another call while we're waiting to hear back... at least for a little bit
+        int i = 0;
+        while(!d->currentCall.isEmpty()) {
+            if(++i == 100) {
+                break;
+            }
+            qApp->processEvents();
+        }
         d->tailService->writeCharacteristic(d->tailCharacteristic, message.toUtf8());
     }
 }
