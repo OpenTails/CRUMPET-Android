@@ -14,9 +14,11 @@
 //   along with this program; if not, see <https://www.gnu.org/licenses/>
 
 class SettingsProxy {
-    PROP(bool advancedMode=false)
-    PROP(bool idleMode=false)
+    PROP(bool advancedMode READWRITE)
+    PROP(bool idleMode READWRITE)
     PROP(QStringList idleCategories)
-    PROP(int idleMinPause=15)
-    PROP(int idleMaxPause=600)
+    SLOT(void addIdleCategory(const QString& category))
+    SLOT(void removeIdleCategory(const QString& category))
+    PROP(int idleMinPause READWRITE)
+    PROP(int idleMaxPause READWRITE)
 };

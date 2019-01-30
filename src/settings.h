@@ -24,36 +24,26 @@
 class AppSettings : public SettingsProxySource
 {
     Q_OBJECT
-    Q_PROPERTY(bool advancedMode READ advancedMode WRITE setAdvancedMode NOTIFY advancedModeChanged)
-    Q_PROPERTY(bool idleMode READ idleMode WRITE setIdleMode NOTIFY idleModeChanged)
-    Q_PROPERTY(QStringList idleCategories READ idleCategories WRITE setIdleCategories NOTIFY idleCategoriesChanged)
-    Q_PROPERTY(int idleMinPause READ idleMinPause WRITE setIdleMinPause NOTIFY idleMinPauseChanged)
-    Q_PROPERTY(int idleMaxPause READ idleMaxPause WRITE setIdleMaxPause NOTIFY idleMaxPauseChanged)
 public:
     explicit AppSettings(QObject* parent = 0);
     virtual ~AppSettings();
 
-    bool advancedMode() const;
-    void setAdvancedMode(bool newValue);
+    bool advancedMode() const override;
+    void setAdvancedMode(bool newValue) override;
 
-    bool idleMode() const;
-    void setIdleMode(bool newValue);
+    bool idleMode() const override;
+    void setIdleMode(bool newValue) override;
 
-    QStringList idleCategories() const;
-    void setIdleCategories(QStringList newCategories);
+    QStringList idleCategories() const override;
+    void setIdleCategories(QStringList newCategories) override;
+    void addIdleCategory(const QString& category) override;
+    void removeIdleCategory(const QString& category) override;
 
-    int idleMinPause() const;
-    void setIdleMinPause(int pause);
+    int idleMinPause() const override;
+    void setIdleMinPause(int pause) override;
 
-    int idleMaxPause() const;
-    void setIdleMaxPause(int pause);
-Q_SIGNALS:
-    void advancedModeChanged();
-    void idleModeChanged();
-    void idleCategoriesChanged();
-    void idleMinPauseChanged();
-    void idleMaxPauseChanged();
-
+    int idleMaxPause() const override;
+    void setIdleMaxPause(int pause) override;
 private:
     class Private;
     Private* d;
