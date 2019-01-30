@@ -158,10 +158,10 @@ Kirigami.Page {
                         from: 0;
                         to: 120;
                         stepSize: 1.0;
-                        first.onValueChanged: { Digitail.AppSettings.idleMinPause = first.value; }
-                        second.onValueChanged: { Digitail.AppSettings.idleMaxPause = second.value; }
+                        first.onValueChanged: { AppSettings.idleMinPause = first.value; }
+                        second.onValueChanged: { AppSettings.idleMaxPause = second.value; }
                         Component.onCompleted: {
-                            pauseRangeSlider.setValues(Digitail.AppSettings.idleMinPause, Digitail.AppSettings.idleMaxPause);
+                            pauseRangeSlider.setValues(AppSettings.idleMinPause, AppSettings.idleMaxPause);
                         }
                     }
                     Item {
