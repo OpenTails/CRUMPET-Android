@@ -26,6 +26,7 @@ class BTConnectionManagerProxy {
     SLOT(void sendMessage(const QString &message))
     SLOT(void connectToDevice(int deviceIndex))
     SLOT(void disconnectDevice())
+    SLOT(void setFakeTailMode(bool enableFakery))
 
     SIGNAL(messageReceived(const QString &sender, const QString &message))
     SIGNAL(message(const QString& message))

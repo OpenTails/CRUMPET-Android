@@ -65,6 +65,7 @@ public Q_SLOTS:
     void serviceStateChanged(QLowEnergyService::ServiceState s);
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
+    void setFakeTailMode(bool enableFakery) override;
 
 Q_SIGNALS:
     void connected(const QString &name);

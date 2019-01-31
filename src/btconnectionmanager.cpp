@@ -40,6 +40,7 @@ public:
         , commandQueue(nullptr)
         , deviceDiscoveryAgent(nullptr)
         , discoveryRunning(false)
+        , fakeTailMode(false)
     {
     }
     ~Private() {}
@@ -61,6 +62,8 @@ public:
 
     QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent;
     bool discoveryRunning;
+
+    bool fakeTailMode;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -310,6 +313,15 @@ QObject* BTConnectionManager::deviceModel() const
 
 void BTConnectionManager::sendMessage(const QString &message)
 {
+    if(d->fakeTailMode) {
+        // Send A Message
+        qDebug() << "Fakery for" << message;
+        TailCommandModel::CommandInfo* commandInfo = d->commandModel->getCommand(message);
+        if(commandInfo) {
+            d->commandModel->setRunning(message, true);
+            QTimer::singleShot(commandInfo->duration, this, [this, message](){ d->commandModel->setRunning(message, false); });
+        }
+    }
     // Don't send out another call while we're waiting to hear back... at least for a little bit
     int i = 0;
     while(!d->currentCall.isEmpty()) {
@@ -340,7 +352,7 @@ QObject * BTConnectionManager::commandQueue() const
 
 bool BTConnectionManager::isConnected() const
 {
-    return d->btControl;
+    return d->fakeTailMode || d->btControl;
 }
 
 int BTConnectionManager::batteryLevel() const
@@ -356,4 +368,19 @@ int BTConnectionManager::deviceCount() const
 int BTConnectionManager::commandQueueCount() const
 {
     return d->commandQueue->count();
+}
+
+void BTConnectionManager::setFakeTailMode(bool enableFakery)
+{
+    // This looks silly, but only Do The Things if we're actually trying to set it enabled, and we're not already enabled
+    if(d->fakeTailMode == false && enableFakery == true) {
+        d->fakeTailMode = true;
+        stopDiscovery();
+        QTimer::singleShot(1000, this, [this]() {
+            emit isConnectedChanged(true);
+            d->commandModel->autofill(QLatin1String("v1.0"));
+        });
+    } else {
+        d->fakeTailMode = enableFakery;
+    }
 }
