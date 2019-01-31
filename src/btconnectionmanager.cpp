@@ -276,7 +276,7 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
             }
         }
     }
-    d->currentCall = QLatin1String();
+    d->currentCall.clear();
 }
 
 void BTConnectionManager::characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
@@ -295,6 +295,10 @@ void BTConnectionManager::disconnectDevice()
         d->tailService = nullptr;
         d->commandModel->clear();
         emit commandModelChanged();
+        d->commandQueue->clear();
+        emit commandQueueChanged();
+        d->batteryLevel = 0;
+        emit batteryLevelChanged(0);
         emit isConnectedChanged(isConnected());
     }
 }
@@ -306,15 +310,15 @@ QObject* BTConnectionManager::deviceModel() const
 
 void BTConnectionManager::sendMessage(const QString &message)
 {
-    if (d->tailCharacteristic.isValid() && d->tailService) {
-        // Don't send out another call while we're waiting to hear back... at least for a little bit
-        int i = 0;
-        while(!d->currentCall.isEmpty()) {
-            if(++i == 100) {
-                break;
-            }
-            qApp->processEvents();
+    // Don't send out another call while we're waiting to hear back... at least for a little bit
+    int i = 0;
+    while(!d->currentCall.isEmpty()) {
+        if(++i == 100) {
+            break;
         }
+        qApp->processEvents();
+    }
+    if (d->tailCharacteristic.isValid() && d->tailService) {
         d->tailService->writeCharacteristic(d->tailCharacteristic, message.toUtf8());
     }
 }
