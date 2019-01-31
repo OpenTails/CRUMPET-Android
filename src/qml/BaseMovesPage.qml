@@ -81,14 +81,16 @@ Kirigami.ScrollablePage {
                             wrapMode: Text.Wrap;
                             horizontalAlignment: Text.AlignHCenter;
                             verticalAlignment: Text.AlignVCenter;
-                            text: model.name;
+                            text: model.name ? model.name : "";
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
                         }
                         MouseArea {
                             anchors.fill: parent;
+                            // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
+                            property string command: model.command ? model.command : "";
                             onClicked: {
                                 CommandQueue.clear();
-                                CommandQueue.pushCommand(model.command);
+                                CommandQueue.pushCommand(command);
                             }
                         }
                     }
