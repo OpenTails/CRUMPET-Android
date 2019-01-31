@@ -111,5 +111,16 @@ Kirigami.Card {
                 connectToTail.open();
             }
         }
+        Button {
+            anchors {
+                top: parent.top;
+                left: parent.left;
+                bottom: parent.bottom;
+            }
+            text: qsTr("Fake it!");
+            onClicked: {
+                BTConnectionManager.setFakeTailMode(true);
+            }
+        }
     }
 }
