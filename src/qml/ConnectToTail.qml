@@ -54,13 +54,13 @@ Kirigami.OverlaySheet {
                     Layout.minimumWidth: 0
                     QQC2.Label {
                         wrapMode: Text.WordWrap
-                        text: model.name
+                        text: model.name ? model.name : ""
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.minimumWidth: 0
                         wrapMode: Text.WordWrap
-                        text: model.deviceID
+                        text: model.deviceID ? model.deviceID : ""
                     }
                 }
                 QQC2.Button {
