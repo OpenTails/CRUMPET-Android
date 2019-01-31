@@ -38,7 +38,6 @@
 class CommandQueue : public CommandQueueProxySource
 {
     Q_OBJECT
-    Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
     explicit CommandQueue(BTConnectionManager* connectionManager);
     virtual ~CommandQueue();
@@ -56,8 +55,6 @@ public:
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
     int rowCount(const QModelIndex& parent = QModelIndex()) const;
     int count() const override;
-    Q_SIGNAL void countChanged();
-    void setCount(int count) override { Q_UNUSED(count); };
 
     /**
      * Clear the queue of all commands

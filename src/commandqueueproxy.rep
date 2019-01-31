@@ -14,7 +14,7 @@
 //   along with this program; if not, see <https://www.gnu.org/licenses/>
 
 class CommandQueueProxy {
-    PROP(int count=0)
+    PROP(int count READONLY)
     SLOT(void clear())
     SLOT(void pushPause(int durationMilliseconds))
     SLOT(void pushCommand(QString tailCommand))

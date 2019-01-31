@@ -63,7 +63,7 @@ public:
                 delete command;
             }
 
-            emit q->countChanged();
+            emit q->countChanged(q->count());
         }
     }
 };
@@ -146,7 +146,7 @@ void CommandQueue::clear()
 //     beginResetModel();
     d->commands.clear();
 //     endResetModel();
-    emit countChanged();
+    emit countChanged(count());
 }
 
 void CommandQueue::pushPause(int durationMilliseconds)
@@ -157,7 +157,7 @@ void CommandQueue::pushPause(int durationMilliseconds)
     d->ourCommands.append(command);
 
     d->commands.append(command);
-    emit countChanged();
+    emit countChanged(count());
 
     // If we have just pushed a command and the timer is not currently running,
     // let's fire one off now!
@@ -177,7 +177,7 @@ void CommandQueue::pushCommand(QString tailCommand)
     }
     d->commands.append(command);
 //     endInsertRows();
-    emit countChanged();
+    emit countChanged(count());
 
     // If we have just pushed a command and the timer is not currently running,
     // let's fire one off now!
@@ -192,7 +192,7 @@ void CommandQueue::pushCommands(TailCommandModel::CommandInfoList commands)
 //         beginInsertRows(QModelIndex(), d->commands.count(), d->commands.count() + commands.count() - 1);
         d->commands.append(commands);
 //         endInsertRows();
-        emit countChanged();
+        emit countChanged(count());
 
         // If we have just pushed some commands and the timer is not currently
         // running, let's fire one off now!
@@ -207,7 +207,7 @@ void CommandQueue::removeEntry(int index)
 //     beginRemoveRows(QModelIndex(), index, index);
     d->commands.removeAt(index);
 //     endRemoveRows();
-    emit countChanged();
+    emit countChanged(count());
 }
 
 void CommandQueue::swapEntries(int swapThis, int withThis)
