@@ -193,15 +193,15 @@ Kirigami.Page {
                 sourceComponent: AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
             }
         }
-        Button {
-            text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
-            width: parent.width;
-            onClicked: {
-                for(var i = 0; i < 1000; ++i) {
-                    CommandQueue.pushCommand(CommandModel.getCommand(1));
-                    CommandQueue.pushPause(3000);
-                }
-            }
-        }
+//         Button {
+//             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
+//             width: parent.width;
+//             onClicked: {
+//                 for(var i = 0; i < 1000; ++i) {
+//                     CommandQueue.pushCommand(CommandModel.getCommand(1));
+//                     CommandQueue.pushPause(3000);
+//                 }
+//             }
+//         }
     }
 }
