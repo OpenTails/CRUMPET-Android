@@ -144,33 +144,42 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
 
 void TailCommandModel::autofill(const QString& version)
 {
-// TAIL MOVES----------
-// TAILS1 - SLOW_WAG1 9.5 secs
-// TAILS2 - SLOW_WAG2 6 secs
-// TAILS3 - SLOW_WAG3 7.8 secs
-// TAILFA - FAST_WAG 9 secs
-// TAILSH - SHORT_WAG 6.8 secs
-// TAILHA - HAPPY_WAG 8 secs
-// TAILER - ERECT 4.7 secs
-// TAILEP - ERECT_PULSE 8.5 secs
-// TAILT1 - TREMBLE1 4 secs
-// TAILT2 - TREMBLE2 4.8 secs
-// TAILET - ERECT_TREM 4.6 secs
+// ### TAIL MOVES AND DURATION
+// ```
+// TAILS1 - SLOW_WAG1 11.53 secs
+// TAILS2 - SLOW_WAG2 7.10 secs
+// TAILS3 - SLOW_WAG3 8.50 secs
+// TAILFA - FAST_WAG 9.96 secs
+// TAILSH - SHORT_WAG 7.46 secs
+// TAILHA - HAPPY_WAG 8.86 secs
+// TAILER - ERECT 5.80 secs
+// TAILEP - ERECT_PULSE 9.76 secs
+// TAILT1 - TREMBLE1 4.06 secs
+// TAILT2 - TREMBLE2 5.55 secs
+// TAILET - ERECT_TREM 4.73 secs
+// ```
+// and a Home Move: TAILHM
 //
-// LEDS PATTERNS ----------
-// LEDOFF - Leds off
+// There are 6 built in LED patterns
+//
+// ### LED PATTERNS
+// ```
 // LEDREC - intermittent (on/off)
 // LEDTRI - triangular (fade in/out)
 // LEDSAW - sawtooth (fade in/off)
 // LEDSOS - morse SOS
 // LEDFLA - flame simulation
 // LEDSTR - strobo
-//
-// OTHER COMMANDS-------
+// ```
+// and the LEDOFF command
+// ### OTHER COMMANDS
+// ```
 // VER - returns the firmware version number
 // PING - returns OK
 // SHUTDOWN - powers off the unit (will lose the connection!)
 // BATT - returns Bn (n= 0,1,2,3,4 number of 'bars')
+// USERMOVE and USERLEDS which deal with user created moves or LED patterns
+// ```
 
     beginResetModel();
     qDeleteAll(d->commands);
@@ -193,77 +202,77 @@ void TailCommandModel::autofill(const QString& version)
         command->name = QLatin1String("Slow Wag 1");
         command->command = QLatin1String("TAILS1");
         command->category = QLatin1String("relaxed");
-        command->duration = 9500;
+        command->duration = 11530;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Slow Wag 2");
         command->command = QLatin1String("TAILS2");
         command->category = QLatin1String("relaxed");
-        command->duration = 6000;
+        command->duration = 7100;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Slow Wag 3");
         command->command = QLatin1String("TAILS3");
         command->category = QLatin1String("relaxed");
-        command->duration = 7800;
+        command->duration = 8500;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Fast Wag");
         command->command = QLatin1String("TAILFA");
         command->category = QLatin1String("excited");
-        command->duration = 9000;
+        command->duration = 9960;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Short Wag");
         command->command = QLatin1String("TAILSH");
         command->category = QLatin1String("excited");
-        command->duration = 6800;
+        command->duration = 7460;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Happy Wag");
         command->command = QLatin1String("TAILHA");
         command->category = QLatin1String("excited");
-        command->duration = 8000;
+        command->duration = 8860;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Stand up!");
         command->command = QLatin1String("TAILER");
         command->category = QLatin1String("excited");
-        command->duration = 4700;
+        command->duration = 5800;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Tremble 1");
         command->command = QLatin1String("TAILT1");
         command->category = QLatin1String("tense");
-        command->duration = 4000;
+        command->duration = 4060;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Tremble 2");
         command->command = QLatin1String("TAILT2");
         command->category = QLatin1String("tense");
-        command->duration = 4800;
+        command->duration = 5550;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("Tremble Erect");
         command->command = QLatin1String("TAILET");
         command->category = QLatin1String("tense");
-        command->duration = 4600;
+        command->duration = 4730;
         command->minimumCooldown = 1000;
         d->commands << command;
         command = new CommandInfo();
         command->name = QLatin1String("High Wag");
         command->command = QLatin1String("TAILEP");
         command->category = QLatin1String("tense");
-        command->duration = 8500;
+        command->duration = 9760;
         command->minimumCooldown = 1000;
         d->commands << command;
 
