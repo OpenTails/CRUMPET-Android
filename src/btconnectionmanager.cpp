@@ -306,7 +306,7 @@ QObject* BTConnectionManager::deviceModel() const
 
 void BTConnectionManager::sendMessage(const QString &message)
 {
-    if (d->tailCharacteristic.isValid()) {
+    if (d->tailCharacteristic.isValid() && d->tailService) {
         // Don't send out another call while we're waiting to hear back... at least for a little bit
         int i = 0;
         while(!d->currentCall.isEmpty()) {
