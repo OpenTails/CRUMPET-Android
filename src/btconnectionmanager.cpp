@@ -247,6 +247,7 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
     if (d->tailStateCharacteristicUuid == characteristic.uuid()) {
         if (d->currentCall == QLatin1String("VER")) {
             d->commandModel->autofill(newValue);
+            emit commandModelChanged();
             d->commandQueue->clear();
             emit commandQueueChanged();
             d->batteryTimer.start();

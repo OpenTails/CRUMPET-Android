@@ -33,13 +33,8 @@ class BTConnectionManager : public BTConnectionManagerProxySource
 {
     Q_OBJECT
     Q_PROPERTY(QObject* deviceModel READ deviceModel NOTIFY deviceModelChanged)
-//     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
     Q_PROPERTY(QObject* commandModel READ commandModel NOTIFY commandModelChanged)
     Q_PROPERTY(QObject* commandQueue READ commandQueue NOTIFY commandQueueChanged)
-//     Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
-//     Q_PROPERTY(bool discoveryRunning READ discoveryRunning NOTIFY discoveryRunningChanged)
-//     Q_PROPERTY(int deviceCount READ deviceCount NOTIFY deviceCountChanged)
-//     Q_PROPERTY(int commandQueueCount READ commandQueueCount NOTIFY commandQueueCountChanged)
 
 public:
     explicit BTConnectionManager(QObject* parent = 0);
@@ -63,12 +58,6 @@ public:
     int deviceCount() const override;
     int commandQueueCount() const override;
 
-    void setIsConnected(bool isConnected) override { Q_UNUSED(isConnected); }
-    void setBatteryLevel(int batteryLevel) override { Q_UNUSED(batteryLevel); }
-    void setDiscoveryRunning(bool discoveryRunning) override { Q_UNUSED(discoveryRunning); }
-    void setDeviceCount(int deviceCount) override { Q_UNUSED(deviceCount); }
-    void setCommandQueueCount(int commandQueueCount) override { Q_UNUSED(commandQueueCount); }
-
 public Q_SLOTS:
     void sendMessage(const QString &message) override;
     void connectToDevice(int deviceIndex) override;
@@ -78,18 +67,11 @@ public Q_SLOTS:
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
 
 Q_SIGNALS:
-//     void discoveryRunningChanged();
-//     void isConnectedChanged();
-//     void batteryLevelChanged();
-    void messageReceived(const QString &sender, const QString &message);
     void connected(const QString &name);
     void disconnected();
     void deviceModelChanged();
     void commandModelChanged();
     void commandQueueChanged();
-//     void deviceCountChanged();
-//     void commandQueueCountChanged();
-    void message(const QString& message);
 
 private:
     class Private;
