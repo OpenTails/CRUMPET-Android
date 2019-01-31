@@ -194,9 +194,10 @@ If any errors occur during the cmake step, you may find that you have either not
 
 You may also notice some warnings during the CMake configuration step about policy changes. Don't worry about those, they're less dangerous than they seem.
 
-Once the make command has completed successfully, you should find yourself with a binary named digital inside the src subdirectory of your build directory. You can run this by doing as follows:
+Once the make command has completed successfully, you should find yourself with a binary named digital inside the src subdirectory of your build directory. As the app is split into two (a service part and the visible app which controls that service), you can run this by running the following two commands, each in their separate shell:
 
 ```
+./bin/digitail -service
 ./bin/digitail
 ```
 
