@@ -32,8 +32,8 @@ public:
     BTConnectionManager* connectionManager;
 
     void push() {
-        qDebug() << "Pushing command to the queue for idle mode";
-        if(connectionManager && appSettings) {
+        if(connectionManager && appSettings && appSettings->idleMode()) {
+            qDebug() << "Pushing command to the queue for idle mode";
             CommandQueue* queue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
             TailCommandModel* commands = qobject_cast<TailCommandModel*>(connectionManager->commandModel());
             const QStringList categories = appSettings->idleCategories();
