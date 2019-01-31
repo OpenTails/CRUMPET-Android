@@ -14,11 +14,11 @@
 //   along with this program; if not, see <https://www.gnu.org/licenses/>
 
 class BTConnectionManagerProxy {
-    PROP(bool isConnected=false)
-    PROP(int batteryLevel=-1)
-    PROP(bool discoveryRunning=false)
-    PROP(int deviceCount=0)
-    PROP(int commandQueueCount=0)
+    PROP(bool isConnected)
+    PROP(int batteryLevel)
+    PROP(bool discoveryRunning)
+    PROP(int deviceCount)
+    PROP(int commandQueueCount)
 
     SLOT(void runCommand(const QString& command))
     SLOT(void startDiscovery())
