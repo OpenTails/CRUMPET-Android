@@ -1,6 +1,8 @@
 # DIGITAiL
 Development of the app to control our new breed of animatronic tails!
 
+For information on the basic concepts of the application's codebase, and for information on how you should approach the code if you wish to contribute, please see our [HACKING document](HACKING.md).
+
 ## NOTES
 
 You find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
