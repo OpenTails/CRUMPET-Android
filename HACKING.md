@@ -30,7 +30,7 @@ through Qt's RemoteObjects module.
 
 ### Backend/Service
 
-The service is launched with the command '''digitail -service'''
+The service is launched with the command `digitail -service`
 
 Upon launching the service, a number of objects are created and exposed through a local
 RemoteObjects node. The exposed object classes, in hierarchical layout, are:
@@ -47,7 +47,7 @@ exported, as it is controlled indirectly and operates without user interaction.
 
 ### Frontend
 
-The frontend is launched with the command '''digitail'''
+The frontend is launched with the command `digitail`
 
 Upon launching the application, it will first create the QML application engine,
 and register a few types on it (primarily the Kirigami types, and some
