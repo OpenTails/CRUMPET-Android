@@ -144,7 +144,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Idle Mode Settings");
+                text: qsTr("Casual Mode Settings");
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "idleMode" : "";
                 icon.name: ":/org/kde/kirigami/icons/randomize.svg";
                 visible: AppSettings.idleMode;

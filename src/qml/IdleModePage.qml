@@ -23,7 +23,7 @@ import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "idleMode";
-    title: qsTr("Idle Mode Categories");
+    title: qsTr("Casual Mode Categories");
 
     Component {
         id: idleCategoryDelegate;

@@ -33,7 +33,7 @@ public:
 
     void push() {
         if(connectionManager && appSettings && appSettings->idleMode()) {
-            qDebug() << "Pushing command to the queue for idle mode";
+            qDebug() << "Pushing command to the queue for casual mode";
             CommandQueue* queue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
             TailCommandModel* commands = qobject_cast<TailCommandModel*>(connectionManager->commandModel());
             const QStringList categories = appSettings->idleCategories();

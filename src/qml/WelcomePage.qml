@@ -120,7 +120,7 @@ Kirigami.Page {
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             width: parent.width;
             header: Kirigami.Heading {
-                text: qsTr("Idle Mode");
+                text: qsTr("Casual Mode");
                 CheckBox {
                     anchors.right: parent.right;
                     height: parent.height;

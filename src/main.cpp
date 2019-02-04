@@ -149,7 +149,7 @@ int serviceMain(int argc, char *argv[])
     qDebug() << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(&app);
 
-    qDebug() << "Creating idle mode handler";
+    qDebug() << "Creating casual mode handler";
     IdleMode* idleMode = new IdleMode(&app);
     idleMode->setAppSettings(appSettings);
     idleMode->setConnectionManager(btConnectionManager);
