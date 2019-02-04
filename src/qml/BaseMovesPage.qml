@@ -107,18 +107,57 @@ Kirigami.ScrollablePage {
         }
     }
 
-    ColumnLayout {
-        Item {
-            implicitHeight: tailConnectedInfo.opacity > 0 ? tailConnectedInfo.implicitHeight : 0;
-            width: root.width - Kirigami.Units.largeSpacing * 4;
-            NotConnectedCard {
-                id: tailConnectedInfo;
+    Item {
+        width: parent.width;
+        height: mainLayout.height;
+        ColumnLayout {
+            id: mainLayout;
+            Item {
+                implicitHeight: tailConnectedInfo.opacity > 0 ? tailConnectedInfo.implicitHeight : 0;
+                width: root.width - Kirigami.Units.largeSpacing * 4;
+                NotConnectedCard {
+                    id: tailConnectedInfo;
+                }
+            }
+            Kirigami.CardsLayout {
+                Repeater {
+                    model: BTConnectionManager.isConnected ? categoriesModel : null;
+                    delegate: categoryDelegate;
+                }
             }
         }
-        Kirigami.CardsLayout {
-            Repeater {
-                model: BTConnectionManager.isConnected ? categoriesModel : null;
-                delegate: categoryDelegate;
+        Item {
+            anchors {
+                top: parent.top;
+                left: parent.left;
+                right: parent.right;
+                margins: -Kirigami.Units.gridUnit;
+            }
+            height: parent.height > root.height ? (parent.height + Kirigami.Units.gridUnit*2) : (root.height - Kirigami.Units.gridUnit*2 - Kirigami.Units.largeSpacing);
+            opacity: CommandQueue.currentCommandRemainingMSeconds > 0 ? 1 : 0;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+            MouseArea { anchors.fill: parent; enabled: parent.opacity > 0; onClicked: { /* nothing, because we're just swallowing events */ } }
+            Rectangle { anchors { fill: parent; margins: Kirigami.Units.smallSpacing; } color: "black"; opacity: 0.8; radius: Kirigami.Units.smallSpacing; }
+            Kirigami.Heading {
+                anchors {
+                    left: parent.left;
+                    right: parent.right;
+                    top: parent.top;
+                    topMargin: Kirigami.Units.gridUnit * 4;
+                }
+                color: "white";
+                text: qsTr("Tail Active...");
+                horizontalAlignment: Text.AlignHCenter;
+                ProgressBar {
+                    anchors {
+                        left: parent.left;
+                        right: parent.right;
+                        top: parent.bottom;
+                        margins: Kirigami.Units.gridUnit;
+                    }
+                    value: CommandQueue.currentCommandRemainingMSeconds;
+                    to: CommandQueue.currentCommandTotalDuration;
+                }
             }
         }
     }
