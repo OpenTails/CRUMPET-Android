@@ -181,6 +181,13 @@ For openSuse Tumbleweed, the following lines will install the packages you need:
 ```
 sudo zypper install --type pattern devel_C_C++ devel_qt5
 sudo zypper install extra-cmake-modules
+sudo zypper install libQt5QuickControls2-devel libqt5-qtbase-private-headers-devel
+```
+
+For Ubuntu you should install at least the following packages, but we could not to build the project at anyway:
+
+```
+sudo apt-get install extra-cmake-modules qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev libqt5svg5-dev libqt5bluetooth5 qtconnectivity5-dev libqt5svg5-dev qtbase5-private-dev
 ```
 
 Once these have been installed, you are ready to build. You should always build software out-of-source, which means creating a directory somewhere and performing the actual building there. Enter the clone directory as created above by the clone command. Unless you have moved around the filesystem, you should already be in the directory containing the source code.
