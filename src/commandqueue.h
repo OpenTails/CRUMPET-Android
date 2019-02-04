@@ -57,6 +57,18 @@ public:
     int count() const override;
 
     /**
+     * The number of remaining milliseconds of the most recently launched command
+     * launched by the queue. If this is zero, consider no command running.
+     * @note This also includes the mandatory pause of the command
+     * @return The remaining runtime of the current command in milliseconds
+     */
+    int currentCommandRemainingMSeconds() const override;
+    /**
+     * The number of milliseconds the current command will run for.
+     * @Note, this is not updated until the next command is launched, and not included for pauses.
+     */
+    int currentCommandTotalDuration() const override;
+    /**
      * Clear the queue of all commands
      */
     Q_SLOT void clear() override;

@@ -26,7 +26,16 @@ public:
     Private(CommandQueue* qq, BTConnectionManager* connectionManager)
         : q(qq)
         , connectionManager(connectionManager)
-    {}
+    {
+        currentCommandTimer = new QTimer(qq);
+        currentCommandTimer->setSingleShot(true);
+        currentCommandTimerChecker = new QTimer(qq);
+        currentCommandTimerChecker->setInterval(100);
+        q->connect(currentCommandTimer, &QTimer::timeout, [this](){
+            currentCommandTimerChecker->stop();
+            emit q->currentCommandRemainingMSecondsChanged(0);
+        });
+    }
     ~Private() {}
 
     CommandQueue* q;
@@ -37,6 +46,8 @@ public:
     BTConnectionManager* connectionManager;
 
     QTimer* popTimer;
+    QTimer* currentCommandTimer;
+    QTimer* currentCommandTimerChecker;
 
     void pop()
     {
@@ -50,6 +61,11 @@ public:
             // though not yet, but just never send an empty command)
             if(!command->command.isEmpty()) {
                 connectionManager->sendMessage(command->command);
+                currentCommandTimer->setInterval(command->duration + command->minimumCooldown);
+                currentCommandTimer->start();
+                currentCommandTimerChecker->start();
+                emit q->currentCommandTotalDurationChanged(currentCommandTimer->interval());
+                emit q->currentCommandRemainingMSecondsChanged(currentCommandTimer->remainingTime());
             }
 
             popTimer->start(command->duration + command->minimumCooldown);
@@ -75,6 +91,10 @@ CommandQueue::CommandQueue(BTConnectionManager* connectionManager)
     d->popTimer = new QTimer(this);
     d->popTimer->setSingleShot(true);
     connect(d->popTimer, &QTimer::timeout, this, [this](){ d->pop(); });
+
+    connect(d->currentCommandTimerChecker, &QTimer::timeout, [this](){
+        emit currentCommandRemainingMSecondsChanged(d->currentCommandTimer->remainingTime());
+    });
 }
 
 CommandQueue::~CommandQueue()
@@ -136,6 +156,16 @@ int CommandQueue::rowCount(const QModelIndex& parent) const
 int CommandQueue::count() const
 {
     return d->commands.count();
+}
+
+int CommandQueue::currentCommandRemainingMSeconds() const
+{
+    return d->currentCommandTimer->remainingTime();
+}
+
+int CommandQueue::currentCommandTotalDuration() const
+{
+    return d->currentCommandTimer->interval();
 }
 
 void CommandQueue::clear()
