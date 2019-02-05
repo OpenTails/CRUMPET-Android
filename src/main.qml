@@ -136,7 +136,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Tail Lights");
+                text: qsTr("Glow Tips");
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailLights" : "";
                 icon.name: ":/images/tail-lights.svg";
                 onTriggered: {

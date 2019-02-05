@@ -97,7 +97,7 @@ Kirigami.Page {
                 Layout.column: 1;
                 Layout.row: 1;
                 Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Tail Lights");
+                text: qsTr("Glow Tips");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
                     switchToPage(tailLights);
