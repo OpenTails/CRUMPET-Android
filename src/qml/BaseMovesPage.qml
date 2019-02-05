@@ -25,6 +25,7 @@ import org.thetailcompany.digitail 1.0
 
 Kirigami.ScrollablePage {
     id: root;
+    property bool blockOnMovingTail: false;
     property QtObject categoriesModel: ListModel { }
 
     Component {
@@ -134,7 +135,7 @@ Kirigami.ScrollablePage {
                 margins: -Kirigami.Units.gridUnit;
             }
             height: parent.height > root.height ? (parent.height + Kirigami.Units.gridUnit*2) : (root.height - Kirigami.Units.gridUnit*2 - Kirigami.Units.largeSpacing);
-            opacity: CommandQueue.currentCommandRemainingMSeconds > 0 ? 1 : 0;
+            opacity: (CommandQueue.currentCommandRemainingMSeconds > 0 && root.blockOnMovingTail === true) ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             MouseArea { anchors.fill: parent; enabled: parent.opacity > 0; onClicked: { /* nothing, because we're just swallowing events */ } }
             Rectangle { anchors { fill: parent; margins: Kirigami.Units.smallSpacing; } color: "black"; opacity: 0.8; radius: Kirigami.Units.smallSpacing; }
