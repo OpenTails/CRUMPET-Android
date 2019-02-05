@@ -80,42 +80,7 @@ Kirigami.ApplicationWindow {
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
         // Simply replacing the rectangle means we end up removing the handles and whatnot, so that's not cool
         Component.onCompleted: { background.color = "#3daee9"; }
-        topContent: Item {
-            visible: height > 0;
-            height: BTConnectionManager.isConnected === true ? batteryLabel.height : 0;
-            Layout.fillWidth: true;
-            Label {
-                id: batteryLabel;
-                text: "Tail battery:"
-                height: Kirigami.Units.iconSizes.small;
-            }
-            Row {
-                anchors.right: parent.right;
-                spacing: Kirigami.Units.smallSpacing;
-                Repeater {
-                    model: 4;
-                    Rectangle {
-                        height: Kirigami.Units.iconSizes.small;
-                        width: height;
-                        radius: height / 2;
-                        border {
-                            width: 1;
-                            color: "black";
-                        }
-                        color: "transparent";
-                        anchors.verticalCenter: parent.verticalCenter;
-                        Rectangle {
-                            anchors.centerIn: parent;
-                            radius: height / 2;
-                            height: parent.height - Kirigami.Units.smallSpacing * 2;
-                            width: height;
-                            color: "black";
-                            visible: modelData < BTConnectionManager.batteryLevel;
-                        }
-                    }
-                }
-            }
-        }
+
         actions: [
             Kirigami.Action {
                 text: qsTr("DIGITAiL");

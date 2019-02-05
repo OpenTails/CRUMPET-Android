@@ -56,6 +56,9 @@ Kirigami.Page {
     Column {
         width: root.width - Kirigami.Units.largeSpacing * 4;
         spacing: Kirigami.Units.largeSpacing;
+        TailBattery {
+            width: parent.width;
+        }
         NotConnectedCard { }
         GridLayout {
             id: commandLayout;
