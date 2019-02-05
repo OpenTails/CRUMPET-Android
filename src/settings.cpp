@@ -16,6 +16,7 @@
  */
 
 #include "settings.h"
+#include <QSettings>
 
 class AppSettings::Private
 {
@@ -41,6 +42,13 @@ AppSettings::AppSettings(QObject* parent)
     : SettingsProxySource(parent)
     , d(new Private)
 {
+    QSettings settings;
+
+    d->advancedMode = settings.value("advancedMode", d->advancedMode).toBool();
+    d->idleMode = settings.value("idleMode", d->idleMode).toBool();
+    d->idleCategories = settings.value("idleCategories", d->idleCategories).toStringList();
+    d->idleMinPause = settings.value("idleMinPause", d->idleMinPause).toInt();
+    d->idleMaxPause = settings.value("idleMaxPause", d->idleMaxPause).toInt();
 }
 
 AppSettings::~AppSettings()
@@ -58,6 +66,8 @@ void AppSettings::setAdvancedMode(bool newValue)
     qDebug() << Q_FUNC_INFO << newValue;
     if(newValue != d->advancedMode) {
         d->advancedMode = newValue;
+        QSettings settings;
+        settings.setValue("advancedMode", d->advancedMode);
         emit  advancedModeChanged(newValue);
     }
 }
@@ -72,6 +82,8 @@ void AppSettings::setIdleMode(bool newValue)
     qDebug() << Q_FUNC_INFO << newValue;
     if(newValue != d->idleMode) {
         d->idleMode = newValue;
+        QSettings settings;
+        settings.setValue("idleMode", d->idleMode);
         emit idleModeChanged(newValue);
     }
 }
@@ -86,6 +98,8 @@ void AppSettings::setIdleCategories(QStringList newCategories)
     qDebug() << Q_FUNC_INFO << newCategories;
     if(newCategories != d->idleCategories) {
         d->idleCategories = newCategories;
+        QSettings settings;
+        settings.setValue("idleCategories", d->idleCategories);
         emit idleCategoriesChanged(newCategories);
     }
 }
@@ -94,6 +108,8 @@ void AppSettings::addIdleCategory(const QString& category)
 {
     if(!d->idleCategories.contains(category)) {
         d->idleCategories << category;
+        QSettings settings;
+        settings.setValue("idleCategories", d->idleCategories);
         emit idleCategoriesChanged(d->idleCategories);
     }
 }
@@ -102,6 +118,8 @@ void AppSettings::removeIdleCategory(const QString& category)
 {
     if(d->idleCategories.contains(category)) {
         d->idleCategories.removeAll(category);
+        QSettings settings;
+        settings.setValue("idleCategories", d->idleCategories);
         emit idleCategoriesChanged(d->idleCategories);
     }
 }
@@ -116,6 +134,8 @@ void AppSettings::setIdleMinPause(int pause)
     qDebug() << Q_FUNC_INFO << pause;
     if(pause != d->idleMinPause) {
         d->idleMinPause = pause;
+        QSettings settings;
+        settings.setValue("idleMinPause", d->idleMinPause);
         emit idleMinPauseChanged(pause);
     }
 }
@@ -130,6 +150,8 @@ void AppSettings::setIdleMaxPause(int pause)
     qDebug() << Q_FUNC_INFO << pause;
     if(pause != d->idleMaxPause) {
         d->idleMaxPause = pause;
+        QSettings settings;
+        settings.setValue("idleMaxPause", d->idleMaxPause);
         emit idleMaxPauseChanged(pause);
     }
 }
