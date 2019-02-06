@@ -71,6 +71,7 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
     , d(new Private)
 {
     d->commandModel = new TailCommandModel(this);
+    connect(d->commandModel, &TailCommandModel::tailVersionChanged, this, [this](){ emit tailVersionChanged(d->commandModel->tailVersion()); });
     d->commandQueue = new CommandQueue(this);
     connect(d->commandQueue, &CommandQueue::countChanged, this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
 
@@ -368,6 +369,11 @@ int BTConnectionManager::deviceCount() const
 int BTConnectionManager::commandQueueCount() const
 {
     return d->commandQueue->count();
+}
+
+QString BTConnectionManager::tailVersion() const
+{
+    return d->commandModel->tailVersion();
 }
 
 void BTConnectionManager::setFakeTailMode(bool enableFakery)

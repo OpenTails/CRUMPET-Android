@@ -57,6 +57,7 @@ public:
     int batteryLevel() const override;
     int deviceCount() const override;
     int commandQueueCount() const override;
+    QString tailVersion() const override;
 
 public Q_SLOTS:
     void sendMessage(const QString &message) override;

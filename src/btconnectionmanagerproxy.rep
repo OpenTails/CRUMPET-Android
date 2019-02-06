@@ -19,6 +19,7 @@ class BTConnectionManagerProxy {
     PROP(bool discoveryRunning READONLY)
     PROP(int deviceCount READONLY)
     PROP(int commandQueueCount READONLY)
+    PROP(QString tailVersion READONLY)
 
     SLOT(void runCommand(const QString& command))
     SLOT(void startDiscovery())
