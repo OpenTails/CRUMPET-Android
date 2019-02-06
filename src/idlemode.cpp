@@ -39,8 +39,11 @@ public:
             const QStringList categories = appSettings->idleCategories();
             if(queue && commands) {
                 if(queue->count() == 0 && appSettings->idleMode() == true && categories.count() > 0) {
-                    queue->pushCommand(commands->getRandomCommand(categories)->command);
-                    queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000);
+                    TailCommandModel::CommandInfo* command = commands->getRandomCommand(categories);
+                    if(command) {
+                        queue->pushCommand(command->command);
+                        queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000);
+                    }
                 }
             }
         }
