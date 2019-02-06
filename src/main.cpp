@@ -149,6 +149,24 @@ int serviceMain(int argc, char *argv[])
     qDebug() << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(&app);
 
+    QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
+        if(isConnected) {
+#ifdef Q_OS_ANDROID
+    QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
+                                                "acquireWakeLock",
+                                                "(Landroid/content/Context;)V",
+                                                QtAndroid::androidActivity().object());
+#endif
+        } else {
+#ifdef Q_OS_ANDROID
+    QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
+                                                "releaseWakeLock",
+                                                "(Landroid/content/Context;)V",
+                                                QtAndroid::androidActivity().object());
+#endif
+        }
+    });
+
     qDebug() << "Creating casual mode handler";
     IdleMode* idleMode = new IdleMode(&app);
     idleMode->setAppSettings(appSettings);
