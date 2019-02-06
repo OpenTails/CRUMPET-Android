@@ -154,10 +154,13 @@ int serviceMain(int argc, char *argv[])
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
 #ifdef Q_OS_ANDROID
-        if(isConnected) {
-            QtAndroid::runOnAndroidThread([=]() { QtAndroid::androidService().callMethod<void>("acquireWakeLock"); });
-        } else {
-            QtAndroid::runOnAndroidThread([=]() { QtAndroid::androidService().callMethod<void>("releaseWakeLock"); });
+        QAndroidJniObject androidService = QtAndroid::androidService();
+        if(androidService.isValid()) {
+            if(isConnected) {
+                QtAndroid::runOnAndroidThread([=]() { androidService.callMethod<void>("acquireWakeLock"); });
+            } else {
+                QtAndroid::runOnAndroidThread([=]() { androidService.callMethod<void>("releaseWakeLock"); });
+            }
         }
 #else
     Q_UNUSED(isConnected)
