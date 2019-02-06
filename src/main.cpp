@@ -139,6 +139,9 @@ int serviceMain(int argc, char *argv[])
 #else
     QCoreApplication app(argc, argv);
 #endif
+    app.setOrganizationName("The Tail Company");
+    app.setOrganizationDomain("thetailcompany.com");
+    app.setApplicationName("DIGITAiL");
     qInfo() << "Service starting...";
 
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
