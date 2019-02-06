@@ -185,7 +185,6 @@ void TailCommandModel::autofill(const QString& version)
     qDeleteAll(d->commands);
     d->commands.clear();
     d->tailVersion = version;
-    emit tailVersionChanged();
     if (version == QLatin1String()) {
         // Herpetyderp, no version, what's this?
     }
@@ -326,6 +325,7 @@ void TailCommandModel::autofill(const QString& version)
         d->commands << command;
     }
     endResetModel();
+    emit tailVersionChanged();
 }
 
 QString TailCommandModel::tailVersion() const

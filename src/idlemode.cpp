@@ -32,7 +32,7 @@ public:
     BTConnectionManager* connectionManager;
 
     void push() {
-        if(connectionManager && appSettings && appSettings->idleMode()) {
+        if(connectionManager && connectionManager->isConnected() && appSettings && appSettings->idleMode()) {
             qDebug() << "Pushing command to the queue for casual mode";
             CommandQueue* queue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
             TailCommandModel* commands = qobject_cast<TailCommandModel*>(connectionManager->commandModel());
@@ -78,4 +78,6 @@ void IdleMode::setConnectionManager(BTConnectionManager* connectionManager)
     }
     d->connectionManager = connectionManager;
     connect(d->connectionManager, &BTConnectionManager::commandQueueCountChanged, this, [this](){ d->push(); });
+    connect(d->connectionManager, &BTConnectionManager::isConnectedChanged, this, [this](){ d->push(); });
+    connect(qobject_cast<TailCommandModel*>(d->connectionManager->commandModel()), &TailCommandModel::tailVersionChanged, this, [this](){ d->push(); });
 }
