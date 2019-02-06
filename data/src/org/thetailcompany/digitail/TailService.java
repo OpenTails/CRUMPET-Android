@@ -8,7 +8,7 @@ import org.qtproject.qt5.android.bindings.QtService;
 public class TailService extends QtService
 {
     private static WakeLock mWakeLock;
-    private final int ONGOING_NOTIFICATION_ID: 1;
+    private static final int ONGOING_NOTIFICATION_ID = 1;
     public static void acquireWakeLock(Context ctx) {
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
