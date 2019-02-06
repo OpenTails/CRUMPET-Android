@@ -42,8 +42,8 @@ public:
                     TailCommandModel::CommandInfo* command = commands->getRandomCommand(categories);
                     if(command) {
                         queue->pushCommand(command->command);
-                        queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000);
                     }
+                    queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000);
                 }
             }
         }
