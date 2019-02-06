@@ -150,21 +150,15 @@ int serviceMain(int argc, char *argv[])
     BTConnectionManager* btConnectionManager = new BTConnectionManager(&app);
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
+#ifdef Q_OS_ANDROID
         if(isConnected) {
-#ifdef Q_OS_ANDROID
-    QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
-                                                "acquireWakeLock",
-                                                "(Landroid/content/Context;)V",
-                                                QtAndroid::androidActivity().object());
-#endif
+            QtAndroid::runOnAndroidThread([=]() { QtAndroid::androidService().callMethod<void>("acquireWakeLock"); });
         } else {
-#ifdef Q_OS_ANDROID
-    QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
-                                                "releaseWakeLock",
-                                                "(Landroid/content/Context;)V",
-                                                QtAndroid::androidActivity().object());
-#endif
+            QtAndroid::runOnAndroidThread([=]() { QtAndroid::androidService().callMethod<void>("releaseWakeLock"); });
         }
+#else
+    Q_UNUSED(isConnected)
+#endif
     });
 
     qDebug() << "Creating casual mode handler";
