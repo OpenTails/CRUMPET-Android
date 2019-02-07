@@ -63,25 +63,19 @@ int appMain(int argc, char *argv[])
 //The desktop QQC2 style needs it to be a QApplication
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
+    qDebug() << "Starting service, if it isn't already...";
     QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "startTailService",
                                                 "(Landroid/content/Context;)V",
                                                 QtAndroid::androidActivity().object());
+    qDebug() << "Service started, or already launched";
 #else
     QApplication app(argc, argv);
 #endif
     //qputenv("QML_IMPORT_TRACE", "1");
 
     QQmlApplicationEngine engine;
-//     qmlRegisterType<BTConnectionManager>("org.thetailcompany.digitail", 1, 0, "BTConnectionManager");
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
-//     qmlRegisterSingletonType<SettingsProxyReplica>("org.thetailcompany.digitail", 1, 0, "AppSettings", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
-//         Q_UNUSED(engine)
-//         Q_UNUSED(scriptEngine)
-// 
-//         SettingsProxyReplica* appSettings = settingsReplica.data();
-//         return appSettings;
-//     });
     KirigamiPlugin::getInstance().registerTypes();
 
     qInfo() << "Connecting to service...";

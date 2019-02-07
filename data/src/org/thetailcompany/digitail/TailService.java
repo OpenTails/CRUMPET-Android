@@ -42,8 +42,19 @@ public class TailService extends QtService
         mWakeLock.release();
     }
 
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
     public static void startTailService(Context ctx) {
-        ctx.startService(new Intent(ctx, TailService.class));
+        if(!isMyServiceRunning(TailService.class)) {
+            ctx.startService(new Intent(ctx, TailService.class));
+        }
     }
 
     @Override
@@ -52,9 +63,4 @@ public class TailService extends QtService
         return START_STICKY;
     }
 
-    @Override
-    public void onCreate() {
-        // Check if notification should be shown and do so if needed
-        super.onCreate();
-    }
 }
