@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -42,8 +44,8 @@ public class TailService extends QtService
         mWakeLock.release();
     }
 
-    private boolean isMyServiceRunning(Class<?> serviceClass) {
-        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+    private static boolean isMyServiceRunning(Class<?> serviceClass, Context ctx) {
+        ActivityManager manager = (ActivityManager) ctx.getSystemService(Context.ACTIVITY_SERVICE);
         for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
                 return true;
@@ -52,7 +54,7 @@ public class TailService extends QtService
         return false;
     }
     public static void startTailService(Context ctx) {
-        if(!isMyServiceRunning(TailService.class)) {
+        if(!isMyServiceRunning(TailService.class, ctx)) {
             ctx.startService(new Intent(ctx, TailService.class));
         }
     }
