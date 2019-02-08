@@ -22,9 +22,10 @@ public class TailService extends QtService
             "DIGITAiL::TailWakeLockTag");
         mWakeLock.acquire();
         // Start foregrounding the service and put up a notification saying we're alive
-        Intent notificationIntent = new Intent(this, TailService.class);
+        Intent notificationIntent = new Intent(this, TailActivity.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent =
-                PendingIntent.getActivity(this, 0, notificationIntent, 0);
+                PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification =
                 new Notification.Builder(this)
