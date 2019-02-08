@@ -33,7 +33,7 @@
                     <meta-data android:name="android.app.ministro_needed_msg" android:value="@string/ministro_needed_msg"/>
                     <meta-data android:name="android.app.fatal_error_msg" android:value="@string/fatal_error_msg"/>
                 </service>
-                <activity android:name="org.qtproject.qt5.android.bindings.QtActivity"
+                <activity android:name=".TailActivity"
                           android:label="DIGITAiL"
                           android:screenOrientation="unspecified"
                           android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation">
