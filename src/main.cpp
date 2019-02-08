@@ -63,6 +63,11 @@ int appMain(int argc, char *argv[])
 //The desktop QQC2 style needs it to be a QApplication
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
+    QObject::connect(&app, QGuiApplication::applicationStateChanged, [&app](Qt::ApplicationState state) {
+        if(state == Qt::ApplicationSuspended) {
+            app.quit();
+        }
+    });
     qDebug() << "Starting service, if it isn't already...";
     QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "startTailService",
