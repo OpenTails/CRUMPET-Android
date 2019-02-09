@@ -142,7 +142,7 @@ Kirigami.Page {
                         width: height;
                         onClicked: switchToPage(idleModePage);
                         Kirigami.Icon {
-                            source: "settings-configure";
+                            source: ":/org/kde/kirigami/icons/settings-configure.svg";
                             anchors.fill: parent;
                         }
                     }
