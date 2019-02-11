@@ -119,6 +119,15 @@ int appMain(int argc, char *argv[])
 
     //HACK to color the system bar on Android, use qtandroidextras and call the appropriate Java methods 
 #ifdef Q_OS_ANDROID
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, [&btConnectionManagerReplica](){
+        if(!btConnectionManagerReplica->isConnected()) {
+            // Not connected, so kill the service
+            QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
+                                                "stopTailService",
+                                                "(Landroid/content/Context;)V",
+                                                QtAndroid::androidActivity().object());
+        }
+    });
     QtAndroid::runOnAndroidThread([=]() {
         QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod("getWindow", "()Landroid/view/Window;");
         window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

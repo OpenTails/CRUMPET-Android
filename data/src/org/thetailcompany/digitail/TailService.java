@@ -59,6 +59,9 @@ public class TailService extends QtService
             ctx.startService(new Intent(ctx, TailService.class));
         }
     }
+    public static void stopTailService(Context ctx) {
+        ctx.stopService(new Intent(ctx, TailService.class));
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
