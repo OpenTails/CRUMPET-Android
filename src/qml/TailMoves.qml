@@ -23,6 +23,10 @@ BaseMovesPage {
     objectName: "tailMoves";
     title: qsTr("Tail Moves");
     blockOnMovingTail: true;
+    onCommandActivated: {
+        CommandQueue.clear();
+        CommandQueue.pushCommand(command);
+    }
     actions {
         main: Kirigami.Action {
             text: qsTr("Tail Home Position");

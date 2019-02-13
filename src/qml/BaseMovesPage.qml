@@ -25,6 +25,7 @@ import org.thetailcompany.digitail 1.0
 
 Kirigami.ScrollablePage {
     id: root;
+    signal commandActivated(string command);
     property bool blockOnMovingTail: false;
     property QtObject categoriesModel: ListModel { }
 
@@ -89,10 +90,7 @@ Kirigami.ScrollablePage {
                             anchors.fill: parent;
                             // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                             property string command: model.command ? model.command : "";
-                            onClicked: {
-                                CommandQueue.clear();
-                                CommandQueue.pushCommand(command);
-                            }
+                            onClicked: { root.commandActivated(command); }
                         }
                     }
                 }
