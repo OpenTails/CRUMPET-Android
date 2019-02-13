@@ -19,13 +19,9 @@
 import QtQuick 2.7
 import org.kde.kirigami 2.5 as Kirigami
 
-BaseMovesPage {
+Kirigami.ScrollablePage {
     objectName: "tailLights";
     title: qsTr("Glow Tips");
-    onCommandActivated: {
-        CommandQueue.clear();
-        CommandQueue.pushCommand(command);
-    }
     actions {
         main: Kirigami.Action {
             text: qsTr("Stop Lights");
@@ -35,11 +31,17 @@ BaseMovesPage {
             }
         }
     }
-    categoriesModel: ListModel {
-        ListElement {
-            name: qsTr("LED Patterns");
-            category: "lights";
-            color: "#93cee9";
+    BaseMovesComponent {
+        onCommandActivated: {
+            CommandQueue.clear();
+            CommandQueue.pushCommand(command);
+        }
+        categoriesModel: ListModel {
+            ListElement {
+                name: qsTr("LED Patterns");
+                category: "lights";
+                color: "#93cee9";
+            }
         }
     }
 }

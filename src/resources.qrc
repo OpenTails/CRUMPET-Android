@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qml/AboutPage.qml</file>
-        <file>qml/BaseMovesPage.qml</file>
+        <file>qml/BaseMovesComponent.qml</file>
         <file>qml/ConnectToTail.qml</file>
         <file>qml/IdleModePage.qml</file>
         <file>qml/NotConnectedCard.qml</file>

@@ -19,14 +19,9 @@
 import QtQuick 2.7
 import org.kde.kirigami 2.5 as Kirigami
 
-BaseMovesPage {
+Kirigami.ScrollablePage {
     objectName: "tailMoves";
     title: qsTr("Tail Moves");
-    blockOnMovingTail: true;
-    onCommandActivated: {
-        CommandQueue.clear();
-        CommandQueue.pushCommand(command);
-    }
     actions {
         main: Kirigami.Action {
             text: qsTr("Tail Home Position");
@@ -36,21 +31,28 @@ BaseMovesPage {
             }
         }
     }
-    categoriesModel: ListModel {
-        ListElement {
-            name: qsTr("Calm and Relaxed");
-            category: "relaxed";
-            color: "#1cdc9a";
+    BaseMovesComponent {
+        blockOnMovingTail: true;
+        onCommandActivated: {
+            CommandQueue.clear();
+            CommandQueue.pushCommand(command);
         }
-        ListElement {
-            name: qsTr("Fast and Excited");
-            category: "excited";
-            color: "#c9ce3b";
-        }
-        ListElement {
-            name: qsTr("Frustrated and Tense");
-            category: "tense";
-            color: "#f67400";
+        categoriesModel: ListModel {
+            ListElement {
+                name: qsTr("Calm and Relaxed");
+                category: "relaxed";
+                color: "#1cdc9a";
+            }
+            ListElement {
+                name: qsTr("Fast and Excited");
+                category: "excited";
+                color: "#c9ce3b";
+            }
+            ListElement {
+                name: qsTr("Frustrated and Tense");
+                category: "tense";
+                color: "#f67400";
+            }
         }
     }
 }
