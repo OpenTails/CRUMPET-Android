@@ -93,7 +93,7 @@ Kirigami.Page {
                 text: qsTr("Move List");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    showPassiveNotification(qsTr("Queue up multiple moves and commands (just not yet...)"), 1500);
+                    switchToPage(moveLists);
                 }
             }
             Button {

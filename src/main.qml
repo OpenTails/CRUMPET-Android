@@ -93,6 +93,14 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
             },
             Kirigami.Action {
+                text: qsTr("Move Lists");
+                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailMoves" : "";
+                icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
+                onTriggered: {
+                    switchToPage(moveLists);
+                }
+            },
+            Kirigami.Action {
                 text: qsTr("Tail Moves");
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailMoves" : "";
                 icon.name: ":/images/tail-moves.svg";
@@ -135,6 +143,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: welcomePage;
         WelcomePage {}
+    }
+    Component {
+        id: moveLists;
+        MoveLists {}
     }
     Component {
         id: tailMoves;
