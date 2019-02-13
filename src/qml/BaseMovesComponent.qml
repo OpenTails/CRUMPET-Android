@@ -28,12 +28,12 @@ Item {
     signal commandActivated(string command);
     property bool blockOnMovingTail: false;
     property QtObject categoriesModel: ListModel { }
+    height: contents.height;
 
     Component {
         id: categoryDelegate;
         Kirigami.AbstractCard {
-            Layout.fillHeight: true
-            width: Kirigami.Units.gridUnit * 30;
+            Layout.fillWidth: true;
             opacity: commandGrid.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             background: Rectangle {
@@ -107,18 +107,22 @@ Item {
     }
 
     Item {
+        id: contents;
         width: parent.width;
         height: mainLayout.height;
         ColumnLayout {
+            width: parent.width;
             id: mainLayout;
             Item {
                 implicitHeight: tailConnectedInfo.opacity > 0 ? tailConnectedInfo.implicitHeight : 0;
-                width: root.width - Kirigami.Units.largeSpacing * 4;
+                Layout.fillWidth: true;
                 NotConnectedCard {
                     id: tailConnectedInfo;
                 }
             }
             Kirigami.CardsLayout {
+                Layout.fillWidth: true;
+                Layout.fillHeight: true;
                 Repeater {
                     model: BTConnectionManager.isConnected ? categoriesModel : null;
                     delegate: categoryDelegate;

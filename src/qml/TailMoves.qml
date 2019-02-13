@@ -33,6 +33,7 @@ Kirigami.ScrollablePage {
     }
     BaseMovesComponent {
         blockOnMovingTail: true;
+        Rectangle { anchors.fill: parent; opacity: 0.3; color: "blue"; }
         onCommandActivated: {
             CommandQueue.clear();
             CommandQueue.pushCommand(command);

@@ -32,6 +32,7 @@ Kirigami.ScrollablePage {
         }
     }
     BaseMovesComponent {
+        width: parent.width;
         onCommandActivated: {
             CommandQueue.clear();
             CommandQueue.pushCommand(command);
