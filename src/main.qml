@@ -94,10 +94,12 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Move Lists");
-                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailMoves" : "";
+                checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor"): "";
                 icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
                 onTriggered: {
-                    switchToPage(moveLists);
+                    if(!checked) {
+                        switchToPage(moveLists);
+                    }
                 }
             },
             Kirigami.Action {
