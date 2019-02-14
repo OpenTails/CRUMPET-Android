@@ -29,7 +29,7 @@ Kirigami.Card {
     header: Kirigami.Heading {
         text: {
             if (BTConnectionManager.discoveryRunning === true) {
-                return qsTr("Searching for your tail...");
+                return qsTr("Searching for DIGITAiL...");
             }
             else {
                 if (BTConnectionManager.deviceCount === 0) {
@@ -58,11 +58,12 @@ Kirigami.Card {
         }
     }
     contentItem: Label {
+        padding: Kirigami.Units.smallSpacing;
         wrapMode: Text.Wrap;
         text: {
             if (BTConnectionManager.discoveryRunning === true) {
                 if (BTConnectionManager.deviceCount === 0) {
-                    return qsTr("No tails found yet, still looking...");
+                    return qsTr("None found yet...");
                 }
                 else if (BTConnectionManager.deviceCount > 1) {
                     return qsTr("Found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(BTConnectionManager.deviceCount);
