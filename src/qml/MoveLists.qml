@@ -22,14 +22,15 @@ import org.kde.kirigami 2.6 as Kirigami
 
 Kirigami.ScrollablePage {
     id: root;
+    objectName: "moveLists";
     title: qsTr("Move Lists");
 
     actions {
         main: Kirigami.Action {
-            text: qsTr("Add Move To List");
+            text: qsTr("Add New Move List");
             icon.name: ":/org/kde/kirigami/icons/list-add.svg";
             onTriggered: {
-                pickACommand.pickCommand();
+                pickAName.pickName();
             }
         }
     }
@@ -37,67 +38,74 @@ Kirigami.ScrollablePage {
         id: moveListDelegate;
         Kirigami.SwipeListItem {
             id: listItem;
+            property string title: modelData
             QQC2.Label {
-                text: model.name
+                text: modelData
             }
-            onClicked: { }
+            onClicked: {
+                console.debug("Append this list, yo! ...maybe confirm, because it's a bit lots");
+            }
             actions: [
                 Kirigami.Action {
-                    text: qsTr("Tail Moves");
-                    icon.name: ":/images/tail-moves.svg";
-                    onTriggered: { }
+                    text: qsTr("Edit Move List");
+                    icon.name: ":/org/kde/kirigami/icons/document-edit.svg";
+                    onTriggered: {
+                        pageStack.push(editorPage, { moveListName: modelData });
+                    }
+                },
+                Kirigami.Action { },
+                Kirigami.Action {
+                    text: qsTr("Delete this Move List");
+                    icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
+                    onTriggered: {
+                        console.debug("Delete this moves list, but ask first...");
+                    }
                 }
             ]
         }
     }
+    Component {
+        id: editorPage;
+        MoveListEditor { }
+    }
     ListView {
         delegate: moveListDelegate;
-        model: ListModel {
-            ListElement {
-                name: "Some thing"
-            }
-        }
+        model: AppSettings.moveLists;
     }
 
     Kirigami.OverlaySheet {
-        id: pickACommand;
-        onCommandPicked: {
-            console.debug(command);
-            pickACommand.close();
+        id: pickAName;
+        onNamePicked: {
+            AppSettings.addMoveList(name);
+            pickAName.close();
         }
-
-        function pickCommand() {
+        signal namePicked(string name);
+        function pickName() {
+            enteredName.text = "";
             open();
         }
-        signal commandPicked(string command);
         header: Kirigami.Heading {
-            text: qsTr("Pick command to add");
+            text: qsTr("Pick a name");
         }
-        BaseMovesComponent {
+        Column {
             width: root.width - Kirigami.Units.largeSpacing * 4;
-            onCommandActivated: {
-                pickACommand.commandPicked(command);
+            spacing: Kirigami.Units.smallSpacing;
+            QQC2.Label {
+                anchors { left: parent.left; right: parent.right; }
+                text: qsTr("Enter a name to use for your new move list and click Create");
+                wrapMode: Text.Wrap;
             }
-            categoriesModel: ListModel {
-                ListElement {
-                    name: qsTr("Calm and Relaxed");
-                    category: "relaxed";
-                    color: "#1cdc9a";
-                }
-                ListElement {
-                    name: qsTr("Fast and Excited");
-                    category: "excited";
-                    color: "#c9ce3b";
-                }
-                ListElement {
-                    name: qsTr("Frustrated and Tense");
-                    category: "tense";
-                    color: "#f67400";
-                }
-                ListElement {
-                    name: qsTr("LED Patterns");
-                    category: "lights";
-                    color: "#93cee9";
+            QQC2.TextField {
+                id: enteredName;
+                anchors { left: parent.left; right: parent.right; }
+                placeholderText: qsTr("Enter your move list name here");
+            }
+            QQC2.Button {
+                text: qsTr("Create");
+                anchors { left: parent.left; right: parent.right; }
+                enabled: enteredName.text.length > 0;
+                onClicked: {
+                    pickAName.namePicked(enteredName.text);
                 }
             }
         }

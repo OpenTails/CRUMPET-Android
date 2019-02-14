@@ -47,6 +47,7 @@
 #include "settings.h"
 #include "commandqueue.h"
 #include "idlemode.h"
+#include "utilities.h"
 
 #ifdef HAS_QT5REMOTEOBJECTS
 #include <QAbstractItemModelReplica>
@@ -109,6 +110,14 @@ int appMain(int argc, char *argv[])
 
     QScopedPointer<QAbstractItemModelReplica> commandModelReplica(repNode.acquireModel("CommandModel"));
     engine.rootContext()->setContextProperty(QLatin1String("CommandModel"), commandModelReplica.data());
+
+    Utilities::getInstance()->setConnectionManager(btConnectionManagerReplica.data());
+    Utilities::getInstance()->setParent(&app);
+    qmlRegisterSingletonType<Utilities>("org.thetailcompany.digitail", 1, 0, "Utilities", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        return Utilities::getInstance();
+    });
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
