@@ -44,6 +44,14 @@ public:
 
     int idleMaxPause() const override;
     void setIdleMaxPause(int pause) override;
+
+    QStringList moveLists() const override;
+    QStringList moveList() const override;
+    void setActiveMoveList(const QString& moveListName) override;
+    void addMoveList(const QString& moveListName) override;
+    void removeMoveList(const QString& moveListName) override;
+    void addMoveListEntry(int index, const QString& entry) override;
+    void removeMoveListEntry(int index) override;
 private:
     class Private;
     Private* d;

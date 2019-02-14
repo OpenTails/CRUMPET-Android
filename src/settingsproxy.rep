@@ -21,4 +21,12 @@ class SettingsProxy {
     SLOT(void removeIdleCategory(const QString& category))
     PROP(int idleMinPause READWRITE)
     PROP(int idleMaxPause READWRITE)
+
+    PROP(QStringList moveLists READONLY)
+    SLOT(void addMoveList(const QString& moveListName))
+    SLOT(void removeMoveList(const QString& moveListName))
+    PROP(QStringList moveList READONLY)
+    SLOT(void setActiveMoveList(const QString& moveListName))
+    SLOT(void addMoveListEntry(int index, const QString& entry))
+    SLOT(void removeMoveListEntry(int index))
 };

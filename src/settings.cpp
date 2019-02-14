@@ -36,6 +36,8 @@ public:
     QStringList idleCategories;
     int idleMinPause;
     int idleMaxPause;
+    QMap<QString, QStringList> moveLists;
+    QString activeMoveListName;
 };
 
 AppSettings::AppSettings(QObject* parent)
@@ -49,6 +51,29 @@ AppSettings::AppSettings(QObject* parent)
     d->idleCategories = settings.value("idleCategories", d->idleCategories).toStringList();
     d->idleMinPause = settings.value("idleMinPause", d->idleMinPause).toInt();
     d->idleMaxPause = settings.value("idleMaxPause", d->idleMaxPause).toInt();
+
+    settings.beginGroup("MoveLists");
+    QStringList moveLists = settings.allKeys();
+    for(const QString& list : moveLists) {
+        d->moveLists[list] = settings.value(list).toString().split(';');
+    }
+    settings.endGroup();
+
+    auto save = [this](){
+        QSettings settings;
+        settings.beginGroup("MoveLists");
+        QMap<QString, QStringList>::const_iterator i = d->moveLists.constBegin();
+        while(i != d->moveLists.constEnd()) {
+            if(!i.key().isEmpty()) {
+                settings.setValue(i.key(), i.value().join(';'));
+            }
+            ++i;
+        }
+        settings.endGroup();
+    };
+    connect(this, &AppSettings::moveListsChanged, save);
+    connect(this, &AppSettings::moveListChanged, save);
+
 }
 
 AppSettings::~AppSettings()
@@ -154,4 +179,56 @@ void AppSettings::setIdleMaxPause(int pause)
         settings.setValue("idleMaxPause", d->idleMaxPause);
         emit idleMaxPauseChanged(pause);
     }
+}
+
+QStringList AppSettings::moveLists() const
+{
+    QStringList keys = d->moveLists.keys();
+    // For some decidedly silly reason, we end up going from no entries
+    // to two entries when adding the first one, and we then have a ghost one
+    if(keys.count() > 0 && keys.at(0).isEmpty()) {
+        keys.takeAt(0);
+    }
+    return keys;
+}
+
+void AppSettings::addMoveList(const QString& moveListName)
+{
+    if(!moveListName.isEmpty()) {
+        d->moveLists.insert(moveListName, QStringList());
+        emit moveListsChanged(moveLists());
+    }
+}
+
+void AppSettings::removeMoveList(const QString& moveListName)
+{
+    d->moveLists.remove(moveListName);
+    emit moveListsChanged(d->moveLists.keys());
+}
+
+QStringList AppSettings::moveList() const
+{
+    return d->moveLists[d->activeMoveListName];
+}
+
+void AppSettings::setActiveMoveList(const QString& moveListName)
+{
+    d->activeMoveListName = moveListName;
+    emit moveListChanged(moveList());
+}
+
+void AppSettings::addMoveListEntry(int index, const QString& entry)
+{
+    QStringList moveList = d->moveLists[d->activeMoveListName];
+    moveList.insert(index, entry);
+    d->moveLists[d->activeMoveListName] = moveList;
+    emit moveListChanged(this->moveList());
+}
+
+void AppSettings::removeMoveListEntry(int index)
+{
+    QStringList moveList = d->moveLists[d->activeMoveListName];
+    moveList.removeAt(index);
+    d->moveLists[d->activeMoveListName] = moveList;
+    emit moveListChanged(this->moveList());
 }
