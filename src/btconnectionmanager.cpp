@@ -64,6 +64,8 @@ public:
     bool discoveryRunning;
 
     bool fakeTailMode;
+
+    QVariantMap command;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -392,4 +394,40 @@ void BTConnectionManager::setFakeTailMode(bool enableFakery)
     } else {
         d->fakeTailMode = enableFakery;
     }
+}
+
+void BTConnectionManager::setCommand(QVariantMap command)
+{
+    QString actualCommand = command["command"].toString();
+    if(actualCommand.startsWith("pause")) {
+        d->command["category"] = "";
+        d->command["command"] = actualCommand;
+        d->command["duration"] = actualCommand.split(':').last().toInt() * 1000;
+        d->command["minimumCooldown"] = 0;
+        d->command["name"] = "Pause";
+    } else {
+        d->command = getCommand(command["command"].toString());
+    }
+    emit commandChanged(d->command);
+}
+
+QVariantMap BTConnectionManager::command() const
+{
+    return d->command;
+}
+
+QVariantMap BTConnectionManager::getCommand(const QString& command)
+{
+    QVariantMap info;
+    if(d->commandModel) {
+        TailCommandModel::CommandInfo* actualCommand = d->commandModel->getCommand(command);
+        if(actualCommand) {
+            info["category"] = actualCommand->category;
+            info["command"] = actualCommand->command;
+            info["duration"] = actualCommand->duration;
+            info["minimumCooldown"] = actualCommand->minimumCooldown;
+            info["name"] = actualCommand->name;
+        }
+    }
+    return info;
 }

@@ -58,6 +58,7 @@ public:
     int deviceCount() const override;
     int commandQueueCount() const override;
     QString tailVersion() const override;
+    QVariantMap command() const override;
 
 public Q_SLOTS:
     void sendMessage(const QString &message) override;
@@ -67,6 +68,8 @@ public Q_SLOTS:
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
     void setFakeTailMode(bool enableFakery) override;
+    void setCommand(QVariantMap command) override;
+    QVariantMap getCommand(const QString& command) override;
 
 Q_SIGNALS:
     void connected(const QString &name);
