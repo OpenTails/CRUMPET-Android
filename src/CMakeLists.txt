@@ -15,6 +15,7 @@ set(digitail_SRCS
     idlemode.cpp
     settings.cpp
     tailcommandmodel.cpp
+    utilities.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
@@ -41,7 +42,7 @@ endif()
 
 add_executable(digitail ${digitail_SRCS} ${RESOURCES})
 #kirigamiplugin is the static library built by us
-target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Test ${digitail_EXTRA_LIBS})
 
 if(Qt5RemoteObjects_FOUND)
     target_link_libraries(digitail Qt5::RemoteObjects)
