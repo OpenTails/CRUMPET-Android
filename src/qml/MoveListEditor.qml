@@ -146,48 +146,12 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Kirigami.OverlaySheet {
+    PickACommandSheet {
         id: pickACommand;
         property int insertAt;
         onCommandPicked: {
             AppSettings.addMoveListEntry(insertAt, command);
             pickACommand.close();
-        }
-
-        function pickCommand() {
-            open();
-        }
-        signal commandPicked(string command);
-        header: Kirigami.Heading {
-            text: qsTr("Pick command to add");
-        }
-        BaseMovesComponent {
-            width: root.width - Kirigami.Units.largeSpacing * 4;
-            onCommandActivated: {
-                pickACommand.commandPicked(command);
-            }
-            categoriesModel: ListModel {
-                ListElement {
-                    name: qsTr("Calm and Relaxed");
-                    category: "relaxed";
-                    color: "#1cdc9a";
-                }
-                ListElement {
-                    name: qsTr("Fast and Excited");
-                    category: "excited";
-                    color: "#c9ce3b";
-                }
-                ListElement {
-                    name: qsTr("Frustrated and Tense");
-                    category: "tense";
-                    color: "#f67400";
-                }
-                ListElement {
-                    name: qsTr("LED Patterns");
-                    category: "lights";
-                    color: "#93cee9";
-                }
-            }
         }
     }
 }

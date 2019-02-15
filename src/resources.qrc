@@ -8,6 +8,7 @@
         <file>qml/NotConnectedCard.qml</file>
         <file>qml/MoveListEditor.qml</file>
         <file>qml/MoveLists.qml</file>
+        <file>qml/PickACommandSheet.qml</file>
         <file>qml/TailLights.qml</file>
         <file>qml/TailMoves.qml</file>
         <file>qml/WelcomePage.qml</file>
