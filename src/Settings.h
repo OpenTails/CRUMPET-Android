@@ -19,7 +19,7 @@
 #define SETTINGS_H
 
 #include <QObject>
-#include "rep_settingsproxy_source.h"
+#include "rep_SettingsProxy_source.h"
 
 class AppSettings : public SettingsProxySource
 {

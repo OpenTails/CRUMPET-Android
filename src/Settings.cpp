@@ -15,7 +15,8 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "settings.h"
+#include "Settings.h"
+
 #include <QSettings>
 
 class AppSettings::Private

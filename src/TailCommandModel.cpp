@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "tailcommandmodel.h"
+#include "TailCommandModel.h"
 
 #include <QDebug>
 #include <QRandomGenerator>

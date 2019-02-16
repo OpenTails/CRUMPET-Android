@@ -15,8 +15,8 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "commandqueue.h"
-#include "btconnectionmanager.h"
+#include "CommandQueue.h"
+#include "BTConnectionManager.h"
 
 #include <QTimer>
 
