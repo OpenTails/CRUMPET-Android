@@ -15,9 +15,9 @@
         <file>qml/TailBattery.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>images/logo.svg</file>
-        <file>images/tail-lights.svg</file>
-        <file>images/tail-moves.svg</file>
-        <file>images/bannerimage.png</file>
+        <file>images/tail_lights.svg</file>
+        <file>images/tail_moves.svg</file>
+        <file>images/banner_image.png</file>
         <file alias="icon-round.png">../data/res/mipmap-xxxhdpi/ic_launcher_round.png</file>
     </qresource>
     <qresource prefix="icons/breeze-internal">
