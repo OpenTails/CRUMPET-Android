@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "Settings.h"
+#include "AppSettings.h"
 
 #include <QSettings>
 

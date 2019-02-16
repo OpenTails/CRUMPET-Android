@@ -44,7 +44,7 @@
 #include "BTConnectionManager.h"
 #include "BTDeviceModel.h"
 #include "FilterProxyModel.h"
-#include "Settings.h"
+#include "AppSettings.h"
 #include "CommandQueue.h"
 #include "IdleMode.h"
 #include "Utilities.h"

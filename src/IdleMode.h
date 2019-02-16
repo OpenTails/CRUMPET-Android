@@ -21,7 +21,7 @@
 
 #include <QObject>
 
-#include "Settings.h"
+#include "AppSettings.h"
 
 class BTConnectionManager;
 

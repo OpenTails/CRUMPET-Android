@@ -13,7 +13,7 @@ set(digitail_SRCS
     CommandQueue.cpp
     FilterProxyModel.cpp
     IdleMode.cpp
-    Settings.cpp
+    AppSettings.cpp
     TailCommandModel.cpp
     Utilities.cpp
     )
