@@ -119,7 +119,7 @@ int appMain(int argc, char *argv[])
         return Utilities::getInstance();
     });
 
-    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     if (engine.rootObjects().isEmpty()) {
         qWarning() << "Failed to load the main qml file, exiting";

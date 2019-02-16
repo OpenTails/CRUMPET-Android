@@ -22,8 +22,6 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 import org.thetailcompany.digitail 1.0
 
-import "qml"
-
 Kirigami.ApplicationWindow {
     id: root;
     visible: true;
