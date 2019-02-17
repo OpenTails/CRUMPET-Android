@@ -37,6 +37,7 @@ public:
         return instance;
     }
 
+    //TODO: It would be great to represent commands as objects, not strings or QVariantMap
     /**
      * An awkward way to get a command from the service via the replicated objects
      * Request a command by calling getCommand, and then listen to the commandGotten
