@@ -73,7 +73,7 @@ Kirigami.Page {
                 text: qsTr("Alarm");
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
                 onClicked: {
-                    showPassiveNotification(qsTr("Link a command to an alarm (but not yet, sorry)"), 1500);
+                    switchToPage(alarmList);
                 }
             }
             Button {

@@ -89,6 +89,14 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: qsTr("Alarm");
+                checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor"): "";
+                icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
+                onTriggered: {
+                    if(!checked) {
+                        switchToPage(alarmList);
+                    }
+                }
             },
             Kirigami.Action {
                 text: qsTr("Move Lists");
@@ -143,6 +151,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: welcomePage;
         WelcomePage {}
+    }
+    Component {
+        id: alarmList;
+        AlarmList {}
     }
     Component {
         id: moveLists;

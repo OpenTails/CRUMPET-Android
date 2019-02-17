@@ -13,6 +13,7 @@
         <file>qml/TailMoves.qml</file>
         <file>qml/WelcomePage.qml</file>
         <file>qml/TailBattery.qml</file>
+        <file>qml/AlarmList.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>images/logo.svg</file>
         <file>images/tail_lights.svg</file>
