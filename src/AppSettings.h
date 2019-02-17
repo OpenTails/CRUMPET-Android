@@ -24,6 +24,7 @@
 class AppSettings : public SettingsProxySource
 {
     Q_OBJECT
+
 public:
     explicit AppSettings(QObject* parent = 0);
     virtual ~AppSettings();
@@ -52,6 +53,7 @@ public:
     void removeMoveList(const QString& moveListName) override;
     void addMoveListEntry(int index, const QString& entry) override;
     void removeMoveListEntry(int index) override;
+
 private:
     class Private;
     Private* d;
