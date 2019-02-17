@@ -91,18 +91,18 @@ Kirigami.ScrollablePage {
             width: root.width - Kirigami.Units.largeSpacing * 4;
             spacing: Kirigami.Units.smallSpacing;
             QQC2.Label {
-                anchors { left: parent.left; right: parent.right; }
+                width: parent.width
                 text: qsTr("Enter a name to use for your new move list and click Create");
                 wrapMode: Text.Wrap;
             }
             QQC2.TextField {
                 id: enteredName;
-                anchors { left: parent.left; right: parent.right; }
+                width: parent.width
                 placeholderText: qsTr("Enter your move list name here");
             }
             QQC2.Button {
                 text: qsTr("Create");
-                anchors { left: parent.left; right: parent.right; }
+                width: parent.width
                 enabled: enteredName.text.length > 0;
                 onClicked: {
                     pickAName.namePicked(enteredName.text);
