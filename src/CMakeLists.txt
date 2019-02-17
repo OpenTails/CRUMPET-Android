@@ -16,6 +16,8 @@ set(digitail_SRCS
     AppSettings.cpp
     TailCommandModel.cpp
     Utilities.cpp
+    Alarm.cpp
+    AlarmList.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
