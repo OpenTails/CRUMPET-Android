@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
             text: qsTr("Add New Move List");
             icon.name: ":/org/kde/kirigami/icons/list-add.svg";
             onTriggered: {
-                pickAName.pickName();
+                namePicker.pickName();
             }
         }
     }
@@ -73,41 +73,16 @@ Kirigami.ScrollablePage {
         model: AppSettings.moveLists;
     }
 
-    Kirigami.OverlaySheet {
-        id: pickAName;
+    NamePicker {
+        id: namePicker;
+
+        description: qsTr("Enter a name to use for your new move list and click Create");
+        placeholderText: qsTr("Enter your move list name here");
+        buttonOkText: qsTr("Create");
+
         onNamePicked: {
             AppSettings.addMoveList(name);
-            pickAName.close();
-        }
-        signal namePicked(string name);
-        function pickName() {
-            enteredName.text = "";
-            open();
-        }
-        header: Kirigami.Heading {
-            text: qsTr("Pick a name");
-        }
-        Column {
-            width: root.width - Kirigami.Units.largeSpacing * 4;
-            spacing: Kirigami.Units.smallSpacing;
-            QQC2.Label {
-                width: parent.width
-                text: qsTr("Enter a name to use for your new move list and click Create");
-                wrapMode: Text.Wrap;
-            }
-            QQC2.TextField {
-                id: enteredName;
-                width: parent.width
-                placeholderText: qsTr("Enter your move list name here");
-            }
-            QQC2.Button {
-                text: qsTr("Create");
-                width: parent.width
-                enabled: enteredName.text.length > 0;
-                onClicked: {
-                    pickAName.namePicked(enteredName.text);
-                }
-            }
+            namePicker.close();
         }
     }
 }
