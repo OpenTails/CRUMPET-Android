@@ -22,8 +22,6 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 import org.thetailcompany.digitail 1.0
 
-import "qml"
-
 Kirigami.ApplicationWindow {
     id: root;
     visible: true;
@@ -76,7 +74,7 @@ Kirigami.ApplicationWindow {
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
-        bannerImageSource: "qrc:/images/bannerimage.png";
+        bannerImageSource: "qrc:/images/banner_image.png";
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
         // Simply replacing the rectangle means we end up removing the handles and whatnot, so that's not cool
         Component.onCompleted: { background.color = "#3daee9"; }
@@ -105,7 +103,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Tail Moves");
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailMoves" : "";
-                icon.name: ":/images/tail-moves.svg";
+                icon.name: ":/images/tail_moves.svg";
                 onTriggered: {
                     switchToPage(tailMoves);
                 }
@@ -113,7 +111,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Glow Tips");
                 checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailLights" : "";
-                icon.name: ":/images/tail-lights.svg";
+                icon.name: ":/images/tail_lights.svg";
                 onTriggered: {
                     switchToPage(tailLights);
                 }

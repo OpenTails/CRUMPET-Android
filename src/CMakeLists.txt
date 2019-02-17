@@ -8,25 +8,25 @@ add_definitions(-DKIRIGAMI_BUILD_TYPE_STATIC)
 
 set(digitail_SRCS
     main.cpp
-    btconnectionmanager.cpp
-    btdevicemodel.cpp
-    commandqueue.cpp
-    filterproxymodel.cpp
-    idlemode.cpp
-    settings.cpp
-    tailcommandmodel.cpp
-    utilities.cpp
+    BTConnectionManager.cpp
+    BTDeviceModel.cpp
+    CommandQueue.cpp
+    FilterProxyModel.cpp
+    IdleMode.cpp
+    AppSettings.cpp
+    TailCommandModel.cpp
+    Utilities.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
 
 if(Qt5RemoteObjects_FOUND)
-    qt5_generate_repc(digitail_SRCS btconnectionmanagerproxy.rep SOURCE)
-    qt5_generate_repc(digitail_SRCS btconnectionmanagerproxy.rep REPLICA)
-    qt5_generate_repc(digitail_SRCS commandqueueproxy.rep SOURCE)
-    qt5_generate_repc(digitail_SRCS commandqueueproxy.rep REPLICA)
-    qt5_generate_repc(digitail_SRCS settingsproxy.rep SOURCE)
-    qt5_generate_repc(digitail_SRCS settingsproxy.rep REPLICA)
+    qt5_generate_repc(digitail_SRCS BTConnectionManagerProxy.rep SOURCE)
+    qt5_generate_repc(digitail_SRCS BTConnectionManagerProxy.rep REPLICA)
+    qt5_generate_repc(digitail_SRCS CommandQueueProxy.rep SOURCE)
+    qt5_generate_repc(digitail_SRCS CommandQueueProxy.rep REPLICA)
+    qt5_generate_repc(digitail_SRCS SettingsProxy.rep SOURCE)
+    qt5_generate_repc(digitail_SRCS SettingsProxy.rep REPLICA)
 endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")

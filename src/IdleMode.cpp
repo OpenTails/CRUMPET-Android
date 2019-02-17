@@ -16,8 +16,9 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "idlemode.h"
-#include "commandqueue.h"
+#include "IdleMode.h"
+#include "CommandQueue.h"
+#include "BTConnectionManager.h"
 
 #include <QRandomGenerator>
 

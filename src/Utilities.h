@@ -21,7 +21,7 @@
 #include <QObject>
 #include <QVariantMap>
 
-#include "rep_btconnectionmanagerproxy_replica.h"
+#include "rep_BTConnectionManagerProxy_replica.h"
 
 class Utilities : public QObject
 {

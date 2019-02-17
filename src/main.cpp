@@ -41,19 +41,19 @@
 #endif
 
 #include "../3rdparty/kirigami/src/kirigamiplugin.h"
-#include "btconnectionmanager.h"
-#include "btdevicemodel.h"
-#include "filterproxymodel.h"
-#include "settings.h"
-#include "commandqueue.h"
-#include "idlemode.h"
-#include "utilities.h"
+#include "BTConnectionManager.h"
+#include "BTDeviceModel.h"
+#include "FilterProxyModel.h"
+#include "AppSettings.h"
+#include "CommandQueue.h"
+#include "IdleMode.h"
+#include "Utilities.h"
 
 #ifdef HAS_QT5REMOTEOBJECTS
 #include <QAbstractItemModelReplica>
-#include "rep_settingsproxy_replica.h"
-#include "rep_btconnectionmanagerproxy_replica.h"
-#include "rep_commandqueueproxy_replica.h"
+#include "rep_SettingsProxy_replica.h"
+#include "rep_BTConnectionManagerProxy_replica.h"
+#include "rep_CommandQueueProxy_replica.h"
 #endif
 
 Q_IMPORT_PLUGIN(KirigamiPlugin)
@@ -119,7 +119,7 @@ int appMain(int argc, char *argv[])
         return Utilities::getInstance();
     });
 
-    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     if (engine.rootObjects().isEmpty()) {
         qWarning() << "Failed to load the main qml file, exiting";

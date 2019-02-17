@@ -21,8 +21,9 @@
 
 #include <QObject>
 
-#include "settings.h"
-#include "btconnectionmanager.h"
+#include "AppSettings.h"
+
+class BTConnectionManager;
 
 /**
  * When enabled, Idle Mode will pick a random command from the chosen categories

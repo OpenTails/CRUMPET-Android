@@ -15,10 +15,10 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "btconnectionmanager.h"
-#include "btdevicemodel.h"
-#include "tailcommandmodel.h"
-#include "commandqueue.h"
+#include "BTConnectionManager.h"
+#include "BTDeviceModel.h"
+#include "TailCommandModel.h"
+#include "CommandQueue.h"
 
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothServiceDiscoveryAgent>

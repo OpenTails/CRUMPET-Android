@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "filterproxymodel.h"
+#include "FilterProxyModel.h"
 
 FilterProxyModel::FilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)

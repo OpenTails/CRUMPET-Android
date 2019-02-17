@@ -23,8 +23,7 @@
 #include <QBluetoothSocket>
 #include <QLowEnergyService>
 
-#include "btdevicemodel.h"
-#include "rep_btconnectionmanagerproxy_source.h"
+#include "rep_BTConnectionManagerProxy_source.h"
 
 /**
  * Handles all connections between us and some remote bluetooth service

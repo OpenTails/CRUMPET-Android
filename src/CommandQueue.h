@@ -19,9 +19,10 @@
 #define COMMANDQUEUE_H
 
 #include <QAbstractListModel>
-#include "btconnectionmanager.h"
-#include "tailcommandmodel.h"
-#include "rep_commandqueueproxy_source.h"
+#include "TailCommandModel.h"
+#include "rep_CommandQueueProxy_source.h"
+
+class BTConnectionManager;
 
 /**
  * @brief The main move and light command interface for the tails
