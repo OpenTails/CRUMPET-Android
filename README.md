@@ -224,14 +224,14 @@ docker run -ti --rm kdeorg/android-sdk bash
 
 This will download the image the first time it is run, and subsequently it will simply run what you already did.
 
-A handy trick is to also add something like "-v $HOME/apks:/output" to the command line, which will then add a directory named output at the root of the docker instance, pointed at the apks directory in your home folder. This will allow you to fairly easily transfer the apk onto your host system from inside docker.
+A handy trick is to also add something like "-v $HOME/apks:/output" to the command line, which will then add a directory named output at the root of the docker instance, pointed at the apks directory in your home folder. This will allow you to fairly easily transfer the apk onto your host system from inside docker (the switch above would link the directory /output inside the docker to the apks directory in your home directory, which does need to already exist).
 
 Cloning is done as in a usual Linux situation (see above), but your build steps are a little bit more involved here:
 
 ```
 mkdir build
 cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.11.0/android_armv7 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data ..
+cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.12.1/android_armv7 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
 make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
