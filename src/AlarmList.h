@@ -34,10 +34,10 @@ public slots:
      * @param alarm The new alarm
      */
     void addAlarm(Alarm* alarm);
-    void addAlarm(const QString &alarmName);
+    void addAlarmName(const QString &alarmName);
 
     void removeAlarm(Alarm* alarm);
-    void removeAlarm(int index);
+    void removeAlarmByIndex(int index);
 
 signals:
     void listChanged();

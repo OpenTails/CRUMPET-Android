@@ -64,7 +64,7 @@ void AlarmList::addAlarm(Alarm *alarm)
     endInsertRows();
 }
 
-void AlarmList::addAlarm(const QString &alarmName)
+void AlarmList::addAlarmName(const QString &alarmName)
 {
     Alarm* alarm = new Alarm(alarmName, this);
     addAlarm(alarm);
@@ -79,10 +79,10 @@ void AlarmList::removeAlarm(Alarm *alarm)
         return;
     }
 
-    removeAlarm(index);
+    removeAlarmByIndex(index);
 }
 
-void AlarmList::removeAlarm(int index)
+void AlarmList::removeAlarmByIndex(int index)
 {
     if (index < 0 || index >= d->list.size()) {
         qWarning() << QString("Unable to delete alarm with index %1").arg(index);
