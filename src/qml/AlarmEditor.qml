@@ -41,6 +41,14 @@ BaseCommandListEditor {
         AppSettings.addAlarmCommand(insertAt, command);
     }
 
+    onRemoveCommand: {
+        if (!alarm) {
+            return;
+        }
+
+        AppSettings.removeAlarmCommand(index);
+    }
+
     Component.onCompleted: {
         AppSettings.setActiveAlarmName(alarmName);
     }

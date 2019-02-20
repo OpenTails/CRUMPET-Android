@@ -27,6 +27,7 @@ Kirigami.ScrollablePage {
     property alias model: commandListView.model
 
     signal insertCommand(int insertAt, string command);
+    signal removeCommand(int index, string command);
 
     actions {
         main: Kirigami.Action {
@@ -113,7 +114,9 @@ Kirigami.ScrollablePage {
                     text: qsTr("Remove from list");
                     icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
 
-                    onTriggered: {}
+                    onTriggered: {
+                        control.removeCommand(index, command["command"]);
+                    }
                 }
             ]
         }
