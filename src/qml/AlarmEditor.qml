@@ -22,12 +22,12 @@ import org.kde.kirigami 2.6 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
 
 BaseCommandListEditor {
-    property string alarmName;
-    property var alarm: null
+    property var alarm: null;
+    readonly property string alarmName: alarm ? alarm["name"] : "";
 
     objectName: "alarmEditor";
     title: alarmName;
-    model: AppSettings.activeAlarm;
+    model: AppSettings.activeAlarm["commands"];
 
     onAlarmNameChanged: {
         AppSettings.setActiveAlarmName(alarmName);
@@ -38,6 +38,10 @@ BaseCommandListEditor {
             return;
         }
 
-        AppSettings.addAlarmCommand(alarm["name"], insertAt, command);
+        AppSettings.addAlarmCommand(insertAt, command);
+    }
+
+    Component.onCompleted: {
+        AppSettings.setActiveAlarmName(alarmName);
     }
 }
