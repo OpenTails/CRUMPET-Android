@@ -36,6 +36,18 @@ Kirigami.ScrollablePage {
         }
     }
 
+    Connections {
+        target: AppSettings
+
+        onAlarmExisted: {
+            showMessageBox(qsTr("Unable to add the alarm because we already have an alarm with the same name.\n\nPlease select another name for the alarm."));
+        }
+
+        onAlarmNotExisted: {
+            showMessageBox(qsTr("Unable to find an alarm with the name '%1'. Maybe another application instance has removed it.").arg(name));
+        }
+    }
+
     Component {
         id: alarmListDelegate;
 
@@ -80,8 +92,8 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
-        delegate: alarmListDelegate;
         model: AppSettings.alarmList;
+        delegate: alarmListDelegate;
     }
 
     NamePicker {

@@ -24,9 +24,8 @@ import org.thetailcompany.digitail 1.0
 
 Kirigami.ApplicationWindow {
     id: root;
-    visible: true;
-    title: qsTr("DIGITAiL");
-    pageStack.defaultColumnWidth: root.width;
+
+    property QtObject pageToPush: null;
 
     function switchToPage(pageToSwitchTo) {
         if (pageToSwitchTo === welcomePage) {
@@ -42,7 +41,26 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    property QtObject pageToPush: null;
+    // Now it shows just at the top, so to use it widely we should setup InlineMessage more correctly
+    //    function showWarningInlineMessage(text) {
+    //        showInlineMessage(text, Kirigami.MessageType.Warning)
+    //    }
+
+    //    // Now it shows just at the top, so to use it widely we should setup InlineMessage more correctly
+    //    function showInlineMessage(text, type) {
+    //        inlineMessageWithOkButton.type = type
+    //        inlineMessageWithOkButton.text = text
+    //        inlineMessageWithOkButton.visible = true
+    //    }
+
+    function showMessageBox(text, okHandler) {
+        messageBox.showMessageBox(text, okHandler)
+    }
+
+    visible: true;
+    title: qsTr("DIGITAiL");
+    pageStack.defaultColumnWidth: root.width;
+
     Connections {
         target: BTConnectionManager;
         onMessage: {
@@ -216,5 +234,23 @@ Kirigami.ApplicationWindow {
             }
             running: connectingToTail.opacity > 0;
         }
+    }
+
+    // Now it shows just at the top, so to use it widely we should setup InlineMessage more correctly
+    //    Kirigami.InlineMessage {
+    //        id: inlineMessageWithOkButton
+
+    //        actions: [
+    //            Kirigami.Action {
+    //                text: qsTr("Ok")
+    //            }
+    //        ]
+    //    }
+
+    MessageBox {
+        id: messageBox;
+
+        x: (root.width - width) / 2
+        y: (root.height - height) / 2
     }
 }
