@@ -16,6 +16,8 @@
  */
 
 #include "AppSettings.h"
+#include "AlarmList.h"
+#include "Alarm.h"
 
 #include <QSettings>
 
@@ -23,22 +25,19 @@ class AppSettings::Private
 {
 public:
     Private()
-        : advancedMode(false)
-        , idleMode(false)
-        , idleMinPause(15)
-        , idleMaxPause(60)
     {
         idleCategories << "relaxed";
     }
     ~Private() {}
 
-    bool advancedMode;
-    bool idleMode;
+    bool advancedMode = false;
+    bool idleMode = false;
     QStringList idleCategories;
-    int idleMinPause;
-    int idleMaxPause;
+    int idleMinPause = 15;
+    int idleMaxPause = 60;
     QMap<QString, QStringList> moveLists;
     QString activeMoveListName;
+    AlarmList* alarmList = nullptr;
 };
 
 AppSettings::AppSettings(QObject* parent)
@@ -60,7 +59,7 @@ AppSettings::AppSettings(QObject* parent)
     }
     settings.endGroup();
 
-    auto save = [this](){
+    auto saveMoveLists = [this](){
         QSettings settings;
         settings.beginGroup("MoveLists");
         QMap<QString, QStringList>::const_iterator i = d->moveLists.constBegin();
@@ -72,9 +71,18 @@ AppSettings::AppSettings(QObject* parent)
         }
         settings.endGroup();
     };
-    connect(this, &AppSettings::moveListsChanged, save);
-    connect(this, &AppSettings::moveListChanged, save);
 
+    connect(this, &AppSettings::moveListsChanged, saveMoveLists);
+    connect(this, &AppSettings::moveListChanged, saveMoveLists);
+
+    d->alarmList = new AlarmList(this);
+
+    loadAlarmList();
+
+    connect(d->alarmList, &AlarmList::save, this, &AppSettings::saveAlarmList);
+    connect(d->alarmList, &AlarmList::listChanged, this, &AppSettings::onAlarmListChanged);
+    connect(d->alarmList, &AlarmList::alarmExisted, this, &AppSettings::alarmExisted);
+    connect(d->alarmList, &AlarmList::alarmNotExisted, this, &AppSettings::alarmNotExisted);
 }
 
 AppSettings::~AppSettings()
@@ -232,4 +240,90 @@ void AppSettings::removeMoveListEntry(int index)
     moveList.removeAt(index);
     d->moveLists[d->activeMoveListName] = moveList;
     emit moveListChanged(this->moveList());
+}
+
+QVariantList AppSettings::alarmList() const
+{
+    return d->alarmList->toVariantList();
+}
+
+void AppSettings::addAlarm(const QString& alarmName)
+{
+    d->alarmList->addAlarm(alarmName);
+}
+
+void AppSettings::removeAlarm(const QString& alarmName)
+{
+    d->alarmList->removeAlarm(alarmName);
+}
+
+void AppSettings::changeAlarmName(const QString &oldName, const QString &newName)
+{
+    d->alarmList->changeAlarmName(oldName, newName);
+}
+
+void AppSettings::setAlarmTime(const QString &alarmName, const QDateTime &time)
+{
+    d->alarmList->setAlarmTime(alarmName, time);
+}
+
+void AppSettings::setAlarmCommands(const QString& alarmName, const QStringList& commands)
+{
+    d->alarmList->setAlarmCommands(alarmName, commands);
+}
+
+void AppSettings::addAlarmCommand(const QString& alarmName, int index, const QString& command)
+{
+    d->alarmList->addAlarmCommand(alarmName, index, command);
+}
+
+void AppSettings::removeAlarmCommand(const QString &alarmName, int index)
+{
+    d->alarmList->removeAlarmCommand(alarmName, index);
+}
+
+void AppSettings::loadAlarmList()
+{
+    QSettings settings;
+
+    settings.beginGroup("AlarmList");
+    int size = settings.beginReadArray("Alarms");
+
+    for (int i = 0; i < size; ++i) {
+        settings.setArrayIndex(i);
+
+        const QString name = settings.value("name").toString();
+        const QDateTime time = settings.value("time").toDateTime();
+        const QStringList commands = settings.value("commands").toStringList();
+
+        d->alarmList->addAlarm(name, time, commands);
+    }
+
+    settings.endArray();
+    settings.endGroup();
+}
+
+void AppSettings::saveAlarmList()
+{
+    QSettings settings;
+
+    settings.beginGroup("AlarmList");
+    settings.beginWriteArray("Alarms", d->alarmList->size());
+
+    for (int i = 0; i < d->alarmList->size(); ++i) {
+        Alarm *alarm = d->alarmList->at(i);
+        settings.setArrayIndex(i);
+
+        settings.setValue("name", alarm->name());
+        settings.setValue("time", alarm->time());
+        settings.setValue("commands", alarm->commands());
+    }
+
+    settings.endArray();
+    settings.endGroup();
+}
+
+void AppSettings::onAlarmListChanged()
+{
+    emit alarmListChanged(alarmList());
 }

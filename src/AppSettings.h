@@ -21,12 +21,14 @@
 #include <QObject>
 #include "rep_SettingsProxy_source.h"
 
+class AlarmList;
+
 class AppSettings : public SettingsProxySource
 {
     Q_OBJECT
 
 public:
-    explicit AppSettings(QObject* parent = 0);
+    explicit AppSettings(QObject* parent = nullptr);
     virtual ~AppSettings();
 
     bool advancedMode() const override;
@@ -54,9 +56,24 @@ public:
     void addMoveListEntry(int index, const QString& entry) override;
     void removeMoveListEntry(int index) override;
 
+    QVariantList alarmList() const override;
+    void addAlarm(const QString& alarmName) override;
+    void removeAlarm(const QString& alarmName) override;
+    void changeAlarmName(const QString& oldName, const QString& newName) override;
+    void setAlarmTime(const QString& alarmName, const QDateTime& time) override;
+    void setAlarmCommands(const QString& alarmName, const QStringList& commands) override;
+    void addAlarmCommand(const QString& alarmName, int index, const QString& command) override;
+    void removeAlarmCommand(const QString& alarmName, int index) override;
+
 private:
     class Private;
     Private* d;
+
+    void loadAlarmList();
+    void saveAlarmList();
+
+private slots:
+    void onAlarmListChanged();
 };
 
 #endif

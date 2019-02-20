@@ -13,6 +13,8 @@
 //   You should have received a copy of the GNU Library General Public License
 //   along with this program; if not, see <https://www.gnu.org/licenses/>
 
+#include <QDateTime>
+
 class SettingsProxy {
     PROP(bool advancedMode READWRITE)
     PROP(bool idleMode READWRITE)
@@ -29,4 +31,15 @@ class SettingsProxy {
     SLOT(void setActiveMoveList(const QString& moveListName))
     SLOT(void addMoveListEntry(int index, const QString& entry))
     SLOT(void removeMoveListEntry(int index))
+
+    PROP(QVariantList alarmList READONLY)
+    SLOT(void addAlarm(const QString& alarmName))
+    SLOT(void removeAlarm(const QString& alarmName))
+    SLOT(void changeAlarmName(const QString& oldName, const QString& newName))
+    SLOT(void setAlarmTime(const QString& alarmName, const QDateTime& time))
+    SLOT(void setAlarmCommands(const QString& alarmName, const QStringList& commands))
+    SLOT(void addAlarmCommand(const QString& alarmName, int index, const QString& command))
+    SLOT(void removeAlarmCommand(const QString& alarmName, int index))
+    SIGNAL(alarmExisted(const QString& name))
+    SIGNAL(alarmNotExisted(const QString& name))
 };
