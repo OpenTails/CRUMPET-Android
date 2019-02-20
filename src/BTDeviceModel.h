@@ -25,7 +25,7 @@ class BTDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit BTDeviceModel(QObject* parent = 0);
+    explicit BTDeviceModel(QObject* parent = nullptr);
     virtual ~BTDeviceModel();
 
     enum Roles {

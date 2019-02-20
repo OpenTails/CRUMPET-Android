@@ -25,7 +25,7 @@ class TailCommandModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(QString tailVersion READ tailVersion NOTIFY tailVersionChanged)
 public:
-    explicit TailCommandModel(QObject* parent = 0);
+    explicit TailCommandModel(QObject* parent = nullptr);
     virtual ~TailCommandModel();
 
     enum Roles {

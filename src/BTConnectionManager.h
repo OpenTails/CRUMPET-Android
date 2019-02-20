@@ -36,7 +36,7 @@ class BTConnectionManager : public BTConnectionManagerProxySource
     Q_PROPERTY(QObject* commandQueue READ commandQueue NOTIFY commandQueueChanged)
 
 public:
-    explicit BTConnectionManager(QObject* parent = 0);
+    explicit BTConnectionManager(QObject* parent = nullptr);
     virtual ~BTConnectionManager();
 
     void connectDevice(const QBluetoothDeviceInfo& device);

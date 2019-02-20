@@ -50,7 +50,7 @@ public:
     void setConnectionManager(BTConnectionManagerProxyReplica* connectionManagerProxy);
 
 private:
-    explicit Utilities(QObject* parent = 0);
+    explicit Utilities(QObject* parent = nullptr);
     class Private;
     Private* d;
 };

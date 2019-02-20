@@ -36,7 +36,7 @@ class IdleMode : public QObject
 {
     Q_OBJECT
 public:
-    explicit IdleMode(QObject* parent = 0);
+    explicit IdleMode(QObject* parent = nullptr);
     virtual ~IdleMode();
 
     void setAppSettings(AppSettings* settings);
