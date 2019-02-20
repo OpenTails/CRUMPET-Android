@@ -21,6 +21,7 @@
         <file>images/banner_image.png</file>
         <file alias="icon-round.png">../data/res/mipmap-xxxhdpi/ic_launcher_round.png</file>
         <file>qml/NamePicker.qml</file>
+        <file>qml/MessageBox.qml</file>
     </qresource>
     <qresource prefix="/icons/breeze-internal">
         <file>../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
