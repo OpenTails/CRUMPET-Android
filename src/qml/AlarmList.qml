@@ -54,10 +54,8 @@ Kirigami.ScrollablePage {
         Kirigami.SwipeListItem {
             id: listItem;
 
-            property string title: modelData
-
             QQC2.Label {
-                text: modelData
+                text: modelData["name"]
             }
 
             onClicked: {
@@ -69,7 +67,7 @@ Kirigami.ScrollablePage {
                     text: qsTr("Edit Alarm");
                     icon.name: ":/org/kde/kirigami/icons/document-edit.svg";
                     onTriggered: {
-                        pageStack.push(editorPage, { alarmName: modelData });
+                        pageStack.push(editorPage, { alarm: modelData });
                     }
                 },
 
@@ -88,7 +86,7 @@ Kirigami.ScrollablePage {
 
     Component {
         id: editorPage;
-        MoveListEditor { }
+        AlarmEditor { }
     }
 
     ListView {
