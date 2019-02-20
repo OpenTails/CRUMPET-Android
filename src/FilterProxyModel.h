@@ -25,7 +25,7 @@ class FilterProxyModel : public QSortFilterProxyModel
     Q_OBJECT
     Q_PROPERTY(QString filterString READ filterString WRITE setFilterString NOTIFY filterStringChanged)
 public:
-    explicit FilterProxyModel(QObject* parent = 0);
+    explicit FilterProxyModel(QObject* parent = nullptr);
     virtual ~FilterProxyModel();
 
     void setFilterString(const QString &string);
