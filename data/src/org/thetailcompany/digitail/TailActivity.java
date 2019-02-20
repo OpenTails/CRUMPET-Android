@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.Manifest;
 
@@ -19,12 +20,12 @@ public class TailActivity extends org.qtproject.qt5.android.bindings.QtActivity
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     public boolean checkLocationPermission() {
-        if (Context.checkSelfPermission(this,
+        if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?
-            if (Activity.shouldShowRequestPermissionRationale(this,
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_COARSE_LOCATION)) {
 
                 // Show an explanation to the user *asynchronously* -- don't block
@@ -37,7 +38,7 @@ public class TailActivity extends org.qtproject.qt5.android.bindings.QtActivity
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //Prompt the user once explanation has been shown
-                                Activity.requestPermissions(MainActivity.this,
+                                ActivityCompat.requestPermissions(TailActivity.this,
                                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                                         MY_PERMISSIONS_REQUEST_LOCATION);
                             }
@@ -48,7 +49,7 @@ public class TailActivity extends org.qtproject.qt5.android.bindings.QtActivity
 
             } else {
                 // No explanation needed, we can request the permission.
-                Activity.requestPermissions(this,
+                ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION);
             }
@@ -69,12 +70,11 @@ public class TailActivity extends org.qtproject.qt5.android.bindings.QtActivity
 
                     // permission was granted, yay! Do the
                     // location-related task you need to do.
-                    if (Context.checkSelfPermission(this,
+                    if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_COARSE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
-
-                        //Request location updates:
-                        locationManager.requestLocationUpdates(provider, 400, 1, this);
+                        // Just do the thing, it's only a problem if we don't get it
+                        // Maybe call back and request a new search is begun, for great uxing
                     }
 
                 } else {
