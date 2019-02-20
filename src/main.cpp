@@ -70,6 +70,15 @@ int appMain(int argc, char *argv[])
             exit(0);
         }
     });
+
+    auto  result = QtAndroid::checkPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
+    if(result == QtAndroid::PermissionResult::Denied){
+        QtAndroid::PermissionResultMap resultHash = QtAndroid::requestPermissionsSync(QStringList({"android.permission.ACCESS_COARSE_LOCATION"}));
+        if(resultHash["android.permission.ACCESS_COARSE_LOCATION"] == QtAndroid::PermissionResult::Denied) {
+            return 0;
+        }
+    }
+
     qDebug() << "Starting service, if it isn't already...";
     QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "startTailService",

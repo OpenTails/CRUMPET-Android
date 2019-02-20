@@ -3,7 +3,4 @@
 <string name="notification_title">DIGITAiL</string>
 <string name="notification_message">Connected to your tail</string>
 <string name="ticker_text">Tail controller is connected to your tail</string>
-<string name="title_location_permission">Coarse Location Permission</string>
-<string name="text_location_permission">To be able to search for your tail, we need to have access to a coarse version of your location. This is used only to do this search, which is done through Bluetooth Low Energy. Without this, you cannot connect to your tail, and the application will quit.</string>
-<string name="ok">OK</string>
 </resources>
