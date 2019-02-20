@@ -22,6 +22,9 @@
         <file alias="icon-round.png">../data/res/mipmap-xxxhdpi/ic_launcher_round.png</file>
         <file>qml/NamePicker.qml</file>
         <file>qml/MessageBox.qml</file>
+        <file>qml/AlarmEditor.qml</file>
+        <file>qml/BaseCommandListEditor.qml</file>
+        <file>qml/CommandPausePicker.qml</file>
     </qresource>
     <qresource prefix="/icons/breeze-internal">
         <file>../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>

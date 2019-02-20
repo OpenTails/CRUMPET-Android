@@ -22,17 +22,20 @@ import org.kde.kirigami 2.6 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
 
 BaseCommandListEditor {
-    property string moveListName;
+    property var alarm: null
 
-    objectName: "moveListEditor";
-    title: moveListName;
-    model: AppSettings.moveList
-
-    onMoveListNameChanged: {
-        AppSettings.setActiveMoveList(moveListName);
-    }
+    objectName: "alarmEditor";
+    title: alarm ? alarm["name"] : "";
+    model: alarm ? alarm["commands"] : "";
 
     onInsertCommand: {
-        AppSettings.addMoveListEntry(insertAt, command);
+        console.log("alarm: " + alarm)
+        if (!alarm) {
+            return;
+        }
+        console.log("alarm[name]: " + alarm["name"])
+        console.log("alarm[commands]: " + alarm["commands"])
+
+        AppSettings.addAlarmCommand(alarm["name"], insertAt, command);
     }
 }
