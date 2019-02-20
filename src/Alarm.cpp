@@ -9,14 +9,19 @@ public:
     {}
 
     Private(const QString& name)
-        : name(name)
+        : name(name),
+          time(QDateTime::currentDateTime())
     {}
 
     Private(const QString& name, const QDateTime& time, const QStringList& commands)
         : name(name),
           time(time),
           commands(commands)
-    {}
+    {
+        if (!this->time.isValid()) {
+            this->time = QDateTime::currentDateTime();
+        }
+    }
 
     QString name;
     QDateTime time;

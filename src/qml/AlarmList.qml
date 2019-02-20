@@ -19,6 +19,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.6 as Kirigami
+import QtQuick.Layouts 1.11
 
 Kirigami.ScrollablePage {
     id: root;
@@ -54,8 +55,18 @@ Kirigami.ScrollablePage {
         Kirigami.SwipeListItem {
             id: listItem;
 
-            QQC2.Label {
-                text: modelData["name"]
+            property var dateTime: modelData["time"]
+
+            ColumnLayout {
+                QQC2.Label {
+                    text: modelData["name"]
+                }
+
+                QQC2.Label {
+                    text: Qt.formatDate(dateTime, Qt.DefaultLocaleLongDate)
+                          + ", "
+                          + (locale.amText ? Qt.formatTime(dateTime, "hh:mm AP") : Qt.formatTime(dateTime, "hh:mm"))
+                }
             }
 
             onClicked: {
@@ -64,18 +75,40 @@ Kirigami.ScrollablePage {
 
             actions: [
                 Kirigami.Action {
-                    text: qsTr("Edit Alarm");
+                    text: qsTr("Edit Alarm Commands");
                     icon.name: ":/org/kde/kirigami/icons/document-edit.svg";
+
                     onTriggered: {
                         pageStack.push(editorPage, { alarm: modelData });
                     }
                 },
 
-                Kirigami.Action { },
+                Kirigami.Action {
+                    text: qsTr("Set Time To Alarm");
+                    icon.name: ":/org/kde/kirigami/icons/accept_time_event.svg";
+
+                    onTriggered: {
+                        AppSettings.setActiveAlarmName(modelData["name"]);
+
+                        datePicker.showDatePicker(dateTime, function(date) {
+                            var originDate = dateTime;
+                            date.setHours(originDate.getHours());
+                            date.setMinutes(originDate.getMinutes());
+
+                            timePicker.showTimePicker(originDate.getHours(), originDate.getMinutes(), function(hours, minutes) {
+                                date.setHours(hours);
+                                date.setMinutes(minutes);
+                                AppSettings.setAlarmTime(date);
+                                AppSettings.setActiveAlarmName("");
+                            });
+                        })
+                    }
+                },
 
                 Kirigami.Action {
                     text: qsTr("Delete this Alarm");
                     icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
+
                     onTriggered: {
                         console.debug("Delete this alarm, but ask first...");
                     }
@@ -105,5 +138,17 @@ Kirigami.ScrollablePage {
             AppSettings.addAlarm(name);
             namePicker.close();
         }
+    }
+
+    DatePicker {
+        id: datePicker
+
+        visible: false
+    }
+
+    TimePicker {
+        id: timePicker
+
+        visible: false
     }
 }
