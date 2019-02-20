@@ -65,12 +65,12 @@ public:
     void removeAlarmCommand(const QString& alarmName, int index);
 
     QVariantList toVariantList() const;
+    QVariantMap getAlarmVariantMap(const QString& alarmName);
 
 public slots:
 
 signals:
     void listChanged();
-    void save();
 
     /// If alarm with the same name exists we emit alarmExisted() signal
     void alarmExisted(const QString& name);

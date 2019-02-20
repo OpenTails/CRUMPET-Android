@@ -59,11 +59,13 @@ public:
     QVariantList alarmList() const override;
     void addAlarm(const QString& alarmName) override;
     void removeAlarm(const QString& alarmName) override;
-    void changeAlarmName(const QString& oldName, const QString& newName) override;
-    void setAlarmTime(const QString& alarmName, const QDateTime& time) override;
-    void setAlarmCommands(const QString& alarmName, const QStringList& commands) override;
-    void addAlarmCommand(const QString& alarmName, int index, const QString& command) override;
-    void removeAlarmCommand(const QString& alarmName, int index) override;
+    QVariantMap activeAlarm() const override;
+    void setActiveAlarmName(const QString& alarmName) override;
+    void changeAlarmName(const QString& newName) override;
+    void setAlarmTime(const QDateTime& time) override;
+    void setAlarmCommands(const QStringList& commands) override;
+    void addAlarmCommand(int index, const QString& command) override;
+    void removeAlarmCommand(int index) override;
 
 private:
     class Private;
