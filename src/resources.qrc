@@ -25,6 +25,9 @@
         <file>qml/AlarmEditor.qml</file>
         <file>qml/BaseCommandListEditor.qml</file>
         <file>qml/CommandPausePicker.qml</file>
+        <file>qml/DatePicker.qml</file>
+        <file>qml/TimePicker.qml</file>
+        <file>qml/FlatButton.qml</file>
     </qresource>
     <qresource prefix="/icons/breeze-internal">
         <file>../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
