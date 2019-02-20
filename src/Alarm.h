@@ -49,7 +49,7 @@ signals:
     void timeChanged();
     void commandsChanged();
 
-    void save();
+    void alarmChanged();
 
 private:
     //TODO: There is no any reason to use PIMPL idiom at these classes

@@ -35,9 +35,12 @@ public:
     QStringList idleCategories;
     int idleMinPause = 15;
     int idleMaxPause = 60;
+
     QMap<QString, QStringList> moveLists;
     QString activeMoveListName;
+
     AlarmList* alarmList = nullptr;
+    QString activeAlarmName;
 };
 
 AppSettings::AppSettings(QObject* parent)
@@ -79,7 +82,6 @@ AppSettings::AppSettings(QObject* parent)
 
     loadAlarmList();
 
-    connect(d->alarmList, &AlarmList::save, this, &AppSettings::saveAlarmList);
     connect(d->alarmList, &AlarmList::listChanged, this, &AppSettings::onAlarmListChanged);
     connect(d->alarmList, &AlarmList::alarmExisted, this, &AppSettings::alarmExisted);
     connect(d->alarmList, &AlarmList::alarmNotExisted, this, &AppSettings::alarmNotExisted);
@@ -257,29 +259,42 @@ void AppSettings::removeAlarm(const QString& alarmName)
     d->alarmList->removeAlarm(alarmName);
 }
 
-void AppSettings::changeAlarmName(const QString &oldName, const QString &newName)
+QVariantMap AppSettings::activeAlarm() const
 {
-    d->alarmList->changeAlarmName(oldName, newName);
+    return d->alarmList->getAlarmVariantMap(d->activeAlarmName);
 }
 
-void AppSettings::setAlarmTime(const QString &alarmName, const QDateTime &time)
+void AppSettings::setActiveAlarmName(const QString &alarmName)
 {
-    d->alarmList->setAlarmTime(alarmName, time);
+    if (d->activeAlarmName != alarmName) {
+        d->activeAlarmName = alarmName;
+        emit activeAlarmChanged(activeAlarm());
+    }
 }
 
-void AppSettings::setAlarmCommands(const QString& alarmName, const QStringList& commands)
+void AppSettings::changeAlarmName(const QString &newName)
 {
-    d->alarmList->setAlarmCommands(alarmName, commands);
+    d->alarmList->changeAlarmName(d->activeAlarmName, newName);
 }
 
-void AppSettings::addAlarmCommand(const QString& alarmName, int index, const QString& command)
+void AppSettings::setAlarmTime(const QDateTime &time)
 {
-    d->alarmList->addAlarmCommand(alarmName, index, command);
+    d->alarmList->setAlarmTime(d->activeAlarmName, time);
 }
 
-void AppSettings::removeAlarmCommand(const QString &alarmName, int index)
+void AppSettings::setAlarmCommands(const QStringList& commands)
 {
-    d->alarmList->removeAlarmCommand(alarmName, index);
+    d->alarmList->setAlarmCommands(d->activeAlarmName, commands);
+}
+
+void AppSettings::addAlarmCommand(int index, const QString& command)
+{
+    d->alarmList->addAlarmCommand(d->activeAlarmName, index, command);
+}
+
+void AppSettings::removeAlarmCommand(int index)
+{
+    d->alarmList->removeAlarmCommand(d->activeAlarmName, index);
 }
 
 void AppSettings::loadAlarmList()
@@ -325,5 +340,6 @@ void AppSettings::saveAlarmList()
 
 void AppSettings::onAlarmListChanged()
 {
+    saveAlarmList();
     emit alarmListChanged(alarmList());
 }

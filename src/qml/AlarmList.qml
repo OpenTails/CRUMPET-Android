@@ -91,6 +91,7 @@ Kirigami.ScrollablePage {
 
     ListView {
         model: AppSettings.alarmList;
+        onModelChanged: console.log("Model Changed")
         delegate: alarmListDelegate;
     }
 

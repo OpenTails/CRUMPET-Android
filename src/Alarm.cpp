@@ -61,7 +61,7 @@ void Alarm::setName(const QString& name)
     if (d->name != name) {
         d->name = name;
         emit nameChanged();
-        emit save();
+        emit alarmChanged();
     }
 }
 
@@ -75,7 +75,7 @@ void Alarm::setTime(const QDateTime& time)
     if (d->time != time) {
         d->time = time;
         emit timeChanged();
-        emit save();
+        emit alarmChanged();
     }
 }
 
@@ -88,14 +88,14 @@ void Alarm::setCommands(const QStringList& commands)
 {
     d->commands = commands;
     emit commandsChanged();
-    emit save();
+    emit alarmChanged();
 }
 
 void Alarm::addCommand(int index, const QString& command)
 {
     d->commands.insert(index, command);
     emit commandsChanged();
-    emit save();
+    emit alarmChanged();
 }
 
 void Alarm::removeCommand(int index)
@@ -109,7 +109,7 @@ void Alarm::removeCommand(int index)
 
     d->commands.removeAt(index);
     emit commandsChanged();
-    emit save();
+    emit alarmChanged();
 }
 
 QVariantMap Alarm::toVariantMap() const

@@ -113,13 +113,11 @@ void AlarmList::addAlarm(Alarm* alarm)
     beginInsertRows(QModelIndex(), 0, 0);
     alarm->setParent(this);
 
-    connect(alarm, &Alarm::save, this, &AlarmList::save);
+    connect(alarm, &Alarm::alarmChanged, this, &AlarmList::listChanged);
 
     d->list.insert(0, alarm);
     emit listChanged();
     endInsertRows();
-
-    emit save();
 }
 
 void AlarmList::addAlarm(const QString& alarmName)
@@ -161,8 +159,6 @@ void AlarmList::removeAlarmByIndex(int index)
 
     emit listChanged();
     endRemoveRows();
-
-    emit save();
 }
 
 void AlarmList::changeAlarmName(const QString& oldName, const QString& newName)
@@ -238,4 +234,20 @@ QVariantList AlarmList::toVariantList() const
     }
 
     return result;
+}
+
+QVariantMap AlarmList::getAlarmVariantMap(const QString& alarmName)
+{
+    if (alarmName.isEmpty()) {
+        return QVariantMap();
+    }
+
+    Alarm* alarm = this->alarm(alarmName);
+
+    if (alarm) {
+        return alarm->toVariantMap();
+    } else {
+        emit alarmNotExisted(alarmName);
+        return QVariantMap();
+    }
 }
