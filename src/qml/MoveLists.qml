@@ -58,8 +58,13 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: qsTr("Delete this Move List");
                     icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
+
                     onTriggered: {
-                        console.debug("Delete this moves list, but ask first...");
+                        showMessageBox(qsTr("Remove the Move List"),
+                                       qsTr("Are you sure that you want to remove the Move List '%1'?").arg(modelData),
+                                       function () {
+                                           AppSettings.removeMoveList(modelData);
+                                       });
                     }
                 }
             ]
