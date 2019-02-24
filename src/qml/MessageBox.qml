@@ -18,6 +18,7 @@
 
 import QtQuick 2.11
 import QtQuick.Controls 2.4 as QQC2
+import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.6 as Kirigami
 
 Kirigami.OverlaySheet {
@@ -31,7 +32,7 @@ Kirigami.OverlaySheet {
         control.headerText = header;
         control.text = text;
         control.okHandler = okHandler;
-
+        buttonCancel.visible = !!okHandler;
         open();
     }
 
@@ -49,18 +50,34 @@ Kirigami.OverlaySheet {
             wrapMode: Text.Wrap;
         }
 
-        QQC2.Button {
-            text: qsTr("Ok");
-            highlighted: true;
+        RowLayout {
             width: parent.width;
 
-            onClicked: {
-                if (okHandler) {
-                    handler = okHandler;
-                    okHandler = null;
-                    close();
-                    handler();
-                } else {
+            QQC2.Button {
+                text: qsTr("Ok");
+                highlighted: true;
+                Layout.fillWidth: true
+                Layout.preferredWidth: control.width
+
+                onClicked: {
+                    if (okHandler) {
+                        var handler = okHandler;
+                        okHandler = null;
+                        close();
+                        handler();
+                    } else {
+                        close();
+                    }
+                }
+            }
+
+            QQC2.Button {
+                id: buttonCancel
+                text: qsTr("Cancel");
+                Layout.fillWidth: true
+                Layout.preferredWidth: control.width
+
+                onClicked: {
                     close();
                 }
             }
