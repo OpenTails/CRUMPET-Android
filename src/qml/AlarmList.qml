@@ -112,7 +112,11 @@ Kirigami.ScrollablePage {
                     icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
 
                     onTriggered: {
-                        console.debug("Delete this alarm, but ask first...");
+                        showMessageBox(qsTr("Remove the Alarm"),
+                                       qsTr("Are you sure that you want to remove the alarm '%1'?").arg(modelData["name"]),
+                                       function () {
+                                           AppSettings.removeAlarm(modelData["name"]);
+                                       });
                     }
                 }
             ]
