@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
   <item android:drawable="@android:color/white"/>
-  <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_digitail"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="229dp" />
+  <item>
+    <bitmap
+      android:src="@drawable/digitail"
+      android:gravity="center"/>
+  </item>
 </layer-list>
