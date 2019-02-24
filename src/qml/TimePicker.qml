@@ -1,8 +1,9 @@
 import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick.Controls 2.4 as QQC2
 import QtQuick.Layouts 1.11
+import org.kde.kirigami 2.6 as Kirigami
 
-Popup {
+Kirigami.OverlaySheet {
     id: control
 
     readonly property bool is12Hours: locale.amText
@@ -31,57 +32,57 @@ Popup {
         radioPm.checked = is12Hours && hours >= 12
     }
 
-    x: (parent.width - width) / 2
-    y: (parent.height - height) / 2
+    GridLayout {
+        columns: 2
+        rows: 4
 
-    ColumnLayout {
-        GridLayout {
-            columns: 2
-            rows: 3
+        QQC2.Label {
+            text: qsTr("Hours")
+        }
 
-            Label {
-                text: qsTr("Hours")
+        QQC2.SpinBox {
+            id: spinHours
+            from: is12Hours ? 1 : 0
+            to: is12Hours ? 12 : 23
+            value: is12Hours ? (hours === 0 ? 12 : (hours === 12 ? 12 : hours % 12)) : hours
+            Layout.fillWidth: true
+        }
+
+        QQC2.Label {
+            text: qsTr("Minutes")
+        }
+
+        QQC2.SpinBox {
+            id: spinMinutes
+            from: 0
+            to: 59
+            value: minutes
+            Layout.fillWidth: true
+        }
+
+        RowLayout {
+            visible: is12Hours
+
+            Layout.column: 1
+            Layout.row: 2
+
+            QQC2.RadioButton {
+                id: radioAm
+                text: qsTr("AM")
+                checked: is12Hours && hours < 12
             }
 
-            SpinBox {
-                id: spinHours
-                from: is12Hours ? 1 : 0
-                to: is12Hours ? 12 : 23
-                value: is12Hours ? (hours === 0 ? 12 : (hours === 12 ? 12 : hours % 12)) : hours
-            }
-
-            Label {
-                text: qsTr("Minutes")
-            }
-
-            SpinBox {
-                id: spinMinutes
-                from: 0
-                to: 59
-                value: minutes
-            }
-
-            RowLayout {
-                visible: is12Hours
-
-                Layout.column: 1
-                Layout.row: 2
-
-                RadioButton {
-                    id: radioAm
-                    text: qsTr("AM")
-                    checked: is12Hours && hours < 12
-                }
-
-                RadioButton {
-                    id: radioPm
-                    text: qsTr("PM")
-                    checked: is12Hours && hours >= 12
-                }
+            QQC2.RadioButton {
+                id: radioPm
+                text: qsTr("PM")
+                checked: is12Hours && hours >= 12
             }
         }
 
         RowLayout {
+            Layout.column: 0
+            Layout.row: 3
+            Layout.columnSpan: 2
             Layout.fillWidth: true
 
             FlatButton {
