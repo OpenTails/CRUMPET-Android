@@ -1,5 +1,6 @@
 /*
  *   Copyright 2018 Dan Leinir Turthra Jensen <admin@leinir.dk>
+ *   Copyright 2019 Ildar Gilmanov <gil.ildar@gmail.com>
  *   This file based on sample code from Kirigami
  *
  *   This program is free software; you can redistribute it and/or modify
