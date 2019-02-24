@@ -33,7 +33,6 @@ Kirigami.OverlaySheet {
         control.text = text;
         control.okHandler = okHandler;
         buttonCancel.visible = !!okHandler;
-
         open();
     }
 

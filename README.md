@@ -13,9 +13,9 @@ Device Service [0xffe0]
 
 Device Characteristic [0xffe1]
 
-All aspects of the Tail are controlled through this service and this characteristic
+All aspects of the Tail are controlled through this service and this characteristic.
 The app will send a text string to the tail to the right characteristic. 
-And there are 11 built in moves u can call up immediately.
+And there are 11 built in moves you can call up immediately.
 
 *YOU CANNOT USE THE TAIL WHILE IT IS BEING POWERED BY THE POWER ADAPTOR*
 
@@ -37,7 +37,7 @@ TAILET - ERECT_TREM 4.73 secs
 ```
 and a Home Move: TAILHM
 
-There are 6 built in LED patterns
+There are 6 built in LED patterns.
 
 ### LED PATTERNS
 ```
@@ -73,14 +73,13 @@ In this mode, moves cant be interrupted. All moves are followed by the homing mo
 
 ### ADVANCED GROUP OF MODES
 
-This will include the Move Designer page. It might also allow some different settings
+This will include the Move Designer page. It might also allow some different settings.
 
 Perhaps the advanced mode is unlocked after a splash screen communicating the
 potential for harm to the Tail if used inappropriately. Should we have a test mode
 that logs moves? For diagnosis, edge cases, etc?
 
 ## REMOTE - EVERYDAY group
-
 
 Slower, gentler, relaxed:
 ```
@@ -96,6 +95,7 @@ Short Wag
 Happy Wag
 Erect
 ```
+
 Angry, frustrated, tense:
 ```
 Tremble 1
@@ -239,11 +239,15 @@ cd ..
 make create-apk-digitail
 ```
 
-Once this final command completes, you should hopefully have an apk in /home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk (or where ever else you created your clone).
+Once this final command completes, you should hopefully have an apk in `/home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk` (or where ever else you created your clone).
 
-If you added the -v bit to your docker command, then you can copy that file to your local machine by doing e.g. "cp /home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk /output", and then looking in your apks folder using whatever method you usually use.
+If you added the `-v` bit to your docker command, then you can copy that file to your local machine by doing e.g.
 
-You now have an apk, which you can install to your android device in the usual way (and which that is will depend on you, though "adb install apkfile" usually does the trick).
+`cp /home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk /output`
+
+and then looking in your apks folder using whatever method you usually use.
+
+You now have an apk, which you can install to your android device in the usual way (and which that is will depend on you, though `adb install apkfile` usually does the trick).
 
 To also sign the apk for use on the Play store, the following command might be used. Note that you will need the appropriate keystore to hand in an appropriate location, or it will quite entirely fail:
 
