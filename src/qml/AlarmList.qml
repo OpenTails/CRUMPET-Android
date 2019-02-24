@@ -41,11 +41,13 @@ Kirigami.ScrollablePage {
         target: AppSettings
 
         onAlarmExisted: {
-            showMessageBox(qsTr("Unable to add the alarm because we already have an alarm with the same name.\n\nPlease select another name for the alarm."));
+            showMessageBox(qsTr("Select another name"),
+                           qsTr("Unable to add the alarm because we already have an alarm with the same name.\n\nPlease select another name for the alarm."));
         }
 
         onAlarmNotExisted: {
-            showMessageBox(qsTr("Unable to find an alarm with the name '%1'. Maybe another application instance has removed it.").arg(name));
+            showMessageBox(qsTr("Alarm was removed"),
+                           qsTr("Unable to find an alarm with the name '%1'. Maybe another application instance has removed it.").arg(name));
         }
     }
 
@@ -142,13 +144,9 @@ Kirigami.ScrollablePage {
 
     DatePicker {
         id: datePicker
-
-        visible: false
     }
 
     TimePicker {
         id: timePicker
-
-        visible: false
     }
 }

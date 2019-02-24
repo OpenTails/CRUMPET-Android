@@ -53,8 +53,8 @@ Kirigami.ApplicationWindow {
     //        inlineMessageWithOkButton.visible = true
     //    }
 
-    function showMessageBox(text, okHandler) {
-        messageBox.showMessageBox(text, okHandler)
+    function showMessageBox(header, text, okHandler) {
+        messageBox.showMessageBox(header, text, okHandler)
     }
 
     visible: true;
@@ -249,8 +249,5 @@ Kirigami.ApplicationWindow {
 
     MessageBox {
         id: messageBox;
-
-        x: (root.width - width) / 2
-        y: (root.height - height) / 2
     }
 }

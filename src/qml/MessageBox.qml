@@ -1,50 +1,49 @@
 import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.11
+import QtQuick.Controls 2.4 as QQC2
+import org.kde.kirigami 2.6 as Kirigami
 
-Popup {
-    id: control
+Kirigami.OverlaySheet {
+    id: control;
 
-    property alias text: label.text
-    property var okHandler: null
+    property alias headerText: textHeader.text;
+    property alias text: label.text;
+    property var okHandler: null;
 
-    function showMessageBox(text, okHandler) {
-        control.text = text
-        control.okHandler = okHandler
+    function showMessageBox(header, text, okHandler) {
+        control.headerText = header;
+        control.text = text;
+        control.okHandler = okHandler;
 
-        open()
+        open();
     }
 
-    modal: true
-    closePolicy: Popup.NoAutoClose
+    header: Kirigami.Heading {
+        id: textHeader;
+    }
 
-    width: Math.min(root.width * 0.8, layout.implicitWidth)
+    Column {
+        width: root.width - Kirigami.Units.largeSpacing * 4;
+        spacing: Kirigami.Units.smallSpacing;
 
-    ColumnLayout {
-        id: layout
-        anchors.fill: parent
-
-        Label {
-            id: label
-            wrapMode: Text.Wrap
-
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+        QQC2.Label {
+            id: label;
+            width: parent.width;
+            wrapMode: Text.Wrap;
         }
 
-        Button {
-            text: qsTr("Ok")
-            highlighted: true
-            Layout.alignment: Qt.AlignHCenter
+        QQC2.Button {
+            text: qsTr("Ok");
+            highlighted: true;
+            width: parent.width;
 
             onClicked: {
                 if (okHandler) {
-                    handler = okHandler
-                    okHandler = null
-                    close()
-                    handler()
+                    handler = okHandler;
+                    okHandler = null;
+                    close();
+                    handler();
                 } else {
-                    close()
+                    close();
                 }
             }
         }
