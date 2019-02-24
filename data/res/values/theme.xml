@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<color name="custom_theme_color">#324059</color>
-<style name="DigitailStyle" parent="@android:style/Theme.Holo.Light.NoActionBar">
+<style name="DigitailStyle.Launcher" parent="@android:style/Theme.Holo.Light.NoActionBar">
      <item name="android:windowBackground">@drawable/splashscreen</item>
-     <item name="android:colorBackground">@color/custom_theme_color</item>
 </style>
 </resources>
