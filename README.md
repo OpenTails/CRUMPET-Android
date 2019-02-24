@@ -13,9 +13,9 @@ Device Service [0xffe0]
 
 Device Characteristic [0xffe1]
 
-All aspects of the Tail are controlled through this service and this characteristic
+All aspects of the Tail are controlled through this service and this characteristic.
 The app will send a text string to the tail to the right characteristic. 
-And there are 11 built in moves u can call up immediately.
+And there are 11 built in moves you can call up immediately.
 
 *YOU CANNOT USE THE TAIL WHILE IT IS BEING POWERED BY THE POWER ADAPTOR*
 
@@ -37,7 +37,7 @@ TAILET - ERECT_TREM 4.73 secs
 ```
 and a Home Move: TAILHM
 
-There are 6 built in LED patterns
+There are 6 built in LED patterns.
 
 ### LED PATTERNS
 ```
@@ -73,14 +73,13 @@ In this mode, moves cant be interrupted. All moves are followed by the homing mo
 
 ### ADVANCED GROUP OF MODES
 
-This will include the Move Designer page. It might also allow some different settings
+This will include the Move Designer page. It might also allow some different settings.
 
 Perhaps the advanced mode is unlocked after a splash screen communicating the
 potential for harm to the Tail if used inappropriately. Should we have a test mode
 that logs moves? For diagnosis, edge cases, etc?
 
 ## REMOTE - EVERYDAY group
-
 
 Slower, gentler, relaxed:
 ```
@@ -96,6 +95,7 @@ Short Wag
 Happy Wag
 Erect
 ```
+
 Angry, frustrated, tense:
 ```
 Tremble 1
