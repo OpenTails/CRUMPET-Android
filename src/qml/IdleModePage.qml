@@ -79,7 +79,7 @@ Kirigami.ScrollablePage {
                     id: pauseRangeSlider;
                     anchors { left: parent.left; right: parent.right; leftMargin: Kirigami.Units.largeSpacing; }
                     from: 15;
-                    to: 60;
+                    to: 600;
                     stepSize: 1.0;
                     first.onValueChanged: { AppSettings.idleMinPause = first.value; }
                     second.onValueChanged: { AppSettings.idleMaxPause = second.value; }
