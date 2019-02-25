@@ -96,29 +96,32 @@ int appMain(int argc, char *argv[])
     KirigamiPlugin::getInstance().registerTypes();
 
     qInfo() << "Connecting to service...";
-    QRemoteObjectNode repNode;
-    repNode.connectToNode(QUrl(QStringLiteral("local:digitail")));
+    QRemoteObjectNode* repNode = new QRemoteObjectNode(&app);
+    repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, [repNode](){
+        delete repNode;
+    });
 
     qInfo() << "Connected, attempting to load replicas...";
-    QSharedPointer<SettingsProxyReplica> settingsReplica(repNode.acquire<SettingsProxyReplica>());
+    QSharedPointer<SettingsProxyReplica> settingsReplica(repNode->acquire<SettingsProxyReplica>());
     bool res = settingsReplica->waitForSource();
     if(!res) { qCritical() << "Kapow! Replica for Settings failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("AppSettings"), settingsReplica.data());
 
-    QSharedPointer<BTConnectionManagerProxyReplica> btConnectionManagerReplica(repNode.acquire<BTConnectionManagerProxyReplica>());
+    QSharedPointer<BTConnectionManagerProxyReplica> btConnectionManagerReplica(repNode->acquire<BTConnectionManagerProxyReplica>());
     res = btConnectionManagerReplica->waitForSource();
     if(!res) { qCritical() << "Kapow! Replica for btConnectionManagerReplica failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("BTConnectionManager"), btConnectionManagerReplica.data());
 
-    QScopedPointer<CommandQueueProxyReplica> commandQueueReplica(repNode.acquire<CommandQueueProxyReplica>());
+    QScopedPointer<CommandQueueProxyReplica> commandQueueReplica(repNode->acquire<CommandQueueProxyReplica>());
     res = commandQueueReplica->waitForSource();
     if(!res) { qCritical() << "Kapow! Replica for commandQueueReplica failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("CommandQueue"), commandQueueReplica.data());
 
-    QScopedPointer<QAbstractItemModelReplica> btDeviceModelReplica(repNode.acquireModel("DeviceModel"));
+    QScopedPointer<QAbstractItemModelReplica> btDeviceModelReplica(repNode->acquireModel("DeviceModel"));
     engine.rootContext()->setContextProperty(QLatin1String("DeviceModel"), btDeviceModelReplica.data());
 
-    QScopedPointer<QAbstractItemModelReplica> commandModelReplica(repNode.acquireModel("CommandModel"));
+    QScopedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel("CommandModel"));
     engine.rootContext()->setContextProperty(QLatin1String("CommandModel"), commandModelReplica.data());
 
     Utilities::getInstance()->setConnectionManager(btConnectionManagerReplica.data());
