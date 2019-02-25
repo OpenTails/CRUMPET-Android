@@ -36,7 +36,7 @@ Kirigami.AboutPage {
         "otherText" : BTConnectionManager.isConnected ? qsTr("Connected tail is version %1").arg(BTConnectionManager.tailVersion) : "",
         "authors" : [
             {
-                "name" : "Dan Leinir Turthra Jensen",
+                "name" : "Dan Leinir Turthra Jensen\n",
                 "task" : "Lead Developer",
                 "emailAddress" : "admin@leinir.dk",
                 "webAddress" : "https://leinir.dk/",
