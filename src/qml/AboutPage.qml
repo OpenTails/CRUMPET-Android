@@ -25,14 +25,14 @@ import org.thetailcompany.digitail 1.0
 Kirigami.AboutPage {
     objectName: "aboutPage";
     aboutData: {
-        "displayName" : "DIGITAiL Controller",
+        "displayName" : "DIGITAiL App",
         "productName" : "digitail/controller",
         "programLogo" : ":/icon-round.png",
         "componentName" : "digitail",
         "shortDescription" : "DIGITAiL designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
-        "version" : "1.0",
+        "version" : "v1.0",
         "otherText" : BTConnectionManager.isConnected ? qsTr("Connected tail is version %1").arg(BTConnectionManager.tailVersion) : "",
         "authors" : [
             {
