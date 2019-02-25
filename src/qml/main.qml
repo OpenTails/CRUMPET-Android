@@ -153,11 +153,11 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Advanced Options");
-                icon.name: AppSettings.advancedMode ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
+                text: qsTr("Settings");
+                icon.name: ":/org/kde/kirigami/icons/settings-configure.svg";
 
                 onTriggered: {
-                    AppSettings.advancedMode = !AppSettings.advancedMode;
+                    showMessageBox(qsTr("Sorry"), qsTr("This page is coming soon..."));
                 }
             },
             Kirigami.Action {
