@@ -28,6 +28,7 @@
         <file>qml/DatePicker.qml</file>
         <file>qml/TimePicker.qml</file>
         <file>qml/FlatButton.qml</file>
+        <file>qml/IdlePauseRangePicker.qml</file>
     </qresource>
     <qresource prefix="/icons/breeze-internal">
         <file>../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
