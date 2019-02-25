@@ -68,44 +68,14 @@ Kirigami.ScrollablePage {
     ListView {
         model: availableCategories;
         delegate: idleCategoryDelegate;
+
         header: Kirigami.AbstractCard {
-            anchors { left: parent.left; right: parent.right; }
-            contentItem: Column {
-                Label {
-                    text: qsTr("Range of pause between random moves in seconds");
-                    anchors { left: parent.left; right: parent.right; }
-                }
-                RangeSlider {
-                    id: pauseRangeSlider;
-                    anchors { left: parent.left; right: parent.right; leftMargin: Kirigami.Units.largeSpacing; }
-                    from: 15;
-                    to: 600;
-                    stepSize: 1.0;
-                    first.onValueChanged: { AppSettings.idleMinPause = first.value; }
-                    second.onValueChanged: { AppSettings.idleMaxPause = second.value; }
-                    Component.onCompleted: {
-                        pauseRangeSlider.setValues(AppSettings.idleMinPause, AppSettings.idleMaxPause);
-                    }
-                }
-                Item {
-                    anchors { left: parent.left; right: parent.right; leftMargin: Kirigami.Units.largeSpacing; }
-                    height: childrenRect.height;
-                    Label {
-                        text: Math.floor(pauseRangeSlider.first.value);
-                        anchors {
-                            left: parent.left;
-                            right: parent.horizontalCentre;
-                        }
-                    }
-                    Label {
-                        text: Math.floor(pauseRangeSlider.second.value);
-                        verticalAlignment: Text.AlignRight;
-                        anchors {
-                            left: parent.horizontalCentre;
-                            right: parent.right;
-                        }
-                    }
-                }
+            contentItem: IdlePauseRangePicker {
+            }
+
+            anchors {
+                left: parent.left;
+                right: parent.right;
             }
         }
     }
