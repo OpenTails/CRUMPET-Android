@@ -51,6 +51,10 @@ Column {
         }
 
         second.onValueChanged: {
+            if (second.value < 20) {
+                second.value = 20;
+            }
+
             AppSettings.idleMaxPause = second.value;
         }
 
