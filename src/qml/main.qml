@@ -153,14 +153,14 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+            },
+            Kirigami.Action {
                 text: qsTr("Settings");
                 icon.name: ":/org/kde/kirigami/icons/settings-configure.svg";
 
                 onTriggered: {
                     showMessageBox(qsTr("Sorry"), qsTr("This page is coming soon..."));
                 }
-            },
-            Kirigami.Action {
             },
             Kirigami.Action {
                 text: qsTr("About");
