@@ -44,7 +44,12 @@ Kirigami.ScrollablePage {
                 text: modelData
             }
             onClicked: {
-                console.debug("Append this list, yo! ...maybe confirm, because it's a bit lots");
+                AppSettings.setActiveMoveList(modelData);
+                showMessageBox(qsTr("Run this list?"),
+                               qsTr("Do you want to run the list %1?").arg(modelData),
+                               function() {
+                                   CommandQueue.pushCommands(AppSettings.modeList);
+                               });
             }
             actions: [
                 Kirigami.Action {
