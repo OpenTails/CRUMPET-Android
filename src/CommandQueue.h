@@ -100,7 +100,7 @@ public:
      * the pause should last).
      * @param commands A list of commands
      */
-    Q_SLOT void pushCommands(QVariantList commands) override;
+    Q_SLOT void pushCommands(QStringList commands) override;
     /**
      * Remove a specific command from the queue
      *
