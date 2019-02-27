@@ -234,6 +234,7 @@ void CommandQueue::pushCommands(TailCommandModel::CommandInfoList commands)
 
 void CommandQueue::pushCommands(QStringList commands)
 {
+    qDebug() << commands;
     for (auto command : commands) {
         if(command.startsWith("pause")) {
             QStringList pauseCommand = command.split(':');
