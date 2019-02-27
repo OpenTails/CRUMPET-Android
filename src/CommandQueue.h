@@ -95,6 +95,13 @@ public:
      */
     Q_SLOT void pushCommands(TailCommandModel::CommandInfoList commands);
     /**
+     * A convenience slot which takes a list of commands, and the special pause command
+     * (which is "pause:" followed by an integer number representing the number of seconds
+     * the pause should last).
+     * @param commands A list of commands
+     */
+    Q_SLOT void pushCommands(QVariantList commands) override;
+    /**
      * Remove a specific command from the queue
      *
      * @param index The index of the command to be removed

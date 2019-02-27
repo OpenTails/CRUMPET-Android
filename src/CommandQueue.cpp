@@ -19,6 +19,7 @@
 #include "BTConnectionManager.h"
 
 #include <QTimer>
+#include <QVariantList>
 
 class CommandQueue::Private
 {
@@ -228,6 +229,21 @@ void CommandQueue::pushCommands(TailCommandModel::CommandInfoList commands)
         // running, let's fire one off now!
         if(!d->popTimer->isActive()) {
             d->pop();
+        }
+    }
+}
+
+void CommandQueue::pushCommands(QVariantList commands)
+{
+    for (auto command : commands) {
+        QString actualCommand = command.toString();
+        if(actualCommand.startsWith("pause")) {
+            QStringList pauseCommand = actualCommand.split(':');
+            if(pauseCommand.count() == 2) {
+                pushPause(pauseCommand[1].toInt() * 1000);
+            }
+        } else {
+            pushCommand(actualCommand);
         }
     }
 }

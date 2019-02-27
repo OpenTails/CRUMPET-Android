@@ -20,7 +20,7 @@ class CommandQueueProxy {
     SLOT(void clear())
     SLOT(void pushPause(int durationMilliseconds))
     SLOT(void pushCommand(QString tailCommand))
-    //SLOT(void pushCommands(TailCommandModel::CommandInfoList commands))
+    SLOT(void pushCommands(QVariantList commands))
     SLOT(void removeEntry(int index))
     SLOT(void swapEntries(int swapThis, int withThis))
     SLOT(void moveEntryUp(int index))
