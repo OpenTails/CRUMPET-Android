@@ -143,6 +143,7 @@ Kirigami.ScrollablePage {
         property int insertAt;
 
         onCommandPicked: {
+            control.insertCommand(insertAt, "pause:15");
             control.insertCommand(insertAt, command);
             pickACommand.close();
         }
