@@ -48,7 +48,7 @@ Kirigami.AboutPage {
         "licenses" : [
             {
                 "name" : "GPL v3",
-                "text" : "long, boring, license text",
+                "text" : GPLv3LicenseText,
                 "spdx" : "GPL-3.0"
             }
         ],

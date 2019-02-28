@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file alias="gplv3-license-text">../LICENSE</file>
         <file>qml/main.qml</file>
         <file>qml/AboutPage.qml</file>
         <file>qml/BaseMovesComponent.qml</file>

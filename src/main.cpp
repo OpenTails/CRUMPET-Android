@@ -95,6 +95,13 @@ int appMain(int argc, char *argv[])
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
     KirigamiPlugin::getInstance().registerTypes();
 
+    QFile file(QLatin1String(":/gplv3-license-text"));
+    if(file.open(QIODevice::ReadOnly)) {
+        QString data(file.readAll());
+        file.close();
+        engine.rootContext()->setContextProperty(QLatin1String("GPLv3LicenseText"), data);
+    }
+
     qInfo() << "Connecting to service...";
     QRemoteObjectNode* repNode = new QRemoteObjectNode(&app);
     repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
