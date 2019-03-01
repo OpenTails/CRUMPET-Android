@@ -88,15 +88,55 @@ Kirigami.ApplicationWindow {
             connectingToTail.opacity = 0;
         }
     }
+
+    Connections {
+        target: AppSettings;
+
+        onDeveloperModeChanged: {
+            if (AppSettings.developerMode) {
+                showMessageBox(qsTr("Developer mode"), qsTr("Developer mode is enabled"));
+            } else {
+                showMessageBox(qsTr("Developer mode"), qsTr("Developer mode is disabled"));
+            }
+        }
+    }
+
     Component.onCompleted: {
         switchToPage(welcomePage);
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
+        id: globalDrawer
+
+        property int clicksCount: 0
+
         bannerImageSource: "qrc:/images/banner_image.png";
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
         // Simply replacing the rectangle means we end up removing the handles and whatnot, so that's not cool
         Component.onCompleted: { background.color = "#3daee9"; }
+
+        onBannerClicked: {
+            if (!clicksTimer.running) {
+                clicksCount = 0;
+                clicksTimer.start();
+            }
+
+            clicksCount++;
+        }
+
+        Timer {
+            id: clicksTimer;
+            interval: 1500;
+
+            onTriggered: {
+                if (globalDrawer.clicksCount >= 5) {
+                    globalDrawer.close();
+                    AppSettings.developerMode = !AppSettings.developerMode;
+                } else {
+                    globalDrawer.clicksCount = 0;
+                }
+            }
+        }
 
         actions: [
             Kirigami.Action {
@@ -150,6 +190,15 @@ Kirigami.ApplicationWindow {
                 visible: AppSettings.idleMode;
                 onTriggered: {
                     switchToPage(idleModePage);
+                }
+            },
+            Kirigami.Action {
+                text: qsTr("Developer Mode");
+                icon.name: ":/org/kde/kirigami/icons/gnumeric-formulaguru.svg";
+                visible: AppSettings.developerMode;
+
+                onTriggered: {
+                    showMessageBox(qsTr("Sorry"), qsTr("This page is coming soon..."));
                 }
             },
             Kirigami.Action {

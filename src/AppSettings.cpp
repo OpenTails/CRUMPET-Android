@@ -32,6 +32,7 @@ public:
     ~Private() {}
 
     bool advancedMode = false;
+    bool developerMode = false;
     bool idleMode = false;
     QStringList idleCategories;
     int idleMinPause = 15;
@@ -51,6 +52,7 @@ AppSettings::AppSettings(QObject* parent)
     QSettings settings;
 
     d->advancedMode = settings.value("advancedMode", d->advancedMode).toBool();
+    d->developerMode = settings.value("developerMode", d->developerMode).toBool();
     d->idleMode = settings.value("idleMode", d->idleMode).toBool();
     d->idleCategories = settings.value("idleCategories", d->idleCategories).toStringList();
     d->idleMinPause = settings.value("idleMinPause", d->idleMinPause).toInt();
@@ -105,7 +107,23 @@ void AppSettings::setAdvancedMode(bool newValue)
         d->advancedMode = newValue;
         QSettings settings;
         settings.setValue("advancedMode", d->advancedMode);
-        emit  advancedModeChanged(newValue);
+        emit advancedModeChanged(newValue);
+    }
+}
+
+bool AppSettings::developerMode() const
+{
+    return d->developerMode;
+}
+
+void AppSettings::setDeveloperMode(bool newValue)
+{
+    qDebug() << Q_FUNC_INFO << newValue;
+    if(newValue != d->developerMode) {
+        d->developerMode = newValue;
+        QSettings settings;
+        settings.setValue("developerMode", d->developerMode);
+        emit developerModeChanged(newValue);
     }
 }
 

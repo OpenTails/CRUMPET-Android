@@ -35,6 +35,9 @@ public:
     bool advancedMode() const override;
     void setAdvancedMode(bool newValue) override;
 
+    bool developerMode() const override;
+    void setDeveloperMode(bool newValue) override;
+
     bool idleMode() const override;
     void setIdleMode(bool newValue) override;
 
