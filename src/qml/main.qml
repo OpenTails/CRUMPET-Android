@@ -218,6 +218,14 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     switchToPage(aboutPage);
                 }
+            },
+            Kirigami.Action {
+                text: qsTr("Fake it!");
+                icon.name: ":/org/kde/kirigami/icons/autocorrection.svg";
+
+                onTriggered: {
+                    BTConnectionManager.setFakeTailMode(true);
+                }
             }
         ]
     }
