@@ -17,6 +17,7 @@
 
 class SettingsProxy {
     PROP(bool advancedMode READWRITE)
+    PROP(bool developerMode READWRITE)
     PROP(bool idleMode READWRITE)
     PROP(QStringList idleCategories)
     SLOT(void addIdleCategory(const QString& category))
