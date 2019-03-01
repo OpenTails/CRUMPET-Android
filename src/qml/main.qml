@@ -231,7 +231,13 @@ Kirigami.ApplicationWindow {
     }
     Component {
         id: welcomePage;
-        WelcomePage {}
+
+        WelcomePage {
+            onBackRequested: {
+                event.accepted = true;
+                Qt.quit();
+            }
+        }
     }
     Component {
         id: alarmList;
