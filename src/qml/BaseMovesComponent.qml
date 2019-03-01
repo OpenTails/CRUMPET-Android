@@ -25,10 +25,13 @@ import org.kde.kirigami 2.5 as Kirigami
 import org.thetailcompany.digitail 1.0
 
 Item {
-    id: root;
-    signal commandActivated(string command);
-    property bool blockOnMovingTail: false;
+    id: control;
+
     property QtObject categoriesModel: ListModel { }
+    property alias blockOnMovingTail: activeMovePopup.blockOnMovingTail;
+
+    signal commandActivated(string command, string name);
+
     height: contents.height;
 
     Component {
@@ -91,7 +94,7 @@ Item {
                             anchors.fill: parent;
                             // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                             property string command: model.command ? model.command : "";
-                            onClicked: { root.commandActivated(command); }
+                            onClicked: { control.commandActivated(command, model.name); }
                         }
                     }
                 }
@@ -130,38 +133,19 @@ Item {
                 }
             }
         }
-        Item {
-            anchors {
-                top: parent.top;
-                left: parent.left;
-                right: parent.right;
-                margins: -Kirigami.Units.gridUnit;
-            }
-            height: parent.height > root.height ? (parent.height + Kirigami.Units.gridUnit*2) : (root.height - Kirigami.Units.gridUnit*2 - Kirigami.Units.largeSpacing);
-            opacity: (CommandQueue.currentCommandRemainingMSeconds > 0 && root.blockOnMovingTail === true) ? 1 : 0;
-            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-            MouseArea { anchors.fill: parent; enabled: parent.opacity > 0; onClicked: { /* nothing, because we're just swallowing events */ } }
-            Rectangle { anchors { fill: parent; margins: Kirigami.Units.smallSpacing; } color: "black"; opacity: 0.8; radius: Kirigami.Units.smallSpacing; }
-            Kirigami.Heading {
-                anchors {
-                    left: parent.left;
-                    right: parent.right;
-                    top: parent.top;
-                    topMargin: Kirigami.Units.gridUnit * 4;
-                }
-                color: "white";
-                text: qsTr("Tail Active...");
-                horizontalAlignment: Text.AlignHCenter;
-                ProgressBar {
-                    anchors {
-                        left: parent.left;
-                        right: parent.right;
-                        top: parent.bottom;
-                        margins: Kirigami.Units.gridUnit;
-                    }
-                    value: CommandQueue.currentCommandRemainingMSeconds;
-                    to: CommandQueue.currentCommandTotalDuration;
-                }
+    }
+
+    ActiveMovePopup {
+        id: activeMovePopup
+
+        x: (root.width - width) / 2
+        y: (root.height - height) / 2
+
+        Connections {
+            target: control
+
+            onCommandActivated: {
+                activeMovePopup.commandName = name;
             }
         }
     }
