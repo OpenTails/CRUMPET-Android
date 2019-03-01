@@ -35,25 +35,30 @@ Kirigami.AboutPage {
         "version" : "v1.0",
         "otherText" : BTConnectionManager.isConnected ? qsTr("Connected tail is version %1").arg(BTConnectionManager.tailVersion) : "",
         "authors" : [
-            {
-                "name" : "Dan Leinir Turthra Jensen\n",
-                "task" : "Lead Developer",
-                "emailAddress" : "admin@leinir.dk",
-                "webAddress" : "https://leinir.dk/",
-                "ocsUsername" : "leinir"
-            }
-        ],
+                    {
+                        "name" : "Dan Leinir Turthra Jensen\n",
+                        "task" : "Lead Developer",
+                        "emailAddress" : "admin@leinir.dk",
+                        "webAddress" : "https://leinir.dk/",
+                        "ocsUsername" : "leinir"
+                    },
+                    {
+                        "name" : "Ildar Gilmanov\n",
+                        "task" : "Qt/QML Developer",
+                        "emailAddress" : "gil.ildar@gmail.com"
+                    }
+                ],
         "credits" : [],
         "translators" : [],
         "licenses" : [
-            {
-                "name" : "GPL v3",
-                "text" : GPLv3LicenseText,
-                "spdx" : "GPL-3.0"
-            }
-        ],
+                    {
+                        "name" : "GPL v3",
+                        "text" : GPLv3LicenseText,
+                        "spdx" : "GPL-3.0"
+                    }
+                ],
         "copyrightStatement" : "© 2018-2019 The Tail Company Community",
         "desktopFileName" : "org.thetailcompany.digitail"
-        }
+    }
 }
 
