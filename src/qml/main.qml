@@ -153,6 +153,15 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: qsTr("Developer Mode");
+                icon.name: ":/org/kde/kirigami/icons/gnumeric-formulaguru.svg";
+                visible: AppSettings.developerMode;
+
+                onTriggered: {
+                    showMessageBox(qsTr("Sorry"), qsTr("This page is coming soon..."));
+                }
+            },
+            Kirigami.Action {
             },
             Kirigami.Action {
                 text: qsTr("Settings");
