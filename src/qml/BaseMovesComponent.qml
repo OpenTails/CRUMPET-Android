@@ -25,12 +25,12 @@ import org.kde.kirigami 2.5 as Kirigami
 import org.thetailcompany.digitail 1.0
 
 Item {
-    id: control;
+    id: root;
 
     property QtObject categoriesModel: ListModel { }
     property alias blockOnMovingTail: activeMovePopup.blockOnMovingTail;
 
-    signal commandActivated(string command, string name);
+    signal commandActivated(string command, string commandName);
 
     height: contents.height;
 
@@ -94,7 +94,7 @@ Item {
                             anchors.fill: parent;
                             // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                             property string command: model.command ? model.command : "";
-                            onClicked: { control.commandActivated(command, model.name); }
+                            onClicked: { root.commandActivated(command, model.name); }
                         }
                     }
                 }
@@ -142,10 +142,10 @@ Item {
         y: (root.height - height) / 2
 
         Connections {
-            target: control
+            target: root
 
             onCommandActivated: {
-                activeMovePopup.commandName = name;
+                activeMovePopup.commandName = commandName;
             }
         }
     }
