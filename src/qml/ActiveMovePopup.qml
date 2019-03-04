@@ -22,18 +22,19 @@ import QtQuick.Controls 2.4 as QQC2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.6 as Kirigami
 
-// We should use Popup here instead of Kirigami.OverlaySheet
-// because OverlaySheet does not support modal mode
 QQC2.Popup {
+    // We use a Popup directly here instead of Kirigami.OverlaySheet
+    // because OverlaySheet does not support modal mode
     property bool blockOnMovingTail: false;
     property alias commandName: labelCommandName.text;
 
-    visible: blockOnMovingTail && CommandQueue.currentCommandRemainingMSeconds > 0
+    visible: blockOnMovingTail && CommandQueue.currentCommandRemainingMSeconds > 0;
     modal: true;
     closePolicy: Popup.NoAutoClose;
 
     ColumnLayout {
         implicitWidth: root.width - Kirigami.Units.largeSpacing * 4;
+        spacing: Kirigami.Units.largeSpacing;
 
         Kirigami.Heading {
             text: qsTr("Tail Active...");
