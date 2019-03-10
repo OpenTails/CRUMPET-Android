@@ -263,6 +263,11 @@ void AppSettings::removeMoveListEntry(int index)
     emit moveListChanged(this->moveList());
 }
 
+AlarmList * AppSettings::alarmListImpl() const
+{
+    return d->alarmList;
+}
+
 QVariantList AppSettings::alarmList() const
 {
     return d->alarmList->toVariantList();

@@ -60,6 +60,7 @@ public:
     void addMoveListEntry(int index, const QString& entry) override;
     void removeMoveListEntry(int index) override;
 
+    AlarmList* alarmListImpl() const;
     QVariantList alarmList() const override;
     void addAlarm(const QString& alarmName) override;
     void removeAlarm(const QString& alarmName) override;

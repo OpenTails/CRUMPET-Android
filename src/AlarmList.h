@@ -21,6 +21,7 @@
 #include <QAbstractListModel>
 
 class Alarm;
+class CommandQueue;
 
 /**
  * @brief The AlarmList class represents collection of all alarm moves.
@@ -84,6 +85,7 @@ public:
     QVariantList toVariantList() const;
     QVariantMap getAlarmVariantMap(const QString& alarmName);
 
+    void setCommandQueue(CommandQueue* commandQueue);
 public slots:
 
 signals:

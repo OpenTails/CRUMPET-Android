@@ -45,6 +45,7 @@
 #include "BTConnectionManager.h"
 #include "BTDeviceModel.h"
 #include "FilterProxyModel.h"
+#include "AlarmList.h"
 #include "AppSettings.h"
 #include "CommandQueue.h"
 #include "IdleMode.h"
@@ -189,6 +190,7 @@ int serviceMain(int argc, char *argv[])
 
     qDebug() << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(&app);
+    appSettings->alarmListImpl()->setCommandQueue(qobject_cast<CommandQueue*>(btConnectionManager->commandQueue()));
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
 #ifdef Q_OS_ANDROID

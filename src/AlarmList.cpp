@@ -18,18 +18,60 @@
 #include "AlarmList.h"
 #include "Alarm.h"
 
+#include "CommandQueue.h"
+
 #include <QDebug>
+#include <QTimer>
 
 class AlarmList::Private
 {
 public:
+    Private(AlarmList* qq)
+        : q(qq)
+        , alarmTimer(new QTimer(qq))
+    {
+        // We run to the minute, so wake up every half minute to check if we have an alarm coming up
+        // NB: The timer only runs when there is more than zero alarms in the list.
+        alarmTimer->setInterval(0.5 * 60000);
+        QObject::connect(alarmTimer, &QTimer::timeout, qq, [this](){ checkAlarms(); });
+    }
+    AlarmList* q;
+    CommandQueue* commandQueue = nullptr;
+
     QList<Alarm*> list;
-    QHash<int, QByteArray> roles;
+
+    QTimer* alarmTimer = nullptr;
+    void checkAlarms() {
+        if(!commandQueue) {
+            qDebug() << "You forgot to set the command queue on the alarm list, silly person!";
+            return;
+        }
+        quint64 now = QDateTime::currentDateTime().toMSecsSinceEpoch();
+        quint64 interval(alarmTimer->interval());
+        for( Alarm* alarm : list)
+        {
+            quint64 then = alarm->time().toMSecsSinceEpoch();
+            if(now < then)
+            {
+//                 qDebug() << "Event is in the future, let's see if it's near enough...";
+                quint64 until = then - now;
+                if(until < interval)
+                {
+//                     qDebug() << "Event is within our check interval, so launch it now";
+                    commandQueue->pushPause(until);
+                    commandQueue->pushCommands(alarm->commands());
+                }
+                // TODO This doesn't handle two alarms set to go off within the same interval (in other words
+                // set on the same minute point). If this turns out to be something people do, we can fix that,
+                // but until then, let's not worry about that...
+            }
+        }
+    }
 };
 
 AlarmList::AlarmList(QObject* parent)
     : QAbstractListModel(parent),
-      d(new Private())
+      d(new Private(this))
 {
 }
 
@@ -135,6 +177,9 @@ void AlarmList::addAlarm(Alarm* alarm)
     d->list.insert(0, alarm);
     emit listChanged();
     endInsertRows();
+
+    // Once we've added an alarm, start the timer
+    d->alarmTimer->start();
 }
 
 void AlarmList::addAlarm(const QString& alarmName)
@@ -176,6 +221,11 @@ void AlarmList::removeAlarmByIndex(int index)
 
     emit listChanged();
     endRemoveRows();
+
+    // When there are no more alarms, stop the timer
+    if(d->list.count() == 0) {
+        d->alarmTimer->stop();
+    }
 }
 
 void AlarmList::changeAlarmName(const QString& oldName, const QString& newName)
@@ -267,4 +317,9 @@ QVariantMap AlarmList::getAlarmVariantMap(const QString& alarmName)
         emit alarmNotExisted(alarmName);
         return QVariantMap();
     }
+}
+
+void AlarmList::setCommandQueue(CommandQueue* commandQueue)
+{
+    d->commandQueue = commandQueue;
 }
