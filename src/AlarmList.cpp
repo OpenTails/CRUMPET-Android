@@ -58,8 +58,10 @@ public:
                 if(until < interval)
                 {
 //                     qDebug() << "Event is within our check interval, so launch it now";
+                    commandQueue->clear();
                     commandQueue->pushPause(until);
                     commandQueue->pushCommands(alarm->commands());
+                    break;
                 }
                 // TODO This doesn't handle two alarms set to go off within the same interval (in other words
                 // set on the same minute point). If this turns out to be something people do, we can fix that,
