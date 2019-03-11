@@ -131,6 +131,10 @@ Kirigami.ScrollablePage {
     ListView {
         model: AppSettings.alarmList;
         delegate: alarmListDelegate;
+        header: InfoCard {
+            title: qsTr("Alarms");
+            text: qsTr("Set an alarm here. Pick a date and time for your alarm, and then add one or more moves you want to perform when you hit that time.");
+        }
     }
 
     NamePicker {

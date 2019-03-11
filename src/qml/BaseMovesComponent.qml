@@ -118,10 +118,25 @@ Item {
             width: parent.width;
             id: mainLayout;
             Item {
-                implicitHeight: tailConnectedInfo.opacity > 0 ? tailConnectedInfo.implicitHeight : 0;
+                implicitHeight: tailConnectedInfo.opacity > 0 ? tailConnectedInfo.implicitHeight : infoCard.height;
                 Layout.fillWidth: true;
                 NotConnectedCard {
                     id: tailConnectedInfo;
+                    anchors {
+                        top: parent.top;
+                        left: parent.left;
+                    }
+                }
+                InfoCard {
+                    id: infoCard;
+                    anchors {
+                        top: parent.top;
+                        left: parent.left;
+                    }
+                    opacity: tailConnectedInfo.opacity === 0 ? 1 : 0;
+                    Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                    title: qsTr("Tap to send");
+                    text: qsTr("The list below shows all the moves available in your tail. Tap any of them to send them off to the tail!");
                 }
             }
             Kirigami.CardsLayout {
