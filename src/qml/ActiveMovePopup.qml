@@ -30,7 +30,7 @@ QQC2.Popup {
 
     visible: blockOnMovingTail && CommandQueue.currentCommandRemainingMSeconds > 0;
     modal: true;
-    closePolicy: Popup.NoAutoClose;
+    closePolicy: QQC2.Popup.NoAutoClose;
 
     ColumnLayout {
         implicitWidth: root.width - Kirigami.Units.largeSpacing * 4;
