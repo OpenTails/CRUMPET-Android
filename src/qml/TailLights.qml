@@ -33,6 +33,7 @@ Kirigami.ScrollablePage {
     }
     BaseMovesComponent {
         width: parent.width;
+        infoText: qsTr("The list below shows all the light patterns available in your tail. Tap any of them to send them off to the tail!");
         onCommandActivated: {
             CommandQueue.clear();
             CommandQueue.pushCommand(command);

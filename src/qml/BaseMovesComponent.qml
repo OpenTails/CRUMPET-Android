@@ -29,6 +29,7 @@ Item {
 
     property QtObject categoriesModel: ListModel { }
     property alias blockOnMovingTail: activeMovePopup.blockOnMovingTail;
+    property alias infoText: infoCard.text;
 
     signal commandActivated(string command, string commandName);
 
@@ -135,8 +136,6 @@ Item {
                     }
                     opacity: tailConnectedInfo.opacity === 0 ? 1 : 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                    title: qsTr("Tap to send");
-                    text: qsTr("The list below shows all the moves available in your tail. Tap any of them to send them off to the tail!");
                 }
             }
             Kirigami.CardsLayout {

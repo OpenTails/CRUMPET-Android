@@ -21,7 +21,6 @@ import org.kde.kirigami 2.6 as Kirigami
 
 Item {
     id: root;
-    property alias title: infoCardTitle.text;
     property alias text: infoCardText.text;
     width: parent.width;
     height: childrenRect.height + Kirigami.Units.largeSpacing * 3;
@@ -31,11 +30,6 @@ Item {
             left: parent.left;
             right: parent.right;
             margins: Kirigami.Units.largeSpacing;
-        }
-        header: Kirigami.Heading {
-            id: infoCardTitle;
-            level: 2;
-            padding: Kirigami.Units.smallSpacing;
         }
         contentItem: QQC2.Label {
             id: infoCardText;
