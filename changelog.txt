@@ -1,0 +1,28 @@
+0.0.6:
+- Alarms now send commands to your tail! (later you'll also get a bit of feedback in the app, in case you need reminding why your tail is suddenly wagging)
+- Help texts on all pages with lists (also handily makes the items a bit easier to reach on today's commonly very large devices)
+
+0.0.5:
+- Adjust the visuals for the running command indicator
+- Move the Fake it! button to the sidebar for now, to avoid accidentally using that
+- Initial developer mode work
+- Thank you to Ildar! You're on the About page now :)
+
+0.0.4:
+- Allow sending Move Lists to your tail. Just tap the list and press OK
+- 15 second pause added to move lists and alarms when adding a command
+- Max casual range increased
+- Context drawer removed
+- Settings global drawer entry (sorry, no settings just yet!)
+- NOTE: Alarms will currently be sent to the tail, but you can play with them in the app. Keep this frequency open for more updates!
+
+0.0.3:
+- Remove an erroneous blue tint on the Tail Moves page
+- Add an editor for Move Lists
+- Add configuration options for Tail Alarms
+
+0.0.2:
+- Ask for the Coarse Location permission (which we need to be able to find your tail)
+
+0.0.1:
+- Initial Google Play release
