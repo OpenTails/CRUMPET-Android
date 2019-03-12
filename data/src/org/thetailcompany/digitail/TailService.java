@@ -42,7 +42,10 @@ public class TailService extends QtService
     public void releaseWakeLock() {
         // Stop forcing foregrounding, and remove the notification
         stopForeground(true);
-        mWakeLock.release();
+        if(mWakeLock != null) {
+            mWakeLock.release();
+            mWakeLock = null;
+        }
     }
 
     private static boolean isMyServiceRunning(Class<?> serviceClass, Context ctx) {
