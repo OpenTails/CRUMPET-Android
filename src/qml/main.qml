@@ -194,11 +194,14 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Developer Mode");
+                checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "developerModePage"): "";
                 icon.name: ":/org/kde/kirigami/icons/code-context.svg";
                 visible: AppSettings.developerMode;
 
                 onTriggered: {
-                    showMessageBox(qsTr("Sorry"), qsTr("This page is coming soon..."));
+                    if(!checked) {
+                        switchToPage(developerModePage);
+                    }
                 }
             },
             Kirigami.Action {
@@ -259,6 +262,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: settingsPage;
         SettingsPage {}
+    }
+    Component {
+        id: developerModePage;
+        DeveloperModePage {}
     }
     Component {
         id: aboutPage;
