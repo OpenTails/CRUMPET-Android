@@ -31,39 +31,29 @@ class BTConnectionManager::Private {
 public:
     Private()
         : tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
-        , deviceModel(nullptr)
-        , discoveryAgent(nullptr)
-        , btControl(nullptr)
-        , tailService(nullptr)
-        , commandModel(nullptr)
-        , batteryLevel(0)
-        , commandQueue(nullptr)
-        , deviceDiscoveryAgent(nullptr)
-        , discoveryRunning(false)
-        , fakeTailMode(false)
     {
     }
     ~Private() {}
 
     QBluetoothUuid tailStateCharacteristicUuid;
 
-    BTDeviceModel* deviceModel;
-    QBluetoothServiceDiscoveryAgent *discoveryAgent;
-    QLowEnergyController *btControl;
-    QLowEnergyService* tailService;
+    BTDeviceModel* deviceModel = nullptr;
+    QBluetoothServiceDiscoveryAgent *discoveryAgent = nullptr;
+    QLowEnergyController *btControl = nullptr;
+    QLowEnergyService* tailService = nullptr;
     QLowEnergyCharacteristic tailCharacteristic;
     QLowEnergyDescriptor tailDescriptor;
 
-    TailCommandModel* commandModel;
+    TailCommandModel* commandModel = nullptr;
     QString currentCall;
-    int batteryLevel;
+    int batteryLevel = 0;
     QTimer batteryTimer;
-    CommandQueue* commandQueue;
+    CommandQueue* commandQueue = nullptr;
 
-    QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent;
-    bool discoveryRunning;
+    QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent = nullptr;
+    bool discoveryRunning = false;
 
-    bool fakeTailMode;
+    bool fakeTailMode = false;
 
     QVariantMap command;
 };
