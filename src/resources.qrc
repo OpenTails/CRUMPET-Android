@@ -32,6 +32,7 @@
         <file>qml/IdlePauseRangePicker.qml</file>
         <file>qml/ActiveMovePopup.qml</file>
         <file>qml/InfoCard.qml</file>
+        <file>qml/SettingsPage.qml</file>
     </qresource>
     <qresource prefix="/icons/breeze-internal">
         <file>../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
