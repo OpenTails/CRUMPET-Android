@@ -25,6 +25,6 @@
         <file alias="icons/document-edit.svg">../3rdparty/breeze-icons/icons/actions/22/document-edit.svg</file>
         <file alias="icons/accept_time_event.svg">../3rdparty/breeze-icons/icons/actions/22/accept_time_event.svg</file>
         <file alias="icons/autocorrection.svg">../3rdparty/breeze-icons/icons/actions/32/autocorrection.svg</file>
-        <file alias="icons/gnumeric-formulaguru.svg">../3rdparty/breeze-icons/icons/actions/16/gnumeric-formulaguru.svg</file>
+        <file alias="icons/code-context.svg">../3rdparty/breeze-icons/icons/actions/22/code-context.svg</file>
     </qresource>
 </RCC>

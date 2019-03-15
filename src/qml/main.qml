@@ -194,7 +194,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Developer Mode");
-                icon.name: ":/org/kde/kirigami/icons/gnumeric-formulaguru.svg";
+                icon.name: ":/org/kde/kirigami/icons/code-context.svg";
                 visible: AppSettings.developerMode;
 
                 onTriggered: {
