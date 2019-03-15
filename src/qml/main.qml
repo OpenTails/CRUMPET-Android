@@ -234,8 +234,21 @@ Kirigami.ApplicationWindow {
 
         WelcomePage {
             onBackRequested: {
+                if (!BTConnectionManager.isConnected) {
+                    return;
+                }
+
                 event.accepted = true;
-                Qt.quit();
+
+                showMessageBox(qsTr("A tail is currently connected"),
+                               qsTr("A tail is currently connected.\n\nAre you sure that you want to disconnect from the tail and quit?"),
+                               function () {
+                                   if(BTConnectionManager.isConnected) {
+                                       BTConnectionManager.disconnectDevice();
+                                   }
+
+                                   Qt.quit();
+                               });
             }
         }
     }
