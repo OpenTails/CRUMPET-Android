@@ -25,6 +25,8 @@
 
 #include "rep_BTConnectionManagerProxy_source.h"
 
+class AppSettings;
+
 /**
  * Handles all connections between us and some remote bluetooth service
  */
@@ -38,6 +40,9 @@ class BTConnectionManager : public BTConnectionManagerProxySource
 public:
     explicit BTConnectionManager(QObject* parent = nullptr);
     virtual ~BTConnectionManager();
+
+    AppSettings* appSettings() const;
+    void setAppSettings(AppSettings* appSettings);
 
     void connectDevice(const QBluetoothDeviceInfo& device);
     void connectClient(QLowEnergyService* remoteService);
@@ -80,6 +85,9 @@ Q_SIGNALS:
 private:
     class Private;
     Private* d;
+    AppSettings *m_appSettings;
+
+    void reconnectDevice();
 };
 
 #endif//BTCONNECTIONMANAGER_H

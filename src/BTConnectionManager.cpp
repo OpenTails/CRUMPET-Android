@@ -114,6 +114,16 @@ BTConnectionManager::~BTConnectionManager()
     delete d;
 }
 
+AppSettings* BTConnectionManager::appSettings() const
+{
+    return m_appSettings;
+}
+
+void BTConnectionManager::setAppSettings(AppSettings* appSettings)
+{
+    m_appSettings = appSettings;
+}
+
 void BTConnectionManager::startDiscovery()
 {
     d->discoveryRunning = true;
@@ -193,12 +203,19 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
                 default:
                     break;
             }
-            disconnectDevice();
+
+            if (m_appSettings->autoReconnect()) {
+                reconnectDevice();
+            } else {
+                disconnectDevice();
+            }
         });
+
     connect(d->btControl, &QLowEnergyController::connected, this, [this]() {
         qDebug() << "Controller connected. Search services...";
         d->btControl->discoverServices();
     });
+
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << "LowEnergy controller disconnected";
         emit message(QLatin1String("The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
@@ -207,6 +224,15 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
 
     // Connect
     d->btControl->connectToDevice();
+}
+
+void BTConnectionManager::reconnectDevice()
+{
+    QTimer::singleShot(0, this, [this] {
+        if (d->btControl) {
+            d->btControl->connectToDevice();
+        }
+    });
 }
 
 void BTConnectionManager::connectClient(QLowEnergyService* remoteService)
