@@ -41,6 +41,9 @@ public:
     bool idleMode() const override;
     void setIdleMode(bool newValue) override;
 
+    bool autoReconnect() const override;
+    void setAutoReconnect(bool newValue) override;
+
     QStringList idleCategories() const override;
     void setIdleCategories(QStringList newCategories) override;
     void addIdleCategory(const QString& category) override;
