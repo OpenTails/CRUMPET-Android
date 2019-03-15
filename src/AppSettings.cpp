@@ -34,6 +34,7 @@ public:
     bool advancedMode = false;
     bool developerMode = false;
     bool idleMode = false;
+    bool autoReconnect = true;
     QStringList idleCategories;
     int idleMinPause = 15;
     int idleMaxPause = 60;
@@ -54,6 +55,7 @@ AppSettings::AppSettings(QObject* parent)
     d->advancedMode = settings.value("advancedMode", d->advancedMode).toBool();
     d->developerMode = settings.value("developerMode", d->developerMode).toBool();
     d->idleMode = settings.value("idleMode", d->idleMode).toBool();
+    d->autoReconnect = settings.value("autoReconnect", d->autoReconnect).toBool();
     d->idleCategories = settings.value("idleCategories", d->idleCategories).toStringList();
     d->idleMinPause = settings.value("idleMinPause", d->idleMinPause).toInt();
     d->idleMaxPause = settings.value("idleMaxPause", d->idleMaxPause).toInt();
@@ -140,6 +142,22 @@ void AppSettings::setIdleMode(bool newValue)
         QSettings settings;
         settings.setValue("idleMode", d->idleMode);
         emit idleModeChanged(newValue);
+    }
+}
+
+bool AppSettings::autoReconnect() const
+{
+    return d->autoReconnect;
+}
+
+void AppSettings::setAutoReconnect(bool newValue)
+{
+    qDebug() << Q_FUNC_INFO << newValue;
+    if(newValue != d->autoReconnect) {
+        d->autoReconnect = newValue;
+        QSettings settings;
+        settings.setValue("autoReconnect", d->autoReconnect);
+        emit autoReconnectChanged(newValue);
     }
 }
 
