@@ -20,6 +20,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.6 as Kirigami
 import QtQuick.Layouts 1.11
+import QtMultimedia 5.8
 
 Kirigami.ScrollablePage {
     objectName: "developerModePage";
@@ -34,7 +35,13 @@ Kirigami.ScrollablePage {
 
             Layout.fillWidth: true;
 
+            SoundEffect {
+                id: playSound
+                source: "qrc:/audio/Sparkle-sound-effect.mp3"
+            }
+
             onClicked: {
+                playSound.play()
             }
         }
     }
