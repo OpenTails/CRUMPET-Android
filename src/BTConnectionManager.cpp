@@ -36,6 +36,7 @@ public:
     }
     ~Private() {}
 
+    AppSettings* appSettings = nullptr;
     QBluetoothUuid tailStateCharacteristicUuid;
 
     BTDeviceModel* deviceModel = nullptr;
@@ -116,12 +117,12 @@ BTConnectionManager::~BTConnectionManager()
 
 AppSettings* BTConnectionManager::appSettings() const
 {
-    return m_appSettings;
+    return d->appSettings;
 }
 
 void BTConnectionManager::setAppSettings(AppSettings* appSettings)
 {
-    m_appSettings = appSettings;
+    d->appSettings = appSettings;
 }
 
 void BTConnectionManager::startDiscovery()
@@ -204,7 +205,7 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
                     break;
             }
 
-            if (m_appSettings->autoReconnect()) {
+            if (d->appSettings->autoReconnect()) {
                 reconnectDevice();
             } else {
                 disconnectDevice();
