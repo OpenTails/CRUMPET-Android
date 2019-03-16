@@ -32,6 +32,18 @@ class BTConnectionManager::Private {
 public:
     Private()
         : tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
+        , deviceModel(nullptr)
+        , discoveryAgent(nullptr)
+        , btControl(nullptr)
+        , tailService(nullptr)
+        , commandModel(nullptr)
+        , batteryLevel(0)
+        , commandQueue(nullptr)
+        , deviceDiscoveryAgent(nullptr)
+        , discoveryRunning(false)
+        , fakeTailMode(false)
+        , localDevice(nullptr)
+        , localBTDeviceState(0)
     {
     }
     ~Private() {}
@@ -67,6 +79,9 @@ public:
             }
         });
     }
+
+    QBluetoothLocalDevice* localDevice;
+    int localBTDeviceState;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -117,6 +132,10 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
 
     d->batteryTimer.setInterval(60000 / 2);
     d->batteryTimer.setSingleShot(false);
+
+    d->localDevice = new QBluetoothLocalDevice(this);
+    connect(d->localDevice, SIGNAL(hostModeStateChanged(QBluetoothLocalDevice::HostMode)), this, SLOT(setLocalBTDeviceState()));
+    setLocalBTDeviceState();
 }
 
 BTConnectionManager::~BTConnectionManager()
@@ -132,6 +151,23 @@ AppSettings* BTConnectionManager::appSettings() const
 void BTConnectionManager::setAppSettings(AppSettings* appSettings)
 {
     d->appSettings = appSettings;
+}
+
+void BTConnectionManager::setLocalBTDeviceState()
+{   //0-off, 1-on, 2-no device
+    //TODO: use enum?
+    int newState = 1;
+    if (!d->localDevice->isValid()) {
+        newState = 2;
+    } else if (d->localDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff) {
+        newState = 0;
+    }
+
+    bool changed = (newState != d->localBTDeviceState);
+    d->localBTDeviceState = newState;
+    if (changed) {
+        emit bluetoothStateChanged(newState);
+    }
 }
 
 void BTConnectionManager::startDiscovery()
@@ -428,6 +464,11 @@ int BTConnectionManager::commandQueueCount() const
 QString BTConnectionManager::tailVersion() const
 {
     return d->commandModel->tailVersion();
+}
+
+int BTConnectionManager::bluetoothState() const
+{
+    return d->localBTDeviceState;
 }
 
 void BTConnectionManager::setFakeTailMode(bool enableFakery)
