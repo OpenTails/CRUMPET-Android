@@ -58,6 +58,15 @@ public:
     bool fakeTailMode = false;
 
     QVariantMap command;
+
+    void reconnectDevice(QObject* context)
+    {
+        QTimer::singleShot(0, context, [this] {
+            if (btControl) {
+                btControl->connectToDevice();
+            }
+        });
+    }
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -206,7 +215,7 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
             }
 
             if (d->appSettings->autoReconnect()) {
-                reconnectDevice();
+                d->reconnectDevice(this);
             } else {
                 disconnectDevice();
             }
@@ -225,15 +234,6 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
 
     // Connect
     d->btControl->connectToDevice();
-}
-
-void BTConnectionManager::reconnectDevice()
-{
-    QTimer::singleShot(0, this, [this] {
-        if (d->btControl) {
-            d->btControl->connectToDevice();
-        }
-    });
 }
 
 void BTConnectionManager::connectClient(QLowEnergyService* remoteService)
