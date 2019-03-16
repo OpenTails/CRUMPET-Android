@@ -85,8 +85,6 @@ Q_SIGNALS:
 private:
     class Private;
     Private* d;
-
-    void reconnectDevice();
 };
 
 #endif//BTCONNECTIONMANAGER_H
