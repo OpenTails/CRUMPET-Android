@@ -41,6 +41,8 @@ public:
         , deviceDiscoveryAgent(nullptr)
         , discoveryRunning(false)
         , fakeTailMode(false)
+        , localDevice(nullptr)
+        , localBTDeviceState(0)
     {
     }
     ~Private() {}
@@ -61,11 +63,15 @@ public:
     CommandQueue* commandQueue;
 
     QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent;
+
     bool discoveryRunning;
 
     bool fakeTailMode;
 
     QVariantMap command;
+
+    QBluetoothLocalDevice* localDevice;
+    int localBTDeviceState;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -106,11 +112,31 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
     d->batteryTimer.setInterval(0.5 * 60000);
     d->batteryTimer.setSingleShot(false);
 
+    d->localDevice = new QBluetoothLocalDevice(this);
+    connect(d->localDevice, SIGNAL(hostModeStateChanged(QBluetoothLocalDevice::HostMode)), this, SLOT(setLocalBTDeviceState()));
+    setLocalBTDeviceState();
 }
 
 BTConnectionManager::~BTConnectionManager()
 {
     delete d;
+}
+
+void BTConnectionManager::setLocalBTDeviceState()
+{   //0-off, 1-on, 2-no device
+    //TODO: use enum?
+    int newState = 1;
+    if (!d->localDevice->isValid()) {
+        newState = 2;
+    } else if (d->localDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff) {
+        newState = 0;
+    }
+
+    bool changed = (newState != d->localBTDeviceState);
+    d->localBTDeviceState = newState;
+    if (changed) {
+        emit bluetoothStateChanged(newState);
+    }
 }
 
 void BTConnectionManager::startDiscovery()
@@ -379,6 +405,11 @@ int BTConnectionManager::commandQueueCount() const
 QString BTConnectionManager::tailVersion() const
 {
     return d->commandModel->tailVersion();
+}
+
+int BTConnectionManager::bluetoothState() const
+{
+    return d->localBTDeviceState;
 }
 
 void BTConnectionManager::setFakeTailMode(bool enableFakery)
