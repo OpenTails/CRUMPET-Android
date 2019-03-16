@@ -63,10 +63,12 @@ Kirigami.ApplicationWindow {
     pageStack.defaultColumnWidth: root.width;
 
     Connections {
+        id: btConnection
         target: BTConnectionManager;
         onMessage: {
             showPassiveNotification(message, 5000);
         }
+
         onDiscoveryRunningChanged: {
             if (BTConnectionManager.discoveryRunning === false) {
                 console.log("device model count is " + BTConnectionManager.deviceCount + " and sheet is open: " + connectToTail.sheetOpen);
@@ -87,6 +89,20 @@ Kirigami.ApplicationWindow {
             }
             connectingToTail.opacity = 0;
         }
+
+        onBluetoothStateChanged: {
+            checkBluetoothState();
+        }
+
+        function checkBluetoothState() {
+            if (BTConnectionManager.bluetoothState === 0 ) {
+                showMessageBox(qsTr("Warning"), qsTr("Bluetooth is disabled"));
+            } else if (BTConnectionManager.bluetoothState === 2) {
+                showMessageBox(qsTr("Warning"), qsTr("No Bluetooth Device"));
+            } else {
+                console.log("Bluetooth is enabled");
+            }
+        }
     }
 
     Connections {
@@ -103,6 +119,7 @@ Kirigami.ApplicationWindow {
 
     Component.onCompleted: {
         switchToPage(welcomePage);
+        btConnection.checkBluetoothState();
     }
 
     globalDrawer: Kirigami.GlobalDrawer {

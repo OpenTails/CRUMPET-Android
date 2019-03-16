@@ -21,6 +21,7 @@
 #include <QObject>
 
 #include <QBluetoothSocket>
+#include <QBluetoothLocalDevice>
 #include <QLowEnergyService>
 
 #include "rep_BTConnectionManagerProxy_source.h"
@@ -63,6 +64,7 @@ public:
     int commandQueueCount() const override;
     QString tailVersion() const override;
     QVariantMap command() const override;
+    int bluetoothState() const override;
 
 public Q_SLOTS:
     void sendMessage(const QString &message) override;
@@ -74,6 +76,7 @@ public Q_SLOTS:
     void setFakeTailMode(bool enableFakery) override;
     void setCommand(QVariantMap command) override;
     QVariantMap getCommand(const QString& command) override;
+    void setLocalBTDeviceState();
 
 Q_SIGNALS:
     void connected(const QString &name);

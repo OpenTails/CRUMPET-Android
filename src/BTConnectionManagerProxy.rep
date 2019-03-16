@@ -20,6 +20,7 @@ class BTConnectionManagerProxy {
     PROP(int deviceCount READONLY)
     PROP(int commandQueueCount READONLY)
     PROP(QString tailVersion READONLY)
+    PROP(int bluetoothState READONLY)
 
     SLOT(void runCommand(const QString& command))
     SLOT(void startDiscovery())
