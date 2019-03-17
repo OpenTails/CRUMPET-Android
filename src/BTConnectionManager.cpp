@@ -58,6 +58,7 @@ public:
 
     bool discoveryRunning;
 
+    bool discoveryRunning = false;
     bool fakeTailMode = false;
 
     QVariantMap command;
@@ -124,6 +125,7 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
     d->localDevice = new QBluetoothLocalDevice(this);
     connect(d->localDevice, SIGNAL(hostModeStateChanged(QBluetoothLocalDevice::HostMode)), this, SLOT(setLocalBTDeviceState()));
     setLocalBTDeviceState();
+
 }
 
 BTConnectionManager::~BTConnectionManager()

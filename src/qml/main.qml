@@ -222,10 +222,13 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Settings");
+                checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "settingsPage"): "";
                 icon.name: ":/org/kde/kirigami/icons/settings-configure.svg";
 
                 onTriggered: {
-                    showMessageBox(qsTr("Sorry"), qsTr("This page is coming soon..."));
+                    if(!checked) {
+                        switchToPage(settingsPage);
+                    }
                 }
             },
             Kirigami.Action {
@@ -288,6 +291,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: idleModePage;
         IdleModePage {}
+    }
+    Component {
+        id: settingsPage;
+        SettingsPage {}
     }
     Component {
         id: aboutPage;
