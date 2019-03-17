@@ -224,7 +224,13 @@ docker run -ti --rm kdeorg/android-sdk bash
 
 This will download the image the first time it is run, and subsequently it will simply run what you already did.
 
-A handy trick is to also add something like "-v $HOME/apks:/output" to the command line, which will then add a directory named output at the root of the docker instance, pointed at the apks directory in your home folder. This will allow you to fairly easily transfer the apk onto your host system from inside docker (the switch above would link the directory /output inside the docker to the apks directory in your home directory, which does need to already exist).
+A handy trick is to also add something like `-v $HOME/apks:/output` to the command line, which will then add a directory named output at the root of the docker instance, pointed at the apks directory in your home folder. This will allow you to fairly easily transfer the apk onto your host system from inside docker (the switch above would link the directory /output inside the docker to the apks directory in your home directory, which does need to already exist).
+
+Also you can share source directory from your host machine, for example:
+
+```
+docker run -ti --rm -v $HOME/apks:/output -v $HOME/DIGITAiL:/DIGITAiL kdeorg/android-sdk bash
+```
 
 Cloning is done as in a usual Linux situation (see above), but your build steps are a little bit more involved here:
 

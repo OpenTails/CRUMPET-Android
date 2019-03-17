@@ -36,6 +36,7 @@ public:
     }
     ~Private() {}
 
+    AppSettings* appSettings = nullptr;
     QBluetoothUuid tailStateCharacteristicUuid;
 
     BTDeviceModel* deviceModel = nullptr;
@@ -57,6 +58,15 @@ public:
     bool fakeTailMode = false;
 
     QVariantMap command;
+
+    void reconnectDevice(QObject* context)
+    {
+        QTimer::singleShot(0, context, [this] {
+            if (btControl) {
+                btControl->connectToDevice();
+            }
+        });
+    }
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -116,12 +126,12 @@ BTConnectionManager::~BTConnectionManager()
 
 AppSettings* BTConnectionManager::appSettings() const
 {
-    return m_appSettings;
+    return d->appSettings;
 }
 
 void BTConnectionManager::setAppSettings(AppSettings* appSettings)
 {
-    m_appSettings = appSettings;
+    d->appSettings = appSettings;
 }
 
 void BTConnectionManager::startDiscovery()
@@ -204,8 +214,8 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
                     break;
             }
 
-            if (m_appSettings->autoReconnect()) {
-                reconnectDevice();
+            if (d->appSettings->autoReconnect()) {
+                d->reconnectDevice(this);
             } else {
                 disconnectDevice();
             }

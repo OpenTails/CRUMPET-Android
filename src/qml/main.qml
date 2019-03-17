@@ -208,7 +208,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Settings");
-                checked: pageStack.currentItem && pageStack.currentItem.objectName === "settingsPage";
+                checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "settingsPage"): "";
                 icon.name: ":/org/kde/kirigami/icons/settings-configure.svg";
 
                 onTriggered: {
@@ -237,7 +237,26 @@ Kirigami.ApplicationWindow {
     }
     Component {
         id: welcomePage;
-        WelcomePage {}
+
+        WelcomePage {
+            onBackRequested: {
+                if (!BTConnectionManager.isConnected) {
+                    return;
+                }
+
+                event.accepted = true;
+
+                showMessageBox(qsTr("A tail is currently connected"),
+                               qsTr("A tail is currently connected.\n\nAre you sure that you want to disconnect from the tail and quit?"),
+                               function () {
+                                   if(BTConnectionManager.isConnected) {
+                                       BTConnectionManager.disconnectDevice();
+                                   }
+
+                                   Qt.quit();
+                               });
+            }
+        }
     }
     Component {
         id: alarmList;
