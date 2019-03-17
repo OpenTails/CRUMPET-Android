@@ -19,6 +19,7 @@
 #include "BTDeviceModel.h"
 #include "TailCommandModel.h"
 #include "CommandQueue.h"
+#include "AppSettings.h"
 
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothServiceDiscoveryAgent>
@@ -31,47 +32,44 @@ class BTConnectionManager::Private {
 public:
     Private()
         : tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
-        , deviceModel(nullptr)
-        , discoveryAgent(nullptr)
-        , btControl(nullptr)
-        , tailService(nullptr)
-        , commandModel(nullptr)
-        , batteryLevel(0)
-        , commandQueue(nullptr)
-        , deviceDiscoveryAgent(nullptr)
-        , discoveryRunning(false)
-        , fakeTailMode(false)
-        , localDevice(nullptr)
-        , localBTDeviceState(0)
     {
     }
     ~Private() {}
 
+    AppSettings* appSettings = nullptr;
     QBluetoothUuid tailStateCharacteristicUuid;
 
-    BTDeviceModel* deviceModel;
-    QBluetoothServiceDiscoveryAgent *discoveryAgent;
-    QLowEnergyController *btControl;
-    QLowEnergyService* tailService;
+    BTDeviceModel* deviceModel = nullptr;
+    QBluetoothServiceDiscoveryAgent *discoveryAgent = nullptr;
+    QLowEnergyController *btControl = nullptr;
+    QLowEnergyService* tailService = nullptr;
     QLowEnergyCharacteristic tailCharacteristic;
     QLowEnergyDescriptor tailDescriptor;
 
-    TailCommandModel* commandModel;
+    TailCommandModel* commandModel = nullptr;
     QString currentCall;
-    int batteryLevel;
+    int batteryLevel = 0;
     QTimer batteryTimer;
-    CommandQueue* commandQueue;
+    CommandQueue* commandQueue = nullptr;
 
-    QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent;
+    QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent = nullptr;
+    QBluetoothLocalDevice* localDevice = nullptr;
+    int localBTDeviceState = 0;
 
     bool discoveryRunning;
 
-    bool fakeTailMode;
+    bool fakeTailMode = false;
 
     QVariantMap command;
 
-    QBluetoothLocalDevice* localDevice;
-    int localBTDeviceState;
+    void reconnectDevice(QObject* context)
+    {
+        QTimer::singleShot(0, context, [this] {
+            if (btControl) {
+                btControl->connectToDevice();
+            }
+        });
+    }
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
@@ -79,15 +77,23 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
     , d(new Private)
 {
     d->commandModel = new TailCommandModel(this);
-    connect(d->commandModel, &TailCommandModel::tailVersionChanged, this, [this](){ emit tailVersionChanged(d->commandModel->tailVersion()); });
+
+    connect(d->commandModel, &TailCommandModel::tailVersionChanged,
+            this, [this](){ emit tailVersionChanged(d->commandModel->tailVersion()); });
+
     d->commandQueue = new CommandQueue(this);
-    connect(d->commandQueue, &CommandQueue::countChanged, this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
+
+    connect(d->commandQueue, &CommandQueue::countChanged,
+            this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
 
     d->deviceModel = new BTDeviceModel(this);
-    connect(d->deviceModel, &BTDeviceModel::countChanged, this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
+
+    connect(d->deviceModel, &BTDeviceModel::countChanged,
+            this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
 
     // Create a discovery agent and connect to its signals
     d->deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
+
     connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
             [this](const QBluetoothDeviceInfo &device){
                 BTDeviceModel::Device* btDevice = new BTDeviceModel::Device();
@@ -102,14 +108,17 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
         d->discoveryRunning = false;
         emit discoveryRunningChanged(d->discoveryRunning);
     });
+
     // Don't launch the discovery immediately, let's give things a change to start up...
     QTimer::singleShot(100, this, [this](){ startDiscovery(); });
 
     // The battery timer also functions as a keepalive call. If it turns
     // out to be a problem that we pull the battery this often, we can
     // add a separate ping keepalive functon.
-    connect(&d->batteryTimer, &QTimer::timeout, [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
-    d->batteryTimer.setInterval(0.5 * 60000);
+    connect(&d->batteryTimer, &QTimer::timeout,
+            [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
+
+    d->batteryTimer.setInterval(60000 / 2);
     d->batteryTimer.setSingleShot(false);
 
     d->localDevice = new QBluetoothLocalDevice(this);
@@ -120,6 +129,16 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
 BTConnectionManager::~BTConnectionManager()
 {
     delete d;
+}
+
+AppSettings* BTConnectionManager::appSettings() const
+{
+    return d->appSettings;
+}
+
+void BTConnectionManager::setAppSettings(AppSettings* appSettings)
+{
+    d->appSettings = appSettings;
 }
 
 void BTConnectionManager::setLocalBTDeviceState()
@@ -173,30 +192,38 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
     if(d->btControl) {
         disconnectDevice();
     }
+
     d->btControl = QLowEnergyController::createCentral(device, this);
     d->btControl->setRemoteAddressType(QLowEnergyController::RandomAddress);
+
     if(d->tailService) {
         d->tailService->deleteLater();
         d->tailService = nullptr;
     }
+
     connect(d->btControl, &QLowEnergyController::serviceDiscovered,
         [](const QBluetoothUuid &gatt){
             qDebug() << "service discovered" << gatt;
         });
+
     connect(d->btControl, &QLowEnergyController::discoveryFinished,
             [this](){
                 qDebug() << "Done!";
                 QLowEnergyService *service = d->btControl->createServiceObject(QBluetoothUuid(QLatin1String("{0000ffe0-0000-1000-8000-00805f9b34fb}")));
+
                 if (!service) {
                     qWarning() << "Cannot create QLowEnergyService for {0000ffe0-0000-1000-8000-00805f9b34fb}";
                     return;
                 }
+
                 d->tailService = service;
                 connectClient(service);
             });
+
     connect(d->btControl, static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::error),
         this, [this](QLowEnergyController::Error error) {
             qDebug() << "Cannot connect to remote device." << error;
+
             switch(error) {
                 case QLowEnergyController::UnknownError:
                     emit message(QLatin1String("An error occurred. If you are trying to connect to your tail, make sure it is on and close to this device."));
@@ -210,12 +237,19 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
                 default:
                     break;
             }
-            disconnectDevice();
+
+            if (d->appSettings->autoReconnect()) {
+                d->reconnectDevice(this);
+            } else {
+                disconnectDevice();
+            }
         });
+
     connect(d->btControl, &QLowEnergyController::connected, this, [this]() {
         qDebug() << "Controller connected. Search services...";
         d->btControl->discoverServices();
     });
+
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << "LowEnergy controller disconnected";
         emit message(QLatin1String("The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
