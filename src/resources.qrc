@@ -33,6 +33,8 @@
         <file>qml/ActiveMovePopup.qml</file>
         <file>qml/InfoCard.qml</file>
         <file>qml/SettingsPage.qml</file>
+        <file>qml/DeveloperModePage.qml</file>
+        <file>audio/Sparkle-sound-effect.mp3</file>
     </qresource>
     <qresource prefix="/icons/breeze-internal">
         <file>../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>

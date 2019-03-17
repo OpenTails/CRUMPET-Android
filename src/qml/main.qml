@@ -141,7 +141,7 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 text: qsTr("DIGITAiL");
-                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "welcomePage" : "";
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "welcomePage";
                 icon.name: ":/org/kde/kirigami/icons/go-home.svg";
                 onTriggered: {
                     switchToPage(welcomePage);
@@ -149,7 +149,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Alarm");
-                checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor"): "";
+                checked: pageStack.currentItem && (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor");
                 icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
                 onTriggered: {
                     if(!checked) {
@@ -159,7 +159,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Move Lists");
-                checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor"): "";
+                checked: pageStack.currentItem && (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor");
                 icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
                 onTriggered: {
                     if(!checked) {
@@ -169,7 +169,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Tail Moves");
-                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailMoves" : "";
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailMoves";
                 icon.name: ":/images/tail_moves.svg";
                 onTriggered: {
                     switchToPage(tailMoves);
@@ -177,7 +177,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Glow Tips");
-                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "tailLights" : "";
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailLights";
                 icon.name: ":/images/tail_lights.svg";
                 onTriggered: {
                     switchToPage(tailLights);
@@ -185,7 +185,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Casual Mode Settings");
-                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "idleMode" : "";
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
                 icon.name: ":/org/kde/kirigami/icons/randomize.svg";
                 visible: AppSettings.idleMode;
                 onTriggered: {
@@ -194,11 +194,14 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("Developer Mode");
-                icon.name: ":/org/kde/kirigami/icons/gnumeric-formulaguru.svg";
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "developerModePage";
+                icon.name: ":/org/kde/kirigami/icons/code-context.svg";
                 visible: AppSettings.developerMode;
 
                 onTriggered: {
-                    showMessageBox(qsTr("Sorry"), qsTr("This page is coming soon..."));
+                    if(!checked) {
+                        switchToPage(developerModePage);
+                    }
                 }
             },
             Kirigami.Action {
@@ -216,7 +219,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: qsTr("About");
-                checked: pageStack.currentItem ? pageStack.currentItem.objectName === "aboutPage" : "";
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "aboutPage";
                 icon.name: ":/org/kde/kirigami/icons/help-about.svg";
                 onTriggered: {
                     switchToPage(aboutPage);
@@ -278,6 +281,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: settingsPage;
         SettingsPage {}
+    }
+    Component {
+        id: developerModePage;
+        DeveloperModePage {}
     }
     Component {
         id: aboutPage;

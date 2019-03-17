@@ -236,6 +236,15 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
     d->btControl->connectToDevice();
 }
 
+void BTConnectionManager::reconnectDevice()
+{
+    QTimer::singleShot(0, this, [this] {
+        if (d->btControl) {
+            d->btControl->connectToDevice();
+        }
+    });
+}
+
 void BTConnectionManager::connectClient(QLowEnergyService* remoteService)
 {
     connect(remoteService, &QLowEnergyService::stateChanged, this, &BTConnectionManager::serviceStateChanged);
