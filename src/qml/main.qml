@@ -230,6 +230,7 @@ Kirigami.ApplicationWindow {
                 icon.name: ":/org/kde/kirigami/icons/autocorrection.svg";
 
                 onTriggered: {
+                    BTConnectionManager.stopDiscovery();
                     BTConnectionManager.setFakeTailMode(true);
                 }
             }
