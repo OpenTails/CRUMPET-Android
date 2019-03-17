@@ -214,10 +214,14 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
                     break;
             }
 
-            if (d->appSettings->autoReconnect()) {
-                d->reconnectDevice(this);
+            if (d->fakeTailMode) {
+                qDebug() << "We're doing the tail fakery, ignore the connection failure stuff";
             } else {
-                disconnectDevice();
+                if (d->appSettings->autoReconnect()) {
+                    d->reconnectDevice(this);
+                } else {
+                    disconnectDevice();
+                }
             }
         });
 
