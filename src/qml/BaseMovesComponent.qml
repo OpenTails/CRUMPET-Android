@@ -34,12 +34,14 @@ Item {
     signal commandActivated(string command, string commandName);
 
     height: contents.height;
+    property int itemsAcross: pageStack.currentItem.width > pageStack.currentItem.height ? 4 : 3;
 
     Component {
         id: categoryDelegate;
         Kirigami.AbstractCard {
+            id: categoryRoot;
             Layout.fillWidth: true;
-            opacity: commandGrid.count > 0 ? 1 : 0;
+            opacity: commandRepeater.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             background: Rectangle {
                 color: model.color
@@ -56,8 +58,9 @@ Item {
                 text: model.name
                 level: 2
             }
-            contentItem: Item {
-                implicitHeight: commandGrid.cellHeight * Math.ceil(commandGrid.count / 3);
+            contentItem: Flow {
+                id: commandGrid;
+                width: categoryRoot.width - (Kirigami.Units.largeSpacing * 4)
                 FilterProxyModel {
                     id: filterProxy;
                     sourceModel: CommandModel;
@@ -67,7 +70,8 @@ Item {
                 Component {
                     id: commandDelegate
                     Item {
-                        width: commandGrid.cellWidth; height: commandGrid.cellHeight
+                        width: commandGrid.width / root.itemsAcross;
+                        height: width;
                         Rectangle {
                             anchors {
                                 fill: parent;
@@ -99,11 +103,8 @@ Item {
                         }
                     }
                 }
-                GridView {
-                    id: commandGrid;
-                    cellWidth: commandGrid.width / 3;
-                    cellHeight: cellWidth;
-                    anchors.fill: parent;
+                Repeater {
+                    id: commandRepeater;
                     model: filterProxy;
                     delegate: commandDelegate;
                 }
@@ -116,8 +117,9 @@ Item {
         width: parent.width;
         height: mainLayout.height;
         ColumnLayout {
-            width: parent.width;
             id: mainLayout;
+            width: parent.width;
+            spacing: Kirigami.Units.largeSpacing;
             Item {
                 implicitHeight: tailConnectedInfo.opacity > 0 ? tailConnectedInfo.implicitHeight : infoCard.height;
                 Layout.fillWidth: true;
@@ -138,13 +140,9 @@ Item {
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                 }
             }
-            Kirigami.CardsLayout {
-                Layout.fillWidth: true;
-                Layout.fillHeight: true;
-                Repeater {
-                    model: BTConnectionManager.isConnected ? categoriesModel : null;
-                    delegate: categoryDelegate;
-                }
+            Repeater {
+                model: BTConnectionManager.isConnected ? categoriesModel : null;
+                delegate: categoryDelegate;
             }
         }
     }
