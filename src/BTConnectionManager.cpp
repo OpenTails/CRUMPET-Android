@@ -369,7 +369,10 @@ void BTConnectionManager::characteristicWritten(const QLowEnergyCharacteristic &
 
 void BTConnectionManager::disconnectDevice()
 {
-    if (d->btControl) {
+    if (d->fakeTailMode) {
+        d->fakeTailMode = false;
+        emit isConnectedChanged(isConnected());
+    } else if (d->btControl) {
         d->batteryTimer.stop();
         d->btControl->deleteLater();
         d->btControl = nullptr;
