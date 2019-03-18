@@ -32,18 +32,6 @@ class BTConnectionManager::Private {
 public:
     Private()
         : tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
-        , deviceModel(nullptr)
-        , discoveryAgent(nullptr)
-        , btControl(nullptr)
-        , tailService(nullptr)
-        , commandModel(nullptr)
-        , batteryLevel(0)
-        , commandQueue(nullptr)
-        , deviceDiscoveryAgent(nullptr)
-        , discoveryRunning(false)
-        , fakeTailMode(false)
-        , localDevice(nullptr)
-        , localBTDeviceState(0)
     {
     }
     ~Private() {}
@@ -80,8 +68,8 @@ public:
         });
     }
 
-    QBluetoothLocalDevice* localDevice;
-    int localBTDeviceState;
+    QBluetoothLocalDevice* localDevice = nullptr;
+    int localBTDeviceState = 0;
 };
 
 BTConnectionManager::BTConnectionManager(QObject* parent)
