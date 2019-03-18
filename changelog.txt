@@ -1,3 +1,13 @@
+0.0.7:
+- Check whether bluetooth is turned on, and remind tailers to do so if it isn't
+- Fix moves page layout logic, should now be able to drag on the entire page
+- Add a bit of missing help text
+- Add extra glash mode
+- Attempt to reconnect to your tail if the connection is lost
+- Ask to disconnect if the tail is connected and you try to back out of the app
+- Change the light pattern names
+- Minor crash fix for very specific issue relating to disconnecting
+
 0.0.6:
 - Alarms now send commands to your tail! (later you'll also get a bit of feedback in the app, in case you need reminding why your tail is suddenly wagging)
 - Help texts on all pages with lists (also handily makes the items a bit easier to reach on today's commonly very large devices)
