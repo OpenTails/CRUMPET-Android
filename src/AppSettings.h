@@ -74,6 +74,8 @@ public:
     void setAlarmCommands(const QStringList& commands) override;
     void addAlarmCommand(int index, const QString& command) override;
     void removeAlarmCommand(int index) override;
+    virtual QVariantMap deviceNames() const override;
+    void setDeviceName(const QString& address, const QString& deviceName);
 
 private:
     class Private;

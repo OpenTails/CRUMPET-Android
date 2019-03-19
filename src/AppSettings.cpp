@@ -296,6 +296,29 @@ void AppSettings::addAlarm(const QString& alarmName)
     d->alarmList->addAlarm(alarmName);
 }
 
+void AppSettings::setDeviceName(const QString& address, const QString& deviceName)
+{
+    QSettings settings;
+    settings.beginGroup("DeviceNameList");
+    settings.setValue(address, deviceName);
+    settings.endGroup();
+    emit deviceNamesChanged(deviceNames());
+}
+
+
+QVariantMap AppSettings::deviceNames() const
+{
+    QVariantMap namesMap;
+    QSettings settings;
+    settings.beginGroup("DeviceNameList");
+    QStringList keys = settings.childKeys();
+    foreach(QString key, keys) {
+        namesMap[key] = settings.value(key).toString();
+    }
+    settings.endGroup();
+    return namesMap;
+}
+
 void AppSettings::removeAlarm(const QString& alarmName)
 {
     d->alarmList->removeAlarm(alarmName);

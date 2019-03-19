@@ -74,7 +74,7 @@ Kirigami.ApplicationWindow {
                 console.log("device model count is " + BTConnectionManager.deviceCount + " and sheet is open: " + connectToTail.sheetOpen);
                 if(BTConnectionManager.deviceCount === 1 && connectToTail.sheetOpen === false) {
                     // only one tail found? Well then, connect to that!
-                    BTConnectionManager.connectToDevice(0);
+                    BTConnectionManager.connectToDevice("");
                     connectingToTail.opacity = 1;
                 }
             }
@@ -308,9 +308,29 @@ Kirigami.ApplicationWindow {
         id: aboutPage;
         AboutPage {}
     }
+
+    NamePicker {
+        id: namePicker;
+
+        property string deviceID: "0";
+
+        description: qsTr("Enter a name to use for your Tail");
+        placeholderText: qsTr("Enter your Tail name here");
+        buttonOkText: qsTr("Save");
+
+        onNamePicked: {
+            BTConnectionManager.setDeviceName(deviceID, name);
+            namePicker.close();
+        }
+    }
+
     ConnectToTail {
         id: connectToTail;
         onAttemptToConnect: {
+            if (!AppSettings.deviceNames[deviceID]) {
+                namePicker.deviceID = deviceID;
+                namePicker.pickName();
+            }
             root.pageToPush = pageToPush;
             BTConnectionManager.connectToDevice(deviceID);
             connectingToTail.opacity = 1;

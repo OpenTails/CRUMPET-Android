@@ -26,9 +26,10 @@ class BTConnectionManagerProxy {
     SLOT(void startDiscovery())
     SLOT(void stopDiscovery())
     SLOT(void sendMessage(const QString &message))
-    SLOT(void connectToDevice(int deviceIndex))
+    SLOT(void connectToDevice(const QString& deviceID))
     SLOT(void disconnectDevice())
     SLOT(void setFakeTailMode(bool enableFakery))
+    SLOT(void setDeviceName(const QString& deviceID, const QString& deviceName))
 
     // Designed to fill up a map with information, based on the command found in the QVariantMap key "command"'s value
     PROP(QVariantMap command)

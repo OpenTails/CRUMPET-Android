@@ -20,6 +20,7 @@
 
 #include <QAbstractListModel>
 #include <QBluetoothDeviceInfo>
+#include <QBluetoothAddress>
 
 class BTDeviceModel : public QAbstractListModel
 {
@@ -34,6 +35,12 @@ public:
     };
 
     struct Device {
+    public:
+        Device(const QBluetoothDeviceInfo& info)
+            : name(info.name())
+            , deviceID(info.address().toString())
+            , deviceInfo(info)
+        {}
     public:
         QString name;
         QString deviceID;
@@ -51,7 +58,7 @@ public:
      * be done manually.
      * @param newDevice The new device to show in the model
      */
-    void addDevice(Device* newDevice);
+    Q_SLOT void addDevice(const QBluetoothDeviceInfo& deviceInfo);
     /**
      * Remove a device from the model.
      * The entry will be deleted by this function, and you should not attempt to
@@ -60,14 +67,23 @@ public:
      */
     void removeDevice(Device* device);
 
+    void updateItem(const QString& deviceID);
+
     int count();
     Q_SIGNAL void countChanged();
 
     const BTDeviceModel::Device* getDevice(const QString& deviceID) const;
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
+
+private:
+    void readDeviceNames();
+
 private:
     class Private;
     Private* d;
+
+private:
+    QMap<QString, QString> deviceNames;
 };
 
 #endif//BTDEVICEMODEL_H

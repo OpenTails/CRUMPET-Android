@@ -40,7 +40,6 @@ public:
     QBluetoothUuid tailStateCharacteristicUuid;
 
     BTDeviceModel* deviceModel = nullptr;
-    QBluetoothServiceDiscoveryAgent *discoveryAgent = nullptr;
     QLowEnergyController *btControl = nullptr;
     QLowEnergyService* tailService = nullptr;
     QLowEnergyCharacteristic tailCharacteristic;
@@ -93,15 +92,7 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
 
     // Create a discovery agent and connect to its signals
     d->deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
-
-    connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
-            [this](const QBluetoothDeviceInfo &device){
-                BTDeviceModel::Device* btDevice = new BTDeviceModel::Device();
-                btDevice->name = device.name();
-                btDevice->deviceID = device.address().toString();
-                btDevice->deviceInfo = device;
-                d->deviceModel->addDevice(btDevice);
-            });
+    connect(d->deviceDiscoveryAgent, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), d->deviceModel, SLOT(addDevice(QBluetoothDeviceInfo)));
 
     connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, [this](){
         qDebug() << "Device discovery completed";
@@ -177,10 +168,14 @@ bool BTConnectionManager::discoveryRunning() const
     return d->discoveryRunning;
 }
 
-void BTConnectionManager::connectToDevice(int deviceIndex)
+void BTConnectionManager::connectToDevice(const QString& deviceID)
 {
-    const QString& deviceID = d->deviceModel->getDeviceID(deviceIndex);
-    const BTDeviceModel::Device* device = d->deviceModel->getDevice(deviceID);
+    const BTDeviceModel::Device* device;
+    if (deviceID.isEmpty()) {
+        device = d->deviceModel->getDevice(d->deviceModel->getDeviceID(0));
+    } else {
+        device = d->deviceModel->getDevice(deviceID);
+    }
     if(device) {
         qDebug() << "Attempting to connect to device" << device->name;
         connectDevice(device->deviceInfo);
@@ -511,4 +506,13 @@ QVariantMap BTConnectionManager::getCommand(const QString& command)
         }
     }
     return info;
+}
+
+void BTConnectionManager::setDeviceName(const QString& deviceID, const QString& deviceName)
+{
+    const BTDeviceModel::Device* device = d->deviceModel->getDevice(deviceID);
+    if(device) {
+        d->appSettings->setDeviceName(device->deviceInfo.address().toString(), deviceName);
+        d->deviceModel->updateItem(deviceID);
+    }
 }
