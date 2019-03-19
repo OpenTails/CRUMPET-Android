@@ -16,6 +16,7 @@
  */
 
 #include "BTDeviceModel.h"
+#include <QSettings>
 
 class BTDeviceModel::Private
 {
@@ -30,11 +31,24 @@ BTDeviceModel::BTDeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private)
 {
+    readDeviceNames();
 }
 
 BTDeviceModel::~BTDeviceModel()
 {
     delete d;
+}
+
+void BTDeviceModel::readDeviceNames()
+{
+    deviceNames.clear();
+    QSettings settings;
+    settings.beginGroup("DeviceNameList");
+    QStringList keys = settings.childKeys();
+    foreach(QString key, keys) {
+        deviceNames[key] = settings.value(key).toString();
+    }
+    settings.endGroup();
 }
 
 QHash< int, QByteArray > BTDeviceModel::roleNames() const
@@ -51,10 +65,15 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
     if(index.isValid() && index.row() > -1 && index.row() < d->devices.count()) {
         Device* device = d->devices.at(index.row());
         switch(role) {
-            case Name:
-                value = device->name;
+            case Name: {
+                auto name = deviceNames.value(device->deviceInfo.address().toString());
+                if (name.isEmpty()) {
+                    value = device->name;
+                } else {
+                    value = name;
+                }
                 break;
-            case DeviceID:
+            } case DeviceID:
                 value = device->deviceID;
                 break;
             default:
@@ -72,8 +91,9 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
     return d->devices.count();
 }
 
-void BTDeviceModel::addDevice(Device* newDevice)
+void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
+    Device* newDevice = new Device(deviceInfo);
     // It feels a little dirty to do it this way...
     if(newDevice->name == QLatin1String("(!)Tail1")) {
         for(const BTDeviceModel::Device* device : d->devices) {
@@ -115,6 +135,16 @@ const BTDeviceModel::Device* BTDeviceModel::getDevice(const QString& deviceID) c
         }
     }
     return nullptr;
+}
+
+void BTDeviceModel::updateItem(const QString& deviceID)
+{
+    readDeviceNames();
+    for(int idx = 0; idx < d->devices.count(); ++idx) {
+        if(d->devices[idx]->deviceID == deviceID) {
+            emit dataChanged(index(idx, 0), index(idx, 0));
+        }
+    }
 }
 
 QString BTDeviceModel::getDeviceID(int deviceIndex) const

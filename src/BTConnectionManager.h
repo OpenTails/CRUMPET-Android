@@ -68,7 +68,7 @@ public:
 
 public Q_SLOTS:
     void sendMessage(const QString &message) override;
-    void connectToDevice(int deviceIndex) override;
+    void connectToDevice(const QString& deviceID) override;
     void disconnectDevice() override;
     void serviceStateChanged(QLowEnergyService::ServiceState s);
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
@@ -77,6 +77,7 @@ public Q_SLOTS:
     void setCommand(QVariantMap command) override;
     QVariantMap getCommand(const QString& command) override;
     void setLocalBTDeviceState();
+    void setDeviceName(const QString& deviceId, const QString& deviceName) override;
 
 Q_SIGNALS:
     void connected(const QString &name);
