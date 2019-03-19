@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
 
             Layout.fillWidth: true;
 
-            SoundEffect {
+            Audio {
                 id: playSound
                 source: "qrc:/audio/Sparkle-sound-effect.mp3"
             }
