@@ -74,6 +74,11 @@
                         <meta-data android:name="android.app.ministro_needed_msg" android:value="@string/ministro_needed_msg"/>
                         <meta-data android:name="android.app.fatal_error_msg" android:value="@string/fatal_error_msg"/>
                 </activity>
+                <receiver android:name=".PhonecallReceiver" >
+                    <intent-filter>
+                        <action android:name="android.intent.action.PHONE_STATE" />
+                    </intent-filter>
+                </receiver>
         </application>
         <supports-screens android:anyDensity="true" android:normalScreens="true" android:smallScreens="true" android:largeScreens="true"/>
         <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="26"/>
@@ -83,4 +88,5 @@
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 </manifest> 

@@ -68,19 +68,35 @@ int appMain(int argc, char *argv[])
 //The desktop QQC2 style needs it to be a QApplication
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
-#else
-    QApplication app(argc, argv);
-#endif
-    //qputenv("QML_IMPORT_TRACE", "1");
 
-#ifdef Q_OS_ANDROID
+    auto result = QtAndroid::checkPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
+    if(result == QtAndroid::PermissionResult::Denied) {
+        QtAndroid::PermissionResultMap resultHash = QtAndroid::requestPermissionsSync(QStringList({"android.permission.ACCESS_COARSE_LOCATION"}));
+        if(resultHash["android.permission.ACCESS_COARSE_LOCATION"] == QtAndroid::PermissionResult::Denied) {
+            return 0;
+        }
+    }
+
+    // TODO: ask the request for android.permission.READ_PHONE_STATE only when we need it
+    result = QtAndroid::checkPermission(QString("android.permission.READ_PHONE_STATE"));
+    if(result == QtAndroid::PermissionResult::Denied) {
+        QtAndroid::PermissionResultMap resultHash = QtAndroid::requestPermissionsSync(QStringList({"android.permission.READ_PHONE_STATE"}));
+
+        if(resultHash["android.permission.READ_PHONE_STATE"] == QtAndroid::PermissionResult::Denied){
+            return 0;
+        }
+    }
+
     qDebug() << "Starting service, if it isn't already...";
     QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "startTailService",
                                                 "(Landroid/content/Context;)V",
                                                 QtAndroid::androidActivity().object());
     qDebug() << "Service started, or already launched";
+#else
+    QApplication app(argc, argv);
 #endif
+    //qputenv("QML_IMPORT_TRACE", "1");
 
     QQmlApplicationEngine engine;
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
