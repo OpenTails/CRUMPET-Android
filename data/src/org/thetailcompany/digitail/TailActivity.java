@@ -17,5 +17,7 @@ public class TailActivity extends org.qtproject.qt5.android.bindings.QtActivity
     {
         super.onPause();
         Log.v(TAG, "onPause - entered");
+        // We should not call finish() method when we request permissions
+        // finish();
     }
 }
