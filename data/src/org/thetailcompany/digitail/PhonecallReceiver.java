@@ -12,42 +12,43 @@ public class PhonecallReceiver extends AbstractPhonecallReceiver
   @Override
   protected void onIncomingCallReceived(Context ctx, String number, Date start)
   {
-      //
-      Log.v(TAG, "onIncomingCallReceived");
+      onPhoneCall(ctx, "IncomingCallReceived");
   }
 
   @Override
   protected void onIncomingCallAnswered(Context ctx, String number, Date start)
   {
-      //
-      Log.v(TAG, "onIncomingCallAnswered");
+      onPhoneCall(ctx, "IncomingCallAnswered");
   }
 
   @Override
   protected void onIncomingCallEnded(Context ctx, String number, Date start, Date end)
   {
-      //
-      Log.v(TAG, "onIncomingCallEnded");
+      onPhoneCall(ctx, "IncomingCallEnded");
   }
 
   @Override
   protected void onOutgoingCallStarted(Context ctx, String number, Date start)
   {
-      //
-      Log.v(TAG, "onOutgoingCallStarted");
+      onPhoneCall(ctx, "OutgoingCallStarted");
   } 
 
   @Override 
   protected void onOutgoingCallEnded(Context ctx, String number, Date start, Date end)
   {
-      //
-      Log.v(TAG, "onOutgoingCallEnded");
+      onPhoneCall(ctx, "OutgoingCallEnded");
   }
 
   @Override
   protected void onMissedCall(Context ctx, String number, Date start)
   {
-      //
-      Log.v(TAG, "onMissedCall");
+      onPhoneCall(ctx, "MissedCall");
+  }
+
+  private void onPhoneCall(Context ctx, String callType)
+  {
+      Log.v(TAG, callType);
+      TailService.startTailService(ctx);
+      TailService.onPhoneCall(callType);
   }
 }

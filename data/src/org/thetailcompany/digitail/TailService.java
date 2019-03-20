@@ -66,6 +66,10 @@ public class TailService extends QtService
         ctx.stopService(new Intent(ctx, TailService.class));
     }
 
+    public static void onPhoneCall(String callType) {
+        //TODO: call C++ method from service library
+    }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);

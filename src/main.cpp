@@ -69,6 +69,7 @@ int appMain(int argc, char *argv[])
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
 
+    //TODO: extract permissions request to separated method in helper class
     auto result = QtAndroid::checkPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
     if(result == QtAndroid::PermissionResult::Denied) {
         QtAndroid::PermissionResultMap resultHash = QtAndroid::requestPermissionsSync(QStringList({"android.permission.ACCESS_COARSE_LOCATION"}));
@@ -77,12 +78,12 @@ int appMain(int argc, char *argv[])
         }
     }
 
-    // TODO: ask the request for android.permission.READ_PHONE_STATE only when we need it
+    //TODO: ask the request for android.permission.READ_PHONE_STATE only when we need it
     result = QtAndroid::checkPermission(QString("android.permission.READ_PHONE_STATE"));
     if(result == QtAndroid::PermissionResult::Denied) {
         QtAndroid::PermissionResultMap resultHash = QtAndroid::requestPermissionsSync(QStringList({"android.permission.READ_PHONE_STATE"}));
 
-        if(resultHash["android.permission.READ_PHONE_STATE"] == QtAndroid::PermissionResult::Denied){
+        if(resultHash["android.permission.READ_PHONE_STATE"] == QtAndroid::PermissionResult::Denied) {
             return 0;
         }
     }
