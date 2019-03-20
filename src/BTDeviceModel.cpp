@@ -21,17 +21,22 @@
 class BTDeviceModel::Private
 {
 public:
-    Private() {}
+    Private()
+    {
+        readDeviceNames();
+    }
     ~Private() {}
 
+    void readDeviceNames();
+
     QList<BTDeviceModel::Device*> devices;
+    QMap<QString, QString> deviceNames;
 };
 
 BTDeviceModel::BTDeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private)
 {
-    readDeviceNames();
 }
 
 BTDeviceModel::~BTDeviceModel()
@@ -39,7 +44,7 @@ BTDeviceModel::~BTDeviceModel()
     delete d;
 }
 
-void BTDeviceModel::readDeviceNames()
+void BTDeviceModel::Private::readDeviceNames()
 {
     deviceNames.clear();
     QSettings settings;
@@ -66,7 +71,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
         Device* device = d->devices.at(index.row());
         switch(role) {
             case Name: {
-                auto name = deviceNames.value(device->deviceInfo.address().toString());
+                auto name = d->deviceNames.value(device->deviceInfo.address().toString());
                 if (name.isEmpty()) {
                     value = device->name;
                 } else {
@@ -139,7 +144,7 @@ const BTDeviceModel::Device* BTDeviceModel::getDevice(const QString& deviceID) c
 
 void BTDeviceModel::updateItem(const QString& deviceID)
 {
-    readDeviceNames();
+    d->readDeviceNames();
     for(int idx = 0; idx < d->devices.count(); ++idx) {
         if(d->devices[idx]->deviceID == deviceID) {
             emit dataChanged(index(idx, 0), index(idx, 0));

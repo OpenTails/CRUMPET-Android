@@ -76,14 +76,8 @@ public:
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
 
 private:
-    void readDeviceNames();
-
-private:
     class Private;
     Private* d;
-
-private:
-    QMap<QString, QString> deviceNames;
 };
 
 #endif//BTDEVICEMODEL_H
