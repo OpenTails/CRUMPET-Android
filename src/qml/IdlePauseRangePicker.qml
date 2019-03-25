@@ -36,6 +36,8 @@ Column {
     RangeSlider {
         id: pauseRangeSlider;
 
+        first.value: AppSettings.idleMinPause;
+        second.value: AppSettings.idleMaxPause;
         from: 15;
         to: 600;
         stepSize: 1.0;
@@ -46,15 +48,14 @@ Column {
             leftMargin: Kirigami.Units.largeSpacing;
         }
 
-        first.onValueChanged: {
+        first.onMoved: {
             AppSettings.idleMinPause = first.value;
         }
 
-        second.onValueChanged: {
+        second.onMoved: {
             if (second.value < 20) {
                 second.value = 20;
             }
-
             AppSettings.idleMaxPause = second.value;
         }
 
