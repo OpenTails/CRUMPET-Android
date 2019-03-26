@@ -190,6 +190,7 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
 
     d->btControl = QLowEnergyController::createCentral(device, this);
     d->btControl->setRemoteAddressType(QLowEnergyController::RandomAddress);
+    connect(d->btControl, &QObject::destroyed, this, [this](){ emit currentDeviceIDChanged(QLatin1String{}); } );
 
     if(d->tailService) {
         d->tailService->deleteLater();
@@ -307,6 +308,7 @@ void BTConnectionManager::serviceStateChanged(QLowEnergyService::ServiceState s)
         d->tailService->writeDescriptor(d->tailDescriptor, QByteArray::fromHex("0100"));
 
         emit isConnectedChanged(isConnected());
+        emit currentDeviceIDChanged(currentDeviceID());
         sendMessage("VER"); // Ask for the tail version, and then react to the response...
 
         break;
@@ -450,6 +452,14 @@ int BTConnectionManager::commandQueueCount() const
 QString BTConnectionManager::tailVersion() const
 {
     return d->commandModel->tailVersion();
+}
+
+QString BTConnectionManager::currentDeviceID() const
+{
+    if(isConnected()) {
+        return d->btControl->remoteAddress().toString();
+    }
+    return QLatin1String{};
 }
 
 int BTConnectionManager::bluetoothState() const

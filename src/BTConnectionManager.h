@@ -63,6 +63,7 @@ public:
     int deviceCount() const override;
     int commandQueueCount() const override;
     QString tailVersion() const override;
+    QString currentDeviceID() const override;
     QVariantMap command() const override;
     int bluetoothState() const override;
 
