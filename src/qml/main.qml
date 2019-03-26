@@ -86,9 +86,14 @@ Kirigami.ApplicationWindow {
                     switchToPage(root.pageToPush);
                     root.pageToPush = null;
                 }
-                namePicker.checkTailName(BTConnectionManager.currentDeviceID);
             }
             connectingToTail.opacity = 0;
+        }
+        onCurrentDeviceIDChanged: {
+            if (BTConnectionManager.isConnected === true) {
+                console.debug("Connected to tail, now have current device ID: " + BTConnectionManager.currentDeviceID);
+                namePicker.checkTailName(BTConnectionManager.currentDeviceID);
+            }
         }
 
         onBluetoothStateChanged: {
