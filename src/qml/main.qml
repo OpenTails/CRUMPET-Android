@@ -88,6 +88,7 @@ Kirigami.ApplicationWindow {
                 }
             }
             connectingToTail.opacity = 0;
+            namePicker.checkTailName(BTConnectionManager.currentDeviceID);
         }
 
         onBluetoothStateChanged: {
@@ -312,6 +313,13 @@ Kirigami.ApplicationWindow {
     NamePicker {
         id: namePicker;
 
+        function checkTailName(deviceID) {
+            if (!AppSettings.deviceNames[deviceID]) {
+                namePicker.deviceID = deviceID;
+                namePicker.pickName();
+            }
+        }
+
         property string deviceID: "0";
 
         description: qsTr("Enter a name to use for your Tail");
@@ -327,10 +335,6 @@ Kirigami.ApplicationWindow {
     ConnectToTail {
         id: connectToTail;
         onAttemptToConnect: {
-            if (!AppSettings.deviceNames[deviceID]) {
-                namePicker.deviceID = deviceID;
-                namePicker.pickName();
-            }
             root.pageToPush = pageToPush;
             BTConnectionManager.connectToDevice(deviceID);
             connectingToTail.opacity = 1;
