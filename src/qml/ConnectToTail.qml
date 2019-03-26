@@ -26,7 +26,6 @@ Kirigami.OverlaySheet {
     property QtObject pageToPush: null;
     showCloseButton: true;
     signal attemptToConnect(string deviceID, QtObject pageToPush);
-    property alias firstDeviceID: deviceList.firstDeviceID;
     header: RowLayout {
         implicitWidth: Kirigami.Units.gridUnit * 30
         Kirigami.Icon {
@@ -43,7 +42,6 @@ Kirigami.OverlaySheet {
     }
     ListView {
         id: deviceList;
-        property string firstDeviceID;
         implicitWidth: Kirigami.Units.gridUnit * 30
         model: DeviceModel;
         delegate: Kirigami.AbstractListItem {
@@ -64,11 +62,6 @@ Kirigami.OverlaySheet {
                         Layout.minimumWidth: 0
                         wrapMode: Text.WordWrap
                         text: model.deviceID ? model.deviceID : ""
-                        onTextChanged: {
-                            if(index === 0) {
-                                deviceList.firstDeviceID = text;
-                            }
-                        }
                     }
                 }
                 QQC2.Button {
