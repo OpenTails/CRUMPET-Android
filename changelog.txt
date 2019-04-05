@@ -1,3 +1,10 @@
+0.0.8:
+- Equalise casual mode settings between welcome page and casual settings page
+- You can now give your tail a name (you will get asked on connecting to an unnamed one)
+- Glash is now less completely quiet
+- Can now disconnect in fake mode
+- Require Android 6 (we effectively did before, but now we do so explicitly)
+
 0.0.7:
 - Check whether bluetooth is turned on, and remind tailers to do so if it isn't
 - Fix moves page layout logic, should now be able to drag on the entire page
