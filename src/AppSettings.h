@@ -75,8 +75,14 @@ public:
     void addAlarmCommand(int index, const QString& command) override;
     void removeAlarmCommand(int index) override;
     virtual QVariantMap deviceNames() const override;
+
+    /// We have access to this method only from the Service.
+    /// See BTConnectionManager::setDeviceName() method
     void setDeviceName(const QString& address, const QString& deviceName);
-    void resetDeviceNames();
+
+    /// We have access to this method only from the Service
+    /// See BTConnectionManager::clearDeviceNames() method
+    void clearDeviceNames();
 
 private:
     class Private;

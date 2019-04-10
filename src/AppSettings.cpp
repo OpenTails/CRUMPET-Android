@@ -305,7 +305,7 @@ void AppSettings::setDeviceName(const QString& address, const QString& deviceNam
     emit deviceNamesChanged(deviceNames());
 }
 
-void AppSettings::resetDeviceNames()
+void AppSettings::clearDeviceNames()
 {
     QSettings settings;
     settings.remove("DeviceNameList");
