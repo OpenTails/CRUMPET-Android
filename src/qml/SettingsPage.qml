@@ -56,5 +56,14 @@ Kirigami.ScrollablePage {
                 BTConnectionManager.setFakeTailMode(true);
             }
         }
+
+        QQC2.Button {
+            text: qsTr("Forget recorded names")
+            Layout.fillWidth: true
+
+            onClicked: {
+                BTConnectionManager.resetDeviceNames()
+            }
+        }
     }
 }
