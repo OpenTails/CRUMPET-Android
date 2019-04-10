@@ -189,8 +189,7 @@ int serviceMain(int argc, char *argv[])
     AppSettings* appSettings = new AppSettings(&app);
 
     qDebug() << "Creating connection manager";
-    BTConnectionManager* btConnectionManager = new BTConnectionManager(&app);
-    btConnectionManager->setAppSettings(appSettings);
+    BTConnectionManager* btConnectionManager = new BTConnectionManager(appSettings, &app);
     appSettings->alarmListImpl()->setCommandQueue(qobject_cast<CommandQueue*>(btConnectionManager->commandQueue()));
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
