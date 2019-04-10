@@ -16,7 +16,7 @@
  */
 
 #include "BTDeviceModel.h"
-#include <QSettings>
+#include "AppSettings.h"
 
 class BTDeviceModel::Private
 {
@@ -29,6 +29,7 @@ public:
 
     void readDeviceNames();
 
+    AppSettings* appSettings = nullptr;
     QList<BTDeviceModel::Device*> devices;
     QMap<QString, QString> deviceNames;
 };
@@ -46,14 +47,28 @@ BTDeviceModel::~BTDeviceModel()
 
 void BTDeviceModel::Private::readDeviceNames()
 {
-    deviceNames.clear();
-    QSettings settings;
-    settings.beginGroup("DeviceNameList");
-    QStringList keys = settings.childKeys();
-    foreach(QString key, keys) {
-        deviceNames[key] = settings.value(key).toString();
+    if (!appSettings) {
+        return;
     }
-    settings.endGroup();
+
+    deviceNames.clear();
+
+    const QVariantMap map = appSettings->deviceNames();
+
+    for (QVariantMap::const_iterator it = map.cbegin(); it != map.cend(); ++it) {
+        deviceNames[it.key()] = it.value().toString();
+    }
+}
+
+AppSettings *BTDeviceModel::appSettings() const
+{
+    return d->appSettings;
+}
+
+void BTDeviceModel::setAppSettings(AppSettings *appSettings)
+{
+    d->appSettings = appSettings;
+    d->readDeviceNames();
 }
 
 QHash< int, QByteArray > BTDeviceModel::roleNames() const

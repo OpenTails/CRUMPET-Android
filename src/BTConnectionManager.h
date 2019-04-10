@@ -39,7 +39,7 @@ class BTConnectionManager : public BTConnectionManagerProxySource
     Q_PROPERTY(QObject* commandQueue READ commandQueue NOTIFY commandQueueChanged)
 
 public:
-    explicit BTConnectionManager(QObject* parent = nullptr);
+    explicit BTConnectionManager(AppSettings* appSettings, QObject* parent);
     virtual ~BTConnectionManager();
 
     AppSettings* appSettings() const;

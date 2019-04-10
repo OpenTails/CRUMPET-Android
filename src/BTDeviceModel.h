@@ -22,6 +22,8 @@
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothAddress>
 
+class AppSettings;
+
 class BTDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -46,6 +48,9 @@ public:
         QString deviceID;
         QBluetoothDeviceInfo deviceInfo;
     };
+
+    AppSettings* appSettings() const;
+    void setAppSettings(AppSettings* appSettings);
 
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;

@@ -30,8 +30,9 @@
 
 class BTConnectionManager::Private {
 public:
-    Private()
-        : tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
+    Private(AppSettings* appSettings)
+        : appSettings(appSettings),
+          tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
     {
     }
     ~Private() {}
@@ -71,9 +72,9 @@ public:
     int localBTDeviceState = 0;
 };
 
-BTConnectionManager::BTConnectionManager(QObject* parent)
+BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* parent)
     : BTConnectionManagerProxySource(parent)
-    , d(new Private)
+    , d(new Private(appSettings))
 {
     d->commandModel = new TailCommandModel(this);
 
@@ -86,6 +87,7 @@ BTConnectionManager::BTConnectionManager(QObject* parent)
             this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
 
     d->deviceModel = new BTDeviceModel(this);
+    d->deviceModel->setAppSettings(d->appSettings);
 
     connect(d->deviceModel, &BTDeviceModel::countChanged,
             this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
@@ -130,6 +132,7 @@ AppSettings* BTConnectionManager::appSettings() const
 void BTConnectionManager::setAppSettings(AppSettings* appSettings)
 {
     d->appSettings = appSettings;
+    d->deviceModel->setAppSettings(d->appSettings);
 }
 
 void BTConnectionManager::setLocalBTDeviceState()
