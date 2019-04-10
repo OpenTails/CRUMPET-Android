@@ -76,6 +76,7 @@ public:
     void removeAlarmCommand(int index) override;
     virtual QVariantMap deviceNames() const override;
     void setDeviceName(const QString& address, const QString& deviceName);
+    void resetDeviceNames();
 
 private:
     class Private;

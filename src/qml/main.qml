@@ -79,6 +79,7 @@ Kirigami.ApplicationWindow {
                 }
             }
         }
+
         onIsConnectedChanged: {
             if (isConnected === true) {
                 showPassiveNotification(qsTr("Connected to tail!"), 1000);
@@ -89,8 +90,16 @@ Kirigami.ApplicationWindow {
             }
             connectingToTail.opacity = 0;
         }
+
         onCurrentDeviceIDChanged: {
             if (BTConnectionManager.isConnected === true) {
+                console.debug("Connected to tail, now have current device ID: " + BTConnectionManager.currentDeviceID);
+                namePicker.checkTailName(BTConnectionManager.currentDeviceID);
+            }
+        }
+
+        onDeviceNamesResetted: {
+            if (BTConnectionManager.isConnected && BTConnectionManager.currentDeviceID) {
                 console.debug("Connected to tail, now have current device ID: " + BTConnectionManager.currentDeviceID);
                 namePicker.checkTailName(BTConnectionManager.currentDeviceID);
             }
@@ -310,7 +319,7 @@ Kirigami.ApplicationWindow {
         id: namePicker;
 
         function checkTailName(deviceID) {
-            if (!AppSettings.deviceNames[deviceID]) {
+            if (deviceID && !AppSettings.deviceNames[deviceID]) {
                 namePicker.deviceID = deviceID;
                 namePicker.pickName();
             }

@@ -305,6 +305,12 @@ void AppSettings::setDeviceName(const QString& address, const QString& deviceNam
     emit deviceNamesChanged(deviceNames());
 }
 
+void AppSettings::resetDeviceNames()
+{
+    QSettings settings;
+    settings.remove("DeviceNameList");
+    emit deviceNamesChanged(deviceNames());
+}
 
 QVariantMap AppSettings::deviceNames() const
 {
