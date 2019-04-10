@@ -25,20 +25,35 @@ Kirigami.ScrollablePage {
     objectName: "settingsPage";
     title: qsTr("Settings");
 
-    Kirigami.AbstractCard {
+    ColumnLayout {
         width: parent.width;
-        header: Kirigami.Heading {
-            text: qsTr("Use Auto-reconnect if your tail drops the connection?");
-            QQC2.CheckBox {
-                checked: AppSettings.autoReconnect;
 
-                height: parent.height;
-                width: height;
-                anchors.right: parent.right;
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
 
-                onClicked: {
-                    AppSettings.autoReconnect = !AppSettings.autoReconnect;
+            header: Kirigami.Heading {
+                text: qsTr("Use Auto-reconnect if your tail drops the connection?");
+                QQC2.CheckBox {
+                    checked: AppSettings.autoReconnect;
+
+                    height: parent.height;
+                    width: height;
+                    anchors.right: parent.right;
+
+                    onClicked: {
+                        AppSettings.autoReconnect = !AppSettings.autoReconnect;
+                    }
                 }
+            }
+        }
+
+        QQC2.Button {
+            text: qsTr("Fake it!")
+            Layout.fillWidth: true
+
+            onClicked: {
+                BTConnectionManager.stopDiscovery();
+                BTConnectionManager.setFakeTailMode(true);
             }
         }
     }
