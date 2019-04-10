@@ -530,8 +530,8 @@ void BTConnectionManager::setDeviceName(const QString& deviceID, const QString& 
     }
 }
 
-void BTConnectionManager::resetDeviceNames()
+void BTConnectionManager::clearDeviceNames()
 {
-    appSettings()->resetDeviceNames();
-    emit deviceNamesResetted();
+    appSettings()->clearDeviceNames();
+    emit deviceNamesCleared();
 }

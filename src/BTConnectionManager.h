@@ -79,7 +79,7 @@ public Q_SLOTS:
     QVariantMap getCommand(const QString& command) override;
     void setLocalBTDeviceState();
     void setDeviceName(const QString& deviceId, const QString& deviceName) override;
-    void resetDeviceNames() override;
+    void clearDeviceNames() override;
 
 Q_SIGNALS:
     void connected(const QString &name);

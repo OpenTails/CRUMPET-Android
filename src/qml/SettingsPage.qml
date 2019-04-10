@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
 
             onClicked: {
-                BTConnectionManager.resetDeviceNames()
+                BTConnectionManager.clearDeviceNames()
             }
         }
     }

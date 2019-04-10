@@ -98,7 +98,7 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        onDeviceNamesResetted: {
+        onDeviceNamesCleared: {
             if (BTConnectionManager.isConnected && BTConnectionManager.currentDeviceID) {
                 console.debug("Connected to tail, now have current device ID: " + BTConnectionManager.currentDeviceID);
                 namePicker.checkTailName(BTConnectionManager.currentDeviceID);
