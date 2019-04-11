@@ -33,14 +33,25 @@
                     <meta-data android:name="android.app.ministro_needed_msg" android:value="@string/ministro_needed_msg"/>
                     <meta-data android:name="android.app.fatal_error_msg" android:value="@string/fatal_error_msg"/>
                 </service>
+                <activity android:name=".SplashActivity"
+                          android:label="DIGITAiL" >
+                        <intent-filter>
+                              <action android:name="android.intent.action.MAIN"/>
+                              <category android:name="android.intent.category.LAUNCHER"/>
+                        </intent-filter>
+                </activity>
+
                 <activity android:name=".TailActivity"
                           android:label="DIGITAiL"
                           android:screenOrientation="unspecified"
                           android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation">
+                        <!--
+                        We use SplashActivity as a start Activity
                         <intent-filter>
                                 <action android:name="android.intent.action.MAIN"/>
                                 <category android:name="android.intent.category.LAUNCHER"/>
                         </intent-filter>
+                        -->
                         <meta-data android:name="android.app.lib_name" android:value="digitail"/>
                         <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
                         <meta-data android:name="android.app.repository" android:value="default"/>
