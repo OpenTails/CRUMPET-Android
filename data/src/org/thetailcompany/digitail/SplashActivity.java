@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.widget.VideoView;
 import android.widget.RelativeLayout;
 import android.view.MotionEvent;
+import android.graphics.Color;
 
 public class SplashActivity extends Activity
 {
@@ -35,6 +36,7 @@ public class SplashActivity extends Activity
 
             // Set parent RelativeLayout to your screen
             setContentView(parentLayout, parentLayoutParam);
+            getWindow().getDecorView().setBackgroundColor(Color.WHITE);
 
             Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash);
             videoHolder.setVideoURI(video);
