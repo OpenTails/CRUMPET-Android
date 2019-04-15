@@ -34,7 +34,8 @@
                     <meta-data android:name="android.app.fatal_error_msg" android:value="@string/fatal_error_msg"/>
                 </service>
                 <activity android:name=".SplashActivity"
-                          android:label="DIGITAiL" >
+                          android:label="DIGITAiL"
+                          android:theme="@android:style/Theme.Light.NoTitleBar" >
                         <intent-filter>
                               <action android:name="android.intent.action.MAIN"/>
                               <category android:name="android.intent.category.LAUNCHER"/>
