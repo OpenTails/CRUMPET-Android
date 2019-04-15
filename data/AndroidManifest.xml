@@ -45,7 +45,8 @@
                 <activity android:name=".TailActivity"
                           android:label="DIGITAiL"
                           android:screenOrientation="unspecified"
-                          android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation">
+                          android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
+                          android:theme="@android:style/Theme.Light.NoTitleBar" >
                         <!--
                         We use SplashActivity as a start Activity
                         <intent-filter>
