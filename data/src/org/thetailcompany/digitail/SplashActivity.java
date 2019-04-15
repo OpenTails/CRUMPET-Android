@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.widget.VideoView;
+import android.widget.RelativeLayout;
 import android.view.MotionEvent;
 
 public class SplashActivity extends Activity
@@ -18,8 +19,23 @@ public class SplashActivity extends Activity
 
         try
         {
+            // Create parent RelativeLayout
+            RelativeLayout parentLayout = new RelativeLayout(this);
+            RelativeLayout.LayoutParams parentLayoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+            parentLayout.setLayoutParams(parentLayoutParam);
+
+            // Create child VideoView
             VideoView videoHolder = new VideoView(this);
-            setContentView(videoHolder);
+            RelativeLayout.LayoutParams videoHolderParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            videoHolder.setLayoutParams(videoHolderParams);
+            videoHolderParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+
+            // Add child VideoView to parent RelativeLayout
+            parentLayout.addView(videoHolder);
+
+            // Set parent RelativeLayout to your screen
+            setContentView(parentLayout, parentLayoutParam);
+
             Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash);
             videoHolder.setVideoURI(video);
 
