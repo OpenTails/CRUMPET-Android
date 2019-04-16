@@ -38,22 +38,32 @@ public:
     QTimer requestDelay;
     QStringList permissionsToRequest;
     void doRequest() {
+        bool hasGranted = false;
 #ifdef Q_OS_ANDROID
+        QStringList needRequesting;
         for (const QString& permission : permissionsToRequest) {
             auto  result = QtAndroid::checkPermission();
-            if(result == QtAndroid::PermissionResult::Granted) {
-                emit q->permissionsChanged();
+            if(result == QtAndroid::PermissionResult::Granted && !hasGranted) {
+                hasGranted = true;
             } else {
-                QtAndroid::requestPermissions(QStringList(permission), [permission](QtAndroid::PermissionResultMap resultHash){
-                    if(resultHash[permission] == QtAndroid::PermissionResult::Denied) {
-                        qApp->quit();
-                    }
-                });
+                needRequesting << permission;
             }
+            QtAndroid::requestPermissions(needRequesting, [q](QtAndroid::PermissionResultMap resultHash){
+                for (const QtAndroid::PermissionResult& perm : resultHash) {
+                    if (perm == QtAndroid::PermissionResult::Denied) {
+                        QTimer::singleShot(0, qApp, &QCoreApplication::quit);
+                        return;
+                    }
+                }
+                emit q->permissionsChanged();
+            });
         }
 #else
-        emit q->permissionsChanged();
+        hasGranted = true;
 #endif
+        if(hasGranted) {
+            emit q->permissionsChanged();
+        }
     }
 };
 
