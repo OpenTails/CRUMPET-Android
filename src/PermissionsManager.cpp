@@ -42,7 +42,7 @@ public:
 #ifdef Q_OS_ANDROID
         QStringList needRequesting;
         for (const QString& permission : permissionsToRequest) {
-            auto  result = QtAndroid::checkPermission();
+            auto  result = QtAndroid::checkPermission(permission);
             if(result == QtAndroid::PermissionResult::Granted && !hasGranted) {
                 hasGranted = true;
             } else {
