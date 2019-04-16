@@ -18,6 +18,7 @@ set(digitail_SRCS
     Utilities.cpp
     Alarm.cpp
     AlarmList.cpp
+    PermissionsManager.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)

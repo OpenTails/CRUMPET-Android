@@ -50,6 +50,7 @@
 #include "CommandQueue.h"
 #include "IdleMode.h"
 #include "Utilities.h"
+#include "PermissionsManager.h"
 
 #ifdef HAS_QT5REMOTEOBJECTS
 #include <QAbstractItemModelReplica>
@@ -72,25 +73,19 @@ int appMain(int argc, char *argv[])
             exit(0);
         }
     });
+#else
+    QApplication app(argc, argv);
+#endif
+    //qputenv("QML_IMPORT_TRACE", "1");
 
-    auto  result = QtAndroid::checkPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
-    if(result == QtAndroid::PermissionResult::Denied){
-        QtAndroid::PermissionResultMap resultHash = QtAndroid::requestPermissionsSync(QStringList({"android.permission.ACCESS_COARSE_LOCATION"}));
-        if(resultHash["android.permission.ACCESS_COARSE_LOCATION"] == QtAndroid::PermissionResult::Denied) {
-            return 0;
-        }
-    }
-
+#ifdef Q_OS_ANDROID
     qDebug() << "Starting service, if it isn't already...";
     QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "startTailService",
                                                 "(Landroid/content/Context;)V",
                                                 QtAndroid::androidActivity().object());
     qDebug() << "Service started, or already launched";
-#else
-    QApplication app(argc, argv);
 #endif
-    //qputenv("QML_IMPORT_TRACE", "1");
 
     QQmlApplicationEngine engine;
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
@@ -146,6 +141,15 @@ int appMain(int argc, char *argv[])
         qWarning() << "Failed to load the main qml file, exiting";
         return -1;
     }
+
+    PermissionsManager* permissionsManager = new PermissionsManager(&app);
+    QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
+        if(permissionsManager->hasPermission(QString("android.permission.ACCESS_COARSE_LOCATION"))) {
+            // Don't launch the discovery immediately, let's give things a change to start up...
+            QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
+        }
+    });
+    permissionsManager->requestPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
 
     //HACK to color the system bar on Android, use qtandroidextras and call the appropriate Java methods 
 #ifdef Q_OS_ANDROID
