@@ -48,7 +48,7 @@ public:
             } else {
                 needRequesting << permission;
             }
-            if (!needRequesting.isEmpty() {
+            if (!needRequesting.isEmpty()) {
                 QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
                     for (const QtAndroid::PermissionResult& perm : resultHash) {
                         if (perm == QtAndroid::PermissionResult::Denied) {
