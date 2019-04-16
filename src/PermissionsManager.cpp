@@ -48,15 +48,17 @@ public:
             } else {
                 needRequesting << permission;
             }
-            QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
-                for (const QtAndroid::PermissionResult& perm : resultHash) {
-                    if (perm == QtAndroid::PermissionResult::Denied) {
-                        QTimer::singleShot(0, qApp, &QCoreApplication::quit);
-                        return;
+            if (!needRequesting.isEmpty() {
+                QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
+                    for (const QtAndroid::PermissionResult& perm : resultHash) {
+                        if (perm == QtAndroid::PermissionResult::Denied) {
+                            QTimer::singleShot(0, qApp, &QCoreApplication::quit);
+                            return;
+                        }
                     }
-                }
-                emit q->permissionsChanged();
-            });
+                    emit q->permissionsChanged();
+                });
+            }
         }
 #else
         hasGranted = true;
