@@ -10,6 +10,8 @@ import android.widget.VideoView;
 import android.widget.RelativeLayout;
 import android.view.MotionEvent;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
+import android.content.SharedPreferences;
 
 public class SplashActivity extends Activity
 {
@@ -20,6 +22,18 @@ public class SplashActivity extends Activity
 
         try
         {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean isPlaySplashVideo = preferences.getBoolean("isPlaySplashVideo", true);
+            if (!isPlaySplashVideo)
+            {
+                jump();
+                return;
+            }
+
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("isPlaySplashVideo", false);
+            editor.commit();
+
             // Create parent RelativeLayout
             RelativeLayout parentLayout = new RelativeLayout(this);
             RelativeLayout.LayoutParams parentLayoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
