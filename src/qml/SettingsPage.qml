@@ -31,6 +31,20 @@ Kirigami.ScrollablePage {
         Kirigami.AbstractCard {
             Layout.fillWidth: true
 
+            header: ColumnLayout {
+                Kirigami.Heading {
+                    text: qsTr("Please read the instructions:");
+                }
+
+                Kirigami.UrlButton {
+                    url: "http://thetailcompany.com/digitail.pdf";
+                }
+            }
+        }
+
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+
             header: Kirigami.Heading {
                 text: qsTr("Use Auto-reconnect if your tail drops the connection?");
                 QQC2.CheckBox {
