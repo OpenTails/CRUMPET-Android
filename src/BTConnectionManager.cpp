@@ -459,10 +459,11 @@ QString BTConnectionManager::tailVersion() const
 
 QString BTConnectionManager::currentDeviceID() const
 {
-    if(isConnected()) {
+    // We should check for d->btControl because we may have fakeTailMode
+    if(isConnected() && d->btControl) {
         return d->btControl->remoteAddress().toString();
     }
-    return QLatin1String{};
+    return QString();
 }
 
 int BTConnectionManager::bluetoothState() const
