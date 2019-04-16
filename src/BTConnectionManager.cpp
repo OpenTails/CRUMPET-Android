@@ -102,9 +102,6 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
         emit discoveryRunningChanged(d->discoveryRunning);
     });
 
-    // Don't launch the discovery immediately, let's give things a change to start up...
-    QTimer::singleShot(100, this, [this](){ startDiscovery(); });
-
     // The battery timer also functions as a keepalive call. If it turns
     // out to be a problem that we pull the battery this often, we can
     // add a separate ping keepalive functon.
@@ -154,9 +151,11 @@ void BTConnectionManager::setLocalBTDeviceState()
 
 void BTConnectionManager::startDiscovery()
 {
-    d->discoveryRunning = true;
-    emit discoveryRunningChanged(d->discoveryRunning);
-    d->deviceDiscoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
+    if (!d->discoveryRunning) {
+        d->discoveryRunning = true;
+        emit discoveryRunningChanged(d->discoveryRunning);
+        d->deviceDiscoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
+    }
 }
 
 void BTConnectionManager::stopDiscovery()
