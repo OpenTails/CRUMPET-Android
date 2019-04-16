@@ -69,7 +69,10 @@ Kirigami.ScrollablePage {
         model: availableCategories;
         delegate: idleCategoryDelegate;
 
-        header: Kirigami.AbstractCard {
+        header: InfoCard {
+            text: qsTr("This is where you set the pauses in between moves, as well as the families of moves that can be called upon.");
+        }
+        footer: Kirigami.AbstractCard {
             contentItem: IdlePauseRangePicker {
             }
 
