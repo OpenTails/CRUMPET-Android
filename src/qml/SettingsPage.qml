@@ -27,56 +27,52 @@ Kirigami.ScrollablePage {
 
     ColumnLayout {
         width: parent.width;
+        spacing: Kirigami.Units.largeSpacing;
 
-        Kirigami.AbstractCard {
-            Layout.fillWidth: true
-
-            header: ColumnLayout {
-                Kirigami.Heading {
-                    text: qsTr("Please read the instructions:");
-                }
-
-                Kirigami.UrlButton {
-                    url: "http://thetailcompany.com/digitail.pdf";
-                }
+        SettingsCard {
+            headerText: qsTr("Instructions");
+            descriptionText: qsTr("Please download and read the instructions by clicking the link below. This includes instructions on how to wear your tail, along with some nice graphics showing you how.");
+            footer: Kirigami.UrlButton {
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                url: "http://thetailcompany.com/digitail.pdf";
             }
         }
 
-        Kirigami.AbstractCard {
-            Layout.fillWidth: true
-
-            header: Kirigami.Heading {
-                text: qsTr("Use Auto-reconnect if your tail drops the connection?");
-                QQC2.CheckBox {
-                    checked: AppSettings.autoReconnect;
-
-                    height: parent.height;
-                    width: height;
-                    anchors.right: parent.right;
-
-                    onClicked: {
-                        AppSettings.autoReconnect = !AppSettings.autoReconnect;
-                    }
+        SettingsCard {
+            headerText: qsTr("Automatic Reconnection");
+            descriptionText: qsTr("In certain situations, the app might lose its connection to your tail. Ticking this option will ensure that the app will attempt to reconnect automatically when the connection is lost.");
+            footer: QQC2.CheckBox {
+                text: qsTr("Reconnect Automatically");
+                checked: AppSettings.autoReconnect;
+                onClicked: {
+                    AppSettings.autoReconnect = !AppSettings.autoReconnect;
                 }
             }
         }
 
-        QQC2.Button {
-            text: qsTr("Fake it!")
-            Layout.fillWidth: true
-
-            onClicked: {
-                BTConnectionManager.stopDiscovery();
-                BTConnectionManager.setFakeTailMode(true);
+        SettingsCard {
+            headerText: qsTr("Tail Names");
+            descriptionText: qsTr("If you want to clear the names of any tails you have given a name, click the button below to make the app forget them all.");
+            footer: QQC2.Button {
+                text: qsTr("Forget Tail Names")
+                Layout.fillWidth: true
+                onClicked: {
+                    BTConnectionManager.clearDeviceNames()
+                }
             }
         }
 
-        QQC2.Button {
-            text: qsTr("Forget recorded names")
-            Layout.fillWidth: true
+        SettingsCard {
+            headerText: qsTr("Fake Tail");
+            descriptionText: qsTr("If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL, you might want to explore what the app can do. You can click the button below to trick the app into thinking that it is connected to a tail, and explore what options exist.");
+            footer: QQC2.Button {
+                text: qsTr("Fake it!")
+                Layout.fillWidth: true
 
-            onClicked: {
-                BTConnectionManager.clearDeviceNames()
+                onClicked: {
+                    BTConnectionManager.stopDiscovery();
+                    BTConnectionManager.setFakeTailMode(true);
+                }
             }
         }
     }
