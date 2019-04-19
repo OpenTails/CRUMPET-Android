@@ -26,7 +26,23 @@ static void phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeString)
     Q_UNUSED(obj)
 
     const QString callType = AndroidHelper::convertJStringToQString(env, callTypeString);
-    qDebug() << "Inside first C++ function:" << callType;
+
+    if (callType.compare("IncomingCallReceived", Qt::CaseInsensitive) == 0) {
+        return;
+    } else if (callType.compare("IncomingCallAnswered", Qt::CaseInsensitive) == 0) {
+        return;
+    } else if (callType.compare("IncomingCallEnded", Qt::CaseInsensitive) == 0) {
+        return;
+    } else if (callType.compare("OutgoingCallStarted", Qt::CaseInsensitive) == 0) {
+        return;
+    } else if (callType.compare("OutgoingCallEnded", Qt::CaseInsensitive) == 0) {
+        return;
+    } else if (callType.compare("MissedCall", Qt::CaseInsensitive) == 0) {
+        return;
+    } else {
+        qWarning() << "Unable to recognize the call type:" << callType;
+        return;
+    }
 }
 
 void AndroidHelper::initStatic()
