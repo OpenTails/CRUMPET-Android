@@ -17,6 +17,8 @@ public class TailService extends QtService
     private static WakeLock mWakeLock;
     private static final int ONGOING_NOTIFICATION_ID = 1;
 
+    public static native void phoneCallHandler(String callType);
+
     public void acquireWakeLock() {
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
@@ -69,7 +71,7 @@ public class TailService extends QtService
     }
 
     public static void onPhoneCall(String callType) {
-        //TODO: call C++ method from service library
+        phoneCallHandler(callType);
     }
 
     @Override

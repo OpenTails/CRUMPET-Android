@@ -18,15 +18,19 @@
 #ifndef ANDROID_HELPER_H
 #define ANDROID_HELPER_H
 
+#include <QString>
+#include <jni.h>
+
 /**
  * AndroidHelper is used to communicate with Java side on Android
  */
 class AndroidHelper
 {
 public:
+    static void initStatic();
+    static QString convertJStringToQString(JNIEnv *env, jstring str);
 
 private:
-
 };
 
 #endif //ANDROID_HELPER_H

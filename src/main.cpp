@@ -34,6 +34,8 @@
 #include <QtAndroid>
 #include <QAndroidService>
 
+#include "AndroidHelper.h"
+
 // WindowManager.LayoutParams
 #define FLAG_TRANSLUCENT_STATUS 0x04000000
 #define FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS 0x80000000
@@ -183,6 +185,8 @@ int appMain(int argc, char *argv[])
         window.callMethod<void>("setStatusBarColor", "(I)V", QColor("#2196f3").rgba());
         window.callMethod<void>("setNavigationBarColor", "(I)V", QColor("#2196f3").rgba());
     });
+
+    AndroidHelper::initStatic();
 #endif
 
     return app.exec();
