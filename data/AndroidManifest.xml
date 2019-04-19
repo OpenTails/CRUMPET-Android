@@ -76,8 +76,7 @@
                 </activity>
                 <receiver android:name=".PhonecallReceiver"
                           android:enabled="true"
-                          android:exported="true"
-                          android:directBootAware="true" >
+                          android:exported="true" >
                     <intent-filter>
                         <action android:name="android.intent.action.PHONE_STATE" />
                     </intent-filter>
