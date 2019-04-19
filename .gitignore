@@ -44,3 +44,6 @@ CMakeLists.txt.user*
 
 build/*
 export/*
+
+.vscode/ipch/*
+3rdparty/qtremoteobjects/
