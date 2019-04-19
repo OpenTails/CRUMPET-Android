@@ -74,7 +74,10 @@
                         <meta-data android:name="android.app.ministro_needed_msg" android:value="@string/ministro_needed_msg"/>
                         <meta-data android:name="android.app.fatal_error_msg" android:value="@string/fatal_error_msg"/>
                 </activity>
-                <receiver android:name=".PhonecallReceiver" >
+                <receiver android:name=".PhonecallReceiver"
+                          android:enabled="true"
+                          android:exported="true"
+                          android:directBootAware="true" >
                     <intent-filter>
                         <action android:name="android.intent.action.PHONE_STATE" />
                     </intent-filter>
