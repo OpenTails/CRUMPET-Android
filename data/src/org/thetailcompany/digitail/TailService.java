@@ -16,6 +16,7 @@ public class TailService extends QtService
 {
     private static WakeLock mWakeLock;
     private static final int ONGOING_NOTIFICATION_ID = 1;
+
     public void acquireWakeLock() {
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
@@ -57,6 +58,7 @@ public class TailService extends QtService
         }
         return false;
     }
+
     public static void startTailService(Context ctx) {
         if(!isMyServiceRunning(TailService.class, ctx)) {
             ctx.startService(new Intent(ctx, TailService.class));
