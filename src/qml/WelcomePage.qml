@@ -100,11 +100,18 @@ Kirigami.Page {
                 }
             }
             Button {
-                text: qsTr("Tail Moves");
+                text: qsTr("Phone Events");
                 Layout.column: commandLayout.columns === 2 ? 0 : 2;
                 Layout.row: commandLayout.columns === 2 ? 2 : 0;
-                Layout.columnSpan: 2;
-                Layout.rowSpan: 2;
+                Layout.fillWidth: true; Layout.fillHeight: true;
+                onClicked: {
+                    switchToPage(alarmList);
+                }
+            }
+            Button {
+                text: qsTr("Tail Moves");
+                Layout.column: commandLayout.columns === 2 ? 1 : 2;
+                Layout.row: commandLayout.columns === 2 ? 2 : 1;
                 Layout.fillWidth: true; Layout.fillHeight: true;
                 onClicked: {
                     switchToPage(tailMoves);
