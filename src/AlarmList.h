@@ -86,6 +86,7 @@ public:
     QVariantMap getAlarmVariantMap(const QString& alarmName);
 
     void setCommandQueue(CommandQueue* commandQueue);
+
 public slots:
 
 signals:
