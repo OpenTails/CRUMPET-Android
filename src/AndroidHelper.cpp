@@ -15,18 +15,36 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#ifdef Q_OS_ANDROID
-
 #include <QAndroidJniEnvironment>
 #include <QAndroidJniObject>
 #include <QDebug>
 
 #include "AndroidHelper.h"
+#include "AppSettings.h"
+#include "rep_SettingsProxy_replica.h"
+#include "PhoneEventList.h"
+
+#ifdef Q_OS_ANDROID
+
+AppSettings *AndroidHelper::m_appSettings = nullptr;
+QSharedPointer<SettingsProxyReplica> AndroidHelper::m_appSettingsReplica;
 
 void AndroidHelper::initStatic(AppSettings *appSettings)
 {
     m_appSettings = appSettings;
 
+    initStatic();
+}
+
+void AndroidHelper::initStatic(QSharedPointer<SettingsProxyReplica> appSettingsReplica)
+{
+    m_appSettingsReplica = appSettingsReplica;
+
+    initStatic();
+}
+
+void AndroidHelper::initStatic()
+{
     JNINativeMethod methods[] {
         {"phoneCallHandler", "(Ljava/lang/String;)V", reinterpret_cast<void*>(&AndroidHelper::phoneCallHandler)}
     };
@@ -37,6 +55,8 @@ void AndroidHelper::initStatic(AppSettings *appSettings)
 
     env->RegisterNatives(objectClass, methods, sizeof(methods) / sizeof(methods[0]));
     env->DeleteLocalRef(objectClass);
+
+    qDebug() << "Setup phoneCallHandler";
 }
 
 QString AndroidHelper::convertJStringToQString(JNIEnv *env, jstring str)
@@ -70,7 +90,17 @@ void AndroidHelper::phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeS
 
     const QString callType = convertJStringToQString(env, callTypeString);
 
-    m_appSettings->phoneEventListImpl()->handle(callType);
+    qDebug() << "phoneCallHandler:" << callType;
+
+    if (m_appSettings) {
+        qDebug() << "APP SETTINGS IS NOT NULL";
+        m_appSettings->handlePhoneEvent(callType);
+		    return;
+    } else if (m_appSettingsReplica) {
+        qDebug() << "APP SETTINGS REPLICA IS NOT NULL";
+        m_appSettingsReplica->handlePhoneEvent(callType);
+		    return;
+    }
 }
 
 #endif // Q_OS_ANDROID

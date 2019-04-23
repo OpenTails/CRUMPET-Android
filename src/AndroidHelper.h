@@ -18,10 +18,14 @@
 #ifndef ANDROID_HELPER_H
 #define ANDROID_HELPER_H
 
+#include <QString>
+#include <QSharedPointer>
+#include <jni.h>
+
 #ifdef Q_OS_ANDROID
 
-#include <QString>
-#include <jni.h>
+class AppSettings;
+class SettingsProxyReplica;
 
 /**
  * AndroidHelper is used to communicate with Java side on Android
@@ -30,11 +34,14 @@ class AndroidHelper
 {
 public:
     static void initStatic(AppSettings *appSettings);
+    static void initStatic(QSharedPointer<SettingsProxyReplica> appSettingsReplica);
     static QString convertJStringToQString(JNIEnv *env, jstring str);
 
 private:
     static AppSettings *m_appSettings;
+    static QSharedPointer<SettingsProxyReplica> m_appSettingsReplica;
 
+    static void initStatic();
     static void phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeString);
 };
 

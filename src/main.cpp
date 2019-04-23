@@ -186,6 +186,8 @@ int appMain(int argc, char *argv[])
         window.callMethod<void>("setStatusBarColor", "(I)V", QColor("#2196f3").rgba());
         window.callMethod<void>("setNavigationBarColor", "(I)V", QColor("#2196f3").rgba());
     });
+
+    AndroidHelper::initStatic(settingsReplica);
 #endif
 
     return app.exec();
@@ -261,6 +263,8 @@ int serviceMain(int argc, char *argv[])
         srcNode.enableRemoting(commandQueue);
 
 #ifdef Q_OS_ANDROID
+        //TODO: We should call it here, in service app, not in the main app,
+        // but at this case Java does not find phoneCallHandler() method
         AndroidHelper::initStatic(appSettings);
 #endif
     });

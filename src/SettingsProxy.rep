@@ -50,6 +50,7 @@ class SettingsProxy {
 
     PROP(QVariantList phoneEventList READONLY)
     PROP(QVariantMap activePhoneEvent READONLY)
+    SLOT(void handlePhoneEvent(const QString& callType))
     SLOT(void setActivePhoneEventName(const QString& phoneEventName))
     SLOT(void setPhoneEventCommands(const QStringList& commands))
     SLOT(void addPhoneEventCommand(int index, const QString& command))

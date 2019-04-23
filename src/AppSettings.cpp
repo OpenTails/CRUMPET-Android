@@ -492,6 +492,11 @@ QVariantMap AppSettings::activePhoneEvent() const
     return d->phoneEventList->getPhoneEventVariantMap(d->activePhoneEventName);
 }
 
+void AppSettings::handlePhoneEvent(const QString& callType)
+{
+    phoneEventListImpl()->handle(callType);
+}
+
 void AppSettings::setActivePhoneEventName(const QString &phoneEventName)
 {
     if (d->activePhoneEventName != phoneEventName) {

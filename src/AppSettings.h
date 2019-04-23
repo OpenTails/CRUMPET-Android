@@ -79,6 +79,7 @@ public:
     PhoneEventList* phoneEventListImpl() const;
     QVariantList phoneEventList() const override;
     QVariantMap activePhoneEvent() const override;
+    void handlePhoneEvent(const QString& callType) override;
     void setActivePhoneEventName(const QString& phoneEventName) override;
     void setPhoneEventCommands(const QStringList& commands) override;
     void addPhoneEventCommand(int index, const QString& command) override;
