@@ -98,7 +98,10 @@ void AndroidHelper::phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeS
 		    return;
     } else if (m_appSettingsReplica) {
         qDebug() << "APP SETTINGS REPLICA IS NOT NULL";
-        m_appSettingsReplica->handlePhoneEvent(callType);
+        QMetaObject::invokeMethod(m_appSettingsReplica.data(),
+          [callType] { m_appSettingsReplica->handlePhoneEvent(callType); },
+          Qt::QueuedConnection,
+          nullptr);
 		    return;
     }
 }
