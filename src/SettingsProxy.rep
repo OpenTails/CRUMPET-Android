@@ -47,4 +47,11 @@ class SettingsProxy {
     SLOT(void removeAlarmCommand(int index))
     SIGNAL(alarmExisted(const QString& name))
     SIGNAL(alarmNotExisted(const QString& name))
+
+    PROP(QVariantList phoneEventList READONLY)
+    PROP(QVariantMap activePhoneEvent READONLY)
+    SLOT(void setActivePhoneEventName(const QString& phoneEventName))
+    SLOT(void setPhoneEventCommands(const QStringList& commands))
+    SLOT(void addPhoneEventCommand(int index, const QString& command))
+    SLOT(void removePhoneEventCommand(int index))
 };

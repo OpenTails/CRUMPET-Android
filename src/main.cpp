@@ -49,6 +49,7 @@
 #include "BTDeviceModel.h"
 #include "FilterProxyModel.h"
 #include "AlarmList.h"
+#include "PhoneEventList.h"
 #include "AppSettings.h"
 #include "CommandQueue.h"
 #include "IdleMode.h"
@@ -185,8 +186,6 @@ int appMain(int argc, char *argv[])
         window.callMethod<void>("setStatusBarColor", "(I)V", QColor("#2196f3").rgba());
         window.callMethod<void>("setNavigationBarColor", "(I)V", QColor("#2196f3").rgba());
     });
-
-    AndroidHelper::initStatic();
 #endif
 
     return app.exec();
@@ -213,6 +212,7 @@ int serviceMain(int argc, char *argv[])
     qDebug() << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(appSettings, &app);
     appSettings->alarmListImpl()->setCommandQueue(qobject_cast<CommandQueue*>(btConnectionManager->commandQueue()));
+    appSettings->phoneEventListImpl()->setCommandQueue(qobject_cast<CommandQueue*>(btConnectionManager->commandQueue()));
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
 #ifdef Q_OS_ANDROID
@@ -259,6 +259,10 @@ int serviceMain(int argc, char *argv[])
         CommandQueue* commandQueue = qobject_cast<CommandQueue*>(btConnectionManager->commandQueue());
         qDebug() << "Replicating command queue";
         srcNode.enableRemoting(commandQueue);
+
+#ifdef Q_OS_ANDROID
+        AndroidHelper::initStatic(appSettings);
+#endif
     });
 
     return app.exec();

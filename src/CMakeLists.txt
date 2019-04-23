@@ -20,7 +20,8 @@ set(digitail_SRCS
     AlarmList.cpp
     PermissionsManager.cpp
     AndroidHelper.cpp
-    PhoneEventsHandler.cpp
+    PhoneEvent.cpp
+    PhoneEventList.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)

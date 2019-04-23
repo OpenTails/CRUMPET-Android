@@ -19,6 +19,8 @@
 #include "AppSettings.h"
 #include "AlarmList.h"
 #include "Alarm.h"
+#include "PhoneEventList.h"
+#include "PhoneEvent.h"
 
 #include <QSettings>
 
@@ -44,6 +46,9 @@ public:
 
     AlarmList* alarmList = nullptr;
     QString activeAlarmName;
+
+    PhoneEventList* phoneEventList = nullptr;
+    QString activePhoneEventName;
 };
 
 AppSettings::AppSettings(QObject* parent)
@@ -90,6 +95,12 @@ AppSettings::AppSettings(QObject* parent)
     connect(d->alarmList, &AlarmList::listChanged, this, &AppSettings::onAlarmListChanged);
     connect(d->alarmList, &AlarmList::alarmExisted, this, &AppSettings::alarmExisted);
     connect(d->alarmList, &AlarmList::alarmNotExisted, this, &AppSettings::alarmNotExisted);
+
+    d->phoneEventList = new PhoneEventList(this);
+
+    loadPhoneEventList();
+
+    connect(d->phoneEventList, &PhoneEventList::listChanged, this, &AppSettings::onPhoneEventListChanged);
 }
 
 AppSettings::~AppSettings()
@@ -414,8 +425,95 @@ void AppSettings::saveAlarmList()
     settings.endGroup();
 }
 
+void AppSettings::loadPhoneEventList()
+{
+    QSettings settings;
+
+    settings.beginGroup("PhoneEventList");
+    int size = settings.beginReadArray("PhoneEvents");
+
+    for (int i = 0; i < size; ++i) {
+        settings.setArrayIndex(i);
+
+        const QString name = settings.value("name").toString();
+        const QStringList commands = settings.value("commands").toStringList();
+
+        d->phoneEventList->setPhoneEventCommands(name, commands);
+    }
+
+    settings.endArray();
+    settings.endGroup();
+
+}
+
+void AppSettings::savePhoneEventList()
+{
+    QSettings settings;
+
+    settings.beginGroup("PhoneEventList");
+    settings.beginWriteArray("PhoneEvents", d->phoneEventList->size());
+
+    for (int i = 0; i < d->phoneEventList->size(); ++i) {
+        PhoneEvent *phoneEvent = d->phoneEventList->at(i);
+        settings.setArrayIndex(i);
+
+        settings.setValue("name", phoneEvent->name());
+        settings.setValue("commands", phoneEvent->commands());
+    }
+
+    settings.endArray();
+    settings.endGroup();
+}
+
 void AppSettings::onAlarmListChanged()
 {
     saveAlarmList();
     emit alarmListChanged(alarmList());
+}
+
+void AppSettings::onPhoneEventListChanged()
+{
+    savePhoneEventList();
+    emit phoneEventListChanged(phoneEventList());
+}
+
+PhoneEventList *AppSettings::phoneEventListImpl() const
+{
+    return d->phoneEventList;
+}
+
+QVariantList AppSettings::phoneEventList() const
+{
+    return d->phoneEventList->toVariantList();
+}
+
+QVariantMap AppSettings::activePhoneEvent() const
+{
+    return d->phoneEventList->getPhoneEventVariantMap(d->activePhoneEventName);
+}
+
+void AppSettings::setActivePhoneEventName(const QString &phoneEventName)
+{
+    if (d->activePhoneEventName != phoneEventName) {
+        d->activePhoneEventName = phoneEventName;
+        emit activePhoneEventChanged(activePhoneEvent());
+    }
+}
+
+void AppSettings::setPhoneEventCommands(const QStringList &commands)
+{
+    d->phoneEventList->setPhoneEventCommands(d->activePhoneEventName, commands);
+    emit activePhoneEventChanged(activePhoneEvent());
+}
+
+void AppSettings::addPhoneEventCommand(int index, const QString &command)
+{
+    d->phoneEventList->addPhoneEventCommand(d->activePhoneEventName, index, command);
+    emit activePhoneEventChanged(activePhoneEvent());
+}
+
+void AppSettings::removePhoneEventCommand(int index)
+{
+    d->phoneEventList->removePhoneEventCommand(d->activePhoneEventName, index);
+    emit activePhoneEventChanged(activePhoneEvent());
 }

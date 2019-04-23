@@ -18,6 +18,8 @@
 #ifndef ANDROID_HELPER_H
 #define ANDROID_HELPER_H
 
+#ifdef Q_OS_ANDROID
+
 #include <QString>
 #include <jni.h>
 
@@ -27,10 +29,14 @@
 class AndroidHelper
 {
 public:
-    static void initStatic();
+    static void initStatic(AppSettings *appSettings);
     static QString convertJStringToQString(JNIEnv *env, jstring str);
 
 private:
+    static AppSettings *m_appSettings;
+
+    static void phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeString);
 };
 
-#endif //ANDROID_HELPER_H
+#endif // Q_OS_ANDROID
+#endif // ANDROID_HELPER_H

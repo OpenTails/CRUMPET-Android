@@ -23,6 +23,7 @@
 #include "rep_SettingsProxy_source.h"
 
 class AlarmList;
+class PhoneEventList;
 
 class AppSettings : public SettingsProxySource
 {
@@ -74,6 +75,15 @@ public:
     void setAlarmCommands(const QStringList& commands) override;
     void addAlarmCommand(int index, const QString& command) override;
     void removeAlarmCommand(int index) override;
+
+    PhoneEventList* phoneEventListImpl() const;
+    QVariantList phoneEventList() const override;
+    QVariantMap activePhoneEvent() const override;
+    void setActivePhoneEventName(const QString& phoneEventName) override;
+    void setPhoneEventCommands(const QStringList& commands) override;
+    void addPhoneEventCommand(int index, const QString& command) override;
+    void removePhoneEventCommand(int index) override;
+
     virtual QVariantMap deviceNames() const override;
 
     /// We have access to this method only from the Service.
@@ -91,8 +101,12 @@ private:
     void loadAlarmList();
     void saveAlarmList();
 
+    void loadPhoneEventList();
+    void savePhoneEventList();
+
 private slots:
     void onAlarmListChanged();
+    void onPhoneEventListChanged();
 };
 
 #endif

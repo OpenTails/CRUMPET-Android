@@ -15,40 +15,20 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
+#ifdef Q_OS_ANDROID
+
 #include <QAndroidJniEnvironment>
 #include <QAndroidJniObject>
 #include <QDebug>
 
 #include "AndroidHelper.h"
 
-static void phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeString)
+void AndroidHelper::initStatic(AppSettings *appSettings)
 {
-    Q_UNUSED(obj)
+    m_appSettings = appSettings;
 
-    const QString callType = AndroidHelper::convertJStringToQString(env, callTypeString);
-
-    if (callType.compare("IncomingCallReceived", Qt::CaseInsensitive) == 0) {
-        return;
-    } else if (callType.compare("IncomingCallAnswered", Qt::CaseInsensitive) == 0) {
-        return;
-    } else if (callType.compare("IncomingCallEnded", Qt::CaseInsensitive) == 0) {
-        return;
-    } else if (callType.compare("OutgoingCallStarted", Qt::CaseInsensitive) == 0) {
-        return;
-    } else if (callType.compare("OutgoingCallEnded", Qt::CaseInsensitive) == 0) {
-        return;
-    } else if (callType.compare("MissedCall", Qt::CaseInsensitive) == 0) {
-        return;
-    } else {
-        qWarning() << "Unable to recognize the call type:" << callType;
-        return;
-    }
-}
-
-void AndroidHelper::initStatic()
-{
     JNINativeMethod methods[] {
-        {"phoneCallHandler", "(Ljava/lang/String;)V", reinterpret_cast<void*>(phoneCallHandler)}
+        {"phoneCallHandler", "(Ljava/lang/String;)V", reinterpret_cast<void*>(&AndroidHelper::phoneCallHandler)}
     };
 
     QAndroidJniObject javaClass("org/thetailcompany/digitail/TailService");
@@ -83,3 +63,14 @@ QString AndroidHelper::convertJStringToQString(JNIEnv *env, jstring str)
 
     return ret;
 }
+
+void AndroidHelper::phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeString)
+{
+    Q_UNUSED(obj)
+
+    const QString callType = convertJStringToQString(env, callTypeString);
+
+    m_appSettings->phoneEventListImpl()->handle(callType);
+}
+
+#endif // Q_OS_ANDROID
