@@ -105,7 +105,7 @@ Kirigami.Page {
                 Layout.row: commandLayout.columns === 2 ? 2 : 0;
                 Layout.fillWidth: true; Layout.fillHeight: true;
                 onClicked: {
-                    switchToPage(alarmList);
+                    switchToPage(phoneEventList);
                 }
             }
             Button {

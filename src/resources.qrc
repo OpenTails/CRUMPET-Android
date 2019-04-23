@@ -36,5 +36,7 @@
         <file>qml/SettingsCard.qml</file>
         <file>qml/DeveloperModePage.qml</file>
         <file>audio/Sparkle-sound-effect.mp3</file>
+        <file>qml/PhoneEventList.qml</file>
+        <file>qml/PhoneEventEditor.qml</file>
     </qresource>
 </RCC>

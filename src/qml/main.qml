@@ -190,6 +190,16 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: qsTr("Phone Events");
+                checked: pageStack.currentItem && (pageStack.currentItem.objectName === "phoneEventList" || pageStack.currentItem.objectName === "phoneEventEditor");
+                icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
+                onTriggered: {
+                    if(!checked) {
+                        switchToPage(phoneEventList);
+                    }
+                }
+            },
+            Kirigami.Action {
                 text: qsTr("Move Lists");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor");
                 icon.name: "view-media-playlist";
@@ -284,6 +294,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: alarmList;
         AlarmList {}
+    }
+    Component {
+        id: phoneEventList;
+        PhoneEventList {}
     }
     Component {
         id: moveLists;
