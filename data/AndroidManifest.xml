@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.0.8" package="org.thetailcompany.digitail" android:installLocation="auto" android:versionCode="14">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="0.0.9" package="org.thetailcompany.digitail" android:installLocation="auto" android:versionCode="15">
         <application android:name="org.qtproject.qt5.android.bindings.QtApplication"
                      android:label="DIGITAiL"
                      android:icon="@mipmap/ic_launcher">

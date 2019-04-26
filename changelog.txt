@@ -1,3 +1,14 @@
+0.0.9:
+- Add a short, first-run video splash screen
+- Info box on Casual Mode page
+- Permissions now requested non-blockingly
+- Clean up discovery initiation logic (to go with the above)
+- Prettify Settings page, add instructions link, and move Fake It function there
+- Allow forgetting all your set tail names
+- Glash
+- Remove a workaround for a backgrounding issue (which will make startup smoother)
+- Fix some crashes (for full details, see GitHub project history)
+
 0.0.8:
 - Equalise casual mode settings between welcome page and casual settings page
 - You can now give your tail a name (you will get asked on connecting to an unnamed one)
