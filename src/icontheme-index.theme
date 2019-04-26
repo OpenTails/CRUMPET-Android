@@ -25,9 +25,14 @@ DialogSizes=22
 
 KDE-Extensions=.svg
 
-Directories=actions/22,apps/22,devices/22,emblems/22,emotes/22,mimetypes/22,places/22,status/22,actions/symbolic,devices/symbolic,emblems/symbolic,places/symbolic,status/symbolic
+Directories=actions/22,actions/32,apps/22,devices/22,emblems/22,emotes/22,mimetypes/22,places/22,status/22,actions/symbolic,devices/symbolic,emblems/symbolic,places/symbolic,status/symbolic
 
 [actions/22]
+Size=22
+Context=Actions
+Type=Scalable
+
+[actions/32]
 Size=22
 Context=Actions
 Type=Scalable

@@ -29,7 +29,7 @@ Kirigami.ScrollablePage {
     actions {
         main: Kirigami.Action {
             text: qsTr("Add New Move List");
-            icon.name: ":/org/kde/kirigami/icons/list-add.svg";
+            icon.name: "list-add";
             onTriggered: {
                 namePicker.pickName();
             }
@@ -54,7 +54,7 @@ Kirigami.ScrollablePage {
             actions: [
                 Kirigami.Action {
                     text: qsTr("Edit Move List");
-                    icon.name: ":/org/kde/kirigami/icons/document-edit.svg";
+                    icon.name: "document-edit";
                     onTriggered: {
                         pageStack.push(editorPage, { moveListName: modelData });
                     }
@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Action { },
                 Kirigami.Action {
                     text: qsTr("Delete this Move List");
-                    icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
+                    icon.name: "list-remove";
 
                     onTriggered: {
                         showMessageBox(qsTr("Remove the Move List"),

@@ -29,7 +29,7 @@ Kirigami.Page {
     actions {
         main: Kirigami.Action {
             text: BTConnectionManager.isConnected ? "Disconnect" : "Connect";
-            icon.name: BTConnectionManager.isConnected ? ":/org/kde/kirigami/icons/network-disconnect.svg" : ":/org/kde/kirigami/icons/network-connect.svg";
+            icon.name: BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
             onTriggered: {
                 if(BTConnectionManager.isConnected) {
                     BTConnectionManager.disconnectDevice();
@@ -135,7 +135,7 @@ Kirigami.Page {
                         width: height;
                         onClicked: switchToPage(idleModePage);
                         Kirigami.Icon {
-                            source: ":/org/kde/kirigami/icons/settings-configure.svg";
+                            source: "settings-configure";
                             anchors.fill: parent;
                         }
                     }

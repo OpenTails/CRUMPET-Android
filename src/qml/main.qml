@@ -174,7 +174,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("DIGITAiL");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "welcomePage";
-                icon.name: ":/org/kde/kirigami/icons/go-home.svg";
+                icon.name: "go-home";
                 onTriggered: {
                     switchToPage(welcomePage);
                 }
@@ -182,7 +182,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Alarm");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor");
-                icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
+                icon.name: "view-media-playlist";
                 onTriggered: {
                     if(!checked) {
                         switchToPage(alarmList);
@@ -192,7 +192,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Move Lists");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor");
-                icon.name: ":/org/kde/kirigami/icons/view-media-playlist.svg";
+                icon.name: "view-media-playlist";
                 onTriggered: {
                     if(!checked) {
                         switchToPage(moveLists);
@@ -218,7 +218,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Casual Mode Settings");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
-                icon.name: ":/org/kde/kirigami/icons/randomize.svg";
+                icon.name: "randomize";
                 visible: AppSettings.idleMode;
                 onTriggered: {
                     switchToPage(idleModePage);
@@ -227,7 +227,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Developer Mode");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "developerModePage";
-                icon.name: ":/org/kde/kirigami/icons/code-context.svg";
+                icon.name: "code-context";
                 visible: AppSettings.developerMode;
 
                 onTriggered: {
@@ -241,7 +241,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Settings");
                 checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "settingsPage"): "";
-                icon.name: ":/org/kde/kirigami/icons/settings-configure.svg";
+                icon.name: "settings-configure";
 
                 onTriggered: {
                     if(!checked) {
@@ -252,7 +252,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("About");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "aboutPage";
-                icon.name: ":/org/kde/kirigami/icons/help-about.svg";
+                icon.name: "help-about";
                 onTriggered: {
                     switchToPage(aboutPage);
                 }

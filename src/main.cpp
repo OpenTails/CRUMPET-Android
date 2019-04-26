@@ -28,6 +28,7 @@
 #include <QUrl>
 #include <QColor>
 #include <QTimer>
+#include <QIcon>
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
@@ -84,6 +85,8 @@ int appMain(int argc, char *argv[])
     QQmlApplicationEngine engine;
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
     KirigamiPlugin::getInstance().registerTypes();
+    QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
+    QIcon::setThemeName(QStringLiteral("breeze-internal"));
 
     QFile file(QLatin1String(":/gplv3-license-text"));
     if(file.open(QIODevice::ReadOnly)) {

@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
     actions {
         main: Kirigami.Action {
             text: qsTr("Add New Alarm");
-            icon.name: ":/org/kde/kirigami/icons/list-add.svg";
+            icon.name: "list-add";
             onTriggered: {
                 namePicker.pickName();
             }
@@ -78,7 +78,7 @@ Kirigami.ScrollablePage {
             actions: [
                 Kirigami.Action {
                     text: qsTr("Edit Alarm Commands");
-                    icon.name: ":/org/kde/kirigami/icons/document-edit.svg";
+                    icon.name: "document-edit";
 
                     onTriggered: {
                         pageStack.push(editorPage, { alarm: modelData });
@@ -87,7 +87,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Action {
                     text: qsTr("Set Time To Alarm");
-                    icon.name: ":/org/kde/kirigami/icons/accept_time_event.svg";
+                    icon.name: "accept_time_event";
 
                     onTriggered: {
                         AppSettings.setActiveAlarmName(modelData["name"]);
@@ -109,7 +109,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Action {
                     text: qsTr("Delete this Alarm");
-                    icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
+                    icon.name: "list-remove";
 
                     onTriggered: {
                         showMessageBox(qsTr("Remove the Alarm"),

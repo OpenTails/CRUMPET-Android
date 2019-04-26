@@ -28,7 +28,7 @@ Kirigami.ScrollablePage {
     Component {
         id: idleCategoryDelegate;
         Kirigami.BasicListItem {
-            icon: AppSettings.idleCategories.indexOf(model.category) >= 0 ? ":/org/kde/kirigami/icons/checkbox-checked.svg" : ":/org/kde/kirigami/icons/checkbox-unchecked.svg";
+            icon: AppSettings.idleCategories.indexOf(model.category) >= 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
             label: model.name;
             onClicked: {
                 var idx = AppSettings.idleCategories.indexOf(model.category);

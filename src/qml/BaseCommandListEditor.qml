@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
     actions {
         main: Kirigami.Action {
             text: qsTr("Add Move To List");
-            icon.name: ":/org/kde/kirigami/icons/list-add.svg";
+            icon.name: "list-add";
             onTriggered: {
                 pickACommand.insertAt = commandListView.count;
                 pickACommand.pickCommand();
@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
 
         right: Kirigami.Action {
             text: qsTr("Add Pause To List");
-            icon.name: ":/org/kde/kirigami/icons/accept_time_event.svg";
+            icon.name: "accept_time_event";
             onTriggered: {
                 commandPausePicker.insertAt = commandListView.count;
                 commandPausePicker.pickDuration();
@@ -91,7 +91,7 @@ Kirigami.ScrollablePage {
             actions: [
                 Kirigami.Action {
                     text: qsTr("Add after");
-                    icon.name: ":/org/kde/kirigami/icons/list-add.svg";
+                    icon.name: "list-add";
 
                     onTriggered: {
                         pickACommand.insertAt = index + 1;
@@ -101,7 +101,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Action {
                     text: qsTr("Add pause after");
-                    icon.name: ":/org/kde/kirigami/icons/accept_time_event.svg";
+                    icon.name: "accept_time_event";
 
                     onTriggered: {
                         commandPausePicker.insertAt = index + 1;
@@ -113,7 +113,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Action {
                     text: qsTr("Remove from list");
-                    icon.name: ":/org/kde/kirigami/icons/list-remove.svg";
+                    icon.name: "list-remove";
 
                     onTriggered: {
                         control.removeCommand(index, command["command"]);

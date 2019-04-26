@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
     actions {
         main: Kirigami.Action {
             text: qsTr("Stop Lights");
-            icon.name: ":/org/kde/kirigami/icons/dialog-cancel.svg";
+            icon.name: "dialog-cancel";
             onTriggered: {
                 BTConnectionManager.sendMessage("LEDOFF");
             }

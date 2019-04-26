@@ -1,30 +1,44 @@
 <RCC>
-    <qresource prefix="/org/kde/kirigami/">
-        <file alias="icons/checkbox-checked.svg">../3rdparty/breeze-icons/icons/emblems/16/installed.svg</file>
-        <file alias="icons/checkbox-unchecked.svg">../3rdparty/breeze-icons/icons/emblems/16/noninstalled.svg</file>
-        <file alias="icons/dialog-cancel.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-cancel.svg</file>
-        <file alias="icons/help-about.svg">../3rdparty/breeze-icons/icons/actions/22/help-about.svg</file>
-        <file alias="icons/go-home.svg">../3rdparty/breeze-icons/icons/actions/22/go-home.svg</file>
-        <file alias="icons/user.svg">../3rdparty/breeze-icons/icons/actions/22/user.svg</file>
-        <file alias="icons/randomize.svg">../3rdparty/breeze-icons/icons/actions/22/randomize.svg</file>
-        <file alias="icons/application-menu.svg">../3rdparty/breeze-icons/icons/actions/32/application-menu.svg</file>
+    <qresource prefix="/icons/breeze-internal">
+        <file alias="actions/22/accept_time_event.svg">../3rdparty/breeze-icons/icons/actions/22/accept_time_event.svg</file>
+        <file alias="actions/22/arrow-down.svg">../3rdparty/breeze-icons/icons/actions/22/arrow-down.svg</file>
+        <file alias="actions/22/code-context.svg">../3rdparty/breeze-icons/icons/actions/22/code-context.svg</file>
+        <file alias="actions/22/dialog-cancel.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-cancel.svg</file>
+        <file alias="actions/22/dialog-close.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-close.svg</file>
+        <file alias="actions/22/document-edit.svg">../3rdparty/breeze-icons/icons/actions/22/document-edit.svg</file>
+        <file alias="actions/22/go-home.svg">../3rdparty/breeze-icons/icons/actions/22/go-home.svg</file>
+        <file alias="actions/22/go-next.svg">../3rdparty/breeze-icons/icons/actions/22/go-next.svg</file>
+        <file alias="actions/22/go-previous.svg">../3rdparty/breeze-icons/icons/actions/22/go-previous.svg</file>
+        <file alias="actions/22/go-up.svg">../3rdparty/breeze-icons/icons/actions/22/go-up.svg</file>
+        <file alias="actions/22/handle-sort.svg">../3rdparty/breeze-icons/icons/actions/22/handle-sort.svg</file>
+        <file alias="actions/22/help-about.svg">../3rdparty/breeze-icons/icons/actions/22/help-about.svg</file>
+        <file alias="actions/22/list-add.svg">../3rdparty/breeze-icons/icons/actions/22/list-add.svg</file>
+        <file alias="actions/22/list-remove.svg">../3rdparty/breeze-icons/icons/actions/22/list-remove.svg</file>
+        <file alias="actions/22/network-connect.svg">../3rdparty/breeze-icons/icons/actions/22/network-connect.svg</file>
+        <file alias="actions/22/network-disconnect.svg">../3rdparty/breeze-icons/icons/actions/22/network-disconnect.svg</file>
+        <file alias="actions/22/overflow-menu.svg">../3rdparty/breeze-icons/icons/actions/22/overflow-menu.svg</file>
+        <file alias="actions/22/overflow-menu-left.svg">../3rdparty/breeze-icons/icons/actions/22/overflow-menu-left.svg</file>
+        <file alias="actions/22/overflow-menu-right.svg">../3rdparty/breeze-icons/icons/actions/22/overflow-menu-right.svg</file>
+        <file alias="actions/22/randomize.svg">../3rdparty/breeze-icons/icons/actions/22/randomize.svg</file>
+        <file alias="actions/22/user.svg">../3rdparty/breeze-icons/icons/actions/22/user.svg</file>
+        <file alias="actions/22/view-left-close.svg">../3rdparty/breeze-icons/icons/actions/22/view-left-close.svg</file>
+        <file alias="actions/22/view-left-new.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-new.svg</file>
+        <file alias="actions/22/view-media-playlist.svg">../3rdparty/breeze-icons/icons/actions/22/view-media-playlist.svg</file>
+        <file alias="actions/22/view-right-close.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-close.svg</file>
+        <file alias="actions/22/view-right-new.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-new.svg</file>
+        <file alias="actions/22/window-close.svg">../3rdparty/breeze-icons/icons/actions/22/window-close.svg</file>
+        <file alias="actions/32/application-menu.svg">../3rdparty/breeze-icons/icons/actions/32/application-menu.svg</file>
+        <file alias="actions/32/settings-configure.svg">../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
+        <file alias="emblems/16/checkbox-checked.svg">../3rdparty/breeze-icons/icons/emblems/16/installed.svg</file>
+        <file alias="emblems/16/checkbox-unchecked.svg">../3rdparty/breeze-icons/icons/emblems/16/noninstalled.svg</file>
+        <file alias="index.theme">icontheme-index.theme</file>
+    </qresource>
+<!--    <qresource prefix="/org/kde/kirigami/">
         <file alias="icons/document-decrypt.svg">../3rdparty/breeze-icons/icons/actions/32/document-decrypt.svg</file>
-        <file alias="icons/network-connect.svg">../3rdparty/breeze-icons/icons/actions/22/network-connect.svg</file>
-        <file alias="icons/network-disconnect.svg">../3rdparty/breeze-icons/icons/actions/22/network-disconnect.svg</file>
-        <file alias="icons/go-next.svg">../3rdparty/breeze-icons/icons/actions/22/go-next.svg</file>
-        <file alias="icons/go-previous.svg">../3rdparty/breeze-icons/icons/actions/22/go-previous.svg</file>
         <file alias="icons/go-up.svg">../3rdparty/breeze-icons/icons/actions/22/go-up.svg</file>
         <file alias="icons/handle-left.svg">../3rdparty/breeze-icons/icons/actions/22/handle-left.svg</file>
         <file alias="icons/handle-right.svg">../3rdparty/breeze-icons/icons/actions/22/handle-right.svg</file>
         <file alias="icons/view-list-icons.svg">../3rdparty/breeze-icons/icons/actions/32/view-list-icons.svg</file>
         <file alias="icons/applications-graphics.svg">../3rdparty/breeze-icons/icons/categories/32/applications-graphics.svg</file>
-        <file alias="icons/settings-configure.svg">../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
-        <file alias="icons/view-media-playlist.svg">../3rdparty/breeze-icons/icons/actions/22/view-media-playlist.svg</file>
-        <file alias="icons/list-add.svg">../3rdparty/breeze-icons/icons/actions/22/list-add.svg</file>
-        <file alias="icons/list-remove.svg">../3rdparty/breeze-icons/icons/actions/22/list-remove.svg</file>
-        <file alias="icons/document-edit.svg">../3rdparty/breeze-icons/icons/actions/22/document-edit.svg</file>
-        <file alias="icons/accept_time_event.svg">../3rdparty/breeze-icons/icons/actions/22/accept_time_event.svg</file>
-        <file alias="icons/autocorrection.svg">../3rdparty/breeze-icons/icons/actions/32/autocorrection.svg</file>
-        <file alias="icons/code-context.svg">../3rdparty/breeze-icons/icons/actions/22/code-context.svg</file>
-    </qresource>
+    </qresource>-->
 </RCC>

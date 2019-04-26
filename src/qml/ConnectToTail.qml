@@ -29,7 +29,7 @@ Kirigami.OverlaySheet {
     header: RowLayout {
         implicitWidth: Kirigami.Units.gridUnit * 30
         Kirigami.Icon {
-            source: ":/org/kde/kirigami/icons/network-connect.svg"
+            source: "network-connect"
             width: Kirigami.Units.iconSizes.large
             height: width
         }
