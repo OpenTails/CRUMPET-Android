@@ -17,6 +17,5 @@ public class TailActivity extends org.qtproject.qt5.android.bindings.QtActivity
     {
         super.onPause();
         Log.v(TAG, "onPause - entered");
-        finish();
     }
 }
