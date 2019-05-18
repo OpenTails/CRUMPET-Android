@@ -219,7 +219,6 @@ Kirigami.ApplicationWindow {
                 text: qsTr("Casual Mode Settings");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
                 icon.name: "randomize";
-                visible: AppSettings.idleMode;
                 onTriggered: {
                     switchToPage(idleModePage);
                 }

@@ -124,8 +124,6 @@ Kirigami.Page {
                     checked: AppSettings.idleMode;
                     onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
                     RoundButton {
-                        opacity: parent.checked ? 1 : 0;
-                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                         anchors {
                             right: parent.left;
                             rightMargin: Kirigami.Units.smallSpacing;
