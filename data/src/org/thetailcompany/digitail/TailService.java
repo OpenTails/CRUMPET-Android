@@ -10,10 +10,13 @@ import android.app.ActivityManager.RunningServiceInfo;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.util.Log;
 import org.qtproject.qt5.android.bindings.QtService;
 
 public class TailService extends QtService
 {
+    private static final String TAG = "TailService";
+
     private static WakeLock mWakeLock;
     private static final int ONGOING_NOTIFICATION_ID = 1;
 
@@ -66,6 +69,7 @@ public class TailService extends QtService
             ctx.startService(new Intent(ctx, TailService.class));
         }
     }
+
     public static void stopTailService(Context ctx) {
         ctx.stopService(new Intent(ctx, TailService.class));
     }
