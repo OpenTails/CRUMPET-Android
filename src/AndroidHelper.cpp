@@ -17,7 +17,9 @@
 
 #include <QAndroidJniEnvironment>
 #include <QAndroidJniObject>
+#include <QCoreApplication>
 #include <QDebug>
+#include <jni.h>
 
 #include "AndroidHelper.h"
 #include "AppSettings.h"
@@ -29,34 +31,31 @@
 AppSettings *AndroidHelper::m_appSettings = nullptr;
 QSharedPointer<SettingsProxyReplica> AndroidHelper::m_appSettingsReplica;
 
+extern "C"
+{
+
+JNIEXPORT void JNICALL Java_org_thetailcompany_digitail_TailService_phoneCallHandler__Ljava_lang_String_2(JNIEnv *env, jobject obj, jstring callTypeString)
+{
+    Q_UNUSED(obj)
+
+    const QString callType = AndroidHelper::convertJStringToQString(env, callTypeString);
+
+    QMetaObject::invokeMethod(qApp,
+        [callType] { AndroidHelper::handlePhoneCall(callType); },
+        Qt::QueuedConnection,
+        nullptr);
+}
+
+} // extern "C"
+
 void AndroidHelper::initStatic(AppSettings *appSettings)
 {
     m_appSettings = appSettings;
-
-    initStatic();
 }
 
 void AndroidHelper::initStatic(QSharedPointer<SettingsProxyReplica> appSettingsReplica)
 {
     m_appSettingsReplica = appSettingsReplica;
-
-    initStatic();
-}
-
-void AndroidHelper::initStatic()
-{
-    JNINativeMethod methods[] {
-        {"phoneCallHandler", "(Ljava/lang/String;)V", reinterpret_cast<void*>(&AndroidHelper::phoneCallHandler)}
-    };
-
-    QAndroidJniObject javaClass("org/thetailcompany/digitail/TailService");
-    QAndroidJniEnvironment env;
-    jclass objectClass = env->GetObjectClass(javaClass.object<jobject>());
-
-    env->RegisterNatives(objectClass, methods, sizeof(methods) / sizeof(methods[0]));
-    env->DeleteLocalRef(objectClass);
-
-    qDebug() << "Setup phoneCallHandler";
 }
 
 QString AndroidHelper::convertJStringToQString(JNIEnv *env, jstring str)
@@ -84,13 +83,9 @@ QString AndroidHelper::convertJStringToQString(JNIEnv *env, jstring str)
     return ret;
 }
 
-void AndroidHelper::phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeString)
+void AndroidHelper::handlePhoneCall(const QString &callType)
 {
-    Q_UNUSED(obj)
-
-    const QString callType = convertJStringToQString(env, callTypeString);
-
-    qDebug() << "phoneCallHandler:" << callType;
+    qDebug() << "Handle phone call event:" << callType;
 
     if (m_appSettings) {
         qDebug() << "APP SETTINGS IS NOT NULL";
@@ -98,10 +93,7 @@ void AndroidHelper::phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeS
 		    return;
     } else if (m_appSettingsReplica) {
         qDebug() << "APP SETTINGS REPLICA IS NOT NULL";
-        QMetaObject::invokeMethod(m_appSettingsReplica.data(),
-          [callType] { m_appSettingsReplica->handlePhoneEvent(callType); },
-          Qt::QueuedConnection,
-          nullptr);
+        m_appSettingsReplica->handlePhoneEvent(callType);
 		    return;
     }
 }

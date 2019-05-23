@@ -15,6 +15,10 @@ import org.qtproject.qt5.android.bindings.QtService;
 
 public class TailService extends QtService
 {
+    static
+    {
+      System.loadLibrary("digitail");
+    }
     private static final String TAG = "TailService";
 
     private static WakeLock mWakeLock;
