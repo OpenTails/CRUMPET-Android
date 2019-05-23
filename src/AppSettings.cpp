@@ -494,6 +494,7 @@ QVariantMap AppSettings::activePhoneEvent() const
 
 void AppSettings::handlePhoneEvent(const QString& callType)
 {
+    qDebug() << "AppSettings::HANDLE PHONE EVENT:" << callType;
     phoneEventListImpl()->handle(callType);
 }
 

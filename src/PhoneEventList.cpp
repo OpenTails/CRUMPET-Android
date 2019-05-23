@@ -116,6 +116,7 @@ void PhoneEventList::handle(const PhoneEvent *event)
         return;
     }
 
+    qDebug() << "HANDLE:" << event->name();
     d->commandQueue->clear();
     d->commandQueue->pushCommands(event->commands());
 }
@@ -134,6 +135,7 @@ void PhoneEventList::handle(PhoneEventList::Event event)
 
 void PhoneEventList::handle(const QString &eventName)
 {
+    qDebug() << "PhoneEventList::handle():" << eventName;
     PhoneEvent *event = phoneEvent(eventName);
 
     if (event) {

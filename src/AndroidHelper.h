@@ -20,6 +20,7 @@
 
 #include <QString>
 #include <QSharedPointer>
+#include <jni.h>
 
 #ifdef Q_OS_ANDROID
 
@@ -35,11 +36,14 @@ public:
     static void initStatic(AppSettings *appSettings);
     static void initStatic(QSharedPointer<SettingsProxyReplica> appSettingsReplica);
     static QString convertJStringToQString(JNIEnv *env, jstring str);
-    static void handlePhoneCall(const QString &callType);
+    // static void handlePhoneCall(const QString &callType);
 
-private:
+//private:
     static AppSettings *m_appSettings;
     static QSharedPointer<SettingsProxyReplica> m_appSettingsReplica;
+
+    static void initStatic();
+    static void phoneCallHandler(JNIEnv *env, jobject obj, jstring callTypeString);
 };
 
 #endif // Q_OS_ANDROID

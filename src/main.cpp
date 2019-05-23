@@ -187,9 +187,10 @@ int appMain(int argc, char *argv[])
         window.callMethod<void>("setNavigationBarColor", "(I)V", QColor("#2196f3").rgba());
     });
 
-    AndroidHelper::initStatic(settingsReplica);
+    // AndroidHelper::initStatic(settingsReplica);
 #endif
 
+    qDebug() << QString("MAIN APP: 0x%1").arg((qlonglong)qApp, 0, 16);
     return app.exec();
 }
 
@@ -268,6 +269,8 @@ int serviceMain(int argc, char *argv[])
         AndroidHelper::initStatic(appSettings);
 #endif
     });
+
+    qDebug() << QString("SERVICE APP: 0x%1").arg((qlonglong)qApp, 0, 16);
 
     return app.exec();
 }

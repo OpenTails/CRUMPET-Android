@@ -15,10 +15,10 @@ import org.qtproject.qt5.android.bindings.QtService;
 
 public class TailService extends QtService
 {
-    static
-    {
-      System.loadLibrary("digitail");
-    }
+    // static
+    // {
+    //   System.loadLibrary("digitail");
+    // }
     private static final String TAG = "TailService";
 
     private static WakeLock mWakeLock;
@@ -61,25 +61,34 @@ public class TailService extends QtService
     private static boolean isMyServiceRunning(Class<?> serviceClass, Context ctx) {
         ActivityManager manager = (ActivityManager) ctx.getSystemService(Context.ACTIVITY_SERVICE);
         for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            Log.v(TAG, "isMyServiceRunning: MY NAME: " + serviceClass.getName() + " SERVICE NAME: " + service.service.getClassName());
             if (serviceClass.getName().equals(service.service.getClassName())) {
+                Log.v(TAG, "isMyServiceRunning: TRUE");
                 return true;
             }
         }
+        Log.v(TAG, "isMyServiceRunning: FALSE");
         return false;
     }
 
     public static void startTailService(Context ctx) {
         if(!isMyServiceRunning(TailService.class, ctx)) {
             ctx.startService(new Intent(ctx, TailService.class));
+            Log.v(TAG, "startTailService: STARTED");
         }
     }
 
     public static void stopTailService(Context ctx) {
         ctx.stopService(new Intent(ctx, TailService.class));
+        Log.v(TAG, "startTailService: STOPED");
     }
 
     public static void onPhoneCall(String callType) {
-        phoneCallHandler(callType);
+        Log.v(TAG, "onPhoneCall: BEFORE");
+        if (callType == "MissedCall") {
+            phoneCallHandler(callType);
+        }
+        Log.v(TAG, "onPhoneCall: AFTER");
     }
 
     @Override
