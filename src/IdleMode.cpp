@@ -88,6 +88,13 @@ void IdleMode::setConnectionManager(BTConnectionManager* connectionManager)
     }
     d->connectionManager = connectionManager;
     connect(d->connectionManager, &BTConnectionManager::commandQueueCountChanged, this, [this](){ d->push(); });
-    connect(d->connectionManager, &BTConnectionManager::isConnectedChanged, this, [this](){ d->push(); });
+    connect(d->connectionManager, &BTConnectionManager::isConnectedChanged, this, [this](){
+        // By the time this gets called we /should/ have an appSettings, but let's not add crashes, because
+        // they're just so ugly...
+        if (d->connectionManager->isConnected() && d->appSettings) {
+            d->appSettings->setIdleMode(false);
+        }
+        d->push();
+    });
     connect(qobject_cast<TailCommandModel*>(d->connectionManager->commandModel()), &TailCommandModel::tailVersionChanged, this, [this](){ d->push(); });
 }
