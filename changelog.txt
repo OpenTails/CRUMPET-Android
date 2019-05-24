@@ -1,3 +1,10 @@
+0.0.10:
+- Casual Mode turned off when connecting to a tail
+- Clear queue when disabling Casual Mode (to avoid misfires)
+- Casual Mode settings now always available, not only when enabled
+- Proper icon theme in use, fixing some missing icons in the process
+- Kirigami updated (so UI is smoother)
+
 0.0.9:
 - Add a short, first-run video splash screen
 - Info box on Casual Mode page
