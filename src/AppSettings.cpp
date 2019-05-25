@@ -21,6 +21,7 @@
 #include "Alarm.h"
 
 #include <QSettings>
+#include <QTimer>
 
 class AppSettings::Private
 {
@@ -137,11 +138,26 @@ bool AppSettings::idleMode() const
 void AppSettings::setIdleMode(bool newValue)
 {
     qDebug() << Q_FUNC_INFO << newValue;
+    static QTimer timer;
+
     if(newValue != d->idleMode) {
+        timer.stop();
+
         d->idleMode = newValue;
         QSettings settings;
         settings.setValue("idleMode", d->idleMode);
         emit idleModeChanged(newValue);
+
+        if (d->idleMode) {
+            timer.setSingleShot(true);
+            timer.start(4 * 60 * 60 * 1000);
+
+            connect(&timer, &QTimer::timeout, this, [this] {
+                qDebug() << "The Idle Mode timeous is reached";
+                setIdleMode(false);
+                emit idleModeTimeout();
+            });
+        }
     }
 }
 

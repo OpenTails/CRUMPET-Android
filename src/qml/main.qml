@@ -130,6 +130,10 @@ Kirigami.ApplicationWindow {
                 showMessageBox(qsTr("Developer mode"), qsTr("Developer mode is disabled"));
             }
         }
+
+        onIdleModeTimeout: {
+            showMessageBox(qsTr("Casual Mode is Off"), qsTr("Maybe its time for Tail rest... Let your tail have a power-nap."));
+        }
     }
 
     Component.onCompleted: {
