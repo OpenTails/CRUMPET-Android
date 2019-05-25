@@ -48,7 +48,7 @@ Item {
 
                 border {
                     width: 1;
-                    color: "black";
+                    color: BTConnectionManager.batteryLevel <= 1 ? "red" : "black";
                 }
 
                 anchors.verticalCenter: parent.verticalCenter;
@@ -58,7 +58,7 @@ Item {
                     height: parent.height - Kirigami.Units.smallSpacing * 2;
                     width: height;
                     radius: height / 2;
-                    color: "black";
+                    color: BTConnectionManager.batteryLevel <= 1 ? "red" : "black";
                     anchors.centerIn: parent;
                 }
             }
