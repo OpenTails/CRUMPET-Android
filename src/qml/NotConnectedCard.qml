@@ -45,6 +45,7 @@ Kirigami.Card {
         }
         level: 2
         padding: Kirigami.Units.smallSpacing;
+        horizontalAlignment: Text.AlignHCenter;
         BusyIndicator {
             anchors {
                 top: parent.top;
@@ -60,6 +61,7 @@ Kirigami.Card {
     contentItem: Label {
         padding: Kirigami.Units.smallSpacing;
         wrapMode: Text.Wrap;
+        horizontalAlignment: Text.AlignHCenter;
         text: {
             if (BTConnectionManager.discoveryRunning === true) {
                 if (BTConnectionManager.deviceCount === 0) {
