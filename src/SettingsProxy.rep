@@ -47,4 +47,5 @@ class SettingsProxy {
     SLOT(void removeAlarmCommand(int index))
     SIGNAL(alarmExisted(const QString& name))
     SIGNAL(alarmNotExisted(const QString& name))
+    SIGNAL(idleModeTimeout())
 };
