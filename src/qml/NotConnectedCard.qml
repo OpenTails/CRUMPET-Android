@@ -23,6 +23,7 @@ import org.kde.kirigami 2.5 as Kirigami
 
 Kirigami.Card {
     id: root;
+    visible: opacity > 0
     opacity: BTConnectionManager.isConnected ? 0 : 1;
     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
     width: parent.width;
