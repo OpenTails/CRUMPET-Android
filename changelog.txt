@@ -1,3 +1,10 @@
+0.0.11:
+- Battery level indicator is now red when low
+- Idle mode turns off automatically after 4 hours (and warns you to please give your tail a bit of a rest)
+- A bit of graphical polish in the not connected card
+- Make the front page less tall once connected (no blank space at the top)
+- Glash regraded for improved multiplexing AI
+
 0.0.10:
 - Casual Mode turned off when connecting to a tail
 - Clear queue when disabling Casual Mode (to avoid misfires)
