@@ -27,7 +27,7 @@ Kirigami.AboutPage {
     aboutData: {
         "displayName" : "DIGITAiL App",
         "productName" : "digitail/controller",
-        "programLogo" : ":/icon-round.png",
+        "programLogo" : "qrc:/icon-round.png",
         "componentName" : "digitail",
         "shortDescription" : "DIGITAiL designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
