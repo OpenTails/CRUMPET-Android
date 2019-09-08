@@ -439,6 +439,5 @@ void AppSettings::onAlarmListChanged()
 
 void AppSettings::shutDownService()
 {
-    qDebug() << "Shutting down service...";
     qApp->quit();
 }
