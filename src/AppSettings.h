@@ -84,6 +84,7 @@ public:
     /// See BTConnectionManager::clearDeviceNames() method
     void clearDeviceNames();
 
+    void shutDownService() override;
 private:
     class Private;
     Private* d;

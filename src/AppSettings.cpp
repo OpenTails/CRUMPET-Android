@@ -20,6 +20,7 @@
 #include "AlarmList.h"
 #include "Alarm.h"
 
+#include <QCoreApplication>
 #include <QSettings>
 #include <QTimer>
 
@@ -434,4 +435,10 @@ void AppSettings::onAlarmListChanged()
 {
     saveAlarmList();
     emit alarmListChanged(alarmList());
+}
+
+void AppSettings::shutDownService()
+{
+    qDebug() << "Shutting down service...";
+    qApp->quit();
 }

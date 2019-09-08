@@ -48,4 +48,6 @@ class SettingsProxy {
     SIGNAL(alarmExisted(const QString& name))
     SIGNAL(alarmNotExisted(const QString& name))
     SIGNAL(idleModeTimeout())
+
+    SLOT(void shutDownService())
 };
