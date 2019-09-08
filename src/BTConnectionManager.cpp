@@ -334,14 +334,16 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
             d->batteryTimer.start();
             sendMessage("BATT");
         }
-        else if (d->currentCall == QLatin1String("BATT")) {
-            // Return value is BAT and a number, from 0 to 4
-            d->batteryLevel = newValue.right(1).toInt();
-            emit batteryLevelChanged(d->batteryLevel);
-        }
         else {
-            QStringList stateResult = QString(newValue).split(' ');
-            if(stateResult.count() == 2) {
+            QString theValue(newValue);
+            QStringList stateResult = theValue.split(' ');
+            // Return value for BATT calls is BAT and a number, from 0 to 4,
+            // unfortunately without a space, so we have to specialcase it a bit
+            if(theValue.startsWith(QLatin1String("BAT"))) {
+                d->batteryLevel = theValue.right(1).toInt();
+                emit batteryLevelChanged(d->batteryLevel);
+            }
+            else if(stateResult.count() == 2) {
                 if(stateResult[0] == QLatin1String("BEGIN")) {
                     d->commandModel->setRunning(stateResult[1], true);
                 }
