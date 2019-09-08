@@ -98,9 +98,15 @@ int appMain(int argc, char *argv[])
     qInfo() << "Connecting to service...";
     QRemoteObjectNode* repNode = new QRemoteObjectNode(&app);
     repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
-    QObject::connect(&app, &QCoreApplication::aboutToQuit, [repNode](){
-        delete repNode;
-    });
+    if (repNode->acquire<SettingsProxyReplica>()->state() != QRemoteObjectReplica::Valid) {
+        qInfo() << "No service exists yet, so let's start it...";
+        QProcess* service = new QProcess(&app);
+        service->startDetached(app.applicationFilePath(), QStringList() << QStringLiteral("-service"));
+        repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
+        if (repNode->acquire<SettingsProxyReplica>()->state() != QRemoteObjectReplica::Valid) {
+            qWarning() << "Failed to connect to the newly launched service, this is clearly not awesome...";
+        }
+    }
 
     qInfo() << "Connected, attempting to load replicas...";
     QSharedPointer<SettingsProxyReplica> settingsReplica(repNode->acquire<SettingsProxyReplica>());
@@ -148,17 +154,23 @@ int appMain(int argc, char *argv[])
     });
     permissionsManager->requestPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
 
-    //HACK to color the system bar on Android, use qtandroidextras and call the appropriate Java methods 
-#ifdef Q_OS_ANDROID
-    QObject::connect(&app, &QCoreApplication::aboutToQuit, [&btConnectionManagerReplica](){
+    QObject::connect(engine.rootObjects().first(), &QObject::destroyed, [&btConnectionManagerReplica,&settingsReplica,repNode](){
         if(!btConnectionManagerReplica->isConnected()) {
             // Not connected, so kill the service
+#ifdef Q_OS_ANDROID
             QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "stopTailService",
                                                 "(Landroid/content/Context;)V",
                                                 QtAndroid::androidActivity().object());
+#else
+            settingsReplica->shutDownService();
+            QCoreApplication::processEvents(); // Actually let the replicant respond to our request...
+#endif
         }
+        repNode->deleteLater();
     });
+#ifdef Q_OS_ANDROID
+    //HACK to color the system bar on Android, use qtandroidextras and call the appropriate Java methods
     QtAndroid::runOnAndroidThread([=]() {
         QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod("getWindow", "()Landroid/view/Window;");
         window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
