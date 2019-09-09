@@ -240,6 +240,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                separator: true;
             },
             Kirigami.Action {
                 text: qsTr("Settings");
