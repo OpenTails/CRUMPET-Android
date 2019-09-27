@@ -71,9 +71,6 @@ public Q_SLOTS:
     void sendMessage(const QString &message) override;
     void connectToDevice(const QString& deviceID) override;
     void disconnectDevice() override;
-    void serviceStateChanged(QLowEnergyService::ServiceState s);
-    void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
-    void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue);
     void setFakeTailMode(bool enableFakery) override;
     void setCommand(QVariantMap command) override;
     QVariantMap getCommand(const QString& command) override;
@@ -92,8 +89,6 @@ private:
     class Private;
     Private* d;
     AppSettings *m_appSettings;
-
-    void reconnectDevice();
 };
 
 #endif//BTCONNECTIONMANAGER_H

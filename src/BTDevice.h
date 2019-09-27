@@ -24,12 +24,13 @@
 #include <QLowEnergyController>
 
 #include "TailCommandModel.h"
+#include "BTDeviceModel.h"
 
 class BTDevice : public QObject
 {
     Q_OBJECT
 public:
-    explicit BTDevice(const QBluetoothDeviceInfo& info, QObject* parent = nullptr);
+    explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
 
     QString name;
@@ -45,7 +46,17 @@ public:
     QString currentCall;
     int batteryLevel{0};
 
-    bool isConnected();
+    bool isConnected() const;
+    void connectDevice();
+    void disconnectDevice();
+
+    QString currentDeviceID() const;
+    void sendMessage(const QString &message);
+
+    Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
+private:
+    class Private;
+    Private* d;
 };
 
 #endif//BTDEVICE_H
