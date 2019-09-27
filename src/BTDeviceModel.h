@@ -24,10 +24,8 @@
 #include <QLowEnergyController>
 #include <QTimer>
 
-#include "BTDevice.h"
-#include "TailCommandModel.h"
-
 class AppSettings;
+class BTDevice;
 
 class BTDeviceModel : public QAbstractListModel
 {
@@ -69,9 +67,10 @@ public:
     int count();
     Q_SIGNAL void countChanged();
 
-    const BTDevice* getDevice(const QString& deviceID) const;
+    BTDevice* getDevice(const QString& deviceID) const;
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
 
+    Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
 private:
     class Private;
     Private* d;

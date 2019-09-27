@@ -17,6 +17,7 @@
 
 #include "BTDeviceModel.h"
 #include "AppSettings.h"
+#include "BTDevice.h"
 
 class BTDeviceModel::Private
 {
@@ -114,6 +115,15 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
     BTDevice* newDevice = new BTDevice(deviceInfo);
+    connect(newDevice, &BTDevice::deviceMessage, this, &BTDeviceModel::deviceMessage);
+    connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
+        int index = d->devices.indexOf(newDevice);
+        if(index > -1) {
+            beginRemoveRows(QModelIndex(), index, index);
+            d->devices.removeAll(newDevice);
+            endRemoveRows();
+        }
+    });
     // It feels a little dirty to do it this way...
     if(newDevice->name == QLatin1String("(!)Tail1")) {
         for(const BTDevice* device : d->devices) {
@@ -139,7 +149,7 @@ void BTDeviceModel::removeDevice(BTDevice* device)
         emit countChanged();
         endRemoveRows();
     }
-    delete device;
+    device->deleteLater();
 }
 
 int BTDeviceModel::count()
@@ -147,9 +157,9 @@ int BTDeviceModel::count()
     return d->devices.count();
 }
 
-const BTDevice* BTDeviceModel::getDevice(const QString& deviceID) const
+BTDevice* BTDeviceModel::getDevice(const QString& deviceID) const
 {
-    for(const BTDevice* device : d->devices) {
+    for(BTDevice* device : d->devices) {
         if(device->deviceID == deviceID) {
             return device;
         }
