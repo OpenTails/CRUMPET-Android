@@ -44,7 +44,7 @@ public:
                    const QDateTime& time,
                    const QStringList& commands,
                    QObject* parent);
-    ~Alarm();
+    ~Alarm() override;
 
     QString name() const;
 

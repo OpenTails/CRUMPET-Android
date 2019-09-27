@@ -30,7 +30,7 @@ class AppSettings : public SettingsProxySource
 
 public:
     explicit AppSettings(QObject* parent = nullptr);
-    virtual ~AppSettings();
+    ~AppSettings() override;
 
     bool advancedMode() const override;
     void setAdvancedMode(bool newValue) override;

@@ -34,7 +34,7 @@ class BTDeviceModel : public QAbstractListModel
     Q_OBJECT
 public:
     explicit BTDeviceModel(QObject* parent = nullptr);
-    virtual ~BTDeviceModel();
+    ~BTDeviceModel() override;
 
     enum Roles {
         Name = Qt::UserRole + 1,

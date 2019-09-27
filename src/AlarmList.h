@@ -47,7 +47,7 @@ public:
     };
 
     explicit AlarmList(QObject *parent = nullptr);
-    ~AlarmList();
+    ~AlarmList() override;
 
     int size() const;
     Alarm* at(int index) const;

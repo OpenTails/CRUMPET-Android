@@ -40,7 +40,7 @@ class BTConnectionManager : public BTConnectionManagerProxySource
 
 public:
     explicit BTConnectionManager(AppSettings* appSettings, QObject* parent);
-    virtual ~BTConnectionManager();
+    ~BTConnectionManager() override;
 
     AppSettings* appSettings() const;
     void setAppSettings(AppSettings* appSettings);

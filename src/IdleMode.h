@@ -37,7 +37,7 @@ class IdleMode : public QObject
     Q_OBJECT
 public:
     explicit IdleMode(QObject* parent = nullptr);
-    virtual ~IdleMode();
+    ~IdleMode() override;
 
     void setAppSettings(AppSettings* settings);
     void setConnectionManager(BTConnectionManager* connectionManager);

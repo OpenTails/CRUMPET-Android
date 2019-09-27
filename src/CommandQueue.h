@@ -41,7 +41,7 @@ class CommandQueue : public CommandQueueProxySource
     Q_OBJECT
 public:
     explicit CommandQueue(BTConnectionManager* connectionManager);
-    virtual ~CommandQueue();
+    ~CommandQueue() override;
 
     enum Roles {
         Name = Qt::UserRole + 1,
