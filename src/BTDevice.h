@@ -30,7 +30,7 @@ class BTDevice : public QObject
     Q_OBJECT
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, QObject* parent = nullptr);
-    virtual ~BTDevice();
+    ~BTDevice() override;
 
     QString name;
     QString deviceID;
@@ -41,7 +41,7 @@ public:
     QLowEnergyCharacteristic tailCharacteristic;
     QLowEnergyDescriptor tailDescriptor;
 
-    TailCommandModel* commandModel{new TailCommandModel};
+    TailCommandModel* commandModel{new TailCommandModel(this)};
     QString currentCall;
     int batteryLevel{0};
 

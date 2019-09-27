@@ -28,9 +28,7 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, QObject* parent)
 }
 
 BTDevice::~BTDevice()
-{
-    commandModel->deleteLater();
-}
+{ }
 
 bool BTDevice::isConnected()
 {
