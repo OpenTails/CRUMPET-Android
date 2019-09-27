@@ -21,6 +21,11 @@
 #include <QAbstractListModel>
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothAddress>
+#include <QLowEnergyController>
+#include <QTimer>
+
+#include "BTDevice.h"
+#include "TailCommandModel.h"
 
 class AppSettings;
 
@@ -34,19 +39,6 @@ public:
     enum Roles {
         Name = Qt::UserRole + 1,
         DeviceID
-    };
-
-    struct Device {
-    public:
-        Device(const QBluetoothDeviceInfo& info)
-            : name(info.name())
-            , deviceID(info.address().toString())
-            , deviceInfo(info)
-        {}
-    public:
-        QString name;
-        QString deviceID;
-        QBluetoothDeviceInfo deviceInfo;
     };
 
     AppSettings* appSettings() const;
@@ -70,14 +62,14 @@ public:
      * use the instance afterwards.
      * If the device is not maintained by this model, it will still be deleted!
      */
-    void removeDevice(Device* device);
+    void removeDevice(BTDevice* device);
 
     void updateItem(const QString& deviceID);
 
     int count();
     Q_SIGNAL void countChanged();
 
-    const BTDeviceModel::Device* getDevice(const QString& deviceID) const;
+    const BTDevice* getDevice(const QString& deviceID) const;
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
 
 private:

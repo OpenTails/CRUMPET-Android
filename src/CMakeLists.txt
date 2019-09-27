@@ -9,6 +9,7 @@ add_definitions(-DKIRIGAMI_BUILD_TYPE_STATIC)
 set(digitail_SRCS
     main.cpp
     BTConnectionManager.cpp
+    BTDevice.cpp
     BTDeviceModel.cpp
     CommandQueue.cpp
     FilterProxyModel.cpp

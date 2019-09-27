@@ -37,20 +37,12 @@ public:
     }
     ~Private() {}
 
-    AppSettings* appSettings = nullptr;
+    AppSettings* appSettings{nullptr};
     QBluetoothUuid tailStateCharacteristicUuid;
 
-    BTDeviceModel* deviceModel = nullptr;
-    QLowEnergyController *btControl = nullptr;
-    QLowEnergyService* tailService = nullptr;
-    QLowEnergyCharacteristic tailCharacteristic;
-    QLowEnergyDescriptor tailDescriptor;
-
-    TailCommandModel* commandModel = nullptr;
-    QString currentCall;
-    int batteryLevel = 0;
-    QTimer batteryTimer;
-    CommandQueue* commandQueue = nullptr;
+    BTDeviceModel* deviceModel{nullptr};
+    BTDevice* connecedDevice{nullptr};
+    CommandQueue* commandQueue{nullptr};
 
     QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent = nullptr;
     bool discoveryRunning = false;
@@ -58,12 +50,13 @@ public:
     bool fakeTailMode = false;
 
     QVariantMap command;
+    QTimer batteryTimer;
 
     void reconnectDevice(QObject* context)
     {
         QTimer::singleShot(0, context, [this] {
-            if (btControl) {
-                btControl->connectToDevice();
+            if (connecedDevice && connecedDevice->btControl) {
+                connecedDevice->btControl->connectToDevice();
             }
         });
     }
@@ -76,10 +69,6 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     : BTConnectionManagerProxySource(parent)
     , d(new Private(appSettings))
 {
-    d->commandModel = new TailCommandModel(this);
-
-    connect(d->commandModel, &TailCommandModel::tailVersionChanged,
-            this, [this](){ emit tailVersionChanged(d->commandModel->tailVersion()); });
 
     d->commandQueue = new CommandQueue(this);
 
@@ -105,8 +94,9 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     // The battery timer also functions as a keepalive call. If it turns
     // out to be a problem that we pull the battery this often, we can
     // add a separate ping keepalive functon.
+    //FIXME iterate over all connected devices (don't cache, just use model...)
     connect(&d->batteryTimer, &QTimer::timeout,
-            [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
+            [this](){ if(d->connecedDevice && d->connecedDevice->currentCall.isEmpty()) { sendMessage("BATT"); } });
 
     d->batteryTimer.setInterval(60000 / 2);
     d->batteryTimer.setSingleShot(false);
@@ -172,7 +162,7 @@ bool BTConnectionManager::discoveryRunning() const
 
 void BTConnectionManager::connectToDevice(const QString& deviceID)
 {
-    const BTDeviceModel::Device* device;
+    const BTDevice* device;
     if (deviceID.isEmpty()) {
         device = d->deviceModel->getDevice(d->deviceModel->getDeviceID(0));
     } else {
@@ -186,39 +176,39 @@ void BTConnectionManager::connectToDevice(const QString& deviceID)
 
 void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
 {
-    if(d->btControl) {
+    if(d->connecedDevice->btControl) {
         disconnectDevice();
     }
 
-    d->btControl = QLowEnergyController::createCentral(device, this);
-    d->btControl->setRemoteAddressType(QLowEnergyController::RandomAddress);
-    connect(d->btControl, &QObject::destroyed, this, [this](){ emit currentDeviceIDChanged(QLatin1String{}); } );
+    d->connecedDevice->btControl = QLowEnergyController::createCentral(device, this);
+    d->connecedDevice->btControl->setRemoteAddressType(QLowEnergyController::RandomAddress);
+    connect(d->connecedDevice->btControl, &QObject::destroyed, this, [this](){ emit currentDeviceIDChanged(QLatin1String{}); } );
 
-    if(d->tailService) {
-        d->tailService->deleteLater();
-        d->tailService = nullptr;
+    if(d->connecedDevice->tailService) {
+        d->connecedDevice->tailService->deleteLater();
+        d->connecedDevice->tailService = nullptr;
     }
 
-    connect(d->btControl, &QLowEnergyController::serviceDiscovered,
+    connect(d->connecedDevice->btControl, &QLowEnergyController::serviceDiscovered,
         [](const QBluetoothUuid &gatt){
             qDebug() << "service discovered" << gatt;
         });
 
-    connect(d->btControl, &QLowEnergyController::discoveryFinished,
+    connect(d->connecedDevice->btControl, &QLowEnergyController::discoveryFinished,
             [this](){
                 qDebug() << "Done!";
-                QLowEnergyService *service = d->btControl->createServiceObject(QBluetoothUuid(QLatin1String("{0000ffe0-0000-1000-8000-00805f9b34fb}")));
+                QLowEnergyService *service = d->connecedDevice->btControl->createServiceObject(QBluetoothUuid(QLatin1String("{0000ffe0-0000-1000-8000-00805f9b34fb}")));
 
                 if (!service) {
                     qWarning() << "Cannot create QLowEnergyService for {0000ffe0-0000-1000-8000-00805f9b34fb}";
                     return;
                 }
 
-                d->tailService = service;
+                d->connecedDevice->tailService = service;
                 connectClient(service);
             });
 
-    connect(d->btControl, static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::error),
+    connect(d->connecedDevice->btControl, static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::error),
         this, [this](QLowEnergyController::Error error) {
             qDebug() << "Cannot connect to remote device." << error;
 
@@ -247,26 +237,26 @@ void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
             }
         });
 
-    connect(d->btControl, &QLowEnergyController::connected, this, [this]() {
+    connect(d->connecedDevice->btControl, &QLowEnergyController::connected, this, [this]() {
         qDebug() << "Controller connected. Search services...";
-        d->btControl->discoverServices();
+        d->connecedDevice->btControl->discoverServices();
     });
 
-    connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
+    connect(d->connecedDevice->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << "LowEnergy controller disconnected";
         emit message(QLatin1String("The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
         disconnectDevice();
     });
 
     // Connect
-    d->btControl->connectToDevice();
+    d->connecedDevice->btControl->connectToDevice();
 }
 
 void BTConnectionManager::reconnectDevice()
 {
     QTimer::singleShot(0, this, [this] {
-        if (d->btControl) {
-            d->btControl->connectToDevice();
+        if (d->connecedDevice->btControl) {
+            d->connecedDevice->btControl->connectToDevice();
         }
     });
 }
@@ -289,25 +279,26 @@ void BTConnectionManager::serviceStateChanged(QLowEnergyService::ServiceState s)
     {
         qDebug() << "Service discovered.";
 
-        foreach(const QLowEnergyCharacteristic& leChar, d->tailService->characteristics()) {
+        foreach(const QLowEnergyCharacteristic& leChar, d->connecedDevice->tailService->characteristics()) {
             qDebug() << "Characteristic:" << leChar.name() << leChar.uuid() << leChar.properties();
         }
-        d->tailCharacteristic = d->tailService->characteristic(d->tailStateCharacteristicUuid);
-        if (!d->tailCharacteristic.isValid()) {
+        d->connecedDevice->tailCharacteristic = d->connecedDevice->tailService->characteristic(d->tailStateCharacteristicUuid);
+        if (!d->connecedDevice->tailCharacteristic.isValid()) {
             qDebug() << "Tail characteristic not found, this is bad";
             disconnectDevice();
             break;
         }
 
-        d->commandModel->clear();
+        d->connecedDevice->commandModel->clear();
         emit commandModelChanged();
 
+        // TODO only this device
         d->commandQueue->clear();
         emit commandQueueChanged();
 
         // Get the descriptor, and turn on notifications
-        d->tailDescriptor = d->tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
-        d->tailService->writeDescriptor(d->tailDescriptor, QByteArray::fromHex("0100"));
+        d->connecedDevice->tailDescriptor = d->connecedDevice->tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+        d->connecedDevice->tailService->writeDescriptor(d->connecedDevice->tailDescriptor, QByteArray::fromHex("0100"));
 
         emit isConnectedChanged(isConnected());
         emit currentDeviceIDChanged(currentDeviceID());
@@ -326,8 +317,8 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
     qDebug() << characteristic.uuid() << " NOTIFIED value change " << newValue;
 
     if (d->tailStateCharacteristicUuid == characteristic.uuid()) {
-        if (d->currentCall == QLatin1String("VER")) {
-            d->commandModel->autofill(newValue);
+        if (d->connecedDevice->currentCall == QLatin1String("VER")) {
+            d->connecedDevice->commandModel->autofill(newValue);
             emit commandModelChanged();
             d->commandQueue->clear();
             emit commandQueueChanged();
@@ -340,15 +331,15 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
             // Return value for BATT calls is BAT and a number, from 0 to 4,
             // unfortunately without a space, so we have to specialcase it a bit
             if(theValue.startsWith(QLatin1String("BAT"))) {
-                d->batteryLevel = theValue.right(1).toInt();
-                emit batteryLevelChanged(d->batteryLevel);
+                d->connecedDevice->batteryLevel = theValue.right(1).toInt();
+                emit batteryLevelChanged(d->connecedDevice->batteryLevel);
             }
             else if(stateResult.count() == 2) {
                 if(stateResult[0] == QLatin1String("BEGIN")) {
-                    d->commandModel->setRunning(stateResult[1], true);
+                    d->connecedDevice->commandModel->setRunning(stateResult[1], true);
                 }
                 else if(stateResult[0] == QLatin1String("END")) {
-                    d->commandModel->setRunning(stateResult[1], false);
+                    d->connecedDevice->commandModel->setRunning(stateResult[1], false);
                 }
                 else {
                     qDebug() << "Unexpected response: The first element of the two part message should be either BEGIN or END";
@@ -359,13 +350,13 @@ void BTConnectionManager::characteristicChanged(const QLowEnergyCharacteristic &
             }
         }
     }
-    d->currentCall.clear();
+    d->connecedDevice->currentCall.clear();
 }
 
 void BTConnectionManager::characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
 {
     qDebug() << "Characteristic written:" << characteristic.uuid() << newValue;
-    d->currentCall = newValue;
+    d->connecedDevice->currentCall = newValue;
 }
 
 void BTConnectionManager::disconnectDevice()
@@ -373,17 +364,18 @@ void BTConnectionManager::disconnectDevice()
     if (d->fakeTailMode) {
         d->fakeTailMode = false;
         emit isConnectedChanged(isConnected());
-    } else if (d->btControl) {
-        d->batteryTimer.stop();
-        d->btControl->deleteLater();
-        d->btControl = nullptr;
-        d->tailService->deleteLater();
-        d->tailService = nullptr;
-        d->commandModel->clear();
+    } else if (d->connecedDevice->btControl) {
+        d->batteryTimer.stop(); // FIXME Don't until all connected devices are disconnected
+        d->connecedDevice->btControl->deleteLater();
+        d->connecedDevice->btControl = nullptr;
+        d->connecedDevice->tailService->deleteLater();
+        d->connecedDevice->tailService = nullptr;
+        d->connecedDevice->commandModel->clear();
         emit commandModelChanged();
-        d->commandQueue->clear();
+        d->connecedDevice = nullptr;
+        d->commandQueue->clear(); // FIXME Clear commands for this device only
         emit commandQueueChanged();
-        d->batteryLevel = 0;
+        d->connecedDevice->batteryLevel = 0;
         emit batteryLevelChanged(0);
         emit isConnectedChanged(isConnected());
     }
@@ -399,22 +391,22 @@ void BTConnectionManager::sendMessage(const QString &message)
     if(d->fakeTailMode) {
         // Send A Message
         qDebug() << "Fakery for" << message;
-        TailCommandModel::CommandInfo* commandInfo = d->commandModel->getCommand(message);
+        TailCommandModel::CommandInfo* commandInfo = d->connecedDevice->commandModel->getCommand(message);
         if(commandInfo) {
-            d->commandModel->setRunning(message, true);
-            QTimer::singleShot(commandInfo->duration, this, [this, message](){ d->commandModel->setRunning(message, false); });
+            d->connecedDevice->commandModel->setRunning(message, true);
+            QTimer::singleShot(commandInfo->duration, this, [this, message](){ d->connecedDevice->commandModel->setRunning(message, false); });
         }
     }
     // Don't send out another call while we're waiting to hear back... at least for a little bit
     int i = 0;
-    while(!d->currentCall.isEmpty()) {
+    while(!d->connecedDevice->currentCall.isEmpty()) {
         if(++i == 100) {
             break;
         }
         qApp->processEvents();
     }
-    if (d->tailCharacteristic.isValid() && d->tailService) {
-        d->tailService->writeCharacteristic(d->tailCharacteristic, message.toUtf8());
+    if (d->connecedDevice->tailCharacteristic.isValid() && d->connecedDevice->tailService) {
+        d->connecedDevice->tailService->writeCharacteristic(d->connecedDevice->tailCharacteristic, message.toUtf8());
     }
 }
 
@@ -425,7 +417,7 @@ void BTConnectionManager::runCommand(const QString& command)
 
 QObject* BTConnectionManager::commandModel() const
 {
-    return d->commandModel;
+    return d->connecedDevice->commandModel;
 }
 
 QObject * BTConnectionManager::commandQueue() const
@@ -435,12 +427,12 @@ QObject * BTConnectionManager::commandQueue() const
 
 bool BTConnectionManager::isConnected() const
 {
-    return d->fakeTailMode || d->btControl;
+    return d->fakeTailMode || (d->connecedDevice && d->connecedDevice->btControl);
 }
 
 int BTConnectionManager::batteryLevel() const
 {
-    return d->batteryLevel;
+    return d->connecedDevice->batteryLevel;
 }
 
 int BTConnectionManager::deviceCount() const
@@ -455,14 +447,14 @@ int BTConnectionManager::commandQueueCount() const
 
 QString BTConnectionManager::tailVersion() const
 {
-    return d->commandModel->tailVersion();
+    return d->connecedDevice->commandModel->tailVersion();
 }
 
 QString BTConnectionManager::currentDeviceID() const
 {
     // We should check for d->btControl because we may have fakeTailMode
-    if(isConnected() && d->btControl) {
-        return d->btControl->remoteAddress().toString();
+    if(isConnected() && d->connecedDevice->btControl) {
+        return d->connecedDevice->btControl->remoteAddress().toString();
     }
     return QString();
 }
@@ -480,7 +472,7 @@ void BTConnectionManager::setFakeTailMode(bool enableFakery)
         stopDiscovery();
         QTimer::singleShot(1000, this, [this]() {
             emit isConnectedChanged(true);
-            d->commandModel->autofill(QLatin1String("v1.0"));
+            d->connecedDevice->commandModel->autofill(QLatin1String("v1.0"));
         });
     } else {
         d->fakeTailMode = enableFakery;
@@ -510,8 +502,8 @@ QVariantMap BTConnectionManager::command() const
 QVariantMap BTConnectionManager::getCommand(const QString& command)
 {
     QVariantMap info;
-    if(d->commandModel) {
-        TailCommandModel::CommandInfo* actualCommand = d->commandModel->getCommand(command);
+    if(d->connecedDevice && d->connecedDevice->commandModel) {
+        TailCommandModel::CommandInfo* actualCommand = d->connecedDevice->commandModel->getCommand(command);
         if(actualCommand) {
             info["category"] = actualCommand->category;
             info["command"] = actualCommand->command;
@@ -525,7 +517,7 @@ QVariantMap BTConnectionManager::getCommand(const QString& command)
 
 void BTConnectionManager::setDeviceName(const QString& deviceID, const QString& deviceName)
 {
-    const BTDeviceModel::Device* device = d->deviceModel->getDevice(deviceID);
+    const BTDevice* device = d->deviceModel->getDevice(deviceID);
     if(device) {
         d->appSettings->setDeviceName(device->deviceInfo.address().toString(), deviceName);
         d->deviceModel->updateItem(deviceID);

@@ -30,7 +30,7 @@ public:
     void readDeviceNames();
 
     AppSettings* appSettings = nullptr;
-    QList<BTDeviceModel::Device*> devices;
+    QList<BTDevice*> devices;
     QMap<QString, QString> deviceNames;
 };
 
@@ -83,7 +83,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
 {
     QVariant value;
     if(index.isValid() && index.row() > -1 && index.row() < d->devices.count()) {
-        Device* device = d->devices.at(index.row());
+        BTDevice* device = d->devices.at(index.row());
         switch(role) {
             case Name: {
                 auto name = d->deviceNames.value(device->deviceInfo.address().toString());
@@ -113,10 +113,10 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
 
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
-    Device* newDevice = new Device(deviceInfo);
+    BTDevice* newDevice = new BTDevice(deviceInfo);
     // It feels a little dirty to do it this way...
     if(newDevice->name == QLatin1String("(!)Tail1")) {
-        for(const BTDeviceModel::Device* device : d->devices) {
+        for(const BTDevice* device : d->devices) {
             if(device->deviceID == newDevice->deviceID) {
                 // Don't add the same device twice. Thanks bt discovery. Thiscovery.
                 return;
@@ -130,7 +130,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
     }
 }
 
-void BTDeviceModel::removeDevice(Device* device)
+void BTDeviceModel::removeDevice(BTDevice* device)
 {
     int idx = d->devices.indexOf(device);
     if (idx > -1) {
@@ -147,9 +147,9 @@ int BTDeviceModel::count()
     return d->devices.count();
 }
 
-const BTDeviceModel::Device* BTDeviceModel::getDevice(const QString& deviceID) const
+const BTDevice* BTDeviceModel::getDevice(const QString& deviceID) const
 {
-    for(const BTDeviceModel::Device* device : d->devices) {
+    for(const BTDevice* device : d->devices) {
         if(device->deviceID == deviceID) {
             return device;
         }
