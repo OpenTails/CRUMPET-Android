@@ -10,6 +10,7 @@ set(digitail_SRCS
     main.cpp
     BTConnectionManager.cpp
     BTDevice.cpp
+    BTDeviceCommandModel.cpp
     BTDeviceModel.cpp
     CommandQueue.cpp
     FilterProxyModel.cpp
