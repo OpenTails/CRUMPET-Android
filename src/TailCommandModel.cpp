@@ -42,14 +42,14 @@ TailCommandModel::~TailCommandModel()
 
 QHash< int, QByteArray > TailCommandModel::roleNames() const
 {
-    QHash<int, QByteArray> roles;
-    roles[Name] = "name";
-    roles[Command] = "command";
-    roles[IsRunning] = "isRunning";
-    roles[Category] = "category";
-    roles[Duration] = "duration";
-    roles[MinimumCooldown] = "minimumCooldown";
-    roles[CommandIndex] = "commandIndex";
+    static const QHash<int, QByteArray> roles{
+        {Name, "name"},
+        {Command, "command"},
+        {IsRunning, "isRunning"},
+        {Category, "category"},
+        {Duration, "duration"},
+        {MinimumCooldown, "minimumCooldown"},
+        {CommandIndex, "commandIndex"}};
     return roles;
 }
 
