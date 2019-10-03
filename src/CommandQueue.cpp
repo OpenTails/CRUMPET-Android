@@ -60,7 +60,7 @@ public:
             // Command can be empty if it's a pause (possibly others as well,
             // though not yet, but just never send an empty command)
             if(!command->command.isEmpty()) {
-                connectionManager->sendMessage(command->command);
+                connectionManager->sendMessage(command->command, QStringList{});
                 currentCommandTimer->setInterval(command->duration + command->minimumCooldown);
                 currentCommandTimer->start();
                 currentCommandTimerChecker->start();

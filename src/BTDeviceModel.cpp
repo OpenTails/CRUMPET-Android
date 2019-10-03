@@ -219,3 +219,13 @@ QString BTDeviceModel::getDeviceID(int deviceIndex) const
     }
     return QLatin1String();
 }
+
+void BTDeviceModel::sendMessage(const QString& message, const QStringList& deviceIDs)
+{
+    for (BTDevice* device : d->devices) {
+        // If there's no devices requested, send to everybody
+        if (deviceIDs.count() == 0 || deviceIDs.contains(device->deviceID())) {
+            device->sendMessage(message);
+        }
+    }
+}

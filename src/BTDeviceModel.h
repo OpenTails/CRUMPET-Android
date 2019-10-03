@@ -73,6 +73,15 @@ public:
     BTDevice* getDevice(const QString& deviceID) const;
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
 
+    /**
+     * Send a message to the devices with the IDs in the given list. If
+     * the list is empty, the message will be sent to all devies (don't worry
+     * about connected status, no message will be sent to devices that are not
+     * connected, that'd just be silly, and also not technically possible).
+     * @param message The message to be sent out
+     * @param deviceIDs A list of devices to send the message to (empty means all)
+     */
+    Q_SLOT void sendMessage(const QString& message, const QStringList& deviceIDs = QStringList());
     Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
 private:
     class Private;
