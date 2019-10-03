@@ -29,12 +29,15 @@
 class BTDevice : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
+    Q_PROPERTY(QString currentCall READ currentCall NOTIFY currentCallChanged)
+    Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
+    Q_PROPERTY(QString deviceID READ deviceID CONSTANT)
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
 
     QString name;
-    QString deviceID;
     QBluetoothDeviceInfo deviceInfo;
 
     QLowEnergyController *btControl{nullptr};
@@ -43,14 +46,21 @@ public:
     QLowEnergyDescriptor tailDescriptor;
 
     TailCommandModel* commandModel{new TailCommandModel(this)};
-    QString currentCall;
-    int batteryLevel{0};
 
     bool isConnected() const;
+    Q_SIGNAL void isConnectedChanged(bool isConnected);
+
+    QString currentCall() const;
+    Q_SIGNAL void currentCallChanged(QString currentCall);
+
+    int batteryLevel() const;
+    Q_SIGNAL void batteryLevelChanged(int batteryLevel);
+
     void connectDevice();
     void disconnectDevice();
 
-    QString currentDeviceID() const;
+    QString deviceID() const;
+
     void sendMessage(const QString &message);
 
     Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
