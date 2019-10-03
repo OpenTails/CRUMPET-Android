@@ -36,7 +36,10 @@ public:
 
     enum Roles {
         Name = Qt::UserRole + 1,
-        DeviceID
+        DeviceID,
+        BatteryLevel,
+        CurrentCall,
+        IsConnected
     };
 
     AppSettings* appSettings() const;

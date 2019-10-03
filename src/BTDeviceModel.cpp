@@ -22,22 +22,33 @@
 class BTDeviceModel::Private
 {
 public:
-    Private()
+    Private(BTDeviceModel* qq)
+        : q(qq)
     {
         readDeviceNames();
     }
     ~Private() {}
+    BTDeviceModel* q;
 
     void readDeviceNames();
 
-    AppSettings* appSettings = nullptr;
+    AppSettings* appSettings{nullptr};
     QList<BTDevice*> devices;
     QMap<QString, QString> deviceNames;
+
+    void notifyDeviceDataChanged(BTDevice* device, int role)
+    {
+        int pos = devices.indexOf(device);
+        if(pos > -1) {
+            QModelIndex idx(q->index(pos));
+            q->dataChanged(idx, idx, QVector<int>{role});
+        }
+    }
 };
 
 BTDeviceModel::BTDeviceModel(QObject* parent)
     : QAbstractListModel(parent)
-    , d(new Private)
+    , d(new Private(this))
 {
 }
 
@@ -74,9 +85,13 @@ void BTDeviceModel::setAppSettings(AppSettings *appSettings)
 
 QHash< int, QByteArray > BTDeviceModel::roleNames() const
 {
-    QHash<int, QByteArray> roles;
-    roles[Name] = "name";
-    roles[DeviceID] = "deviceID";
+    static const QHash<int, QByteArray> roles{
+        {Name, "name"},
+        {DeviceID, "deviceID"},
+        {BatteryLevel, "batteryLevel"},
+        {CurrentCall, "currentCall"},
+        {IsConnected, "IsConnected"}
+    };
     return roles;
 }
 
@@ -95,7 +110,16 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 }
                 break;
             } case DeviceID:
-                value = device->deviceID;
+                value = device->deviceID();
+                break;
+            case BatteryLevel:
+                value = device->batteryLevel();
+                break;
+            case CurrentCall:
+                value = device->currentCall();
+                break;
+            case IsConnected:
+                value = device->isConnected();
                 break;
             default:
                 break;
@@ -114,24 +138,34 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
 
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
-    BTDevice* newDevice = new BTDevice(deviceInfo);
-    connect(newDevice, &BTDevice::deviceMessage, this, &BTDeviceModel::deviceMessage);
-    connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
-        int index = d->devices.indexOf(newDevice);
-        if(index > -1) {
-            beginRemoveRows(QModelIndex(), index, index);
-            d->devices.removeAll(newDevice);
-            endRemoveRows();
-        }
-    });
+    BTDevice* newDevice = new BTDevice(deviceInfo, this);
     // It feels a little dirty to do it this way...
     if(newDevice->name == QLatin1String("(!)Tail1")) {
         for(const BTDevice* device : d->devices) {
-            if(device->deviceID == newDevice->deviceID) {
+            if(device->deviceID() == newDevice->deviceID()) {
                 // Don't add the same device twice. Thanks bt discovery. Thiscovery.
+                newDevice->deleteLater();
                 return;
             }
         }
+        connect(newDevice, &BTDevice::deviceMessage, this, &BTDeviceModel::deviceMessage);
+        connect(newDevice, &BTDevice::batteryLevelChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, BatteryLevel);
+        });
+        connect(newDevice, &BTDevice::currentCall, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, CurrentCall);
+        });
+        connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, IsConnected);
+        });
+        connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
+            int index = d->devices.indexOf(newDevice);
+            if(index > -1) {
+                beginRemoveRows(QModelIndex(), index, index);
+                d->devices.removeAll(newDevice);
+                endRemoveRows();
+            }
+        });
 
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);
@@ -145,6 +179,7 @@ void BTDeviceModel::removeDevice(BTDevice* device)
     int idx = d->devices.indexOf(device);
     if (idx > -1) {
         beginRemoveRows(QModelIndex(), idx, idx);
+        device->disconnect(this);
         d->devices.removeAt(idx);
         emit countChanged();
         endRemoveRows();
@@ -160,7 +195,7 @@ int BTDeviceModel::count()
 BTDevice* BTDeviceModel::getDevice(const QString& deviceID) const
 {
     for(BTDevice* device : d->devices) {
-        if(device->deviceID == deviceID) {
+        if(device->deviceID() == deviceID) {
             return device;
         }
     }
@@ -171,7 +206,7 @@ void BTDeviceModel::updateItem(const QString& deviceID)
 {
     d->readDeviceNames();
     for(int idx = 0; idx < d->devices.count(); ++idx) {
-        if(d->devices[idx]->deviceID == deviceID) {
+        if(d->devices[idx]->deviceID() == deviceID) {
             emit dataChanged(index(idx, 0), index(idx, 0));
         }
     }
@@ -180,7 +215,7 @@ void BTDeviceModel::updateItem(const QString& deviceID)
 QString BTDeviceModel::getDeviceID(int deviceIndex) const
 {
     if(deviceIndex >= 0 && deviceIndex < d->devices.count()) {
-        return d->devices.at(deviceIndex)->deviceID;
+        return d->devices.at(deviceIndex)->deviceID();
     }
     return QLatin1String();
 }
