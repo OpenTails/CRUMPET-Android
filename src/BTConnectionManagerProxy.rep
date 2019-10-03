@@ -15,7 +15,6 @@
 
 class BTConnectionManagerProxy {
     PROP(bool isConnected READONLY)
-    PROP(int batteryLevel READONLY)
     PROP(bool discoveryRunning READONLY)
     PROP(int deviceCount READONLY)
     PROP(int commandQueueCount READONLY)
@@ -26,7 +25,7 @@ class BTConnectionManagerProxy {
     SLOT(void runCommand(const QString& command))
     SLOT(void startDiscovery())
     SLOT(void stopDiscovery())
-    SLOT(void sendMessage(const QString &message))
+    SLOT(void sendMessage(const QString& message, const QStringList& deviceIDs))
     SLOT(void connectToDevice(const QString& deviceID))
     SLOT(void disconnectDevice())
     SLOT(void setFakeTailMode(bool enableFakery))

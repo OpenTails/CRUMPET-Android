@@ -54,7 +54,6 @@ public:
     bool fakeTailMode = false;
 
     QVariantMap command;
-    QTimer batteryTimer;
 
     void reconnectDevice(QObject* context)
     {
@@ -184,12 +183,10 @@ void BTConnectionManager::disconnectDevice()
         emit isConnectedChanged(isConnected());
     } else if (d->connecedDevice->isConnected()) {
         d->connecedDevice->disconnectDevice();
-        d->batteryTimer.stop(); // FIXME Don't until all connected devices are disconnected
         emit commandModelChanged();
         d->connecedDevice = nullptr;
         d->commandQueue->clear(); // FIXME Clear commands for this device only
         emit commandQueueChanged();
-        emit batteryLevelChanged(0);
         emit isConnectedChanged(isConnected());
     }
 }
@@ -199,7 +196,7 @@ QObject* BTConnectionManager::deviceModel() const
     return d->deviceModel;
 }
 
-void BTConnectionManager::sendMessage(const QString &message)
+void BTConnectionManager::sendMessage(const QString &message, const QStringList& deviceIDs)
 {
     if(d->fakeTailMode) {
         // Send A Message
@@ -210,16 +207,8 @@ void BTConnectionManager::sendMessage(const QString &message)
             QTimer::singleShot(commandInfo->duration, this, [this, message](){ d->connecedDevice->commandModel->setRunning(message, false); });
         }
     }
-    // Don't send out another call while we're waiting to hear back... at least for a little bit
-    int i = 0;
-    while(!d->connecedDevice->currentCall.isEmpty()) {
-        if(++i == 100) {
-            break;
-        }
-        qApp->processEvents();
-    }
-    if (d->connecedDevice->tailCharacteristic.isValid() && d->connecedDevice->tailService) {
-        d->connecedDevice->tailService->writeCharacteristic(d->connecedDevice->tailCharacteristic, message.toUtf8());
+    else {
+        d->deviceModel->sendMessage(message, deviceIDs);
     }
 }
 
@@ -242,13 +231,6 @@ QObject * BTConnectionManager::commandQueue() const
 bool BTConnectionManager::isConnected() const
 {
     return d->fakeTailMode || (d->connecedDevice && d->connecedDevice->isConnected());
-}
-
-int BTConnectionManager::batteryLevel() const
-{
-    if (d->connecedDevice)
-        return d->connecedDevice->batteryLevel;
-    return 0;
 }
 
 int BTConnectionManager::deviceCount() const

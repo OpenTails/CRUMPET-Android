@@ -59,7 +59,6 @@ public:
     bool discoveryRunning() const override;
 
     bool isConnected() const override;
-    int batteryLevel() const override;
     int deviceCount() const override;
     int commandQueueCount() const override;
     QString tailVersion() const override;
@@ -68,7 +67,7 @@ public:
     int bluetoothState() const override;
 
 public Q_SLOTS:
-    void sendMessage(const QString &message) override;
+    void sendMessage(const QString &message, const QStringList& deviceIDs) override;
     void connectToDevice(const QString& deviceID) override;
     void disconnectDevice() override;
     void setFakeTailMode(bool enableFakery) override;
