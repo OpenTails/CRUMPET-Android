@@ -90,7 +90,7 @@ QVariant BTDeviceCommandModel::data(const QModelIndex& index, int role) const
             {
                 QStringList ids;
                 for (BTDevice* device : entry->devices) {
-                    ids << device->deviceID;
+                    ids << device->deviceID();
                 }
                 result.setValue<QStringList>(ids);
                 break;
@@ -113,4 +113,6 @@ int BTDeviceCommandModel::rowCount(const QModelIndex& parent) const
 void BTDeviceCommandModel::setDeviceModel(BTDeviceModel* deviceModel)
 {
     d->deviceModel = deviceModel;
+    // get all devices add/remove
+    // for all devices, get all commands add/remove
 }
