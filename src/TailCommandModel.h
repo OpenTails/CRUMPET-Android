@@ -42,12 +42,31 @@ public:
     struct CommandInfo {
     public:
         CommandInfo() {}
+        CommandInfo(const CommandInfo& other)
+            : name(other.name)
+            , command(other.command)
+            , category(other.category)
+            , duration(other.duration)
+            , minimumCooldown(other.minimumCooldown)
+        { }
         QString name;
         QString command;
-        bool isRunning{false};
         QString category;
         int duration{0}; // milliseconds
         int minimumCooldown{0}; // milliseconds
+
+        bool isRunning{false};
+
+        bool compare(const CommandInfo& other) {
+            // Not comparing isRunning, as that isn't necessarily quite as true...
+            return (
+                name == other.name &&
+                command == other.command &&
+                category == other.category &&
+                duration == other.duration &&
+                minimumCooldown == other.minimumCooldown
+            );
+        }
     };
     typedef QList<CommandInfo*> CommandInfoList;
 

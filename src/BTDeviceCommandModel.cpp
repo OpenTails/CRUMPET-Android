@@ -29,6 +29,12 @@ public:
     BTDeviceCommandModel* q;
     BTDeviceModel* deviceModel{nullptr};
     struct Entry {
+        Entry(const TailCommandModel::CommandInfo& command)
+            : command(new TailCommandModel::CommandInfo(command))
+        {}
+        ~Entry() {
+            delete command;
+        }
         TailCommandModel::CommandInfo* command{nullptr};
         QList<BTDevice*> devices;
     };
@@ -38,20 +44,19 @@ public:
         Entry* entry{nullptr};
         // check if command already exists in some entry
         for (Entry* existing : commands) {
-            if (existing->command == command) {
+            if (existing->command->compare(*command)) {
                 entry = existing;
                 break;
             }
         }
         // if not, create a new entry and store the command in it
         if (!entry) {
-            entry = new Entry();
-            entry->command = command;
+            entry = new Entry(*command);
             q->beginInsertRows(QModelIndex(), commands.count(), commands.count());
             commands << entry;
             q->endInsertRows();
         }
-        // add device to entry
+        // add device to entry (shouldn't really be possible for this to happen twice, but...)
         if (!entry->devices.contains(device)) {
             entry->devices << device;
         }
@@ -81,13 +86,16 @@ public:
             }
         }
     }
+
     void addDeviceCommands(BTDevice* device) {
         TailCommandModel* deviceCommands = device->commandModel;
         for (TailCommandModel::CommandInfo* command : deviceCommands->allCommands()) {
             addCommand(command, device);
         }
     }
+
     void removeDeviceCommands(BTDevice* device) {
+        q->beginResetModel();
         QMutableVectorIterator<Entry*> it(commands);
         while (it.hasNext()) {
             it.next();
@@ -101,7 +109,9 @@ public:
                 }
             }
         }
+        q->endResetModel();
     }
+
     void registerDevice(BTDevice* device) {
         TailCommandModel* deviceCommands = device->commandModel;
         QObject::connect(deviceCommands, &TailCommandModel::commandAdded, q, [this, device](TailCommandModel::CommandInfo* command){ addCommand(command, device); });
@@ -110,6 +120,7 @@ public:
         QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ addDeviceCommands(device); });
 
     }
+
     void unregisterDevice(BTDevice* device) {
         device->disconnect(q);
         removeDeviceCommands(device);
