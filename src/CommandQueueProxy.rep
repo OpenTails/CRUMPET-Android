@@ -17,7 +17,7 @@ class CommandQueueProxy {
     PROP(int currentCommandRemainingMSeconds READONLY)
     PROP(int currentCommandTotalDuration READONLY)
     PROP(int count READONLY)
-    SLOT(void clear())
+    SLOT(void clear(const QString& deviceID))
     SLOT(void pushPause(int durationMilliseconds))
     SLOT(void pushCommand(QString tailCommand))
     SLOT(void pushCommands(QStringList commands))

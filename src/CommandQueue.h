@@ -72,7 +72,7 @@ public:
     /**
      * Clear the queue of all commands
      */
-    Q_SLOT void clear() override;
+    Q_SLOT void clear(const QString& deviceID) override;
     /**
      * Add a pause to the end of the queue
      *

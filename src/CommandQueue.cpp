@@ -17,6 +17,8 @@
 
 #include "CommandQueue.h"
 #include "BTConnectionManager.h"
+#include "BTDeviceModel.h"
+#include "BTDevice.h"
 
 #include <QTimer>
 
@@ -104,13 +106,14 @@ CommandQueue::~CommandQueue()
 
 QHash<int, QByteArray> CommandQueue::roleNames() const
 {
-    QHash<int, QByteArray> roles;
-    roles[Name] = "name";
-    roles[Command] = "command";
-    roles[IsRunning] = "isRunning";
-    roles[Category] = "category";
-    roles[Duration] = "duration";
-    roles[MinimumCooldown] = "minimumCooldown";
+    static const QHash<int, QByteArray> roles{
+        {Name, "name"},
+        {Command, "command"},
+        {IsRunning, "isRunning"},
+        {Category, "category"},
+        {Duration, "duration"},
+        {MinimumCooldown, "minimumCooldown"}
+    };
     return roles;
 }
 
@@ -168,14 +171,17 @@ int CommandQueue::currentCommandTotalDuration() const
     return d->currentCommandTimer->interval();
 }
 
-void CommandQueue::clear()
+void CommandQueue::clear(const QString& deviceID)
 {
     // Before doing anything else, ensure the timer doesn't suddenly pick stuff
-    // out from underneath us. Stop all functio and let's do the thing.
+    // out from underneath us. Stop all functions and let's do the thing.
     d->popTimer->stop();
-//     beginResetModel();
-    d->commands.clear();
-//     endResetModel();
+    if (deviceID.isEmpty()) {
+        d->commands.clear();
+    } else {
+        // Remove the command, but only if the command is requested for only that device
+        // If the command is requested for other devices as well, remove this device from the list of requesting devices
+    }
     emit countChanged(count());
 }
 
@@ -198,7 +204,6 @@ void CommandQueue::pushPause(int durationMilliseconds)
 
 void CommandQueue::pushCommand(QString tailCommand)
 {
-//     beginInsertRows(QModelIndex(), d->commands.count(), d->commands.count());
     qDebug() << tailCommand;
     TailCommandModel::CommandInfo* command = qobject_cast<TailCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommand);
     qDebug() << "Command to push" << command;
@@ -206,7 +211,6 @@ void CommandQueue::pushCommand(QString tailCommand)
         return;
     }
     d->commands.append(command);
-//     endInsertRows();
     emit countChanged(count());
 
     // If we have just pushed a command and the timer is not currently running,
@@ -219,9 +223,7 @@ void CommandQueue::pushCommand(QString tailCommand)
 void CommandQueue::pushCommands(TailCommandModel::CommandInfoList commands)
 {
     if(commands.count() > 0) {
-//         beginInsertRows(QModelIndex(), d->commands.count(), d->commands.count() + commands.count() - 1);
         d->commands.append(commands);
-//         endInsertRows();
         emit countChanged(count());
 
         // If we have just pushed some commands and the timer is not currently
@@ -249,23 +251,17 @@ void CommandQueue::pushCommands(QStringList commands)
 
 void CommandQueue::removeEntry(int index)
 {
-//     beginRemoveRows(QModelIndex(), index, index);
     d->commands.removeAt(index);
-//     endRemoveRows();
     emit countChanged(count());
 }
 
 void CommandQueue::swapEntries(int swapThis, int withThis)
 {
     if(swapThis >= 0 && swapThis < d->commands.count() && withThis >= 0 && withThis < d->commands.count()) {
-//         QModelIndex idx1 = createIndex(swapThis, 0);
-//         QModelIndex idx2 = createIndex(withThis, 0);
         TailCommandModel::CommandInfo* with = d->commands.takeAt(withThis);
         TailCommandModel::CommandInfo* swap = d->commands.takeAt(swapThis);
         d->commands.insert(swapThis, with);
         d->commands.insert(withThis, swap);
-//         dataChanged(idx1, idx1);
-//         dataChanged(idx2, idx2);
     }
 }
 
