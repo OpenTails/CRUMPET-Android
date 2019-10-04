@@ -38,15 +38,16 @@ public:
         CommandIndex
     };
 
+    // TODO Move this somewhere more useful (maybe its own location? Maybe create a POD?
     struct CommandInfo {
     public:
-        CommandInfo() : isRunning(false), duration(0), minimumCooldown(0) {}
+        CommandInfo() {}
         QString name;
         QString command;
-        bool isRunning;
+        bool isRunning{false};
         QString category;
-        int duration; // milliseconds
-        int minimumCooldown; // milliseconds
+        int duration{0}; // milliseconds
+        int minimumCooldown{0}; // milliseconds
     };
     typedef QList<CommandInfo*> CommandInfoList;
 
@@ -67,6 +68,7 @@ public:
      * @param command The new command to show in the model
      */
     void addCommand(CommandInfo* command);
+    Q_SIGNAL void commandAdded(CommandInfo* command);
     /**
      * Remove a command from the model.
      * The entry will be deleted by this function, and you should not attempt to
@@ -74,6 +76,7 @@ public:
      * If the command is not maintained by this model, it will still be deleted!
      */
     void removeCommand(CommandInfo* command);
+    Q_SIGNAL void commandRemoved(CommandInfo* command);
 
     /**
      * Automatically fill the model with known commands for the specified version
@@ -109,6 +112,13 @@ public:
      * @return A random command matching one of the requested categories
      */
     Q_INVOKABLE TailCommandModel::CommandInfo* getRandomCommand(QStringList includedCategories) const;
+
+    /**
+     * Get all the commands in this model
+     *
+     * @return A list of all commands currently managed by this model
+     */
+    const TailCommandModel::CommandInfoList& allCommands() const;
 private:
     class Private;
     Private* d;

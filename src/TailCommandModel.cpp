@@ -107,6 +107,7 @@ void TailCommandModel::addCommand(CommandInfo* command)
 {
     beginInsertRows(QModelIndex(), 0, 0);
     d->commands.insert(0, command);
+    emit commandAdded(command);
     endInsertRows();
 }
 
@@ -115,6 +116,7 @@ void TailCommandModel::removeCommand(CommandInfo* command)
     int idx = d->commands.indexOf(command);
     if (idx > -1) {
         beginRemoveRows(QModelIndex(), idx, idx);
+        emit commandRemoved(command);
         d->commands.removeAt(idx);
         endRemoveRows();
     }
@@ -370,4 +372,9 @@ TailCommandModel::CommandInfo * TailCommandModel::getRandomCommand(QStringList i
         return pickFrom.at(QRandomGenerator::global()->bounded(pickFrom.count()));
     }
     return nullptr;
+}
+
+const TailCommandModel::CommandInfoList& TailCommandModel::allCommands() const
+{
+    return d->commands;
 }
