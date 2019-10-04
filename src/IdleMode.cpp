@@ -18,6 +18,8 @@
 
 #include "IdleMode.h"
 #include "CommandQueue.h"
+#include "CommandInfo.h"
+#include "BTDeviceCommandModel.h"
 #include "BTConnectionManager.h"
 
 #include <QRandomGenerator>
@@ -36,13 +38,13 @@ public:
         if(connectionManager && connectionManager->isConnected() && appSettings && appSettings->idleMode()) {
             qDebug() << "Pushing command to the queue for casual mode";
             CommandQueue* queue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
-            TailCommandModel* commands = qobject_cast<TailCommandModel*>(connectionManager->commandModel());
+            BTDeviceCommandModel* commands = qobject_cast<BTDeviceCommandModel*>(connectionManager->commandModel());
             const QStringList categories = appSettings->idleCategories();
             if(queue && commands) {
                 if(queue->count() == 0 && appSettings->idleMode() == true && categories.count() > 0) {
-                    TailCommandModel::CommandInfo* command = commands->getRandomCommand(categories);
-                    if(command) {
-                        queue->pushCommand(command->command);
+                    const CommandInfo& command = commands->getRandomCommand(categories);
+                    if(command.isValid()) {
+                        queue->pushCommand(command.command);
                     }
                     queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000);
                 }
@@ -96,5 +98,7 @@ void IdleMode::setConnectionManager(BTConnectionManager* connectionManager)
         }
         d->push();
     });
-    connect(qobject_cast<TailCommandModel*>(d->connectionManager->commandModel()), &TailCommandModel::tailVersionChanged, this, [this](){ d->push(); });
+    connect(qobject_cast<QAbstractItemModel*>(d->connectionManager->deviceModel()), &QAbstractItemModel::dataChanged, this, [this](){ d->push(); });
+    connect(qobject_cast<QAbstractItemModel*>(d->connectionManager->deviceModel()), &QAbstractItemModel::rowsInserted, this, [this](){ d->push(); });
+    connect(qobject_cast<QAbstractItemModel*>(d->connectionManager->deviceModel()), &QAbstractItemModel::rowsRemoved, this, [this](){ d->push(); });
 }

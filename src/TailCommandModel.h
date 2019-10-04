@@ -20,6 +20,8 @@
 
 #include <QAbstractListModel>
 
+#include "CommandInfo.h"
+
 class TailCommandModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -38,38 +40,6 @@ public:
         CommandIndex
     };
 
-    // TODO Move this somewhere more useful (maybe its own location? Maybe create a POD?
-    struct CommandInfo {
-    public:
-        CommandInfo() {}
-        CommandInfo(const CommandInfo& other)
-            : name(other.name)
-            , command(other.command)
-            , category(other.category)
-            , duration(other.duration)
-            , minimumCooldown(other.minimumCooldown)
-        { }
-        QString name;
-        QString command;
-        QString category;
-        int duration{0}; // milliseconds
-        int minimumCooldown{0}; // milliseconds
-
-        bool isRunning{false};
-
-        bool compare(const CommandInfo& other) {
-            // Not comparing isRunning, as that isn't necessarily quite as true...
-            return (
-                name == other.name &&
-                command == other.command &&
-                category == other.category &&
-                duration == other.duration &&
-                minimumCooldown == other.minimumCooldown
-            );
-        }
-    };
-    typedef QList<CommandInfo*> CommandInfoList;
-
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
@@ -86,16 +56,16 @@ public:
      * be done manually.
      * @param command The new command to show in the model
      */
-    void addCommand(CommandInfo* command);
-    Q_SIGNAL void commandAdded(CommandInfo* command);
+    void addCommand(const CommandInfo& command);
+    Q_SIGNAL void commandAdded(const CommandInfo& command);
     /**
      * Remove a command from the model.
      * The entry will be deleted by this function, and you should not attempt to
      * use the instance afterwards.
      * If the command is not maintained by this model, it will still be deleted!
      */
-    void removeCommand(CommandInfo* command);
-    Q_SIGNAL void commandRemoved(CommandInfo* command);
+    void removeCommand(const CommandInfo& command);
+    Q_SIGNAL void commandRemoved(const CommandInfo& command);
 
     /**
      * Automatically fill the model with known commands for the specified version
@@ -109,35 +79,11 @@ public:
     Q_SIGNAL void tailVersionChanged();
 
     /**
-     * Get the command at a specified index
-     *
-     * @param index The index of the command to fetch
-     * @return A command if the index was valid, or null if not
-     */
-    Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(int index) const;
-    /**
-     * Get the command with the specified actual command
-     *
-     * @param command The command to fetch information for
-     * @return The command info instance for the specified command, or null if none was found
-     */
-    Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(QString command) const;
-    /**
-     * Get a random command, picked from the currently available commands, limited
-     * to commands with the category listed in includedCategories. If the list is
-     * empty, any command will be listed.
-     *
-     * @param includedCategories A list of strings matching the categories
-     * @return A random command matching one of the requested categories
-     */
-    Q_INVOKABLE TailCommandModel::CommandInfo* getRandomCommand(QStringList includedCategories) const;
-
-    /**
      * Get all the commands in this model
      *
      * @return A list of all commands currently managed by this model
      */
-    const TailCommandModel::CommandInfoList& allCommands() const;
+    const CommandInfoList& allCommands() const;
 private:
     class Private;
     Private* d;

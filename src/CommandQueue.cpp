@@ -17,6 +17,7 @@
 
 #include "CommandQueue.h"
 #include "BTConnectionManager.h"
+#include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
 #include "BTDevice.h"
 
@@ -43,8 +44,7 @@ public:
     CommandQueue* q;
 
     // These commands are owned by TailCommandModel, do not delete them
-    TailCommandModel::CommandInfoList commands;
-    TailCommandModel::CommandInfoList ourCommands;
+    CommandInfoList commands;
     BTConnectionManager* connectionManager;
 
     QTimer* popTimer;
@@ -55,31 +55,20 @@ public:
     {
         // only pop if there's commands left
         if(commands.count() > 0) {
-//             q->beginRemoveRows(QModelIndex(), 0, 0);
-            TailCommandModel::CommandInfo* command = commands.takeFirst();
-//             q->endRemoveRows();
+            CommandInfo command = commands.takeFirst();
 
             // Command can be empty if it's a pause (possibly others as well,
             // though not yet, but just never send an empty command)
-            if(!command->command.isEmpty()) {
-                connectionManager->sendMessage(command->command, QStringList{});
-                currentCommandTimer->setInterval(command->duration + command->minimumCooldown);
+            if(!command.command.isEmpty()) {
+                connectionManager->sendMessage(command.command, QStringList{});
+                currentCommandTimer->setInterval(command.duration + command.minimumCooldown);
                 currentCommandTimer->start();
                 currentCommandTimerChecker->start();
                 emit q->currentCommandTotalDurationChanged(currentCommandTimer->interval());
                 emit q->currentCommandRemainingMSecondsChanged(currentCommandTimer->remainingTime());
             }
 
-            popTimer->start(command->duration + command->minimumCooldown);
-
-            // ourCommands holds the things we create in the queue itself,
-            // which is mostly pauses. Those we will need to manage the
-            // memory of ourselves, and so when we take those, get rid of
-            // them entirely.
-            if(ourCommands.contains(command)) {
-                ourCommands.removeAll(command);
-                delete command;
-            }
+            popTimer->start(command.duration + command.minimumCooldown);
 
             emit q->countChanged(q->count());
         }
@@ -121,25 +110,25 @@ QVariant CommandQueue::data(const QModelIndex& index, int role) const
 {
     QVariant value;
     if(index.isValid() && index.row() > -1 && index.row() < d->commands.count()) {
-        TailCommandModel::CommandInfo* command = d->commands.at(index.row());
+        const CommandInfo& command = d->commands.at(index.row());
         switch(role) {
             case Name:
-                value = command->name;
+                value = command.name;
                 break;
             case Command:
-                value = command->command;
+                value = command.command;
                 break;
             case IsRunning:
-                value = command->isRunning;
+                value = command.isRunning;
                 break;
             case Category:
-                value = command->category;
+                value = command.category;
                 break;
             case Duration:
-                value = command->duration;
+                value = command.duration;
                 break;
             case MinimumCooldown:
-                value = command->minimumCooldown;
+                value = command.minimumCooldown;
                 break;
             default:
                 break;
@@ -187,10 +176,9 @@ void CommandQueue::clear(const QString& deviceID)
 
 void CommandQueue::pushPause(int durationMilliseconds)
 {
-    TailCommandModel::CommandInfo* command = new TailCommandModel::CommandInfo;
-    command->name = "Pause";
-    command->duration = durationMilliseconds;
-    d->ourCommands.append(command);
+    CommandInfo command;
+    command.name = "Pause";
+    command.duration = durationMilliseconds;
 
     d->commands.append(command);
     emit countChanged(count());
@@ -205,9 +193,9 @@ void CommandQueue::pushPause(int durationMilliseconds)
 void CommandQueue::pushCommand(QString tailCommand)
 {
     qDebug() << tailCommand;
-    TailCommandModel::CommandInfo* command = qobject_cast<TailCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommand);
-    qDebug() << "Command to push" << command;
-    if(!command) {
+    const CommandInfo& command = qobject_cast<BTDeviceCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommand);
+    qDebug() << "Command to push" << command.command;
+    if(!command.isValid()) {
         return;
     }
     d->commands.append(command);
@@ -220,7 +208,7 @@ void CommandQueue::pushCommand(QString tailCommand)
     }
 }
 
-void CommandQueue::pushCommands(TailCommandModel::CommandInfoList commands)
+void CommandQueue::pushCommands(CommandInfoList commands)
 {
     if(commands.count() > 0) {
         d->commands.append(commands);
@@ -258,8 +246,8 @@ void CommandQueue::removeEntry(int index)
 void CommandQueue::swapEntries(int swapThis, int withThis)
 {
     if(swapThis >= 0 && swapThis < d->commands.count() && withThis >= 0 && withThis < d->commands.count()) {
-        TailCommandModel::CommandInfo* with = d->commands.takeAt(withThis);
-        TailCommandModel::CommandInfo* swap = d->commands.takeAt(swapThis);
+        const CommandInfo& with = d->commands.takeAt(withThis);
+        const CommandInfo& swap = d->commands.takeAt(swapThis);
         d->commands.insert(swapThis, with);
         d->commands.insert(withThis, swap);
     }

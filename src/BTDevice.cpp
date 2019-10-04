@@ -31,6 +31,7 @@ public:
     BTDevice* q;
     BTDeviceModel* parentModel;
 
+    QString version{"(unknown)"};
     QString currentCall;
     int batteryLevel{0};
 
@@ -102,9 +103,8 @@ public:
         if (tailStateCharacteristicUuid == characteristic.uuid()) {
             if (currentCall == QLatin1String("VER")) {
                 q->commandModel->autofill(newValue);
-                // TODO Clear command queue of stuff from this device
-//                 q->commandQueue->clear();
-//                 emit commandQueueChanged();
+                version = newValue;
+                emit q->versionChanged(newValue);
                 batteryTimer.start();
                 q->sendMessage("BATT");
             }
@@ -266,6 +266,11 @@ void BTDevice::disconnectDevice()
 bool BTDevice::isConnected() const
 {
     return btControl;
+}
+
+QString BTDevice::version() const
+{
+    return d->version;
 }
 
 int BTDevice::batteryLevel() const

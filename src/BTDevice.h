@@ -30,6 +30,7 @@ class BTDevice : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
+    Q_PROPERTY(QString version READ version NOTIFY versionChanged)
     Q_PROPERTY(QString currentCall READ currentCall NOTIFY currentCallChanged)
     Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
     Q_PROPERTY(QString deviceID READ deviceID CONSTANT)
@@ -49,6 +50,9 @@ public:
 
     bool isConnected() const;
     Q_SIGNAL void isConnectedChanged(bool isConnected);
+
+    QString version() const;
+    Q_SIGNAL void versionChanged(QString version);
 
     QString currentCall() const;
     Q_SIGNAL void currentCallChanged(QString currentCall);

@@ -88,6 +88,7 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
     static const QHash<int, QByteArray> roles{
         {Name, "name"},
         {DeviceID, "deviceID"},
+        {DeviceVersion, "deviceVersion"},
         {BatteryLevel, "batteryLevel"},
         {CurrentCall, "currentCall"},
         {IsConnected, "IsConnected"}
@@ -111,6 +112,9 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             } case DeviceID:
                 value = device->deviceID();
+                break;
+            case DeviceVersion:
+                value = device->version();
                 break;
             case BatteryLevel:
                 value = device->batteryLevel();

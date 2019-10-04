@@ -37,6 +37,7 @@ public:
     enum Roles {
         Name = Qt::UserRole + 1,
         DeviceID,
+        DeviceVersion,
         BatteryLevel,
         CurrentCall,
         IsConnected

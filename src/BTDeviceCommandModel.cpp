@@ -20,6 +20,7 @@
 #include "BTDevice.h"
 #include "BTDeviceModel.h"
 #include "TailCommandModel.h"
+#include "CommandInfo.h"
 #include <QRandomGenerator>
 
 class BTDeviceCommandModel::Private
@@ -29,29 +30,27 @@ public:
     BTDeviceCommandModel* q;
     BTDeviceModel* deviceModel{nullptr};
     struct Entry {
-        Entry(const TailCommandModel::CommandInfo& command)
-            : command(new TailCommandModel::CommandInfo(command))
+        Entry(const CommandInfo& command)
+            : command(command)
         {}
-        ~Entry() {
-            delete command;
-        }
-        TailCommandModel::CommandInfo* command{nullptr};
+        ~Entry() { }
+        CommandInfo command;
         QList<BTDevice*> devices;
     };
     QVector<Entry*> commands;
 
-    void addCommand(TailCommandModel::CommandInfo* command, BTDevice* device) {
+    void addCommand(const CommandInfo& command, BTDevice* device) {
         Entry* entry{nullptr};
         // check if command already exists in some entry
         for (Entry* existing : commands) {
-            if (existing->command->compare(*command)) {
+            if (existing->command.compare(command)) {
                 entry = existing;
                 break;
             }
         }
         // if not, create a new entry and store the command in it
         if (!entry) {
-            entry = new Entry(*command);
+            entry = new Entry(command);
             q->beginInsertRows(QModelIndex(), commands.count(), commands.count());
             commands << entry;
             q->endInsertRows();
@@ -62,11 +61,11 @@ public:
         }
     }
 
-    void removeCommand(TailCommandModel::CommandInfo* command, BTDevice* device) {
+    void removeCommand(const CommandInfo& command, BTDevice* device) {
         Entry* entry{nullptr};
         // check if command exists
         for (Entry* existing : commands) {
-            if (existing->command == command) {
+            if (existing->command.compare(command)) {
                 entry = existing;
                 break;
             }
@@ -89,7 +88,7 @@ public:
 
     void addDeviceCommands(BTDevice* device) {
         TailCommandModel* deviceCommands = device->commandModel;
-        for (TailCommandModel::CommandInfo* command : deviceCommands->allCommands()) {
+        for (const CommandInfo& command : deviceCommands->allCommands()) {
             addCommand(command, device);
         }
     }
@@ -114,8 +113,8 @@ public:
 
     void registerDevice(BTDevice* device) {
         TailCommandModel* deviceCommands = device->commandModel;
-        QObject::connect(deviceCommands, &TailCommandModel::commandAdded, q, [this, device](TailCommandModel::CommandInfo* command){ addCommand(command, device); });
-        QObject::connect(deviceCommands, &TailCommandModel::commandRemoved, q, [this, device](TailCommandModel::CommandInfo* command){ removeCommand(command, device); });
+        QObject::connect(deviceCommands, &TailCommandModel::commandAdded, q, [this, device](const CommandInfo& command){ addCommand(command, device); });
+        QObject::connect(deviceCommands, &TailCommandModel::commandRemoved, q, [this, device](const CommandInfo& command){ removeCommand(command, device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelAboutToBeReset, q, [this, device](){ removeDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ addDeviceCommands(device); });
 
@@ -160,22 +159,22 @@ QVariant BTDeviceCommandModel::data(const QModelIndex& index, int role) const
         Private::Entry* entry = d->commands[index.row()];
         switch(role) {
             case Name:
-                result.setValue(entry->command->name);
+                result.setValue(entry->command.name);
                 break;
             case Command:
-                result.setValue(entry->command->command);
+                result.setValue(entry->command.command);
                 break;
             case IsRunning:
-                result.setValue(entry->command->isRunning);
+                result.setValue(entry->command.isRunning);
                 break;
             case Category:
-                result.setValue(entry->command->category);
+                result.setValue(entry->command.category);
                 break;
             case Duration:
-                result.setValue(entry->command->duration);
+                result.setValue(entry->command.duration);
                 break;
             case MinimumCooldown:
-                result.setValue(entry->command->minimumCooldown);
+                result.setValue(entry->command.minimumCooldown);
                 break;
             case CommandIndex:
                 result.setValue(index.row());
@@ -218,19 +217,19 @@ void BTDeviceCommandModel::setDeviceModel(BTDeviceModel* deviceModel)
     }
 }
 
-TailCommandModel::CommandInfo * BTDeviceCommandModel::getCommand(int index) const
+CommandInfo BTDeviceCommandModel::getCommand(int index) const
 {
     if(index >= 0 && index < d->commands.count()) {
         return d->commands[index]->command;
     }
-    return nullptr;
+    return CommandInfo{};
 }
 
-TailCommandModel::CommandInfo * BTDeviceCommandModel::getCommand(QString command) const
+CommandInfo BTDeviceCommandModel::getCommand(QString command) const
 {
-    TailCommandModel::CommandInfo* cmd(nullptr);
+    CommandInfo cmd;
     for(Private::Entry* current : d->commands) {
-        if(current->command->command == command) {
+        if(current->command.command == command) {
             cmd = current->command;
             break;
         }
@@ -238,16 +237,16 @@ TailCommandModel::CommandInfo * BTDeviceCommandModel::getCommand(QString command
     return cmd;
 }
 
-TailCommandModel::CommandInfo * BTDeviceCommandModel::getRandomCommand(QStringList includedCategories) const
+CommandInfo BTDeviceCommandModel::getRandomCommand(QStringList includedCategories) const
 {
     if(d->commands.count() > 0) {
-        TailCommandModel::CommandInfoList pickFrom;
+        CommandInfoList pickFrom;
         for(Private::Entry* current : d->commands) {
-            if(includedCategories.isEmpty() || includedCategories.contains(current->command->category)) {
+            if(includedCategories.isEmpty() || includedCategories.contains(current->command.category)) {
                 pickFrom << current->command;
             }
         }
         return pickFrom.at(QRandomGenerator::global()->bounded(pickFrom.count()));
     }
-    return nullptr;
+    return CommandInfo{};
 }

@@ -26,7 +26,7 @@ public:
     Private() {}
     ~Private() {}
 
-    QList<TailCommandModel::CommandInfo*> commands;
+    CommandInfoList commands;
     QString tailVersion;
 };
 
@@ -57,25 +57,25 @@ QVariant TailCommandModel::data(const QModelIndex& index, int role) const
 {
     QVariant value;
     if(index.isValid() && index.row() > -1 && index.row() < d->commands.count()) {
-        CommandInfo* command = d->commands.at(index.row());
+        const CommandInfo& command = d->commands.at(index.row());
         switch(role) {
             case Name:
-                value = command->name;
+                value = command.name;
                 break;
             case Command:
-                value = command->command;
+                value = command.command;
                 break;
             case IsRunning:
-                value = command->isRunning;
+                value = command.isRunning;
                 break;
             case Category:
-                value = command->category;
+                value = command.category;
                 break;
             case Duration:
-                value = command->duration;
+                value = command.duration;
                 break;
             case MinimumCooldown:
-                value = command->minimumCooldown;
+                value = command.minimumCooldown;
                 break;
             case CommandIndex:
                 value = index.row();
@@ -98,12 +98,11 @@ int TailCommandModel::rowCount(const QModelIndex& parent) const
 void TailCommandModel::clear()
 {
     beginResetModel();
-    qDeleteAll(d->commands);
     d->commands.clear();
     endResetModel();
 }
 
-void TailCommandModel::addCommand(CommandInfo* command)
+void TailCommandModel::addCommand(const CommandInfo& command)
 {
     beginInsertRows(QModelIndex(), 0, 0);
     d->commands.insert(0, command);
@@ -111,31 +110,38 @@ void TailCommandModel::addCommand(CommandInfo* command)
     endInsertRows();
 }
 
-void TailCommandModel::removeCommand(CommandInfo* command)
+void TailCommandModel::removeCommand(const CommandInfo& command)
 {
-    int idx = d->commands.indexOf(command);
-    if (idx > -1) {
+    int idx{0};
+    bool found{false};
+    for (const CommandInfo& other : d->commands) {
+        if (command.compare(other)) {
+            found = true;
+            break;
+        }
+        ++idx;
+    }
+    if (found) {
         beginRemoveRows(QModelIndex(), idx, idx);
         emit commandRemoved(command);
         d->commands.removeAt(idx);
         endRemoveRows();
     }
-    delete command;
 }
 
 void TailCommandModel::setRunning(const QString& command, bool isRunning)
 {
 //     qDebug() << "Command changing running state" << command << "being set to" << isRunning;
     int i = -1;
-    foreach(TailCommandModel::CommandInfo* theCommand, d->commands) {
+    for (CommandInfo& theCommand : d->commands) {
         ++i;
 //         qDebug() << "Checking" << theCommand->command << "named" << theCommand->name;
-        if(theCommand->command == command) {
+        if(theCommand.command == command) {
 //             qDebug() << "Found matching command!" << i;
-            if(theCommand->isRunning != isRunning) {
+            if(theCommand.isRunning != isRunning) {
 //                 qDebug() << "Changing state";
                 QModelIndex idx = index(i, 0);
-                theCommand->isRunning = isRunning;
+                theCommand.isRunning = isRunning;
                 dataChanged(idx, idx);
             }
             break;
@@ -184,7 +190,6 @@ void TailCommandModel::autofill(const QString& version)
 // ```
 
     beginResetModel();
-    qDeleteAll(d->commands);
     d->commands.clear();
     d->tailVersion = version;
     if (version == QLatin1String()) {
@@ -192,138 +197,138 @@ void TailCommandModel::autofill(const QString& version)
     }
     else /* if (version == QLatin1String("the version for this tail version...")) */ {
         qDebug() << "Adding commands for tail version" << version;
-        CommandInfo* command = new CommandInfo();
-        command->name = QLatin1String("Tail Home Position");
-        command->command = QLatin1String("TAILHM");
-        command->category = QLatin1String("");
-        command->duration = 200;
-        command->minimumCooldown = 1000;
+        CommandInfo command;
+        command.name = QLatin1String("Tail Home Position");
+        command.command = QLatin1String("TAILHM");
+        command.category = QLatin1String("");
+        command.duration = 200;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Slow Wag 1");
-        command->command = QLatin1String("TAILS1");
-        command->category = QLatin1String("relaxed");
-        command->duration = 11530;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Slow Wag 1");
+        command.command = QLatin1String("TAILS1");
+        command.category = QLatin1String("relaxed");
+        command.duration = 11530;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Slow Wag 2");
-        command->command = QLatin1String("TAILS2");
-        command->category = QLatin1String("relaxed");
-        command->duration = 7100;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Slow Wag 2");
+        command.command = QLatin1String("TAILS2");
+        command.category = QLatin1String("relaxed");
+        command.duration = 7100;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Slow Wag 3");
-        command->command = QLatin1String("TAILS3");
-        command->category = QLatin1String("relaxed");
-        command->duration = 8500;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Slow Wag 3");
+        command.command = QLatin1String("TAILS3");
+        command.category = QLatin1String("relaxed");
+        command.duration = 8500;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Fast Wag");
-        command->command = QLatin1String("TAILFA");
-        command->category = QLatin1String("excited");
-        command->duration = 9960;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Fast Wag");
+        command.command = QLatin1String("TAILFA");
+        command.category = QLatin1String("excited");
+        command.duration = 9960;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Short Wag");
-        command->command = QLatin1String("TAILSH");
-        command->category = QLatin1String("excited");
-        command->duration = 7460;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Short Wag");
+        command.command = QLatin1String("TAILSH");
+        command.category = QLatin1String("excited");
+        command.duration = 7460;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Happy Wag");
-        command->command = QLatin1String("TAILHA");
-        command->category = QLatin1String("excited");
-        command->duration = 8860;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Happy Wag");
+        command.command = QLatin1String("TAILHA");
+        command.category = QLatin1String("excited");
+        command.duration = 8860;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Stand up!");
-        command->command = QLatin1String("TAILER");
-        command->category = QLatin1String("excited");
-        command->duration = 5800;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Stand up!");
+        command.command = QLatin1String("TAILER");
+        command.category = QLatin1String("excited");
+        command.duration = 5800;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Tremble 1");
-        command->command = QLatin1String("TAILT1");
-        command->category = QLatin1String("tense");
-        command->duration = 4060;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Tremble 1");
+        command.command = QLatin1String("TAILT1");
+        command.category = QLatin1String("tense");
+        command.duration = 4060;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Tremble 2");
-        command->command = QLatin1String("TAILT2");
-        command->category = QLatin1String("tense");
-        command->duration = 5550;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Tremble 2");
+        command.command = QLatin1String("TAILT2");
+        command.category = QLatin1String("tense");
+        command.duration = 5550;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Tremble Erect");
-        command->command = QLatin1String("TAILET");
-        command->category = QLatin1String("tense");
-        command->duration = 4730;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("Tremble Erect");
+        command.command = QLatin1String("TAILET");
+        command.category = QLatin1String("tense");
+        command.duration = 4730;
+        command.minimumCooldown = 1000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("High Wag");
-        command->command = QLatin1String("TAILEP");
-        command->category = QLatin1String("tense");
-        command->duration = 9760;
-        command->minimumCooldown = 1000;
+        command.clear();
+        command.name = QLatin1String("High Wag");
+        command.command = QLatin1String("TAILEP");
+        command.category = QLatin1String("tense");
+        command.duration = 9760;
+        command.minimumCooldown = 1000;
         d->commands << command;
 
-        command = new CommandInfo();
-        command->name = QLatin1String("BLINK");
-        command->command = QLatin1String("LEDREC");
-        command->category = QLatin1String("lights");
-        command->duration = 10000;
+        command.clear();
+        command.name = QLatin1String("BLINK");
+        command.command = QLatin1String("LEDREC");
+        command.category = QLatin1String("lights");
+        command.duration = 10000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("TRIANGLE");
-        command->command = QLatin1String("LEDTRI");
-        command->category = QLatin1String("lights");
-        command->duration = 10000;
+        command.clear();
+        command.name = QLatin1String("TRIANGLE");
+        command.command = QLatin1String("LEDTRI");
+        command.category = QLatin1String("lights");
+        command.duration = 10000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("SAWTOOTH");
-        command->command = QLatin1String("LEDSAW");
-        command->category = QLatin1String("lights");
-        command->duration = 10000;
+        command.clear();
+        command.name = QLatin1String("SAWTOOTH");
+        command.command = QLatin1String("LEDSAW");
+        command.category = QLatin1String("lights");
+        command.duration = 10000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("MORSE");
-        command->command = QLatin1String("LEDSOS");
-        command->category = QLatin1String("lights");
-        command->duration = 10000;
+        command.clear();
+        command.name = QLatin1String("MORSE");
+        command.command = QLatin1String("LEDSOS");
+        command.category = QLatin1String("lights");
+        command.duration = 10000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("BEACON");
-        command->command = QLatin1String("LEDBEA");
-        command->category = QLatin1String("lights");
-        command->duration = 10000;
+        command.clear();
+        command.name = QLatin1String("BEACON");
+        command.command = QLatin1String("LEDBEA");
+        command.category = QLatin1String("lights");
+        command.duration = 10000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("FLAME");
-        command->command = QLatin1String("LEDFLA");
-        command->category = QLatin1String("lights");
-        command->duration = 10000;
+        command.clear();
+        command.name = QLatin1String("FLAME");
+        command.command = QLatin1String("LEDFLA");
+        command.category = QLatin1String("lights");
+        command.duration = 10000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("STROBE");
-        command->command = QLatin1String("LEDSTR");
-        command->category = QLatin1String("lights");
-        command->duration = 10000;
+        command.clear();
+        command.name = QLatin1String("STROBE");
+        command.command = QLatin1String("LEDSTR");
+        command.category = QLatin1String("lights");
+        command.duration = 10000;
         d->commands << command;
-        command = new CommandInfo();
-        command->name = QLatin1String("Off");
-        command->command = QLatin1String("LEDOFF");
-        command->category = QLatin1String("");
-        command->duration = 300;
+        command.clear();
+        command.name = QLatin1String("Off");
+        command.command = QLatin1String("LEDOFF");
+        command.category = QLatin1String("");
+        command.duration = 300;
         d->commands << command;
     }
     endResetModel();
@@ -335,46 +340,7 @@ QString TailCommandModel::tailVersion() const
     return d->tailVersion;
 }
 
-TailCommandModel::CommandInfo * TailCommandModel::getCommand(int index) const
-{
-    if(index >= 0 && index < d->commands.count()) {
-        return d->commands[index];
-    }
-    return nullptr;
-}
-
-TailCommandModel::CommandInfo * TailCommandModel::getCommand(QString command) const
-{
-    TailCommandModel::CommandInfo* cmd(nullptr);
-    for(TailCommandModel::CommandInfo* current : d->commands) {
-        if(current->command == command) {
-            cmd = current;
-            break;
-        }
-    }
-    return cmd;
-}
-
-TailCommandModel::CommandInfo * TailCommandModel::getRandomCommand(QStringList includedCategories) const
-{
-    if(d->commands.count() > 0) {
-        TailCommandModel::CommandInfoList pickFrom;
-        if(includedCategories.isEmpty()) {
-            pickFrom.append(d->commands);
-        }
-        else {
-            for(TailCommandModel::CommandInfo* command : d->commands) {
-                if(includedCategories.contains(command->category)) {
-                    pickFrom << command;
-                }
-            }
-        }
-        return pickFrom.at(QRandomGenerator::global()->bounded(pickFrom.count()));
-    }
-    return nullptr;
-}
-
-const TailCommandModel::CommandInfoList& TailCommandModel::allCommands() const
+const CommandInfoList& TailCommandModel::allCommands() const
 {
     return d->commands;
 }

@@ -93,7 +93,7 @@ public:
      *
      * @param commands The list of commands to add to the queue
      */
-    Q_SLOT void pushCommands(TailCommandModel::CommandInfoList commands);
+    Q_SLOT void pushCommands(CommandInfoList commands);
     /**
      * A convenience slot which takes a list of commands, and the special pause command
      * (which is "pause:" followed by an integer number representing the number of seconds

@@ -16,6 +16,7 @@
  */
 
 #include "BTConnectionManager.h"
+#include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
 #include "BTDevice.h"
 #include "TailCommandModel.h"
@@ -43,7 +44,7 @@ public:
     AppSettings* appSettings{nullptr};
     QBluetoothUuid tailStateCharacteristicUuid;
 
-    TailCommandModel* commandModel{new TailCommandModel};
+    BTDeviceCommandModel* commandModel{new BTDeviceCommandModel};
     BTDeviceModel* deviceModel{nullptr};
     BTDevice* connecedDevice{nullptr};
     CommandQueue* commandQueue{nullptr};
@@ -186,10 +187,10 @@ void BTConnectionManager::sendMessage(const QString &message, const QStringList&
     if(d->fakeTailMode) {
         // Send A Message
         qDebug() << "Fakery for" << message;
-        TailCommandModel::CommandInfo* commandInfo = d->connecedDevice->commandModel->getCommand(message);
-        if(commandInfo) {
+        CommandInfo commandInfo = d->commandModel->getCommand(message);
+        if(commandInfo.isValid()) {
             d->connecedDevice->commandModel->setRunning(message, true);
-            QTimer::singleShot(commandInfo->duration, this, [this, message](){ d->connecedDevice->commandModel->setRunning(message, false); });
+            QTimer::singleShot(commandInfo.duration, this, [this, message](){ d->connecedDevice->commandModel->setRunning(message, false); });
         }
     }
     else {
@@ -287,13 +288,13 @@ QVariantMap BTConnectionManager::getCommand(const QString& command)
 {
     QVariantMap info;
     if(d->connecedDevice && d->connecedDevice->commandModel) {
-        TailCommandModel::CommandInfo* actualCommand = d->connecedDevice->commandModel->getCommand(command);
-        if(actualCommand) {
-            info["category"] = actualCommand->category;
-            info["command"] = actualCommand->command;
-            info["duration"] = actualCommand->duration;
-            info["minimumCooldown"] = actualCommand->minimumCooldown;
-            info["name"] = actualCommand->name;
+        const CommandInfo& actualCommand = d->commandModel->getCommand(command);
+        if(actualCommand.isValid()) {
+            info["category"] = actualCommand.category;
+            info["command"] = actualCommand.command;
+            info["duration"] = actualCommand.duration;
+            info["minimumCooldown"] = actualCommand.minimumCooldown;
+            info["name"] = actualCommand.name;
         }
     }
     return info;

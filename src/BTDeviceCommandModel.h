@@ -60,14 +60,14 @@ public:
      * @param index The index of the command to fetch
      * @return A command if the index was valid, or null if not
      */
-    Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(int index) const;
+    Q_INVOKABLE CommandInfo getCommand(int index) const;
     /**
      * Get the command with the specified actual command
      *
      * @param command The command to fetch information for
      * @return The command info instance for the specified command, or null if none was found
      */
-    Q_INVOKABLE TailCommandModel::CommandInfo* getCommand(QString command) const;
+    Q_INVOKABLE CommandInfo getCommand(QString command) const;
     /**
      * Get a random command, picked from the currently available commands, limited
      * to commands with the category listed in includedCategories. If the list is
@@ -76,7 +76,7 @@ public:
      * @param includedCategories A list of strings matching the categories
      * @return A random command matching one of the requested categories
      */
-    Q_INVOKABLE TailCommandModel::CommandInfo* getRandomCommand(QStringList includedCategories) const;
+    Q_INVOKABLE CommandInfo getRandomCommand(QStringList includedCategories) const;
 private:
     class Private;
     Private* d;
