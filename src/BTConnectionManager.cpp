@@ -55,15 +55,6 @@ public:
 
     QVariantMap command;
 
-    void reconnectDevice(QObject* context)
-    {
-        QTimer::singleShot(0, context, [this] {
-            if (connecedDevice && connecedDevice->btControl) {
-                connecedDevice->btControl->connectToDevice();
-            }
-        });
-    }
-
     QBluetoothLocalDevice* localDevice = nullptr;
     int localBTDeviceState = 0;
 };
@@ -170,23 +161,17 @@ void BTConnectionManager::connectToDevice(const QString& deviceID)
     }
 }
 
-void BTConnectionManager::connectDevice(const QBluetoothDeviceInfo& device)
-{
-    d->connecedDevice = d->deviceModel->getDevice(device.address().toString());
-    d->connecedDevice->connectDevice();
-}
-
 void BTConnectionManager::disconnectDevice()
 {
     if (d->fakeTailMode) {
         d->fakeTailMode = false;
         emit isConnectedChanged(isConnected());
     } else if (d->connecedDevice->isConnected()) {
+        d->commandQueue->clear(d->connecedDevice->deviceID());
+        emit commandQueueChanged();
         d->connecedDevice->disconnectDevice();
         emit commandModelChanged();
         d->connecedDevice = nullptr;
-        d->commandQueue->clear(); // FIXME Clear commands for this device only
-        emit commandQueueChanged();
         emit isConnectedChanged(isConnected());
     }
 }
@@ -214,8 +199,7 @@ void BTConnectionManager::sendMessage(const QString &message, const QStringList&
 
 void BTConnectionManager::runCommand(const QString& command)
 {
-    if (d->connecedDevice)
-        d->connecedDevice->sendMessage(command);
+    sendMessage(command, QStringList{});
 }
 
 QObject* BTConnectionManager::commandModel() const

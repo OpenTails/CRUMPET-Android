@@ -45,7 +45,6 @@ public:
     AppSettings* appSettings() const;
     void setAppSettings(AppSettings* appSettings);
 
-    void connectDevice(const QBluetoothDeviceInfo& device);
     void connectClient(QLowEnergyService* remoteService);
 
     QObject* deviceModel() const;
