@@ -58,7 +58,7 @@ public:
                 if(until < interval)
                 {
 //                     qDebug() << "Event is within our check interval, so launch it now";
-                    commandQueue->clear();
+                    commandQueue->clear({});
                     commandQueue->pushPause(until);
                     commandQueue->pushCommands(alarm->commands());
                     break;

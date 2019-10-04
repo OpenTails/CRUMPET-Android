@@ -73,7 +73,7 @@ void IdleMode::setAppSettings(AppSettings* settings)
             CommandQueue* queue = qobject_cast<CommandQueue*>(d->connectionManager->commandQueue());
             if (queue) {
                 qDebug() << "Casual mode has been disabled, clear the queue to avoid any mishaps.";
-                queue->clear();
+                queue->clear({});
             }
         }
         d->push();
