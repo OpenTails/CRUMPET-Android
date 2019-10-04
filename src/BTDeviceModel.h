@@ -83,6 +83,9 @@ public:
      */
     Q_SLOT void sendMessage(const QString& message, const QStringList& deviceIDs = QStringList());
     Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
+
+    Q_SIGNAL void deviceAdded(BTDevice* device);
+    Q_SIGNAL void deviceRemoved(BTDevice* device);
 private:
     class Private;
     Private* d;

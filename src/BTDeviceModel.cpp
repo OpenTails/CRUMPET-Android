@@ -162,6 +162,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
             int index = d->devices.indexOf(newDevice);
             if(index > -1) {
                 beginRemoveRows(QModelIndex(), index, index);
+                emit deviceRemoved(newDevice);
                 d->devices.removeAll(newDevice);
                 endRemoveRows();
             }
@@ -169,6 +170,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);
+        emit deviceAdded(newDevice);
         emit countChanged();
         endInsertRows();
     }
@@ -179,6 +181,7 @@ void BTDeviceModel::removeDevice(BTDevice* device)
     int idx = d->devices.indexOf(device);
     if (idx > -1) {
         beginRemoveRows(QModelIndex(), idx, idx);
+        emit deviceRemoved(device);
         device->disconnect(this);
         d->devices.removeAt(idx);
         emit countChanged();
