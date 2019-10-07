@@ -18,8 +18,6 @@ class BTConnectionManagerProxy {
     PROP(bool discoveryRunning READONLY)
     PROP(int deviceCount READONLY)
     PROP(int commandQueueCount READONLY)
-    PROP(QString tailVersion READONLY)
-    PROP(QString currentDeviceID READONLY)
     PROP(int bluetoothState READONLY)
 
     SLOT(void runCommand(const QString& command))
@@ -27,7 +25,7 @@ class BTConnectionManagerProxy {
     SLOT(void stopDiscovery())
     SLOT(void sendMessage(const QString& message, const QStringList& deviceIDs))
     SLOT(void connectToDevice(const QString& deviceID))
-    SLOT(void disconnectDevice())
+    SLOT(void disconnectDevice(const QString& deviceID))
     SLOT(void setFakeTailMode(bool enableFakery))
     SLOT(void setDeviceName(const QString& deviceID, const QString& deviceName))
     SLOT(void clearDeviceNames())

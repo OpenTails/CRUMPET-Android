@@ -77,6 +77,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
             this, [this](const QString& /*deviceID*/, const QString& deviceMessage){ emit message(deviceMessage); });
     connect(d->deviceModel, &BTDeviceModel::countChanged,
             this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
+    connect(d->deviceModel, &BTDeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
 
     // Create a discovery agent and connect to its signals
     d->deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
@@ -162,18 +163,28 @@ void BTConnectionManager::connectToDevice(const QString& deviceID)
     }
 }
 
-void BTConnectionManager::disconnectDevice()
+void BTConnectionManager::disconnectDevice(const QString& deviceID)
 {
     if (d->fakeTailMode) {
         d->fakeTailMode = false;
         emit isConnectedChanged(isConnected());
-    } else if (d->connecedDevice->isConnected()) {
-        d->commandQueue->clear(d->connecedDevice->deviceID());
-        emit commandQueueChanged();
-        d->connecedDevice->disconnectDevice();
-        emit commandModelChanged();
-        d->connecedDevice = nullptr;
-        emit isConnectedChanged(isConnected());
+    } else {
+        if(deviceID.isEmpty()) {
+            // Disconnect eeeeeverything
+            for (int i = 0; i < d->deviceModel->count(); ++i) {
+                const QString id{d->deviceModel->getDeviceID(i)};
+                if (!id.isEmpty()) {
+                    disconnectDevice(id);
+                }
+            }
+        } else {
+            BTDevice* device = d->deviceModel->getDevice(deviceID);
+            if (device && device->isConnected()) {
+                device->disconnectDevice();
+                d->commandQueue->clear(device->deviceID());
+                emit commandQueueChanged();
+            }
+        }
     }
 }
 
@@ -215,7 +226,7 @@ QObject * BTConnectionManager::commandQueue() const
 
 bool BTConnectionManager::isConnected() const
 {
-    return d->fakeTailMode || (d->connecedDevice && d->connecedDevice->isConnected());
+    return d->fakeTailMode || d->deviceModel->isConnected();
 }
 
 int BTConnectionManager::deviceCount() const
@@ -226,22 +237,6 @@ int BTConnectionManager::deviceCount() const
 int BTConnectionManager::commandQueueCount() const
 {
     return d->commandQueue->count();
-}
-
-QString BTConnectionManager::tailVersion() const
-{
-    if (d->connecedDevice)
-        return d->connecedDevice->commandModel->tailVersion();
-    return QString{};
-}
-
-QString BTConnectionManager::currentDeviceID() const
-{
-    // We should check for d->btControl because we may have fakeTailMode
-    if(isConnected() && d->connecedDevice->btControl) {
-        return d->connecedDevice->btControl->remoteAddress().toString();
-    }
-    return QString();
 }
 
 int BTConnectionManager::bluetoothState() const
@@ -287,7 +282,7 @@ QVariantMap BTConnectionManager::command() const
 QVariantMap BTConnectionManager::getCommand(const QString& command)
 {
     QVariantMap info;
-    if(d->connecedDevice && d->connecedDevice->commandModel) {
+    if(d->commandModel) {
         const CommandInfo& actualCommand = d->commandModel->getCommand(command);
         if(actualCommand.isValid()) {
             info["category"] = actualCommand.category;
