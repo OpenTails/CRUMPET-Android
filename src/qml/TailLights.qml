@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
             text: qsTr("Stop Lights");
             icon.name: "dialog-cancel";
             onTriggered: {
-                BTConnectionManager.sendMessage("LEDOFF");
+                BTConnectionManager.sendMessage("LEDOFF", "");
             }
         }
     }
@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
         width: parent.width;
         infoText: qsTr("The list below shows all the light patterns available in your tail. Tap any of them to send them off to the tail!");
         onCommandActivated: {
-            CommandQueue.clear();
+            CommandQueue.clear("");
             CommandQueue.pushCommand(command);
         }
         categoriesModel: ListModel {

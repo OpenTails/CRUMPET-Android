@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
             text: qsTr("Tail Home Position");
             icon.name: "dialog-cancel";
             onTriggered: {
-                BTConnectionManager.sendMessage("TAILHM");
+                BTConnectionManager.sendMessage("TAILHM", "");
             }
         }
     }
@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
         infoText: qsTr("The list below shows all the moves available in your tail. Tap any of them to send them off to the tail!");
         blockOnMovingTail: true;
         onCommandActivated: {
-            CommandQueue.clear();
+            CommandQueue.clear("");
             CommandQueue.pushCommand(command);
         }
         categoriesModel: ListModel {
