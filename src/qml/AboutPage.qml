@@ -23,6 +23,25 @@ import org.kde.kirigami 2.6 as Kirigami
 import org.thetailcompany.digitail 1.0
 
 Kirigami.AboutPage {
+    FilterProxyModel {
+        id: deviceFilterProxy;
+        sourceModel: DeviceModel;
+        filterRole: 262; // the isConnected role
+        filterBoolean: true;
+        function handyStringMakerThing() {
+            if (rowCount() === 1) {
+                return qsTr("The connected device is version %1").arg(data(index(0, 0), 259))
+            } else {
+                var constructedString = "";
+                var newLine = "";
+                for (var i = 0; i < rowCount(); ++i) {
+                    constructedString += newLine + qsTr("The device named %1 is version %2").arg(data(index(i, 0), 257)).arg(data(index(i, 0), 259));
+                    newLine = "\n";
+                }
+                return constructedString;
+            }
+        }
+    }
     objectName: "aboutPage";
     aboutData: {
         "displayName" : "DIGITAiL App",
@@ -33,7 +52,7 @@ Kirigami.AboutPage {
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
         "version" : "v1.0",
-        "otherText" : BTConnectionManager.isConnected ? qsTr("Connected tail is version %1").arg(BTConnectionManager.tailVersion) : "",
+        "otherText" : BTConnectionManager.isConnected ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
                     {
                         "name" : "Dan Leinir Turthra Jensen\n",
