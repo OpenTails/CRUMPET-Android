@@ -30,17 +30,21 @@ class BTDevice;
 class BTDeviceModel : public QAbstractListModel
 {
     Q_OBJECT
+    /**
+     * Whether or not any device in the model is connected
+     */
+    Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
 public:
     explicit BTDeviceModel(QObject* parent = nullptr);
     ~BTDeviceModel() override;
 
     enum Roles {
-        Name = Qt::UserRole + 1,
-        DeviceID,
-        DeviceVersion,
-        BatteryLevel,
-        CurrentCall,
-        IsConnected
+        Name = Qt::UserRole + 1, // 257
+        DeviceID,                // 258
+        DeviceVersion,           // 259
+        BatteryLevel,            // 260
+        CurrentCall,             // 261
+        IsConnected              // 262
     };
 
     AppSettings* appSettings() const;
@@ -49,6 +53,13 @@ public:
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+
+    /**
+     * Whether or not any device in the model is connected
+     * @return True if any device in the model is connected
+     */
+    bool isConnected() const;
+    Q_SIGNAL void isConnectedChanged(bool isConnected);
 
     /**
      * Add a new device to the model.

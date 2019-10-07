@@ -140,6 +140,16 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
     return d->devices.count();
 }
 
+bool BTDeviceModel::isConnected() const
+{
+    for (BTDevice* device : d->devices) {
+        if (device->isConnected()) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
     BTDevice* newDevice = new BTDevice(deviceInfo, this);
@@ -161,6 +171,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
         });
         connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, IsConnected);
+            emit isConnectedChanged(isConnected());
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);
