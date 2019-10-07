@@ -37,14 +37,12 @@ public:
           tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
     {
     }
-    ~Private() {
-        commandModel->deleteLater();
-    }
+    ~Private() { }
 
     AppSettings* appSettings{nullptr};
     QBluetoothUuid tailStateCharacteristicUuid;
 
-    BTDeviceCommandModel* commandModel{new BTDeviceCommandModel};
+    BTDeviceCommandModel* commandModel{nullptr};
     BTDeviceModel* deviceModel{nullptr};
     BTDevice* connecedDevice{nullptr};
     CommandQueue* commandQueue{nullptr};
@@ -64,7 +62,6 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     : BTConnectionManagerProxySource(parent)
     , d(new Private(appSettings))
 {
-
     d->commandQueue = new CommandQueue(this);
 
     connect(d->commandQueue, &CommandQueue::countChanged,
@@ -78,6 +75,9 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     connect(d->deviceModel, &BTDeviceModel::countChanged,
             this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
     connect(d->deviceModel, &BTDeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
+
+    d->commandModel = new BTDeviceCommandModel(this);
+    d->commandModel->setDeviceModel(d->deviceModel);
 
     // Create a discovery agent and connect to its signals
     d->deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
