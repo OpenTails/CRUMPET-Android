@@ -18,48 +18,64 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.4 as Kirigami
 import org.thetailcompany.digitail 1.0
 
-Item {
+Column {
+    id: batteryLayout
+    enabled: visible;
     visible: height > 0;
-    height: BTConnectionManager.isConnected ? batteryLabel.height : 0;
+    height: batteryRep.count * Kirigami.Units.iconSizes.small;
+    Repeater {
+        id: batteryRep;
+        model: FilterProxyModel {
+            id: deviceFilterProxy;
+            sourceModel: DeviceModel;
+            filterRole: 262; // the isConnected role
+            filterBoolean: true;
+        }
+        Item {
+            id: batteryDelegate
+            height: Kirigami.Units.iconSizes.small;
+            width: batteryLayout.width
+            property int batteryLevel: model.batteryLevel
+            Label {
+                id: batteryLabel;
+                anchors.fill: parent
+                verticalAlignment: Text.AlignVCenter
+                text: "Tail battery:"
+            }
 
-    Label {
-        id: batteryLabel;
-        text: "Tail battery:"
-        height: Kirigami.Units.iconSizes.small;
-    }
+            Row {
+                spacing: Kirigami.Units.smallSpacing;
+                anchors.right: parent.right;
 
-    Row {
-        spacing: Kirigami.Units.smallSpacing;
-        anchors.right: parent.right;
+                Repeater {
+                    model: 4;
 
-        Repeater {
-            model: 4;
+                    Rectangle {
+                        height: Kirigami.Units.iconSizes.small;
+                        width: height;
+                        radius: height / 2;
+                        color: "transparent";
 
-            Rectangle {
-                height: Kirigami.Units.iconSizes.small;
-                width: height;
-                radius: height / 2;
-                color: "transparent";
+                        border {
+                            width: 1;
+                            color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
+                        }
 
-                border {
-                    width: 1;
-                    color: BTConnectionManager.batteryLevel <= 1 ? "red" : "black";
-                }
+                        anchors.verticalCenter: parent.verticalCenter;
 
-                anchors.verticalCenter: parent.verticalCenter;
-
-                Rectangle {
-                    visible: modelData < BTConnectionManager.batteryLevel;
-                    height: parent.height - Kirigami.Units.smallSpacing * 2;
-                    width: height;
-                    radius: height / 2;
-                    color: BTConnectionManager.batteryLevel <= 1 ? "red" : "black";
-                    anchors.centerIn: parent;
+                        Rectangle {
+                            visible: modelData < batteryDelegate.batteryLevel;
+                            height: parent.height - Kirigami.Units.smallSpacing * 2;
+                            width: height;
+                            radius: height / 2;
+                            color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
+                            anchors.centerIn: parent;
+                        }
+                    }
                 }
             }
         }
