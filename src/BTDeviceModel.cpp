@@ -169,6 +169,9 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
         connect(newDevice, &BTDevice::currentCall, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, CurrentCall);
         });
+        connect(newDevice, &BTDevice::versionChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, DeviceVersion);
+        });
         connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, IsConnected);
             emit isConnectedChanged(isConnected());
