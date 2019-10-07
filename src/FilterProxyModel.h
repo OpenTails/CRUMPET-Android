@@ -24,6 +24,7 @@ class FilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString filterString READ filterString WRITE setFilterString NOTIFY filterStringChanged)
+    Q_PROPERTY(bool filterBoolean READ filterBoolean WRITE setFilterBoolean NOTIFY filterBooleanChanged)
 public:
     explicit FilterProxyModel(QObject* parent = nullptr);
     ~FilterProxyModel() override;
@@ -31,6 +32,16 @@ public:
     void setFilterString(const QString &string);
     QString filterString() const;
     Q_SIGNAL void filterStringChanged();
+
+    void setFilterBoolean(const bool &value);
+    bool filterBoolean() const;
+    Q_SIGNAL void filterBooleanChanged();
+
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+
+private:
+    class Private;
+    Private* d;
 };
 
 #endif//FILTERPROXYMODEL

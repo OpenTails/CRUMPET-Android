@@ -17,13 +17,21 @@
 
 #include "FilterProxyModel.h"
 
+class FilterProxyModel::Private {
+public:
+    Private() {}
+    bool filterBoolean{false};
+};
+
 FilterProxyModel::FilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
+    , d(new Private)
 {
 }
 
 FilterProxyModel::~FilterProxyModel()
 {
+    delete d;
 }
 
 void FilterProxyModel::setFilterString(const QString &string)
@@ -36,4 +44,25 @@ void FilterProxyModel::setFilterString(const QString &string)
 QString FilterProxyModel::filterString() const
 {
     return filterRegExp().pattern();
+}
+
+void FilterProxyModel::setFilterBoolean(const bool& value)
+{
+    d->filterBoolean = value;
+    emit filterBooleanChanged();
+}
+
+bool FilterProxyModel::filterBoolean() const
+{
+    return d->filterBoolean;
+}
+
+bool FilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
+{
+    QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
+    if (d->filterBoolean) {
+        return sourceModel()->data(index, filterRole()).toBool();
+    } else {
+        return sourceModel()->data(index, filterRole()).toString().contains(filterRegExp());
+    }
 }
