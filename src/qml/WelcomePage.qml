@@ -32,7 +32,7 @@ Kirigami.Page {
             icon.name: BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
             onTriggered: {
                 if(BTConnectionManager.isConnected) {
-                    BTConnectionManager.disconnectDevice();
+                    BTConnectionManager.disconnectDevice("");
                 }
                 else {
                     if(BTConnectionManager.deviceCount === 1) {
