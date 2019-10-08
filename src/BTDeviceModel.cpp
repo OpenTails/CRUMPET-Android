@@ -163,6 +163,13 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
             }
         }
         connect(newDevice, &BTDevice::deviceMessage, this, &BTDeviceModel::deviceMessage);
+        connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](bool isConnected){
+            if (isConnected) {
+                emit deviceConnected(newDevice);
+            } else {
+                emit deviceDisconnected(newDevice);
+            }
+        });
         connect(newDevice, &BTDevice::batteryLevelChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, BatteryLevel);
         });

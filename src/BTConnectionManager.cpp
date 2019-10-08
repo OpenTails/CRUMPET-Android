@@ -74,6 +74,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
             this, [this](const QString& /*deviceID*/, const QString& deviceMessage){ emit message(deviceMessage); });
     connect(d->deviceModel, &BTDeviceModel::countChanged,
             this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
+    connect(d->deviceModel, &BTDeviceModel::deviceConnected, this, [this](BTDevice* device){ emit deviceConnected(device->deviceID()); });
     connect(d->deviceModel, &BTDeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
 
     d->commandModel = new BTDeviceCommandModel(this);

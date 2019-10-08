@@ -98,6 +98,8 @@ public:
 
     Q_SIGNAL void deviceAdded(BTDevice* device);
     Q_SIGNAL void deviceRemoved(BTDevice* device);
+    Q_SIGNAL void deviceConnected(BTDevice* device);
+    Q_SIGNAL void deviceDisconnected(BTDevice* device);
 private:
     class Private;
     Private* d;
