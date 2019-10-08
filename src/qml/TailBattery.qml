@@ -39,12 +39,12 @@ Column {
             id: batteryDelegate
             height: Kirigami.Units.iconSizes.small;
             width: batteryLayout.width
-            property int batteryLevel: model.batteryLevel
+            property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
             Label {
                 id: batteryLabel;
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
-                text: "Tail battery:"
+                text: "%1 battery:".arg(model.name)
             }
 
             Row {
