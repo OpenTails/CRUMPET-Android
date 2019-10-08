@@ -93,14 +93,7 @@ Kirigami.ApplicationWindow {
 
         onDeviceConnected: {
             console.debug("Connected to new device with ID: " + deviceID);
-            namePicker.checkTailName(BTConnectionManager.currentDeviceID);
-        }
-
-        onDeviceNamesCleared: {
-            if (BTConnectionManager.isConnected && BTConnectionManager.currentDeviceID) {
-                console.debug("Connected to tail, now have current device ID: " + BTConnectionManager.currentDeviceID);
-                namePicker.checkTailName(BTConnectionManager.currentDeviceID);
-            }
+            namePicker.checkDeviceName(BTConnectionManager.currentDeviceID);
         }
 
         onBluetoothStateChanged: {
@@ -320,7 +313,7 @@ Kirigami.ApplicationWindow {
     NamePicker {
         id: namePicker;
 
-        function checkTailName(deviceID) {
+        function checkDeviceName(deviceID) {
             if (deviceID && !AppSettings.deviceNames[deviceID]) {
                 namePicker.deviceID = deviceID;
                 namePicker.pickName();
