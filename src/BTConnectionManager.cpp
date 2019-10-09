@@ -158,7 +158,7 @@ void BTConnectionManager::connectToDevice(const QString& deviceID)
         device = d->deviceModel->getDevice(deviceID);
     }
     if(device) {
-        qDebug() << "Attempting to connect to device" << device->name;
+        qDebug() << "Attempting to connect to device" << device->name();
         d->connecedDevice = device;
         device->connectDevice();
     }
