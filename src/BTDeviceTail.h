@@ -29,11 +29,6 @@ public:
 
     QBluetoothDeviceInfo deviceInfo;
 
-    QLowEnergyController *btControl{nullptr};
-    QLowEnergyService* tailService{nullptr};
-    QLowEnergyCharacteristic tailCharacteristic;
-    QLowEnergyDescriptor tailDescriptor;
-
     bool isConnected() const override;
     QString version() const override;
     QString currentCall() const override;
