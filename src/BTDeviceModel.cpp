@@ -91,7 +91,7 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {DeviceVersion, "deviceVersion"},
         {BatteryLevel, "batteryLevel"},
         {CurrentCall, "currentCall"},
-        {IsConnected, "IsConnected"}
+        {IsConnected, "isConnected"}
     };
     return roles;
 }
