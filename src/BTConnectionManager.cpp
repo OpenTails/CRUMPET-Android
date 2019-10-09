@@ -19,6 +19,7 @@
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
 #include "BTDevice.h"
+#include "BTDeviceFake.h"
 #include "TailCommandModel.h"
 #include "CommandQueue.h"
 #include "AppSettings.h"
@@ -44,7 +45,6 @@ public:
 
     BTDeviceCommandModel* commandModel{nullptr};
     BTDeviceModel* deviceModel{nullptr};
-    BTDevice* connecedDevice{nullptr};
     CommandQueue* commandQueue{nullptr};
 
     QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent = nullptr;
@@ -159,7 +159,6 @@ void BTConnectionManager::connectToDevice(const QString& deviceID)
     }
     if(device) {
         qDebug() << "Attempting to connect to device" << device->name();
-        d->connecedDevice = device;
         device->connectDevice();
     }
 }
@@ -196,18 +195,7 @@ QObject* BTConnectionManager::deviceModel() const
 
 void BTConnectionManager::sendMessage(const QString &message, const QStringList& deviceIDs)
 {
-    if(d->fakeTailMode) {
-        // Send A Message
-        qDebug() << "Fakery for" << message;
-        CommandInfo commandInfo = d->commandModel->getCommand(message);
-        if(commandInfo.isValid()) {
-            d->connecedDevice->commandModel->setRunning(message, true);
-            QTimer::singleShot(commandInfo.duration, this, [this, message](){ d->connecedDevice->commandModel->setRunning(message, false); });
-        }
-    }
-    else {
-        d->deviceModel->sendMessage(message, deviceIDs);
-    }
+    d->deviceModel->sendMessage(message, deviceIDs);
 }
 
 void BTConnectionManager::runCommand(const QString& command)
@@ -248,15 +236,14 @@ int BTConnectionManager::bluetoothState() const
 void BTConnectionManager::setFakeTailMode(bool enableFakery)
 {
     // This looks silly, but only Do The Things if we're actually trying to set it enabled, and we're not already enabled
+    static BTDeviceFake* fakeDevice = new BTDeviceFake(QBluetoothDeviceInfo(QBluetoothUuid(QString("FA:KE:TA:IL")), QString("FAKE"), 0), d->deviceModel);
     if(d->fakeTailMode == false && enableFakery == true) {
         d->fakeTailMode = true;
         stopDiscovery();
-        QTimer::singleShot(1000, this, [this]() {
-            emit isConnectedChanged(true);
-            d->connecedDevice->commandModel->autofill(QLatin1String("v1.0"));
-        });
+        d->deviceModel->addDevice(fakeDevice);
     } else {
         d->fakeTailMode = enableFakery;
+        d->deviceModel->removeDevice(fakeDevice);
     }
 }
 
