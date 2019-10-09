@@ -69,6 +69,7 @@ public:
      * @param newDevice The new device to show in the model
      */
     Q_SLOT void addDevice(const QBluetoothDeviceInfo& deviceInfo);
+    void addDevice(BTDevice* newDevice);
     /**
      * Remove a device from the model.
      * The entry will be deleted by this function, and you should not attempt to

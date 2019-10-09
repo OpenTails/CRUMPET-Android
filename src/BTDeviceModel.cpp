@@ -151,8 +151,17 @@ bool BTDeviceModel::isConnected() const
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
     BTDevice* newDevice = new BTDeviceTail(deviceInfo, this);
+    addDevice(newDevice);
+}
+
+void BTDeviceModel::addDevice(BTDevice* newDevice)
+{
     // It feels a little dirty to do it this way...
-    if(newDevice->deviceInfo.name() == QLatin1String("(!)Tail1")) {
+    static const QStringList acceptedDeviceNames{
+        QLatin1String{"(!)Tail1"},
+        QLatin1String{"FAKE"}
+    };
+    if(acceptedDeviceNames.contains(newDevice->deviceInfo.name())) {
         for(const BTDevice* device : d->devices) {
             if(device->deviceID() == newDevice->deviceID()) {
                 // Don't add the same device twice. Thanks bt discovery. Thiscovery.
@@ -171,7 +180,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
         connect(newDevice, &BTDevice::batteryLevelChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, BatteryLevel);
         });
-        connect(newDevice, &BTDevice::currentCall, this, [this, newDevice](){
+        connect(newDevice, &BTDevice::currentCallChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, CurrentCall);
         });
         connect(newDevice, &BTDevice::versionChanged, this, [this, newDevice](){
