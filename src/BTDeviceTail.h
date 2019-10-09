@@ -45,4 +45,4 @@ private:
     Private* d;
 };
 
-#endif//BTDEVICE_H
+#endif//BTDEVICETAIL_H
