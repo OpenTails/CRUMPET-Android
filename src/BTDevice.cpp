@@ -38,11 +38,18 @@ public:
     QTimer batteryTimer;
     QBluetoothUuid tailStateCharacteristicUuid{QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}")};
 
+    int reconnectThrottle{0};
     void reconnectDevice(QObject* context)
     {
         QTimer::singleShot(0, context, [this] {
             if (q->btControl) {
+                if (reconnectThrottle > 10) {
+                    q->disconnectDevice();
+                    q->deviceMessage(q->deviceID(), QString("Attempted to reconnect too many times to %1 (%2). To connect to it, please check that it is on, charged, and near enough.").arg(q->name).arg(q->deviceID()));
+                    return;
+                }
                 qDebug() << "Connection lost to" << q->name << "- attempting to reconnect.";
+                ++reconnectThrottle;
                 q->btControl->connectToDevice();
             }
         });
@@ -85,6 +92,7 @@ public:
             q->tailDescriptor = q->tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
             q->tailService->writeDescriptor(q->tailDescriptor, QByteArray::fromHex("0100"));
 
+            reconnectThrottle = 0;
             emit q->isConnectedChanged(q->isConnected());
             q->sendMessage("VER"); // Ask for the tail version, and then react to the response...
 
