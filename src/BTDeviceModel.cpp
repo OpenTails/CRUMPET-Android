@@ -34,7 +34,6 @@ public:
 
     AppSettings* appSettings{nullptr};
     QList<BTDevice*> devices;
-    QMap<QString, QString> deviceNames;
 
     void notifyDeviceDataChanged(BTDevice* device, int role)
     {
@@ -63,12 +62,14 @@ void BTDeviceModel::Private::readDeviceNames()
         return;
     }
 
-    deviceNames.clear();
-
     const QVariantMap map = appSettings->deviceNames();
-
     for (QVariantMap::const_iterator it = map.cbegin(); it != map.cend(); ++it) {
-        deviceNames[it.key()] = it.value().toString();
+        for (BTDevice* device : devices) {
+            if (device->deviceID() == it.key()) {
+                device->setName(it.value().toString());
+                break;
+            }
+        }
     }
 }
 
@@ -80,6 +81,7 @@ AppSettings *BTDeviceModel::appSettings() const
 void BTDeviceModel::setAppSettings(AppSettings *appSettings)
 {
     d->appSettings = appSettings;
+    connect(d->appSettings, &AppSettings::deviceNamesChanged, this, [this](){ d->readDeviceNames(); });
     d->readDeviceNames();
 }
 
@@ -102,15 +104,10 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
     if(index.isValid() && index.row() > -1 && index.row() < d->devices.count()) {
         BTDevice* device = d->devices.at(index.row());
         switch(role) {
-            case Name: {
-                auto name = d->deviceNames.value(device->deviceInfo.address().toString());
-                if (name.isEmpty()) {
-                    value = device->name;
-                } else {
-                    value = name;
-                }
+            case Name:
+                value = device->name();
                 break;
-            } case DeviceID:
+            case DeviceID:
                 value = device->deviceID();
                 break;
             case DeviceVersion:
@@ -154,7 +151,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
     BTDevice* newDevice = new BTDevice(deviceInfo, this);
     // It feels a little dirty to do it this way...
-    if(newDevice->name == QLatin1String("(!)Tail1")) {
+    if(newDevice->deviceInfo.name() == QLatin1String("(!)Tail1")) {
         for(const BTDevice* device : d->devices) {
             if(device->deviceID() == newDevice->deviceID()) {
                 // Don't add the same device twice. Thanks bt discovery. Thiscovery.
@@ -183,6 +180,9 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
             d->notifyDeviceDataChanged(newDevice, IsConnected);
             emit isConnectedChanged(isConnected());
         });
+        connect(newDevice, &BTDevice::nameChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, Name);
+        });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);
             if(index > -1) {
@@ -192,6 +192,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
                 endRemoveRows();
             }
         });
+        d->readDeviceNames();
 
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);
