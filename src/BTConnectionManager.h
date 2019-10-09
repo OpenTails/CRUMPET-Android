@@ -62,6 +62,7 @@ public:
     int commandQueueCount() const override;
     QVariantMap command() const override;
     int bluetoothState() const override;
+    bool fakeTailMode() const override;
 
 public Q_SLOTS:
     void sendMessage(const QString &message, const QStringList& deviceIDs) override;
@@ -71,7 +72,7 @@ public Q_SLOTS:
      * @param deviceID The ID of the device you wish to disconnect from
      */
     void disconnectDevice(const QString& deviceID) override;
-    void setFakeTailMode(bool enableFakery) override;
+    void setFakeTailMode(bool fakeTailMode) override;
     void setCommand(QVariantMap command) override;
     QVariantMap getCommand(const QString& command) override;
     void setLocalBTDeviceState();

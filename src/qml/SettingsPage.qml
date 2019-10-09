@@ -64,14 +64,14 @@ Kirigami.ScrollablePage {
 
         SettingsCard {
             headerText: qsTr("Fake Tail");
-            descriptionText: qsTr("If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL, you might want to explore what the app can do. You can click the button below to trick the app into thinking that it is connected to a tail, and explore what options exist.");
-            footer: QQC2.Button {
-                text: qsTr("Fake it!")
+            descriptionText: qsTr("If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL, you might want to explore what the app can do. You can click the button below to trick the app into thinking that it is connected to a tail, and explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
+            footer: QQC2.CheckBox {
+                text: qsTr("Show Fake Tail")
                 Layout.fillWidth: true
+                checked: BTConnectionManager.fakeTailMode;
 
                 onClicked: {
-                    BTConnectionManager.stopDiscovery();
-                    BTConnectionManager.setFakeTailMode(true);
+                    BTConnectionManager.fakeTailMode = !BTConnectionManager.fakeTailMode;
                 }
             }
         }

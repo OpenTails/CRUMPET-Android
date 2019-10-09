@@ -233,18 +233,24 @@ int BTConnectionManager::bluetoothState() const
     return d->localBTDeviceState;
 }
 
-void BTConnectionManager::setFakeTailMode(bool enableFakery)
+bool BTConnectionManager::fakeTailMode() const
+{
+    return d->fakeTailMode;
+}
+
+void BTConnectionManager::setFakeTailMode(bool fakeTailMode)
 {
     // This looks silly, but only Do The Things if we're actually trying to set it enabled, and we're not already enabled
     static BTDeviceFake* fakeDevice = new BTDeviceFake(QBluetoothDeviceInfo(QBluetoothUuid(QString("FA:KE:TA:IL")), QString("FAKE"), 0), d->deviceModel);
-    if(d->fakeTailMode == false && enableFakery == true) {
+    stopDiscovery();
+    if(d->fakeTailMode == false && fakeTailMode == true) {
         d->fakeTailMode = true;
-        stopDiscovery();
         d->deviceModel->addDevice(fakeDevice);
     } else {
-        d->fakeTailMode = enableFakery;
+        d->fakeTailMode = fakeTailMode;
         d->deviceModel->removeDevice(fakeDevice);
     }
+    emit fakeTailModeChanged(d->fakeTailMode);
 }
 
 void BTConnectionManager::setCommand(QVariantMap command)
