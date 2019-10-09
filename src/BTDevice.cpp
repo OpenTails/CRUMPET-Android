@@ -31,6 +31,7 @@ public:
     BTDevice* q;
     BTDeviceModel* parentModel;
 
+    QString name;
     QString version{"(unknown)"};
     QString currentCall;
     int batteryLevel{0};
@@ -45,10 +46,11 @@ public:
             if (q->btControl) {
                 if (reconnectThrottle > 10) {
                     q->disconnectDevice();
-                    q->deviceMessage(q->deviceID(), QString("Attempted to reconnect too many times to %1 (%2). To connect to it, please check that it is on, charged, and near enough.").arg(q->name).arg(q->deviceID()));
+                    reconnectThrottle = 0;
+                    q->deviceMessage(q->deviceID(), QString("Attempted to reconnect too many times to %1 (%2). To connect to it, please check that it is on, charged, and near enough.").arg(q->name()).arg(q->deviceID()));
                     return;
                 }
-                qDebug() << "Connection lost to" << q->name << "- attempting to reconnect.";
+                qDebug() << q->name() << q->deviceID() << "Connection lost - attempting to reconnect.";
                 ++reconnectThrottle;
                 q->btControl->connectToDevice();
             }
@@ -57,7 +59,7 @@ public:
 
     void connectToDevice()
     {
-        qDebug() << "Attempting to connect to device" << q->name;
+        qDebug() << q->name() << q->deviceID() << "Attempting to connect to device";
         q->connectDevice();
     }
 
@@ -65,18 +67,18 @@ public:
     {
         switch (s) {
         case QLowEnergyService::DiscoveringServices:
-            qDebug() << "Discovering services...";
+            qDebug() << q->name() << q->deviceID() << "Discovering services...";
             break;
         case QLowEnergyService::ServiceDiscovered:
         {
-            qDebug() << "Service discovered.";
+            qDebug() << q->name() << q->deviceID() << "Service discovered.";
 
             foreach(const QLowEnergyCharacteristic& leChar, q->tailService->characteristics()) {
-                qDebug() << "Characteristic:" << leChar.name() << leChar.uuid() << leChar.properties();
+                qDebug() << q->name() << q->deviceID() << "Characteristic:" << leChar.name() << leChar.uuid() << leChar.properties();
             }
             q->tailCharacteristic = q->tailService->characteristic(tailStateCharacteristicUuid);
             if (!q->tailCharacteristic.isValid()) {
-                qDebug() << "Tail characteristic not found, this is bad";
+                qDebug() << q->name() << q->deviceID() << "Tail characteristic not found, this is bad";
                 q->disconnectDevice();
                 break;
             }
@@ -106,7 +108,7 @@ public:
 
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
-        qDebug() << characteristic.uuid() << " NOTIFIED value change " << newValue;
+        qDebug() << q->name() << q->deviceID() << characteristic.uuid() << " NOTIFIED value change " << newValue;
 
         if (tailStateCharacteristicUuid == characteristic.uuid()) {
             if (currentCall == QLatin1String("VER")) {
@@ -133,11 +135,11 @@ public:
                         q->commandModel->setRunning(stateResult[1], false);
                     }
                     else {
-                        qDebug() << "Unexpected response: The first element of the two part message should be either BEGIN or END";
+                        qDebug() << q->name() << q->deviceID() << "Unexpected response: The first element of the two part message should be either BEGIN or END";
                     }
                 }
                 else {
-                    qDebug() << "Unexpected response: The response should consist of a string of two words separated by a single space, the first word being either BEGIN or END, and the second should be the command name either just beginning its run, or having just ended its run.";
+                    qDebug() << q->name() << q->deviceID() << "Unexpected response: The response should consist of a string of two words separated by a single space, the first word being either BEGIN or END, and the second should be the command name either just beginning its run, or having just ended its run.";
                 }
             }
         }
@@ -147,7 +149,7 @@ public:
 
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
-        qDebug() << "Characteristic written:" << characteristic.uuid() << newValue;
+        qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
         currentCall = newValue;
         emit q->currentCallChanged(currentCall);
     }
@@ -155,13 +157,11 @@ public:
 
 BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     : QObject(parent)
-    , name(info.name())
     , deviceInfo(info)
     , d(new Private(this))
 {
+    d->name = info.name();
     d->parentModel = parent;
-    connect(commandModel, &TailCommandModel::tailVersionChanged,
-        commandModel, [this](){ /*emit tailVersionChanged(commandModel->tailVersion());*/ });
 
     // The battery timer also functions as a keepalive call. If it turns
     // out to be a problem that we pull the battery this often, we can
@@ -194,13 +194,13 @@ void BTDevice::connectDevice()
     }
 
     connect(btControl, &QLowEnergyController::serviceDiscovered,
-        [](const QBluetoothUuid &gatt){
-            qDebug() << "service discovered" << gatt;
+        [this](const QBluetoothUuid &gatt){
+            qDebug() << name() << deviceID() << "service discovered" << gatt;
         });
 
     connect(btControl, &QLowEnergyController::discoveryFinished,
             [this](){
-                qDebug() << "Done!";
+                qDebug() << name() << deviceID()<< "Done!";
                 QLowEnergyService *service = btControl->createServiceObject(QBluetoothUuid(QLatin1String("{0000ffe0-0000-1000-8000-00805f9b34fb}")));
 
                 if (!service) {
@@ -217,7 +217,7 @@ void BTDevice::connectDevice()
 
     connect(btControl, static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::error),
         this, [this](QLowEnergyController::Error error) {
-            qDebug() << "Cannot connect to remote device." << error;
+            qDebug() << name() << deviceID() << "Cannot connect to remote device." << error;
 
             switch(error) {
                 case QLowEnergyController::UnknownError:
@@ -241,12 +241,12 @@ void BTDevice::connectDevice()
         });
 
     connect(btControl, &QLowEnergyController::connected, this, [this]() {
-        qDebug() << "Controller connected. Search services...";
+        qDebug() << name() << deviceID() << "Controller connected. Search services...";
         btControl->discoverServices();
     });
 
     connect(btControl, &QLowEnergyController::disconnected, this, [this]() {
-        qDebug() << "LowEnergy controller disconnected";
+        qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
         emit deviceMessage(deviceID(), QLatin1String("The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
         disconnectDevice();
     });
@@ -274,6 +274,19 @@ void BTDevice::disconnectDevice()
 bool BTDevice::isConnected() const
 {
     return btControl;
+}
+
+QString BTDevice::name() const
+{
+    return d->name;
+}
+
+void BTDevice::setName(const QString& name)
+{
+    if (d->name != name) {
+        d->name = name;
+        emit nameChanged(name);
+    }
 }
 
 QString BTDevice::version() const
