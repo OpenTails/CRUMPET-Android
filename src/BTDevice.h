@@ -41,35 +41,30 @@ public:
 
     QBluetoothDeviceInfo deviceInfo;
 
-    QLowEnergyController *btControl{nullptr};
-    QLowEnergyService* tailService{nullptr};
-    QLowEnergyCharacteristic tailCharacteristic;
-    QLowEnergyDescriptor tailDescriptor;
-
     TailCommandModel* commandModel{new TailCommandModel(this)};
 
-    bool isConnected() const;
+    virtual bool isConnected() const = 0;
     Q_SIGNAL void isConnectedChanged(bool isConnected);
 
-    QString name() const;
+    virtual QString name() const;
     void setName(const QString& name);
     Q_SIGNAL void nameChanged(QString name);
 
-    QString version() const;
+    virtual QString version() const = 0;
     Q_SIGNAL void versionChanged(QString version);
 
-    QString currentCall() const;
+    virtual QString currentCall() const = 0;
     Q_SIGNAL void currentCallChanged(QString currentCall);
 
-    int batteryLevel() const;
+    virtual int batteryLevel() const = 0;
     Q_SIGNAL void batteryLevelChanged(int batteryLevel);
 
-    void connectDevice();
-    void disconnectDevice();
+    virtual void connectDevice() = 0;
+    virtual void disconnectDevice() = 0;
 
-    QString deviceID() const;
+    virtual QString deviceID() const = 0;
 
-    void sendMessage(const QString &message);
+    virtual void sendMessage(const QString &message) = 0;
 
     Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
 private:

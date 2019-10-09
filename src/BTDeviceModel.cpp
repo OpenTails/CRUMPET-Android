@@ -18,6 +18,7 @@
 #include "BTDeviceModel.h"
 #include "AppSettings.h"
 #include "BTDevice.h"
+#include "BTDeviceTail.h"
 
 class BTDeviceModel::Private
 {
@@ -149,7 +150,7 @@ bool BTDeviceModel::isConnected() const
 
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
-    BTDevice* newDevice = new BTDevice(deviceInfo, this);
+    BTDevice* newDevice = new BTDeviceTail(deviceInfo, this);
     // It feels a little dirty to do it this way...
     if(newDevice->deviceInfo.name() == QLatin1String("(!)Tail1")) {
         for(const BTDevice* device : d->devices) {
