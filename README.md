@@ -216,10 +216,16 @@ You should now have a nice little app show up on your desktop which suggests the
 
 Building the Android APK is done most straightforwardly by using the pre-prepared Docker image provided by the KDE community, in which all the tools are already installed for you.
 
-To do so, run the command
+To do so, run the following command for the 32bit docker
 
 ```
-docker run -ti --rm kdeorg/android-sdk bash
+docker run -ti --rm kdeorg/android-arm-sdk bash
+```
+
+or the following for the 64bit (aarch64) one:
+
+```
+docker run -ti --rm kdeorg/android-aarch64-sdk bash
 ```
 
 This will download the image the first time it is run, and subsequently it will simply run what you already did.
@@ -229,7 +235,7 @@ A handy trick is to also add something like `-v $HOME/apks:/output` to the comma
 Also you can share source directory from your host machine, for example:
 
 ```
-docker run -ti --rm -v $HOME/apks:/output -v $HOME/DIGITAiL:/DIGITAiL kdeorg/android-sdk bash
+docker run -ti --rm -v $HOME/apks:/output -v $HOME/DIGITAiL:/DIGITAiL kdeorg/android-arm-sdk bash
 ```
 
 Cloning is done as in a usual Linux situation (see above), but your build steps are a little bit more involved here:
@@ -237,12 +243,18 @@ Cloning is done as in a usual Linux situation (see above), but your build steps 
 ```
 mkdir build
 cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.12.3/android_armv7 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
+cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.13.1/android_armv7 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
 make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
 cd ..
 make create-apk-digitail
+```
+
+Note that if you are building for 64bit Android, you will need to tell cmake this as well (by pointing at the correct version of the Qt framework), like so:
+
+```
+cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.13.1/android_aarch64 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
 ```
 
 Once this final command completes, you should hopefully have an apk in `/home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk` (or where ever else you created your clone).
