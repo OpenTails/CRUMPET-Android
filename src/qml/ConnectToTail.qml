@@ -65,11 +65,15 @@ Kirigami.OverlaySheet {
                     }
                 }
                 QQC2.Button {
-                    text: "Connect"
+                    text: model.isConnected ? qsTr("Disconnect") : qsTr("Connect")
                     onClicked: {
-                        sheet.close();
-                        sheet.attemptToConnect(model.deviceID, pageToPush);
-                        pageToPush = null;
+                        if (model.isConnected) {
+                            BTConnectionManager.disconnectDevice(model.deviceID);
+                        } else {
+                            sheet.close();
+                            sheet.attemptToConnect(model.deviceID, pageToPush);
+                            pageToPush = null;
+                        }
                     }
                 }
             }
