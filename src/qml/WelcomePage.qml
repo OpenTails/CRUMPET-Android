@@ -44,6 +44,12 @@ Kirigami.Page {
                 }
             }
         }
+        right: (BTConnectionManager.isConnected && DeviceModel.rowCount() > 1) ? connectMoreAction : null
+    }
+    property QtObject connectMoreAction: Kirigami.Action {
+        text: qsTr("Connect More...");
+        icon.name: "list-add";
+        onTriggered: connectToTail.open();
     }
 
     Column {
