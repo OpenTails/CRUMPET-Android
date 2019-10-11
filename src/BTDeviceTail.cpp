@@ -55,6 +55,7 @@ public:
                     return;
                 }
                 qDebug() << q->name() << q->deviceID() << "Connection lost - attempting to reconnect.";
+                q->deviceMessage(q->deviceID(), QString("Connection lost to %1, attempting to reconnect...").arg(q->name()));
                 ++reconnectThrottle;
                 btControl->connectToDevice();
             }
@@ -83,16 +84,12 @@ public:
             tailCharacteristic = tailService->characteristic(tailStateCharacteristicUuid);
             if (!tailCharacteristic.isValid()) {
                 qDebug() << q->name() << q->deviceID() << "Tail characteristic not found, this is bad";
+                q->deviceMessage(q->deviceID(), QString("It looks like this device is not a DIGITAiL (could not find the tail characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
                 q->disconnectDevice();
                 break;
             }
 
             q->commandModel->clear();
-//             emit commandModelChanged();
-
-            // TODO only this device
-//             q->commandQueue->clear();
-//             emit commandQueueChanged();
 
             // Get the descriptor, and turn on notifications
             tailDescriptor = tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
@@ -306,7 +303,7 @@ void BTDeviceTail::sendMessage(const QString &message)
     // Don't send out another call while we're waiting to hear back... at least for a little bit
     int i = 0;
     while(!d->currentCall.isEmpty()) {
-        if(++i == 100) {
+        if(++i == 1000) {
             break;
         }
         qApp->processEvents();
