@@ -208,6 +208,8 @@ void BTDeviceTail::connectDevice()
 
                 if (!service) {
                     qWarning() << "Cannot create QLowEnergyService for {0000ffe0-0000-1000-8000-00805f9b34fb}";
+                    emit deviceMessage(deviceID(), QLatin1String("An error occured while connecting to your tail (the service object could not be created). If you feel this is in error, please try again!"));
+                    disconnectDevice();
                     return;
                 }
 
