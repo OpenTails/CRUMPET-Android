@@ -159,6 +159,7 @@ int appMain(int argc, char *argv[])
         if(!btConnectionManagerReplica->isConnected()) {
             // Not connected, so kill the service
 #ifdef Q_OS_ANDROID
+            Q_UNUSED(settingsReplica);
             QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "stopTailService",
                                                 "(Landroid/content/Context;)V",
