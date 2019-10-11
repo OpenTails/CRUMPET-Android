@@ -109,7 +109,7 @@ public:
 
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
-        qDebug() << q->name() << q->deviceID() << characteristic.uuid() << " NOTIFIED value change " << newValue;
+        qDebug() << q->name() << q->deviceID() << "Current call is" << currentCall << "and characteristic" << characteristic.uuid() << "NOTIFIED value change" << newValue;
 
         if (tailStateCharacteristicUuid == characteristic.uuid()) {
             if (currentCall == QLatin1String("VER")) {
