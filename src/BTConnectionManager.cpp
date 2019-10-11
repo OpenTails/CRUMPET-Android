@@ -19,7 +19,6 @@
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
 #include "BTDevice.h"
-#include "BTDeviceFake.h"
 #include "TailCommandModel.h"
 #include "CommandQueue.h"
 #include "AppSettings.h"
@@ -33,9 +32,8 @@
 
 class BTConnectionManager::Private {
 public:
-    Private(AppSettings* appSettings)
-        : appSettings(appSettings),
-          tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
+    Private()
+        : tailStateCharacteristicUuid(QLatin1String("{0000ffe1-0000-1000-8000-00805f9b34fb}"))
     {
     }
     ~Private() { }
@@ -47,28 +45,26 @@ public:
     BTDeviceModel* deviceModel{nullptr};
     CommandQueue* commandQueue{nullptr};
 
-    QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent = nullptr;
-    bool discoveryRunning = false;
-
-    bool fakeTailMode = false;
+    QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent{nullptr};
+    bool discoveryRunning{false};
 
     QVariantMap command;
 
-    QBluetoothLocalDevice* localDevice = nullptr;
-    int localBTDeviceState = 0;
+    QBluetoothLocalDevice* localDevice{nullptr};
+    int localBTDeviceState{0};
 };
 
 BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* parent)
     : BTConnectionManagerProxySource(parent)
-    , d(new Private(appSettings))
+    , d(new Private)
 {
+    d->deviceModel = new BTDeviceModel(this);
+    setAppSettings(appSettings);
+
     d->commandQueue = new CommandQueue(this);
 
     connect(d->commandQueue, &CommandQueue::countChanged,
             this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
-
-    d->deviceModel = new BTDeviceModel(this);
-    d->deviceModel->setAppSettings(d->appSettings);
 
     connect(d->deviceModel, &BTDeviceModel::deviceMessage,
             this, [this](const QString& deviceID, const QString& deviceMessage){ emit message(QString("%1 says:\n%2").arg(deviceID).arg(deviceMessage)); });
@@ -108,7 +104,9 @@ AppSettings* BTConnectionManager::appSettings() const
 void BTConnectionManager::setAppSettings(AppSettings* appSettings)
 {
     d->appSettings = appSettings;
-    d->deviceModel->setAppSettings(d->appSettings);
+    if (d->deviceModel) {
+        d->deviceModel->setAppSettings(d->appSettings);
+    }
 }
 
 void BTConnectionManager::setLocalBTDeviceState()
@@ -165,25 +163,20 @@ void BTConnectionManager::connectToDevice(const QString& deviceID)
 
 void BTConnectionManager::disconnectDevice(const QString& deviceID)
 {
-    if (d->fakeTailMode) {
-        d->fakeTailMode = false;
-        emit isConnectedChanged(isConnected());
+    if(deviceID.isEmpty()) {
+        // Disconnect eeeeeverything
+        for (int i = 0; i < d->deviceModel->count(); ++i) {
+            const QString id{d->deviceModel->getDeviceID(i)};
+            if (!id.isEmpty()) {
+                disconnectDevice(id);
+            }
+        }
     } else {
-        if(deviceID.isEmpty()) {
-            // Disconnect eeeeeverything
-            for (int i = 0; i < d->deviceModel->count(); ++i) {
-                const QString id{d->deviceModel->getDeviceID(i)};
-                if (!id.isEmpty()) {
-                    disconnectDevice(id);
-                }
-            }
-        } else {
-            BTDevice* device = d->deviceModel->getDevice(deviceID);
-            if (device && device->isConnected()) {
-                device->disconnectDevice();
-                d->commandQueue->clear(device->deviceID());
-                emit commandQueueChanged();
-            }
+        BTDevice* device = d->deviceModel->getDevice(deviceID);
+        if (device && device->isConnected()) {
+            device->disconnectDevice();
+            d->commandQueue->clear(device->deviceID());
+            emit commandQueueChanged();
         }
     }
 }
@@ -215,7 +208,7 @@ QObject * BTConnectionManager::commandQueue() const
 
 bool BTConnectionManager::isConnected() const
 {
-    return d->fakeTailMode || d->deviceModel->isConnected();
+    return d->deviceModel->isConnected();
 }
 
 int BTConnectionManager::deviceCount() const
@@ -231,26 +224,6 @@ int BTConnectionManager::commandQueueCount() const
 int BTConnectionManager::bluetoothState() const
 {
     return d->localBTDeviceState;
-}
-
-bool BTConnectionManager::fakeTailMode() const
-{
-    return d->fakeTailMode;
-}
-
-void BTConnectionManager::setFakeTailMode(bool fakeTailMode)
-{
-    // This looks silly, but only Do The Things if we're actually trying to set it enabled, and we're not already enabled
-    static BTDeviceFake* fakeDevice = new BTDeviceFake(QBluetoothDeviceInfo(QBluetoothUuid(QString("FA:KE:TA:IL")), QString("FAKE"), 0), d->deviceModel);
-    stopDiscovery();
-    if(d->fakeTailMode == false && fakeTailMode == true) {
-        d->fakeTailMode = true;
-        d->deviceModel->addDevice(fakeDevice);
-    } else {
-        d->fakeTailMode = fakeTailMode;
-        d->deviceModel->removeDevice(fakeDevice);
-    }
-    emit fakeTailModeChanged(d->fakeTailMode);
 }
 
 void BTConnectionManager::setCommand(QVariantMap command)

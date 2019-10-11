@@ -55,6 +55,9 @@ public:
     int idleMaxPause() const override;
     void setIdleMaxPause(int pause) override;
 
+    bool fakeTailMode() const override;
+    void setFakeTailMode(bool fakeTailMode) override;
+
     QStringList moveLists() const override;
     QStringList moveList() const override;
     void setActiveMoveList(const QString& moveListName) override;

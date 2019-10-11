@@ -19,6 +19,7 @@
 #include "AppSettings.h"
 #include "BTDevice.h"
 #include "BTDeviceTail.h"
+#include "BTDeviceFake.h"
 
 class BTDeviceModel::Private
 {
@@ -30,6 +31,7 @@ public:
     }
     ~Private() {}
     BTDeviceModel* q;
+    BTDeviceFake* fakeDevice{nullptr};
 
     void readDeviceNames();
 
@@ -50,6 +52,7 @@ BTDeviceModel::BTDeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private(this))
 {
+    d->fakeDevice = new BTDeviceFake(QBluetoothDeviceInfo(QBluetoothUuid(QString("FA:KE:TA:IL")), QString("FAKE"), 0), this);
 }
 
 BTDeviceModel::~BTDeviceModel()
@@ -84,6 +87,16 @@ void BTDeviceModel::setAppSettings(AppSettings *appSettings)
     d->appSettings = appSettings;
     connect(d->appSettings, &AppSettings::deviceNamesChanged, this, [this](){ d->readDeviceNames(); });
     d->readDeviceNames();
+    connect(d->appSettings, &AppSettings::fakeTailModeChanged, this, [this](bool fakeTailMode){
+        if (fakeTailMode && !d->devices.contains(d->fakeDevice)) {
+            addDevice(d->fakeDevice);
+        } else if (!fakeTailMode && d->devices.contains(d->fakeDevice)) {
+            removeDevice(d->fakeDevice);
+        }
+    });
+    if (d->appSettings->fakeTailMode() && !d->devices.contains(d->fakeDevice)) {
+        addDevice(d->fakeDevice);
+    }
 }
 
 QHash< int, QByteArray > BTDeviceModel::roleNames() const
@@ -223,7 +236,9 @@ void BTDeviceModel::removeDevice(BTDevice* device)
         emit countChanged();
         endRemoveRows();
     }
-    device->deleteLater();
+    if (device != d->fakeDevice) {
+        device->deleteLater();
+    }
 }
 
 int BTDeviceModel::count()

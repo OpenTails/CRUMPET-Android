@@ -25,6 +25,7 @@ class SettingsProxy {
     SLOT(void removeIdleCategory(const QString& category))
     PROP(int idleMinPause READWRITE)
     PROP(int idleMaxPause READWRITE)
+    PROP(bool fakeTailMode READWRITE)
     PROP(QVariantMap deviceNames READONLY)
 
     PROP(QStringList moveLists READONLY)

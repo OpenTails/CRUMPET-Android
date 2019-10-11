@@ -40,6 +40,7 @@ public:
     QStringList idleCategories;
     int idleMinPause = 15;
     int idleMaxPause = 60;
+    bool fakeTailMode = false;
 
     QMap<QString, QStringList> moveLists;
     QString activeMoveListName;
@@ -61,6 +62,7 @@ AppSettings::AppSettings(QObject* parent)
     d->idleCategories = settings.value("idleCategories", d->idleCategories).toStringList();
     d->idleMinPause = settings.value("idleMinPause", d->idleMinPause).toInt();
     d->idleMaxPause = settings.value("idleMaxPause", d->idleMaxPause).toInt();
+    d->fakeTailMode = settings.value("fakeTailMode", d->fakeTailMode).toBool();
 
     settings.beginGroup("MoveLists");
     QStringList moveLists = settings.allKeys();
@@ -243,6 +245,22 @@ void AppSettings::setIdleMaxPause(int pause)
         QSettings settings;
         settings.setValue("idleMaxPause", d->idleMaxPause);
         emit idleMaxPauseChanged(pause);
+    }
+}
+
+bool AppSettings::fakeTailMode() const
+{
+    return d->fakeTailMode;
+}
+
+void AppSettings::setFakeTailMode(bool fakeTailMode)
+{
+    qDebug() << Q_FUNC_INFO << fakeTailMode;
+    if(fakeTailMode != d->fakeTailMode) {
+        d->fakeTailMode = fakeTailMode;
+        QSettings settings;
+        settings.setValue("fakeTailMode", d->fakeTailMode);
+        emit fakeTailModeChanged(fakeTailMode);
     }
 }
 
