@@ -310,5 +310,7 @@ void BTDeviceTail::sendMessage(const QString &message)
     }
     if (d->tailCharacteristic.isValid() && d->tailService) {
         d->tailService->writeCharacteristic(d->tailCharacteristic, message.toUtf8());
+        d->currentCall = message;
+        emit currentCallChanged(message);
     }
 }
