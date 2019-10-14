@@ -248,7 +248,7 @@ make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
 cd ..
-make create-apk-digitail
+make create-apk-digitail ARGS="--android-platform android-26"
 ```
 
 Note that if you are building for 64bit Android, you will need to tell cmake this as well (by pointing at the correct version of the Qt framework), like so:
@@ -270,5 +270,5 @@ You now have an apk, which you can install to your android device in the usual w
 To also sign the apk for use on the Play store, the following command might be used. Note that you will need the appropriate keystore to hand in an appropriate location, or it will quite entirely fail:
 
 ```
-make create-apk-digitail ARGS="--sign /mnt/projects-dir/DIGITAiL/thetailcompany-release-key.keystore thetailcompany"
+make create-apk-digitail ARGS="--android-platform android-26 --sign /mnt/projects-dir/DIGITAiL/thetailcompany-release-key.keystore thetailcompany"
 ```
