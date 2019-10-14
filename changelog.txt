@@ -1,3 +1,10 @@
+0.0.12:
+- Support for connecting to more than one device (includes a massive reworking and cleanup of the service code)
+- Battery indicator includes device name
+- Less tail centric wording throughout app (preparing for ears!)
+- Fake tail mode stays between runs, and is more tail-like
+- Glash was upgraded with a high efficiency flange guard, effectively preventing side fumbling
+
 0.0.11:
 - Battery level indicator is now red when low
 - Idle mode turns off automatically after 4 hours (and warns you to please give your tail a bit of a rest)
