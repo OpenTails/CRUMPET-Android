@@ -49,21 +49,26 @@ public class TailService extends QtService
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        String channel;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            channel = createChannel();
-        else {
-            channel = "";
-        }
-        Notification notification = new Notification.Builder(this, channel)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channel = createChannel();
+            Notification notification = new Notification.Builder(this, channel)
                 .setContentTitle(getText(R.string.notification_title))
                 .setContentText(getText(R.string.notification_message))
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent)
                 .setTicker(getText(R.string.ticker_text))
                 .build();
-
-        startForeground(ONGOING_NOTIFICATION_ID, notification);
+            startForeground(ONGOING_NOTIFICATION_ID, notification);
+        } else {
+            Notification notification = new Notification.Builder(this)
+                .setContentTitle(getText(R.string.notification_title))
+                .setContentText(getText(R.string.notification_message))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentIntent(pendingIntent)
+                .setTicker(getText(R.string.ticker_text))
+                .build();
+            startForeground(ONGOING_NOTIFICATION_ID, notification);
+        }
     }
 
     public void releaseWakeLock() {
