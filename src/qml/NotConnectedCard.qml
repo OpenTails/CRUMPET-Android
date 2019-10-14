@@ -99,7 +99,7 @@ Kirigami.Card {
                 return qsTr("Show available tails...");
             }
             else {
-                return qsTr("Connect");
+                return qsTr("Connect to %1").arg(DeviceModel.data(DeviceModel.index(0, 0), 257));
             }
         }
         visible: !(BTConnectionManager.discoveryRunning === true && BTConnectionManager.deviceCount === 0);
