@@ -1,3 +1,6 @@
+0.0.13:
+- Fix an issue with multi-device and casual mode (which would run very-too-fast and then crash)
+
 0.0.12:
 - Support for connecting to more than one device (includes a massive reworking and cleanup of the service code)
 - Battery indicator includes device name
