@@ -176,6 +176,7 @@ void CommandQueue::clear(const QString& deviceID)
 
 void CommandQueue::pushPause(int durationMilliseconds)
 {
+    qDebug() << "Adding a pause to the queue of" << durationMilliseconds << "milliseconds";
     CommandInfo command;
     command.name = "Pause";
     command.duration = durationMilliseconds;
@@ -192,7 +193,7 @@ void CommandQueue::pushPause(int durationMilliseconds)
 
 void CommandQueue::pushCommand(QString tailCommand)
 {
-    qDebug() << tailCommand;
+    qDebug() << Q_FUNC_INFO << tailCommand;
     const CommandInfo& command = qobject_cast<BTDeviceCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommand);
     qDebug() << "Command to push" << command.command;
     if(!command.isValid()) {
