@@ -23,27 +23,40 @@
 #include "BTConnectionManager.h"
 
 #include <QRandomGenerator>
+#include <QTimer>
 
 class IdleMode::Private {
 public:
     Private()
         : appSettings(nullptr)
         , connectionManager(nullptr)
-    {}
+    {
+        pushTimer.setInterval(0);
+        pushTimer.setSingleShot(true);
+        QObject::connect(&pushTimer, &QTimer::timeout, [this](){ actualPush(); });
+    }
     ~Private() {}
     AppSettings* appSettings;
     BTConnectionManager* connectionManager;
 
+
+    // Now we support multiple tails, we might end up in some odd situation where we get told by multiple tails
+    // that we should be doing things. Let's try and avoid that, and postpone this all to the start of the event loop
+    QTimer pushTimer;
     void push() {
+        pushTimer.start();
+    }
+    void actualPush() {
         if(connectionManager && connectionManager->isConnected() && appSettings && appSettings->idleMode()) {
-            qDebug() << "Pushing command to the queue for casual mode";
             CommandQueue* queue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
             BTDeviceCommandModel* commands = qobject_cast<BTDeviceCommandModel*>(connectionManager->commandModel());
             const QStringList categories = appSettings->idleCategories();
+            qDebug() << "Correctly set up, able to push a command to the queue for casual mode";
             if(queue && commands) {
                 if(queue->count() == 0 && appSettings->idleMode() == true && categories.count() > 0) {
                     const CommandInfo& command = commands->getRandomCommand(categories);
                     if(command.isValid()) {
+                        qDebug() << "Command is valid, and we've got an empty queue. Add the command to the queue.";
                         queue->pushCommand(command.command);
                     }
                     queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000);
@@ -98,7 +111,6 @@ void IdleMode::setConnectionManager(BTConnectionManager* connectionManager)
         }
         d->push();
     });
-    connect(qobject_cast<QAbstractItemModel*>(d->connectionManager->deviceModel()), &QAbstractItemModel::dataChanged, this, [this](){ d->push(); });
     connect(qobject_cast<QAbstractItemModel*>(d->connectionManager->deviceModel()), &QAbstractItemModel::rowsInserted, this, [this](){ d->push(); });
     connect(qobject_cast<QAbstractItemModel*>(d->connectionManager->deviceModel()), &QAbstractItemModel::rowsRemoved, this, [this](){ d->push(); });
 }
