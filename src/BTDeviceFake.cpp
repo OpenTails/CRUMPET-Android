@@ -24,7 +24,7 @@ public:
     int batteryLevel{0};
     QString currentCall;
     QString deviceID{"FA:KE:TA:IL"};
-    QString version{"(unknown)"};
+    QString version{"Fake V2"};
 
     QTimer batteryTimer;
 };
