@@ -17,16 +17,26 @@
 
 #include "FilterProxyModel.h"
 
+#include <QTimer>
+
 class FilterProxyModel::Private {
 public:
-    Private() {}
+    Private() {
+        updateTimer.setInterval(1);
+        updateTimer.setSingleShot(true);
+    }
     bool filterBoolean{false};
+    QTimer updateTimer;
 };
 
 FilterProxyModel::FilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
     , d(new Private)
 {
+    connect(&d->updateTimer, &QTimer::timeout, this, [this](){ QTimer::singleShot(1, this, [this](){ emit countChanged(); }); } );
+    connect(this, &QAbstractItemModel::rowsInserted, this, [this](){ d->updateTimer.start(); });
+    connect(this, &QAbstractItemModel::rowsRemoved, this, [this](){ d->updateTimer.start(); });
+    connect(this, &QAbstractItemModel::dataChanged, this, [this](){ d->updateTimer.start(); });
 }
 
 FilterProxyModel::~FilterProxyModel()
@@ -65,4 +75,9 @@ bool FilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &source
     } else {
         return sourceModel()->data(index, filterRole()).toString().contains(filterRegExp());
     }
+}
+
+int FilterProxyModel::count() const
+{
+    return rowCount();
 }

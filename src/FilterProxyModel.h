@@ -25,6 +25,7 @@ class FilterProxyModel : public QSortFilterProxyModel
     Q_OBJECT
     Q_PROPERTY(QString filterString READ filterString WRITE setFilterString NOTIFY filterStringChanged)
     Q_PROPERTY(bool filterBoolean READ filterBoolean WRITE setFilterBoolean NOTIFY filterBooleanChanged)
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
     explicit FilterProxyModel(QObject* parent = nullptr);
     ~FilterProxyModel() override;
@@ -39,6 +40,8 @@ public:
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
+    int count() const;
+    Q_SIGNAL void countChanged();
 private:
     class Private;
     Private* d;
