@@ -20,6 +20,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.5 as Kirigami
+import org.thetailcompany.digitail 1.0
 
 Kirigami.Card {
     id: root;
@@ -27,16 +28,20 @@ Kirigami.Card {
     opacity: BTConnectionManager.isConnected ? 0 : 1;
     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
     width: parent.width;
+    FilterProxyModel {
+        id: deviceFilterProxy;
+        sourceModel: DeviceModel;
+    }
     header: Kirigami.Heading {
         text: {
             if (BTConnectionManager.discoveryRunning === true) {
                 return qsTr("Searching for DIGITAiL...");
             }
             else {
-                if (BTConnectionManager.deviceCount === 0) {
+                if (deviceFilterProxy.count === 0) {
                     return qsTr("No tails found");
                 }
-                else if (BTConnectionManager.deviceCount === 1) {
+                else if (deviceFilterProxy.count === 1) {
                     return qsTr("One tail available");
                 }
                 else {
@@ -65,22 +70,22 @@ Kirigami.Card {
         horizontalAlignment: Text.AlignHCenter;
         text: {
             if (BTConnectionManager.discoveryRunning === true) {
-                if (BTConnectionManager.deviceCount === 0) {
+                if (deviceFilterProxy.count === 0) {
                     return qsTr("None found yet...");
                 }
-                else if (BTConnectionManager.deviceCount > 1) {
-                    return qsTr("Found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(BTConnectionManager.deviceCount);
+                else if (deviceFilterProxy.count > 1) {
+                    return qsTr("Found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(deviceFilterProxy.count);
                 }
                 else {
                     return qsTr("1 tail found. Simply wait, or push \"Connect\" below to control it.");
                 }
             }
             else {
-                if (BTConnectionManager.deviceCount === 0) {
+                if (deviceFilterProxy.count === 0) {
                     return qsTr("We were unable to find any tails. Please ensure that it is nearby and switched on.");
                 }
-                else if (BTConnectionManager.deviceCount > 1) {
-                    return qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push \"Show available tails...\" below to see the available tails.").arg(BTConnectionManager.deviceCount);
+                else if (deviceFilterProxy.count > 1) {
+                    return qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push \"Show available tails...\" below to see the available tails.").arg(deviceFilterProxy.count);
                 }
                 else {
                     return qsTr("You are not currently connected to your tail, but we know of one tail. Push \"Connect\" to connect to it.");
@@ -92,22 +97,20 @@ Kirigami.Card {
     footer: Button {
         Layout.fillWidth: true; Layout.fillHeight: true;
         text: {
-            if (BTConnectionManager.discoveryRunning === false && BTConnectionManager.deviceCount === 0) {
+            if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
                 return qsTr("Look for tails");
-            }
-            else if (BTConnectionManager.deviceCount > 1) {
+            } else if (deviceFilterProxy.count === 1) {
+                return qsTr("Connect to %1").arg(deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257))
+            } else {
                 return qsTr("Show available tails...");
             }
-            else {
-                return qsTr("Connect to %1").arg(DeviceModel.data(DeviceModel.index(0, 0), 257));
-            }
         }
-        visible: !(BTConnectionManager.discoveryRunning === true && BTConnectionManager.deviceCount === 0);
+        visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0);
         onClicked: {
-            if (BTConnectionManager.discoveryRunning === false && BTConnectionManager.deviceCount === 0) {
+            if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
                 BTConnectionManager.startDiscovery();
             }
-            else if(BTConnectionManager.deviceCount === 1) {
+            else if(deviceFilterProxy.count === 1) {
                 // Calling this will stop the discovery immediately and connect to the one tail that we've found
                 BTConnectionManager.stopDiscovery();
             }
