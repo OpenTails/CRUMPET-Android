@@ -93,7 +93,7 @@ Kirigami.ApplicationWindow {
 
         onDeviceConnected: {
             console.debug("Connected to new device with ID: " + deviceID);
-            namePicker.checkDeviceName(BTConnectionManager.currentDeviceID);
+            namePicker.checkDeviceName(deviceID);
         }
 
         onBluetoothStateChanged: {
