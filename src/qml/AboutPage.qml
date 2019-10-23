@@ -29,12 +29,12 @@ Kirigami.AboutPage {
         filterRole: 262; // the isConnected role
         filterBoolean: true;
         function handyStringMakerThing() {
-            if (rowCount() === 1) {
+            if (count === 1) {
                 return qsTr("The connected device is version %1").arg(data(index(0, 0), 259))
             } else {
                 var constructedString = "";
                 var newLine = "";
-                for (var i = 0; i < rowCount(); ++i) {
+                for (var i = 0; i < count; ++i) {
                     constructedString += newLine + qsTr("The device named %1 is version %2").arg(data(index(i, 0), 257)).arg(data(index(i, 0), 259));
                     newLine = "\n";
                 }
@@ -52,7 +52,7 @@ Kirigami.AboutPage {
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
         "version" : "v1.0",
-        "otherText" : BTConnectionManager.isConnected ? deviceFilterProxy.handyStringMakerThing() : "",
+        "otherText" : deviceFilterProxy.count > 0 ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
                     {
                         "name" : "Dan Leinir Turthra Jensen\n",
