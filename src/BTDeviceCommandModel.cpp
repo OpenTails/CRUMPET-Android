@@ -111,12 +111,62 @@ public:
         q->endResetModel();
     }
 
+    void deviceDataChanged(BTDevice* device, const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles) {
+        TailCommandModel* deviceCommands = device->commandModel;
+        int first = topLeft.row();
+        int last = bottomRight.row();
+        int i = -1;
+        for (const CommandInfo& cmd : deviceCommands->allCommands()) {
+            ++i;
+            if (i < first) { continue; }
+            if (i > last) { break; }
+            Entry* theEntry{nullptr};
+            int entryIdx{-1};
+            for (Entry* entry : commands) {
+                ++entryIdx;
+                if (entry->command.compare(cmd) && entry->devices.contains(device)) {
+                    theEntry = entry;
+//                     qDebug() << "Found the entry which has the same command" << theEntry;
+                    break;
+                }
+            }
+            if (theEntry) {
+                QVector<int> theRoles = roles;
+                if (roles.length() == 0) {
+                    // this would want commenting back in when there's things other than IsRunning to worry about,
+                    // such as the future IsAvailable field (for a less obstructive "you can't run this command
+                    // now" method that is less app-blocky)
+//                     theRoles = q->roleNames().keys().toVector();
+                    theRoles << TailCommandModel::IsRunning;
+                }
+                for (int role : theRoles) {
+//                     qDebug() << "The role which changed was" << role;
+                    if (role == TailCommandModel::IsRunning) {
+                        // we've got something we care about, let's deal with it
+                        bool anyRunning{false};
+                        for (BTDevice* aDevice : theEntry->devices) {
+                            anyRunning = aDevice->commandModel->isRunning(cmd);
+                            if (anyRunning) {
+                                break;
+                            }
+                        }
+                        theEntry->command.isRunning = anyRunning;
+                    }
+                }
+                q->dataChanged(q->index(entryIdx), q->index(entryIdx), roles);
+            } else {
+                qDebug() << "Something broke, and we got a data changed signal for something with no equivalent Entry..." << device << cmd.command;
+            }
+        }
+    }
+
     void registerDevice(BTDevice* device) {
         TailCommandModel* deviceCommands = device->commandModel;
         QObject::connect(deviceCommands, &TailCommandModel::commandAdded, q, [this, device](const CommandInfo& command){ addCommand(command, device); });
         QObject::connect(deviceCommands, &TailCommandModel::commandRemoved, q, [this, device](const CommandInfo& command){ removeCommand(command, device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelAboutToBeReset, q, [this, device](){ removeDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ addDeviceCommands(device); });
+        QObject::connect(deviceCommands, &QAbstractItemModel::dataChanged, q, [this, device](const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles){ deviceDataChanged(device, topLeft, bottomRight, roles); });
 
     }
 
