@@ -101,6 +101,15 @@ Item {
                             property string command: model.command ? model.command : "";
                             onClicked: { root.commandActivated(command, model.name); }
                         }
+                        BusyIndicator {
+                            anchors {
+                                fill: parent;
+                                margins: Kirigami.Units.smallSpacing;
+                            }
+                            opacity: model.isRunning ? 1 : 0;
+                            Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
+                            running: opacity > 0
+                        }
                     }
                 }
                 Repeater {
