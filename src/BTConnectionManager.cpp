@@ -266,7 +266,7 @@ void BTConnectionManager::setDeviceName(const QString& deviceID, const QString& 
 {
     const BTDevice* device = d->deviceModel->getDevice(deviceID);
     if(device) {
-        d->appSettings->setDeviceName(device->deviceInfo.address().toString(), deviceName);
+        d->appSettings->setDeviceName(deviceID, deviceName);
         d->deviceModel->updateItem(deviceID);
     }
 }
