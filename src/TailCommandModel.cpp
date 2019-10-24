@@ -344,3 +344,13 @@ const CommandInfoList& TailCommandModel::allCommands() const
 {
     return d->commands;
 }
+
+bool TailCommandModel::isRunning(const CommandInfo& cmd) const
+{
+    for (const CommandInfo& ourCmd : d->commands) {
+        if (cmd.compare(ourCmd)) {
+            return ourCmd.isRunning;
+        }
+    }
+    return false;
+}

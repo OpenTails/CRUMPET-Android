@@ -84,6 +84,18 @@ public:
      * @return A list of all commands currently managed by this model
      */
     const CommandInfoList& allCommands() const;
+
+    /**
+     * Whether the equivalent command to cmd in this model is marked as running
+     *
+     * This might seem odd, but a CommandInfo is equivalent whether or not it is
+     * marked as running, so this is a convenient (and cheaper) way to inspect a
+     * model's commands, without having to pass the list of commands around.
+     *
+     * @param cmd The command to check in this model
+     * @return Whether the equivalent command in this model is marked as running
+     */
+    bool isRunning(const CommandInfo& cmd) const;
 private:
     class Private;
     Private* d;
