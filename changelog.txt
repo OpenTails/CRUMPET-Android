@@ -1,3 +1,9 @@
+0.0.14:
+- Ensure device versions on About are correct
+- Ensure name on Connect button is correct
+- Unbreak first-connection device naming
+- Better visualisation of which command is currently running
+
 0.0.13:
 - Fix an issue with multi-device and casual mode (which would run very-too-fast and then crash)
 
