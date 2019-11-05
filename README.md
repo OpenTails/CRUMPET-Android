@@ -64,22 +64,9 @@ Note about Battery Level: the batteries are read charge-wise only when the app a
 
 We will split the app in to two parts from the Users point of view.
 
-### EVERYDAY GROUP OF MODES
 
-This will have the Remote Control page (for moves and LEDs) as above.
-It will also have the Move playlist page and Pose Mode page.
 
-In this mode, moves cant be interrupted. All moves are followed by the homing move.
-
-### ADVANCED GROUP OF MODES
-
-This will include the Move Designer page. It might also allow some different settings.
-
-Perhaps the advanced mode is unlocked after a splash screen communicating the
-potential for harm to the Tail if used inappropriately. Should we have a test mode
-that logs moves? For diagnosis, edge cases, etc?
-
-## REMOTE - EVERYDAY group
+## Move Groups
 
 Slower, gentler, relaxed:
 ```
@@ -104,15 +91,8 @@ Tremble Erect
 Pulse Erect
 ```
 
-A screen toggle for a second page to bring up the LED remote control buttons.
 
-## POSES - EVERYDAY group
-
-Poses are static shapes that we can define for the Tailer, so that they can strike a pose
-and it will hold it, for the all important photo. These can be described using
-Move Designer notation, and sent on button press.
-
-## MOVE PLAYLIST - EVERYDAY group
+## MOVE PLAYLIST
 
 A simple way of chaining pre-defined moves together. We need a pause in between moves
 which serves both to make the system cooler, and also more natural.
@@ -121,13 +101,15 @@ Pauses defined as a range, so that they are of varying length.
 
 I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in. These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
 
-## CASUAL MODE - EVERYDAY group
+## CASUAL MODE
 
 This will be the go-to mode for people who wear their Tail a lot - at a convention or around the house! Just click the top level button to string together calm and energetic moves, with a random duration pauses in between. No other input required
 
-## MOVE DESIGNER - ADVANCED group
+We are creating Casual Mode by sending the moves at the appropriate time. However in the latest firmware, it is possible to let the tail receive on composite command to do this itself. Please see the Protocol Document for syntax.
 
-See the separate doc for methods of describing moves, and how to send them to the Tail.
+## MOVE DESIGNER - As yet uncreated
+
+See the Protocol Doc for methods of describing moves, and how to send them to the Tail.
 
 I've been imagining a screen with a tail viewed as if your looking back at the person wearing it. The tip of the tail is in the centre of the screen. With a mouse, you drag it one way or the other, and it "springs" back and the other way creating a pattern. If you want a shorter move, you just let it go a shorter distance. Or a higher way, drag it higher. See what i mean? And it has a kind of gravity keeping it moving until it comes to rest. Something like that.
 
@@ -135,10 +117,6 @@ I've been imagining a screen with a tail viewed as if your looking back at the p
 
 Notifications will available once we are hooked in to the phone notification system
 This is not part of the project until the other two modes are complete.
-
-## TO DO
-
-Battery to the status bar. Finish off modes. More colour. Splash screen?
 
 # How To Compile The App
 
