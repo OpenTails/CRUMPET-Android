@@ -42,9 +42,27 @@ Column {
             property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
             Label {
                 id: batteryLabel;
-                anchors.fill: parent
+                anchors {
+                    top: parent.top;
+                    bottom: parent.bottom;
+                }
+                width: paintedWidth
                 verticalAlignment: Text.AlignVCenter
-                text: "%1 battery:".arg(model.name)
+                text: typeof model.name !== "undefined" ? model.name : ""
+            }
+            Label {
+                id: commandLabel;
+                anchors {
+                    left: batteryLabel.right;
+                    leftMargin: Kirigami.Units.smallSpacing;
+                    top: parent.top;
+                    bottom: parent.bottom;
+                }
+                width: paintedWidth
+                verticalAlignment: Text.AlignVCenter
+                text: typeof model.currentCall !== "undefined" ? model.currentCall : ""
+                opacity: text === "" ? 0 : 0.5
+                Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
             }
 
             Row {
