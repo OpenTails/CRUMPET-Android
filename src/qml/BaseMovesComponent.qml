@@ -104,7 +104,7 @@ Item {
                             // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                             property string command: model.command ? model.command : "";
                             onClicked: { root.commandActivated(command, model.name); }
-                            enabled: root.ignoreAvailability || model.isAvailable;
+                            enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
                         }
                         BusyIndicator {
                             anchors {
