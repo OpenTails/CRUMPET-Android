@@ -30,7 +30,6 @@
         <file>qml/TimePicker.qml</file>
         <file>qml/FlatButton.qml</file>
         <file>qml/IdlePauseRangePicker.qml</file>
-        <file>qml/ActiveMovePopup.qml</file>
         <file>qml/InfoCard.qml</file>
         <file>qml/SettingsPage.qml</file>
         <file>qml/SettingsCard.qml</file>
