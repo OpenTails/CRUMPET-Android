@@ -110,6 +110,7 @@ void BTDeviceFake::sendMessage(const QString& message)
         d->currentCall = message;
         emit currentCallChanged(message);
         QTimer::singleShot(commandInfo.duration, this, [this, message](){
+            d->currentCall.clear();
             commandModel->setRunning(message, false);
             emit currentCallChanged(currentCall());
         });
