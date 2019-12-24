@@ -33,7 +33,6 @@ Kirigami.ScrollablePage {
     }
     BaseMovesComponent {
         infoText: qsTr("The list below shows all the moves available in your tail. Tap any of them to send them off to the tail!");
-        blockOnMovingTail: true;
         onCommandActivated: {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command);

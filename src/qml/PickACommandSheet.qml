@@ -32,6 +32,7 @@ Kirigami.OverlaySheet {
     BaseMovesComponent {
         infoText: qsTr("The list below shows all the moves and light patterns available in your tail. Tap any of them to pick that command.");
         width: root.width - Kirigami.Units.largeSpacing * 4;
+        ignoreAvailability: true;
         onCommandActivated: {
             pickACommand.commandPicked(command);
         }
