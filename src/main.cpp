@@ -245,7 +245,7 @@ int serviceMain(int argc, char *argv[])
         BTDeviceCommandModel* tailCommandModel = qobject_cast<BTDeviceCommandModel*>(btConnectionManager->commandModel());
         qDebug() << "Replicating command model";
         roles.clear();
-        roles << BTDeviceCommandModel::Name << BTDeviceCommandModel::Command << BTDeviceCommandModel::IsRunning << BTDeviceCommandModel::Category << BTDeviceCommandModel::Duration << BTDeviceCommandModel::MinimumCooldown << BTDeviceCommandModel::CommandIndex << BTDeviceCommandModel::DeviceIDs;
+        roles << BTDeviceCommandModel::Name << BTDeviceCommandModel::Command << BTDeviceCommandModel::IsRunning << BTDeviceCommandModel::Category << BTDeviceCommandModel::Duration << BTDeviceCommandModel::MinimumCooldown << BTDeviceCommandModel::CommandIndex << BTDeviceCommandModel::DeviceIDs << BTDeviceCommandModel::IsAvailable;
         srcNode.enableRemoting(tailCommandModel, "CommandModel", roles);
 
         qDebug() << "Getting command queue";
