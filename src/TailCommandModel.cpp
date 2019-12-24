@@ -146,14 +146,14 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
 //                 qDebug() << "Changing state";
                 QModelIndex idx = index(i, 0);
                 theCommand.isRunning = isRunning;
-                theCommand.isAvailable = false;
+                theCommand.isAvailable = !isRunning;
                 dataChanged(idx, idx, QVector<int>() << TailCommandModel::IsRunning << TailCommandModel::IsAvailable);
 
                 int i2 = -1;
                 for (CommandInfo& otherCommand : d->commands) {
                     ++i2;
                     if (i != i2 && otherCommand.group == theCommand.group) {
-                        otherCommand.isAvailable = false;
+                        otherCommand.isAvailable = !isRunning;
                         QModelIndex idx2 = index(i2, 0);
                         dataChanged(idx2, idx2, QVector<int>() << TailCommandModel::IsAvailable);
                     }
