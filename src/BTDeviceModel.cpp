@@ -107,7 +107,8 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {DeviceVersion, "deviceVersion"},
         {BatteryLevel, "batteryLevel"},
         {CurrentCall, "currentCall"},
-        {IsConnected, "isConnected"}
+        {IsConnected, "isConnected"},
+        {ActiveCommandTitles, "activeCommandTitles"}
     };
     return roles;
 }
@@ -135,6 +136,9 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case IsConnected:
                 value = device->isConnected();
+                break;
+            case ActiveCommandTitles:
+                value = device->activeCommandTitles();
                 break;
             default:
                 break;
@@ -195,6 +199,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::currentCallChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, CurrentCall);
+        });
+        connect(newDevice, &BTDevice::activeCommandTitlesChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, ActiveCommandTitles);
         });
         connect(newDevice, &BTDevice::versionChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, DeviceVersion);

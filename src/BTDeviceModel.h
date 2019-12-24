@@ -44,7 +44,8 @@ public:
         DeviceVersion,           // 259
         BatteryLevel,            // 260
         CurrentCall,             // 261
-        IsConnected              // 262
+        IsConnected,             // 262
+        ActiveCommandTitles      // 263
     };
 
     AppSettings* appSettings() const;
