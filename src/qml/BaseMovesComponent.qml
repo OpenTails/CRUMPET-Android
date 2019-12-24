@@ -28,8 +28,10 @@ Item {
     id: root;
 
     property QtObject categoriesModel: ListModel { }
-    property alias blockOnMovingTail: activeMovePopup.blockOnMovingTail;
     property alias infoText: infoCard.text;
+    // If you don't care about whether a command is available on a device right now,
+    // set this property to true (it will also not highlight currently running commands)
+    property bool ignoreAvailability: false;
 
     signal commandActivated(string command, string commandName);
 
@@ -72,13 +74,15 @@ Item {
                     Item {
                         width: commandGrid.width / root.itemsAcross;
                         height: width;
+                        opacity: model.isAvailable ? 1 : 0.5;
+                        Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
                         Rectangle {
                             anchors {
                                 fill: parent;
                                 margins: Kirigami.Units.smallSpacing;
                             }
                             border {
-                                width: model.isRunning ? 1 : 0;
+                                width: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
                                 color: "silver";
                             }
                             radius: Kirigami.Units.smallSpacing;
@@ -100,13 +104,14 @@ Item {
                             // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                             property string command: model.command ? model.command : "";
                             onClicked: { root.commandActivated(command, model.name); }
+                            enabled: root.ignoreAvailability || model.isAvailable;
                         }
                         BusyIndicator {
                             anchors {
                                 fill: parent;
                                 margins: Kirigami.Units.smallSpacing;
                             }
-                            opacity: model.isRunning ? 1 : 0;
+                            opacity: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
                             Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
                             running: opacity > 0
                         }
@@ -152,21 +157,6 @@ Item {
             Repeater {
                 model: BTConnectionManager.isConnected ? categoriesModel : null;
                 delegate: categoryDelegate;
-            }
-        }
-    }
-
-    ActiveMovePopup {
-        id: activeMovePopup
-
-        x: (root.width - width) / 2
-        y: (root.height - height) / 2
-
-        Connections {
-            target: root
-
-            onCommandActivated: {
-                activeMovePopup.commandName = commandName;
             }
         }
     }
