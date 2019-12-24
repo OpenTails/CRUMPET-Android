@@ -36,6 +36,12 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     , d(new Private)
 {
     d->name = info.name();
+
+    QTimer* timer = new QTimer(this);
+    timer->setInterval(1);
+    timer->setSingleShot(true);
+    connect(timer, &QTimer::timeout, this, [this](){ Q_EMIT activeCommandTitlesChanged(activeCommandTitles()); });
+    connect(commandModel, &QAbstractItemModel::dataChanged, this, [timer](const QModelIndex& /*topLeft*/, const QModelIndex& /*bottomRight*/, const QVector< int >& /*roles*/){ timer->start(); });
 }
 
 BTDevice::~BTDevice()
@@ -54,4 +60,17 @@ void BTDevice::setName(const QString& name)
         d->name = name;
         emit nameChanged(name);
     }
+}
+
+QString BTDevice::activeCommandTitles() const
+{
+    QString titles;
+    QString separator;
+    for(const CommandInfo& command : commandModel->allCommands()) {
+        if (command.isRunning) {
+            titles += separator + command.name;
+            separator = QString{", "};
+        }
+    }
+    return titles;
 }

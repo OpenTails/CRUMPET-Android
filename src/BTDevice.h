@@ -33,6 +33,7 @@ class BTDevice : public QObject
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
     Q_PROPERTY(QString currentCall READ currentCall NOTIFY currentCallChanged)
+    Q_PROPERTY(QString activeCommandTitles READ activeCommandTitles NOTIFY activeCommandTitlesChanged)
     Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
     Q_PROPERTY(QString deviceID READ deviceID CONSTANT)
 public:
@@ -55,6 +56,9 @@ public:
 
     virtual QString currentCall() const = 0;
     Q_SIGNAL void currentCallChanged(QString currentCall);
+
+    virtual QString activeCommandTitles() const;
+    Q_SIGNAL void activeCommandTitlesChanged(QString activeCommandTitles);
 
     virtual int batteryLevel() const = 0;
     Q_SIGNAL void batteryLevelChanged(int batteryLevel);
