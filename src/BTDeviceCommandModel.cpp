@@ -132,12 +132,13 @@ public:
             }
             if (theEntry) {
                 QVector<int> theRoles = roles;
+                QVector<int> ourRoles;
                 if (roles.length() == 0) {
                     // this would want commenting back in when there's things other than IsRunning to worry about,
                     // such as the future IsAvailable field (for a less obstructive "you can't run this command
                     // now" method that is less app-blocky)
-//                     theRoles = q->roleNames().keys().toVector();
-                    theRoles << TailCommandModel::IsRunning;
+                    theRoles = q->roleNames().keys().toVector();
+//                     theRoles << TailCommandModel::IsRunning;
                 }
                 for (int role : theRoles) {
 //                     qDebug() << "The role which changed was" << role;
@@ -151,19 +152,23 @@ public:
                             }
                         }
                         theEntry->command.isRunning = anyRunning;
+                        ourRoles << BTDeviceCommandModel::IsRunning;
                     } else if (role == TailCommandModel::IsAvailable) {
                         // we've got something we care about, let's deal with it
                         bool anyAvailable{false};
                         for (BTDevice* aDevice : theEntry->devices) {
-                            anyAvailable = aDevice->commandModel->isAvailable(cmd);
-                            if (anyAvailable) {
-                                break;
+                            if (aDevice->isConnected()) {
+                                anyAvailable = aDevice->commandModel->isAvailable(cmd);
+                                if (anyAvailable) {
+                                    break;
+                                }
                             }
                         }
                         theEntry->command.isAvailable = anyAvailable;
+                        ourRoles << BTDeviceCommandModel::IsAvailable;
                     }
                 }
-                q->dataChanged(q->index(entryIdx), q->index(entryIdx), roles);
+                q->dataChanged(q->index(entryIdx), q->index(entryIdx), ourRoles);
             } else {
                 qDebug() << "Something broke, and we got a data changed signal for something with no equivalent Entry..." << device << cmd.command;
             }
@@ -241,7 +246,7 @@ QVariant BTDeviceCommandModel::data(const QModelIndex& index, int role) const
                 result.setValue(index.row());
                 break;
             case IsAvailable:
-                result.setValue(entry->command.isAvailable);
+                result.setValue<bool>(entry->command.isAvailable);
                 break;
             case DeviceIDs:
             {
