@@ -60,7 +60,7 @@ Column {
                 }
                 width: paintedWidth
                 verticalAlignment: Text.AlignVCenter
-                text: typeof model.currentCall !== "undefined" ? model.currentCall : ""
+                text: typeof model.activeCommandTitles !== "undefined" ? model.activeCommandTitles : ""
                 opacity: text === "" ? 0 : 0.5
                 Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
             }
