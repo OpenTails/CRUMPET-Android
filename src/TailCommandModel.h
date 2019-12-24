@@ -37,7 +37,8 @@ public:
         Category,
         Duration,
         MinimumCooldown,
-        CommandIndex
+        CommandIndex,
+        IsAvailable
     };
 
     QHash< int, QByteArray > roleNames() const override;
@@ -96,6 +97,20 @@ public:
      * @return Whether the equivalent command in this model is marked as running
      */
     bool isRunning(const CommandInfo& cmd) const;
+
+    /**
+     * Whether the equivalent command to cmd in this model is marked as being available
+     *
+     * This is similar logic to isRunning, but also takes into account the command's
+     * group (only one command will be available in each group).
+     *
+     * @note To ensure a specific command is always available, ensure that it has a unique group
+     *
+     * @param cmd The command to check in this model
+     * @return Whether the equivalent command in this model is marked as being available
+     * @see bool isRunning(const CommandInfo& cmd) const
+     */
+    bool isAvailable(const CommandInfo& cmd) const;
 private:
     class Private;
     Private* d;

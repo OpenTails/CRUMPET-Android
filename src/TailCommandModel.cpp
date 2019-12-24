@@ -49,7 +49,8 @@ QHash< int, QByteArray > TailCommandModel::roleNames() const
         {Category, "category"},
         {Duration, "duration"},
         {MinimumCooldown, "minimumCooldown"},
-        {CommandIndex, "commandIndex"}};
+        {CommandIndex, "commandIndex"},
+        {IsAvailable, "isAvailable"}};
     return roles;
 }
 
@@ -79,6 +80,9 @@ QVariant TailCommandModel::data(const QModelIndex& index, int role) const
                 break;
             case CommandIndex:
                 value = index.row();
+                break;
+            case IsAvailable:
+                value = command.isAvailable;
                 break;
             default:
                 break;
@@ -142,7 +146,18 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
 //                 qDebug() << "Changing state";
                 QModelIndex idx = index(i, 0);
                 theCommand.isRunning = isRunning;
-                dataChanged(idx, idx);
+                theCommand.isAvailable = false;
+                dataChanged(idx, idx, QVector<int>() << TailCommandModel::IsRunning << TailCommandModel::IsAvailable);
+
+                int i2 = -1;
+                for (CommandInfo& otherCommand : d->commands) {
+                    ++i2;
+                    if (i != i2 && otherCommand.group == theCommand.group) {
+                        otherCommand.isAvailable = false;
+                        QModelIndex idx2 = index(i2, 0);
+                        dataChanged(idx2, idx2, QVector<int>() << TailCommandModel::IsAvailable);
+                    }
+                }
             }
             break;
         }
@@ -287,48 +302,56 @@ void TailCommandModel::autofill(const QString& version)
         command.command = QLatin1String("LEDREC");
         command.category = QLatin1String("lights");
         command.duration = 10000;
+        command.group = 1;
         d->commands << command;
         command.clear();
         command.name = QLatin1String("TRIANGLE");
         command.command = QLatin1String("LEDTRI");
         command.category = QLatin1String("lights");
         command.duration = 10000;
+        command.group = 1;
         d->commands << command;
         command.clear();
         command.name = QLatin1String("SAWTOOTH");
         command.command = QLatin1String("LEDSAW");
         command.category = QLatin1String("lights");
         command.duration = 10000;
+        command.group = 1;
         d->commands << command;
         command.clear();
         command.name = QLatin1String("MORSE");
         command.command = QLatin1String("LEDSOS");
         command.category = QLatin1String("lights");
         command.duration = 10000;
+        command.group = 1;
         d->commands << command;
         command.clear();
         command.name = QLatin1String("BEACON");
         command.command = QLatin1String("LEDBEA");
         command.category = QLatin1String("lights");
         command.duration = 10000;
+        command.group = 1;
         d->commands << command;
         command.clear();
         command.name = QLatin1String("FLAME");
         command.command = QLatin1String("LEDFLA");
         command.category = QLatin1String("lights");
         command.duration = 10000;
+        command.group = 1;
         d->commands << command;
         command.clear();
         command.name = QLatin1String("STROBE");
         command.command = QLatin1String("LEDSTR");
         command.category = QLatin1String("lights");
         command.duration = 10000;
+        command.group = 1;
         d->commands << command;
         command.clear();
         command.name = QLatin1String("Off");
         command.command = QLatin1String("LEDOFF");
         command.category = QLatin1String("");
         command.duration = 300;
+        command.group = 1;
         d->commands << command;
     }
     endResetModel();
@@ -350,6 +373,16 @@ bool TailCommandModel::isRunning(const CommandInfo& cmd) const
     for (const CommandInfo& ourCmd : d->commands) {
         if (cmd.compare(ourCmd)) {
             return ourCmd.isRunning;
+        }
+    }
+    return false;
+}
+
+bool TailCommandModel::isAvailable(const CommandInfo& cmd) const
+{
+    for (const CommandInfo& ourCmd : d->commands) {
+        if (cmd.compare(ourCmd)) {
+            return ourCmd.isAvailable;
         }
     }
     return false;
