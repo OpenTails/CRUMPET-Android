@@ -26,7 +26,9 @@ CommandInfo::CommandInfo(const CommandInfo& other)
     , category(other.category)
     , duration(other.duration)
     , minimumCooldown(other.minimumCooldown)
+    , group(other.group)
     , isRunning(other.isRunning)
+    , isAvailable(other.isAvailable)
 { }
 
 CommandInfo::CommandInfo(CommandInfo && other)
@@ -35,7 +37,9 @@ CommandInfo::CommandInfo(CommandInfo && other)
     , category(other.category)
     , duration(other.duration)
     , minimumCooldown(other.minimumCooldown)
+    , group(other.group)
     , isRunning(other.isRunning)
+    , isAvailable(other.isAvailable)
 {
 }
 
@@ -46,7 +50,9 @@ CommandInfo& CommandInfo::operator=(CommandInfo && other)
     category = other.category;
     duration = other.duration;
     minimumCooldown = other.minimumCooldown;
+    group = other.group;
     isRunning = other.isRunning;
+    isAvailable = other.isAvailable;
     return *this;
 }
 
@@ -57,7 +63,9 @@ CommandInfo& CommandInfo::operator=(const CommandInfo& other)
     category = other.category;
     duration = other.duration;
     minimumCooldown = other.minimumCooldown;
+    group = other.group;
     isRunning = other.isRunning;
+    isAvailable = other.isAvailable;
     return *this;
 }
 
@@ -71,18 +79,21 @@ void CommandInfo::clear()
     category.clear();
     duration = 0;
     minimumCooldown = 0;
+    group = 0;
     isRunning = false;
+    isAvailable = true;
 }
 
 bool CommandInfo::compare(const CommandInfo& other) const
 {
-    // Not comparing isRunning, as that isn't necessarily quite as true...
+    // Not comparing isRunning and isAvailable, as that isn't necessarily quite as true...
     return (
         name == other.name &&
         command == other.command &&
         category == other.category &&
         duration == other.duration &&
-        minimumCooldown == other.minimumCooldown
+        minimumCooldown == other.minimumCooldown &&
+        group == other.group
     );
 }
 
