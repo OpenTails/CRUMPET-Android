@@ -151,6 +151,16 @@ public:
                             }
                         }
                         theEntry->command.isRunning = anyRunning;
+                    } else if (role == TailCommandModel::IsAvailable) {
+                        // we've got something we care about, let's deal with it
+                        bool anyAvailable{false};
+                        for (BTDevice* aDevice : theEntry->devices) {
+                            anyAvailable = aDevice->commandModel->isAvailable(cmd);
+                            if (anyAvailable) {
+                                break;
+                            }
+                        }
+                        theEntry->command.isAvailable = anyAvailable;
                     }
                 }
                 q->dataChanged(q->index(entryIdx), q->index(entryIdx), roles);
@@ -197,7 +207,8 @@ QHash<int, QByteArray> BTDeviceCommandModel::roleNames() const
         {Duration, "duration"},
         {MinimumCooldown, "minimumCooldown"},
         {CommandIndex, "commandIndex"},
-        {DeviceIDs, "deviceIDs"}
+        {DeviceIDs, "deviceIDs"},
+        {IsAvailable, "isAvailable"}
     };
     return roles;
 }
@@ -228,6 +239,9 @@ QVariant BTDeviceCommandModel::data(const QModelIndex& index, int role) const
                 break;
             case CommandIndex:
                 result.setValue(index.row());
+                break;
+            case IsAvailable:
+                result.setValue(entry->command.isAvailable);
                 break;
             case DeviceIDs:
             {

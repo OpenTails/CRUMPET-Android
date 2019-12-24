@@ -42,7 +42,8 @@ public:
         Duration,
         MinimumCooldown,
         CommandIndex,
-        DeviceIDs
+        DeviceIDs,
+        IsAvailable
     };
 
     QHash< int, QByteArray > roleNames() const override;
