@@ -19,18 +19,16 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.5
+import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.4 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
 
-Column {
+ColumnLayout {
+    Layout.fillWidth: true;
     Label {
         text: qsTr("Range of pause between random moves in seconds");
-
-        anchors {
-            left: parent.left;
-            right: parent.right;
-        }
+        Layout.fillWidth: true;
     }
 
     RangeSlider {
@@ -41,12 +39,8 @@ Column {
         from: 15;
         to: 600;
         stepSize: 1.0;
-
-        anchors {
-            left: parent.left;
-            right: parent.right;
-            leftMargin: Kirigami.Units.largeSpacing;
-        }
+        Layout.leftMargin: Kirigami.Units.largeSpacing;
+        Layout.fillWidth: true;
 
         first.onMoved: {
             AppSettings.idleMinPause = first.value;
@@ -66,12 +60,8 @@ Column {
 
     Item {
         height: childrenRect.height;
-
-        anchors {
-            left: parent.left;
-            right: parent.right;
-            leftMargin: Kirigami.Units.largeSpacing;
-        }
+        Layout.leftMargin: Kirigami.Units.largeSpacing;
+        Layout.fillWidth: true;
 
         Label {
             text: Math.floor(pauseRangeSlider.first.value);
