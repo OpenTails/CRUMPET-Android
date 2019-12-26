@@ -69,6 +69,13 @@ Kirigami.ScrollablePage {
                         onClicked: {
                             switchToPage(tailMoves);
                         }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: "go-next";
+                        }
                     }
                     Kirigami.BasicListItem {
                         text: qsTr("Glow Tips");
@@ -76,6 +83,13 @@ Kirigami.ScrollablePage {
                         separatorVisible: false;
                         onClicked: {
                             switchToPage(tailLights);
+                        }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: "go-next";
                         }
                     }
                     Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
@@ -86,6 +100,13 @@ Kirigami.ScrollablePage {
                         onClicked: {
                             switchToPage(alarmList);
                         }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: "go-next";
+                        }
                     }
                     Kirigami.BasicListItem {
                         text: qsTr("Move List");
@@ -93,6 +114,13 @@ Kirigami.ScrollablePage {
                         separatorVisible: false;
                         onClicked: {
                             switchToPage(moveLists);
+                        }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: "go-next";
                         }
                     }
                     Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
@@ -102,6 +130,13 @@ Kirigami.ScrollablePage {
                         separatorVisible: false;
                         onClicked: {
                             showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
+                        }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: "go-next";
                         }
                     }
                 }
