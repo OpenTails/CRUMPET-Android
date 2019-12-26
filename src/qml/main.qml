@@ -177,7 +177,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Alarm");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor");
-                icon.name: "view-media-playlist";
+                icon.name: "accept_time_event";
                 onTriggered: {
                     if(!checked) {
                         switchToPage(alarmList);
