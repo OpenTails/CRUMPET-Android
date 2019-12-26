@@ -17,6 +17,7 @@
         <file>qml/AlarmList.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>images/logo.svg</file>
+        <file>images/tail.svg</file>
         <file>images/tail_lights.svg</file>
         <file>images/tail_moves.svg</file>
         <file>images/banner_image.png</file>
