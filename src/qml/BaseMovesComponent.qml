@@ -74,7 +74,7 @@ Item {
                     Item {
                         width: commandGrid.width / root.itemsAcross;
                         height: width;
-                        opacity: model.isAvailable ? 1 : 0.5;
+                        opacity: model.isAvailable || model.isRunning ? 1 : 0.5;
                         Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
                         Rectangle {
                             anchors {
@@ -85,7 +85,7 @@ Item {
                                 width: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
                                 color: "silver";
                             }
-                            radius: Kirigami.Units.smallSpacing;
+                            radius: width / 2
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
                         }
                         Label {
