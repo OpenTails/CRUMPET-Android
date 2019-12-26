@@ -27,7 +27,7 @@ import org.thetailcompany.digitail 1.0 as Digitail
 ColumnLayout {
     Layout.fillWidth: true;
     Label {
-        text: qsTr("Range of pause between random moves in seconds");
+        text: qsTr("Range of pause between moves in seconds");
         Layout.fillWidth: true;
     }
 
