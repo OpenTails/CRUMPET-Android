@@ -22,7 +22,7 @@ import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.4 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     id: root;
     objectName: "welcomePage";
     title: qsTr("DIGITAiL");
@@ -52,122 +52,119 @@ Kirigami.Page {
         onTriggered: connectToTail.open();
     }
 
-    Column {
-        width: root.width - Kirigami.Units.largeSpacing * 4;
-        spacing: Kirigami.Units.largeSpacing;
-        TailBattery {
-            width: parent.width;
-        }
-        NotConnectedCard { }
-        GridLayout {
-            id: commandLayout;
-            width: parent.width;
-            columns: root.width > root.height ? 3 : 2;
-            columnSpacing: Kirigami.Units.largeSpacing;
-            rowSpacing: Kirigami.Units.largeSpacing;
-            Button {
-                Layout.column: 0;
-                Layout.row: 0;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Alarm");
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
-                onClicked: {
-                    switchToPage(alarmList);
-                }
+    ScrollView {
+        ColumnLayout {
+            width: root.width - Kirigami.Units.largeSpacing * 4;
+            TailBattery {
+                width: parent.width;
             }
-            Button {
-                Layout.column: 0;
-                Layout.row: 1;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Tail Poses");
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
-                onClicked: {
-                    showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
-                }
-            }
-            Button {
-                Layout.column: 1;
-                Layout.row: 0;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Move List");
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
-                onClicked: {
-                    switchToPage(moveLists);
-                }
-            }
-            Button {
-                Layout.column: 1;
-                Layout.row: 1;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                text: qsTr("Glow Tips");
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
-                onClicked: {
-                    switchToPage(tailLights);
-                }
-            }
-            Button {
-                text: qsTr("Tail Moves");
-                Layout.column: commandLayout.columns === 2 ? 0 : 2;
-                Layout.row: commandLayout.columns === 2 ? 2 : 0;
-                Layout.columnSpan: 2;
-                Layout.rowSpan: 2;
-                Layout.fillWidth: true; Layout.fillHeight: true;
-                onClicked: {
-                    switchToPage(tailMoves);
-                }
-            }
-        }
-        Kirigami.AbstractCard {
-            opacity: BTConnectionManager.isConnected ? 1 : 0;
-            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-            width: parent.width;
-            header: Kirigami.Heading {
-                text: qsTr("Casual Mode");
-                CheckBox {
-                    anchors.right: parent.right;
-                    height: parent.height;
-                    width: height;
-                    checked: AppSettings.idleMode;
-                    onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
-                    RoundButton {
-                        anchors {
-                            right: parent.left;
-                            rightMargin: Kirigami.Units.smallSpacing;
-                            verticalCenter: parent.verticalCenter;
+            NotConnectedCard { }
+            Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+            Kirigami.AbstractCard {
+                contentItem: ColumnLayout {
+                    Kirigami.BasicListItem {
+                        text: qsTr("Tail Moves");
+                        icon: ":/images/tail_moves.svg";
+                        separatorVisible: false;
+                        onClicked: {
+                            switchToPage(tailMoves);
                         }
-                        height: parent.height;
-                        width: height;
-                        onClicked: switchToPage(idleModePage);
-                        Kirigami.Icon {
-                            source: "settings-configure";
-                            anchors.fill: parent;
+                    }
+                    Kirigami.BasicListItem {
+                        text: qsTr("Glow Tips");
+                        icon: ":/images/tail_lights.svg";
+                        separatorVisible: false;
+                        onClicked: {
+                            switchToPage(tailLights);
+                        }
+                    }
+                    Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+                    Kirigami.BasicListItem {
+                        text: qsTr("Alarm");
+                        icon: "accept_time_event";
+                        separatorVisible: false;
+                        onClicked: {
+                            switchToPage(alarmList);
+                        }
+                    }
+                    Kirigami.BasicListItem {
+                        text: qsTr("Move List");
+                        icon: "view-media-playlist";
+                        separatorVisible: false;
+                        onClicked: {
+                            switchToPage(moveLists);
+                        }
+                    }
+                    Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+                    Kirigami.BasicListItem {
+                        text: qsTr("Tail Poses");
+                        icon: ":/images/tail.svg";
+                        separatorVisible: false;
+                        onClicked: {
+                            showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
                         }
                     }
                 }
             }
-            Component {
-                id: idlePauseRangePicker;
+            Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+            Kirigami.AbstractCard {
+                opacity: BTConnectionManager.isConnected ? 1 : 0;
+                Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                width: parent.width;
+                header: Kirigami.Heading {
+                    text: qsTr("Casual Mode");
+                    CheckBox {
+                        anchors.right: parent.right;
+                        height: parent.height;
+                        width: height;
+                        checked: AppSettings.idleMode;
+                        onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
+                    }
+                }
+                Component {
+                    id: casualModeSettingsListItem
+                    Kirigami.BasicListItem {
+                            text: qsTr("Casual Mode Settings");
+                            width: parent.width;
+                            Layout.fillWidth: true;
+                            separatorVisible: false;
+                            icon: "settings-configure";
+                            onClicked: switchToPage(idleModePage);
+                        }
+                }
+                Component {
+                    id: idlePauseRangePicker;
 
-                IdlePauseRangePicker {
+                    ColumnLayout {
+                        Layout.fillWidth: true;
+                        IdlePauseRangePicker {
+                        }
+                        Loader {
+                            Layout.fillWidth: true;
+                            sourceComponent: casualModeSettingsListItem
+                        }
+                    }
+                }
+                Component {
+                    id: emptyNothing;
+                    Loader {
+                        sourceComponent: casualModeSettingsListItem
+                    }
+                }
+                contentItem: Loader {
+                    sourceComponent: AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
                 }
             }
-            Component {
-                id: emptyNothing;
-                Item {}
-            }
-            contentItem: Loader {
-                sourceComponent: AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
-            }
+    //         Button {
+    //             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
+    //             width: parent.width;
+    //             onClicked: {
+    //                 for(var i = 0; i < 1000; ++i) {
+    //                     CommandQueue.pushCommand(CommandModel.getCommand(1));
+    //                     CommandQueue.pushPause(3000);
+    //                 }
+    //             }
+    //         }
         }
-//         Button {
-//             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
-//             width: parent.width;
-//             onClicked: {
-//                 for(var i = 0; i < 1000; ++i) {
-//                     CommandQueue.pushCommand(CommandModel.getCommand(1));
-//                     CommandQueue.pushPause(3000);
-//                 }
-//             }
-//         }
     }
 }
