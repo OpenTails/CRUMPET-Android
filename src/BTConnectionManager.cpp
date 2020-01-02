@@ -276,3 +276,11 @@ void BTConnectionManager::clearDeviceNames()
     appSettings()->clearDeviceNames();
     emit deviceNamesCleared();
 }
+
+void BTConnectionManager::setDeviceChecked(const QString& deviceID, bool checked)
+{
+    BTDevice* device = d->deviceModel->getDevice(deviceID);
+    if(device) {
+        device->setChecked(checked);
+    }
+}

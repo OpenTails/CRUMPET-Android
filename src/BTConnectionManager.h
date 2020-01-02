@@ -45,8 +45,6 @@ public:
     AppSettings* appSettings() const;
     void setAppSettings(AppSettings* appSettings);
 
-    void connectClient(QLowEnergyService* remoteService);
-
     QObject* deviceModel() const;
     QObject* commandModel() const;
     QObject* commandQueue() const;
@@ -76,6 +74,13 @@ public Q_SLOTS:
     void setLocalBTDeviceState();
     void setDeviceName(const QString& deviceId, const QString& deviceName) override;
     void clearDeviceNames() override;
+
+    /**
+     * Whether or not a device is marked in the device model
+     * @param deviceID The ID of the device you wish to mark
+     * @param checked Whether or not the device should be marked as checked
+     */
+    void setDeviceChecked(const QString& deviceID, bool checked) override;
 
 Q_SIGNALS:
     void connected(const QString &name);
