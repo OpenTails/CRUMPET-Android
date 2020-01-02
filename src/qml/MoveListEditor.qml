@@ -33,6 +33,6 @@ BaseCommandListEditor {
     }
 
     onInsertCommand: {
-        AppSettings.addMoveListEntry(insertAt, command);
+        AppSettings.addMoveListEntry(insertAt, command, destinations);
     }
 }

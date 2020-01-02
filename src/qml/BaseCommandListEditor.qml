@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
 
     property alias model: commandListView.model
 
-    signal insertCommand(int insertAt, string command);
+    signal insertCommand(int insertAt, string command, variant destinations);
     signal removeCommand(int index, string command);
 
     actions {
@@ -146,8 +146,8 @@ Kirigami.ScrollablePage {
         property int insertAt;
 
         onCommandPicked: {
-            control.insertCommand(insertAt, "pause:15");
-            control.insertCommand(insertAt, command);
+            control.insertCommand(insertAt, "pause:15", destinations);
+            control.insertCommand(insertAt, command, destinations);
             pickACommand.close();
         }
     }

@@ -25,7 +25,7 @@ Kirigami.OverlaySheet {
     function pickCommand() {
         open();
     }
-    signal commandPicked(string command);
+    signal commandPicked(string command, variant destinations);
     header: Kirigami.Heading {
         text: qsTr("Pick a command");
     }
@@ -34,7 +34,7 @@ Kirigami.OverlaySheet {
         width: root.width - Kirigami.Units.largeSpacing * 4;
         ignoreAvailability: true;
         onCommandActivated: {
-            pickACommand.commandPicked(command);
+            pickACommand.commandPicked(command, destinations);
         }
         categoriesModel: ListModel {
             ListElement {

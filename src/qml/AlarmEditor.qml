@@ -37,7 +37,7 @@ BaseCommandListEditor {
             return;
         }
 
-        AppSettings.addAlarmCommand(insertAt, command);
+        AppSettings.addAlarmCommand(insertAt, command, destinations);
     }
 
     onRemoveCommand: {
