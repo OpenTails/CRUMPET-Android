@@ -171,7 +171,12 @@ Item {
         id: sendCommandToSelector;
         function selectDestination(command) {
             sendCommandToSelector.command = command;
-            sendCommandToSelector.open();
+            if (selectorDeviceModel.count === 1) {
+                // If there's only one device, simply assume that's what to send the command to
+                root.commandActivated(sendCommandToSelector.command, []);
+            } else {
+                sendCommandToSelector.open();
+            }
         }
         showCloseButton: true;
         property string command;
