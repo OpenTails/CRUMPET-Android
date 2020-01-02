@@ -57,9 +57,9 @@ public:
                     const CommandInfo& command = commands->getRandomCommand(categories);
                     if(command.isValid()) {
                         qDebug() << "Command is valid, and we've got an empty queue. Add the command to the queue.";
-                        queue->pushCommand(command.command);
+                        queue->pushCommand(command.command, {});
                     }
-                    queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000);
+                    queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000, {});
                 }
             }
         }
