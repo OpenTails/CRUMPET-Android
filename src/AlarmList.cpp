@@ -59,8 +59,8 @@ public:
                 {
 //                     qDebug() << "Event is within our check interval, so launch it now";
                     commandQueue->clear({});
-                    commandQueue->pushPause(until);
-                    commandQueue->pushCommands(alarm->commands());
+                    commandQueue->pushPause(until, {});
+                    commandQueue->pushCommands(alarm->commands(), {});
                     break;
                 }
                 // TODO This doesn't handle two alarms set to go off within the same interval (in other words
@@ -272,7 +272,7 @@ void AlarmList::setAlarmCommands(const QString& alarmName, const QStringList& co
     }
 }
 
-void AlarmList::addAlarmCommand(const QString& alarmName, int index, const QString& command)
+void AlarmList::addAlarmCommand(const QString& alarmName, int index, const QString& command, QStringList devices)
 {
     Alarm* alarm = this->alarm(alarmName);
 

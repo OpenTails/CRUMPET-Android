@@ -79,7 +79,7 @@ public:
     void changeAlarmName(const QString& oldName, const QString& newName);
     void setAlarmTime(const QString& alarmName, const QDateTime& time);
     void setAlarmCommands(const QString& alarmName, const QStringList& commands);
-    void addAlarmCommand(const QString& alarmName, int index, const QString& command);
+    void addAlarmCommand(const QString& alarmName, int index, const QString& command, QStringList devices);
     void removeAlarmCommand(const QString& alarmName, int index);
 
     QVariantList toVariantList() const;
