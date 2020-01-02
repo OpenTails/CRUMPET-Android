@@ -77,30 +77,34 @@ public:
      * Add a pause to the end of the queue
      *
      * @param durationMilliseconds The duration of the pause in milliseconds
+     * @param devices The devices you wish to send the commands to (or an empty list to send to all devices)
      */
-    Q_SLOT void pushPause(int durationMilliseconds) override;
+    Q_SLOT void pushPause(int durationMilliseconds, QStringList devices) override;
     /**
      * Add a specific command to the end of the queue. If there are no commands
      * currently running, the command will be run immediately.
      *
      * @param tailCommand The command you wish to add to the queue
+     * @param devices The devices you wish to send the commands to (or an empty list to send to all devices)
      */
-    Q_SLOT void pushCommand(QString tailCommand) override;
+    Q_SLOT void pushCommand(QString tailCommand, QStringList devices) override;
     /**
      * A convenient way of adding a whole list of commands to the queue in one go.
      * As with adding a single command, if nothing is currently running, once the
      * list has been added, the first command in the list will be run.
      *
      * @param commands The list of commands to add to the queue
+     * @param devices The devices you wish to send the commands to (or an empty list to send to all devices)
      */
-    Q_SLOT void pushCommands(CommandInfoList commands);
+    Q_SLOT void pushCommands(CommandInfoList commands, QStringList deviceIDs);
     /**
      * A convenience slot which takes a list of commands, and the special pause command
      * (which is "pause:" followed by an integer number representing the number of seconds
      * the pause should last).
      * @param commands A list of commands
+     * @param devices The devices you wish to send the commands to (or an empty list to send to all devices)
      */
-    Q_SLOT void pushCommands(QStringList commands) override;
+    Q_SLOT void pushCommands(QStringList commands, QStringList deviceIDs) override;
     /**
      * Remove a specific command from the queue
      *

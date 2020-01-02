@@ -43,8 +43,15 @@ public:
 
     CommandQueue* q;
 
-    // These commands are owned by TailCommandModel, do not delete them
-    CommandInfoList commands;
+    struct Entry {
+        Entry(const CommandInfo& command)
+            : command(command)
+        {}
+        ~Entry() { }
+        CommandInfo command;
+        QStringList deviceIDs;
+    };
+    QVector<Entry*> commands;
     BTConnectionManager* connectionManager;
 
     QTimer* popTimer;
@@ -55,22 +62,23 @@ public:
     {
         // only pop if there's commands left
         if(commands.count() > 0) {
-            CommandInfo command = commands.takeFirst();
+            Entry* entry = commands.takeFirst();
 
             // Command can be empty if it's a pause (possibly others as well,
             // though not yet, but just never send an empty command)
-            if(!command.command.isEmpty()) {
-                connectionManager->sendMessage(command.command, QStringList{});
-                currentCommandTimer->setInterval(command.duration + command.minimumCooldown);
+            if(!entry->command.command.isEmpty()) {
+                connectionManager->sendMessage(entry->command.command, entry->deviceIDs);
+                currentCommandTimer->setInterval(entry->command.duration + entry->command.minimumCooldown);
                 currentCommandTimer->start();
                 currentCommandTimerChecker->start();
                 emit q->currentCommandTotalDurationChanged(currentCommandTimer->interval());
                 emit q->currentCommandRemainingMSecondsChanged(currentCommandTimer->remainingTime());
             }
 
-            popTimer->start(command.duration + command.minimumCooldown);
+            popTimer->start(entry->command.duration + entry->command.minimumCooldown);
 
             emit q->countChanged(q->count());
+            delete entry;
         }
     }
 };
@@ -110,25 +118,25 @@ QVariant CommandQueue::data(const QModelIndex& index, int role) const
 {
     QVariant value;
     if(index.isValid() && index.row() > -1 && index.row() < d->commands.count()) {
-        const CommandInfo& command = d->commands.at(index.row());
+        Private::Entry* entry = d->commands.at(index.row());
         switch(role) {
             case Name:
-                value = command.name;
+                value = entry->command.name;
                 break;
             case Command:
-                value = command.command;
+                value = entry->command.command;
                 break;
             case IsRunning:
-                value = command.isRunning;
+                value = entry->command.isRunning;
                 break;
             case Category:
-                value = command.category;
+                value = entry->command.category;
                 break;
             case Duration:
-                value = command.duration;
+                value = entry->command.duration;
                 break;
             case MinimumCooldown:
-                value = command.minimumCooldown;
+                value = entry->command.minimumCooldown;
                 break;
             default:
                 break;
@@ -174,14 +182,16 @@ void CommandQueue::clear(const QString& deviceID)
     emit countChanged(count());
 }
 
-void CommandQueue::pushPause(int durationMilliseconds)
+void CommandQueue::pushPause(int durationMilliseconds, QStringList devices)
 {
     qDebug() << "Adding a pause to the queue of" << durationMilliseconds << "milliseconds";
     CommandInfo command;
     command.name = "Pause";
     command.duration = durationMilliseconds;
 
-    d->commands.append(command);
+    Private::Entry* entry = new Private::Entry(command);
+    entry->deviceIDs = devices;
+    d->commands.append(entry);
     emit countChanged(count());
 
     // If we have just pushed a command and the timer is not currently running,
@@ -191,7 +201,7 @@ void CommandQueue::pushPause(int durationMilliseconds)
     }
 }
 
-void CommandQueue::pushCommand(QString tailCommand)
+void CommandQueue::pushCommand(QString tailCommand, QStringList devices)
 {
     qDebug() << Q_FUNC_INFO << tailCommand;
     const CommandInfo& command = qobject_cast<BTDeviceCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommand);
@@ -199,7 +209,9 @@ void CommandQueue::pushCommand(QString tailCommand)
     if(!command.isValid()) {
         return;
     }
-    d->commands.append(command);
+    Private::Entry* entry = new Private::Entry(command);
+    entry->deviceIDs = devices;
+    d->commands.append(entry);
     emit countChanged(count());
 
     // If we have just pushed a command and the timer is not currently running,
@@ -209,10 +221,14 @@ void CommandQueue::pushCommand(QString tailCommand)
     }
 }
 
-void CommandQueue::pushCommands(CommandInfoList commands)
+void CommandQueue::pushCommands(CommandInfoList commands, QStringList devices)
 {
     if(commands.count() > 0) {
-        d->commands.append(commands);
+        for (const CommandInfo& command : commands) {
+            Private::Entry* entry = new Private::Entry(command);
+            entry->deviceIDs = devices;
+            d->commands.append(entry);
+        }
         emit countChanged(count());
 
         // If we have just pushed some commands and the timer is not currently
@@ -223,17 +239,17 @@ void CommandQueue::pushCommands(CommandInfoList commands)
     }
 }
 
-void CommandQueue::pushCommands(QStringList commands)
+void CommandQueue::pushCommands(QStringList commands, QStringList devices)
 {
     qDebug() << commands;
     for (auto command : commands) {
         if(command.startsWith("pause")) {
             QStringList pauseCommand = command.split(':');
             if(pauseCommand.count() == 2) {
-                pushPause(pauseCommand[1].toInt() * 1000);
+                pushPause(pauseCommand[1].toInt() * 1000, devices);
             }
         } else {
-            pushCommand(command);
+            pushCommand(command, devices);
         }
     }
 }
@@ -247,8 +263,8 @@ void CommandQueue::removeEntry(int index)
 void CommandQueue::swapEntries(int swapThis, int withThis)
 {
     if(swapThis >= 0 && swapThis < d->commands.count() && withThis >= 0 && withThis < d->commands.count()) {
-        const CommandInfo& with = d->commands.takeAt(withThis);
-        const CommandInfo& swap = d->commands.takeAt(swapThis);
+        Private::Entry* with = d->commands.takeAt(withThis);
+        Private::Entry* swap = d->commands.takeAt(swapThis);
         d->commands.insert(swapThis, with);
         d->commands.insert(withThis, swap);
     }
