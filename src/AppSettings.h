@@ -63,7 +63,7 @@ public:
     void setActiveMoveList(const QString& moveListName) override;
     void addMoveList(const QString& moveListName) override;
     void removeMoveList(const QString& moveListName) override;
-    void addMoveListEntry(int index, const QString& entry) override;
+    void addMoveListEntry(int index, const QString& entry, QStringList devices) override;
     void removeMoveListEntry(int index) override;
 
     AlarmList* alarmListImpl() const;
@@ -75,7 +75,7 @@ public:
     void changeAlarmName(const QString& newName) override;
     void setAlarmTime(const QDateTime& time) override;
     void setAlarmCommands(const QStringList& commands) override;
-    void addAlarmCommand(int index, const QString& command) override;
+    void addAlarmCommand(int index, const QString& command, QStringList devices) override;
     void removeAlarmCommand(int index) override;
     virtual QVariantMap deviceNames() const override;
 

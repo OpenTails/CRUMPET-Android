@@ -33,7 +33,7 @@ class SettingsProxy {
     SLOT(void removeMoveList(const QString& moveListName))
     PROP(QStringList moveList READONLY)
     SLOT(void setActiveMoveList(const QString& moveListName))
-    SLOT(void addMoveListEntry(int index, const QString& entry))
+    SLOT(void addMoveListEntry(int index, const QString& entry, QStringList devices))
     SLOT(void removeMoveListEntry(int index))
 
     PROP(QVariantList alarmList READONLY)
@@ -44,7 +44,7 @@ class SettingsProxy {
     SLOT(void changeAlarmName(const QString& newName))
     SLOT(void setAlarmTime(const QDateTime& time))
     SLOT(void setAlarmCommands(const QStringList& commands))
-    SLOT(void addAlarmCommand(int index, const QString& command))
+    SLOT(void addAlarmCommand(int index, const QString& command, QStringList devices))
     SLOT(void removeAlarmCommand(int index))
     SIGNAL(alarmExisted(const QString& name))
     SIGNAL(alarmNotExisted(const QString& name))

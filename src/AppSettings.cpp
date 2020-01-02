@@ -300,7 +300,7 @@ void AppSettings::setActiveMoveList(const QString& moveListName)
     emit moveListChanged(moveList());
 }
 
-void AppSettings::addMoveListEntry(int index, const QString& entry)
+void AppSettings::addMoveListEntry(int index, const QString& entry, QStringList devices)
 {
     QStringList moveList = d->moveLists[d->activeMoveListName];
     moveList.insert(index, entry);
@@ -396,9 +396,9 @@ void AppSettings::setAlarmCommands(const QStringList& commands)
     emit activeAlarmChanged(activeAlarm());
 }
 
-void AppSettings::addAlarmCommand(int index, const QString& command)
+void AppSettings::addAlarmCommand(int index, const QString& command, QStringList devices)
 {
-    d->alarmList->addAlarmCommand(d->activeAlarmName, index, command);
+    d->alarmList->addAlarmCommand(d->activeAlarmName, index, command, devices);
     emit activeAlarmChanged(activeAlarm());
 }
 
