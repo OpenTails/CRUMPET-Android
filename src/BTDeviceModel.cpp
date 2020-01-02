@@ -108,7 +108,8 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {BatteryLevel, "batteryLevel"},
         {CurrentCall, "currentCall"},
         {IsConnected, "isConnected"},
-        {ActiveCommandTitles, "activeCommandTitles"}
+        {ActiveCommandTitles, "activeCommandTitles"},
+        {Checked, "checked"}
     };
     return roles;
 }
@@ -139,6 +140,9 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case ActiveCommandTitles:
                 value = device->activeCommandTitles();
+                break;
+            case Checked:
+                value = device->checked();
                 break;
             default:
                 break;
@@ -212,6 +216,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::nameChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, Name);
+        });
+        connect(newDevice, &BTDevice::checkedChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, Checked);
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);
