@@ -33,7 +33,14 @@ Item {
     // set this property to true (it will also not highlight currently running commands)
     property bool ignoreAvailability: false;
 
-    signal commandActivated(string command, string commandName);
+    /**
+     * When a command has been selected, this signal will be fired.
+     * If there are more than one destination selected, they will be listed
+     * in the string list destinations
+     * @param command The command to activate
+     * @param destinations The list of destination device IDs, or an empty list to send to everywhere
+     */
+    signal commandActivated(string command, variant destinations);
 
     height: contents.height;
     property int itemsAcross: pageStack.currentItem.width > pageStack.currentItem.height ? 4 : 3;
@@ -103,7 +110,7 @@ Item {
                             anchors.fill: parent;
                             // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                             property string command: model.command ? model.command : "";
-                            onClicked: { root.commandActivated(command, model.name); }
+                            onClicked: { sendCommandToSelector.selectDestination(command); }
                             enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
                         }
                         BusyIndicator {
@@ -157,6 +164,89 @@ Item {
             Repeater {
                 model: BTConnectionManager.isConnected ? categoriesModel : null;
                 delegate: categoryDelegate;
+            }
+        }
+    }
+    Kirigami.OverlaySheet {
+        id: sendCommandToSelector;
+        function selectDestination(command) {
+            sendCommandToSelector.command = command;
+            sendCommandToSelector.open();
+        }
+        showCloseButton: true;
+        property string command;
+        header: Kirigami.Heading {
+            text: qsTr("Send where?");
+        }
+        Item {
+            implicitWidth: Kirigami.Units.gridUnit * 30
+            height: childrenRect.height
+            ColumnLayout {
+                spacing: 0;
+                anchors { left: parent.left; right: parent.right; }
+                InfoCard {
+                    text: qsTr("Pick from the list below where you want to send the command.");
+                    Layout.fillWidth: true;
+                }
+                Repeater {
+                    model: FilterProxyModel {
+                        id: selectorDeviceModel;
+                        sourceModel: DeviceModel;
+                        filterRole: 262; // the isConnected role
+                        filterBoolean: true;
+                        property bool hasCheckedIDs: true;
+                        function updateHasCheckedIDs() {
+                            var hasChecked = false;
+                            for (var i = 0; i < count; ++i) {
+                                if(data(index(i, 0), 264) == true) { // if checked
+                                    hasChecked = true;
+                                    break;
+                                }
+                            }
+                            hasCheckedIDs = hasChecked;
+                        }
+                        function checkedIDs() {
+                            var theIDs = new Array();
+                            for (var i = 0; i < count; ++i) {
+                                if(data(index(i, 0), 264) == true) { // if checked
+                                    theIDs.push(data(index(i, 0), 258)); // add the device ID
+                                }
+                            }
+                            return theIDs;
+                        }
+                    }
+                    Kirigami.BasicListItem {
+                        id: deviceListItem;
+                        Layout.fillWidth: true;
+                        text: model.name ? model.name : "";
+                        icon: model.checked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        property bool itemIsChecked: model.checked;
+                        onItemIsCheckedChanged: { selectorDeviceModel.updateHasCheckedIDs(); }
+                        onClicked: { BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
+                    }
+                }
+                Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+                RowLayout {
+                    Layout.fillWidth: true;
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+                    Button {
+                        text: qsTr("Send To Selected");
+                        enabled: selectorDeviceModel.hasCheckedIDs;
+                        onClicked: {
+                            root.commandActivated(sendCommandToSelector.command, selectorDeviceModel.checkedIDs());
+                            sendCommandToSelector.close();
+                        }
+                    }
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+                    Button {
+                        text: qsTr("Send To All");
+                        onClicked: {
+                            root.commandActivated(sendCommandToSelector.command, []);
+                            sendCommandToSelector.close();
+                        }
+                    }
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+                }
             }
         }
     }
