@@ -29,6 +29,7 @@
 class BTDevice : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool checked READ checked WRITE setChecked NOTIFY checkedChanged)
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
@@ -43,6 +44,10 @@ public:
     QBluetoothDeviceInfo deviceInfo;
 
     TailCommandModel* commandModel{new TailCommandModel(this)};
+
+    bool checked() const;
+    void setChecked(bool checked);
+    Q_SIGNAL void checkedChanged(bool checked);
 
     virtual bool isConnected() const = 0;
     Q_SIGNAL void isConnectedChanged(bool isConnected);

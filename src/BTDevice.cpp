@@ -27,6 +27,7 @@ public:
     Private() {}
     ~Private() {}
 
+    bool checked{true};
     QString name;
 };
 
@@ -47,6 +48,17 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
 BTDevice::~BTDevice()
 {
     delete d;
+}
+
+bool BTDevice::checked() const
+{
+    return d->checked;
+}
+
+void BTDevice::setChecked(bool checked)
+{
+    d->checked = checked;
+    Q_EMIT checkedChanged(d->checked);
 }
 
 QString BTDevice::name() const
