@@ -1,5 +1,7 @@
 # CRUMPET - The Brains For Your Tail Company Gear
-Development of the app to control our new breed of animatronic tails!
+Development of the app to control our new breed of animatronics, from tails to ears!
+
+We are currently editing files to be less DIGITAiL only..
 
 For information on the basic concepts of the application's codebase, and for information on how you should approach the code if you wish to contribute, please see our [HACKING document](HACKING.md).
 
