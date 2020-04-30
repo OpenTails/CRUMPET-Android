@@ -82,7 +82,7 @@ Kirigami.ApplicationWindow {
 
         onIsConnectedChanged: {
             if (isConnected === true) {
-                showPassiveNotification(qsTr("Connected to tail!"), 1000);
+                showPassiveNotification(qsTr("Connected successfully!"), 1000);
                 if(root.pageToPush !== null) {
                     switchToPage(root.pageToPush);
                     root.pageToPush = null;
@@ -123,7 +123,7 @@ Kirigami.ApplicationWindow {
         }
 
         onIdleModeTimeout: {
-            showMessageBox(qsTr("Casual Mode is Off"), qsTr("Maybe its time for Tail rest... Let your tail have a power-nap."));
+            showMessageBox(qsTr("Casual Mode is Off"), qsTr("Maybe its time for a rest... Let your tail or ears have a power-nap."));
         }
     }
 
@@ -167,7 +167,7 @@ Kirigami.ApplicationWindow {
 
         actions: [
             Kirigami.Action {
-                text: qsTr("DIGITAiL");
+                text: qsTr("Crumpet");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "welcomePage";
                 icon.name: "go-home";
                 onTriggered: {
@@ -265,8 +265,8 @@ Kirigami.ApplicationWindow {
 
                 event.accepted = true;
 
-                showMessageBox(qsTr("A tail is currently connected"),
-                               qsTr("A tail is currently connected.\n\nAre you sure that you want to disconnect from the tail and quit?"),
+                showMessageBox(qsTr("An appendage is currently connected"),
+                               qsTr("A tail or some ears are currently connected.\n\nAre you sure that you want to disconnect from them and quit?"),
                                function () {
                                    if(BTConnectionManager.isConnected) {
                                        BTConnectionManager.disconnectDevice();
@@ -322,8 +322,8 @@ Kirigami.ApplicationWindow {
 
         property string deviceID: "0";
 
-        description: qsTr("Enter a name to use for your Tail");
-        placeholderText: qsTr("Enter your Tail name here");
+        description: qsTr("Enter a name to use for your new limb");
+        placeholderText: qsTr("Enter the name here");
         buttonOkText: qsTr("Save");
 
         onNamePicked: {
@@ -362,7 +362,7 @@ Kirigami.ApplicationWindow {
                 bottomMargin: Kirigami.Units.smallMargin;
                 horizontalCenter: parent.horizontalCenter;
             }
-            text: qsTr("Connecting to tail...");
+            text: qsTr("Attempting to connect...");
         }
         BusyIndicator {
             anchors {

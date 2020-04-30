@@ -25,7 +25,7 @@ import org.thetailcompany.digitail 1.0 as Digitail
 Kirigami.ScrollablePage {
     id: root;
     objectName: "welcomePage";
-    title: qsTr("DIGITAiL");
+    title: qsTr("Crumpet");
     actions {
         main: Kirigami.Action {
             text: BTConnectionManager.isConnected ? "Disconnect" : "Connect";

@@ -35,17 +35,17 @@ Kirigami.Card {
     header: Kirigami.Heading {
         text: {
             if (BTConnectionManager.discoveryRunning === true) {
-                return qsTr("Searching for DIGITAiL...");
+                return qsTr("Searching for Tails and Ears...");
             }
             else {
                 if (deviceFilterProxy.count === 0) {
-                    return qsTr("No tails found");
+                    return qsTr("No tails or ears found");
                 }
                 else if (deviceFilterProxy.count === 1) {
-                    return qsTr("One tail available");
+                    return qsTr("One tails or ears available");
                 }
                 else {
-                    return qsTr("Multiple tails available");
+                    return qsTr("Multiple devices available");
                 }
             }
         }
@@ -74,21 +74,21 @@ Kirigami.Card {
                     return qsTr("None found yet...");
                 }
                 else if (deviceFilterProxy.count > 1) {
-                    return qsTr("Found %1 tails so far. To see them, push \"Show available tails...\" below.").arg(deviceFilterProxy.count);
+                    return qsTr("Found %1 tails and ears so far. To see them, push \"Show available tails and ears...\" below.").arg(deviceFilterProxy.count);
                 }
                 else {
-                    return qsTr("1 tail found. Simply wait, or push \"Connect\" below to control it.");
+                    return qsTr("1 tail or ears found. Simply wait, or push \"Connect\" below to control it.");
                 }
             }
             else {
                 if (deviceFilterProxy.count === 0) {
-                    return qsTr("We were unable to find any tails. Please ensure that it is nearby and switched on.");
+                    return qsTr("We were unable to find any tails or ears. Please ensure that it is nearby and switched on.");
                 }
                 else if (deviceFilterProxy.count > 1) {
-                    return qsTr("You are not currently connected to your tail, and we have found %1 tails. Please push \"Show available tails...\" below to see the available tails.").arg(deviceFilterProxy.count);
+                    return qsTr("You are not currently connected to your tail or ears, and we have found %1. Please push \"Show available tails and ears...\" below to see what is available.").arg(deviceFilterProxy.count);
                 }
                 else {
-                    return qsTr("You are not currently connected to your tail, but we know of one tail. Push \"Connect\" to connect to it.");
+                    return qsTr("You are not currently connected to your tail or ears, but we know of one. Push \"Connect\" to connect to it.");
                 }
             ;
             }
@@ -98,11 +98,11 @@ Kirigami.Card {
         Layout.fillWidth: true; Layout.fillHeight: true;
         text: {
             if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
-                return qsTr("Look for tails");
+                return qsTr("Look for tails and ears");
             } else if (deviceFilterProxy.count === 1) {
                 return qsTr("Connect to %1").arg(deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257))
             } else {
-                return qsTr("Show available tails...");
+                return qsTr("Show available tails and ears...");
             }
         }
         visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0);

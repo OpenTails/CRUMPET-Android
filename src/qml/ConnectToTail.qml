@@ -37,7 +37,7 @@ Kirigami.OverlaySheet {
             Layout.fillWidth: true
             Layout.minimumWidth: 0
             wrapMode: Text.WordWrap
-            text: "Connect To Tail"
+            text: "Connect To Tail Or Ears"
         }
     }
     ListView {
