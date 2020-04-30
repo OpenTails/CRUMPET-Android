@@ -20,6 +20,7 @@
 #include "BTDevice.h"
 #include "BTDeviceTail.h"
 #include "BTDeviceFake.h"
+#include "BTDeviceEars.h"
 
 class BTDeviceModel::Private
 {
@@ -171,14 +172,24 @@ bool BTDeviceModel::isConnected() const
 
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
-    BTDevice* newDevice = new BTDeviceTail(deviceInfo, this);
-    addDevice(newDevice);
+    BTDevice* newDevice{nullptr};
+    if (deviceInfo.name() == QLatin1String{"(!)Tail1"}) {
+        newDevice = new BTDeviceTail(deviceInfo, this);
+    } else if (deviceInfo.name() == QLatin1String{"EarGear"}) {
+        newDevice = new BTDeviceEars(deviceInfo, this);
+    } else {
+        qDebug() << "Found an unsupported device" << deviceInfo.name();
+    }
+    if (newDevice) {
+        addDevice(newDevice);
+    }
 }
 
 void BTDeviceModel::addDevice(BTDevice* newDevice)
 {
     // It feels a little dirty to do it this way...
     static const QStringList acceptedDeviceNames{
+        QLatin1String{"EarGear"},
         QLatin1String{"(!)Tail1"},
         QLatin1String{"FAKE"}
     };

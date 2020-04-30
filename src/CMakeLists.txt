@@ -10,6 +10,7 @@ set(digitail_SRCS
     main.cpp
     BTConnectionManager.cpp
     BTDevice.cpp
+    BTDeviceEars.cpp
     BTDeviceFake.cpp
     BTDeviceTail.cpp
     BTDeviceCommandModel.cpp
