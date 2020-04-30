@@ -1,13 +1,19 @@
-# DIGITAiL
-Development of the app to control our new breed of animatronic tails!
+# CRUMPET - The Brains For Your Tail Company Gear
+Development of the app to control our new breed of animatronics, from tails to ears!
+
+We are currently editing files to be less DIGITAiL only..
 
 For information on the basic concepts of the application's codebase, and for information on how you should approach the code if you wish to contribute, please see our [HACKING document](HACKING.md).
 
-## NOTES
+## EarGear
+
+Please see separate document entitled "EarGear Protocol" for full details
+
+## DIGITAiL NOTES
 
 You find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
-Device name is "(!)Tail1"
+Device name is "(!)Tail1" 
 
 Device Service [0xffe0]
 
@@ -117,6 +123,8 @@ I've been imagining a screen with a tail viewed as if your looking back at the p
 
 Notifications will available once we are hooked in to the phone notification system
 This is not part of the project until the other two modes are complete.
+
+
 
 # How To Compile The App
 
