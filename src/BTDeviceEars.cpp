@@ -127,24 +127,33 @@ public:
         if (earsCommandReadCharacteristicUuid == characteristic.uuid()) {
             QString theValue(newValue);
             QStringList stateResult = theValue.split(' ');
-            if(stateResult[0] == QLatin1String("VER")) {
+            if (theValue == QLatin1String{"System is busy"}) {
+                // Postpone what we attempted to send a few moments before trying again, as the ears are currently busy
+                // ...except if we're listening, at which point don't try and do this
+                // if (listeningState == ListeningFull || listeningState == ListeningOn) {
+                // }
+                // else {
+                    QTimer::singleShot(1000, q, [this](){ q->sendMessage(currentCall); });
+                //}
+            }
+            else if (stateResult[0] == QLatin1String{"VER"}) {
                 q->commandModel->autofill(newValue);
                 version = newValue;
                 emit q->versionChanged(newValue);
                 pingTimer.start();
             }
-            else if(stateResult[0] == QLatin1String("PONG")) {
+            else if (stateResult[0] == QLatin1String{"PONG"}) {
                 if (currentCall != QLatin1String{"PING"}) {
                     qWarning() << q->name() << q->deviceID() << "We got an out-of-order response for a ping";
                 }
             }
-            else if(stateResult.last() == QLatin1String("BEGIN")) {
+            else if (stateResult.last() == QLatin1String{"BEGIN"}) {
                 q->commandModel->setRunning(stateResult[1], true);
             }
-            else if(stateResult.last() == QLatin1String("END")) {
+            else if (stateResult.last() == QLatin1String{"END"}) {
                 q->commandModel->setRunning(stateResult[1], false);
             }
-            else if(theValue == QLatin1String{"EarGear started"}) {
+            else if (theValue == QLatin1String{"EarGear started"}) {
                 qDebug() << q->name() << q->deviceID() << "EarGear box detected the connection";
             }
             else {
