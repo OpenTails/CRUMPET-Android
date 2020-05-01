@@ -122,37 +122,33 @@ public:
 
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
-        qDebug() << q->name() << q->deviceID() << "Current call is" << currentCall << "and characteristic" << characteristic.uuid() << "NOTIFIED value change" << newValue;
+        qDebug() << q->name() << q->deviceID() << "Current call is supposed to be" << currentCall << "and characteristic" << characteristic.uuid() << "NOTIFIED value change" << newValue;
 
         if (earsCommandReadCharacteristicUuid == characteristic.uuid()) {
             QString theValue(newValue);
-            if (currentCall == QLatin1String("VER")) {
+            QStringList stateResult = theValue.split(' ');
+            if(stateResult[0] == QLatin1String("VER")) {
                 q->commandModel->autofill(newValue);
                 version = newValue;
                 emit q->versionChanged(newValue);
                 pingTimer.start();
             }
-            else if (currentCall == QLatin1String{"PING"}) {
-                // that's a pong, then!
-                if (theValue != QLatin1String{"PONG"}) {
-                    qWarning() << "We got an out-of-order response for a ping";
+            else if(stateResult[0] == QLatin1String("PONG")) {
+                if (currentCall != QLatin1String{"PING"}) {
+                    qWarning() << q->name() << q->deviceID() << "We got an out-of-order response for a ping";
                 }
             }
+            else if(stateResult.last() == QLatin1String("BEGIN")) {
+                q->commandModel->setRunning(stateResult[1], true);
+            }
+            else if(stateResult.last() == QLatin1String("END")) {
+                q->commandModel->setRunning(stateResult[1], false);
+            }
+            else if(theValue == QLatin1String{"EarGear started"}) {
+                qDebug() << q->name() << q->deviceID() << "EarGear box detected the connection";
+            }
             else {
-                QStringList stateResult = theValue.split(' ');if(stateResult.count() == 2) {
-                    if(stateResult[0] == QLatin1String("BEGIN")) {
-                        q->commandModel->setRunning(stateResult[1], true);
-                    }
-                    else if(stateResult[0] == QLatin1String("END")) {
-                        q->commandModel->setRunning(stateResult[1], false);
-                    }
-                    else {
-                        qDebug() << q->name() << q->deviceID() << "Unexpected response: The first element of the two part message should be either BEGIN or END";
-                    }
-                }
-                else {
-                    qDebug() << q->name() << q->deviceID() << "Unexpected response: The response should consist of a string of two words separated by a single space, the first word being either BEGIN or END, and the second should be the command name either just beginning its run, or having just ended its run.";
-                }
+                qDebug() << q->name() << q->deviceID() << "Unexpected response: Did not understand" << newValue;
             }
         }
         currentCall.clear();
