@@ -16,6 +16,7 @@ set(digitail_SRCS
     BTDeviceCommandModel.cpp
     BTDeviceModel.cpp
     CommandInfo.cpp
+    CommandPersistence.cpp
     CommandQueue.cpp
     FilterProxyModel.cpp
     IdleMode.cpp
