@@ -32,8 +32,11 @@ public:
     BTDeviceModel* parentModel;
 
     QString version{"(unknown)"};
-    QString currentCall;
     int batteryLevel{0};
+
+    QString currentCall;
+    QString currentSubCall;
+    QStringList callQueue;
 
     QLowEnergyController* btControl{nullptr};
     QLowEnergyService* earsService{nullptr};
@@ -133,7 +136,7 @@ public:
                 // if (listeningState == ListeningFull || listeningState == ListeningOn) {
                 // }
                 // else {
-                    QTimer::singleShot(1000, q, [this](){ q->sendMessage(currentCall); });
+                    QTimer::singleShot(1000, q, [this](){ q->sendMessage(currentSubCall); });
                 //}
             }
             else if (stateResult[0] == QLatin1String{"VER"}) {
@@ -147,14 +150,28 @@ public:
                     qWarning() << q->name() << q->deviceID() << "We got an out-of-order response for a ping";
                 }
             }
-            else if (stateResult.last() == QLatin1String{"BEGIN"}) {
-                q->commandModel->setRunning(stateResult[1], true);
-            }
-            else if (stateResult.last() == QLatin1String{"END"}) {
-                q->commandModel->setRunning(stateResult[1], false);
-            }
             else if (theValue == QLatin1String{"EarGear started"}) {
                 qDebug() << q->name() << q->deviceID() << "EarGear box detected the connection";
+            }
+            else if (stateResult.last() == QLatin1String{"BEGIN"}) {
+                q->commandModel->setRunning(currentCall, true);
+                // ****************************************************
+                // ******************* EARLY RETURN *******************
+                // ****************************************************
+                return;
+            }
+            else if (stateResult.last() == QLatin1String{"END"}) {
+                // If we've got more in the queue, send the next bit of the command
+                if (callQueue.length() > 0) {
+                    q->sendMessage(callQueue.takeFirst());
+                    // ****************************************************
+                    // ******************* EARLY RETURN *******************
+                    // ****************************************************
+                    return;
+                } else {
+                    // If the queue is empty, we're done
+                    q->commandModel->setRunning(currentCall, false);
+                }
             }
             else {
                 qDebug() << q->name() << q->deviceID() << "Unexpected response: Did not understand" << newValue;
@@ -380,16 +397,55 @@ QString BTDeviceEars::deviceID() const
 
 void BTDeviceEars::sendMessage(const QString &message)
 {
-    // Don't send out another call while we're waiting to hear back... at least for a little bit
-    int i = 0;
-    while(!d->currentCall.isEmpty()) {
-        if(++i == 1000) {
-            break;
-        }
-        qApp->processEvents();
+    QString actualMessage{message};
+    // Translation from tail commands to equivalent ear command streams
+    // DSSP letwist ritwist letilt ritilt
+    if (message == QLatin1String{"TAILHM"}) {
+        actualMessage = QLatin1String{"EARHOME"};
     }
+    else if(message == QLatin1String{"TAILS1"}) { // Slow Wag 1
+        actualMessage = QLatin1String{"DSSP 30 30 50 50;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILS2"}) { // Slow Wag 2
+        actualMessage = QLatin1String{"DSSP 50 50 30 30;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILS3"}) { // Slow Wag 3
+        actualMessage = QLatin1String{"DSSP 30 30 30 30;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILFA"}) { // Fast Wag
+        actualMessage = QLatin1String{"DSSP 50 50 50 50;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILSH"}) { // Short Wag
+        actualMessage = QLatin1String{"EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILHA"}) { // Happy Wag
+        actualMessage = QLatin1String{"EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILER"}) { // Stand up!
+        actualMessage = QLatin1String{"DSSP 90 90 50 50;DSSP 90 90 120 120;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILT1"}) { // Tremble 1
+        actualMessage = QLatin1String{"RITWIST 160;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILT2"}) { // Tremble 2
+        actualMessage = QLatin1String{"RITWIST 25;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILET"}) { // Tremble Erect
+        actualMessage = QLatin1String{"LETWIST 160;EARHOME"};
+    }
+    else if(message == QLatin1String{"TAILEP"}) { // High Wag
+        actualMessage = QLatin1String{"LETWIST 25;EARHOME"};
+    }
+
     if (d->earsCommandWriteCharacteristic.isValid() && d->earsService) {
-        d->earsService->writeCharacteristic(d->earsCommandWriteCharacteristic, message.toUtf8());
+        QString actualCall{actualMessage};
+        if (actualMessage.contains(';')) {
+            d->callQueue = actualMessage.split(';');
+            actualCall = d->callQueue.takeFirst();
+        }
+
+        d->currentSubCall = actualCall;
+        d->earsService->writeCharacteristic(d->earsCommandWriteCharacteristic, actualCall.toUtf8());
         d->currentCall = message;
         emit currentCallChanged(message);
     }
