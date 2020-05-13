@@ -30,9 +30,12 @@ class CommandPersistence : public QObject
 {
     Q_OBJECT
     /**
-     * The location of the file used for storing the data in this object.
+     * The base name of the file used for storing the data in this object.
+     * The actual location will depend on the system, but is subdirectory
+     * "commands" in the first writable location from
+     * QStandardPaths::AppLocalDataLocation
      */
-    Q_PROPERTY(QUrl location READ location WRITE setLocation NOTIFY locationChanged);
+    Q_PROPERTY(QString filename READ filename WRITE setFilename NOTIFY filenameChanged);
     /**
      * The (ordered) list of commands handled by this object
      */
@@ -111,9 +114,9 @@ public:
      */
     Q_SIGNAL void finished(bool success);
 
-    QUrl location() const;
-    void setLocation(const QUrl &location);
-    Q_SIGNAL void locationChanged();
+    QString filename() const;
+    void setFilename(const QString &filename);
+    Q_SIGNAL void filenameChanged();
 
     CommandInfoList commands() const;
     void setCommands(const CommandInfoList &commands);
