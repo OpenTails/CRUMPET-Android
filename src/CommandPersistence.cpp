@@ -17,22 +17,48 @@
 
 #include "CommandPersistence.h"
 
+#include <QDir>
+#include <QStandardPaths>
+
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+
 class CommandPersistence::Private {
 public:
-    Private() {}
+    Private(CommandPersistence* q)
+        : q(q)
+    {}
     ~Private() {}
+    CommandPersistence* q;
 
-    QUrl location;
+    QString filename;
     CommandInfoList commands;
     QString title;
     QString description;
 
+    void reportError(const QString& message) {
+        error = message;
+        emit q->error(message);
+    }
     QString error;
+
+    QString pathName() {
+        QString path = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
+        QDir directory{path};
+        if (!directory.exists()) {
+            if (!directory.mkpath(QLatin1String{"."})) {
+                reportError(QLatin1String{"Failed to create the directory for the stored commands"});
+                return QString{};
+            }
+        }
+        return QString{"%1/commands/%2.crumpet"}.arg(path).arg(filename);
+    }
 };
 
 CommandPersistence::CommandPersistence(QObject* parent)
     : QObject(parent)
-    , d(new Private)
+    , d(new Private(this))
 {
 }
 
@@ -43,7 +69,54 @@ CommandPersistence::~CommandPersistence()
 
 bool CommandPersistence::read()
 {
-    return false;
+    bool keepgoing{true};
+    QString pathName = d->pathName();
+    keepgoing = pathName.isEmpty();
+    if (keepgoing) {
+        QFile file(pathName);
+        keepgoing = file.open(QIODevice::ReadOnly);
+        if (keepgoing) {
+            QByteArray data = file.readAll();
+            file.close();
+
+            QJsonParseError parseError;
+            QJsonDocument doc = QJsonDocument::fromJson(data, &parseError);
+            if ((keepgoing = (parseError.error != QJsonParseError::NoError))) {
+                QJsonObject obj{doc.object()};
+                // These two being optional means we just ignore it if they're empty
+                setTitle(obj.value(QLatin1String{"Title"}).toString());
+                setDescription(obj.value(QLatin1String{"Description"}).toString());
+                QJsonArray commands{obj.value(QLatin1String{"Commands"}).toArray()};
+                CommandInfoList commandsList;
+                if ((keepgoing = (commands.count() > 0))) {
+                    for (const QJsonValue& val : qAsConst(commands)) {
+                        QJsonObject commandObject{val.toObject()};
+                        CommandInfo info;
+                        info.name = commandObject.value(QLatin1String{"Name"}).toString();
+                        info.command = commandObject.value(QLatin1String{"Command"}).toString();
+                        info.category = commandObject.value(QLatin1String{"Category"}).toString();
+                        info.duration = commandObject.value(QLatin1String{"Duration"}).toInt(); // milliseconds
+                        info.minimumCooldown = commandObject.value(QLatin1String{"MinimumCooldown"}).toInt(); // milliseconds
+                        info.group = commandObject.value(QLatin1String{"Group"}).toInt();
+                        commandsList.append(info);
+                    }
+                }
+                else {
+                    d->reportError(QString{"There are no commands in this file. This is possible, but not common."});
+                }
+                // The commands list still gets cleared out when loading a file with no commands in it
+                setCommands(commandsList);
+            }
+            else {
+                d->reportError(QString{"Failed to load your commands, due to a parsing error at %1: %2"}.arg(parseError.offset).arg(parseError.errorString()));
+            }
+        }
+        else {
+            d->reportError(QString{"Could not open the file %1 for reading"}.arg(pathName));
+        }
+    }
+    // No need to report error, the pathname generator already did that
+    return keepgoing;
 }
 
 bool CommandPersistence::write()
@@ -56,16 +129,16 @@ QString CommandPersistence::error() const
     return d->error;
 }
 
-QUrl CommandPersistence::location() const
+QString CommandPersistence::filename() const
 {
-    return d->location;
+    return d->filename;
 }
 
-void CommandPersistence::setLocation(const QUrl& location)
+void CommandPersistence::setFilename(const QString& filename)
 {
-    if (d->location != location) {
-        d->location = location;
-        emit locationChanged();
+    if (d->filename != filename) {
+        d->filename = filename;
+        emit filenameChanged();
     }
 }
 
