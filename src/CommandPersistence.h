@@ -106,6 +106,8 @@ public:
     /**
      * Whether or not the most recently requested operation finished
      * successfully.
+     * @param success True if the operation was successful, false if not
+     * @see error()
      */
     Q_SIGNAL void finished(bool success);
 
