@@ -17,6 +17,8 @@
 
 #include "CommandPersistence.h"
 
+#include <QDebug>
+
 #include <QDir>
 #include <QStandardPaths>
 
@@ -39,12 +41,13 @@ public:
 
     void reportError(const QString& message) {
         error = message;
+        qWarning() << message;
         emit q->error(message);
     }
     QString error;
 
     QString pathName() {
-        QString path = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
+        QString path = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation).append(QLatin1String{"/commands"});
         QDir directory{path};
         if (!directory.exists()) {
             if (!directory.mkpath(QLatin1String{"."})) {
@@ -52,7 +55,7 @@ public:
                 return QString{};
             }
         }
-        return QString{"%1/commands/%2.crumpet"}.arg(path).arg(filename);
+        return QString{"%1/%2.crumpet"}.arg(path).arg(filename);
     }
 };
 
@@ -71,7 +74,7 @@ bool CommandPersistence::read()
 {
     bool keepgoing{true};
     QString pathName = d->pathName();
-    keepgoing = pathName.isEmpty();
+    keepgoing = !pathName.isEmpty();
     if (keepgoing) {
         QFile file(pathName);
         keepgoing = file.open(QIODevice::ReadOnly);
@@ -121,7 +124,40 @@ bool CommandPersistence::read()
 
 bool CommandPersistence::write()
 {
-    return false;
+    bool keepgoing{true};
+
+    QJsonArray commands;
+    for (const CommandInfo& command :  d->commands) {
+        QJsonObject commandObject;
+        commandObject[QLatin1String{"Name"}] = command.name;
+        commandObject[QLatin1String{"Command"}] = command.command;
+        commandObject[QLatin1String{"Category"}] = command.category;
+        commandObject[QLatin1String{"Duration"}] = command.duration;
+        commandObject[QLatin1String{"MinimumCooldown"}] = command.minimumCooldown;
+        commandObject[QLatin1String{"Group"}] = command.group;
+        commands.append(commandObject);
+    }
+    QJsonObject obj;
+    obj[QLatin1String{"Title"}] = d->title;
+    obj[QLatin1String{"Description"}] = d->description;
+    obj[QLatin1String{"Commands"}] = commands;
+    QJsonDocument doc;
+    doc.setObject(obj);
+
+    QString pathName = d->pathName();
+    keepgoing = !pathName.isEmpty();
+    if (keepgoing) {
+        QFile file(pathName);
+        keepgoing = file.open(QIODevice::WriteOnly);
+        if (keepgoing) {
+            file.write(doc.toJson());
+            file.close();
+        }
+        else {
+            d->reportError(QLatin1String{"Could not open the file %1 for writing"}.arg(pathName));
+        }
+    }
+    return keepgoing;
 }
 
 QString CommandPersistence::error() const
