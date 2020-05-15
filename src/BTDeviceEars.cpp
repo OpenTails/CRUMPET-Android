@@ -18,9 +18,11 @@
 #include "BTDeviceEars.h"
 
 #include <QCoreApplication>
+#include <QFile>
 #include <QTimer>
 
 #include "AppSettings.h"
+#include "CommandPersistence.h"
 
 class BTDeviceEars::Private {
 public:
@@ -33,6 +35,8 @@ public:
 
     QString version{"(unknown)"};
     int batteryLevel{0};
+
+    QMap<QString, QString> commandShorthands;
 
     QString currentCall;
     QString currentSubCall;
@@ -140,7 +144,24 @@ public:
                 //}
             }
             else if (stateResult[0] == QLatin1String{"VER"}) {
-                q->commandModel->autofill(newValue);
+                CommandPersistence persistence;
+                QString data;
+                QFile file(QString{":/commands/eargear-base.crumpet"});
+                if(file.open(QIODevice::ReadOnly)) {
+                    data = file.readAll();
+                }
+                else {
+                    qWarning() << "Failed to open the included resource containing eargear base commands, this is very much not a good thing";
+                }
+                file.close();
+                persistence.deserialize(data);
+                for (const CommandInfo &command : persistence.commands()) {
+                    q->commandModel->addCommand(command);
+                }
+                for (const CommandShorthand& shorthand : persistence.shorthands()) {
+                    commandShorthands[shorthand.command] = shorthand.expansion.join(QChar{';'});
+                }
+
                 version = newValue;
                 emit q->versionChanged(newValue);
                 pingTimer.start();
@@ -398,6 +419,9 @@ QString BTDeviceEars::deviceID() const
 void BTDeviceEars::sendMessage(const QString &message)
 {
     QString actualMessage{message};
+    if (d->commandShorthands.contains(message)) {
+        actualMessage = d->commandShorthands[message];
+    }
     // Translation from tail commands to equivalent ear command streams
     // DSSP letwist ritwist letilt ritilt
     if (message == QLatin1String{"TAILHM"}) {
