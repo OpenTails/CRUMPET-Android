@@ -422,44 +422,6 @@ void BTDeviceEars::sendMessage(const QString &message)
     if (d->commandShorthands.contains(message)) {
         actualMessage = d->commandShorthands[message];
     }
-    // Translation from tail commands to equivalent ear command streams
-    // DSSP letwist ritwist letilt ritilt
-    if (message == QLatin1String{"TAILHM"}) {
-        actualMessage = QLatin1String{"EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILS1"}) { // Slow Wag 1
-        actualMessage = QLatin1String{"DSSP 30 30 50 50;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILS2"}) { // Slow Wag 2
-        actualMessage = QLatin1String{"DSSP 50 50 30 30;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILS3"}) { // Slow Wag 3
-        actualMessage = QLatin1String{"DSSP 30 30 30 30;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILFA"}) { // Fast Wag
-        actualMessage = QLatin1String{"DSSP 50 50 50 50;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILSH"}) { // Short Wag
-        actualMessage = QLatin1String{"EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILHA"}) { // Happy Wag
-        actualMessage = QLatin1String{"EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILER"}) { // Stand up!
-        actualMessage = QLatin1String{"DSSP 90 90 50 50;DSSP 90 90 120 120;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILT1"}) { // Tremble 1
-        actualMessage = QLatin1String{"RITWIST 160;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILT2"}) { // Tremble 2
-        actualMessage = QLatin1String{"RITWIST 25;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILET"}) { // Tremble Erect
-        actualMessage = QLatin1String{"LETWIST 160;EARHOME"};
-    }
-    else if(message == QLatin1String{"TAILEP"}) { // High Wag
-        actualMessage = QLatin1String{"LETWIST 25;EARHOME"};
-    }
 
     if (d->earsCommandWriteCharacteristic.isValid() && d->earsService) {
         QString actualCall{actualMessage};
