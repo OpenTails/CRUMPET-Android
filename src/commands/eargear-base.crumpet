@@ -106,27 +106,27 @@
         },
         {
             "Command": "TAILS1",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "DSSP 30 30 50 50", "RITWIST 160", "RITWIST 25", "EARHOME" ]
         },
         {
             "Command": "TAILS2",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "DSSP 50 50 30 30", "EARHOME" ]
         },
         {
             "Command": "TAILS3",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "DSSP 30 30 30 30", "LETWIST 160", "LETWIST 25", "EARHOME" ]
         },
         {
             "Command": "TAILFA",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "DSSP 50 50 50 50", "EARHOME" ]
         },
         {
             "Command": "TAILSH",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "RITWIST 160", "RITWIST 25", "RITWIST 160", "RITWIST 25", "EARHOME" ]
         },
         {
             "Command": "TAILHA",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "LETWIST 160", "LETWIST 25", "LETWIST 160", "LETWIST 25", "EARHOME" ]
         },
         {
             "Command": "TAILER",
@@ -134,19 +134,19 @@
         },
         {
             "Command": "TAILT1",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "RITWIST 160", "PAUSE 300", "EARHOME" ]
         },
         {
             "Command": "TAILT2",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "RITWIST 25", "PAUSE 300", "EARHOME" ]
         },
         {
             "Command": "TAILET",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "LETWIST 160", "PAUSE 300", "EARHOME" ]
         },
         {
             "Command": "TAILEP",
-            "Expansion": [ "EARHOME" ]
+            "Expansion": [ "LETWIST 25", "PAUSE 300", "EARHOME" ]
         }
     ]
 }
