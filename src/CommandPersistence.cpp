@@ -38,6 +38,7 @@ public:
     CommandInfoList commands;
     QString title;
     QString description;
+    CommandShorthandList shorthands;
 
     void reportError(const QString& message) {
         error = message;
@@ -74,7 +75,7 @@ bool CommandPersistence::deserialize(const QString& json)
 {
     bool keepgoing{true};
     QJsonParseError parseError;
-    QJsonDocument doc = QJsonDocument::fromJson(json, &parseError);
+    QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8(), &parseError);
     if ((keepgoing = (parseError.error != QJsonParseError::NoError))) {
         QJsonObject obj{doc.object()};
         // These two being optional means we just ignore it if they're empty
@@ -94,6 +95,19 @@ bool CommandPersistence::deserialize(const QString& json)
                 info.group = commandObject.value(QLatin1String{"Group"}).toInt();
                 commandsList.append(info);
             }
+            QJsonArray shorthands{obj.value(QLatin1String{"Shorthands"}).toArray()};
+            CommandShorthandList shorthandList;
+            // We don't require the shorthand element, just ignore it if it's missing
+            if (shorthands.count() > 0) {
+                for (const QJsonValue& val : qAsConst(shorthands)) {
+                    QJsonObject shorthandObject{val.toObject()};
+                    CommandShorthand shorthand;
+                    shorthand.command = shorthandObject.value(QLatin1String{"Command"}).toString();
+                    shorthand.expansion = shorthandObject.value(QLatin1String{"Expansion"}).toVariant().toStringList();
+                    shorthandList.append(shorthand);
+                }
+            }
+            setShorthands(shorthandList);
         }
         else {
             d->reportError(QString{"There are no commands in this file. This is possible, but not common."});
@@ -120,10 +134,20 @@ QString CommandPersistence::serialized() const
         commandObject[QLatin1String{"Group"}] = command.group;
         commands.append(commandObject);
     }
+    QJsonArray shorthands;
+    for (const CommandShorthand& shorthand : d->shorthands) {
+        QJsonObject shorthandObject;
+        shorthandObject["Command"] = shorthand.command;
+        shorthandObject["Expansion"] = QJsonArray::fromStringList(shorthand.expansion);
+        shorthands.append(shorthandObject);
+    }
     QJsonObject obj;
     obj[QLatin1String{"Title"}] = d->title;
     obj[QLatin1String{"Description"}] = d->description;
     obj[QLatin1String{"Commands"}] = commands;
+    if (d->shorthands.count() > 0) {
+        obj[QLatin1String{"Shorthands"}] = shorthands;
+    }
     QJsonDocument doc;
     doc.setObject(obj);
     return doc.toJson();
@@ -222,4 +246,15 @@ void CommandPersistence::setDescription(const QString& description)
         d->description = description;
         emit descriptionChanged();
     }
+}
+
+CommandShorthandList CommandPersistence::shorthands() const
+{
+    return d->shorthands;
+}
+
+void CommandPersistence::setShorthands(const CommandShorthandList& shorthands)
+{
+    d->shorthands = shorthands;
+    emit shorthandsChanged();
 }

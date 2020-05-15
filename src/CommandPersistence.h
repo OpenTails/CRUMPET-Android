@@ -24,6 +24,23 @@
 #include "CommandInfo.h"
 
 /**
+    * A small container for command shorthand, which can be used for constructing more
+    * elaborate commands by combining multiple commands (the ordered expansion list)
+    * and using the command in others. Shorthand commands can be used in expansions,
+    * until a depth of 100 (though you really should use much, much less, this number
+    * is only really used to ensure we don't end up with infinite loops in the container)
+    */
+class CommandShorthand {
+public:
+    CommandShorthand() {}
+    CommandShorthand(QString command, QStringList expansion) : command(command), expansion(expansion) {}
+    QString command;
+    QStringList expansion;
+};
+Q_DECLARE_METATYPE(CommandShorthand)
+typedef QList<CommandShorthand> CommandShorthandList;
+
+/**
  * A simple persistence system for command lists (including a title and description).
  */
 class CommandPersistence : public QObject
@@ -35,19 +52,27 @@ class CommandPersistence : public QObject
      * "commands" in the first writable location from
      * QStandardPaths::AppLocalDataLocation
      */
-    Q_PROPERTY(QString filename READ filename WRITE setFilename NOTIFY filenameChanged);
+    Q_PROPERTY(QString filename READ filename WRITE setFilename NOTIFY filenameChanged)
     /**
      * The (ordered) list of commands handled by this object
      */
-    Q_PROPERTY(CommandInfoList commands READ commands WRITE setCommands NOTIFY commandsChanged);
+    Q_PROPERTY(CommandInfoList commands READ commands WRITE setCommands NOTIFY commandsChanged)
     /**
      * An optional (but recommended) title for this list of commands
      */
-    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged);
+    Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     /**
      * An optional (but recommended) description for this list of commands
      */
-    Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged);
+    Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
+    /**
+     * A list of command shorthands that any consumer can use to convert a command
+     * in a CommandInfo to a machine command, if they are awkward or multi-layered
+     * in some way (EarGear, for example, will convert tail commands to multi-command
+     * sequences, to be sent one after the other, and which are treated as one command
+     * in the UI)
+     */
+    Q_PROPERTY(CommandShorthandList shorthands READ shorthands WRITE setShorthands NOTIFY shorthandsChanged)
 public:
     explicit CommandPersistence(QObject* parent = nullptr);
     virtual ~CommandPersistence();
@@ -125,6 +150,10 @@ public:
     QString description() const;
     void setDescription(const QString &description);
     Q_SIGNAL void descriptionChanged();
+
+    CommandShorthandList shorthands() const;
+    void setShorthands(const CommandShorthandList &shorthands);
+    Q_SIGNAL void shorthandsChanged();
 
 private:
     class Private;
