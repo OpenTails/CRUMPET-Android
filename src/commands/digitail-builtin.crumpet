@@ -1,0 +1,166 @@
+{
+    "Title": "DIGITAiL Built-ins",
+    "Description": "The basic set of commands defined in the DIGITAiL firmware",
+    "Commands": [
+        {
+            "Category": "",
+            "Command": "TAILHM",
+            "Duration": 200,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tail Home Position"
+        },
+        {
+            "Category": "relaxed",
+            "Command": "TAILS1",
+            "Duration": 11530,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Slow Wag 1"
+        },
+        {
+            "Category": "relaxed",
+            "Command": "TAILS2",
+            "Duration": 7100,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Slow Wag 2"
+        },
+        {
+            "Category": "relaxed",
+            "Command": "TAILS3",
+            "Duration": 8500,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Slow Wag 3"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILFA",
+            "Duration": 9960,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Fast Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILSH",
+            "Duration": 7460,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Short Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILHA",
+            "Duration": 8860,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Happy Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILER",
+            "Duration": 5800,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Stand up!"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILT1",
+            "Duration": 4060,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tremble 1"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILT2",
+            "Duration": 5550,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tremble 2"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILET",
+            "Duration": 4730,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tremble Erect"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILEP",
+            "Duration": 9760,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "High Wag"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDREC",
+            "Duration": 10000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "BLINK"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDTRI",
+            "Duration": 10000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "TRIANGLE"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDSAW",
+            "Duration": 10000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "SAWTOOTH"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDSOS",
+            "Duration": 10000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "MORSE"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDBEA",
+            "Duration": 10000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "BEACON"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDFLA",
+            "Duration": 10000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "FLAME"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDSTR",
+            "Duration": 10000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "STROBE"
+        },
+        {
+            "Category": "",
+            "Command": "LEDOFF",
+            "Duration": 300,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "Off"
+        }
+    ]
+}
