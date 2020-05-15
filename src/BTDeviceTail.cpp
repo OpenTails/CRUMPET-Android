@@ -18,9 +18,11 @@
 #include "BTDeviceTail.h"
 
 #include <QCoreApplication>
+#include <QFile>
 #include <QTimer>
 
 #include "AppSettings.h"
+#include "CommandPersistence.h"
 
 class BTDeviceTail::Private {
 public:
@@ -113,7 +115,25 @@ public:
 
         if (tailStateCharacteristicUuid == characteristic.uuid()) {
             if (currentCall == QLatin1String("VER")) {
-                q->commandModel->autofill(newValue);
+                CommandPersistence persistence;
+                QString data;
+                QFile file(QString{":/commands/digitail-builtin.crumpet"});
+                if(file.open(QIODevice::ReadOnly)) {
+                    data = file.readAll();
+                }
+                else {
+                    qWarning() << "Failed to open the included resource containing the digitail builtin commands, this is very much not a good thing";
+                }
+                file.close();
+                persistence.deserialize(data);
+                for (const CommandInfo &command : persistence.commands()) {
+                    q->commandModel->addCommand(command);
+                }
+                // This'll want adding in... but let's leave it for now
+//                 for (const CommandShorthand& shorthand : persistence.shorthands()) {
+//                     commandShorthands[shorthand.command] = shorthand.expansion.join(QChar{';'});
+//                 }
+
                 version = newValue;
                 emit q->versionChanged(newValue);
                 batteryTimer.start();
