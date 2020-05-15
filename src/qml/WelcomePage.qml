@@ -63,7 +63,7 @@ Kirigami.ScrollablePage {
             Kirigami.AbstractCard {
                 contentItem: ColumnLayout {
                     Kirigami.BasicListItem {
-                        text: qsTr("Tail Moves");
+                        text: qsTr("Moves");
                         icon: ":/images/tail_moves.svg";
                         separatorVisible: false;
                         onClicked: {
@@ -125,7 +125,7 @@ Kirigami.ScrollablePage {
                     }
                     Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
                     Kirigami.BasicListItem {
-                        text: qsTr("Tail Poses");
+                        text: qsTr("Poses");
                         icon: ":/images/tail.svg";
                         separatorVisible: false;
                         onClicked: {

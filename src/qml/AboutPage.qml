@@ -30,12 +30,12 @@ Kirigami.AboutPage {
         filterBoolean: true;
         function handyStringMakerThing() {
             if (count === 1) {
-                return qsTr("The connected device is version %1").arg(data(index(0, 0), 259))
+                return qsTr("The connected gear is version %1").arg(data(index(0, 0), 259))
             } else {
                 var constructedString = "";
                 var newLine = "";
                 for (var i = 0; i < count; ++i) {
-                    constructedString += newLine + qsTr("The device named %1 is version %2").arg(data(index(i, 0), 257)).arg(data(index(i, 0), 259));
+                    constructedString += newLine + qsTr("The gear named %1 is version %2").arg(data(index(i, 0), 257)).arg(data(index(i, 0), 259));
                     newLine = "\n";
                 }
                 return constructedString;
@@ -44,11 +44,11 @@ Kirigami.AboutPage {
     }
     objectName: "aboutPage";
     aboutData: {
-        "displayName" : "DIGITAiL App",
+        "displayName" : "Crumpet",
         "productName" : "digitail/controller",
         "programLogo" : "qrc:/icon-round.png",
         "componentName" : "digitail",
-        "shortDescription" : "DIGITAiL designed and created by The Tail Company",
+        "shortDescription" : "Crumpet, DIGITAiL, and EarGear designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
         "version" : "v1.0",

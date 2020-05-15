@@ -31,16 +31,23 @@ Kirigami.ScrollablePage {
 
         SettingsCard {
             headerText: qsTr("Instructions");
-            descriptionText: qsTr("Please download and read the instructions by clicking the link below. This includes instructions on how to wear your tail, along with some nice graphics showing you how.");
-            footer: Kirigami.UrlButton {
+            descriptionText: qsTr("Please download and read the instructions by clicking the link below. This includes instructions on how to wear your tail or ears, along with some nice graphics showing you how.");
+            footer: RowLayout{
                 Layout.fillWidth: true; Layout.fillHeight: true;
-                url: "http://thetailcompany.com/digitail.pdf";
+                    Kirigami.UrlButton {
+                        Layout.fillWidth: true; Layout.fillHeight: true;
+                        url: "http://thetailcompany.com/digitail.pdf";
+                    }
+                    Kirigami.UrlButton {
+                        Layout.fillWidth: true; Layout.fillHeight: true;
+                        url: "http://thetailcompany.com/eargear.pdf";
+                    }
             }
         }
 
         SettingsCard {
             headerText: qsTr("Automatic Reconnection");
-            descriptionText: qsTr("In certain situations, the app might lose its connection to your tail. Ticking this option will ensure that the app will attempt to reconnect automatically when the connection is lost.");
+            descriptionText: qsTr("In certain situations, the app might lose its connection to your gear. Ticking this option will ensure that the app will attempt to reconnect automatically when the connection is lost.");
             footer: QQC2.CheckBox {
                 text: qsTr("Reconnect Automatically");
                 checked: AppSettings.autoReconnect;
@@ -51,10 +58,10 @@ Kirigami.ScrollablePage {
         }
 
         SettingsCard {
-            headerText: qsTr("Tail Names");
-            descriptionText: qsTr("If you want to clear the names of any tails you have given a name, click the button below to make the app forget them all.");
+            headerText: qsTr("Gear Names");
+            descriptionText: qsTr("If you want to clear the names of any gear you have given a name, click the button below to make the app forget them all.");
             footer: QQC2.Button {
-                text: qsTr("Forget Tail Names")
+                text: qsTr("Forget Gear Names")
                 Layout.fillWidth: true
                 onClicked: {
                     BTConnectionManager.clearDeviceNames()
@@ -64,7 +71,7 @@ Kirigami.ScrollablePage {
 
         SettingsCard {
             headerText: qsTr("Fake Tail");
-            descriptionText: qsTr("If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL, you might want to explore what the app can do. You can click the button below to trick the app into thinking that there is a tail nearby, and let you explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
+            descriptionText: qsTr("If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL or EarGear, you might want to explore what the app can do. You can click the button below to trick the app into thinking that there is a tail nearby, and let you explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
             footer: QQC2.CheckBox {
                 text: qsTr("Show Fake Tail")
                 Layout.fillWidth: true

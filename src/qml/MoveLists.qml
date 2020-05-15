@@ -83,7 +83,7 @@ Kirigami.ScrollablePage {
         delegate: moveListDelegate;
         model: AppSettings.moveLists;
         header: InfoCard {
-            text: qsTr("Create lists of moves, glows and pauses to send to your tail. To send a list you have created, tap it and pick OK. To perform actions on the ones you've created, like editing or even removing them entirely, swipe left on the item.");
+            text: qsTr("Create lists of moves, glows and pauses to send to your gear. To send a list you have created, tap it and pick OK. To perform actions on the ones you've created, like editing or even removing them entirely, swipe left on the item.");
         }
     }
 

@@ -21,10 +21,10 @@ import org.kde.kirigami 2.5 as Kirigami
 
 Kirigami.ScrollablePage {
     objectName: "tailMoves";
-    title: qsTr("Tail Moves");
+    title: qsTr("Moves");
     actions {
         main: Kirigami.Action {
-            text: qsTr("Tail Home Position");
+            text: qsTr("Home Position");
             icon.name: "dialog-cancel";
             onTriggered: {
                 BTConnectionManager.sendMessage("TAILHM", []);
@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
         }
     }
     BaseMovesComponent {
-        infoText: qsTr("The list below shows all the moves available in your tail. Tap any of them to send them off to the tail!");
+        infoText: qsTr("The list below shows all the moves available to your gear. Tap any of them to send them off to any of your connected devices!");
         onCommandActivated: {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);

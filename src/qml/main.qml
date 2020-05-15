@@ -59,7 +59,7 @@ Kirigami.ApplicationWindow {
     }
 
     visible: true;
-    title: qsTr("DIGITAiL");
+    title: qsTr("Crumpet");
     pageStack.defaultColumnWidth: root.width;
 
     Connections {
@@ -195,7 +195,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Tail Moves");
+                text: qsTr("Moves");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailMoves";
                 icon.name: ":/images/tail_moves.svg";
                 onTriggered: {
@@ -265,8 +265,8 @@ Kirigami.ApplicationWindow {
 
                 event.accepted = true;
 
-                showMessageBox(qsTr("An appendage is currently connected"),
-                               qsTr("A tail or some ears are currently connected.\n\nAre you sure that you want to disconnect from them and quit?"),
+                showMessageBox(qsTr("Your gear is currently connected"),
+                               qsTr("You are currently connected to some of your gear.\n\nAre you sure that you want to disconnect and quit?"),
                                function () {
                                    if(BTConnectionManager.isConnected) {
                                        BTConnectionManager.disconnectDevice();
@@ -322,7 +322,7 @@ Kirigami.ApplicationWindow {
 
         property string deviceID: "0";
 
-        description: qsTr("Enter a name to use for your new limb");
+        description: qsTr("Enter a name to use for your new gear");
         placeholderText: qsTr("Enter the name here");
         buttonOkText: qsTr("Save");
 
