@@ -70,62 +70,45 @@ CommandPersistence::~CommandPersistence()
     delete d;
 }
 
-bool CommandPersistence::read()
+bool CommandPersistence::deserialize(const QString& json)
 {
     bool keepgoing{true};
-    QString pathName = d->pathName();
-    keepgoing = !pathName.isEmpty();
-    if (keepgoing) {
-        QFile file(pathName);
-        keepgoing = file.open(QIODevice::ReadOnly);
-        if (keepgoing) {
-            QByteArray data = file.readAll();
-            file.close();
-
-            QJsonParseError parseError;
-            QJsonDocument doc = QJsonDocument::fromJson(data, &parseError);
-            if ((keepgoing = (parseError.error != QJsonParseError::NoError))) {
-                QJsonObject obj{doc.object()};
-                // These two being optional means we just ignore it if they're empty
-                setTitle(obj.value(QLatin1String{"Title"}).toString());
-                setDescription(obj.value(QLatin1String{"Description"}).toString());
-                QJsonArray commands{obj.value(QLatin1String{"Commands"}).toArray()};
-                CommandInfoList commandsList;
-                if ((keepgoing = (commands.count() > 0))) {
-                    for (const QJsonValue& val : qAsConst(commands)) {
-                        QJsonObject commandObject{val.toObject()};
-                        CommandInfo info;
-                        info.name = commandObject.value(QLatin1String{"Name"}).toString();
-                        info.command = commandObject.value(QLatin1String{"Command"}).toString();
-                        info.category = commandObject.value(QLatin1String{"Category"}).toString();
-                        info.duration = commandObject.value(QLatin1String{"Duration"}).toInt(); // milliseconds
-                        info.minimumCooldown = commandObject.value(QLatin1String{"MinimumCooldown"}).toInt(); // milliseconds
-                        info.group = commandObject.value(QLatin1String{"Group"}).toInt();
-                        commandsList.append(info);
-                    }
-                }
-                else {
-                    d->reportError(QString{"There are no commands in this file. This is possible, but not common."});
-                }
-                // The commands list still gets cleared out when loading a file with no commands in it
-                setCommands(commandsList);
-            }
-            else {
-                d->reportError(QString{"Failed to load your commands, due to a parsing error at %1: %2"}.arg(parseError.offset).arg(parseError.errorString()));
+    QJsonParseError parseError;
+    QJsonDocument doc = QJsonDocument::fromJson(json, &parseError);
+    if ((keepgoing = (parseError.error != QJsonParseError::NoError))) {
+        QJsonObject obj{doc.object()};
+        // These two being optional means we just ignore it if they're empty
+        setTitle(obj.value(QLatin1String{"Title"}).toString());
+        setDescription(obj.value(QLatin1String{"Description"}).toString());
+        QJsonArray commands{obj.value(QLatin1String{"Commands"}).toArray()};
+        CommandInfoList commandsList;
+        if ((keepgoing = (commands.count() > 0))) {
+            for (const QJsonValue& val : qAsConst(commands)) {
+                QJsonObject commandObject{val.toObject()};
+                CommandInfo info;
+                info.name = commandObject.value(QLatin1String{"Name"}).toString();
+                info.command = commandObject.value(QLatin1String{"Command"}).toString();
+                info.category = commandObject.value(QLatin1String{"Category"}).toString();
+                info.duration = commandObject.value(QLatin1String{"Duration"}).toInt(); // milliseconds
+                info.minimumCooldown = commandObject.value(QLatin1String{"MinimumCooldown"}).toInt(); // milliseconds
+                info.group = commandObject.value(QLatin1String{"Group"}).toInt();
+                commandsList.append(info);
             }
         }
         else {
-            d->reportError(QString{"Could not open the file %1 for reading"}.arg(pathName));
+            d->reportError(QString{"There are no commands in this file. This is possible, but not common."});
         }
+        // The commands list still gets cleared out when loading a file with no commands in it
+        setCommands(commandsList);
     }
-    // No need to report error, the pathname generator already did that
+    else {
+        d->reportError(QString{"Failed to load your commands, due to a parsing error at %1: %2"}.arg(parseError.offset).arg(parseError.errorString()));
+    }
     return keepgoing;
 }
 
-bool CommandPersistence::write()
+QString CommandPersistence::serialized() const
 {
-    bool keepgoing{true};
-
     QJsonArray commands;
     for (const CommandInfo& command :  d->commands) {
         QJsonObject commandObject;
@@ -143,14 +126,40 @@ bool CommandPersistence::write()
     obj[QLatin1String{"Commands"}] = commands;
     QJsonDocument doc;
     doc.setObject(obj);
+    return doc.toJson();
+}
 
+bool CommandPersistence::read()
+{
+    bool keepgoing{true};
+    QString pathName = d->pathName();
+    keepgoing = !pathName.isEmpty();
+    if (keepgoing) {
+        QFile file(pathName);
+        keepgoing = file.open(QIODevice::ReadOnly);
+        if (keepgoing) {
+            QByteArray data = file.readAll();
+            file.close();
+            keepgoing = deserialize(data);
+        }
+        else {
+            d->reportError(QString{"Could not open the file %1 for reading"}.arg(pathName));
+        }
+    }
+    // No need to report error, the pathname generator already did that
+    return keepgoing;
+}
+
+bool CommandPersistence::write()
+{
+    bool keepgoing{true};
     QString pathName = d->pathName();
     keepgoing = !pathName.isEmpty();
     if (keepgoing) {
         QFile file(pathName);
         keepgoing = file.open(QIODevice::WriteOnly);
         if (keepgoing) {
-            file.write(doc.toJson());
+            file.write(serialized().toUtf8());
             file.close();
         }
         else {
