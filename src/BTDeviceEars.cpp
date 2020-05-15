@@ -184,7 +184,24 @@ public:
             else if (stateResult.last() == QLatin1String{"END"}) {
                 // If we've got more in the queue, send the next bit of the command
                 if (callQueue.length() > 0) {
-                    q->sendMessage(callQueue.takeFirst());
+                    int pauseDuration{0};
+                    QString message = callQueue.takeFirst();
+                    while (message.startsWith(QLatin1String{"PAUSE"})) {
+                        QStringList pauseCommand = message.split(QChar{' '});
+                        int pause = pauseCommand.value(1).toInt();
+                        pauseDuration += pause;
+                        message = callQueue.takeFirst();
+                        qDebug() << q->name() << q->deviceID() << "Found a pause, so we're now waiting" << pauseDuration << "milliseconds";
+                    }
+                    if (pauseDuration > 0) {
+                        // Just in case some funny person stuck a pause at the end...
+                        if (message.length() > 0) {
+                            QTimer::singleShot(pauseDuration, q, [this, message](){ q->sendMessage(message); });
+                        }
+                    }
+                    else {
+                        q->sendMessage(message);
+                    }
                     // ****************************************************
                     // ******************* EARLY RETURN *******************
                     // ****************************************************
