@@ -106,7 +106,7 @@
         },
         {
             "Command": "TAILS1",
-            "Expansion": [ "DSSP 30 30 50 50", "RITWIST 160", "RITWIST 25", "EARHOME" ]
+            "Expansion": [ "DSSP 30 30 50 50", "RITILT 160", "RITILT 25", "EARHOME" ]
         },
         {
             "Command": "TAILS2",
@@ -114,7 +114,7 @@
         },
         {
             "Command": "TAILS3",
-            "Expansion": [ "DSSP 30 30 30 30", "LETWIST 160", "LETWIST 25", "EARHOME" ]
+            "Expansion": [ "DSSP 30 30 30 30", "LETILT 160", "LETILT 25", "EARHOME" ]
         },
         {
             "Command": "TAILFA",
