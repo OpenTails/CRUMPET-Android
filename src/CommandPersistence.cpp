@@ -76,12 +76,12 @@ bool CommandPersistence::deserialize(const QString& json)
     bool keepgoing{true};
     QJsonParseError parseError;
     QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8(), &parseError);
-    if ((keepgoing = (parseError.error != QJsonParseError::NoError))) {
+    if ((keepgoing = (parseError.error == QJsonParseError::NoError))) {
         QJsonObject obj{doc.object()};
         // These two being optional means we just ignore it if they're empty
         setTitle(obj.value(QLatin1String{"Title"}).toString());
         setDescription(obj.value(QLatin1String{"Description"}).toString());
-        QJsonArray commands{obj.value(QLatin1String{"Commands"}).toArray()};
+        QJsonArray commands = obj.value(QLatin1String{"Commands"}).toArray();
         CommandInfoList commandsList;
         if ((keepgoing = (commands.count() > 0))) {
             for (const QJsonValue& val : qAsConst(commands)) {
@@ -94,8 +94,9 @@ bool CommandPersistence::deserialize(const QString& json)
                 info.minimumCooldown = commandObject.value(QLatin1String{"MinimumCooldown"}).toInt(); // milliseconds
                 info.group = commandObject.value(QLatin1String{"Group"}).toInt();
                 commandsList.append(info);
+//                 qDebug() << "Added the command" << info.name << "with command" << info.command;
             }
-            QJsonArray shorthands{obj.value(QLatin1String{"Shorthands"}).toArray()};
+            QJsonArray shorthands = obj.value(QLatin1String{"Shorthands"}).toArray();
             CommandShorthandList shorthandList;
             // We don't require the shorthand element, just ignore it if it's missing
             if (shorthands.count() > 0) {
@@ -105,6 +106,7 @@ bool CommandPersistence::deserialize(const QString& json)
                     shorthand.command = shorthandObject.value(QLatin1String{"Command"}).toString();
                     shorthand.expansion = shorthandObject.value(QLatin1String{"Expansion"}).toVariant().toStringList();
                     shorthandList.append(shorthand);
+//                     qDebug() << "Added the shorthand for command" << shorthand.command << "expanding to" << shorthand.expansion;
                 }
             }
             setShorthands(shorthandList);
