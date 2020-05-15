@@ -25,7 +25,6 @@
 class TailCommandModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString tailVersion READ tailVersion NOTIFY tailVersionChanged)
 public:
     explicit TailCommandModel(QObject* parent = nullptr);
     ~TailCommandModel() override;
@@ -75,9 +74,6 @@ public:
      */
     void autofill(const QString& version);
     void setRunning(const QString& command, bool isRunning);
-
-    QString tailVersion() const;
-    Q_SIGNAL void tailVersionChanged();
 
     /**
      * Get all the commands in this model
