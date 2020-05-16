@@ -196,7 +196,8 @@ public:
                     if (pauseDuration > 0) {
                         // Just in case some funny person stuck a pause at the end...
                         if (message.length() > 0) {
-                            QTimer::singleShot(pauseDuration, q, [this, message](){ q->sendMessage(message); });
+                            // Clamp the max single pause duration to 3000 ms (the conceptual human moment)
+                            QTimer::singleShot(qMax(3000, pauseDuration), q, [this, message](){ q->sendMessage(message); });
                         }
                     }
                     else {
