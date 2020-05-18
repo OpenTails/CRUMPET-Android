@@ -178,7 +178,6 @@ public:
 
 BTDeviceTail::BTDeviceTail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     : BTDevice(info, parent)
-    , deviceInfo(info)
     , d(new Private(this))
 {
     d->parentModel = parent;

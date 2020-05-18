@@ -27,8 +27,6 @@ public:
     explicit BTDeviceTail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDeviceTail() override;
 
-    QBluetoothDeviceInfo deviceInfo;
-
     bool isConnected() const override;
     QString version() const override;
     QString currentCall() const override;
