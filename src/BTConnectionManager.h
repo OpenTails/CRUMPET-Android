@@ -82,6 +82,15 @@ public Q_SLOTS:
      */
     void setDeviceChecked(const QString& deviceID, bool checked) override;
 
+    /**
+     * Request a change of the state of the listening mode for the device
+     * with the specified ID. If there is no listening mode support on the
+     * device, the call is ignored.
+     * @param deviceID The ID of the device you want to change the listening mode on
+     * @param listeningMode The listening mode you wish to change to (0 = off, 1 = ios, 2 = full)
+     */
+    void setDeviceListeningState(const QString& deviceID, int listeningMode) override;
+
 Q_SIGNALS:
     void connected(const QString &name);
     void disconnected();

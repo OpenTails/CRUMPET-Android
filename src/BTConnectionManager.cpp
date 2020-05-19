@@ -18,6 +18,7 @@
 #include "BTConnectionManager.h"
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
+#include "BTDeviceEars.h"
 #include "BTDevice.h"
 #include "TailCommandModel.h"
 #include "CommandQueue.h"
@@ -282,5 +283,13 @@ void BTConnectionManager::setDeviceChecked(const QString& deviceID, bool checked
     BTDevice* device = d->deviceModel->getDevice(deviceID);
     if(device) {
         device->setChecked(checked);
+    }
+}
+
+void BTConnectionManager::setDeviceListeningState(const QString& deviceID, int listeningMode)
+{
+    BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(d->deviceModel->getDevice(deviceID));
+    if (ears && listeningMode > -1 && listeningMode < 3) {
+        ears->setListenMode(static_cast<BTDeviceEars::ListenMode>(listeningMode));
     }
 }
