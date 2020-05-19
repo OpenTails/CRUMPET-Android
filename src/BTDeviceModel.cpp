@@ -110,7 +110,9 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {CurrentCall, "currentCall"},
         {IsConnected, "isConnected"},
         {ActiveCommandTitles, "activeCommandTitles"},
-        {Checked, "checked"}
+        {Checked, "checked"},
+        {HasListening, "hasListening"},
+        {ListeningState, "listeningState"}
     };
     return roles;
 }
@@ -145,6 +147,18 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
             case Checked:
                 value = device->checked();
                 break;
+            case HasListening:
+                value = (qobject_cast<BTDeviceEars*>(device) != nullptr);
+                break;
+            case ListeningState:
+            {
+                int listeningState = 0;
+                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                if (ears) {
+                    listeningState = ears->listenMode();
+                }
+                value = listeningState;
+            }
             default:
                 break;
         }
@@ -201,6 +215,16 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
                 return;
             }
         }
+
+        // Device type specifics
+        BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(newDevice);
+        if (ears) {
+            connect(ears, &BTDeviceEars::listenModeChanged, this, [this, newDevice](){
+                d->notifyDeviceDataChanged(newDevice, ListeningState);
+            });
+        }
+
+        // General stuff
         connect(newDevice, &BTDevice::deviceMessage, this, &BTDeviceModel::deviceMessage);
         connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](bool isConnected){
             if (isConnected) {
