@@ -16,10 +16,10 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick 2.11
+import QtQuick.Controls 2.11
+import QtQuick.Layouts 1.11
+import org.kde.kirigami 2.7 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
@@ -53,13 +53,16 @@ Kirigami.ScrollablePage {
     }
 
     ScrollView {
+        id: scrollView;
+        Layout.fillWidth: true;
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ColumnLayout {
-            width: root.width - Kirigami.Units.largeSpacing * 4;
+            width: scrollView.availableWidth
             TailBattery {
-                width: parent.width;
+                Layout.fillWidth: true;
             }
             NotConnectedCard { }
-            Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+            Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
             Kirigami.AbstractCard {
                 contentItem: ColumnLayout {
                     Kirigami.BasicListItem {
@@ -92,7 +95,7 @@ Kirigami.ScrollablePage {
                             source: "go-next";
                         }
                     }
-                    Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                     Kirigami.BasicListItem {
                         text: qsTr("Alarm");
                         icon: "accept_time_event";
@@ -123,7 +126,7 @@ Kirigami.ScrollablePage {
                             source: "go-next";
                         }
                     }
-                    Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                     Kirigami.BasicListItem {
                         text: qsTr("Poses");
                         icon: ":/images/tail.svg";
@@ -141,11 +144,11 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
-            Item { height: Kirigami.Units.smallSpacing; width: parent.width; }
+            Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
             Kirigami.AbstractCard {
                 opacity: BTConnectionManager.isConnected ? 1 : 0;
                 Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                width: parent.width;
+                Layout.fillWidth: true;
                 header: Kirigami.Heading {
                     text: qsTr("Casual Mode");
                     CheckBox {
@@ -160,7 +163,6 @@ Kirigami.ScrollablePage {
                     id: casualModeSettingsListItem
                     Kirigami.BasicListItem {
                             text: qsTr("Casual Mode Settings");
-                            width: parent.width;
                             Layout.fillWidth: true;
                             separatorVisible: false;
                             icon: "settings-configure";
@@ -190,9 +192,56 @@ Kirigami.ScrollablePage {
                     sourceComponent: AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
                 }
             }
+            Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+            Kirigami.AbstractCard {
+                opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
+                Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                Layout.fillWidth: true;
+                header: Kirigami.Heading {
+                    text: qsTr("Listening");
+                    Digitail.FilterProxyModel {
+                        id: connectedDevicesModel
+                        sourceModel: DeviceModel;
+                        filterRole: 262; // the isConnected role
+                        filterBoolean: true;
+                    }
+                }
+                contentItem: Column {
+                    id: listeningColumn;
+                    Layout.fillWidth: true;
+                    height: childrenRect.height;
+                    spacing: 0;
+                    Label {
+                        width: parent.width;
+                        wrapMode: Text.Wrap;
+                        text: qsTr("Turn this on to make your gear react to sounds around it.");
+                    }
+                    Repeater {
+                        id: hasListeningDevicesRepeater;
+                        model: Digitail.FilterProxyModel {
+                            sourceModel: connectedDevicesModel;
+                            filterRole: 265; // the hasListening role
+                            filterBoolean: true;
+                        }
+                        Kirigami.BasicListItem {
+                            width: listeningColumn.width;
+                            separatorVisible: false;
+                            icon: model.listeningState > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                            label: model.name;
+                            onClicked: {
+                                var newState = 0;
+                                if (model.listeningState == 0) {
+                                    newState = 2;
+                                }
+                                BTConnectionManager.setDeviceListeningState(model.deviceID, newState);
+                            }
+                        }
+                    }
+                }
+            }
     //         Button {
     //             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
-    //             width: parent.width;
+    //             Layout.fillWidth: true;
     //             onClicked: {
     //                 for(var i = 0; i < 1000; ++i) {
     //                     CommandQueue.pushCommand(CommandModel.getCommand(1));
