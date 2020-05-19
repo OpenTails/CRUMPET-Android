@@ -315,7 +315,10 @@ CommandInfo BTDeviceCommandModel::getRandomCommand(QStringList includedCategorie
                 pickFrom << current->command;
             }
         }
-        return pickFrom.at(QRandomGenerator::global()->bounded(pickFrom.count()));
+        if (pickFrom.count() > 0) {
+            return pickFrom.at(QRandomGenerator::global()->bounded(pickFrom.count()));
+        }
+        qWarning() << "We have no commands to pick from - maybe we should inform the user of this...";
     }
     return CommandInfo{};
 }
