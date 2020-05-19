@@ -23,11 +23,17 @@
 class BTDeviceEars : public BTDevice
 {
     Q_OBJECT
+    Q_PROPERTY(ListenMode listenMode READ listenMode WRITE setListenMode NOTIFY listenModeChanged)
 public:
     explicit BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDeviceEars() override;
 
-    QBluetoothDeviceInfo deviceInfo;
+    enum ListenMode {
+        ListenModeOff, ///< Microphones off
+        ListenModeOn, ///< The iOS-friendly on-board listen mode
+        ListenModeFull ///< Full listening support, including feedback for all values
+    };
+    Q_ENUMS(ListenMode)
 
     bool isConnected() const override;
     QString version() const override;
@@ -38,6 +44,10 @@ public:
     void disconnectDevice() override;
 
     QString deviceID() const override;
+
+    ListenMode listenMode() const;
+    void setListenMode(const ListenMode& listenMode);
+    Q_SIGNAL void listenModeChanged();
 
     void sendMessage(const QString &message) override;
 private:

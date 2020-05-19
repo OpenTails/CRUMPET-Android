@@ -35,6 +35,7 @@ public:
 
     QString version{"(unknown)"};
     int batteryLevel{0};
+    ListenMode listenMode{ListenModeOff};
 
     QMap<QString, QString> commandShorthands;
 
@@ -134,7 +135,7 @@ public:
         if (earsCommandReadCharacteristicUuid == characteristic.uuid()) {
             QString theValue(newValue);
             QStringList stateResult = theValue.split(' ');
-            if (theValue == QLatin1String{"System is busy"}) {
+            if (theValue == QLatin1String{"System is busy now"}) {
                 // Postpone what we attempted to send a few moments before trying again, as the ears are currently busy
                 // ...except if we're listening, at which point don't try and do this
                 // if (listeningState == ListeningFull || listeningState == ListeningOn) {
@@ -164,6 +165,7 @@ public:
 
                 version = newValue;
                 emit q->versionChanged(newValue);
+                q->setListenMode(listenMode);
                 pingTimer.start();
             }
             else if (stateResult[0] == QLatin1String{"PONG"}) {
@@ -173,6 +175,23 @@ public:
             }
             else if (theValue == QLatin1String{"EarGear started"}) {
                 qDebug() << q->name() << q->deviceID() << "EarGear box detected the connection";
+            }
+            else if (stateResult[0] == QLatin1String{"LISTEN"}) {
+                ListenMode newMode = ListenModeOff;
+                if (stateResult[1] != QLatin1String{"OFF"}) {
+                    newMode = ListenModeOn;
+                }
+                if (listenMode != newMode) {
+                    listenMode = newMode;
+                    emit q->listenModeChanged();
+                }
+            }
+            else if (theValue.startsWith(QLatin1String{"Noise diff:"})) {
+                if (listenMode != ListenModeFull) {
+                    listenMode = ListenModeFull;
+                    emit q->listenModeChanged();
+                }
+                qDebug() << q->name() << q->deviceID() << "Updated noise difference level:" << stateResult.last();
             }
             else if (stateResult.last() == QLatin1String{"BEGIN"}) {
                 q->commandModel->setRunning(currentCall, true);
@@ -230,7 +249,6 @@ public:
 
 BTDeviceEars::BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     : BTDevice(info, parent)
-    , deviceInfo(info)
     , d(new Private(this))
 {
     d->parentModel = parent;
@@ -433,6 +451,28 @@ QString BTDeviceEars::deviceID() const
 {
     return deviceInfo.address().toString();
 }
+
+BTDeviceEars::ListenMode BTDeviceEars::listenMode() const
+{
+    return d->listenMode;
+}
+
+void BTDeviceEars::setListenMode(const ListenMode& listenMode)
+{
+    switch(listenMode) {
+        case ListenModeFull:
+            sendMessage(QLatin1String{"LISTEN FULL"});
+            break;
+        case ListenModeOn:
+            sendMessage(QLatin1String{"LISTEN IOS"});
+            break;
+        case ListenModeOff:
+        default:
+            sendMessage(QLatin1String{"ENDLISTEN"});
+            break;
+    }
+}
+
 
 void BTDeviceEars::sendMessage(const QString &message)
 {
