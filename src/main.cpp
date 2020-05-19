@@ -238,7 +238,7 @@ int serviceMain(int argc, char *argv[])
         BTDeviceModel* btDeviceModel = qobject_cast<BTDeviceModel*>(btConnectionManager->deviceModel());
         qDebug() << "Replicating device model";
         QVector<int> roles;
-        roles << BTDeviceModel::Name << BTDeviceModel::DeviceID << BTDeviceModel::DeviceVersion << BTDeviceModel::BatteryLevel << BTDeviceModel::CurrentCall << BTDeviceModel::IsConnected << BTDeviceModel::ActiveCommandTitles << BTDeviceModel::Checked;
+        roles << BTDeviceModel::Name << BTDeviceModel::DeviceID << BTDeviceModel::DeviceVersion << BTDeviceModel::BatteryLevel << BTDeviceModel::CurrentCall << BTDeviceModel::IsConnected << BTDeviceModel::ActiveCommandTitles << BTDeviceModel::Checked << BTDeviceModel::HasListening << BTDeviceModel::ListeningState;
         srcNode.enableRemoting(btDeviceModel, "DeviceModel", roles);
 
         qDebug() << "Getting command model";
