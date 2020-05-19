@@ -198,7 +198,7 @@ Kirigami.ScrollablePage {
                 Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                 Layout.fillWidth: true;
                 header: Kirigami.Heading {
-                    text: qsTr("Listening");
+                    text: qsTr("Listening Mode");
                     Digitail.FilterProxyModel {
                         id: connectedDevicesModel
                         sourceModel: DeviceModel;
@@ -214,7 +214,7 @@ Kirigami.ScrollablePage {
                     Label {
                         width: parent.width;
                         wrapMode: Text.Wrap;
-                        text: qsTr("Turn this on to make your gear react to sounds around it.");
+                        text: qsTr("Turn this on to make your gear react to sounds around it for five minutes at a time.");
                     }
                     Repeater {
                         id: hasListeningDevicesRepeater;
