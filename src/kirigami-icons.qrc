@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/icons/breeze-internal">
-        <file alias="actions/22/accept_time_event.svg">../3rdparty/breeze-icons/icons/actions/22/accept_time_event.svg</file>
+<!--         <file alias="actions/22/accept_time_event.svg">../3rdparty/breeze-icons/icons/actions/22/accept_time_event.svg</file> -->
         <file alias="actions/22/arrow-down.svg">../3rdparty/breeze-icons/icons/actions/22/arrow-down.svg</file>
         <file alias="actions/22/code-context.svg">../3rdparty/breeze-icons/icons/actions/22/code-context.svg</file>
         <file alias="actions/22/dialog-cancel.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-cancel.svg</file>
@@ -19,11 +19,11 @@
         <file alias="actions/22/overflow-menu.svg">../3rdparty/breeze-icons/icons/actions/22/overflow-menu.svg</file>
         <file alias="actions/22/overflow-menu-left.svg">../3rdparty/breeze-icons/icons/actions/22/overflow-menu-left.svg</file>
         <file alias="actions/22/overflow-menu-right.svg">../3rdparty/breeze-icons/icons/actions/22/overflow-menu-right.svg</file>
-        <file alias="actions/22/randomize.svg">../3rdparty/breeze-icons/icons/actions/22/randomize.svg</file>
+<!--         <file alias="actions/22/randomize.svg">../3rdparty/breeze-icons/icons/actions/22/randomize.svg</file> -->
         <file alias="actions/22/user.svg">../3rdparty/breeze-icons/icons/actions/22/user.svg</file>
         <file alias="actions/22/view-left-close.svg">../3rdparty/breeze-icons/icons/actions/22/view-left-close.svg</file>
         <file alias="actions/22/view-left-new.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-new.svg</file>
-        <file alias="actions/22/view-media-playlist.svg">../3rdparty/breeze-icons/icons/actions/22/view-media-playlist.svg</file>
+<!--         <file alias="actions/22/view-media-playlist.svg">../3rdparty/breeze-icons/icons/actions/22/view-media-playlist.svg</file> -->
         <file alias="actions/22/view-right-close.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-close.svg</file>
         <file alias="actions/22/view-right-new.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-new.svg</file>
         <file alias="actions/22/window-close.svg">../3rdparty/breeze-icons/icons/actions/22/window-close.svg</file>

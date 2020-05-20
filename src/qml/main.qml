@@ -177,7 +177,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Alarm");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor");
-                icon.name: "accept_time_event";
+                icon.name: ":/images/alarm.svg";
                 onTriggered: {
                     if(!checked) {
                         switchToPage(alarmList);
@@ -187,7 +187,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Move Lists");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor");
-                icon.name: "view-media-playlist";
+                icon.name: ":/images/movelist.svg";
                 onTriggered: {
                     if(!checked) {
                         switchToPage(moveLists);
@@ -197,7 +197,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Moves");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailMoves";
-                icon.name: ":/images/tail_moves.svg";
+                icon.name: ":/images/moves.svg";
                 onTriggered: {
                     switchToPage(tailMoves);
                 }
@@ -205,7 +205,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Glow Tips");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailLights";
-                icon.name: ":/images/tail_lights.svg";
+                icon.name: ":/images/glowtip.svg";
                 onTriggered: {
                     switchToPage(tailLights);
                 }
@@ -213,7 +213,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: qsTr("Casual Mode Settings");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
-                icon.name: "randomize";
+                icon.name: ":/images/casualmode.svg";
                 onTriggered: {
                     switchToPage(idleModePage);
                 }

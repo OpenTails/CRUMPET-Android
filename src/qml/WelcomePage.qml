@@ -67,7 +67,7 @@ Kirigami.ScrollablePage {
                 contentItem: ColumnLayout {
                     Kirigami.BasicListItem {
                         text: qsTr("Moves");
-                        icon: ":/images/tail_moves.svg";
+                        icon: ":/images/moves.svg";
                         separatorVisible: false;
                         onClicked: {
                             switchToPage(tailMoves);
@@ -82,7 +82,7 @@ Kirigami.ScrollablePage {
                     }
                     Kirigami.BasicListItem {
                         text: qsTr("Glow Tips");
-                        icon: ":/images/tail_lights.svg";
+                        icon: ":/images/glowtip.svg";
                         separatorVisible: false;
                         onClicked: {
                             switchToPage(tailLights);
@@ -98,7 +98,7 @@ Kirigami.ScrollablePage {
                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                     Kirigami.BasicListItem {
                         text: qsTr("Alarm");
-                        icon: "accept_time_event";
+                        icon: ":/images/alarm.svg";
                         separatorVisible: false;
                         onClicked: {
                             switchToPage(alarmList);
@@ -113,7 +113,7 @@ Kirigami.ScrollablePage {
                     }
                     Kirigami.BasicListItem {
                         text: qsTr("Move List");
-                        icon: "view-media-playlist";
+                        icon: ":/images/movelist.svg";
                         separatorVisible: false;
                         onClicked: {
                             switchToPage(moveLists);
@@ -126,22 +126,22 @@ Kirigami.ScrollablePage {
                             source: "go-next";
                         }
                     }
-                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-                    Kirigami.BasicListItem {
-                        text: qsTr("Poses");
-                        icon: ":/images/tail.svg";
-                        separatorVisible: false;
-                        onClicked: {
-                            showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
-                        }
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: "go-next";
-                        }
-                    }
+//                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+//                     Kirigami.BasicListItem {
+//                         text: qsTr("Poses");
+//                         icon: ":/images/tail.svg";
+//                         separatorVisible: false;
+//                         onClicked: {
+//                             showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
+//                         }
+//                         Kirigami.Icon {
+//                             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+//                             Layout.margins: Kirigami.Units.smallSpacing;
+//                             width: Kirigami.Units.iconSizes.small;
+//                             height: width;
+//                             source: "go-next";
+//                         }
+//                     }
                 }
             }
             Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
@@ -149,15 +149,26 @@ Kirigami.ScrollablePage {
                 opacity: BTConnectionManager.isConnected ? 1 : 0;
                 Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                 Layout.fillWidth: true;
-                header: Kirigami.Heading {
-                    text: qsTr("Casual Mode");
-                    CheckBox {
-                        anchors.right: parent.right;
-                        height: parent.height;
-                        width: height;
-                        checked: AppSettings.idleMode;
-                        onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
-                    }
+                header: RowLayout {
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: ":/images/casualmode.svg"
+                        }
+                        Kirigami.Heading {
+                            text: qsTr("Casual Mode");
+                            Layout.fillWidth: true;
+                        }
+                        CheckBox {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            height: Kirigami.Units.iconSizes.small;
+                            width: height;
+                            checked: AppSettings.idleMode;
+                            onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
+                        }
                 }
                 Component {
                     id: casualModeSettingsListItem
@@ -197,13 +208,23 @@ Kirigami.ScrollablePage {
                 opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
                 Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                 Layout.fillWidth: true;
-                header: Kirigami.Heading {
-                    text: qsTr("Listening Mode");
-                    Digitail.FilterProxyModel {
-                        id: connectedDevicesModel
-                        sourceModel: DeviceModel;
-                        filterRole: 262; // the isConnected role
-                        filterBoolean: true;
+                header: RowLayout {
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        width: Kirigami.Units.iconSizes.small;
+                        height: width;
+                        source: ":/images/listeningmode.svg"
+                    }
+                    Kirigami.Heading {
+                        text: qsTr("Listening Mode");
+                        Layout.fillWidth: true;
+                        Digitail.FilterProxyModel {
+                            id: connectedDevicesModel
+                            sourceModel: DeviceModel;
+                            filterRole: 262; // the isConnected role
+                            filterBoolean: true;
+                        }
                     }
                 }
                 contentItem: Column {
