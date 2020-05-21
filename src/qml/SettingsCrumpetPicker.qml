@@ -26,10 +26,7 @@ Kirigami.ScrollablePage {
 
     ListView {
         model: 5
-        header: QQC2.Label {
-            width: parent.width;
-            padding: Kirigami.Units.smallSpacing;
-            wrapMode: Text.Wrap;
+        header: InfoCard {
             text: qsTr("This is all the command sets you have available. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.");
         }
         delegate: Kirigami.SwipeListItem {
