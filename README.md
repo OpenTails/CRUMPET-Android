@@ -1,5 +1,5 @@
 # CRUMPET - The Brains For Your Tail Company Gear
-Development of the app to control our new breed of animatronics, from tails to ears!
+Development of the app to control our new breed of animatronic gear, from tails to ears, and everything inbetween!
 
 We are currently editing files to be less DIGITAiL only..
 
