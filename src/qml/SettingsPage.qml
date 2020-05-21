@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
         SettingsCard {
             headerText: qsTr("Instructions");
             descriptionText: qsTr("Please download and read the instructions by clicking the link below. This includes instructions on how to wear your tail or ears, along with some nice graphics showing you how.");
-            footer: RowLayout{
+            footer: ColumnLayout{
                 Layout.fillWidth: true; Layout.fillHeight: true;
                     Kirigami.UrlButton {
                         Layout.fillWidth: true; Layout.fillHeight: true;
@@ -64,7 +64,9 @@ Kirigami.ScrollablePage {
                 text: qsTr("Forget Gear Names")
                 Layout.fillWidth: true
                 onClicked: {
-                    BTConnectionManager.clearDeviceNames()
+                    showMessageBox(qsTr("Clear the names?"),
+                        qsTr("Please confirm that you do, in fact, want to clear all your saved device names."),
+                        function () { BTConnectionManager.clearDeviceNames(); });
                 }
             }
         }
