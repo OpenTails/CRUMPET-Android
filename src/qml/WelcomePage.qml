@@ -252,7 +252,7 @@ Kirigami.ScrollablePage {
                             onClicked: {
                                 var newState = 0;
                                 if (model.listeningState == 0) {
-                                    newState = 2;
+                                    newState = 1;
                                 }
                                 BTConnectionManager.setDeviceListeningState(model.deviceID, newState);
                             }
