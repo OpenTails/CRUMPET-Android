@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/icons/breeze-internal">
-<!--         <file alias="actions/22/accept_time_event.svg">../3rdparty/breeze-icons/icons/actions/22/accept_time_event.svg</file> -->
+        <file alias="actions/16/edit-duplicate.svg">../3rdparty/breeze-icons/icons/actions/16/edit-duplicate.svg</file>
+        <file alias="actions/22/accept_time_event.svg">../3rdparty/breeze-icons/icons/actions/22/accept_time_event.svg</file>
         <file alias="actions/22/arrow-down.svg">../3rdparty/breeze-icons/icons/actions/22/arrow-down.svg</file>
         <file alias="actions/22/code-context.svg">../3rdparty/breeze-icons/icons/actions/22/code-context.svg</file>
         <file alias="actions/22/dialog-cancel.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-cancel.svg</file>
