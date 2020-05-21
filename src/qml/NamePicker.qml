@@ -41,6 +41,16 @@ Kirigami.OverlaySheet {
         text: qsTr("Pick a name");
     }
 
+    footer: QQC2.Button {
+        id: buttonOk;
+        width: parent.width;
+        enabled: enteredName.text.length;
+
+        onClicked: {
+            control.namePicked(enteredName.text);
+        }
+    }
+
     Column {
         width: root.width - Kirigami.Units.largeSpacing * 4;
         spacing: Kirigami.Units.smallSpacing;
@@ -54,16 +64,6 @@ Kirigami.OverlaySheet {
         QQC2.TextField {
             id: enteredName;
             width: parent.width;
-        }
-
-        QQC2.Button {
-            id: buttonOk;
-            width: parent.width;
-            enabled: enteredName.text.length;
-
-            onClicked: {
-                control.namePicked(enteredName.text);
-            }
         }
     }
 }
