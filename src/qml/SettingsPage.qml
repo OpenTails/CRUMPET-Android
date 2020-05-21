@@ -1,5 +1,6 @@
 /*
  *   Copyright 2019 Ildar Gilmanov <gil.ildar@gmail.com>
+ *   Copyright 2020 Dan Leinir Turthra Jensen <admin@leinir.dk>
  *   This file based on sample code from Kirigami
  *
  *   This program is free software; you can redistribute it and/or modify
@@ -18,10 +19,11 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 import QtQuick.Layouts 1.11
 
 Kirigami.ScrollablePage {
+    id: root;
     objectName: "settingsPage";
     title: qsTr("Settings");
 
@@ -82,7 +84,9 @@ Kirigami.ScrollablePage {
                         icon: ":/images/moves.svg";
                         separatorVisible: false;
                         label: AppSettings.deviceNames[modelData];
-                        onClicked: {}
+                        onClicked: {
+                            pageStack.push(gearCommandsPage);
+                        }
                     }
                 }
             }
@@ -101,5 +105,9 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+    }
+
+    SettingsCrumpetPicker {
+        id: gearCommandsPage;
     }
 }
