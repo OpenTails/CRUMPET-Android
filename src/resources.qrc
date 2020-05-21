@@ -40,6 +40,7 @@
         <file>commands/eargear-base.crumpet</file>
 
         <file>images/alarm.svg</file>
+        <file>images/crumpet-head.svg</file>
         <file>images/casualmode.svg</file>
         <file>images/glowtip.svg</file>
         <file>images/listeningmode.svg</file>
