@@ -72,6 +72,23 @@ Kirigami.ScrollablePage {
         }
 
         SettingsCard {
+            headerText: qsTr("Gear Commands");
+            descriptionText: qsTr("While the app ships with a number of command sets out of the box, this is not all that your gear can do. You can modify what is sent to your gear, and we'll remember for each of them which commands you want to use. To use this functionality, give your gear a name, and you'll be able to change what commands it will use here.");
+            footer: ColumnLayout {
+                Repeater {
+                    model: Object.keys(AppSettings.deviceNames);
+                    delegate: Kirigami.BasicListItem {
+                        Layout.fillWidth: true;
+                        icon: ":/images/moves.svg";
+                        separatorVisible: false;
+                        label: AppSettings.deviceNames[modelData];
+                        onClicked: {}
+                    }
+                }
+            }
+        }
+
+        SettingsCard {
             headerText: qsTr("Fake Tail");
             descriptionText: qsTr("If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL or EarGear, you might want to explore what the app can do. You can click the button below to trick the app into thinking that there is a tail nearby, and let you explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
             footer: QQC2.CheckBox {
