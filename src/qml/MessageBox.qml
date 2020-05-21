@@ -40,47 +40,42 @@ Kirigami.OverlaySheet {
         id: textHeader;
     }
 
-    Column {
-        width: root.width - Kirigami.Units.largeSpacing * 4;
-        spacing: Kirigami.Units.smallSpacing;
+    footer: RowLayout {
+        Layout.fillWidth: true
 
-        QQC2.Label {
-            id: label;
-            width: parent.width;
-            wrapMode: Text.Wrap;
-        }
+        QQC2.Button {
+            text: qsTr("Ok");
+            highlighted: true;
+            Layout.fillWidth: true
+            Layout.preferredWidth: control.width
 
-        RowLayout {
-            width: parent.width;
-
-            QQC2.Button {
-                text: qsTr("Ok");
-                highlighted: true;
-                Layout.fillWidth: true
-                Layout.preferredWidth: control.width
-
-                onClicked: {
-                    if (okHandler) {
-                        var handler = okHandler;
-                        okHandler = null;
-                        close();
-                        handler();
-                    } else {
-                        close();
-                    }
-                }
-            }
-
-            QQC2.Button {
-                id: buttonCancel
-                text: qsTr("Cancel");
-                Layout.fillWidth: true
-                Layout.preferredWidth: control.width
-
-                onClicked: {
+            onClicked: {
+                if (okHandler) {
+                    var handler = okHandler;
+                    okHandler = null;
+                    close();
+                    handler();
+                } else {
                     close();
                 }
             }
         }
+
+        QQC2.Button {
+            id: buttonCancel
+            text: qsTr("Cancel");
+            Layout.fillWidth: true
+            Layout.preferredWidth: control.width
+
+            onClicked: {
+                close();
+            }
+        }
+    }
+
+    QQC2.Label {
+        id: label;
+        Layout.fillWidth: true;
+        wrapMode: Text.Wrap;
     }
 }
