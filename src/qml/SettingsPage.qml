@@ -90,6 +90,10 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
+            Component {
+                id: gearCommandsPage;
+                SettingsCrumpetPicker {}
+            }
         }
 
         SettingsCard {
@@ -105,9 +109,5 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-    }
-
-    SettingsCrumpetPicker {
-        id: gearCommandsPage;
     }
 }
