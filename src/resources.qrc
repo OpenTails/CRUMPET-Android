@@ -34,6 +34,7 @@
         <file>qml/InfoCard.qml</file>
         <file>qml/SettingsPage.qml</file>
         <file>qml/SettingsCard.qml</file>
+        <file>qml/SettingsCrumpetPicker.qml</file>
         <file>qml/DeveloperModePage.qml</file>
         <file>audio/Sparkle-sound-effect.mp3</file>
         <file>commands/digitail-builtin.crumpet</file>
