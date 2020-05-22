@@ -19,21 +19,31 @@ import QtQuick 2.11
 import QtQuick.Controls 2.11 as QQC2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0
 
 Kirigami.ScrollablePage {
     id: component;
     title: qsTr("Gear Command Sets")
-    property string deviceId;
+    property string deviceID;
 
     ListView {
         id: crumpetList;
         model: Object.keys(AppSettings.commandFiles);
+        FilterProxyModel {
+            id: deviceFilterProxy;
+            sourceModel: DeviceModel;
+            filterRole: 258; // the deviceID role
+            filterString: component.deviceID;
+            property var enabledFiles: [];
+            onDataChanged: { enabledFiles = data(index(0, 0), 267); }
+        }
         header: InfoCard {
-            text: qsTr("This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.").arg(AppSettings.deviceNames[component.deviceId]);
+            text: qsTr("This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.").arg(AppSettings.deviceNames[component.deviceID]);
         }
         delegate: Kirigami.SwipeListItem {
             id: listItem;
             property var commandFile: AppSettings.commandFiles[modelData];
+            property bool isEnabled: deviceFilterProxy.enabledFiles.includes(modelData);
             Layout.fillWidth: true;
             RowLayout {
                 Layout.fillWidth: true;
@@ -41,7 +51,7 @@ Kirigami.ScrollablePage {
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing * 2;
                     Layout.minimumWidth: Kirigami.Units.iconSizes.small;
                     Layout.maximumWidth: Kirigami.Units.iconSizes.small;
-                    source: true ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    source: listItem.isEnabled ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                 }
                 Kirigami.Icon {
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing * 2;
@@ -53,6 +63,9 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true;
                     text: commandFile.title
                 }
+            }
+            onClicked: {
+                BTConnectionManager.setDeviceCommandsFileEnabled(component.deviceID, modelData, !listItem.isEnabled);
             }
             actions: [
                 Kirigami.Action {
