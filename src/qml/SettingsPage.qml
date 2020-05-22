@@ -85,7 +85,7 @@ Kirigami.ScrollablePage {
                         separatorVisible: false;
                         label: AppSettings.deviceNames[modelData];
                         onClicked: {
-                            pageStack.push(gearCommandsPage);
+                            pageStack.push(gearCommandsPage, { deviceId: modelData });
                         }
                     }
                 }
