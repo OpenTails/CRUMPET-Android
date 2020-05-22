@@ -19,8 +19,10 @@
 #include "AppSettings.h"
 #include "AlarmList.h"
 #include "Alarm.h"
+#include "CommandPersistence.h"
 
 #include <QCoreApplication>
+#include <QFile>
 #include <QSettings>
 #include <QTimer>
 
@@ -47,6 +49,8 @@ public:
 
     AlarmList* alarmList = nullptr;
     QString activeAlarmName;
+
+    QVariantMap commandFiles;
 };
 
 AppSettings::AppSettings(QObject* parent)
@@ -94,6 +98,24 @@ AppSettings::AppSettings(QObject* parent)
     connect(d->alarmList, &AlarmList::listChanged, this, &AppSettings::onAlarmListChanged);
     connect(d->alarmList, &AlarmList::alarmExisted, this, &AppSettings::alarmExisted);
     connect(d->alarmList, &AlarmList::alarmNotExisted, this, &AppSettings::alarmNotExisted);
+
+    const QStringList builtInCrumpets{QLatin1String{":/commands/eargear-base.crumpet"}, QLatin1String{":/commands/digitail-builtin.crumpet"}};
+    for (const QString& filename : builtInCrumpets) {
+        QString data;
+        QFile file(filename);
+        if(file.open(QIODevice::ReadOnly)) {
+            data = file.readAll();
+        }
+        else {
+            qWarning() << "Failed to open the included resource containing eargear base commands, this is very much not a good thing";
+        }
+        file.close();
+        addCommandFile(filename, data);
+        QVariantMap fileMap = d->commandFiles[filename].toMap();
+        fileMap[QLatin1String{"isEditable"}] = false;
+        d->commandFiles[filename] = fileMap;
+        emit commandFilesChanged(d->commandFiles);
+    }
 }
 
 AppSettings::~AppSettings()
@@ -458,4 +480,64 @@ void AppSettings::onAlarmListChanged()
 void AppSettings::shutDownService()
 {
     qApp->quit();
+}
+
+QVariantMap AppSettings::commandFiles() const
+{
+    return d->commandFiles;
+}
+
+void AppSettings::addCommandFile(const QString& filename, const QString& content)
+{
+    QVariantMap fileMap;
+    fileMap[QLatin1String{"contents"}] = "";
+    fileMap[QLatin1String{"title"}] = "";
+    fileMap[QLatin1String{"description"}] = "";
+    fileMap[QLatin1String{"isEditable"}] = true;
+    fileMap[QLatin1String{"isValid"}] = false;
+    d->commandFiles[filename] = fileMap;
+    setCommandFileContents(filename, content);
+}
+
+void AppSettings::removeCommandFile(const QString& filename)
+{
+    QVariantMap fileMap = d->commandFiles[filename].toMap();
+    if (fileMap[QLatin1String{"isEditable"}].toBool()) {
+        d->commandFiles.remove(filename);
+        emit commandFilesChanged(d->commandFiles);
+    }
+}
+
+void AppSettings::setCommandFileContents(const QString& filename, const QString& content)
+{
+// [QString (Title)] => QString - A short title for the file as interpreted from the contents on load
+// [QString (Description)] => QString - The long-form description of the file as interpreted from the contents on load
+// [QString (Contents)] => QString - The actual contents of the file
+// [QString (Editable)] => bool - Whether or not the contents can be changed (false when the file is a built-in)
+// [QString (Valid)] => bool - Whether or not the contents are valid json/crumpet
+
+    QVariantMap fileMap = d->commandFiles[filename].toMap();
+    if (fileMap[QLatin1String{"isEditable"}].toBool()) {
+        fileMap[QLatin1String{"contents"}] = content;
+        fileMap[QLatin1String{"isValid"}] = false;
+
+        CommandPersistence persistence;
+        persistence.deserialize(content);
+        if (persistence.error().isEmpty()) {
+            fileMap[QLatin1String{"title"}] = persistence.title();
+            fileMap[QLatin1String{"description"}] = persistence.description();
+            fileMap[QLatin1String{"isValid"}] = true;
+        }
+        d->commandFiles[filename] = fileMap;
+        emit commandFilesChanged(d->commandFiles);
+    }
+}
+
+void AppSettings::renameCommandFile(const QString& filename, const QString& newFilename)
+{
+    QVariantMap fileMap = d->commandFiles.take(filename).toMap();
+    if (fileMap[QLatin1String{"isEditable"}].toBool()) {
+        d->commandFiles[newFilename] = fileMap;
+        emit commandFilesChanged(d->commandFiles);
+    }
 }

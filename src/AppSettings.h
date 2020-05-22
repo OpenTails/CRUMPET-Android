@@ -79,6 +79,22 @@ public:
     void removeAlarmCommand(int index) override;
     virtual QVariantMap deviceNames() const override;
 
+    /**
+     * A map of the available command files, with the following structure:
+     * [QString (filename)] => QVariantMap [QString (title)] => QString - A short title for the file as interpreted from the contents on load
+     *                                     [QString (description)] => QString - The long-form description of the file as interpreted from the contents on load
+     *                                     [QString (contents)] => QString - The actual contents of the file
+     *                                     [QString (isEditable)] => bool - Whether or not the contents can be changed (false when the file is a built-in)
+     *                                     [QString (isValid)] => bool - Whether or not the contents are valid json/crumpet
+     */
+    QVariantMap commandFiles() const override;
+    void addCommandFile(const QString& filename, const QString& content) override;
+    // Changing and removing things not marked as Editable will fail silently (and commandFiles will simply not change)
+    void removeCommandFile(const QString& filename) override;
+    // Changing the content will reset the title and description, but only if it is valid (or they will be retained in the current session)
+    void setCommandFileContents(const QString& filename, const QString& content) override;
+    void renameCommandFile(const QString& filename, const QString& newFilename) override;
+
     /// We have access to this method only from the Service.
     /// See BTConnectionManager::setDeviceName() method
     void setDeviceName(const QString& address, const QString& deviceName);

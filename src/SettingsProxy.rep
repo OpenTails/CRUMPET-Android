@@ -50,5 +50,11 @@ class SettingsProxy {
     SIGNAL(alarmNotExisted(const QString& name))
     SIGNAL(idleModeTimeout())
 
+    PROP(QVariantMap commandFiles READONLY)
+    SLOT(void addCommandFile(const QString& filename, const QString& content))
+    SLOT(void removeCommandFile(const QString& filename))
+    SLOT(void setCommandFileContents(const QString& filename, const QString& content))
+    SLOT(void renameCommandFile(const QString& filename, const QString& newFilename))
+
     SLOT(void shutDownService())
 };
