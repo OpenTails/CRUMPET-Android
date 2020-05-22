@@ -112,7 +112,8 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {ActiveCommandTitles, "activeCommandTitles"},
         {Checked, "checked"},
         {HasListening, "hasListening"},
-        {ListeningState, "listeningState"}
+        {ListeningState, "listeningState"},
+        {EnabledCommandsFiles, "enabledCommandsFiles"}
     };
     return roles;
 }
@@ -158,7 +159,11 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                     listeningState = ears->listenMode();
                 }
                 value = listeningState;
+                break;
             }
+            case EnabledCommandsFiles:
+                value = device->enabledCommandsFiles();
+                break;
             default:
                 break;
         }
@@ -235,6 +240,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::batteryLevelChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, BatteryLevel);
+        });
+        connect(newDevice, &BTDevice::enabledCommandsFilesChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, EnabledCommandsFiles);
         });
         connect(newDevice, &BTDevice::currentCallChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, CurrentCall);

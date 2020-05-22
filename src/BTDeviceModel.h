@@ -48,7 +48,8 @@ public:
         ActiveCommandTitles,     // 263
         Checked,                 // 264
         HasListening,            // 265
-        ListeningState           // 266 - either 0 (off), 1 (on in iOS mode), or 2 (full feedback mode)
+        ListeningState,          // 266 - either 0 (off), 1 (on in iOS mode), or 2 (full feedback mode)
+        EnabledCommandsFiles     // 267 - a stringlist
     };
 
     AppSettings* appSettings() const;
