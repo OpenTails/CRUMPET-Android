@@ -37,6 +37,7 @@ class BTDevice : public QObject
     Q_PROPERTY(QString activeCommandTitles READ activeCommandTitles NOTIFY activeCommandTitlesChanged)
     Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
     Q_PROPERTY(QString deviceID READ deviceID CONSTANT)
+    Q_PROPERTY(QStringList enabledCommandsFiles READ enabledCommandsFiles NOTIFY enabledCommandsFilesChanged)
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
@@ -55,6 +56,10 @@ public:
     virtual QString name() const;
     void setName(const QString& name);
     Q_SIGNAL void nameChanged(QString name);
+
+    QStringList enabledCommandsFiles() const;
+    Q_SIGNAL void enabledCommandsFilesChanged(QStringList enabledCommandsFiles);
+    void setCommandsFileEnabledState(const QString& filename, bool enabled);
 
     virtual QString version() const = 0;
     Q_SIGNAL void versionChanged(QString version);

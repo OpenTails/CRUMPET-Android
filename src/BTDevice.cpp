@@ -29,6 +29,7 @@ public:
 
     bool checked{true};
     QString name;
+    QStringList enabledCommandsFiles;
 };
 
 BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
@@ -85,4 +86,22 @@ QString BTDevice::activeCommandTitles() const
         }
     }
     return titles;
+}
+
+QStringList BTDevice::enabledCommandsFiles() const
+{
+    return d->enabledCommandsFiles;
+}
+
+void BTDevice::setCommandsFileEnabledState(const QString& filename, bool enabled)
+{
+    qDebug() << Q_FUNC_INFO << filename << enabled;
+    if (enabled && !d->enabledCommandsFiles.contains(filename)) {
+        d->enabledCommandsFiles.append(filename);
+        emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
+    }
+    else if (!enabled && d->enabledCommandsFiles.contains(filename)) {
+        d->enabledCommandsFiles.removeAll(filename);
+        emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
+    }
 }
