@@ -23,52 +23,67 @@ import org.kde.kirigami 2.13 as Kirigami
 Kirigami.ScrollablePage {
     id: component;
     title: qsTr("Gear Command Sets")
+    property string deviceId;
 
     ListView {
-        model: 5
+        id: crumpetList;
+        model: Object.keys(AppSettings.commandFiles);
         header: InfoCard {
-            text: qsTr("This is all the command sets you have available. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.");
+            text: qsTr("This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.").arg(AppSettings.deviceNames[component.deviceId]);
         }
         delegate: Kirigami.SwipeListItem {
             id: listItem;
+            property var commandFile: AppSettings.commandFiles[modelData];
             Layout.fillWidth: true;
             RowLayout {
                 Layout.fillWidth: true;
                 Kirigami.Icon {
-                    Layout.preferredHeight: listItem.height - Kirigami.Units.smallSpacing * 2;
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing * 2;
                     Layout.minimumWidth: Kirigami.Units.iconSizes.small;
                     Layout.maximumWidth: Kirigami.Units.iconSizes.small;
-                    source: modelData % 2 === 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    source: true ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                 }
                 Kirigami.Icon {
-                    Layout.preferredHeight: listItem.height - Kirigami.Units.smallSpacing * 2;
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing * 2;
                     Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
                     Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
                     source: ":/images/crumpet-head.svg";
                 }
                 QQC2.Label {
                     Layout.fillWidth: true;
-                    text: modelData
+                    text: commandFile.title
                 }
             }
             actions: [
                 Kirigami.Action {
+                    visible: commandFile.isEditable;
                     text: qsTr("Delete");
                     icon.name: "list-remove";
                 },
                 Kirigami.Action {
                     text: qsTr("Duplicate");
                     icon.name: "edit-duplicate";
+                    onTriggered: {
+                        var newFileName = "internal-crumpet-" + crumpetList.count;
+                        AppSettings.addCommandFile(newFileName, commandFile.contents);
+                    }
                 },
                 Kirigami.Action {
+                    visible: commandFile.isEditable;
                     text: qsTr("Edit Commands");
                     icon.name: "document-edit";
-                    onTriggered: { crumpetEditor.open(); }
+                    onTriggered: { crumpetEditor.openEditor(modelData); }
                 }
             ]
         }
         Kirigami.OverlaySheet {
             id: crumpetEditor;
+            property string _filename;
+            function openEditor(filename) {
+                _filename = filename;
+                contentEditor.text = AppSettings.commandFiles[filename].contents;
+                crumpetEditor.open();
+            }
 
             header: Kirigami.Heading {
                 text: qsTr("Edit Commands")
@@ -82,6 +97,7 @@ Kirigami.ScrollablePage {
                     highlighted: true;
                     Layout.fillWidth: true
                     onClicked: {
+                        AppSettings.setCommandFileContents(crumpetEditor._filename, contentEditor.text);
                         crumpetEditor.close();
                     }
                 }
@@ -96,6 +112,7 @@ Kirigami.ScrollablePage {
             }
 
             QQC2.TextArea {
+                id: contentEditor;
                 width: component.width - Kirigami.Units.largeSpacing * 4;
                 Layout.fillHeight: true;
                 text: "(this is where the content of the crumpet file goes,\nbecause we'll just have that here for now...)"
