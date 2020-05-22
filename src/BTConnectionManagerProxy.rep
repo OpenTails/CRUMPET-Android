@@ -35,6 +35,8 @@ class BTConnectionManagerProxy {
     PROP(QVariantMap command)
     SLOT(QVariantMap getCommand(const QString& command))
 
+    SLOT(void setDeviceCommandsFileEnabled(const QString& deviceID, const QString& filename, bool enabled))
+
     SIGNAL(messageReceived(const QString &sender, const QString &message))
     SIGNAL(message(const QString& message))
     SIGNAL(deviceNamesCleared())

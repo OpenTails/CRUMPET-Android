@@ -91,6 +91,15 @@ public Q_SLOTS:
      */
     void setDeviceListeningState(const QString& deviceID, int listeningMode) override;
 
+    /**
+     * Explicitly set whether or not a specific commands file is enabled for the specified device.
+     * This will cause the commands for the device to be reloaded entirely.
+     *
+     * @param deviceID The ID of the device you wish to change a commands file enabled state
+     * @param filename The filename for the commands file to change the enabled state on
+     * @param enabled Whether or not the specified commands file on the specified device is to be enabled or not
+     */
+    void setDeviceCommandsFileEnabled(const QString& deviceID, const QString& filename, bool enabled) override;
 Q_SIGNALS:
     void connected(const QString &name);
     void disconnected();

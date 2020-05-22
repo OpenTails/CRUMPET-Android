@@ -293,3 +293,12 @@ void BTConnectionManager::setDeviceListeningState(const QString& deviceID, int l
         ears->setListenMode(static_cast<BTDeviceEars::ListenMode>(listeningMode));
     }
 }
+
+void BTConnectionManager::setDeviceCommandsFileEnabled(const QString& deviceID, const QString& filename, bool enabled)
+{
+    qDebug() << Q_FUNC_INFO << deviceID << filename << enabled;
+    BTDevice* device = d->deviceModel->getDevice(deviceID);
+    if (device) {
+        device->setCommandsFileEnabledState(filename, enabled);
+    }
+}
