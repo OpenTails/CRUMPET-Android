@@ -102,10 +102,16 @@ void BTDevice::setCommandsFileEnabledState(const QString& filename, bool enabled
     if (enabled && !d->enabledCommandsFiles.contains(filename)) {
         d->enabledCommandsFiles.append(filename);
         emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
+        if (isConnected()) {
+            reloadCommands();
+        }
     }
     else if (!enabled && d->enabledCommandsFiles.contains(filename)) {
         d->enabledCommandsFiles.removeAll(filename);
         emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
+        if (isConnected()) {
+            reloadCommands();
+        }
     }
 }
 
@@ -113,6 +119,7 @@ void BTDevice::reloadCommands() {
     commandModel->clear();
     commandShorthands.clear();
     QVariantMap commandFiles = d->parentModel->appSettings()->commandFiles();
+    // If there are no enabled files, we'll load the default, so we don't end up with no commands at all
     QStringList enabledFiles = d->enabledCommandsFiles.count() > 0 ? d->enabledCommandsFiles : defaultCommandFiles();
     for (const QString& enabledFile : enabledFiles) {
         QVariantMap file = commandFiles[enabledFile].toMap();
