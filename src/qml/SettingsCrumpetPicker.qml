@@ -35,10 +35,14 @@ Kirigami.ScrollablePage {
             filterRole: 258; // the deviceID role
             filterString: component.deviceID;
             property var enabledFiles: [];
-            onDataChanged: { enabledFiles = data(index(0, 0), 267); }
+            property string deviceName: "unknown";
+            onDataChanged: {
+                enabledFiles = data(index(0, 0), 267);
+                deviceName = data(index(0, 0), 257);
+            }
         }
         header: InfoCard {
-            text: qsTr("This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.").arg(AppSettings.deviceNames[component.deviceID]);
+            text: qsTr("This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.").arg(deviceFilterProxy.deviceName);
         }
         delegate: Kirigami.SwipeListItem {
             id: listItem;
