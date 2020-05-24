@@ -75,17 +75,17 @@ Kirigami.ScrollablePage {
 
         SettingsCard {
             headerText: qsTr("Gear Commands");
-            descriptionText: qsTr("While the app ships with a number of command sets out of the box, this is not all that your gear can do. You can modify what is sent to your gear, and we'll remember for each of them which commands you want to use. To use this functionality, give your gear a name, and you'll be able to change what commands it will use here.");
+            descriptionText: qsTr("While the app ships with a number of command sets out of the box, this is not all that your gear can do. You can modify what is sent to your gear, and we'll remember for each of them which commands you want to use. To be able to more easily use this, make sure to give your gear a name, so you can tell them apart more easily.");
             footer: ColumnLayout {
                 Repeater {
-                    model: Object.keys(AppSettings.deviceNames);
+                    model: DeviceModel;
                     delegate: Kirigami.BasicListItem {
                         Layout.fillWidth: true;
                         icon: ":/images/moves.svg";
                         separatorVisible: false;
-                        label: AppSettings.deviceNames[modelData];
+                        label: model.name;
                         onClicked: {
-                            pageStack.push(gearCommandsPage, { deviceID: modelData });
+                            pageStack.push(gearCommandsPage, { deviceID: model.deviceID });
                         }
                     }
                 }
