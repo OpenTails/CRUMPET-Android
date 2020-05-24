@@ -51,6 +51,7 @@ public:
     QString activeAlarmName;
 
     QVariantMap commandFiles;
+    bool isInitialized{false};
 };
 
 AppSettings::AppSettings(QObject* parent)
@@ -114,8 +115,15 @@ AppSettings::AppSettings(QObject* parent)
         QVariantMap fileMap = d->commandFiles[filename].toMap();
         fileMap[QLatin1String{"isEditable"}] = false;
         d->commandFiles[filename] = fileMap;
-        emit commandFilesChanged(d->commandFiles);
     }
+    settings.beginGroup("CrumpetFiles");
+    for (const QString& filename : settings.childKeys()) {
+        addCommandFile(filename, settings.value(filename).toString());
+    }
+    settings.endGroup();
+    emit commandFilesChanged(d->commandFiles);
+
+    d->isInitialized = true;
 }
 
 AppSettings::~AppSettings()
@@ -518,6 +526,18 @@ void AppSettings::setCommandFileContents(const QString& filename, const QString&
 
     QVariantMap fileMap = d->commandFiles[filename].toMap();
     if (fileMap[QLatin1String{"isEditable"}].toBool()) {
+        // Don't store the things back if we're not yet initialised, or we'll just be writing stuff we
+        // just read, which seems silly...
+        if (d->isInitialized) {
+            // Store into the settings instance - we will want to make this file editing later
+            // but for now it allows us to not ask for file access permissions
+            QSettings settings;
+            settings.beginGroup("CrumpetFiles");
+            settings.setValue(filename, content);
+            settings.endGroup();
+            settings.sync();
+        }
+
         fileMap[QLatin1String{"contents"}] = content;
         fileMap[QLatin1String{"isValid"}] = false;
 
