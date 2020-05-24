@@ -45,6 +45,7 @@ public:
     QBluetoothDeviceInfo deviceInfo;
 
     TailCommandModel* commandModel{new TailCommandModel(this)};
+    QMap<QString, QString> commandShorthands;
 
     bool checked() const;
     void setChecked(bool checked);
@@ -60,6 +61,9 @@ public:
     QStringList enabledCommandsFiles() const;
     Q_SIGNAL void enabledCommandsFilesChanged(QStringList enabledCommandsFiles);
     void setCommandsFileEnabledState(const QString& filename, bool enabled);
+
+    void reloadCommands();
+    virtual QStringList defaultCommandFiles() const;
 
     virtual QString version() const = 0;
     Q_SIGNAL void versionChanged(QString version);

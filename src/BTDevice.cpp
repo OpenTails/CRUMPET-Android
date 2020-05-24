@@ -21,6 +21,7 @@
 #include <QTimer>
 
 #include "AppSettings.h"
+#include "CommandPersistence.h"
 
 class BTDevice::Private {
 public:
@@ -30,6 +31,7 @@ public:
     bool checked{true};
     QString name;
     QStringList enabledCommandsFiles;
+    BTDeviceModel* parentModel;
 };
 
 BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
@@ -38,6 +40,7 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     , d(new Private)
 {
     d->name = info.name();
+    d->parentModel = parent;
 
     QTimer* timer = new QTimer(this);
     timer->setInterval(1);
@@ -104,4 +107,32 @@ void BTDevice::setCommandsFileEnabledState(const QString& filename, bool enabled
         d->enabledCommandsFiles.removeAll(filename);
         emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
     }
+}
+
+void BTDevice::reloadCommands() {
+    commandModel->clear();
+    commandShorthands.clear();
+    QVariantMap commandFiles = d->parentModel->appSettings()->commandFiles();
+    QStringList enabledFiles = d->enabledCommandsFiles.count() > 0 ? d->enabledCommandsFiles : defaultCommandFiles();
+    for (const QString& enabledFile : enabledFiles) {
+        QVariantMap file = commandFiles[enabledFile].toMap();
+        CommandPersistence persistence;
+        persistence.deserialize(file[QLatin1String{"contents"}].toString());
+        if (persistence.error().isEmpty()) {
+            for (const CommandInfo &command : persistence.commands()) {
+                commandModel->addCommand(command);
+            }
+            for (const CommandShorthand& shorthand : persistence.shorthands()) {
+                commandShorthands[shorthand.command] = shorthand.expansion.join(QChar{';'});
+            }
+        }
+        else {
+            qWarning() << "Failure in loading the commands data for" << enabledFile << "with the error:" << persistence.error();
+        }
+    }
+}
+
+QStringList BTDevice::defaultCommandFiles() const
+{
+    return QStringList{QLatin1String{":/commands/digitail-builtin.crumpet"}};
 }
