@@ -115,25 +115,7 @@ public:
 
         if (tailStateCharacteristicUuid == characteristic.uuid()) {
             if (currentCall == QLatin1String("VER")) {
-                CommandPersistence persistence;
-                QString data;
-                QFile file(QString{":/commands/digitail-builtin.crumpet"});
-                if(file.open(QIODevice::ReadOnly)) {
-                    data = file.readAll();
-                }
-                else {
-                    qWarning() << "Failed to open the included resource containing the digitail builtin commands, this is very much not a good thing";
-                }
-                file.close();
-                persistence.deserialize(data);
-                for (const CommandInfo &command : persistence.commands()) {
-                    q->commandModel->addCommand(command);
-                }
-                // This'll want adding in... but let's leave it for now
-//                 for (const CommandShorthand& shorthand : persistence.shorthands()) {
-//                     commandShorthands[shorthand.command] = shorthand.expansion.join(QChar{';'});
-//                 }
-
+                q->reloadCommands();
                 version = newValue;
                 emit q->versionChanged(newValue);
                 batteryTimer.start();
@@ -284,6 +266,7 @@ void BTDeviceTail::disconnectDevice()
     d->tailService->deleteLater();
     d->tailService = nullptr;
     commandModel->clear();
+    commandShorthands.clear();
 //     emit commandModelChanged();
 //     commandQueue->clear(); // FIXME Clear commands for this device only
 //     emit commandQueueChanged();

@@ -82,20 +82,7 @@ void BTDeviceFake::connectDevice()
     QTimer::singleShot(1000, this, [this](){
         d->isConnected = true;
         emit isConnectedChanged(isConnected());
-        CommandPersistence persistence;
-        QString data;
-        QFile file(QString{":/commands/digitail-builtin.crumpet"});
-        if(file.open(QIODevice::ReadOnly)) {
-            data = file.readAll();
-        }
-        else {
-            qWarning() << "Failed to open the included resource containing the digitail builtin commands, this is very much not a good thing";
-        }
-        file.close();
-        persistence.deserialize(data);
-        for (const CommandInfo &command : persistence.commands()) {
-            commandModel->addCommand(command);
-        }
+        reloadCommands();
         d->batteryTimer.start();
     });
 }
@@ -106,6 +93,7 @@ void BTDeviceFake::disconnectDevice()
     d->batteryLevel = 0;
     emit batteryLevelChanged(d->batteryLevel);
     commandModel->clear();
+    commandShorthands.clear();
     d->isConnected = false;
     emit isConnectedChanged(d->isConnected);
 }

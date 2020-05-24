@@ -22,7 +22,6 @@
 #include <QTimer>
 
 #include "AppSettings.h"
-#include "CommandPersistence.h"
 
 class BTDeviceEars::Private {
 public:
@@ -36,8 +35,6 @@ public:
     QString version{"(unknown)"};
     int batteryLevel{0};
     ListenMode listenMode{ListenModeOff};
-
-    QMap<QString, QString> commandShorthands;
 
     QString currentCall;
     QString currentSubCall;
@@ -145,24 +142,7 @@ public:
                 //}
             }
             else if (stateResult[0] == QLatin1String{"VER"}) {
-                CommandPersistence persistence;
-                QString data;
-                QFile file(QString{":/commands/eargear-base.crumpet"});
-                if(file.open(QIODevice::ReadOnly)) {
-                    data = file.readAll();
-                }
-                else {
-                    qWarning() << "Failed to open the included resource containing eargear base commands, this is very much not a good thing";
-                }
-                file.close();
-                persistence.deserialize(data);
-                for (const CommandInfo &command : persistence.commands()) {
-                    q->commandModel->addCommand(command);
-                }
-                for (const CommandShorthand& shorthand : persistence.shorthands()) {
-                    commandShorthands[shorthand.command] = shorthand.expansion.join(QChar{';'});
-                }
-
+                q->reloadCommands();
                 version = newValue;
                 emit q->versionChanged(newValue);
                 q->setListenMode(listenMode);
@@ -419,6 +399,7 @@ void BTDeviceEars::disconnectDevice()
         d->batteryService = nullptr;
     }
     commandModel->clear();
+    commandShorthands.clear();
 //     emit commandModelChanged();
 //     commandQueue->clear(); // FIXME Clear commands for this device only
 //     emit commandQueueChanged();
@@ -477,8 +458,8 @@ void BTDeviceEars::setListenMode(const ListenMode& listenMode)
 void BTDeviceEars::sendMessage(const QString &message)
 {
     QString actualMessage{message};
-    if (d->commandShorthands.contains(message)) {
-        actualMessage = d->commandShorthands[message];
+    if (commandShorthands.contains(message)) {
+        actualMessage = commandShorthands[message];
     }
 
     if (d->earsCommandWriteCharacteristic.isValid() && d->earsService) {
@@ -493,4 +474,9 @@ void BTDeviceEars::sendMessage(const QString &message)
         d->currentCall = message;
         emit currentCallChanged(message);
     }
+}
+
+QStringList BTDeviceEars::defaultCommandFiles() const
+{
+    return QStringList{QLatin1String{":/commands/eargear-base.crumpet"}};
 }
