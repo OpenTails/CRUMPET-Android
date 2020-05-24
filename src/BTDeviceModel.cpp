@@ -53,7 +53,7 @@ BTDeviceModel::BTDeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private(this))
 {
-    d->fakeDevice = new BTDeviceFake(QBluetoothDeviceInfo(QBluetoothUuid(QString("FA:KE:TA:IL")), QString("FAKE"), 0), this);
+    d->fakeDevice = new BTDeviceFake(QBluetoothDeviceInfo(QBluetoothAddress(QString("FA:KE:TA:IL")), QString("FAKE"), 0), this);
 }
 
 BTDeviceModel::~BTDeviceModel()
