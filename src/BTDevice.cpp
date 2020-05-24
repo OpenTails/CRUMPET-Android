@@ -18,6 +18,7 @@
 #include "BTDevice.h"
 
 #include <QCoreApplication>
+#include <QSettings>
 #include <QTimer>
 
 #include "AppSettings.h"
@@ -47,6 +48,16 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     timer->setSingleShot(true);
     connect(timer, &QTimer::timeout, this, [this](){ Q_EMIT activeCommandTitlesChanged(activeCommandTitles()); });
     connect(commandModel, &QAbstractItemModel::dataChanged, this, [timer](const QModelIndex& /*topLeft*/, const QModelIndex& /*bottomRight*/, const QVector< int >& /*roles*/){ timer->start(); });
+
+    QSettings settings;
+    d->enabledCommandsFiles = settings.value(QString{"enabledCommandFiles-%1"}.arg(info.address().toString())).toStringList();
+    connect(this, &BTDevice::enabledCommandsFilesChanged, this, [this](){
+        // save command files back to settings
+        QSettings settings;
+        settings.setValue(QString{"enabledCommandFiles-%1"}.arg(deviceInfo.address().toString()), d->enabledCommandsFiles);
+        settings.sync();
+    });
+    emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
 }
 
 BTDevice::~BTDevice()
@@ -98,7 +109,6 @@ QStringList BTDevice::enabledCommandsFiles() const
 
 void BTDevice::setCommandsFileEnabledState(const QString& filename, bool enabled)
 {
-    qDebug() << Q_FUNC_INFO << filename << enabled;
     if (enabled && !d->enabledCommandsFiles.contains(filename)) {
         d->enabledCommandsFiles.append(filename);
         emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
