@@ -189,7 +189,7 @@ bool CommandPersistence::write()
             file.close();
         }
         else {
-            d->reportError(QLatin1String{"Could not open the file %1 for writing"}.arg(pathName));
+            d->reportError(QString{"Could not open the file %1 for writing"}.arg(pathName));
         }
     }
     return keepgoing;
