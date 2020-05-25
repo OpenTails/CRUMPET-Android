@@ -229,18 +229,12 @@ Cloning is done as in a usual Linux situation (see above), but your build steps 
 ```
 mkdir build
 cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.13.1/android_armv7 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
+cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/kdeandroid-deps -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
 make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
 cd ..
 make create-apk-digitail ARGS="--android-platform android-26"
-```
-
-Note that if you are building for 64bit Android, you will need to tell cmake this as well (by pointing at the correct version of the Qt framework), like so:
-
-```
-cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.13.1/android_aarch64 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
 ```
 
 Once this final command completes, you should hopefully have an apk in `/home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk` (or where ever else you created your clone).
