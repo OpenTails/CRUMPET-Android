@@ -132,7 +132,8 @@ Kirigami.ScrollablePage {
                 id: contentEditor;
                 width: component.width - Kirigami.Units.largeSpacing * 4;
                 Layout.fillHeight: true;
-                text: "(this is where the content of the crumpet file goes,\nbecause we'll just have that here for now...)"
+                text: "(this is where the content of the crumpet file goes,\nbecause we'll just have that here for now...)";
+                selectByMouse: true;
             }
         }
     }
