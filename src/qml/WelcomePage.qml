@@ -146,6 +146,7 @@ Kirigami.ScrollablePage {
             }
             Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
             Kirigami.AbstractCard {
+                visible: opacity > 0;
                 opacity: BTConnectionManager.isConnected ? 1 : 0;
                 Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                 Layout.fillWidth: true;
@@ -205,6 +206,7 @@ Kirigami.ScrollablePage {
             }
             Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
             Kirigami.AbstractCard {
+                visible: opacity > 0;
                 opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
                 Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                 Layout.fillWidth: true;
