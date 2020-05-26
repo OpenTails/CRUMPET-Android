@@ -19,10 +19,10 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.5 as Kirigami
+import org.kde.kirigami 2.7 as Kirigami
 import org.thetailcompany.digitail 1.0
 
-Kirigami.Card {
+Kirigami.AbstractCard {
     id: root;
     visible: opacity > 0
     opacity: BTConnectionManager.isConnected ? 0 : 1;
@@ -57,7 +57,7 @@ Kirigami.Card {
                 top: parent.top;
                 right: parent.right;
             }
-            height: parent.height - 2 * Kirigami.Units.smallSpacing;
+            height: parent.height;
             width: height;
             opacity: running;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
