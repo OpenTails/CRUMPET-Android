@@ -16,7 +16,7 @@
             "Duration": 11530,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Slow Wag 1"
+            "Name": "One"
         },
         {
             "Category": "relaxed",
@@ -24,7 +24,7 @@
             "Duration": 7100,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Slow Wag 2"
+            "Name": "Two"
         },
         {
             "Category": "relaxed",
@@ -32,7 +32,7 @@
             "Duration": 8500,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Slow Wag 3"
+            "Name": "Three"
         },
         {
             "Category": "excited",
