@@ -21,6 +21,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
 import QtQuick.Layouts 1.11
+import org.thetailcompany.digitail 1.0
 
 Kirigami.ScrollablePage {
     id: root;
@@ -77,8 +78,27 @@ Kirigami.ScrollablePage {
             headerText: qsTr("Gear Commands");
             descriptionText: qsTr("While the app ships with a number of command sets out of the box, this is not all that your gear can do. You can modify what is sent to your gear, and we'll remember for each of them which commands you want to use. To be able to more easily use this, make sure to give your gear a name, so you can tell them apart more easily.");
             footer: ColumnLayout {
+                QQC2.CheckBox {
+                    id: showOnlyConnectedGear;
+                    text: qsTr("Only Show Connected Gear");
+                    FilterProxyModel {
+                        id: onlyConnectedFilterProxy;
+                        sourceModel: DeviceModel;
+                        filterRole: 262; // the isConnected role
+                        filterBoolean: true;
+                    }
+                }
+                Kirigami.BasicListItem {
+                    visible: gearCommandsRepeater.count === 0;
+                    Layout.fillWidth: true;
+                    icon: ":/images/moves.svg";
+                    separatorVisible: false;
+                    label: qsTr("No gear to configure...");
+                    enabled: false;
+                }
                 Repeater {
-                    model: DeviceModel;
+                    id: gearCommandsRepeater;
+                    model: showOnlyConnectedGear.checked ? onlyConnectedFilterProxy : DeviceModel;
                     delegate: Kirigami.BasicListItem {
                         Layout.fillWidth: true;
                         icon: ":/images/moves.svg";
