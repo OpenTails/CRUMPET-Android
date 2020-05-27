@@ -155,7 +155,9 @@ int appMain(int argc, char *argv[])
     });
     permissionsManager->requestPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
 
-    QObject::connect(engine.rootObjects().first(), &QObject::destroyed, [&btConnectionManagerReplica,&settingsReplica,repNode](){
+    bool settingsReplicaDestroyed{false};
+    QObject::connect(settingsReplica.data(), &QObject::destroyed, [&settingsReplicaDestroyed](){ settingsReplicaDestroyed = true; });
+    QObject::connect(engine.rootObjects().first(), &QObject::destroyed, btConnectionManagerReplica.data(), [&btConnectionManagerReplica,&settingsReplica,&settingsReplicaDestroyed,repNode](){
         if(!btConnectionManagerReplica->isConnected()) {
             // Not connected, so kill the service
 #ifdef Q_OS_ANDROID
@@ -165,7 +167,9 @@ int appMain(int argc, char *argv[])
                                                 "(Landroid/content/Context;)V",
                                                 QtAndroid::androidActivity().object());
 #else
-            settingsReplica->shutDownService();
+            if (!settingsReplicaDestroyed) {
+                settingsReplica->shutDownService();
+            }
             QCoreApplication::processEvents(); // Actually let the replicant respond to our request...
 #endif
         }
