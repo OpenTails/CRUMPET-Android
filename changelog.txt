@@ -1,3 +1,10 @@
+0.0.15
+- The DIGITAiL App is now Crumpet, and no longer controls only DIGITAiLs
+- Initial support for EarGear, so it's ready for when yours arrive
+- De-tailify the wording of the app, all your Tail Company appendages are now called gear
+- Add basic crumpet file support (for defining your own moves and such)
+- A variety of little visual updates throughout, including updated Kirigami
+
 0.0.14:
 - Ensure device versions on About are correct
 - Ensure name on Connect button is correct
