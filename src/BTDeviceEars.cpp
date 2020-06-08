@@ -468,6 +468,10 @@ void BTDeviceEars::sendMessage(const QString &message)
             d->callQueue = actualMessage.split(';');
             actualCall = d->callQueue.takeFirst();
         }
+        if (actualMessage != message) {
+            // As we're translating, we need to manually set this message as running and not trust the device to tell us
+            commandModel->setRunning(message, true);
+        }
 
         d->currentSubCall = actualCall;
         d->earsService->writeCharacteristic(d->earsCommandWriteCharacteristic, actualCall.toUtf8());
