@@ -18,6 +18,7 @@
 #include "TailCommandModel.h"
 
 #include <QDebug>
+#include <QTimer>
 #include <QRandomGenerator>
 
 class TailCommandModel::Private
@@ -27,6 +28,7 @@ public:
     ~Private() {}
 
     CommandInfoList commands;
+    QHash<QString,QTimer*> commandDeactivators;
 };
 
 TailCommandModel::TailCommandModel(QObject* parent)
@@ -157,6 +159,30 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
                         dataChanged(idx2, idx2, QVector<int>() << TailCommandModel::IsAvailable);
                     }
                 }
+            }
+            if (isRunning) {
+                // Hackery hacky time - if we end up running for longer than we're supposed to,
+                // assume that we missed something, and set ourselves available again.
+                // Also, we may end up in a situation where we have, in fact, been activated
+                // and deactivated correctly. In that case, let's not deactivate things we need
+                // to keep active. This could be done above, but keeping the code together feels
+                // simpler for future maintenance.
+                QTimer *timer = d->commandDeactivators[theCommand.command];
+                if (!timer) {
+                    timer = new QTimer(this);
+                    d->commandDeactivators[theCommand.command] = timer;
+                    timer->setSingleShot(true);
+                    timer->setInterval(theCommand.duration + theCommand.minimumCooldown);
+                    connect(timer, &QTimer::timeout, this, [this,&theCommand,timer]() {
+                        if (theCommand.isRunning) {
+                            qDebug() << "Automatically deactivating the following command - for some reason we seem to have missed the device ending the command." << theCommand.command;
+                            setRunning(theCommand.command, false);
+                        }
+                        d->commandDeactivators.remove(theCommand.command);
+                        timer->deleteLater();
+                    } );
+                }
+                timer->start();
             }
             break;
         }
