@@ -1,8 +1,8 @@
 [submodule "3rdparty/kirigami"]
 	path = 3rdparty/kirigami
-	url = git://anongit.kde.org/kirigami.git
+	url = https://invent.kde.org/frameworks/kirigami.git
 	branch = master
 [submodule "3rdparty/breeze-icons"]
 	path = 3rdparty/breeze-icons
-	url = git://anongit.kde.org/breeze-icons.git
+	url = https://invent.kde.org/frameworks/breeze-icons.git
 	branch = master
