@@ -97,6 +97,86 @@
             "Group": 0,
             "MinimumCooldown": 1000,
             "Name": "High Wag"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Hewo (L)",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Hewo (left)"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Hewo (R)",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Hewo (right)"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Hewo (Both)",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Hewo (Both)"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Confused",
+            "Duration": 500,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Confused"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "ZigZag (L)",
+            "Duration": 1500,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "ZigZag (Left)"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "ZigZag (R)",
+            "Duration": 1500,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "ZigZag (Right)"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Eltwisto",
+            "Duration": 500,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Eltwisto"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Ritwisto",
+            "Duration": 500,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Ritwisto"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "R Flopper",
+            "Duration": 500,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "R Flopper"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "L Flopper",
+            "Duration": 500,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "L Flopper"
         }
     ],
     "Shorthands": [
@@ -147,6 +227,46 @@
         {
             "Command": "TAILEP",
             "Expansion": [ "LETWIST 25", "PAUSE 300", "EARHOME" ]
+        },
+        {
+            "Command": "Hewo (L)",
+            "Expansion": [ "LETILT 130", "PAUSE 1000", "LETILT 80" ]
+        },
+        {
+            "Command": "Hewo (R)",
+            "Expansion": [ "RITILT 130", "PAUSE 1000", "RITILT 80" ]
+        },
+        {
+            "Command": "Hewo (Both)",
+            "Expansion": [ "BOTILT 130", "PAUSE 1000", "BOTILT 80" ]
+        },
+        {
+            "Command": "Confused",
+            "Expansion": [ "BOTWIST 140" ]
+        },
+        {
+            "Command": "ZigZag (L)",
+            "Expansion": [ "LETILT 130",  "PAUSE 1000", "RITWIST 130", "RITILT 130" ]
+        },
+        {
+            "Command": "ZigZag (R)",
+            "Expansion": [ "LETWIST 130", "LETILT 130", "PAUSE 1000", "RITWIST 30", "RITILT 130" ]
+        },
+        {
+            "Command": "Eltwisto",
+            "Expansion": [ "LETWIST 30" ]
+        },
+        {
+            "Command": "Ritwisto",
+            "Expansion": [ "RITWIST 30" ]
+        },
+        {
+            "Command": "R Flopper",
+            "Expansion": [ "RITILT 130", "RITWIST 30" ]
+        },
+        {
+            "Command": "L Flopper",
+            "Expansion": [ "LITILT 130", "LETWIST 30" ]
         }
     ]
 }
