@@ -83,11 +83,14 @@ int appMain(int argc, char *argv[])
     qDebug() << "Service started, or already launched";
 #endif
 
-    QQmlApplicationEngine engine;
-    qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
-    KirigamiPlugin::getInstance().registerTypes();
     QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
     QIcon::setThemeName(QStringLiteral("breeze-internal"));
+
+    qInfo() << "Creating engine";
+    QQmlApplicationEngine engine;
+    qInfo() << "Registering Kirigami types";
+    KirigamiPlugin::getInstance().registerTypes(&engine);
+    qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
 
     QFile file(QLatin1String(":/gplv3-license-text"));
     if(file.open(QIODevice::ReadOnly)) {
