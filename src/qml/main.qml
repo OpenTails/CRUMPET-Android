@@ -20,7 +20,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 import org.thetailcompany.digitail 1.0
 
 Kirigami.ApplicationWindow {
@@ -203,6 +203,14 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: qsTr("Ear Poses");
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "earPoses";
+                icon.name: ":/images/earposes.svg";
+                onTriggered: {
+                    switchToPage(earPoses);
+                }
+            },
+            Kirigami.Action {
                 text: qsTr("Glow Tips");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailLights";
                 icon.name: ":/images/glowtip.svg";
@@ -222,7 +230,7 @@ Kirigami.ApplicationWindow {
                 text: qsTr("Developer Mode");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "developerModePage";
                 icon.name: "code-context";
-                visible: AppSettings.developerMode;
+                visible: AppSettings !== null ? AppSettings.developerMode : false;
 
                 onTriggered: {
                     if(!checked) {
@@ -292,6 +300,10 @@ Kirigami.ApplicationWindow {
     Component {
         id: tailLights;
         TailLights {}
+    }
+    Component {
+        id: earPoses;
+        EarPoses {}
     }
     Component {
         id: idleModePage;

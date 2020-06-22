@@ -19,7 +19,7 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.7 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-        right: (BTConnectionManager.isConnected && DeviceModel.rowCount() > 1) ? connectMoreAction : null
+        right: (BTConnectionManager.isConnected && DeviceModel !== null && DeviceModel.rowCount() > 1) ? connectMoreAction : null
     }
     property QtObject connectMoreAction: Kirigami.Action {
         text: qsTr("Connect More...");
@@ -71,6 +71,24 @@ Kirigami.ScrollablePage {
                         separatorVisible: false;
                         onClicked: {
                             switchToPage(tailMoves);
+                        }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: "go-next";
+                        }
+                    }
+                    Kirigami.BasicListItem {
+                        text: qsTr("Ear Poses");
+                        visible: opacity > 0;
+                        opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
+                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                        icon: ":/images/earposes.svg";
+                        separatorVisible: false;
+                        onClicked: {
+                            switchToPage(earPoses);
                         }
                         Kirigami.Icon {
                             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
@@ -167,7 +185,7 @@ Kirigami.ScrollablePage {
                             Layout.margins: Kirigami.Units.smallSpacing;
                             height: Kirigami.Units.iconSizes.small;
                             width: height;
-                            checked: AppSettings.idleMode;
+                            checked: AppSettings !== null ? AppSettings.idleMode : false;
                             onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
                         }
                 }
@@ -201,7 +219,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 contentItem: Loader {
-                    sourceComponent: AppSettings.idleMode === true ? idlePauseRangePicker : emptyNothing;
+                    sourceComponent: (AppSettings !== null && AppSettings.idleMode === true) ? idlePauseRangePicker : emptyNothing;
                 }
             }
             Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
