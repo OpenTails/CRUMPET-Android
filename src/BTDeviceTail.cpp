@@ -314,5 +314,12 @@ void BTDeviceTail::sendMessage(const QString &message)
         d->tailService->writeCharacteristic(d->tailCharacteristic, message.toUtf8());
         d->currentCall = message;
         emit currentCallChanged(message);
+
+        // It is unfortunate, but we actually need to do this, as we will occasionally run into situations where we cannot trust
+        // the tail to report correctly when a command starts and ends. In short, in stead of getting the expected "END commandname"
+        // and "BEGIN commandname" notifications, we will occasionally get both of those mashed together in a single notification
+        // which further doesn't quite have everything we need (due to the character limitation on btle values), so we have to
+        // do a little internal state tracking. A shame, but here we are, and we just need to deal with that.
+        commandModel->setRunning(message, true);
     }
 }
