@@ -118,7 +118,7 @@ bool CommandPersistence::deserialize(const QString& json)
         setCommands(commandsList);
     }
     else {
-        d->reportError(QString{"Failed to load your commands, due to a parsing error at %1: %2"}.arg(parseError.offset).arg(parseError.errorString()));
+        d->reportError(QString{"Failed to load your commands, due to a parsing error at %1: %2\nCode leading up to the error:\n%3"}.arg(parseError.offset).arg(parseError.errorString()).arg(json.midRef(qMax(0, parseError.offset - 50), 50)));
     }
     return keepgoing;
 }
