@@ -20,7 +20,7 @@ import QtQuick.Controls 2.4 as QQC2
 import QtQuick.Layouts 1.11
 import Qt.labs.calendar 1.0
 import QtQuick.Controls.Material 2.4
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.OverlaySheet {
     id: control

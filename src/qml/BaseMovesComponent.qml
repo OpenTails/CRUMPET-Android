@@ -21,7 +21,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-import org.kde.kirigami 2.5 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 import org.thetailcompany.digitail 1.0
 
 Item {
