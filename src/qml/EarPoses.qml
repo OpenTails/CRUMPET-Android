@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
     actions {
         main: Kirigami.Action {
             text: qsTr("Home Position");
-            icon.name: "dialog-cancel";
+            icon.name: "go-home";
             onTriggered: {
                 BTConnectionManager.sendMessage("TAILHM", []);
             }
