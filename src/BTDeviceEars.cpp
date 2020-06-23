@@ -166,6 +166,12 @@ public:
                     emit q->listenModeChanged();
                 }
             }
+            else if (currentCall == QLatin1String{"LISTEN IOS"} && theValue == QLatin1String{"DSSP END"}) {
+                // This is a hack for some firmware versions, which do not report
+                // their state correctly (sending instead a "DSSP END" message)
+                listenMode = ListenModeOn;
+                emit q->listenModeChanged();
+            }
             else if (theValue.startsWith(QLatin1String{"Noise diff:"})) {
                 if (listenMode != ListenModeFull) {
                     listenMode = ListenModeFull;
