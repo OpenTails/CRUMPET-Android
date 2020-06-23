@@ -1,3 +1,9 @@
+0.0.17
+- Add EarGear Poses, so you can position your ears in various ways without autohoming
+- Switch to a more obvious homing icon for the moves and poses pages
+- Fix issue where messages would occasionally get muddled up by a tail
+- Fix minor issue with listen mode
+
 0.0.16
 - Fix a visualisation issue where commands didn't look like they were active on EarGear
 - Fix an issue when commands ending was occasionally missed (requiring a reconnection)
