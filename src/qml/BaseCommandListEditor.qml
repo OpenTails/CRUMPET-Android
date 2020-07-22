@@ -26,6 +26,7 @@ Kirigami.ScrollablePage {
     id: control;
 
     property alias model: commandListView.model
+    property Item infoCardFooter: null;
 
     signal insertCommand(int insertAt, string command, variant destinations);
     signal removeCommand(int index, string command);
@@ -128,6 +129,7 @@ Kirigami.ScrollablePage {
         delegate: commandListDelegate;
         header: InfoCard {
             text: qsTr("This is your list of commands. It can include both moves, glows, and pauses. Tip: To add a new command underneath one you have in the list already, click the add actions shown when you swipe left on the items.");
+            footer: control.infoCardFooter
         }
     }
 

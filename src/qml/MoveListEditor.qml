@@ -17,6 +17,7 @@
  */
 
 import QtQuick 2.7
+import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
@@ -27,6 +28,17 @@ BaseCommandListEditor {
     objectName: "moveListEditor";
     title: moveListName;
     model: AppSettings.moveList
+    infoCardFooter: QQC2.Button {
+        text: qsTr("Run Move List")
+        Layout.fillWidth: true
+        onClicked: {
+            showMessageBox(qsTr("Run this list?"),
+                qsTr("Do you want to run this list?"),
+                function() {
+                    CommandQueue.pushCommands(AppSettings.moveList);
+                });
+        }
+    }
 
     onMoveListNameChanged: {
         AppSettings.setActiveMoveList(moveListName);

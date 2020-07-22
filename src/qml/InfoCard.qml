@@ -22,9 +22,11 @@ import org.kde.kirigami 2.13 as Kirigami
 Item {
     id: root;
     property alias text: infoCardText.text;
+    property alias footer: card.footer;
     width: parent.width;
     height: childrenRect.height + Kirigami.Units.largeSpacing * 3;
     Kirigami.Card {
+        id: card
         anchors {
             top: parent.top;
             left: parent.left;
