@@ -266,7 +266,7 @@
         },
         {
             "Command": "L Flopper",
-            "Expansion": [ "LITILT 130", "LETWIST 30" ]
+            "Expansion": [ "LETILT 130", "LETWIST 30" ]
         }
     ]
 }
