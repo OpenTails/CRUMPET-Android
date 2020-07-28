@@ -151,6 +151,19 @@ Kirigami.ApplicationWindow {
             clicksCount++;
         }
 
+        FilterProxyModel {
+            id: connectedDevicesModel
+            sourceModel: DeviceModel;
+            filterRole: 262; // the isConnected role
+            filterBoolean: true;
+        }
+        FilterProxyModel {
+            id: hasListeningModel;
+            sourceModel: connectedDevicesModel;
+            filterRole: 265; // the hasListening role
+            filterBoolean: true;
+        }
+
         Timer {
             id: clicksTimer;
             interval: 1500;
@@ -198,6 +211,7 @@ Kirigami.ApplicationWindow {
                 text: qsTr("Moves");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailMoves";
                 icon.name: ":/images/moves.svg";
+                visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(tailMoves);
                 }
@@ -206,6 +220,7 @@ Kirigami.ApplicationWindow {
                 text: qsTr("Ear Poses");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "earPoses";
                 icon.name: ":/images/earposes.svg";
+                visible: hasListeningModel.count > 0;
                 onTriggered: {
                     switchToPage(earPoses);
                 }
@@ -214,6 +229,7 @@ Kirigami.ApplicationWindow {
                 text: qsTr("Glow Tips");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailLights";
                 icon.name: ":/images/glowtip.svg";
+                visible: connectedDevicesModel.count > hasListeningModel.count;
                 onTriggered: {
                     switchToPage(tailLights);
                 }
@@ -222,6 +238,7 @@ Kirigami.ApplicationWindow {
                 text: qsTr("Casual Mode Settings");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
                 icon.name: ":/images/casualmode.svg";
+                visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(idleModePage);
                 }
