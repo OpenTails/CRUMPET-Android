@@ -67,6 +67,9 @@ Kirigami.ScrollablePage {
                 contentItem: ColumnLayout {
                     Kirigami.BasicListItem {
                         text: qsTr("Moves");
+                        visible: opacity > 0;
+                        opacity: connectedDevicesModel.count > 0 ? 1 : 0;
+                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                         icon: ":/images/moves.svg";
                         separatorVisible: false;
                         onClicked: {
@@ -100,6 +103,9 @@ Kirigami.ScrollablePage {
                     }
                     Kirigami.BasicListItem {
                         text: qsTr("Glow Tips");
+                        visible: opacity > 0;
+                        opacity: connectedDevicesModel.count > hasListeningDevicesRepeater.count ? 1 : 0;
+                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                         icon: ":/images/glowtip.svg";
                         separatorVisible: false;
                         onClicked: {
@@ -113,7 +119,7 @@ Kirigami.ScrollablePage {
                             source: "go-next";
                         }
                     }
-                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; visible: connectedDevicesModel.count > 0; }
                     Kirigami.BasicListItem {
                         text: qsTr("Alarm");
                         icon: ":/images/alarm.svg";
