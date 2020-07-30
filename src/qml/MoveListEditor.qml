@@ -47,4 +47,11 @@ BaseCommandListEditor {
     onInsertCommand: {
         AppSettings.addMoveListEntry(insertAt, command, destinations);
     }
+    onRemoveCommand: {
+        showMessageBox(qsTr("Remove Move List Entry?"),
+                        qsTr("Are you sure that you want to remove this entry from your move list?"),
+                        function () {
+                            AppSettings.removeMoveListEntry(index);
+                        });
+    }
 }
