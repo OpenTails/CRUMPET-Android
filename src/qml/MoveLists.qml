@@ -59,7 +59,7 @@ Kirigami.ScrollablePage {
                         pageStack.push(editorPage, { moveListName: modelData });
                     }
                 },
-                Kirigami.Action { },
+                Kirigami.Action { separator: true; enabled: false; },
                 Kirigami.Action {
                     text: qsTr("Delete this Move List");
                     icon.name: "list-remove";

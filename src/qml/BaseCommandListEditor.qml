@@ -110,7 +110,7 @@ Kirigami.ScrollablePage {
                     }
                 },
 
-                Kirigami.Action {},
+                Kirigami.Action { separator: true; enabled: false; },
 
                 Kirigami.Action {
                     text: qsTr("Remove from list");
