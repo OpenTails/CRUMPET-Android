@@ -162,7 +162,9 @@ Once you have cloned the source code, you will need a few bits of software to be
 - Extra Cmake Modules version 5.52 or later
 - Development packages for Qt version 5.11 or later
 
-For openSuse Tumbleweed, the following lines will install the packages you need:
+#### For openSUSE Tumbleweed:
+
+The following lines will install the packages you need:
 
 ```
 sudo zypper install --type pattern devel_C_C++ devel_qt5
@@ -170,7 +172,9 @@ sudo zypper install extra-cmake-modules
 sudo zypper install libQt5QuickControls2-devel libqt5-qtbase-private-headers-devel
 ```
 
-For Ubuntu you should install at least the following packages, but we could not to build the project at anyway:
+#### For Ubuntu Focal Fossa 
+
+You should install at least the following packages, but we could not to build the project at anyway:
 
 ```
 sudo apt-get install extra-cmake-modules qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev libqt5svg5-dev libqt5bluetooth5 qtconnectivity5-dev libqt5svg5-dev qtbase5-private-dev
