@@ -198,7 +198,7 @@ Once these have been installed, you are ready to build. You should always build 
 ```
 mkdir build
 cd build
-cmake ..
+cmake .. #For successfull CMake on Ubuntu 20.04 need to override ECM version in $HOME/DIGITAiL/3rdparty/kirigami/CMakeLists.txt as "find_package(ECM 5.68.0 NO_MODULE) #find_package(ECM 5.72.0 NO_MODULE)"
 make
 ```
 
