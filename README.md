@@ -177,6 +177,10 @@ sudo zypper install libQt5QuickControls2-devel libqt5-qtbase-private-headers-dev
 You should install at least the following packages, but we could not to build the project at anyway:
 
 ```
+sudo apt install g++ # Or [sudo apt install build-essential](https://wiki.qt.io/Install_Qt_5_on_Ubuntu)
+```
+
+```
 sudo apt install cmake
 ```
 
