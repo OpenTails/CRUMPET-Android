@@ -255,7 +255,6 @@ docker run -ti --rm -v $HOME/apks:/output -v $HOME/DIGITAiL:/DIGITAiL kdeorg/and
 Cloning is done as in a usual Linux situation (see above), but your build steps are a little bit more involved here:
 
 ```
-mkdir build
 cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/kdeandroid-deps -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
 make
