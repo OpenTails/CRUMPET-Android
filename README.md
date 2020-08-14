@@ -226,6 +226,13 @@ Building the Android APK is done most straightforwardly by using the pre-prepare
 To do so, run the following command for the 32bit docker
 
 ```
+sudo apt install docker.io
+sudo chmod 666 /var/run/docker.sock
+sudo chown $USER:$USER $HOME/apks
+sudo chmod 777 $HOME/apks
+```
+
+```
 docker run -ti --rm kdeorg/android-arm-sdk bash
 ```
 
