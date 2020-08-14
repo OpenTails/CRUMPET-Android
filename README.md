@@ -256,7 +256,15 @@ Cloning is done as in a usual Linux situation (see above), but your build steps 
 
 ```
 cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/kdeandroid-deps -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../export -DQTANDROID_EXPORTED_TARGET=digitail -DANDROID_APK_DIR=../data -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so ..
+cmake \
+-DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake \
+-DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.13.2 \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_INSTALL_PREFIX=../export \
+-DQTANDROID_EXPORTED_TARGET=digitail \
+-DANDROID_APK_DIR=/DIGITAiL/data \
+-DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so \
+/DIGITAiL
 make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
