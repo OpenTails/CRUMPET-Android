@@ -276,7 +276,7 @@ Once this final command completes, you should hopefully have an apk in `/home/us
 
 If you added the `-v` bit to your docker command, then you can copy that file to your local machine by doing e.g.
 
-`cp /home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk /output`
+`cp $HOME/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk /output/`
 
 and then looking in your apks folder using whatever method you usually use.
 
