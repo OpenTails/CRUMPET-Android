@@ -177,8 +177,17 @@ sudo zypper install libQt5QuickControls2-devel libqt5-qtbase-private-headers-dev
 You should install at least the following packages, but we could not to build the project at anyway:
 
 ```
-sudo apt-get install extra-cmake-modules qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev libqt5svg5-dev libqt5bluetooth5 qtconnectivity5-dev libqt5svg5-dev qtbase5-private-dev
+sudo apt install cmake
 ```
+
+```
+sudo apt install extra-cmake-modules # ECM
+```
+
+```
+sudo apt install sudo apt install qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev libqt5svg5-dev libqt5bluetooth5 qtconnectivity5-dev libqt5svg5-dev qtbase5-private-dev
+```
+
 
 Once these have been installed, you are ready to build. You should always build software out-of-source, which means creating a directory somewhere and performing the actual building there. Enter the clone directory as created above by the clone command. Unless you have moved around the filesystem, you should already be in the directory containing the source code.
 
