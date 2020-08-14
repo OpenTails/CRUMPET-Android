@@ -189,7 +189,7 @@ sudo apt install extra-cmake-modules # ECM
 ```
 
 ```
-sudo apt install sudo apt install qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev libqt5svg5-dev libqt5bluetooth5 qtconnectivity5-dev libqt5svg5-dev qtbase5-private-dev libqt5remoteobjects5-dev libqt5remoteobjects5-bin
+sudo apt install qtbase5-dev qtdeclarative5-dev qtmultimedia5-dev qtquickcontrols2-5-dev libqt5svg5-dev libqt5bluetooth5 qtconnectivity5-dev libqt5svg5-dev qtbase5-private-dev libqt5remoteobjects5-dev libqt5remoteobjects5-bin
 ```
 
 
