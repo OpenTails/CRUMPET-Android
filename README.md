@@ -135,7 +135,7 @@ Building the app is a multi step process, so please make sure you do the steps i
 To clone the repository, you must also remember to clone the submodules. Using the git command line this would be done like so:
 
 ```
-git clone --recursive (clone URL goes here)
+git clone --recursive (clone URL goes here) $HOME/DIGITAiL
 ```
 
 If you have already cloned the repository before reading this, you will need to initialise the submodules. Again using the command line, this would be done like so:
