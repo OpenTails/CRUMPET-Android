@@ -132,10 +132,10 @@ Building the app is a multi step process, so please make sure you do the steps i
 
 ## Getting The Source
 
-To clone the repository, you must also remember to clone the submodules. Using the git command line this would be done like so:
+To clone the [repository](https://github.com/MasterTailer/CRUMPET.git), you must also remember to clone the submodules. Using the git command line this would be done like so:
 
 ```
-git clone --recursive [(clone URL goes here)](https://github.com/MasterTailer/CRUMPET.git) $HOME/DIGITAiL
+git clone --recursive (repository URL goes here) $HOME/DIGITAiL
 ```
 
 If you have already cloned the repository before reading this, you will need to initialise the submodules. Again using the command line, this would be done like so:
@@ -159,8 +159,8 @@ Once you have cloned the source code, you will need a few bits of software to be
 
 - Basic C++ building tools
 - CMake 3.2 or later
-- Extra Cmake Modules version 5.52 or later
-- Development packages for Qt version 5.11 or later
+- Extra Cmake Modules version 5.68 for [KDE/kirigami](https://github.com/KDE/kirigami) or later
+- Development packages for [Qt](https://wiki.qt.io/Install_Qt_5_on_Ubuntu) version 5.12 or later
 
 #### For openSUSE Tumbleweed:
 
@@ -177,7 +177,7 @@ sudo zypper install libQt5QuickControls2-devel libqt5-qtbase-private-headers-dev
 You should install at least the following packages, but we could not to build the project at anyway:
 
 ```
-sudo apt install g++ # Or [sudo apt install build-essential](https://wiki.qt.io/Install_Qt_5_on_Ubuntu)
+sudo apt install g++ # or sudo apt install build-essential
 ```
 
 ```
