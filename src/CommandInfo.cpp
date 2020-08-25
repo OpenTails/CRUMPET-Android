@@ -31,28 +31,28 @@ CommandInfo::CommandInfo(const CommandInfo& other)
     , isAvailable(other.isAvailable)
 { }
 
-CommandInfo::CommandInfo(CommandInfo && other)
-    : name(other.name)
-    , command(other.command)
-    , category(other.category)
-    , duration(other.duration)
-    , minimumCooldown(other.minimumCooldown)
-    , group(other.group)
-    , isRunning(other.isRunning)
-    , isAvailable(other.isAvailable)
+CommandInfo::CommandInfo(CommandInfo && other) noexcept
+    : name(std::move(other.name))
+    , command(std::move(other.command))
+    , category(std::move(other.category))
+    , duration(std::move(other.duration))
+    , minimumCooldown(std::move(other.minimumCooldown))
+    , group(std::move(other.group))
+    , isRunning(std::move(other.isRunning))
+    , isAvailable(std::move(other.isAvailable))
 {
 }
 
-CommandInfo& CommandInfo::operator=(CommandInfo && other)
+CommandInfo& CommandInfo::operator=(CommandInfo && other) noexcept
 {
-    name = other.name;
-    command = other.command;
-    category = other.category;
-    duration = other.duration;
-    minimumCooldown = other.minimumCooldown;
-    group = other.group;
-    isRunning = other.isRunning;
-    isAvailable = other.isAvailable;
+    name = std::move(other.name);
+    command = std::move(other.command);
+    category = std::move(other.category);
+    duration = std::move(other.duration);
+    minimumCooldown = std::move(other.minimumCooldown);
+    group = std::move(other.group);
+    isRunning = std::move(other.isRunning);
+    isAvailable = std::move(other.isAvailable);
     return *this;
 }
 
