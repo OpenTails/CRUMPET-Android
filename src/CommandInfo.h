@@ -24,9 +24,9 @@ class CommandInfo {
 public:
     CommandInfo();
     CommandInfo(const CommandInfo& other);
-    CommandInfo(CommandInfo&& other);
+    CommandInfo(CommandInfo&& other) noexcept;
     CommandInfo& operator=(const CommandInfo& other);
-    CommandInfo& operator=(CommandInfo&& other);
+    CommandInfo& operator=(CommandInfo&& other) noexcept;
     ~CommandInfo();
 
     QString name;
