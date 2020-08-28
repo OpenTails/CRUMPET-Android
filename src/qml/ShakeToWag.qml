@@ -38,6 +38,9 @@ Kirigami.ScrollablePage {
             goButton.text = qsTr(isReadingMode ? "Stop": "Start");
 
             if (isReadingMode) {
+
+                movementStatus.text = qsTr("make a move");
+
                 accelerometer_x_values = [];
                 accelerometer_y_values = [];
                 accelerometer_z_values = [];
@@ -46,6 +49,7 @@ Kirigami.ScrollablePage {
                 gyroscope_y_values = [];
                 gyroscope_z_values = [];
             } else {
+                movementStatus.text = qsTr("Analyzing...");
                 //todo: analyze values
             }
 
@@ -55,6 +59,7 @@ Kirigami.ScrollablePage {
     }
 
     Column {
+        anchors.horizontalCenter: parent.horizontalCenter
         Text {
             id: accelerometerData
             text: "Accelerometer: x: 0, y: 0, z: 0";
@@ -63,6 +68,13 @@ Kirigami.ScrollablePage {
         Text {
             id: gyroscopeData
             text: "Gyroscope: x: 0, y: 0, z: 0";
+        }
+
+        Text {
+            id: movementStatus;
+            text: qsTr("Press start");
+            font.pointSize: 36;
+            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 
