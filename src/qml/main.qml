@@ -311,6 +311,10 @@ Kirigami.ApplicationWindow {
         MoveLists {}
     }
     Component {
+        id: shakeToWag;
+        ShakeToWag {}
+    }
+    Component {
         id: tailMoves;
         TailMoves {}
     }

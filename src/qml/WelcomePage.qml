@@ -150,6 +150,22 @@ Kirigami.ScrollablePage {
                             source: "go-next";
                         }
                     }
+                    Kirigami.BasicListItem {
+                        text: qsTr("Shake To Wag");
+                        //todo: set a separate icon for the "Shake to Wag" button
+                        icon: ":/images/movelist.svg";
+                        separatorVisible: false;
+                        onClicked: {
+                            switchToPage(shakeToWag);
+                        }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                            Layout.margins: Kirigami.Units.smallSpacing;
+                            width: Kirigami.Units.iconSizes.small;
+                            height: width;
+                            source: "go-next";
+                        }
+                    }
 //                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
 //                     Kirigami.BasicListItem {
 //                         text: qsTr("Poses");
