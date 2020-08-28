@@ -50,7 +50,89 @@ Kirigami.ScrollablePage {
                 gyroscope_z_values = [];
             } else {
                 movementStatus.text = qsTr("Analyzing...");
-                //todo: analyze values
+
+                var minX = 0;
+                var maxX = 0;
+                var minY = 0;
+                var maxY = 0;
+                var minZ = 0;
+                var maxZ = 0;
+
+                var minAmpl = 0;
+                var maxAmpl = 0;
+
+                var count = gyroscope_x_values.length;
+                for (var i = 0; i < count; i++) {
+                    if (gyroscope_x_values[i] <= minX) {
+                        minX = gyroscope_x_values[i];
+                    } else {
+                        maxX = gyroscope_x_values[i];
+                    }
+
+                    if (gyroscope_y_values[i] <= minY) {
+                        minY = gyroscope_y_values[i];
+                    } else {
+                        maxY = gyroscope_y_values[i];
+                    }
+
+                    if (gyroscope_z_values[i] <= minZ) {
+                        minZ = gyroscope_z_values[i];
+                    } else {
+                        maxZ = gyroscope_z_values[i];
+                    }
+                }
+
+                var amplitudeX = maxX - minX;
+                var amplitudeY = maxY - minY;
+                var amplitudeZ = maxZ - minZ;
+
+                minAmpl = Math.min(amplitudeX, amplitudeY, amplitudeZ);
+                maxAmpl = Math.max(amplitudeX, amplitudeY, amplitudeZ);
+
+                amplitudeGyroscopeData.text = "Amplitude gyroscope: x: " + Math.round(amplitudeX) + ", y: " + Math.round(amplitudeY) + ", z: " + Math.round(amplitudeZ);
+
+                if (maxAmpl - minAmpl > 700) {
+                    movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a Jump";
+                } else {
+                    movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a Shake";
+                }
+
+                minX = 0;
+                maxX = 0;
+                minY = 0;
+                maxY = 0;
+                minZ = 0;
+                maxZ = 0;
+
+                count = accelerometer_x_values.length;
+                for (var i = 0; i < count; i++) {
+                    if (accelerometer_x_values[i] <= minX) {
+                        minX = accelerometer_x_values[i];
+                    } else {
+                        maxX = accelerometer_x_values[i];
+                    }
+
+                    if (accelerometer_y_values[i] < minY) {
+                        minY = accelerometer_y_values[i];
+                    } else {
+                        maxY = accelerometer_y_values[i];
+                    }
+
+                    if (accelerometer_z_values[i] < minZ) {
+                        minZ = accelerometer_z_values[i];
+                    } else {
+                        maxZ = accelerometer_z_values[i];
+                    }
+                }
+
+                amplitudeX = maxX - minX;
+                amplitudeY = maxY - minY;
+                amplitudeZ = maxZ - minZ;
+
+                minAmpl = Math.min(amplitudeX, amplitudeY, amplitudeZ);
+                maxAmpl = Math.max(amplitudeX, amplitudeY, amplitudeZ);
+
+                amplitudeAccelerometerData.text = "Amplitude accelerometer: x: " + Math.round(amplitudeX) + ", y: " + Math.round(amplitudeY) + ", z: " + Math.round(amplitudeZ);
             }
 
             //todo: trigger a bluetooth command
@@ -68,6 +150,15 @@ Kirigami.ScrollablePage {
         Text {
             id: gyroscopeData
             text: "Gyroscope: x: 0, y: 0, z: 0";
+        }
+        Text {
+            id: amplitudeAccelerometerData
+            text: "Amplitude Accelerometer: x: 0, y: 0, z: 0";
+        }
+
+        Text {
+            id: amplitudeGyroscopeData
+            text: "Amplitude Gyroscope: x: 0, y: 0, z: 0";
         }
 
         Text {
