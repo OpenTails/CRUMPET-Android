@@ -77,12 +77,12 @@ Kirigami.ScrollablePage {
 
     ToggleButton {
         id: goButton;
-        text: qsTr("Start");
+        text: qsTr("GO");
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         onClicked: function() {
             isReadingMode = goButton.checked;
-            goButton.text = qsTr(isReadingMode ? "Stop": "Start");
+            goButton.text = qsTr(isReadingMode ? "STOP": "GO");
 
             if (isReadingMode) {
                 movementStatus.text = qsTr("make a move");
