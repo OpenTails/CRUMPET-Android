@@ -37,6 +37,9 @@ public:
 
     QString deviceID() const override;
 
+    public slots:
+    void onConnectedChanged(bool isConnected);
+
     void sendMessage(const QString &message) override;
 private:
     class Private;
