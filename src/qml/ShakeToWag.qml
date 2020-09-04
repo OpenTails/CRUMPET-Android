@@ -94,9 +94,9 @@ Kirigami.ScrollablePage {
                 movementStatus.text = qsTr("Analyzing...");
                 var movement = recognizeMovement();
                 if (movement == "Jump") {
-                    BTConnectionManager.sendMessage("TAILU2", []);
+                    BTConnectionManager.sendMessage("TAILER", []);
                 } else if (movement == "Shake") {
-                    BTConnectionManager.sendMessage("TAILU1", []);
+                    BTConnectionManager.sendMessage("TAILS1", []);
                 }
 
                 movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a " + movement;
