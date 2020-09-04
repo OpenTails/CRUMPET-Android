@@ -37,8 +37,9 @@ public:
 
     QString deviceID() const override;
 
-    public slots:
-    void onConnectedChanged(bool isConnected);
+// Temporarily commented out
+//    public slots:
+//    void onConnectedChanged(bool isConnected);
 
     void sendMessage(const QString &message) override;
 private:
