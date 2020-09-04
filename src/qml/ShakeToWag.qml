@@ -66,7 +66,8 @@ Kirigami.ScrollablePage {
         minAmpl = Math.min(amplitudeX, amplitudeY, amplitudeZ);
         maxAmpl = Math.max(amplitudeX, amplitudeY, amplitudeZ);
 
-        amplitudeGyroscopeData.text = "Amplitude gyroscope: x: " + Math.round(amplitudeX) + ", y: " + Math.round(amplitudeY) + ", z: " + Math.round(amplitudeZ);
+        //temporarily commented out
+        //amplitudeGyroscopeData.text = "Amplitude gyroscope: x: " + Math.round(amplitudeX) + ", y: " + Math.round(amplitudeY) + ", z: " + Math.round(amplitudeZ);
 
         if (maxAmpl - minAmpl > 700) {
             return "Jump";
@@ -106,20 +107,21 @@ Kirigami.ScrollablePage {
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
 
-        Text {
-            id: gyroscopeData
-            text: "Gyroscope: x: 0, y: 0, z: 0";
-        }
+//temporarily commented out
+//        Text {
+//            id: gyroscopeData
+//            text: "Gyroscope: x: 0, y: 0, z: 0";
+//        }
 
-        Text {
-            id: amplitudeGyroscopeData
-            text: "Amplitude Gyroscope: x: 0, y: 0, z: 0";
-        }
+//        Text {
+//            id: amplitudeGyroscopeData
+//            text: "Amplitude Gyroscope: x: 0, y: 0, z: 0";
+//        }
 
-        Text {
-            id: vectorChangesData
-            text: "Vector Changes: x: 0, y: 0, z: 0";
-        }
+//        Text {
+//            id: vectorChangesData
+//            text: "Vector Changes: x: 0, y: 0, z: 0";
+//        }
 
         Text {
             id: movementStatus;
@@ -127,6 +129,31 @@ Kirigami.ScrollablePage {
             font.pointSize: 36;
             anchors.horizontalCenter: parent.horizontalCenter
         }
+
+//temporarily commented out
+//        Row {
+//            Text {
+//                text: qsTr("Action:")
+//            }
+
+//            ComboBox {
+//                id: action
+//                width: 150
+//                model: ["Jump", "Shake"]
+//            }
+//        }
+
+//        Row {
+//            Text {
+//                text: qsTr("Move:")
+//            }
+
+//            ComboBox {
+//                id: move
+//                width: 150
+//                model: ["SLOW_WAG1", "SLOW_WAG2", "SLOW_WAG3", "FAST_WAG", "SHORT_WAG", "HAPPY_WAG", "ERECT", "ERECT_PULSE", "TREMBLE1", "TREMBLE2", "ERECT_TREM"]
+//            }
+//        }
     }
 
     Gyroscope {
@@ -147,7 +174,8 @@ Kirigami.ScrollablePage {
                 console.log("y: ", y);
                 console.log("z: ", z);
 
-                gyroscopeData.text = "Gyroscope: x: " + Math.round(x) + ", y: " + Math.round(y) + ", z: " + Math.round(z);
+                //temporarily commented out
+                //gyroscopeData.text = "Gyroscope: x: " + Math.round(x) + ", y: " + Math.round(y) + ", z: " + Math.round(z);
             }
         }
     }
