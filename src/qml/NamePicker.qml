@@ -44,7 +44,7 @@ Kirigami.OverlaySheet {
     footer: QQC2.Button {
         id: buttonOk;
         width: parent.width;
-        enabled: enteredName.text.length;
+        enabled: (enteredName.preeditText + enteredName.text).length;
 
         onClicked: {
             control.namePicked(enteredName.text);
