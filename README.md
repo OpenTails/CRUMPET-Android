@@ -208,6 +208,9 @@ You may also notice some warnings during the CMake configuration step about poli
 
 Once the make command has completed successfully, you should find yourself with a binary named digital inside the src subdirectory of your build directory. As the app is split into two (a service part and the visible app which controls that service), you can run this by running the following two commands, each in their separate shell:
 
+
+These are runtime requirements:
+
 ```
 sudo apt install qml-module-qt-labs-calendar qml-module-qtmultimedia
 ```
