@@ -86,7 +86,7 @@ Kirigami.ScrollablePage {
             goButton.text = qsTr(isReadingMode ? "STOP": "GO");
 
             if (isReadingMode) {
-                movementStatus.text = qsTr("make a move");
+                movementStatus.text = qsTr("Make a move");
                 gyroscope_x_values = [];
                 gyroscope_y_values = [];
                 gyroscope_z_values = [];
@@ -125,7 +125,6 @@ Kirigami.ScrollablePage {
 
         Text {
             id: movementStatus;
-            text: qsTr("Press start");
             font.pointSize: 36;
             anchors.horizontalCenter: parent.horizontalCenter
         }
