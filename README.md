@@ -174,7 +174,7 @@ sudo zypper install libQt5QuickControls2-devel libqt5-qtbase-private-headers-dev
 
 #### For Ubuntu Focal Fossa 
 
-You should install at least the following packages, but we could not to build the project at anyway:
+You should install at least the following packages:
 
 ```
 sudo apt install g++ # or sudo apt install build-essential
