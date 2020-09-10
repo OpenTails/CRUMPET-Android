@@ -44,6 +44,11 @@ Kirigami.OverlaySheet {
     footer: QQC2.Button {
         id: buttonOk;
         width: parent.width;
+
+        // The check below is done to ensure we do not have to wait for the text to be accepted
+        // before enabling the button. The text will still be entered, but both need to be checked
+        // to ensure the expected behaviour (as the actual text does not get entered until the
+        // text box loses focus or the input is accepted).
         enabled: (enteredName.preeditText + enteredName.text).length;
 
         onClicked: {
