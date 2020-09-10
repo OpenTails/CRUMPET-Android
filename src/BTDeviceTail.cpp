@@ -170,8 +170,6 @@ BTDeviceTail::BTDeviceTail(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     connect(&d->batteryTimer, &QTimer::timeout,
             [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
 
-    //connect(this, &BTDeviceTail::isConnectedChanged, this, &BTDeviceTail::onConnectedChanged);
-
     d->batteryTimer.setTimerType(Qt::VeryCoarseTimer);
     d->batteryTimer.setInterval(60000 / 2);
     d->batteryTimer.setSingleShot(false);
