@@ -175,21 +175,6 @@ BTDeviceTail::BTDeviceTail(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     d->batteryTimer.setSingleShot(false);
 }
 
-// Temporarily commented out
-//void BTDeviceTail::onConnectedChanged(bool isConnected)
-//{
-//    if (isConnected)
-//    {
-//        qDebug() << "tail has been connected";
-
-//        QString shakeCommand = "USERMOVE U1 P3 N1 A2 A6 A2 B0 B0 B0 S25 S25 S25";
-//        QString jumpCommand = "USERMOVE U2 P2 N1 A4 A4 B2 B0 S25 S25";
-
-//        sendMessage(shakeCommand);
-//        sendMessage(jumpCommand);
-//    }
-//}
-
 BTDeviceTail::~BTDeviceTail()
 {
     delete d;
