@@ -152,6 +152,9 @@ Kirigami.ScrollablePage {
                     }
                     Kirigami.BasicListItem {
                         text: qsTr("Shake To Wag");
+                        visible: opacity > 0;
+                        opacity: connectedDevicesModel.count > 0 ? 1 : 0;
+                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                         //todo: set a separate icon for the "Shake to Wag" button
                         icon: ":/images/movelist.svg";
                         separatorVisible: false;
