@@ -1,10 +1,30 @@
-import QtQuick 2.7
-import QtQuick.Controls 2.4
+/*
+ *   Copyright 2020 Evgeni B<evgeni.biryuk.tail@gofree.club>
+ *   Copyright 2020 Dan Leinir Turthra Jensen <admin@leinir.dk>
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU Library General Public License as
+ *   published by the Free Software Foundation; either version 3, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Library General Public License for more details
+ *
+ *   You should have received a copy of the GNU Library General Public License
+ *   along with this program; if not, see <https://www.gnu.org/licenses/>
+ */
+
+import QtQuick 2.11
+import QtQuick.Controls 2.11
+import QtQuick.Layouts 1.11
 import QtQuick.Extras 1.4
 import QtSensors 5.12
 import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.ScrollablePage {
+    id: component;
     objectName: "shakeToWag";
     title: qsTr("Shake To Wag");
     actions {
@@ -20,6 +40,8 @@ Kirigami.ScrollablePage {
     property var gyroscope_x_values: [];
     property var gyroscope_y_values: [];
     property var gyroscope_z_values: [];
+    property string jumpMove: "TAILER"
+    property string shakeMove: "TAILS1"
 
     property bool isReadingMode: false;
 
@@ -76,106 +98,132 @@ Kirigami.ScrollablePage {
         }
     }
 
-    ToggleButton {
-        id: goButton;
-        text: qsTr("GO");
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-        onClicked: function() {
-            isReadingMode = goButton.checked;
-            goButton.text = qsTr(isReadingMode ? "STOP": "GO");
-
-            if (isReadingMode) {
-                movementStatus.text = qsTr("Make a move");
-                gyroscope_x_values = [];
-                gyroscope_y_values = [];
-                gyroscope_z_values = [];
-            } else {
-                movementStatus.text = qsTr("Analyzing...");
-                var movement = recognizeMovement();
-                if (movement == "Jump") {
-                    BTConnectionManager.sendMessage("TAILER", []);
-                } else if (movement == "Shake") {
-                    BTConnectionManager.sendMessage("TAILS1", []);
+    ScrollView {
+        id: scrollView;
+        ColumnLayout {
+            width: component.width - Kirigami.Units.largeSpacing * 4
+            RowLayout {
+            Layout.fillWidth: true;
+                Text {
+                    Layout.fillWidth: true;
+                    text: qsTr("Jump move:")
                 }
+                Button {
+                    Layout.fillWidth: true;
+                    text: component.jumpMove;
+                    onClicked: {
+                        pickACommand.pickWhat = "jump";
+                        pickACommand.pickCommand();
+                    }
+                }
+            }
+            RowLayout {
+                Layout.fillWidth: true;
+                Text {
+                    Layout.fillWidth: true;
+                    text: qsTr("Shake move:")
+                }
+                Button {
+                    Layout.fillWidth: true;
+                    text: component.shakeMove;
+                    onClicked: {
+                        pickACommand.pickWhat = "shake";
+                        pickACommand.pickCommand();
+                    }
+                }
+            }
+            Item { height: Kirigami.Units.largeSpacing; width: Kirigami.Units.gridUnit }
 
-                movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a " + movement;
+            ToggleButton {
+                id: goButton;
+                text: qsTr("GO");
+                Layout.alignment: Qt.AlignHCenter
+                onClicked: function() {
+                    isReadingMode = goButton.checked;
+                    goButton.text = qsTr(isReadingMode ? "STOP": "GO");
+
+                    if (isReadingMode) {
+                        movementStatus.text = qsTr("Make a move");
+                        gyroscope_x_values = [];
+                        gyroscope_y_values = [];
+                        gyroscope_z_values = [];
+                    } else {
+                        movementStatus.text = qsTr("Analyzing...");
+                        var movement = recognizeMovement();
+                        if (movement == "Jump") {
+                            BTConnectionManager.sendMessage(component.jumpMove, []);
+                        } else if (movement == "Shake") {
+                            BTConnectionManager.sendMessage(component.shakeMove, []);
+                        }
+
+                        movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a " + movement;
+                    }
+                }
+            }
+
+
+    //temporarily commented out
+    //        Text {
+    //            id: gyroscopeData
+    //            text: "Gyroscope: x: 0, y: 0, z: 0";
+    //        }
+
+    //        Text {
+    //            id: amplitudeGyroscopeData
+    //            text: "Amplitude Gyroscope: x: 0, y: 0, z: 0";
+    //        }
+
+    //        Text {
+    //            id: vectorChangesData
+    //            text: "Vector Changes: x: 0, y: 0, z: 0";
+    //        }
+
+            Text {
+                id: movementStatus;
+                font.pointSize: 36;
+                Layout.alignment: Qt.AlignHCenter
+            }
+            Item { height: Kirigami.Units.largeSpacing; width: Kirigami.Units.gridUnit }
+
+        }
+
+        Gyroscope {
+            id: gyroscope
+            dataRate: 100
+            active: true
+            onReadingChanged: {
+                if (isReadingMode) {
+                    var x = gyroscope.reading.x;
+                    var y = gyroscope.reading.y;
+                    var z = gyroscope.reading.z;
+
+                    gyroscope_x_values.push(x);
+                    gyroscope_y_values.push(y);
+                    gyroscope_z_values.push(z);
+
+                    console.log("x: ", x);
+                    console.log("y: ", y);
+                    console.log("z: ", z);
+
+                    //temporarily commented out
+                    //gyroscopeData.text = "Gyroscope: x: " + Math.round(x) + ", y: " + Math.round(y) + ", z: " + Math.round(z);
+                }
             }
         }
     }
 
-    Column {
-        anchors.horizontalCenter: parent.horizontalCenter
+    PickACommandSheet {
+        id: pickACommand;
 
-//temporarily commented out
-//        Text {
-//            id: gyroscopeData
-//            text: "Gyroscope: x: 0, y: 0, z: 0";
-//        }
+        property string pickWhat;
 
-//        Text {
-//            id: amplitudeGyroscopeData
-//            text: "Amplitude Gyroscope: x: 0, y: 0, z: 0";
-//        }
-
-//        Text {
-//            id: vectorChangesData
-//            text: "Vector Changes: x: 0, y: 0, z: 0";
-//        }
-
-        Text {
-            id: movementStatus;
-            font.pointSize: 36;
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-//temporarily commented out
-//        Row {
-//            Text {
-//                text: qsTr("Action:")
-//            }
-
-//            ComboBox {
-//                id: action
-//                width: 150
-//                model: ["Jump", "Shake"]
-//            }
-//        }
-
-//        Row {
-//            Text {
-//                text: qsTr("Move:")
-//            }
-
-//            ComboBox {
-//                id: move
-//                width: 150
-//                model: ["SLOW_WAG1", "SLOW_WAG2", "SLOW_WAG3", "FAST_WAG", "SHORT_WAG", "HAPPY_WAG", "ERECT", "ERECT_PULSE", "TREMBLE1", "TREMBLE2", "ERECT_TREM"]
-//            }
-//        }
-    }
-
-    Gyroscope {
-        id: gyroscope
-        dataRate: 100
-        active: true
-        onReadingChanged: {
-            if (isReadingMode) {
-                var x = gyroscope.reading.x;
-                var y = gyroscope.reading.y;
-                var z = gyroscope.reading.z;
-
-                gyroscope_x_values.push(x);
-                gyroscope_y_values.push(y);
-                gyroscope_z_values.push(z);
-
-                console.log("x: ", x);
-                console.log("y: ", y);
-                console.log("z: ", z);
-
-                //temporarily commented out
-                //gyroscopeData.text = "Gyroscope: x: " + Math.round(x) + ", y: " + Math.round(y) + ", z: " + Math.round(z);
+        onCommandPicked: {
+            if (pickWhat === "jump") {
+                component.jumpMove = command;
+            } else if (pickWhat === "shake") {
+                component.shakeMove = command;
             }
+            pickACommand.close();
         }
     }
 }
