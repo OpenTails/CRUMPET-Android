@@ -137,10 +137,11 @@ Kirigami.ApplicationWindow {
 
         property int clicksCount: 0
 
+        bannerVisible: true;
         bannerImageSource: "qrc:/images/banner_image.png";
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
         // Simply replacing the rectangle means we end up removing the handles and whatnot, so that's not cool
-        Component.onCompleted: { background.color = "#3daee9"; }
+//         Component.onCompleted: { background.color = "#3daee9"; }
 
         onBannerClicked: {
             if (!clicksTimer.running) {
