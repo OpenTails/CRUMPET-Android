@@ -52,123 +52,119 @@ Kirigami.ScrollablePage {
         onTriggered: connectToTail.open();
     }
 
-    ScrollView {
-        id: scrollView;
-        Layout.fillWidth: true;
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-        ColumnLayout {
-            width: scrollView.availableWidth
-            TailBattery {
-                Layout.fillWidth: true;
-            }
-            NotConnectedCard { }
-            Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-            Kirigami.AbstractCard {
-                contentItem: ColumnLayout {
-                    Kirigami.BasicListItem {
-                        text: qsTr("Moves");
-                        visible: opacity > 0;
-                        opacity: connectedDevicesModel.count > 0 ? 1 : 0;
-                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                        icon: ":/images/moves.svg";
-                        separatorVisible: false;
-                        onClicked: {
-                            switchToPage(tailMoves);
-                        }
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: "go-next";
-                        }
+    ColumnLayout {
+        width: root.width - Kirigami.Units.largeSpacing * 2
+        TailBattery {
+            Layout.fillWidth: true;
+        }
+        NotConnectedCard { }
+        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+        Kirigami.AbstractCard {
+            contentItem: ColumnLayout {
+                Kirigami.BasicListItem {
+                    text: qsTr("Moves");
+                    visible: opacity > 0;
+                    opacity: connectedDevicesModel.count > 0 ? 1 : 0;
+                    Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                    icon: ":/images/moves.svg";
+                    separatorVisible: false;
+                    onClicked: {
+                        switchToPage(tailMoves);
                     }
-                    Kirigami.BasicListItem {
-                        text: qsTr("Ear Poses");
-                        visible: opacity > 0;
-                        opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
-                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                        icon: ":/images/earposes.svg";
-                        separatorVisible: false;
-                        onClicked: {
-                            switchToPage(earPoses);
-                        }
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: "go-next";
-                        }
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        width: Kirigami.Units.iconSizes.small;
+                        height: width;
+                        source: "go-next";
                     }
-                    Kirigami.BasicListItem {
-                        text: qsTr("Glow Tips");
-                        visible: opacity > 0;
-                        opacity: connectedDevicesModel.count > hasListeningDevicesRepeater.count ? 1 : 0;
-                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                        icon: ":/images/glowtip.svg";
-                        separatorVisible: false;
-                        onClicked: {
-                            switchToPage(tailLights);
-                        }
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: "go-next";
-                        }
+                }
+                Kirigami.BasicListItem {
+                    text: qsTr("Ear Poses");
+                    visible: opacity > 0;
+                    opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
+                    Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                    icon: ":/images/earposes.svg";
+                    separatorVisible: false;
+                    onClicked: {
+                        switchToPage(earPoses);
                     }
-                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; visible: connectedDevicesModel.count > 0; }
-                    Kirigami.BasicListItem {
-                        text: qsTr("Alarm");
-                        icon: ":/images/alarm.svg";
-                        separatorVisible: false;
-                        onClicked: {
-                            switchToPage(alarmList);
-                        }
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: "go-next";
-                        }
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        width: Kirigami.Units.iconSizes.small;
+                        height: width;
+                        source: "go-next";
                     }
-                    Kirigami.BasicListItem {
-                        text: qsTr("Move List");
-                        icon: ":/images/movelist.svg";
-                        separatorVisible: false;
-                        onClicked: {
-                            switchToPage(moveLists);
-                        }
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: "go-next";
-                        }
+                }
+                Kirigami.BasicListItem {
+                    text: qsTr("Glow Tips");
+                    visible: opacity > 0;
+                    opacity: connectedDevicesModel.count > hasListeningDevicesRepeater.count ? 1 : 0;
+                    Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                    icon: ":/images/glowtip.svg";
+                    separatorVisible: false;
+                    onClicked: {
+                        switchToPage(tailLights);
                     }
-                    Kirigami.BasicListItem {
-                        text: qsTr("Shake To Wag");
-                        visible: opacity > 0;
-                        opacity: connectedDevicesModel.count > 0 ? 1 : 0;
-                        Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                        //todo: set a separate icon for the "Shake to Wag" button
-                        icon: ":/images/movelist.svg";
-                        separatorVisible: false;
-                        onClicked: {
-                            switchToPage(shakeToWag);
-                        }
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: "go-next";
-                        }
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        width: Kirigami.Units.iconSizes.small;
+                        height: width;
+                        source: "go-next";
                     }
+                }
+                Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; visible: connectedDevicesModel.count > 0; }
+                Kirigami.BasicListItem {
+                    text: qsTr("Alarm");
+                    icon: ":/images/alarm.svg";
+                    separatorVisible: false;
+                    onClicked: {
+                        switchToPage(alarmList);
+                    }
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        width: Kirigami.Units.iconSizes.small;
+                        height: width;
+                        source: "go-next";
+                    }
+                }
+                Kirigami.BasicListItem {
+                    text: qsTr("Move List");
+                    icon: ":/images/movelist.svg";
+                    separatorVisible: false;
+                    onClicked: {
+                        switchToPage(moveLists);
+                    }
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        width: Kirigami.Units.iconSizes.small;
+                        height: width;
+                        source: "go-next";
+                    }
+                }
+                Kirigami.BasicListItem {
+                    text: qsTr("Shake To Wag");
+                    visible: opacity > 0;
+                    opacity: connectedDevicesModel.count > 0 ? 1 : 0;
+                    Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+                    //todo: set a separate icon for the "Shake to Wag" button
+                    icon: ":/images/movelist.svg";
+                    separatorVisible: false;
+                    onClicked: {
+                        switchToPage(shakeToWag);
+                    }
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        width: Kirigami.Units.iconSizes.small;
+                        height: width;
+                        source: "go-next";
+                    }
+                }
 //                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
 //                     Kirigami.BasicListItem {
 //                         text: qsTr("Poses");
@@ -185,136 +181,135 @@ Kirigami.ScrollablePage {
 //                             source: "go-next";
 //                         }
 //                     }
-                }
             }
-            Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-            Kirigami.AbstractCard {
-                visible: opacity > 0;
-                opacity: BTConnectionManager.isConnected ? 1 : 0;
-                Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                Layout.fillWidth: true;
-                header: RowLayout {
-                        Kirigami.Icon {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            width: Kirigami.Units.iconSizes.small;
-                            height: width;
-                            source: ":/images/casualmode.svg"
-                        }
-                        Kirigami.Heading {
-                            text: qsTr("Casual Mode");
-                            Layout.fillWidth: true;
-                        }
-                        CheckBox {
-                            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                            Layout.margins: Kirigami.Units.smallSpacing;
-                            height: Kirigami.Units.iconSizes.small;
-                            width: height;
-                            checked: AppSettings !== null ? AppSettings.idleMode : false;
-                            onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
-                        }
-                }
-                Component {
-                    id: casualModeSettingsListItem
-                    Kirigami.BasicListItem {
-                            text: qsTr("Casual Mode Settings");
-                            Layout.fillWidth: true;
-                            separatorVisible: false;
-                            icon: "settings-configure";
-                            onClicked: switchToPage(idleModePage);
-                        }
-                }
-                Component {
-                    id: idlePauseRangePicker;
-
-                    ColumnLayout {
-                        Layout.fillWidth: true;
-                        IdlePauseRangePicker {
-                        }
-                        Loader {
-                            Layout.fillWidth: true;
-                            sourceComponent: casualModeSettingsListItem
-                        }
-                    }
-                }
-                Component {
-                    id: emptyNothing;
-                    Loader {
-                        sourceComponent: casualModeSettingsListItem
-                    }
-                }
-                contentItem: Loader {
-                    sourceComponent: (AppSettings !== null && AppSettings.idleMode === true) ? idlePauseRangePicker : emptyNothing;
-                }
-            }
-            Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-            Kirigami.AbstractCard {
-                visible: opacity > 0;
-                opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
-                Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                Layout.fillWidth: true;
-                header: RowLayout {
+        }
+        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+        Kirigami.AbstractCard {
+            visible: opacity > 0;
+            opacity: BTConnectionManager.isConnected ? 1 : 0;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+            Layout.fillWidth: true;
+            header: RowLayout {
                     Kirigami.Icon {
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
                         Layout.margins: Kirigami.Units.smallSpacing;
                         width: Kirigami.Units.iconSizes.small;
                         height: width;
-                        source: ":/images/listeningmode.svg"
+                        source: ":/images/casualmode.svg"
                     }
                     Kirigami.Heading {
-                        text: qsTr("Listening Mode");
+                        text: qsTr("Casual Mode");
                         Layout.fillWidth: true;
-                        Digitail.FilterProxyModel {
-                            id: connectedDevicesModel
-                            sourceModel: DeviceModel;
-                            filterRole: 262; // the isConnected role
-                            filterBoolean: true;
-                        }
+                    }
+                    CheckBox {
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
+                        Layout.margins: Kirigami.Units.smallSpacing;
+                        height: Kirigami.Units.iconSizes.small;
+                        width: height;
+                        checked: AppSettings !== null ? AppSettings.idleMode : false;
+                        onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
+                    }
+            }
+            Component {
+                id: casualModeSettingsListItem
+                Kirigami.BasicListItem {
+                        text: qsTr("Casual Mode Settings");
+                        Layout.fillWidth: true;
+                        separatorVisible: false;
+                        icon: "settings-configure";
+                        onClicked: switchToPage(idleModePage);
+                    }
+            }
+            Component {
+                id: idlePauseRangePicker;
+
+                ColumnLayout {
+                    Layout.fillWidth: true;
+                    IdlePauseRangePicker {
+                    }
+                    Loader {
+                        Layout.fillWidth: true;
+                        sourceComponent: casualModeSettingsListItem
                     }
                 }
-                contentItem: Column {
-                    id: listeningColumn;
+            }
+            Component {
+                id: emptyNothing;
+                Loader {
+                    sourceComponent: casualModeSettingsListItem
+                }
+            }
+            contentItem: Loader {
+                sourceComponent: (AppSettings !== null && AppSettings.idleMode === true) ? idlePauseRangePicker : emptyNothing;
+            }
+        }
+        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+        Kirigami.AbstractCard {
+            visible: opacity > 0;
+            opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+            Layout.fillWidth: true;
+            header: RowLayout {
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
+                    Layout.margins: Kirigami.Units.smallSpacing;
+                    width: Kirigami.Units.iconSizes.small;
+                    height: width;
+                    source: ":/images/listeningmode.svg"
+                }
+                Kirigami.Heading {
+                    text: qsTr("Listening Mode");
                     Layout.fillWidth: true;
-                    height: childrenRect.height;
-                    spacing: 0;
-                    Label {
-                        width: parent.width;
-                        wrapMode: Text.Wrap;
-                        text: qsTr("Turn this on to make your gear react to sounds around it for five minutes at a time.");
+                    Digitail.FilterProxyModel {
+                        id: connectedDevicesModel
+                        sourceModel: DeviceModel;
+                        filterRole: 262; // the isConnected role
+                        filterBoolean: true;
                     }
-                    Repeater {
-                        id: hasListeningDevicesRepeater;
-                        model: Digitail.FilterProxyModel {
-                            sourceModel: connectedDevicesModel;
-                            filterRole: 265; // the hasListening role
-                            filterBoolean: true;
-                        }
-                        Kirigami.BasicListItem {
-                            width: listeningColumn.width;
-                            separatorVisible: false;
-                            icon: model.listeningState > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                            label: model.name;
-                            onClicked: {
-                                var newState = 0;
-                                if (model.listeningState == 0) {
-                                    newState = 1;
-                                }
-                                BTConnectionManager.setDeviceListeningState(model.deviceID, newState);
+                }
+            }
+            contentItem: Column {
+                id: listeningColumn;
+                Layout.fillWidth: true;
+                height: childrenRect.height;
+                spacing: 0;
+                Label {
+                    width: parent.width;
+                    wrapMode: Text.Wrap;
+                    text: qsTr("Turn this on to make your gear react to sounds around it for five minutes at a time.");
+                }
+                Repeater {
+                    id: hasListeningDevicesRepeater;
+                    model: Digitail.FilterProxyModel {
+                        sourceModel: connectedDevicesModel;
+                        filterRole: 265; // the hasListening role
+                        filterBoolean: true;
+                    }
+                    Kirigami.BasicListItem {
+                        width: listeningColumn.width;
+                        separatorVisible: false;
+                        icon: model.listeningState > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        label: model.name;
+                        onClicked: {
+                            var newState = 0;
+                            if (model.listeningState == 0) {
+                                newState = 1;
                             }
+                            BTConnectionManager.setDeviceListeningState(model.deviceID, newState);
                         }
                     }
                 }
             }
-    //         Button {
-    //             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
-    //             Layout.fillWidth: true;
-    //             onClicked: {
-    //                 for(var i = 0; i < 1000; ++i) {
-    //                     CommandQueue.pushCommand(CommandModel.getCommand(1));
-    //                     CommandQueue.pushPause(3000);
-    //                 }
-    //             }
-    //         }
         }
+//         Button {
+//             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
+//             Layout.fillWidth: true;
+//             onClicked: {
+//                 for(var i = 0; i < 1000; ++i) {
+//                     CommandQueue.pushCommand(CommandModel.getCommand(1));
+//                     CommandQueue.pushPause(3000);
+//                 }
+//             }
+//         }
     }
 }

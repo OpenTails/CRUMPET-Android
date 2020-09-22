@@ -98,94 +98,90 @@ Kirigami.ScrollablePage {
         }
     }
 
-    ScrollView {
-        id: scrollView;
-        ColumnLayout {
-            width: component.width - Kirigami.Units.largeSpacing * 4
-            RowLayout {
-            Layout.fillWidth: true;
-                Text {
-                    Layout.fillWidth: true;
-                    text: qsTr("Jump move:")
-                }
-                Button {
-                    Layout.fillWidth: true;
-                    text: component.jumpMove;
-                    onClicked: {
-                        pickACommand.pickWhat = "jump";
-                        pickACommand.pickCommand();
-                    }
-                }
-            }
-            RowLayout {
-                Layout.fillWidth: true;
-                Text {
-                    Layout.fillWidth: true;
-                    text: qsTr("Shake move:")
-                }
-                Button {
-                    Layout.fillWidth: true;
-                    text: component.shakeMove;
-                    onClicked: {
-                        pickACommand.pickWhat = "shake";
-                        pickACommand.pickCommand();
-                    }
-                }
-            }
-            Item { height: Kirigami.Units.largeSpacing; width: Kirigami.Units.gridUnit }
-
-            ToggleButton {
-                id: goButton;
-                text: qsTr("GO");
-                Layout.alignment: Qt.AlignHCenter
-                onClicked: function() {
-                    isReadingMode = goButton.checked;
-                    goButton.text = qsTr(isReadingMode ? "STOP": "GO");
-
-                    if (isReadingMode) {
-                        movementStatus.text = qsTr("Make a move");
-                        gyroscope_x_values = [];
-                        gyroscope_y_values = [];
-                        gyroscope_z_values = [];
-                    } else {
-                        movementStatus.text = qsTr("Analyzing...");
-                        var movement = recognizeMovement();
-                        if (movement == "Jump") {
-                            BTConnectionManager.sendMessage(component.jumpMove, []);
-                        } else if (movement == "Shake") {
-                            BTConnectionManager.sendMessage(component.shakeMove, []);
-                        }
-
-                        movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a " + movement;
-                    }
-                }
-            }
-
-
-    //temporarily commented out
-    //        Text {
-    //            id: gyroscopeData
-    //            text: "Gyroscope: x: 0, y: 0, z: 0";
-    //        }
-
-    //        Text {
-    //            id: amplitudeGyroscopeData
-    //            text: "Amplitude Gyroscope: x: 0, y: 0, z: 0";
-    //        }
-
-    //        Text {
-    //            id: vectorChangesData
-    //            text: "Vector Changes: x: 0, y: 0, z: 0";
-    //        }
-
+    ColumnLayout {
+        width: component.width - Kirigami.Units.largeSpacing * 4
+        RowLayout {
+        Layout.fillWidth: true;
             Text {
-                id: movementStatus;
-                font.pointSize: 36;
-                Layout.alignment: Qt.AlignHCenter
+                Layout.fillWidth: true;
+                text: qsTr("Jump move:")
             }
-            Item { height: Kirigami.Units.largeSpacing; width: Kirigami.Units.gridUnit }
-
+            Button {
+                Layout.fillWidth: true;
+                text: component.jumpMove;
+                onClicked: {
+                    pickACommand.pickWhat = "jump";
+                    pickACommand.pickCommand();
+                }
+            }
         }
+        RowLayout {
+            Layout.fillWidth: true;
+            Text {
+                Layout.fillWidth: true;
+                text: qsTr("Shake move:")
+            }
+            Button {
+                Layout.fillWidth: true;
+                text: component.shakeMove;
+                onClicked: {
+                    pickACommand.pickWhat = "shake";
+                    pickACommand.pickCommand();
+                }
+            }
+        }
+        Item { height: Kirigami.Units.largeSpacing; width: Kirigami.Units.gridUnit }
+
+        ToggleButton {
+            id: goButton;
+            text: qsTr("GO");
+            Layout.alignment: Qt.AlignHCenter
+            onClicked: function() {
+                isReadingMode = goButton.checked;
+                goButton.text = qsTr(isReadingMode ? "STOP": "GO");
+
+                if (isReadingMode) {
+                    movementStatus.text = qsTr("Make a move");
+                    gyroscope_x_values = [];
+                    gyroscope_y_values = [];
+                    gyroscope_z_values = [];
+                } else {
+                    movementStatus.text = qsTr("Analyzing...");
+                    var movement = recognizeMovement();
+                    if (movement == "Jump") {
+                        BTConnectionManager.sendMessage(component.jumpMove, []);
+                    } else if (movement == "Shake") {
+                        BTConnectionManager.sendMessage(component.shakeMove, []);
+                    }
+
+                    movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a " + movement;
+                }
+            }
+        }
+
+
+//temporarily commented out
+//        Text {
+//            id: gyroscopeData
+//            text: "Gyroscope: x: 0, y: 0, z: 0";
+//        }
+
+//        Text {
+//            id: amplitudeGyroscopeData
+//            text: "Amplitude Gyroscope: x: 0, y: 0, z: 0";
+//        }
+
+//        Text {
+//            id: vectorChangesData
+//            text: "Vector Changes: x: 0, y: 0, z: 0";
+//        }
+
+        Text {
+            id: movementStatus;
+            font.pointSize: 36;
+            Layout.alignment: Qt.AlignHCenter
+        }
+        Item { height: Kirigami.Units.largeSpacing; width: Kirigami.Units.gridUnit }
 
         Gyroscope {
             id: gyroscope
