@@ -44,6 +44,36 @@ Kirigami.ScrollablePage {
     property string shakeMove: "TAILS1"
 
     property bool isReadingMode: false;
+    Timer {
+        id: readingTimer;
+        interval: 3000;
+        repeat: false;
+        onTriggered: {
+            isReadingMode = false;
+        }
+    }
+    onIsReadingModeChanged: {
+        if (isReadingMode) {
+            movementStatus.text = qsTr("Make a move! (watching for 3 seconds)");
+            gyroscope_x_values = [];
+            gyroscope_y_values = [];
+            gyroscope_z_values = [];
+        } else {
+            if (readingTimer.running = true) {
+                readingTimer.stop();
+                goButton.checked = isReadingMode;
+            }
+            movementStatus.text = qsTr("Analyzing...");
+            var movement = recognizeMovement();
+            if (movement == "Jump") {
+                BTConnectionManager.sendMessage(component.jumpMove, []);
+            } else if (movement == "Shake") {
+                BTConnectionManager.sendMessage(component.shakeMove, []);
+            }
+
+            movementStatus.text = qsTr("Your movement was recognized as a %1").arg(movement);
+        }
+    }
 
     function recognizeMovement() {
         var minX = 0;
@@ -100,8 +130,12 @@ Kirigami.ScrollablePage {
 
     ColumnLayout {
         width: component.width - Kirigami.Units.largeSpacing * 4
+        InfoCard {
+            text: qsTr("This feature is highly experimental! Treat it as such, and you and your tail and ears will be fine.");
+            Layout.fillWidth: true;
+        }
         RowLayout {
-        Layout.fillWidth: true;
+            Layout.fillWidth: true;
             Text {
                 Layout.fillWidth: true;
                 text: qsTr("Jump move:")
@@ -134,28 +168,12 @@ Kirigami.ScrollablePage {
 
         ToggleButton {
             id: goButton;
-            text: qsTr("GO");
+            text: isReadingMode ? qsTr("STOP") : qsTr("GO");
             Layout.alignment: Qt.AlignHCenter
-            onClicked: function() {
+            checked: isReadingMode;
+            onClicked: {
+                readingTimer.start();
                 isReadingMode = goButton.checked;
-                goButton.text = qsTr(isReadingMode ? "STOP": "GO");
-
-                if (isReadingMode) {
-                    movementStatus.text = qsTr("Make a move");
-                    gyroscope_x_values = [];
-                    gyroscope_y_values = [];
-                    gyroscope_z_values = [];
-                } else {
-                    movementStatus.text = qsTr("Analyzing...");
-                    var movement = recognizeMovement();
-                    if (movement == "Jump") {
-                        BTConnectionManager.sendMessage(component.jumpMove, []);
-                    } else if (movement == "Shake") {
-                        BTConnectionManager.sendMessage(component.shakeMove, []);
-                    }
-
-                    movementStatus.text = "Your movement" + '\n' + "was recognized" + '\n' + "like a " + movement;
-                }
             }
         }
 
@@ -176,10 +194,12 @@ Kirigami.ScrollablePage {
 //            text: "Vector Changes: x: 0, y: 0, z: 0";
 //        }
 
-        Text {
+        Kirigami.Heading {
             id: movementStatus;
-            font.pointSize: 36;
-            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true;
+            Layout.margins: Kirigami.Units.largeSpacing;
+            horizontalAlignment: Text.AlignVCenter;
+            wrapMode: Text.Wrap;
         }
         Item { height: Kirigami.Units.largeSpacing; width: Kirigami.Units.gridUnit }
 
