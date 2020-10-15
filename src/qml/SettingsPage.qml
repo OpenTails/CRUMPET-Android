@@ -117,6 +117,40 @@ Kirigami.ScrollablePage {
         }
 
         SettingsCard {
+            visible: gearCommandsRepeaterEarOptions.count > 0;
+            headerText: qsTr("EarGear Hearing");
+            descriptionText: qsTr("If your EarGear is acting a bit like it isn't hearing right, it might need to have its balance checked. To make sure it works the best, you will want to be in a quiet room before you tap the balance button below (pause your music, close the door to your bedroom, etc). This value is stored in the box, so you shouldn't generally need to do it more than once. You might also need to swap the direction around (for example, you might want to put your controller box either on the front or the back of your body, or upside down so the cable can run more gracefully).");
+            footer: ColumnLayout {
+                Repeater {
+                    id: gearCommandsRepeaterEarOptions;
+                    model: FilterProxyModel {
+                        sourceModel: onlyConnectedFilterProxy;
+                        filterRole: 265; // the hasListening role
+                        filterBoolean: true;
+                    }
+                    delegate: RowLayout {
+                        Kirigami.Heading {
+                            Layout.fillWidth: true;
+                            text: model.name;
+                        }
+                        QQC2.Button {
+                            text: qsTr("Swap left and right");
+                            onClicked: {
+                                BTConnectionManager.sendMessage("MICSWAP", [model.id]);
+                            }
+                        }
+                        QQC2.Button {
+                            text: qsTr("Balance Microphones");
+                            onClicked: {
+                                BTConnectionManager.sendMessage("MICBAL", [model.id]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        SettingsCard {
             headerText: qsTr("Fake Tail");
             descriptionText: qsTr("If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL or EarGear, you might want to explore what the app can do. You can click the button below to trick the app into thinking that there is a tail nearby, and let you explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
             footer: QQC2.CheckBox {
