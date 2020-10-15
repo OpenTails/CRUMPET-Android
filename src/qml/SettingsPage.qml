@@ -128,21 +128,23 @@ Kirigami.ScrollablePage {
                         filterRole: 265; // the hasListening role
                         filterBoolean: true;
                     }
-                    delegate: RowLayout {
+                    delegate: ColumnLayout {
                         Kirigami.Heading {
                             Layout.fillWidth: true;
                             text: model.name;
                         }
                         QQC2.Button {
                             text: qsTr("Swap left and right");
+                            Layout.fillWidth: true;
                             onClicked: {
-                                BTConnectionManager.sendMessage("MICSWAP", [model.id]);
+                                BTConnectionManager.sendMessage("MICSWAP", [model.deviceID]);
                             }
                         }
                         QQC2.Button {
                             text: qsTr("Balance Microphones");
+                            Layout.fillWidth: true;
                             onClicked: {
-                                BTConnectionManager.sendMessage("MICBAL", [model.id]);
+                                BTConnectionManager.sendMessage("MICBAL", [model.deviceID]);
                             }
                         }
                     }
