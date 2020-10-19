@@ -24,6 +24,7 @@ class BTDeviceEars : public BTDevice
 {
     Q_OBJECT
     Q_PROPERTY(ListenMode listenMode READ listenMode WRITE setListenMode NOTIFY listenModeChanged)
+    Q_PROPERTY(bool micsSwapped READ micsSwapped NOTIFY micsSwappedChanged)
 public:
     explicit BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDeviceEars() override;
@@ -49,6 +50,9 @@ public:
     ListenMode listenMode() const;
     void setListenMode(const ListenMode& listenMode);
     Q_SIGNAL void listenModeChanged();
+
+    bool micsSwapped() const;
+    Q_SIGNAL void micsSwappedChanged();
 
     void sendMessage(const QString &message) override;
 private:

@@ -34,6 +34,7 @@ public:
 
     QString version{"(unknown)"};
     int batteryLevel{0};
+    bool micsSwapped{false};
     ListenMode listenMode{ListenModeOff};
 
     QString currentCall;
@@ -216,6 +217,18 @@ public:
                     // If the queue is empty, we're done
                     q->commandModel->setRunning(currentCall, false);
                 }
+            }
+            else if (theValue == QLatin1String{"Mics auto balance completed"}) {
+                q->deviceMessage(q->deviceID(), QLatin1String{"Microphone balancing completed"});
+            }
+            else if (theValue.startsWith(QLatin1String{"MICSWAP"})) {
+                if (theValue == QLatin1String{"MICSWAP: mic1-R, mic2-L"}) {
+                    micsSwapped = true;
+                }
+                else {
+                    micsSwapped = false;
+                }
+                Q_EMIT q->micsSwappedChanged();
             }
             else {
                 qDebug() << q->name() << q->deviceID() << "Unexpected response: Did not understand" << newValue;
@@ -460,6 +473,10 @@ void BTDeviceEars::setListenMode(const ListenMode& listenMode)
     }
 }
 
+bool BTDeviceEars::micsSwapped() const
+{
+    return d->micsSwapped;
+}
 
 void BTDeviceEars::sendMessage(const QString &message)
 {
