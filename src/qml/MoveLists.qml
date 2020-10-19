@@ -95,8 +95,13 @@ Kirigami.ScrollablePage {
         buttonOkText: qsTr("Create");
 
         onNamePicked: {
-            AppSettings.addMoveList(name);
-            namePicker.close();
+            if (AppSettings.moveLists.includes(name)) {
+                showMessageBox(qsTr("Name Already Used"),
+                               qsTr("You already have a move list with the name %1. Please pick another name, as that won't work.").arg(name));
+            } else {
+                AppSettings.addMoveList(name);
+                namePicker.close();
+            }
         }
     }
 }
