@@ -49,7 +49,8 @@ public:
         Checked,                 // 264
         HasListening,            // 265
         ListeningState,          // 266 - either 0 (off), 1 (on in iOS mode), or 2 (full feedback mode)
-        EnabledCommandsFiles     // 267 - a stringlist
+        EnabledCommandsFiles,    // 267 - a stringlist
+        MicsSwapped              // 268 - boolean value for whether or not the microphones have been swapped
     };
 
     AppSettings* appSettings() const;

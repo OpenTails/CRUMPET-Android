@@ -113,7 +113,8 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {Checked, "checked"},
         {HasListening, "hasListening"},
         {ListeningState, "listeningState"},
-        {EnabledCommandsFiles, "enabledCommandsFiles"}
+        {EnabledCommandsFiles, "enabledCommandsFiles"},
+        {MicsSwapped, "micsSwapped"}
     };
     return roles;
 }
@@ -164,6 +165,16 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
             case EnabledCommandsFiles:
                 value = device->enabledCommandsFiles();
                 break;
+            case MicsSwapped:
+            {
+                bool micsSwapped{false};
+                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                if (ears) {
+                    micsSwapped = ears->micsSwapped();
+                }
+                value = micsSwapped;
+                break;
+            }
             default:
                 break;
         }
@@ -226,6 +237,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         if (ears) {
             connect(ears, &BTDeviceEars::listenModeChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, ListeningState);
+            });
+            connect(ears, &BTDeviceEars::micsSwappedChanged, this, [this, newDevice](){
+                d->notifyDeviceDataChanged(newDevice, MicsSwapped);
             });
         }
 
