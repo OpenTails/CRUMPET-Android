@@ -1,3 +1,10 @@
+0.0.19
+- Add a super experimental Shake To Wag gesture-detection feature
+- Add EarGear microphone swapping and rebalancing to Settings
+- Polish the sidebar a bit
+- Disallow creating Move Lists with the same name as an existing one
+- Allow deleting Move Lists again (sorry!)
+
 0.0.18
 - Only show Ear Poses and Glow Tips entries when connected to the respective devices where they make sense
 - Fix the L Flopper Ear Pose pose
