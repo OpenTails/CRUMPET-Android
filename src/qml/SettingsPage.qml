@@ -134,14 +134,14 @@ Kirigami.ScrollablePage {
                             text: model.name;
                         }
                         QQC2.Button {
-                            text: qsTr("Swap left and right");
+                            text: model.micsSwapped === true ?  qsTr("Unswap left and right") : qsTr("Swap left and right");
                             Layout.fillWidth: true;
                             onClicked: {
                                 BTConnectionManager.sendMessage("MICSWAP", [model.deviceID]);
                             }
                         }
                         QQC2.Button {
-                            text: qsTr("Balance Microphones");
+                            text: qsTr("Rebalance Microphones");
                             Layout.fillWidth: true;
                             onClicked: {
                                 BTConnectionManager.sendMessage("MICBAL", [model.deviceID]);
