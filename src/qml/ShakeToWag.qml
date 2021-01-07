@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
     ColumnLayout {
         width: component.width - Kirigami.Units.largeSpacing * 4
         InfoCard {
-            text: qsTr("This feature is highly experimental! Treat it as such, and you and your tail and ears will be fine.");
+            text: qsTr("Turn on Gesture Control to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up.");
             Layout.fillWidth: true;
             footer: CheckBox {
                 text: qsTr("Enable Gesture Control")
@@ -59,7 +59,7 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true;
                 Text {
                     Layout.fillWidth: true;
-                    text: qsTr("%1 move:").arg(gestureDelegate.splitData[2]);
+                    text: qsTr("%1 gesture:").arg(gestureDelegate.splitData[2]);
                 }
                 Button {
                     property string chosenCommand: gestureDelegate.splitData[1];
