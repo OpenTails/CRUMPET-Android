@@ -19,6 +19,7 @@ set(digitail_SRCS
     CommandPersistence.cpp
     CommandQueue.cpp
     FilterProxyModel.cpp
+    GestureController.cpp
     IdleMode.cpp
     AppSettings.cpp
     TailCommandModel.cpp
@@ -37,6 +38,8 @@ if(Qt5RemoteObjects_FOUND)
     qt5_generate_repc(digitail_SRCS CommandQueueProxy.rep REPLICA)
     qt5_generate_repc(digitail_SRCS SettingsProxy.rep SOURCE)
     qt5_generate_repc(digitail_SRCS SettingsProxy.rep REPLICA)
+    qt5_generate_repc(digitail_SRCS GestureControllerProxy.rep SOURCE)
+    qt5_generate_repc(digitail_SRCS GestureControllerProxy.rep REPLICA)
 endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")
@@ -52,7 +55,7 @@ endif()
 
 add_executable(digitail ${digitail_SRCS} ${RESOURCES})
 #kirigamiplugin is the static library built by us
-target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors ${digitail_EXTRA_LIBS})
 
 if(Qt5RemoteObjects_FOUND)
     target_link_libraries(digitail Qt5::RemoteObjects)

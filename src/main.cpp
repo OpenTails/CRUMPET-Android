@@ -50,6 +50,7 @@
 #include "AlarmList.h"
 #include "AppSettings.h"
 #include "CommandQueue.h"
+#include "GestureController.h"
 #include "IdleMode.h"
 #include "Utilities.h"
 #include "PermissionsManager.h"
@@ -59,6 +60,7 @@
 #include "rep_SettingsProxy_replica.h"
 #include "rep_BTConnectionManagerProxy_replica.h"
 #include "rep_CommandQueueProxy_replica.h"
+#include <rep_GestureControllerProxy_replica.h>
 #endif
 
 Q_IMPORT_PLUGIN(KirigamiPlugin)
@@ -127,6 +129,11 @@ int appMain(int argc, char *argv[])
     res = commandQueueReplica->waitForSource();
     if(!res) { qCritical() << "Kapow! Replica for commandQueueReplica failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("CommandQueue"), commandQueueReplica.data());
+
+    QScopedPointer<GestureControllerProxyReplica> gestureControllerReplica(repNode->acquire<GestureControllerProxyReplica>());
+    res = gestureControllerReplica->waitForSource();
+    if(!res) { qCritical() << "Kapow! Replica for gestureControllerReplica failed to surface"; }
+    engine.rootContext()->setContextProperty(QLatin1String("GestureController"), gestureControllerReplica.data());
 
     QScopedPointer<QAbstractItemModelReplica> btDeviceModelReplica(repNode->acquireModel("DeviceModel"));
     engine.rootContext()->setContextProperty(QLatin1String("DeviceModel"), btDeviceModelReplica.data());
@@ -259,6 +266,13 @@ int serviceMain(int argc, char *argv[])
         CommandQueue* commandQueue = qobject_cast<CommandQueue*>(btConnectionManager->commandQueue());
         qDebug() << "Replicating command queue";
         srcNode.enableRemoting(commandQueue);
+
+        qDebug() << "Creating gesture controller";
+        GestureController* gestureController = new GestureController(btConnectionManager);
+        gestureController->setAppSettings(appSettings);
+        gestureController->setConnectionManager(btConnectionManager);
+        qDebug() << "Replicating gesture controller";
+        srcNode.enableRemoting(gestureController);
     });
 
     return app.exec();
