@@ -118,7 +118,7 @@ public:
     void gestureDetected(const QString& gestureId) {
         qDebug() << gestureId;
         CommandQueue* commandQueue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
-        if (commandQueue->count() == 0) {
+        if (commandQueue->count() == 0 && commandQueue->currentCommandRemainingMSeconds() == 0) {
             GestureDetails* gesture = gestures.value(gestureId);
             if (gesture && !gesture->command.isEmpty()) {
                 commandQueue->pushCommand(gesture->command, gesture->devices);
