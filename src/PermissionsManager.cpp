@@ -73,6 +73,7 @@ PermissionsManager::PermissionsManager(QObject* parent)
     : QObject(parent)
     , d(new Private(this))
 {
+    QTimer::singleShot(1, this, &PermissionsManager::permissionsChanged);
 }
 
 PermissionsManager::~PermissionsManager()
