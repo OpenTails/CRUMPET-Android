@@ -20,8 +20,9 @@
 #include "BTDeviceCommandModel.h"
 #include "CommandQueue.h"
 
-#include <QTimer>
 #include <QSensorGestureManager>
+#include <QSettings>
+#include <QTimer>
 
 struct GestureDetails {
 public:
@@ -43,13 +44,19 @@ public:
     QString command; // The command we will use to send to the devices when this gesture is recognised - if this is empty, recognition is turned off for this gesture
     QStringList devices; // The list of devices to send to - if this list is empty, we send to all devices
     void load() {
-        // load commands for this gesture
-        // load devices for this gesture
-        qDebug() << "IMPLEMENT ME - loading for" << gestureId;
+        QSettings settings;
+        settings.beginGroup("Gestures");
+        command = settings.value(QString("%1/command").arg(gestureId), QString{}).toString();
+        devices = settings.value(QString("%1/devices").arg(gestureId), QStringList{}).toStringList();
+        settings.endGroup();
     }
     void save() {
-        // save commands and devices for this gesture
-        qDebug() << "IMPLEMENT ME - saving for" << gestureId;
+        QSettings settings;
+        settings.beginGroup("Gestures");
+        settings.setValue(QString("%1/command").arg(gestureId), command);
+        settings.setValue(QString("%1/devices").arg(gestureId), devices);
+        settings.endGroup();
+        settings.sync();
     }
     void setCommand(const QString& value) {
         command = value;
