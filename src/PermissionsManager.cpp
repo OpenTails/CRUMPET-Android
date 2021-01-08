@@ -82,14 +82,14 @@ PermissionsManager::~PermissionsManager()
 
 void PermissionsManager::requestPermission(const QString& permission)
 {
-    d->permissionsToRequest << permission;
+    d->permissionsToRequest << QString("android.permission.%1").arg(permission);
     d->requestDelay.start();
 }
 
 bool PermissionsManager::hasPermission(const QString& permission) const
 {
 #ifdef Q_OS_ANDROID
-    auto  result = QtAndroid::checkPermission(permission);//QString("android.permission.ACCESS_COARSE_LOCATION"));
+    auto  result = QtAndroid::checkPermission(QString("android.permission.%1").arg(permission));//QString("android.permission.ACCESS_COARSE_LOCATION"));
     if(result == QtAndroid::PermissionResult::Granted) {
         return true;
     } else {
