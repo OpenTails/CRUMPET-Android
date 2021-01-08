@@ -236,13 +236,7 @@ sudo chmod 777 $HOME/apks
 ```
 
 ```
-docker run -ti --rm kdeorg/android-arm-sdk bash
-```
-
-or the following for the 64bit (aarch64) one:
-
-```
-docker run -ti --rm kdeorg/android-aarch64-sdk bash
+docker run -ti --rm kdeorg/android-sdk bash
 ```
 
 This will download the image the first time it is run, and subsequently it will simply run what you already did.
@@ -252,27 +246,59 @@ A handy trick is to also add something like `-v $HOME/apks:/output` to the comma
 Also you can share source directory from your host machine, for example:
 
 ```
-docker run -ti --rm -v $HOME/apks:/output -v $HOME/DIGITAiL:/DIGITAiL kdeorg/android-arm-sdk bash
+docker run -ti --rm -v $HOME/apks:/output -v $HOME/DIGITAiL:/DIGITAiL kdeorg/android-sdk bash
 ```
 
 Cloning is done as in a usual Linux situation (see above), but your build steps are a little bit more involved here:
 
 ```
-cd build
+mkdir build-arm
+cd build-arm
+export ANDROID_ARCH_ABI=armeabi-v7a
 cmake \
-    -DCMAKE_TOOLCHAIN_FILE=/opt/kdeandroid-deps/share/ECM/toolchain/Android.cmake \
-    -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt/5.13.2 \
+    -DCMAKE_TOOLCHAIN_FILE=/opt/nativetooling/share/ECM/toolchain/Android.cmake \
+    -DCMAKE_INSTALL_PREFIX="/opt/kdeandroid-arm" \
+    -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=../export \
     -DQTANDROID_EXPORTED_TARGET=digitail \
     -DANDROID_APK_DIR=../data \
-    -DANDROID_EXTRA_LIBS=/opt/kdeandroid-deps/lib/libcrypto.so,/opt/kdeandroid-deps/lib/libssl.so \
+    -DANDROID_EXTRA_LIBS=/opt/kdeandroid-arm/lib/libcrypto.so,/opt/kdeandroid-arm/lib/libssl.so \
+    -DCMAKE_ANDROID_API=23 \
+    -DCMAKE_ANDROID_STL_TYPE=c++_shared \
+    -DKF5_HOST_TOOLING=/opt/nativetooling/lib/x86_64-linux-gnu/cmake/ \
     ..
 make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
 cd ..
-make create-apk-digitail ARGS="--android-platform android-26"
+make create-apk-digitail ARGS="--android-platform android-30"
+```
+
+The above will build for 32bit arm. To build for 64bit arm, use the lines below instead (the cmake line is identical apart from three instances of arm becoming arm64)
+
+```
+mkdir build-arm64
+cd build-arm64
+export ANDROID_ARCH_ABI=arm64-v8a
+cmake \
+    -DCMAKE_TOOLCHAIN_FILE=/opt/nativetooling/share/ECM/toolchain/Android.cmake \
+    -DCMAKE_INSTALL_PREFIX="/opt/kdeandroid-arm64" \
+    -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=../export \
+    -DQTANDROID_EXPORTED_TARGET=digitail \
+    -DANDROID_APK_DIR=../data \
+    -DANDROID_EXTRA_LIBS=/opt/kdeandroid-arm64/lib/libcrypto.so,/opt/kdeandroid-arm64/lib/libssl.so \
+    -DCMAKE_ANDROID_API=23 \
+    -DCMAKE_ANDROID_STL_TYPE=c++_shared \
+    -DKF5_HOST_TOOLING=/opt/nativetooling/lib/x86_64-linux-gnu/cmake/ \
+    ..
+make
+cd src # This ensures we only install the digitail binary and not the Kirigami bits
+make install
+cd ..
+make create-apk-digitail ARGS="--android-platform android-30"
 ```
 
 Once this final command completes, you should hopefully have an apk in `/home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk` (or where ever else you created your clone).
@@ -288,5 +314,5 @@ You now have an apk, which you can install to your android device in the usual w
 To also sign the apk for use on the Play store, the following command might be used. Note that you will need the appropriate keystore to hand in an appropriate location, or it will quite entirely fail:
 
 ```
-make create-apk-digitail ARGS="--android-platform android-26 --sign /mnt/projects-dir/DIGITAiL/thetailcompany-release-key.keystore thetailcompany"
+make create-apk-digitail ARGS="--android-platform android-30 --sign /mnt/projects-dir/DIGITAiL/thetailcompany-release-key.keystore thetailcompany"
 ```
