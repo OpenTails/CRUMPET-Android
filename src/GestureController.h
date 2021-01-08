@@ -36,7 +36,6 @@ public:
     explicit GestureController(QObject* parent = nullptr);
     ~GestureController() override;
 
-    void setAppSettings(AppSettings* settings);
     void setConnectionManager(BTConnectionManager* connectionManager);
 
     bool enabled() const override;

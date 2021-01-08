@@ -269,7 +269,6 @@ int serviceMain(int argc, char *argv[])
 
         qDebug() << "Creating gesture controller";
         GestureController* gestureController = new GestureController(btConnectionManager);
-        gestureController->setAppSettings(appSettings);
         gestureController->setConnectionManager(btConnectionManager);
         qDebug() << "Replicating gesture controller";
         srcNode.enableRemoting(gestureController);

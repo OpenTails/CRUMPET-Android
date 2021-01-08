@@ -67,7 +67,6 @@ class GestureController::Private {
 public:
     Private(GestureController* qq)
         : q(qq)
-        , appSettings(nullptr)
         , connectionManager(nullptr)
     {
         QSensorGestureManager manager;
@@ -93,7 +92,6 @@ public:
         qDeleteAll(gestures);
     }
     GestureController* q;
-    AppSettings* appSettings;
     BTConnectionManager* connectionManager;
 
     // This holds the gestures by their detector IDs (see gestureDetected(QString))
@@ -106,7 +104,7 @@ public:
         Private::enabled = enabled;
         QHash<QString, GestureDetails*>::const_iterator i;
         for (i = gestures.constBegin() ; i != gestures.constEnd() ; ++i) {
-            if (enabled) {
+            if (enabled && connectionManager && connectionManager->isConnected()) {
                 i.value()->sensor->startDetection();
             } else {
                 i.value()->sensor->stopDetection();
@@ -116,11 +114,13 @@ public:
     }
 
     void gestureDetected(const QString& gestureId) {
-        qDebug() << gestureId;
+        qDebug() << gestureId << "detected";
         CommandQueue* commandQueue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
         if (commandQueue->count() == 0 && commandQueue->currentCommandRemainingMSeconds() == 0) {
+            qDebug() << "No commands in the queue";
             GestureDetails* gesture = gestures.value(gestureId);
             if (gesture && !gesture->command.isEmpty()) {
+                qDebug() << "We have a gesture with a command set, send that to the queue!";
                 commandQueue->pushCommand(gesture->command, gesture->devices);
             }
         }
@@ -138,29 +138,17 @@ GestureController::~GestureController()
     delete d;
 }
 
-void GestureController::setAppSettings(AppSettings* settings)
-{
-    if(d->appSettings) {
-        d->appSettings->disconnect(this);
-    }
-    d->appSettings = settings;
-    connect(d->appSettings, &AppSettings::idleModeChanged, this, [this](bool idleMode){
-        if (d->connectionManager) {
-            d->setEnabled(idleMode && d->connectionManager->isConnected());
-        }
-    });
-}
-
 void GestureController::setConnectionManager(BTConnectionManager* connectionManager)
 {
     if(d->connectionManager) {
         d->connectionManager->disconnect(this);
     }
     d->connectionManager = connectionManager;
-    connect(d->connectionManager, &BTConnectionManager::isConnectedChanged, this, [this](bool isConnected){
-        if (d->appSettings) {
-            d->setEnabled(isConnected && d->appSettings->idleMode());
-        }
+    // This just makes sure to reset the enabled state on device reconnections,
+    // which isn't super important, and more a case of not having it sitting around
+    // trying to detect things with no devices available.
+    connect(d->connectionManager, &BTConnectionManager::isConnectedChanged, this, [this](){
+        d->setEnabled(d->enabled);
     });
 }
 
