@@ -158,12 +158,12 @@ int appMain(int argc, char *argv[])
 
     PermissionsManager* permissionsManager = new PermissionsManager(&app);
     QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
-        if(permissionsManager->hasPermission(QString("android.permission.ACCESS_COARSE_LOCATION"))) {
+        if(permissionsManager->hasPermission(QString("android.permission.ACCESS_FINE_LOCATION"))) {
             // Don't launch the discovery immediately, let's give things a change to start up...
             QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
         }
     });
-    permissionsManager->requestPermission(QString("android.permission.ACCESS_COARSE_LOCATION"));
+    engine.rootContext()->setContextProperty("PermissionsManager", permissionsManager);
 
     bool settingsReplicaDestroyed{false};
     QObject::connect(settingsReplica.data(), &QObject::destroyed, [&settingsReplicaDestroyed](){ settingsReplicaDestroyed = true; });

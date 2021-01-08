@@ -27,8 +27,8 @@ public:
     explicit PermissionsManager(QObject* parent = 0);
     ~PermissionsManager() override;
 
-    void requestPermission(const QString& permission);
-    bool hasPermission(const QString& permission) const;
+    Q_INVOKABLE void requestPermission(const QString& permission);
+    Q_INVOKABLE bool hasPermission(const QString& permission) const;
     Q_SIGNAL void permissionsChanged();
 private:
     class Private;

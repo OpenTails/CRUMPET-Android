@@ -32,9 +32,20 @@ Kirigami.AbstractCard {
         id: deviceFilterProxy;
         sourceModel: DeviceModel;
     }
+    Connections {
+        target: PermissionsManager;
+        ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
+        function onPermissionsChanged() {
+            root.hasScanPermission = PermissionsManager.hasPermission("ACCESS_FINE_LOCATION");
+        }
+    }
+    property bool hasScanPermission: PermissionsManager.hasPermission("ACCESS_FINE_LOCATION");
     header: Kirigami.Heading {
         text: {
-            if (BTConnectionManager.discoveryRunning === true) {
+            if (!root.hasScanPermission) {
+                return qsTr("Let us look for your gear");
+            }
+            else if (BTConnectionManager.discoveryRunning === true) {
                 return qsTr("Searching for gear...");
             }
             else {
@@ -69,7 +80,10 @@ Kirigami.AbstractCard {
         wrapMode: Text.Wrap;
         horizontalAlignment: Text.AlignHCenter;
         text: {
-            if (BTConnectionManager.discoveryRunning === true) {
+            if (!root.hasScanPermission) {
+                return qsTr("To be able to find your gear, we need you to grant permission to access your location. Clicking the button below will show you a dialog that you need to press allow on. We do not use this information for anything else (feel free to get in touch if you want proof of this).");
+            }
+            else if (BTConnectionManager.discoveryRunning === true) {
                 if (deviceFilterProxy.count === 0) {
                     return qsTr("None found yet...");
                 }
@@ -97,7 +111,10 @@ Kirigami.AbstractCard {
     footer: Button {
         Layout.fillWidth: true; Layout.fillHeight: true;
         text: {
-            if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
+            if (!root.hasScanPermission) {
+                return qsTr("Get Location Permission...");
+            }
+            else if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
                 return qsTr("Look for gear");
             } else if (deviceFilterProxy.count === 1) {
                 return qsTr("Connect to %1").arg(deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257))
@@ -107,7 +124,10 @@ Kirigami.AbstractCard {
         }
         visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0);
         onClicked: {
-            if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
+            if (!root.hasScanPermission) {
+                PermissionsManager.requestPermission("ACCESS_FINE_LOCATION");
+            }
+            else if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
                 BTConnectionManager.startDiscovery();
             }
             else if(deviceFilterProxy.count === 1) {
