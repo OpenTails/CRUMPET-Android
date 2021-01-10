@@ -18,7 +18,8 @@
 #include "GestureController.h"
 #include "BTConnectionManager.h"
 #include "BTDeviceCommandModel.h"
-#include "CommandQueue.h"
+#include "BTDeviceModel.h"
+#include "BTDevice.h"
 
 #include <QSensorGestureManager>
 #include <QSettings>
@@ -122,13 +123,17 @@ public:
 
     void gestureDetected(const QString& gestureId) {
         qDebug() << gestureId << "detected";
-        CommandQueue* commandQueue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
-        if (commandQueue->count() == 0 && commandQueue->currentCommandRemainingMSeconds() == 0) {
-            qDebug() << "No commands in the queue";
-            GestureDetails* gesture = gestures.value(gestureId);
-            if (gesture && !gesture->command.isEmpty()) {
-                qDebug() << "We have a gesture with a command set, send that to the queue!";
-                commandQueue->pushCommand(gesture->command, gesture->devices);
+        GestureDetails* gesture = gestures.value(gestureId);
+        if (gesture && !gesture->command.isEmpty()) {
+            qDebug() << "We have a gesture with a command set, send that to our required devices, which are (empty means all):" << gesture->devices;
+            BTDeviceModel* deviceModel = qobject_cast<BTDeviceModel*>(connectionManager->deviceModel());
+            for (int i = 0 ; i < deviceModel->count() ; ++i) {
+                BTDevice* device = deviceModel->getDeviceById(i);
+                qDebug() << device->deviceID() << "is connected?" << device->isConnected() << "not currently busy?" << device->currentCall().isEmpty() << "and is supposed to be a recipient of this command?" << (gesture->devices.count() == 0 || gesture->devices.contains(device->deviceID()));
+                if (device->isConnected() && device->currentCall().isEmpty()
+                    && (gesture->devices.count() == 0 || gesture->devices.contains(device->deviceID()))) {
+                    device->sendMessage(gesture->command);
+                }
             }
         }
     }
