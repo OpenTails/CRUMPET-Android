@@ -127,10 +127,15 @@ public:
         if (gesture && !gesture->command.isEmpty()) {
             qDebug() << "We have a gesture with a command set, send that to our required devices, which are (empty means all):" << gesture->devices;
             BTDeviceModel* deviceModel = qobject_cast<BTDeviceModel*>(connectionManager->deviceModel());
+            // First get the command from the core model...
+            BTDeviceCommandModel* commandModel = qobject_cast<BTDeviceCommandModel*>(connectionManager->commandModel());
+            CommandInfo cmd = commandModel->getCommand(gesture->command);
             for (int i = 0 ; i < deviceModel->count() ; ++i) {
                 BTDevice* device = deviceModel->getDeviceById(i);
-                qDebug() << device->deviceID() << "is connected?" << device->isConnected() << "not currently busy?" << device->currentCall().isEmpty() << "and is supposed to be a recipient of this command?" << (gesture->devices.count() == 0 || gesture->devices.contains(device->deviceID()));
-                if (device->isConnected() && device->currentCall().isEmpty()
+                qDebug() << device->deviceID() << "of class type" << device->metaObject()->className() << "is connected?" << device->isConnected() << "is the command available?" << device->commandModel->isAvailable(cmd) << "with the command being" << cmd.command << "and is supposed to be a recipient of this command?" << (gesture->devices.count() == 0 || gesture->devices.contains(device->deviceID()));
+                // Now check if the device is connected, the device model says that command is available,
+                // and that it's supposed to be a recipient
+                if (device->isConnected() && device->commandModel->isAvailable(cmd)
                     && (gesture->devices.count() == 0 || gesture->devices.contains(device->deviceID()))) {
                     device->sendMessage(gesture->command);
                 }
