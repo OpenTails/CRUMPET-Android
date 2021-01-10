@@ -95,6 +95,7 @@ public:
     Q_SIGNAL void countChanged();
 
     BTDevice* getDevice(const QString& deviceID) const;
+    BTDevice* getDeviceById(int index) const;
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
 
     /**

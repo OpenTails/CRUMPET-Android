@@ -327,6 +327,14 @@ BTDevice* BTDeviceModel::getDevice(const QString& deviceID) const
     return nullptr;
 }
 
+BTDevice * BTDeviceModel::getDeviceById ( int index ) const
+{
+    if (index > -1 && index < d->devices.count()) {
+        return d->devices[index];
+    }
+    return nullptr;
+}
+
 void BTDeviceModel::updateItem(const QString& deviceID)
 {
     d->readDeviceNames();
