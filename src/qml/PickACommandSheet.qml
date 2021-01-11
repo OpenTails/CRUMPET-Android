@@ -57,6 +57,11 @@ Kirigami.OverlaySheet {
                 category: "lights";
                 color: "#93cee9";
             }
+            ListElement {
+                name: qsTr("Poses");
+                category: "eargearposes";
+                color: "#93cee9";
+            }
         }
     }
 }
