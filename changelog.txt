@@ -2,6 +2,7 @@
 - Rework ShakeToWag into a more full featured gesture support system, Gear Gestures
 - Now more explicit about the required permission (yes, we really do need that, or we can't find your gear)
 - Add EarGear poses to the pick a command sheet (making them available to alarms, move lists, and gear gestures)
+- Running Move Lists from the overview and details pages now works again
 - Fix some missing items in the sidebar menu when connected to your gear
 - A couple of small layout fixes
 
