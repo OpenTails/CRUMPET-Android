@@ -154,7 +154,10 @@ Kirigami.ApplicationWindow {
 
         FilterProxyModel {
             id: connectedDevicesModel
-            sourceModel: DeviceModel;
+            // This is a bit of a hack. Without this, the DeviceModel is set before
+            // the replication from the service is completed, which ends up with us
+            // just outright having no information to work with. So, workaround.
+            sourceModel: BTConnectionManager.isConnected ? DeviceModel : null;
             filterRole: 262; // the isConnected role
             filterBoolean: true;
         }
