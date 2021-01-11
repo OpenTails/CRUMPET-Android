@@ -147,7 +147,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 Kirigami.BasicListItem {
-                    text: qsTr("Shake To Wag");
+                    text: qsTr("Gear Gestures");
                     visible: opacity > 0;
                     opacity: connectedDevicesModel.count > 0 ? 1 : 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
@@ -155,7 +155,7 @@ Kirigami.ScrollablePage {
                     icon: ":/images/movelist.svg";
                     separatorVisible: false;
                     onClicked: {
-                        switchToPage(shakeToWag);
+                        switchToPage(gearGestures);
                     }
                     Kirigami.Icon {
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;

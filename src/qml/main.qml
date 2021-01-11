@@ -245,6 +245,15 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: qsTr("Gear Gestures");
+                checked: pageStack.currentItem && pageStack.currentItem.objectName === "gearGestures";
+                icon.name: ":/images/movelist.svg";
+                visible: connectedDevicesModel.count > 0;
+                onTriggered: {
+                    switchToPage(gearGestures);
+                }
+            },
+            Kirigami.Action {
                 text: qsTr("Developer Mode");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "developerModePage";
                 icon.name: "code-context";
@@ -312,8 +321,8 @@ Kirigami.ApplicationWindow {
         MoveLists {}
     }
     Component {
-        id: shakeToWag;
-        ShakeToWag {}
+        id: gearGestures;
+        GearGestures {}
     }
     Component {
         id: tailMoves;

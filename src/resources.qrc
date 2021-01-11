@@ -34,6 +34,7 @@
         <file>qml/SettingsCrumpetPicker.qml</file>
         <file>qml/DeveloperModePage.qml</file>
         <file>qml/EarPoses.qml</file>
+        <file>qml/GearGestures.qml</file>
         <file>audio/Sparkle-sound-effect.mp3</file>
         <file>commands/digitail-builtin.crumpet</file>
         <file>commands/eargear-base.crumpet</file>
@@ -45,6 +46,5 @@
         <file>images/listeningmode.svg</file>
         <file>images/movelist.svg</file>
         <file>images/moves.svg</file>
-        <file>qml/ShakeToWag.qml</file>
     </qresource>
 </RCC>

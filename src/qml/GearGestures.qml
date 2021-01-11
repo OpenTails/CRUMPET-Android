@@ -23,8 +23,8 @@ import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.ScrollablePage {
     id: component;
-    objectName: "shakeToWag";
-    title: qsTr("Shake To Wag");
+    objectName: "gearGestures";
+    title: qsTr("Gear Gestures");
     actions {
         main: Kirigami.Action {
             text: qsTr("Home Position");
