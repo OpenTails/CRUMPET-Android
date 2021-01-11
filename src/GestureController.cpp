@@ -33,6 +33,8 @@ public:
         , humanName(gestureId)
         , sensor(sensor)
     {
+        // Automagically capitalise the first letter
+        humanName.replace(0, 1, humanName[0].toUpper());
         load();
     }
     ~GestureDetails() {
@@ -77,6 +79,17 @@ public:
         : q(qq)
         , connectionManager(nullptr)
     {
+        QHash<QString, QString> sensorNames = {
+            {QLatin1String("shakeLeft"), QLatin1String("Shake Left")},
+            {QLatin1String("shakeRight"), QLatin1String("Shake Right")},
+            {QLatin1String("shakeUp"), QLatin1String("Shake Up")},
+            {QLatin1String("shakeDown"), QLatin1String("Shake Down")},
+            {QLatin1String("twistLeft"), QLatin1String("Twist Left")},
+            {QLatin1String("twistRight"), QLatin1String("Twist Right")},
+            {QLatin1String("pickup"), QLatin1String("Pick Up")},
+            {QLatin1String("turnover"), QLatin1String("Turn Over")}
+        };
+
         QSensorGestureManager manager;
         const QStringList gestureIds = manager.gestureIds();
         gestures.reserve(gestureIds.count());
@@ -92,7 +105,12 @@ public:
                     continue;
                 }
                 QString signalName = signalSignature.split(QLatin1String("(")).first();
-                gestures[signalName] = new GestureDetails(signalName, sensor, q);
+                GestureDetails* gesture = new GestureDetails(signalName, sensor, q);
+                gestures[signalName] = gesture;
+                const QString& humanName = sensorNames.value(signalName);
+                if (!humanName.isEmpty()) {
+                    gesture->humanName = humanName;
+                }
             }
         }
     }
@@ -185,6 +203,7 @@ QStringList GestureController::gestures() const
     for (const GestureDetails* gesture : d->gestures) {
         gestures << QString("%1;%2;%3").arg(gesture->gestureId).arg(gesture->command).arg(gesture->humanName);
     }
+    gestures.sort(Qt::CaseInsensitive);
     return gestures;
 }
 
