@@ -225,7 +225,7 @@ Item {
                         Layout.fillWidth: true;
                         text: model.name ? model.name : "";
                         icon: model.checked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                        property bool itemIsChecked: model.checked;
+                        property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
                         onItemIsCheckedChanged: { selectorDeviceModel.updateHasCheckedIDs(); }
                         onClicked: { BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
                     }
