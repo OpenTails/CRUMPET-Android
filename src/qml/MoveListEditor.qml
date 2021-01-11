@@ -35,7 +35,7 @@ BaseCommandListEditor {
             showMessageBox(qsTr("Run this list?"),
                 qsTr("Do you want to run this list?"),
                 function() {
-                    CommandQueue.pushCommands(AppSettings.moveList);
+                    CommandQueue.pushCommands(AppSettings.moveList, []);
                 });
         }
     }

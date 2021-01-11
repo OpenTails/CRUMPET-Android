@@ -48,7 +48,7 @@ Kirigami.ScrollablePage {
                 showMessageBox(qsTr("Run this list?"),
                                qsTr("Do you want to run the list %1?").arg(modelData),
                                function() {
-                                   CommandQueue.pushCommands(AppSettings.moveList);
+                                   CommandQueue.pushCommands(AppSettings.moveList, []);
                                });
             }
             actions: [
