@@ -50,6 +50,7 @@ Item {
         Kirigami.AbstractCard {
             id: categoryRoot;
             Layout.fillWidth: true;
+            visible: opacity > 0;
             opacity: commandRepeater.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             background: Rectangle {
