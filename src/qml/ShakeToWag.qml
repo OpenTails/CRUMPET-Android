@@ -39,7 +39,6 @@ Kirigami.ScrollablePage {
         width: component.width - Kirigami.Units.largeSpacing * 4
         InfoCard {
             text: qsTr("Turn on Gesture Control to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up.");
-            Layout.fillWidth: true;
             footer: CheckBox {
                 text: qsTr("Enable Gesture Control")
                 Layout.fillWidth: true

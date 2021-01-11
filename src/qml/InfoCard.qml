@@ -17,22 +17,19 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
+import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.13 as Kirigami
 
-Item {
+ColumnLayout {
     id: root;
     property alias text: infoCardText.text;
     property alias footer: card.footer;
     width: parent.width;
-    height: childrenRect.height + Kirigami.Units.largeSpacing * 3;
+    height: card.height + Kirigami.Units.largeSpacing * 3;
     Kirigami.Card {
         id: card
-        anchors {
-            top: parent.top;
-            left: parent.left;
-            right: parent.right;
-            margins: Kirigami.Units.largeSpacing;
-        }
+        Layout.fillWidth: true;
+        Layout.margins: Kirigami.Units.largeSpacing;
         contentItem: QQC2.Label {
             id: infoCardText;
             padding: Kirigami.Units.smallSpacing;
