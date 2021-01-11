@@ -38,6 +38,11 @@ Kirigami.OverlaySheet {
         }
         categoriesModel: ListModel {
             ListElement {
+                name: qsTr("Poses");
+                category: "eargearposes";
+                color: "#93cee9";
+            }
+            ListElement {
                 name: qsTr("Calm and Relaxed");
                 category: "relaxed";
                 color: "#1cdc9a";
@@ -55,11 +60,6 @@ Kirigami.OverlaySheet {
             ListElement {
                 name: qsTr("LED Patterns");
                 category: "lights";
-                color: "#93cee9";
-            }
-            ListElement {
-                name: qsTr("Poses");
-                category: "eargearposes";
                 color: "#93cee9";
             }
         }
