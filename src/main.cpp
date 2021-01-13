@@ -83,6 +83,8 @@ int appMain(int argc, char *argv[])
                                                 "(Landroid/content/Context;)V",
                                                 QtAndroid::androidActivity().object());
     qDebug() << "Service started, or already launched";
+#else
+    app.setApplicationVersion("Desktop");
 #endif
 
     QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
@@ -100,6 +102,7 @@ int appMain(int argc, char *argv[])
         file.close();
         engine.rootContext()->setContextProperty(QLatin1String("GPLv3LicenseText"), data);
     }
+    engine.rootContext()->setContextProperty(QLatin1String("AppVersion"), app.applicationVersion());
 
     qInfo() << "Connecting to service...";
     QRemoteObjectNode* repNode = new QRemoteObjectNode(&app);

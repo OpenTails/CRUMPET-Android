@@ -51,7 +51,7 @@ Kirigami.AboutPage {
         "shortDescription" : "Crumpet, DIGITAiL, and EarGear designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
-        "version" : "v1.0",
+        "version" : AppVersion,
         "otherText" : deviceFilterProxy.count > 0 ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
                     {
