@@ -1,3 +1,8 @@
+21
+- Make it possible to unset commands on Gear Gestures
+- Show correct version on about page
+- Simpler version number (for easier communication and reporting)
+
 0.0.20
 - Rework ShakeToWag into a more full featured gesture support system, Gear Gestures
 - Now more explicit about the required permission (yes, we really do need that, or we can't find your gear)
