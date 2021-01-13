@@ -69,6 +69,20 @@ Kirigami.ScrollablePage {
                         pickACommand.pickCommand();
                     }
                 }
+                ToolButton {
+                    Layout.alignment: Qt.AlignVCenter
+                    height: parent.height - Kirigami.Units.smallSpacing * 2;
+                    width: height;
+                    contentItem: Kirigami.Icon {
+                        source: "edit-clear"
+                    }
+                    visible: gestureDelegate.splitData[1] !== "";
+                    onClicked: {
+                        GestureController.currentGesture = gestureDelegate.splitData[0];
+                        GestureController.command = "";
+                        GestureController.devices = "";
+                    }
+                }
             }
         }
     }
