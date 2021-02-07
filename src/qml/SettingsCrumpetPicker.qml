@@ -98,6 +98,7 @@ Kirigami.ScrollablePage {
             Kirigami.ScrollablePage {
                 id: editorPage;
                 property string filename;
+                objectName: "crumpetEditor";
                 title: qsTr("Edit Commands")
 
                 Component.onCompleted: {
@@ -110,7 +111,9 @@ Kirigami.ScrollablePage {
                         icon.name: "file-save";
                         onTriggered: {
                             AppSettings.setCommandFileContents(editorPage.filename, contentEditor.text);
-                            crumpetEditor.close();
+                            if (pageStack.currentItem.objectName === editorPage.objectName) {
+                                pageStack.pop();
+                            }
                         }
                     }
                 }
