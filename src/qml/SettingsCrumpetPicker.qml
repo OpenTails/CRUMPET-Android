@@ -89,51 +89,59 @@ Kirigami.ScrollablePage {
                     visible: commandFile.isEditable;
                     text: qsTr("Edit Commands");
                     icon.name: "document-edit";
-                    onTriggered: { crumpetEditor.openEditor(modelData); }
+                    onTriggered: { pageStack.push( crumpetEditor, { filename: modelData } ); }
                 }
             ]
         }
-        Kirigami.OverlaySheet {
+        Component {
             id: crumpetEditor;
-            property string _filename;
-            function openEditor(filename) {
-                _filename = filename;
-                contentEditor.text = AppSettings.commandFiles[filename].contents;
-                crumpetEditor.open();
-            }
+            Kirigami.ScrollablePage {
+                id: editorPage;
+                property string filename;
+                title: qsTr("Edit Commands")
 
-            header: Kirigami.Heading {
-                text: qsTr("Edit Commands")
-            }
+                Component.onCompleted: {
+                    contentEditor.text = AppSettings.commandFiles[editorPage.filename].contents;
+                }
 
-            footer: RowLayout {
-                Layout.fillWidth: true
-
-                QQC2.Button {
-                    text: qsTr("Save");
-                    highlighted: true;
-                    Layout.fillWidth: true
-                    onClicked: {
-                        AppSettings.setCommandFileContents(crumpetEditor._filename, contentEditor.text);
-                        crumpetEditor.close();
+                actions {
+                    main: Kirigami.Action {
+                        text: qsTr("Save");
+                        icon.name: "file-save";
+                        onTriggered: {
+                            AppSettings.setCommandFileContents(editorPage.filename, contentEditor.text);
+                            crumpetEditor.close();
+                        }
                     }
                 }
 
-                QQC2.Button {
-                    text: qsTr("Cancel");
-                    Layout.fillWidth: true
-                    onClicked: {
-                        crumpetEditor.close();
+                TextEdit {
+                    id: contentEditor;
+                    Layout.fillWidth: true;
+                    text: "(this is where the content of the crumpet file goes,\nbecause we'll just have that here for now...)";
+                    textFormat: TextEdit.PlainText;
+                    wrapMode: TextEdit.Wrap
+                    focus: true;
+                    selectByMouse: true;
+                    persistentSelection: true;
+
+                    function ensureVisible(rectToMakeVisible)
+                    {
+                        if (editorPage.flickable.contentX >= rectToMakeVisible.x) {
+                            editorPage.flickable.contentX = rectToMakeVisible.x;
+                        } else if (editorPage.flickable.contentX + editorPage.flickable.width <= rectToMakeVisible.x + rectToMakeVisible.width) {
+                            editorPage.flickable.contentX = rectToMakeVisible.x + rectToMakeVisible.width - editorPage.flickable.width;
+                        }
+                        if (editorPage.flickable.contentY >= rectToMakeVisible.y) {
+                            editorPage.flickable.contentY = rectToMakeVisible.y;
+                        } else if (editorPage.flickable.contentY + editorPage.flickable.height <= rectToMakeVisible.y + rectToMakeVisible.height) {
+                            editorPage.flickable.contentY = rectToMakeVisible.y + rectToMakeVisible.height - editorPage.flickable.height;
+                        }
+                    }
+                    onCursorRectangleChanged: {
+                        ensureVisible(cursorRectangle);
                     }
                 }
-            }
-
-            QQC2.TextArea {
-                id: contentEditor;
-                width: component.width - Kirigami.Units.largeSpacing * 4;
-                Layout.fillHeight: true;
-                text: "(this is where the content of the crumpet file goes,\nbecause we'll just have that here for now...)";
-                selectByMouse: true;
             }
         }
     }
