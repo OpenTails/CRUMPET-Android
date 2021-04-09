@@ -21,6 +21,7 @@
 #include "BTDeviceModel.h"
 #include "BTDevice.h"
 #include "GestureDetectorModel.h"
+#include "WalkingSensorGestureReconizer.h"
 
 #include <QSensorGestureManager>
 #include <QSettings>
@@ -33,8 +34,11 @@ public:
         , connectionManager(nullptr)
     {
         model = new GestureDetectorModel(qq);
-
         QSensorGestureManager manager;
+
+        auto walkingSensor = new WalkingSensorGestureReconizer;
+        manager.registerSensorGestureRecognizer(walkingSensor);
+
         const QStringList gestureIds = manager.gestureIds();
         gestures.reserve(gestureIds.count());
         for (const QString& gestureId : gestureIds) {
