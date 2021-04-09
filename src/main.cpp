@@ -51,6 +51,7 @@
 #include "AppSettings.h"
 #include "CommandQueue.h"
 #include "GestureController.h"
+#include "GestureDetectorModel.h"
 #include "IdleMode.h"
 #include "Utilities.h"
 #include "PermissionsManager.h"
@@ -143,6 +144,9 @@ int appMain(int argc, char *argv[])
 
     QScopedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel("CommandModel"));
     engine.rootContext()->setContextProperty(QLatin1String("CommandModel"), commandModelReplica.data());
+
+    QScopedPointer<QAbstractItemModelReplica> gestureDetectorModel(repNode->acquireModel("GestureDetectorModel"));
+    engine.rootContext()->setContextProperty(QLatin1String("GestureDetectorModel"), gestureDetectorModel.data());
 
     Utilities::getInstance()->setConnectionManager(btConnectionManagerReplica.data());
     Utilities::getInstance()->setParent(&app);
@@ -275,6 +279,11 @@ int serviceMain(int argc, char *argv[])
         gestureController->setConnectionManager(btConnectionManager);
         qDebug() << "Replicating gesture controller";
         srcNode.enableRemoting(gestureController);
+
+        qDebug() << "Getting and replicating gesture detector model";
+        roles.clear();
+        roles << GestureDetectorModel::NameRole << GestureDetectorModel::IdRole << GestureDetectorModel::SensorIdRole << GestureDetectorModel::SensorNameRole << GestureDetectorModel::CommandRole << GestureDetectorModel::DevicesModel << GestureDetectorModel::FirstInSensorRole;
+        srcNode.enableRemoting(gestureController->model(), "GestureDetectorModel", roles);
     });
 
     return app.exec();

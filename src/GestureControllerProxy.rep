@@ -15,8 +15,5 @@
 
 class GestureControllerProxy {
     PROP(bool enabled READWRITE)
-    PROP(QStringList gestures READONLY)
-    PROP(QString currentGesture READWRITE)
-    PROP(QString command READWRITE)
-    PROP(QStringList devices READWRITE)
+    SLOT(void setGestureDetails(int index, QString command, QStringList devices))
 };

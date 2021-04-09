@@ -20,6 +20,7 @@ set(digitail_SRCS
     CommandQueue.cpp
     FilterProxyModel.cpp
     GestureController.cpp
+    GestureDetectorModel.cpp
     IdleMode.cpp
     AppSettings.cpp
     TailCommandModel.cpp

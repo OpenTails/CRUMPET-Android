@@ -51,36 +51,38 @@ Kirigami.ScrollablePage {
             }
         }
         Repeater {
-            model: GestureController.gestures
-            RowLayout {
-                id: gestureDelegate;
-                property var splitData: modelData.split(";");
-                Layout.fillWidth: true;
-                Text {
+            model: GestureDetectorModel;
+            ColumnLayout {
+                Kirigami.Heading {
                     Layout.fillWidth: true;
-                    text: qsTr("%1 gesture:").arg(gestureDelegate.splitData[2]);
+                    visible: model.firstInSensor === undefined ? false : model.firstInSensor;
+                    text: model.sensorName === undefined ? "" : model.sensorName;
                 }
-                Button {
-                    property string chosenCommand: gestureDelegate.splitData[1];
-                    text: chosenCommand === "" ? qsTr("(no command)"): chosenCommand;
-                    onClicked: {
-                        GestureController.currentGesture = gestureDelegate.splitData[0];
-                        pickACommand.pickWhat = gestureDelegate.splitData[0];
-                        pickACommand.pickCommand();
+                RowLayout {
+                    id: gestureDelegate;
+                    Layout.fillWidth: true;
+                    Text {
+                        Layout.fillWidth: true;
+                        text: qsTr("%1 gesture:").arg(model.name);
                     }
-                }
-                ToolButton {
-                    Layout.alignment: Qt.AlignVCenter
-                    height: parent.height - Kirigami.Units.smallSpacing * 2;
-                    width: height;
-                    contentItem: Kirigami.Icon {
-                        source: "edit-clear"
+                    Button {
+                        text: model.command === "" ? qsTr("(no command)"): model.command;
+                        onClicked: {
+                            pickACommand.gestureIndex = model.index;
+                            pickACommand.pickCommand();
+                        }
                     }
-                    visible: gestureDelegate.splitData[1] !== "";
-                    onClicked: {
-                        GestureController.currentGesture = gestureDelegate.splitData[0];
-                        GestureController.command = "";
-                        GestureController.devices = "";
+                    ToolButton {
+                        Layout.alignment: Qt.AlignVCenter
+                        height: parent.height - Kirigami.Units.smallSpacing * 2;
+                        width: height;
+                        contentItem: Kirigami.Icon {
+                            source: "edit-clear"
+                        }
+                        visible: model.command !== "";
+                        onClicked: {
+                            GestureController.setGestureDetails(model.index, "", "");
+                        }
                     }
                 }
             }
@@ -90,11 +92,10 @@ Kirigami.ScrollablePage {
     PickACommandSheet {
         id: pickACommand;
 
-        property string pickWhat;
+        property int gestureIndex;
 
         onCommandPicked: {
-            GestureController.command = command;
-            GestureController.devices = destinations;
+            GestureController.setGestureDetails(pickACommand.gestureIndex, command, destinations);
             pickACommand.close();
         }
     }

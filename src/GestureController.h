@@ -23,6 +23,7 @@
 #include "AppSettings.h"
 
 class BTConnectionManager;
+class GestureDetectorModel;
 
 /**
  * When enabled, the Gesture Controller will listen to gestures, and when one is identified
@@ -41,16 +42,9 @@ public:
     bool enabled() const override;
     void setEnabled(bool value) override;
 
-    QStringList gestures() const override;
+    Q_SLOT void setGestureDetails(int index, QString command, QStringList devices) override;
 
-    void setCurrentGesture(QString gesture) override;
-    QString currentGesture() const override;
-
-    QString command() const override;
-    void setCommand(QString value) override;
-    QStringList devices() const override;
-    void setDevices(QStringList value) override;
-
+    GestureDetectorModel* model() const;
 protected:
     // This is here because QSensorGesture does not support modern connect statements
     Q_SLOT void gestureDetected(const QString& gestureId);

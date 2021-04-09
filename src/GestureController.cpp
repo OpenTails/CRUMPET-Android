@@ -20,58 +20,11 @@
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
 #include "BTDevice.h"
+#include "GestureDetectorModel.h"
 
 #include <QSensorGestureManager>
 #include <QSettings>
 #include <QTimer>
-
-struct GestureDetails {
-public:
-    GestureDetails(QString gestureId, QSensorGesture* sensor, GestureController* q)
-        : q(q)
-        , gestureId(gestureId)
-        , humanName(gestureId)
-        , sensor(sensor)
-    {
-        // Automagically capitalise the first letter
-        humanName.replace(0, 1, humanName[0].toUpper());
-        load();
-    }
-    ~GestureDetails() {
-        sensor->deleteLater();
-    }
-    GestureController* q;
-    QString gestureId; // The ID used by the gesture manager to identify each gesture
-    QString humanName; // A human readable name
-    QSensorGesture* sensor{nullptr}; // The sensor used for detection of this gesture
-    QString command; // The command we will use to send to the devices when this gesture is recognised - if this is empty, recognition is turned off for this gesture
-    QStringList devices; // The list of devices to send to - if this list is empty, we send to all devices
-    void load() {
-        QSettings settings;
-        settings.beginGroup("Gestures");
-        command = settings.value(QString("%1/command").arg(gestureId), QString{}).toString();
-        devices = settings.value(QString("%1/devices").arg(gestureId), QStringList{}).toStringList();
-        settings.endGroup();
-    }
-    void save() {
-        QSettings settings;
-        settings.beginGroup("Gestures");
-        settings.setValue(QString("%1/command").arg(gestureId), command);
-        settings.setValue(QString("%1/devices").arg(gestureId), devices);
-        settings.endGroup();
-        settings.sync();
-    }
-    void setCommand(const QString& value) {
-        command = value;
-        Q_EMIT q->gesturesChanged(q->gestures());
-        save();
-        // Optimisation possibility: Stop and start detection for sensors where all gestures have no command to run...
-    }
-    void setDevices(const QStringList& value) {
-        devices = value;
-        save();
-    }
-};
 
 class GestureController::Private {
 public:
@@ -79,16 +32,7 @@ public:
         : q(qq)
         , connectionManager(nullptr)
     {
-        QHash<QString, QString> sensorNames = {
-            {QLatin1String("shakeLeft"), QLatin1String("Shake Left")},
-            {QLatin1String("shakeRight"), QLatin1String("Shake Right")},
-            {QLatin1String("shakeUp"), QLatin1String("Shake Up")},
-            {QLatin1String("shakeDown"), QLatin1String("Shake Down")},
-            {QLatin1String("twistLeft"), QLatin1String("Twist Left")},
-            {QLatin1String("twistRight"), QLatin1String("Twist Right")},
-            {QLatin1String("pickup"), QLatin1String("Pick Up")},
-            {QLatin1String("turnover"), QLatin1String("Turn Over")}
-        };
+        model = new GestureDetectorModel(qq);
 
         QSensorGestureManager manager;
         const QStringList gestureIds = manager.gestureIds();
@@ -107,10 +51,7 @@ public:
                 QString signalName = signalSignature.split(QLatin1String("(")).first();
                 GestureDetails* gesture = new GestureDetails(signalName, sensor, q);
                 gestures[signalName] = gesture;
-                const QString& humanName = sensorNames.value(signalName);
-                if (!humanName.isEmpty()) {
-                    gesture->humanName = humanName;
-                }
+                model->addGesture(gesture);
             }
         }
     }
@@ -118,6 +59,7 @@ public:
         qDeleteAll(gestures);
     }
     GestureController* q;
+    GestureDetectorModel* model;
     BTConnectionManager* connectionManager;
 
     // This holds the gestures by their detector IDs (see gestureDetected(QString))
@@ -131,9 +73,9 @@ public:
         QHash<QString, GestureDetails*>::const_iterator i;
         for (i = gestures.constBegin() ; i != gestures.constEnd() ; ++i) {
             if (enabled && connectionManager && connectionManager->isConnected()) {
-                i.value()->sensor->startDetection();
+                i.value()->sensor()->startDetection();
             } else {
-                i.value()->sensor->stopDetection();
+                i.value()->sensor()->stopDetection();
             }
         }
         Q_EMIT q->enabledChanged(enabled);
@@ -142,20 +84,20 @@ public:
     void gestureDetected(const QString& gestureId) {
         qDebug() << gestureId << "detected";
         GestureDetails* gesture = gestures.value(gestureId);
-        if (gesture && !gesture->command.isEmpty()) {
-            qDebug() << "We have a gesture with a command set, send that to our required devices, which are (empty means all):" << gesture->devices;
+        if (gesture && !gesture->command().isEmpty()) {
+            qDebug() << "We have a gesture with a command set, send that to our required devices, which are (empty means all):" << gesture->devices();
             BTDeviceModel* deviceModel = qobject_cast<BTDeviceModel*>(connectionManager->deviceModel());
             // First get the command from the core model...
             BTDeviceCommandModel* commandModel = qobject_cast<BTDeviceCommandModel*>(connectionManager->commandModel());
-            CommandInfo cmd = commandModel->getCommand(gesture->command);
+            CommandInfo cmd = commandModel->getCommand(gesture->command());
             for (int i = 0 ; i < deviceModel->count() ; ++i) {
                 BTDevice* device = deviceModel->getDeviceById(i);
-                qDebug() << device->deviceID() << "of class type" << device->metaObject()->className() << "is connected?" << device->isConnected() << "is the command available?" << device->commandModel->isAvailable(cmd) << "with the command being" << cmd.command << "and is supposed to be a recipient of this command?" << (gesture->devices.count() == 0 || gesture->devices.contains(device->deviceID()));
+                qDebug() << device->deviceID() << "of class type" << device->metaObject()->className() << "is connected?" << device->isConnected() << "is the command available?" << device->commandModel->isAvailable(cmd) << "with the command being" << cmd.command << "and is supposed to be a recipient of this command?" << (gesture->devices().count() == 0 || gesture->devices().contains(device->deviceID()));
                 // Now check if the device is connected, the device model says that command is available,
                 // and that it's supposed to be a recipient
                 if (device->isConnected() && device->commandModel->isAvailable(cmd)
-                    && (gesture->devices.count() == 0 || gesture->devices.contains(device->deviceID()))) {
-                    device->sendMessage(gesture->command);
+                    && (gesture->devices().count() == 0 || gesture->devices().contains(device->deviceID()))) {
+                    device->sendMessage(gesture->command());
                 }
             }
         }
@@ -197,65 +139,17 @@ void GestureController::setEnabled(bool value)
     d->setEnabled(value);
 }
 
-QStringList GestureController::gestures() const
-{
-    QStringList gestures;
-    for (const GestureDetails* gesture : d->gestures) {
-        gestures << QString("%1;%2;%3").arg(gesture->gestureId).arg(gesture->command).arg(gesture->humanName);
-    }
-    gestures.sort(Qt::CaseInsensitive);
-    return gestures;
-}
-
-void GestureController::setCurrentGesture(QString gesture)
-{
-    if (d->currentGesture != gesture) {
-        d->currentGesture = gesture;
-        Q_EMIT currentGestureChanged(gesture);
-        d->currentGestureDetails = d->gestures.value(gesture);
-        Q_EMIT commandChanged(d->currentGestureDetails->command);
-        Q_EMIT devicesChanged(d->currentGestureDetails->devices);
-    }
-}
-
-QString GestureController::currentGesture() const
-{
-    return d->currentGesture;
-}
-
-QString GestureController::command() const
-{
-    if (d->currentGestureDetails) {
-        return d->currentGestureDetails->command;
-    }
-    return QString{};
-}
-
-void GestureController::setCommand(QString value)
-{
-    if (d->currentGestureDetails && d->currentGestureDetails->command != value) {
-        d->currentGestureDetails->setCommand(value);
-        Q_EMIT commandChanged(value);
-    }
-}
-
-QStringList GestureController::devices() const
-{
-    if (d->currentGestureDetails) {
-        return d->currentGestureDetails->devices;
-    }
-    return QStringList{};
-}
-
-void GestureController::setDevices(QStringList value)
-{
-    if (d->currentGestureDetails && d->currentGestureDetails->devices != value) {
-        d->currentGestureDetails->setDevices(value);
-        Q_EMIT devicesChanged(value);
-    }
-}
-
 void GestureController::gestureDetected(const QString& gestureId)
 {
     d->gestureDetected(gestureId);
+}
+
+void GestureController::setGestureDetails(int index, QString command, QStringList devices)
+{
+    d->model->setGestureDetails(index, command, devices);
+}
+
+GestureDetectorModel * GestureController::model() const
+{
+    return d->model;
 }
