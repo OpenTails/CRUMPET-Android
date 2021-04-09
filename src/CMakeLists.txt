@@ -28,6 +28,7 @@ set(digitail_SRCS
     Alarm.cpp
     AlarmList.cpp
     PermissionsManager.cpp
+    WalkingSensorGestureReconizer.cpp
     )
 
 qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
