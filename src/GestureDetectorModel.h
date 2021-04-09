@@ -61,6 +61,7 @@ public:
     void load();
     void save();
     QSensorGesture* sensor() const;
+    QString sensorName() const;
     QString gestureId() const;
     QString humanName() const;
     void setCommand(const QString& value);

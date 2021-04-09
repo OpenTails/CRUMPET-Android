@@ -65,7 +65,7 @@ QVariant GestureDetectorModel::data(const QModelIndex& index, int role) const
                 result.setValue(gesture->sensor()->validIds().first());
                 break;
             case SensorNameRole:
-                result.setValue(gesture->sensor()->validIds().first());
+                result.setValue(gesture->sensorName());
                 break;
             case IdRole:
                 result.setValue(gesture->gestureId());
@@ -145,19 +145,25 @@ GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, Gestur
         {QLatin1String("twistLeft"), QLatin1String("Twist Left")},
         {QLatin1String("twistRight"), QLatin1String("Twist Right")},
         {QLatin1String("pickup"), QLatin1String("Pick Up")},
-        {QLatin1String("turnover"), QLatin1String("Turn Over")}
+        {QLatin1String("turnover"), QLatin1String("Turn Over")},
+        {QLatin1String("walkingStarted"), QLatin1String("Walking Started")},
+        {QLatin1String("walkingStopped"), QLatin1String("Walking Stopped")},
+        {QLatin1String("stepDetected"), QLatin1String("Step Detected")},
+        {QLatin1String("evenStepDetected"), QLatin1String("Even-numbered Step Detected")},
+        {QLatin1String("oddStepDetected"), QLatin1String("Odd-numbered Step Detected")}
     };
 
     d->controller = q;
     d->gestureId = gestureId;
 
-    d->humanName = gestureId;
+    d->humanName = QString("%1 gesture").arg(gestureId);
     const QString& humanName = sensorNames.value(gestureId);
-    if (!humanName.isEmpty()) {
+    if (humanName.isEmpty()) {
+        // Automagically capitalise the first letter if we've nothing better
+        d->humanName.replace(0, 1, d->humanName[0].toUpper());
+    } else {
         d->humanName = humanName;
     }
-    // Automagically capitalise the first letter
-    d->humanName.replace(0, 1, d->humanName[0].toUpper());
 
     d->sensor = sensor;
     d->sensorHumanName = sensor->validIds().first();
@@ -191,6 +197,13 @@ void GestureDetails::save() {
 QSensorGesture * GestureDetails::sensor() const
 {
     return d->sensor;
+}
+
+QString GestureDetails::sensorName() const
+{
+    QString name = d->sensor->validIds().first().split(QStringLiteral(".")).last();
+    name.replace(0, 1, name[0].toUpper());
+    return name;
 }
 
 QString GestureDetails::gestureId() const

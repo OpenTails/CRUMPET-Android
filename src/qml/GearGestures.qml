@@ -63,7 +63,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true;
                     Text {
                         Layout.fillWidth: true;
-                        text: qsTr("%1 gesture:").arg(model.name);
+                        text: model.name;
                     }
                     Button {
                         text: model.command === "" ? qsTr("(no command)"): model.command;
