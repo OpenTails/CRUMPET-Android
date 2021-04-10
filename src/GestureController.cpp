@@ -153,6 +153,16 @@ void GestureController::setGestureDetails(int index, QString command, QStringLis
     d->model->setGestureDetails(index, command, devices);
 }
 
+void GestureController::setGestureSensorEnabled(int index, bool enabled)
+{
+    d->model->setGestureSensorEnabled(index, enabled);
+}
+
+void GestureController::setGestureSensorPinned(int index, bool pinned)
+{
+    d->model->setGestureSensorPinned(index, pinned);
+}
+
 GestureDetectorModel * GestureController::model() const
 {
     return d->model;
