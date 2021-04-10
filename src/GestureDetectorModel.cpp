@@ -24,13 +24,15 @@
 class GestureDetectorModel::Private {
 public:
     Private() {}
+    GestureController* controller;
     QList<GestureDetails*> entries;
 };
 
-GestureDetectorModel::GestureDetectorModel(QObject* parent)
+GestureDetectorModel::GestureDetectorModel(GestureController* parent)
     : QAbstractListModel(parent)
     , d(new Private)
 {
+    d->controller = parent;
 }
 
 GestureDetectorModel::~GestureDetectorModel()
@@ -44,10 +46,14 @@ QHash<int, QByteArray> GestureDetectorModel::roleNames() const
         {NameRole, "name"},
         {SensorIdRole,  "sensorId"},
         {SensorNameRole, "sensorName"},
+        {SensorEnabledRole, "sensorEnabled"},
+        {SensorPinnedRole, "sensorPinned"},
         {IdRole, "id"},
         {CommandRole, "command"},
+        {DefaultCommandRole, "defaultCommand"},
         {DevicesModel, "devices"},
-        {FirstInSensorRole, "firstInSensor"}
+        {FirstInSensorRole, "firstInSensor"},
+        {VisibleRole, "visible"}
     };
     return roles;
 }
@@ -67,26 +73,37 @@ QVariant GestureDetectorModel::data(const QModelIndex& index, int role) const
             case SensorNameRole:
                 result.setValue(gesture->sensorName());
                 break;
+            case SensorEnabledRole:
+                result.setValue(gesture->sensorEnabled());
+                break;
+            case SensorPinnedRole:
+                result.setValue(gesture->sensorPinned());
+                break;
             case IdRole:
                 result.setValue(gesture->gestureId());
                 break;
             case CommandRole:
                 result.setValue(gesture->command());
                 break;
+            case DefaultCommandRole:
+                result.setValue(gesture->defaultCommand());
+                break;
             case DevicesModel:
                 result.setValue(gesture->devices());
                 break;
             case FirstInSensorRole:
             {
-                GestureDetails* previousGesture{nullptr};
-                if (index.row() > 0) {
-                    previousGesture = d->entries.value(index.row() - 1);
+                GestureDetails* previousGesture = index.row() > 0 ? d->entries.value(index.row() - 1) : nullptr;
+                if (previousGesture) {
                     result.setValue(previousGesture->sensor()->validIds().first() != gesture->sensor()->validIds().first());
                 } else {
                     result.setValue(true);
                 }
                 break;
             }
+            case VisibleRole:
+                result.setValue(gesture->visible());
+                break;
             default:
                 break;
         }
@@ -131,8 +148,47 @@ public:
     QSensorGesture* sensor{nullptr}; // The sensor used for detection of this gesture
     QString sensorHumanName;
     QString command; // The command we will use to send to the devices when this gesture is recognised - if this is empty, recognition is turned off for this gesture
+    QString defaultCommand; // The default command for this gesture (often empty, but not supposed to be used for clear, it's the sensor-wide revert)
     QStringList devices; // The list of devices to send to - if this list is empty, we send to all devices
+    bool visible{true};
+    bool sensorPinned{false};
+    bool sensorEnabled{false};
 };
+
+void GestureDetectorModel::setGestureSensorPinned(int index, bool pinned)
+{
+    GestureDetails* gesture = d->entries.value(index);
+    QSettings settings;
+    settings.beginGroup("Sensors");
+    settings.setValue(QString("%1/pinned").arg(gesture->sensorName()), pinned);
+    settings.endGroup();
+    settings.sync();
+
+    for (GestureDetails* ges : d->entries) {
+        if (ges->sensor() == gesture->sensor()) {
+            ges->d->sensorPinned = pinned;
+            gestureDetailsChanged(ges);
+        }
+    }
+}
+
+void GestureDetectorModel::setGestureSensorEnabled(int index, bool enabled)
+{
+    GestureDetails* gesture = d->entries.value(index);
+    QSettings settings;
+    settings.beginGroup("Sensors");
+    settings.setValue(QString("%1/enabled").arg(gesture->sensorName()), enabled);
+    settings.endGroup();
+    settings.sync();
+
+    for (GestureDetails* ges : d->entries) {
+        if (ges->sensor() == gesture->sensor()) {
+            ges->d->sensorEnabled = enabled;
+            gestureDetailsChanged(ges);
+        }
+    }
+}
+
 
 GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, GestureController* q)
     : d(new Private)
@@ -183,6 +239,10 @@ void GestureDetails::load() {
     d->command = settings.value(QString("%1/command").arg(d->gestureId), QString{}).toString();
     d->devices = settings.value(QString("%1/devices").arg(d->gestureId), QStringList{}).toStringList();
     settings.endGroup();
+    settings.beginGroup("Sensors");
+    d->sensorPinned = settings.value(QString("%1/pinned").arg(sensorName()), false).toBool();
+    d->sensorEnabled = settings.value(QString("%1/enabled").arg(sensorName()), false).toBool();
+    settings.endGroup();
 }
 
 void GestureDetails::save() {
@@ -228,6 +288,11 @@ QString GestureDetails::command() const
     return d->command;
 }
 
+QString GestureDetails::defaultCommand() const
+{
+    return d->defaultCommand;
+}
+
 void GestureDetails::setDevices(const QStringList& value) {
     d->devices = value;
     d->controller->model()->gestureDetailsChanged(this);
@@ -237,4 +302,19 @@ void GestureDetails::setDevices(const QStringList& value) {
 QStringList GestureDetails::devices() const
 {
     return d->devices;
+}
+
+bool GestureDetails::visible() const
+{
+    return d->visible;
+}
+
+bool GestureDetails::sensorEnabled() const
+{
+    return d->sensorEnabled;
+}
+
+bool GestureDetails::sensorPinned() const
+{
+    return d->sensorPinned;
 }

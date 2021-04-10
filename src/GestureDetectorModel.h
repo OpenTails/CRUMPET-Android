@@ -18,6 +18,7 @@
 #ifndef GESTUREDETECTORMODEL_H
 #define GESTUREDETECTORMODEL_H
 
+#include "GestureController.h"
 #include <QAbstractListModel>
 
 struct GestureDetails;
@@ -25,7 +26,7 @@ class GestureDetectorModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit GestureDetectorModel(QObject* parent = nullptr);
+    explicit GestureDetectorModel(GestureController* parent = nullptr);
     ~GestureDetectorModel() override;
 
     enum Roles {
@@ -33,9 +34,13 @@ public:
         IdRole,
         SensorIdRole, ///< The ID of the sensor for this gesture
         SensorNameRole, ///< Name of the sensor to be shown to the user
+        SensorEnabledRole, ///< Whether or not the sensor is enabled
+        SensorPinnedRole, ///< Whether or not the sensor should be shown on the front page
         CommandRole,
+        DefaultCommandRole,
         DevicesModel,
         FirstInSensorRole, ///< True if the row has a different sensor ID to the previous row
+        VisibleRole, ///< Whether or not this should be shown
     };
 
     QHash< int, QByteArray > roleNames() const override;
@@ -45,6 +50,10 @@ public:
     void addGesture(GestureDetails* gesture);
     void gestureDetailsChanged(GestureDetails* gesture);
     void setGestureDetails(int index, QString command, QStringList devices);
+    // Index is the index of a gesture, but the state is set for all gestures with the same sensor
+    void setGestureSensorPinned(int index, bool pinned);
+    // Index is the index of a gesture, but the state is set for all gestures with the same sensor
+    void setGestureSensorEnabled(int index, bool enabled);
 
 private:
     class Private;
@@ -66,10 +75,16 @@ public:
     QString humanName() const;
     void setCommand(const QString& value);
     QString command() const;
+    QString defaultCommand() const;
     void setDevices(const QStringList& value);
     QStringList devices() const;
+    bool visible() const;
+
+    bool sensorEnabled() const;
+    bool sensorPinned() const;
 
 private:
+    friend class GestureDetectorModel;
     class Private;
     Private* d;
 };
