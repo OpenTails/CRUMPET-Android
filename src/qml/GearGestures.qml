@@ -53,17 +53,32 @@ Kirigami.ScrollablePage {
         Repeater {
             model: GestureDetectorModel;
             ColumnLayout {
-                Kirigami.Heading {
-                    Layout.fillWidth: true;
+                ColumnLayout {
                     visible: model.firstInSensor === undefined ? false : model.firstInSensor;
-                    text: model.sensorName === undefined ? "" : model.sensorName;
+                    Layout.fillWidth: true;
+                    Kirigami.Heading {
+                        Layout.fillWidth: true;
+                        text: model.sensorName === undefined ? "" : model.sensorName;
+                    }
+                    CheckBox {
+                        Layout.fillWidth: true;
+                        text: qsTr("Enable")
+                        checked: model.sensorEnabled === undefined ? false : model.sensorEnabled
+                        onClicked: GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled)
+                    }
+                    CheckBox {
+                        Layout.fillWidth: true;
+                        text: qsTr("Show On Welcome Page")
+                        checked: model.sensorPinned === undefined ? false : model.sensorPinned
+                        onClicked: GestureController.setGestureSensorPinned(model.index, !model.sensorPinned)
+                    }
                 }
                 RowLayout {
                     id: gestureDelegate;
                     Layout.fillWidth: true;
                     Text {
                         Layout.fillWidth: true;
-                        text: model.name;
+                        text: model.name === undefined ? "" : model.name;
                     }
                     Button {
                         text: model.command === "" ? qsTr("(no command)"): model.command;
