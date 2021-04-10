@@ -282,7 +282,7 @@ int serviceMain(int argc, char *argv[])
 
         qDebug() << "Getting and replicating gesture detector model";
         roles.clear();
-        roles << GestureDetectorModel::NameRole << GestureDetectorModel::IdRole << GestureDetectorModel::SensorIdRole << GestureDetectorModel::SensorNameRole << GestureDetectorModel::CommandRole << GestureDetectorModel::DevicesModel << GestureDetectorModel::FirstInSensorRole;
+        roles << GestureDetectorModel::NameRole << GestureDetectorModel::IdRole << GestureDetectorModel::SensorIdRole << GestureDetectorModel::SensorNameRole << GestureDetectorModel::SensorEnabledRole << GestureDetectorModel::SensorPinnedRole << GestureDetectorModel::CommandRole << GestureDetectorModel:: DefaultCommandRole << GestureDetectorModel::DevicesModel << GestureDetectorModel::FirstInSensorRole << GestureDetectorModel::VisibleRole;
         srcNode.enableRemoting(gestureController->model(), "GestureDetectorModel", roles);
     });
 
