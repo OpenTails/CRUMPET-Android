@@ -146,25 +146,6 @@ Kirigami.ScrollablePage {
                         source: "go-next";
                     }
                 }
-                Kirigami.BasicListItem {
-                    text: qsTr("Gear Gestures");
-                    visible: opacity > 0;
-                    opacity: connectedDevicesModel.count > 0 ? 1 : 0;
-                    Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                    //todo: set a separate icon for the "Shake to Wag" button
-                    icon: ":/images/movelist.svg";
-                    separatorVisible: false;
-                    onClicked: {
-                        switchToPage(gearGestures);
-                    }
-                    Kirigami.Icon {
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                        Layout.margins: Kirigami.Units.smallSpacing;
-                        width: Kirigami.Units.iconSizes.small;
-                        height: width;
-                        source: "go-next";
-                    }
-                }
 //                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
 //                     Kirigami.BasicListItem {
 //                         text: qsTr("Poses");
@@ -301,6 +282,60 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+        Kirigami.AbstractCard {
+            visible: opacity > 0;
+            opacity: BTConnectionManager.isConnected ? 1 : 0;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+            Layout.fillWidth: true;
+            header: RowLayout {
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
+                    Layout.margins: Kirigami.Units.smallSpacing;
+                    width: Kirigami.Units.iconSizes.small;
+                    height: width;
+                    source: ":/images/movelist.svg"
+                }
+                Kirigami.Heading {
+                    text: qsTr("Gear Gestures");
+                    Layout.fillWidth: true;
+                    Digitail.FilterProxyModel {
+                        id: pinnedSensorsModel;
+                        sourceModel: GestureDetectorModel;
+                        filterRole: 262; // the sensorPinned role
+                        filterBoolean: true;
+                    }
+                }
+                ToolButton {
+                    onClicked: {
+                        switchToPage(gearGestures);
+                    }
+                    icon.name: "go-next";
+                }
+            }
+            contentItem: Column {
+                id: gesturesColumn
+                Layout.fillWidth: true;
+                height: childrenRect.height;
+                spacing: 0;
+                Repeater {
+                    model: Digitail.FilterProxyModel {
+                        sourceModel: pinnedSensorsModel
+                        filterRole: 266; // the firstInSensor role
+                        filterBoolean: true;
+                    }
+                    Kirigami.BasicListItem {
+                        visible: model.firstInSensor;
+                        width: gesturesColumn.width;
+                        separatorVisible: false;
+                        icon: model.sensorEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        label: model.sensorName;
+                        onClicked: { GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled); }
+                    }
+                }
+            }
+        }
+
 //         Button {
 //             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
 //             Layout.fillWidth: true;
