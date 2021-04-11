@@ -38,17 +38,7 @@ Kirigami.ScrollablePage {
     ColumnLayout {
         width: component.width - Kirigami.Units.largeSpacing * 4
         InfoCard {
-            text: qsTr("Turn on Gesture Control to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up.");
-            footer: CheckBox {
-                text: qsTr("Enable Gesture Control")
-                Layout.fillWidth: true
-                checkable: false;
-                checked: GestureController.enabled;
-
-                onClicked: {
-                    GestureController.enabled = !GestureController.enabled;
-                }
-            }
+            text: qsTr("Turn on one of the sensors below to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up, or start wagging when it detects that you have taken a step.");
         }
         Repeater {
             model: GestureDetectorModel;
@@ -56,15 +46,20 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     visible: model.firstInSensor === undefined ? false : model.firstInSensor;
                     Layout.fillWidth: true;
-                    Kirigami.Heading {
+                    Rectangle {
                         Layout.fillWidth: true;
-                        text: model.sensorName === undefined ? "" : model.sensorName;
+                        height: 1;
+                        color: Kirigami.Theme.textColor;
+                        visible: model.index > 0
                     }
-                    CheckBox {
+                    Kirigami.BasicListItem {
+                        visible: model.firstInSensor;
                         Layout.fillWidth: true;
-                        text: qsTr("Enable")
-                        checked: model.sensorEnabled === undefined ? false : model.sensorEnabled
-                        onClicked: GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled)
+                        separatorVisible: false;
+                        bold: true;
+                        icon: model.sensorEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        label: model.sensorName === undefined ? "" : model.sensorName;
+                        onClicked: { GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled); }
                     }
                     CheckBox {
                         Layout.fillWidth: true;
@@ -91,12 +86,20 @@ Kirigami.ScrollablePage {
                         Layout.alignment: Qt.AlignVCenter
                         height: parent.height - Kirigami.Units.smallSpacing * 2;
                         width: height;
-                        contentItem: Kirigami.Icon {
-                            source: "edit-clear"
-                        }
+                        icon.name: "edit-clear"
                         visible: model.command !== "";
                         onClicked: {
                             GestureController.setGestureDetails(model.index, "", "");
+                        }
+                    }
+                    ToolButton {
+                        Layout.alignment: Qt.AlignVCenter
+                        height: parent.height - Kirigami.Units.smallSpacing * 2;
+                        width: height;
+                        icon.name: "document-revert"
+                        visible: model.command === "" && model.defaultCommand !== "";
+                        onClicked: {
+                            GestureController.setGestureDetails(model.index, model.defaultCommand, "");
                         }
                     }
                 }

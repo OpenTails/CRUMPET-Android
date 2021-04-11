@@ -8,6 +8,7 @@
         <file alias="actions/22/dialog-cancel.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-cancel.svg</file>
         <file alias="actions/22/dialog-close.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-close.svg</file>
         <file alias="actions/22/document-edit.svg">../3rdparty/breeze-icons/icons/actions/22/document-edit.svg</file>
+        <file alias="actions/22/document-revert.svg">../3rdparty/breeze-icons/icons/actions/22/document-revert.svg</file>
         <file alias="actions/22/go-home.svg">../3rdparty/breeze-icons/icons/actions/22/go-home.svg</file>
         <file alias="actions/22/go-next.svg">../3rdparty/breeze-icons/icons/actions/22/go-next.svg</file>
         <file alias="actions/22/go-previous.svg">../3rdparty/breeze-icons/icons/actions/22/go-previous.svg</file>
