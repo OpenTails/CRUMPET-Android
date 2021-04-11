@@ -37,6 +37,7 @@ GestureDetectorModel::GestureDetectorModel(GestureController* parent)
 
 GestureDetectorModel::~GestureDetectorModel()
 {
+    qDeleteAll(d->entries);
     delete d;
 }
 
@@ -172,6 +173,15 @@ void GestureDetectorModel::setGestureSensorPinned(int index, bool pinned)
     }
 }
 
+void toggleSensor(QSensorGesture* sensor, bool enabled)
+{
+    if (enabled) {
+        sensor->startDetection();
+    } else {
+        sensor->stopDetection();
+    }
+}
+
 void GestureDetectorModel::setGestureSensorEnabled(int index, bool enabled)
 {
     GestureDetails* gesture = d->entries.value(index);
@@ -187,13 +197,13 @@ void GestureDetectorModel::setGestureSensorEnabled(int index, bool enabled)
             gestureDetailsChanged(ges);
         }
     }
+    toggleSensor(gesture->sensor(), enabled);
 }
-
 
 GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, GestureController* q)
     : d(new Private)
 {
-    static const QHash<QString, QString> sensorNames = {
+    static const QHash<QString, QString> sensorNames{
         {QLatin1String("shakeLeft"), QLatin1String("Shake Left")},
         {QLatin1String("shakeRight"), QLatin1String("Shake Right")},
         {QLatin1String("shakeUp"), QLatin1String("Shake Up")},
@@ -234,15 +244,25 @@ GestureDetails::~GestureDetails() {
 }
 
 void GestureDetails::load() {
+    static const QHash<QString, QString> defaultCommands{
+        {QLatin1String("stepDetected"), QLatin1String("TAILS1")},
+        {QLatin1String("walkingStopped"), QLatin1String("TAILHM")}
+    };
+    static const QStringList defaultPinned{
+        QLatin1String{"QtSensors.Walking"}
+    };
+    d->defaultCommand = defaultCommands.value(d->gestureId, QLatin1String{});
+
     QSettings settings;
     settings.beginGroup("Gestures");
-    d->command = settings.value(QString("%1/command").arg(d->gestureId), QString{}).toString();
+    d->command = settings.value(QString("%1/command").arg(d->gestureId), d->defaultCommand).toString();
     d->devices = settings.value(QString("%1/devices").arg(d->gestureId), QStringList{}).toStringList();
     settings.endGroup();
     settings.beginGroup("Sensors");
-    d->sensorPinned = settings.value(QString("%1/pinned").arg(sensorName()), false).toBool();
+    d->sensorPinned = settings.value(QString("%1/pinned").arg(sensorName()), defaultPinned.contains(d->sensor->validIds().first())).toBool();
     d->sensorEnabled = settings.value(QString("%1/enabled").arg(sensorName()), false).toBool();
     settings.endGroup();
+    toggleSensor(sensor(), d->sensorEnabled);
 }
 
 void GestureDetails::save() {

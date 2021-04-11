@@ -60,7 +60,7 @@ public:
         }
     }
     ~Private() {
-        qDeleteAll(gestures);
+        gestures.clear();
     }
     GestureController* q;
     GestureDetectorModel* model;
@@ -68,22 +68,6 @@ public:
 
     // This holds the gestures by their detector IDs (see gestureDetected(QString))
     QHash<QString, GestureDetails*> gestures;
-
-    QString currentGesture;
-    GestureDetails* currentGestureDetails{nullptr};
-    bool enabled{false};
-    void setEnabled(bool enabled) {
-        Private::enabled = enabled;
-        QHash<QString, GestureDetails*>::const_iterator i;
-        for (i = gestures.constBegin() ; i != gestures.constEnd() ; ++i) {
-            if (enabled && connectionManager && connectionManager->isConnected()) {
-                i.value()->sensor()->startDetection();
-            } else {
-                i.value()->sensor()->stopDetection();
-            }
-        }
-        Q_EMIT q->enabledChanged(enabled);
-    }
 
     void gestureDetected(const QString& gestureId) {
         qDebug() << gestureId << "detected";
@@ -125,22 +109,6 @@ void GestureController::setConnectionManager(BTConnectionManager* connectionMana
         d->connectionManager->disconnect(this);
     }
     d->connectionManager = connectionManager;
-    // This just makes sure to reset the enabled state on device reconnections,
-    // which isn't super important, and more a case of not having it sitting around
-    // trying to detect things with no devices available.
-    connect(d->connectionManager, &BTConnectionManager::isConnectedChanged, this, [this](){
-        d->setEnabled(d->enabled);
-    });
-}
-
-bool GestureController::enabled() const
-{
-    return d->enabled;
-}
-
-void GestureController::setEnabled(bool value)
-{
-    d->setEnabled(value);
 }
 
 void GestureController::gestureDetected(const QString& gestureId)

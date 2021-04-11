@@ -14,7 +14,6 @@
 //   along with this program; if not, see <https://www.gnu.org/licenses/>
 
 class GestureControllerProxy {
-    PROP(bool enabled READWRITE)
     SLOT(void setGestureDetails(int index, QString command, QStringList devices))
     SLOT(void setGestureSensorPinned(int index, bool pinned))
     SLOT(void setGestureSensorEnabled(int index, bool enabled))

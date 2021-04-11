@@ -39,9 +39,6 @@ public:
 
     void setConnectionManager(BTConnectionManager* connectionManager);
 
-    bool enabled() const override;
-    void setEnabled(bool value) override;
-
     Q_SLOT void setGestureDetails(int index, QString command, QStringList devices) override;
     // Index is the index of a gesture, but the state is set for all gestures with the same sensor
     Q_SLOT void setGestureSensorPinned(int index, bool pinned) override;
