@@ -53,7 +53,7 @@ Kirigami.ScrollablePage {
                         visible: model.index > 0
                     }
                     Kirigami.BasicListItem {
-                        visible: model.firstInSensor;
+                        visible: model.firstInSensor === undefined ? false : model.firstInSensor;
                         Layout.fillWidth: true;
                         separatorVisible: false;
                         bold: true;
