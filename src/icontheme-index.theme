@@ -38,7 +38,7 @@ Context=Actions
 Type=Scalable
 
 [actions/32]
-Size=22
+Size=32
 Context=Actions
 Type=Scalable
 
