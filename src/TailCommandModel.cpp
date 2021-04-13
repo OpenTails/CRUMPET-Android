@@ -207,10 +207,15 @@ bool TailCommandModel::isRunning(const CommandInfo& cmd) const
 
 bool TailCommandModel::isAvailable(const CommandInfo& cmd) const
 {
-    for (const CommandInfo& ourCmd : d->commands) {
-        if (cmd.compare(ourCmd)) {
-            return ourCmd.isAvailable;
+    bool retVal{false};
+    if (cmd.command == "TAILHM") {
+        retVal = true;
+    } else {
+        for (const CommandInfo& ourCmd : d->commands) {
+            if (cmd.compare(ourCmd)) {
+                return ourCmd.isAvailable;
+            }
         }
     }
-    return false;
+    return retVal;
 }

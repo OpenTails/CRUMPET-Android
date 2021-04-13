@@ -297,6 +297,10 @@ CommandInfo BTDeviceCommandModel::getCommand(int index) const
 CommandInfo BTDeviceCommandModel::getCommand(QString command) const
 {
     CommandInfo cmd;
+    // Just in case - this is specifically for TAILHM, which must exist (and
+    // preparing for others that are the same, but basically that - these are
+    // commands which are technically invalid, but always available)
+    cmd.command = command;
     for(Private::Entry* current : d->commands) {
         if(current->command.command == command) {
             cmd = current->command;
