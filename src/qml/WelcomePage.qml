@@ -16,7 +16,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.11
+import QtQuick 2.14
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.13 as Kirigami
@@ -295,6 +295,11 @@ Kirigami.ScrollablePage {
                     width: Kirigami.Units.iconSizes.small;
                     height: width;
                     source: ":/images/movelist.svg"
+                    TapHandler {
+                        onTapped: {
+                            switchToPage(gearGestures);
+                        }
+                    }
                 }
                 Kirigami.Heading {
                     text: qsTr("Gear Gestures");
@@ -304,6 +309,11 @@ Kirigami.ScrollablePage {
                         sourceModel: GestureDetectorModel;
                         filterRole: 262; // the sensorPinned role
                         filterBoolean: true;
+                    }
+                    TapHandler {
+                        onTapped: {
+                            switchToPage(gearGestures);
+                        }
                     }
                 }
                 ToolButton {
