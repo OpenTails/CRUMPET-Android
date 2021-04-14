@@ -320,6 +320,7 @@ Kirigami.ScrollablePage {
                 spacing: 0;
                 Repeater {
                     model: Digitail.FilterProxyModel {
+                        id: welcomePageSensorsModel
                         sourceModel: pinnedSensorsModel
                         filterRole: 266; // the firstInSensor role
                         filterBoolean: true;
@@ -330,7 +331,7 @@ Kirigami.ScrollablePage {
                         separatorVisible: false;
                         icon: model.sensorEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         label: model.sensorName;
-                        onClicked: { GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled); }
+                        onClicked: { GestureController.setGestureSensorEnabled(pinnedSensorsModel.sourceIndex(welcomePageSensorsModel.sourceIndex(model.index)), !model.sensorEnabled); }
                     }
                 }
             }

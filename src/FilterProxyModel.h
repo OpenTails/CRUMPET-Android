@@ -42,6 +42,8 @@ public:
 
     int count() const;
     Q_SIGNAL void countChanged();
+
+    Q_INVOKABLE int sourceIndex( const int& filterIndex );
 private:
     class Private;
     Private* d;

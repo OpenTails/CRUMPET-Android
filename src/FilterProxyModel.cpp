@@ -82,3 +82,13 @@ int FilterProxyModel::count() const
 {
     return rowCount();
 }
+
+int FilterProxyModel::sourceIndex(const int& filterIndex)
+{
+    int mappedIndex{-1};
+    QModelIndex ourIndex = index(filterIndex, 0);
+    if (ourIndex.isValid() && sourceModel()) {
+        mappedIndex = mapToSource(ourIndex).row();
+    }
+    return mappedIndex;
+}
