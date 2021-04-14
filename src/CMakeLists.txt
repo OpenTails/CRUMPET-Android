@@ -1,3 +1,4 @@
+set(CMAKE_AUTORCC ON)
 include_directories(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/src)
 include_directories(${Qt5RemoteObjects_INCLUDEDIR})
 include_directories(${CMAKE_BINARY_DIR}/src)
@@ -29,9 +30,10 @@ set(digitail_SRCS
     AlarmList.cpp
     PermissionsManager.cpp
     WalkingSensorGestureReconizer.cpp
-    )
 
-qt5_add_resources(RESOURCES kirigami-icons.qrc resources.qrc)
+    kirigami-icons.qrc
+    resources.qrc
+    )
 
 if(Qt5RemoteObjects_FOUND)
     qt5_generate_repc(digitail_SRCS BTConnectionManagerProxy.rep SOURCE)
@@ -55,7 +57,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Android")
 #     set(digitail_EXTRA_LIBS )
 endif()
 
-add_executable(digitail ${digitail_SRCS} ${RESOURCES})
+add_executable(digitail ${digitail_SRCS})
 #kirigamiplugin is the static library built by us
 target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors ${digitail_EXTRA_LIBS})
 
