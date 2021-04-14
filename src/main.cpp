@@ -179,6 +179,7 @@ int appMain(int argc, char *argv[])
             // Not connected, so kill the service
 #ifdef Q_OS_ANDROID
             Q_UNUSED(settingsReplica);
+            Q_UNUSED(settingsReplicaDestroyed);
             QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "stopTailService",
                                                 "(Landroid/content/Context;)V",
