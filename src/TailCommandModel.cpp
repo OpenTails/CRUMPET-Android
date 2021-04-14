@@ -197,12 +197,14 @@ const CommandInfoList& TailCommandModel::allCommands() const
 
 bool TailCommandModel::isRunning(const CommandInfo& cmd) const
 {
+    bool retVal{false};
     for (const CommandInfo& ourCmd : d->commands) {
         if (cmd.compare(ourCmd)) {
-            return ourCmd.isRunning;
+            retVal = ourCmd.isRunning;
+            break;
         }
     }
-    return false;
+    return retVal;
 }
 
 bool TailCommandModel::isAvailable(const CommandInfo& cmd) const
@@ -213,7 +215,8 @@ bool TailCommandModel::isAvailable(const CommandInfo& cmd) const
     } else {
         for (const CommandInfo& ourCmd : d->commands) {
             if (cmd.compare(ourCmd)) {
-                return ourCmd.isAvailable;
+                retVal = ourCmd.isAvailable;
+                break;
             }
         }
     }
