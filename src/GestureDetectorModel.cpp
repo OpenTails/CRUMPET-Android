@@ -127,6 +127,18 @@ void GestureDetectorModel::addGesture(GestureDetails* gesture)
     endInsertRows();
 }
 
+GestureDetails * GestureDetectorModel::gesture(const QString& gestureId) const
+{
+    GestureDetails* theGesture{nullptr};
+    for (GestureDetails* ges : d->entries) {
+        if (ges->gestureId() == gestureId) {
+            theGesture = ges;
+            break;
+        }
+    }
+    return theGesture;
+}
+
 void GestureDetectorModel::gestureDetailsChanged(GestureDetails* gesture)
 {
     QModelIndex idx = createIndex(d->entries.indexOf(gesture), 0);

@@ -40,7 +40,6 @@ public:
         manager.registerSensorGestureRecognizer(walkingSensor);
 
         const QStringList gestureIds = manager.gestureIds();
-        gestures.reserve(gestureIds.count());
         for (const QString& gestureId : gestureIds) {
             QSensorGesture* sensor = new QSensorGesture(QStringList{gestureId}, q);
             // Old style connect statement, see QSensorGesture documentation about custom metaobjects
@@ -54,25 +53,19 @@ public:
                 }
                 QString signalName = signalSignature.split(QLatin1String("(")).first();
                 GestureDetails* gesture = new GestureDetails(signalName, sensor, q);
-                gestures[signalName] = gesture;
                 model->addGesture(gesture);
             }
         }
     }
-    ~Private() {
-        gestures.clear();
-    }
+    ~Private() { }
     GestureController* q;
     GestureDetectorModel* model;
     BTConnectionManager* connectionManager;
 
-    // This holds the gestures by their detector IDs (see gestureDetected(QString))
-    QHash<QString, GestureDetails*> gestures;
-
     void gestureDetected(const QString& gestureId) {
         qDebug() << gestureId << "detected";
-        GestureDetails* gesture = gestures.value(gestureId);
-        if (gesture && !gesture->command().isEmpty()) {
+        GestureDetails* gesture = model->gesture(gestureId);
+        if (gesture && !gesture->command().isEmpty() && gesture->sensorEnabled()) {
             qDebug() << "We have a gesture with a command set, send that to our required devices, which are (empty means all):" << gesture->devices();
             BTDeviceModel* deviceModel = qobject_cast<BTDeviceModel*>(connectionManager->deviceModel());
             // First get the command from the core model...

@@ -48,6 +48,8 @@ public:
     int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
     void addGesture(GestureDetails* gesture);
+    GestureDetails* gesture(const QString& gestureId) const;
+
     void gestureDetailsChanged(GestureDetails* gesture);
     void setGestureDetails(int index, QString command, QStringList devices);
     // Index is the index of a gesture, but the state is set for all gestures with the same sensor
