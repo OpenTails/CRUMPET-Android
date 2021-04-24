@@ -109,6 +109,7 @@ public:
         }
     }
 
+    QString previousThing;
     void characteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
         qDebug() << q->name() << q->deviceID() << "Current call is" << currentCall << "and characteristic" << characteristic.uuid() << "NOTIFIED value change" << newValue;
@@ -122,6 +123,8 @@ public:
                 q->sendMessage("BATT");
             }
             else {
+                static const QLatin1String aBegin{"BEGIN"};
+                static const QLatin1String anEnd{"END"};
                 QString theValue(newValue);
                 QStringList stateResult = theValue.split(' ');
                 // Return value for BATT calls is BAT and a number, from 0 to 4,
@@ -130,11 +133,50 @@ public:
                     batteryLevel = theValue.right(1).toInt();
                     emit q->batteryLevelChanged(batteryLevel);
                 }
+                else if(stateResult.count() == 1 && !previousThing.isEmpty()) {
+                    // See comment in the next bit to see what this is about
+                    previousThing += stateResult[0];
+                    QStringList splitThing = previousThing.split(' ');
+                    q->commandModel->setRunning(splitThing[1], (splitThing[0] == aBegin));
+                    previousThing.clear();
+                }
+                else if(stateResult.count() == 3 && (stateResult[0] == aBegin || stateResult[0] == anEnd)) {
+                    // This is an awkward thing that happens sometimes (and especially when a command is forced to
+                    // stop by starting another) - specifically, we will get two results happening in quick succession,
+                    // which is the expected result from two calls, just concatenated, and then split over two changes
+                    // depending on how much space the characteristic can hold (for example "END TAILS1BEGIN TAIL" and
+                    // "HM", or alternatively the other way around)
+                    QString theCommand;
+                    QString startOrEnd;
+                    if(stateResult[1].endsWith(aBegin)) {
+                        theCommand = stateResult[1].left(stateResult[1].length() - 5);
+                        startOrEnd = aBegin;
+                    }
+                    else if(stateResult[1].endsWith(anEnd)) {
+                        theCommand = stateResult[1].left(stateResult[1].length() - 3);
+                        startOrEnd = anEnd;
+                    }
+                    q->commandModel->setRunning(theCommand, (stateResult[0] == aBegin));
+                    // Now let's just see whether that second thing is actually a full command or not (at which point
+                    // we should be expecting another notification shortly)
+                    bool fullCommand{false};
+                    for(const CommandInfo& cmd : qAsConst(q->commandModel->allCommands())) {
+                        if (cmd.command == stateResult[2]) {
+                            fullCommand = true;
+                            break;
+                        }
+                    }
+                    if (fullCommand) {
+                        q->commandModel->setRunning(stateResult[2], (startOrEnd == aBegin));
+                    } else {
+                        previousThing = QString("%1 %2").arg(startOrEnd).arg(stateResult[2]);
+                    }
+                }
                 else if(stateResult.count() == 2) {
-                    if(stateResult[0] == QLatin1String("BEGIN")) {
+                    if(stateResult[0] == aBegin) {
                         q->commandModel->setRunning(stateResult[1], true);
                     }
-                    else if(stateResult[0] == QLatin1String("END")) {
+                    else if(stateResult[0] == anEnd) {
                         q->commandModel->setRunning(stateResult[1], false);
                     }
                     else {
