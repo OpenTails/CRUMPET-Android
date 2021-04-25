@@ -172,7 +172,7 @@ public:
                         qDebug() << "Detected a complete squashed command, with the command" << theCommand << ", the type" << stateResult[0] << ", the startOrEnd" << startOrEnd << ", and the end command" << stateResult[2];
                     } else {
                         previousThing = QString("%1 %2").arg(startOrEnd).arg(stateResult[2]);
-                        qDebug() << "Detected a complete squashed command, with the command" << theCommand << ", the type" << stateResult[0] << ", and the remainder" << previousThing;
+                        qDebug() << "Detected an incomplete squashed command, with the command" << theCommand << ", the type" << stateResult[0] << ", and the remainder" << previousThing;
                     }
                 }
                 else if(stateResult.count() == 2) {
