@@ -41,6 +41,10 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     , d(new Private)
 {
     d->name = info.name();
+    // Set the digitail name to something more friendly than (!)Tail
+    if (d->name == "(!)Tail") {
+        d->name = "DIGITAiL";
+    }
     d->parentModel = parent;
 
     QTimer* timer = new QTimer(this);
