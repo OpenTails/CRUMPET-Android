@@ -117,7 +117,7 @@ Kirigami.AbstractCard {
             else if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
                 return qsTr("Look for gear");
             } else if (deviceFilterProxy.count === 1) {
-                return qsTr("Connect to %1").arg(deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257))
+                return qsTr("Connect to %1").arg(deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
             } else {
                 return qsTr("Show available gear...");
             }
