@@ -137,8 +137,9 @@ public:
                     // See comment in the next bit to see what this is about
                     previousThing += stateResult[0];
                     QStringList splitThing = previousThing.split(' ');
-                    q->commandModel->setRunning(splitThing[1], (splitThing[0] == aBegin));
                     previousThing.clear();
+                    q->commandModel->setRunning(splitThing[1], (splitThing[0] == aBegin));
+                    qDebug() << "We had a remainder, and the split is now" << splitThing;
                 }
                 else if(stateResult.count() == 3 && (stateResult[0] == aBegin || stateResult[0] == anEnd)) {
                     // This is an awkward thing that happens sometimes (and especially when a command is forced to
@@ -168,8 +169,10 @@ public:
                     }
                     if (fullCommand) {
                         q->commandModel->setRunning(stateResult[2], (startOrEnd == aBegin));
+                        qDebug() << "Detected a complete squashed command, with the command" << theCommand << ", the type" << stateResult[0] << ", the startOrEnd" << startOrEnd << ", and the end command" << stateResult[2];
                     } else {
                         previousThing = QString("%1 %2").arg(startOrEnd).arg(stateResult[2]);
+                        qDebug() << "Detected a complete squashed command, with the command" << theCommand << ", the type" << stateResult[0] << ", and the remainder" << previousThing;
                     }
                 }
                 else if(stateResult.count() == 2) {
