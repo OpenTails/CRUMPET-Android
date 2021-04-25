@@ -19,8 +19,10 @@
 #include "IdleMode.h"
 #include "CommandQueue.h"
 #include "CommandInfo.h"
-#include "BTDeviceCommandModel.h"
 #include "BTConnectionManager.h"
+#include "BTDeviceCommandModel.h"
+#include "BTDevice.h"
+#include "BTDeviceModel.h"
 
 #include <QRandomGenerator>
 #include <QTimer>
@@ -56,8 +58,18 @@ public:
                 if(queue->count() == 0 && appSettings->idleMode() == true && categories.count() > 0) {
                     const CommandInfo& command = commands->getRandomCommand(categories);
                     if(command.isValid()) {
-                        qDebug() << "Command is valid, and we've got an empty queue. Add the command to the queue.";
-                        queue->pushCommand(command.command, {});
+                        QStringList targetDevices;
+                        BTDeviceModel* deviceModel = qobject_cast<BTDeviceModel*>(connectionManager->deviceModel());
+                        for (int i = 0 ; i < deviceModel->count() ; ++i) {
+                            BTDevice* device = deviceModel->getDeviceById(i);
+                            // Now check if the device is connected, the device model says that command is available
+                            if (device->isConnected() && device->commandModel->isAvailable(command)) {
+                                targetDevices << device->deviceID();
+                            }
+                        }
+                        if (targetDevices.length() > 0) {
+                            queue->pushCommand(command.command, targetDevices);
+                        }
                     }
                     queue->pushPause(QRandomGenerator::global()->bounded(appSettings->idleMinPause(), appSettings->idleMaxPause() + 1) * 1000, {});
                 }
