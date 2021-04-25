@@ -20,6 +20,7 @@ import QtQuick 2.11
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     id: component;
@@ -33,6 +34,11 @@ Kirigami.ScrollablePage {
                 BTConnectionManager.sendMessage("TAILHM", []);
             }
         }
+    }
+    property QtObject enabledGestures: Digitail.FilterProxyModel {
+        sourceModel: GestureDetectorModel;
+        filterRole: 261; // the sensorEnabledRole role
+        filterBoolean: true;
     }
 
     ColumnLayout {
@@ -59,7 +65,15 @@ Kirigami.ScrollablePage {
                         bold: true;
                         icon: model.sensorEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         label: model.sensorName === undefined ? "" : model.sensorName;
-                        onClicked: { GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled); }
+                        onClicked: {
+                            if(!model.sensorEnabled && enabledGestures.count > 0) {
+                                applicationWindow().showMessageBox(qsTr("Multiple Gestures"),
+                                    qsTr("You are attempting to turn on more than one gesture at the same time. This will occasionally cause problems, primarily by being confusing to manage (for example, turning on both Walking and Shake is likely to cause both to be detected). If you are sure you want to do this, tap OK, or tap Cancel to not enable this gesture."),
+                                    function() {GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled)});
+                            } else {
+                                GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled);
+                            }
+                        }
                     }
                     CheckBox {
                         Layout.fillWidth: true;
