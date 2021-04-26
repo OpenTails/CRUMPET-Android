@@ -55,14 +55,14 @@ Kirigami.AboutPage {
         "otherText" : deviceFilterProxy.count > 0 ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
                     {
-                        "name" : "Dan Leinir Turthra Jensen\n",
+                        "name" : "Dan Leinir Turthra Jensen",
                         "task" : "Lead Developer",
                         "emailAddress" : "admin@leinir.dk",
                         "webAddress" : "https://leinir.dk/",
                         "ocsUsername" : "leinir"
                     },
                     {
-                        "name" : "Ildar Gilmanov\n",
+                        "name" : "Ildar Gilmanov",
                         "task" : "Qt/QML Developer",
                         "emailAddress" : "gil.ildar@gmail.com"
                     }
