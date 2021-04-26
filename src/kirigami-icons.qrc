@@ -9,6 +9,8 @@
         <file alias="actions/22/dialog-close.svg">../3rdparty/breeze-icons/icons/actions/22/dialog-close.svg</file>
         <file alias="actions/22/document-edit.svg">../3rdparty/breeze-icons/icons/actions/22/document-edit.svg</file>
         <file alias="actions/32/document-revert.svg">../3rdparty/breeze-icons/icons/actions/22/document-revert.svg</file>
+        <file alias="actions/22/get-hot-new-stuff.svg">../3rdparty/breeze-icons/icons/actions/22/get-hot-new-stuff.svg</file>
+        <file alias="actions/22/globe.svg">../3rdparty/breeze-icons/icons/actions/22/globe.svg</file>
         <file alias="actions/22/go-home.svg">../3rdparty/breeze-icons/icons/actions/22/go-home.svg</file>
         <file alias="actions/22/go-next.svg">../3rdparty/breeze-icons/icons/actions/22/go-next.svg</file>
         <file alias="actions/22/go-previous.svg">../3rdparty/breeze-icons/icons/actions/22/go-previous.svg</file>
@@ -17,6 +19,7 @@
         <file alias="actions/22/help-about.svg">../3rdparty/breeze-icons/icons/actions/22/help-about.svg</file>
         <file alias="actions/22/list-add.svg">../3rdparty/breeze-icons/icons/actions/22/list-add.svg</file>
         <file alias="actions/22/list-remove.svg">../3rdparty/breeze-icons/icons/actions/22/list-remove.svg</file>
+        <file alias="actions/22/mail-sent.svg">../3rdparty/breeze-icons/icons/actions/22/mail-sent.svg</file>
         <file alias="actions/22/network-connect.svg">../3rdparty/breeze-icons/icons/actions/22/network-connect.svg</file>
         <file alias="actions/22/network-disconnect.svg">../3rdparty/breeze-icons/icons/actions/22/network-disconnect.svg</file>
         <file alias="actions/22/overflow-menu.svg">../3rdparty/breeze-icons/icons/actions/22/overflow-menu.svg</file>
