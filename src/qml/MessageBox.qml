@@ -47,7 +47,7 @@ Kirigami.OverlaySheet {
             text: qsTr("Ok");
             highlighted: true;
             Layout.fillWidth: true
-            Layout.preferredWidth: control.width
+            Layout.preferredWidth: applicationWindow().width
 
             onClicked: {
                 if (okHandler) {
@@ -65,7 +65,7 @@ Kirigami.OverlaySheet {
             id: buttonCancel
             text: qsTr("Cancel");
             Layout.fillWidth: true
-            Layout.preferredWidth: control.width
+            Layout.preferredWidth: applicationWindow().width
 
             onClicked: {
                 close();
