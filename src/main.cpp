@@ -109,20 +109,22 @@ int appMain(int argc, char *argv[])
     qInfo() << "Connecting to service...";
     QRemoteObjectNode* repNode = new QRemoteObjectNode(&app);
     repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
-    if (repNode->acquire<SettingsProxyReplica>()->state() != QRemoteObjectReplica::Valid) {
-        qInfo() << "No service exists yet, so let's start it...";
-        QProcess* service = new QProcess(&app);
-        service->startDetached(app.applicationFilePath(), QStringList() << QStringLiteral("-service"));
-        repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
-        if (repNode->acquire<SettingsProxyReplica>()->state() != QRemoteObjectReplica::Valid) {
-            qWarning() << "Failed to connect to the newly launched service, this is clearly not awesome...";
-        }
-    }
 
     qInfo() << "Connected, attempting to load replicas...";
     QSharedPointer<SettingsProxyReplica> settingsReplica(repNode->acquire<SettingsProxyReplica>());
-    bool res = settingsReplica->waitForSource();
-    if(!res) { qCritical() << "Kapow! Replica for Settings failed to surface"; }
+    bool res = settingsReplica->waitForSource(100);
+    if(!res) {
+        qInfo() << "No service exists yet, so let's start it...";
+        QProcess service;
+        service.startDetached(app.applicationFilePath(), QStringList() << QStringLiteral("-service"));
+        QCoreApplication::processEvents();
+        repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
+        settingsReplica.reset(repNode->acquire<SettingsProxyReplica>());
+        res = settingsReplica->waitForSource(100);
+        if (!res) {
+            qCritical() << "Kapow! Replica for Settings failed to surface";
+        }
+    }
     engine.rootContext()->setContextProperty(QLatin1String("AppSettings"), settingsReplica.data());
 
     QSharedPointer<BTConnectionManagerProxyReplica> btConnectionManagerReplica(repNode->acquire<BTConnectionManagerProxyReplica>());
@@ -175,7 +177,7 @@ int appMain(int argc, char *argv[])
 
     bool settingsReplicaDestroyed{false};
     QObject::connect(settingsReplica.data(), &QObject::destroyed, [&settingsReplicaDestroyed](){ settingsReplicaDestroyed = true; });
-    QObject::connect(engine.rootObjects().first(), &QObject::destroyed, btConnectionManagerReplica.data(), [&btConnectionManagerReplica,&settingsReplica,&settingsReplicaDestroyed,repNode](){
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, btConnectionManagerReplica.data(), [&btConnectionManagerReplica,&settingsReplica,&settingsReplicaDestroyed,repNode](){
         if(!btConnectionManagerReplica->isConnected()) {
             // Not connected, so kill the service
 #ifdef Q_OS_ANDROID
