@@ -112,7 +112,7 @@ int appMain(int argc, char *argv[])
 
     qInfo() << "Connected, attempting to load replicas...";
     QSharedPointer<SettingsProxyReplica> settingsReplica(repNode->acquire<SettingsProxyReplica>());
-    bool res = settingsReplica->waitForSource(100);
+    bool res = settingsReplica->waitForSource(500);
     if(!res) {
         qInfo() << "No service exists yet, so let's start it...";
         QProcess service;
@@ -120,7 +120,7 @@ int appMain(int argc, char *argv[])
         QCoreApplication::processEvents();
         repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
         settingsReplica.reset(repNode->acquire<SettingsProxyReplica>());
-        res = settingsReplica->waitForSource(100);
+        res = settingsReplica->waitForSource(500);
         if (!res) {
             qCritical() << "Kapow! Replica for Settings failed to surface";
         }
