@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
     actions {
         main: Kirigami.Action {
             text: qsTr("Stop Lights");
-            icon.name: "go-home";
+            icon.name: "flashlight-off";
             onTriggered: {
                 BTConnectionManager.sendMessage("LEDOFF", []);
             }
