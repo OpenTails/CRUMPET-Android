@@ -1,3 +1,11 @@
+22
+- Command list editor is now a timeline style view rather than just a list
+- Walking detection introduced
+- Gear Gestures can be pinned to the welcome page, and individually toggled
+- Crumpet file editor now works better
+- Fix long-standing glitch in DIGITAiL command availability
+- Various little tweaks to the UI
+
 21
 - Make it possible to unset commands on Gear Gestures
 - Show correct version on about page
