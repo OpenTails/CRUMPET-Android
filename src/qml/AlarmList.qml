@@ -25,11 +25,11 @@ Kirigami.ScrollablePage {
     id: root;
 
     objectName: "alarmList";
-    title: qsTr("Alarms");
+    title: i18nc("Title of the page which lists the alarms the user has set", "Alarms");
 
     actions {
         main: Kirigami.Action {
-            text: qsTr("Add New Alarm");
+            text: i18nc("Text for a button which will adds a new alarm to the list", "Add New Alarm");
             icon.name: "list-add";
             onTriggered: {
                 namePicker.pickName();
@@ -41,13 +41,13 @@ Kirigami.ScrollablePage {
         target: AppSettings
 
         onAlarmExisted: {
-            showMessageBox(qsTr("Select another name"),
-                           qsTr("Unable to add the alarm because we already have an alarm with the same name.\n\nPlease select another name for the alarm."));
+            showMessageBox(i18nc("Title for a message box warning the user an alarm with the chosen name already exists", "Select another name"),
+                           i18nc("Main text for a message box warning the user an alarm with the chosen name already exists", "Unable to add the alarm because we already have an alarm with the same name.\n\nPlease select another name for the alarm."));
         }
 
         onAlarmNotExisted: {
-            showMessageBox(qsTr("Alarm was removed"),
-                           qsTr("Unable to find an alarm with the name '%1'. Maybe another application instance has removed it.").arg(name));
+            showMessageBox(i18nc("Title for a message box informing the user the alarm they attempted to remove does not exist", "Alarm was removed"),
+                           i18nc("Main text for a message box informing the user the alarm they attempted to remove does not exist", "Unable to find an alarm with the name '%1'. Maybe another application instance has removed it.", name));
         }
     }
 
@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
 
             actions: [
                 Kirigami.Action {
-                    text: qsTr("Edit Alarm Commands");
+                    text: i18nc("Text for an action which allows the user to pick what command the alarm will cause to be sent", "Edit Alarm Commands");
                     icon.name: "document-edit";
 
                     onTriggered: {
@@ -86,7 +86,7 @@ Kirigami.ScrollablePage {
                 },
 
                 Kirigami.Action {
-                    text: qsTr("Set Time To Alarm");
+                    text: i18nc("Text for an action which allows the user to pick what time the alarm should fire", "Set Time To Alarm");
                     icon.name: "accept_time_event";
 
                     onTriggered: {
@@ -108,12 +108,12 @@ Kirigami.ScrollablePage {
                 },
 
                 Kirigami.Action {
-                    text: qsTr("Delete this Alarm");
+                    text: i18nc("Text for an action which allows the user to delete an alarm", "Delete this Alarm");
                     icon.name: "list-remove";
 
                     onTriggered: {
-                        showMessageBox(qsTr("Remove the Alarm"),
-                                       qsTr("Are you sure that you want to remove the alarm '%1'?").arg(modelData["name"]),
+                        showMessageBox(i18nc("Title for a message box which allows the user to delete a specific alarm", "Remove the Alarm"),
+                                       i18nc("Main text for a message box which allows the user to delete a specific alarm", "Are you sure that you want to remove the alarm '%1'?", modelData["name"]),
                                        function () {
                                            AppSettings.removeAlarm(modelData["name"]);
                                        });
@@ -132,16 +132,16 @@ Kirigami.ScrollablePage {
         model: AppSettings.alarmList;
         delegate: alarmListDelegate;
         header: InfoCard {
-            text: qsTr("Set an alarm here. Pick a date and time for your alarm, and then add one or more moves you want to perform when you hit that time.");
+            text: i18nc("Descriptive text which explains what the functionality is of the alarm page", "Set an alarm here. Pick a date and time for your alarm, and then add one or more moves you want to perform when you hit that time.");
         }
     }
 
     NamePicker {
         id: namePicker;
 
-        description: qsTr("Enter a name to use for your new alarm and click Create");
-        placeholderText: qsTr("Enter your alarm name here");
-        buttonOkText: qsTr("Create");
+        description: i18nc("Descriptive text for a popup which allows the user to create a new, named alarm", "Enter a name to use for your new alarm and click Create");
+        placeholderText: i18nc("Placeholder text for the text box in which the name of a new alarm must be written", "Enter your alarm name here");
+        buttonOkText: i18nc("Text on a button which causes an alarm to be created", "Create");
 
         onNamePicked: {
             AppSettings.addAlarm(name);

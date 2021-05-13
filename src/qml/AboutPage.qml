@@ -30,12 +30,12 @@ Kirigami.AboutPage {
         filterBoolean: true;
         function handyStringMakerThing() {
             if (count === 1) {
-                return qsTr("The connected gear is version %1").arg(data(index(0, 0), 259))
+                return i18nc("A label which describes the hardware revision of the connected gear, when only one item is connected", "The connected gear is version %1", data(index(0, 0), 259))
             } else {
                 var constructedString = "";
                 var newLine = "";
                 for (var i = 0; i < count; ++i) {
-                    constructedString += newLine + qsTr("The gear named %1 is version %2").arg(data(index(i, 0), 257)).arg(data(index(i, 0), 259));
+                    constructedString += newLine + i18nc("A label which describes the hardware revision of a piece of connected gear, when more than one item is connected", "The gear named %1 is version %2", data(index(i, 0), 257), data(index(i, 0), 259));
                     newLine = "\n";
                 }
                 return constructedString;
@@ -56,14 +56,14 @@ Kirigami.AboutPage {
         "authors" : [
                     {
                         "name" : "Dan Leinir Turthra Jensen",
-                        "task" : "Lead Developer",
+                        "task" : i18nc("Task description for leinir", "Lead Developer"),
                         "emailAddress" : "admin@leinir.dk",
                         "webAddress" : "https://leinir.dk/",
                         "ocsUsername" : "leinir"
                     },
                     {
                         "name" : "Ildar Gilmanov",
-                        "task" : "Qt/QML Developer",
+                        "task" : i18nc("Task description for Ildar", "Qt/QML Developer"),
                         "emailAddress" : "gil.ildar@gmail.com"
                     }
                 ],
