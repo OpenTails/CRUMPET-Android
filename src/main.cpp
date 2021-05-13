@@ -63,6 +63,7 @@
 #include <rep_GestureControllerProxy_replica.h>
 
 #include <klocalizedcontext.h>
+#include <klocalizedstring.h>
 
 Q_IMPORT_PLUGIN(KirigamiPlugin)
 
@@ -88,6 +89,7 @@ int appMain(int argc, char *argv[])
 #else
     app.setApplicationVersion("Desktop");
 #endif
+    KLocalizedString::setApplicationDomain("digitail");
 
     QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
     QIcon::setThemeName(QStringLiteral("breeze-internal"));
