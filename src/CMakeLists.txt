@@ -62,5 +62,6 @@ add_executable(digitail ${digitail_SRCS})
 target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
 
 install(TARGETS digitail ${INSTALL_TARGETS_DEFAULT_ARGS})
+ki18n_install(po)
 
 # kirigami_package_breeze_icons(ICONS application-menu document-decrypt folder-sync go-next go-previous go-up handle-left handle-right view-list-icons applications-graphics media-record-symbolic)
