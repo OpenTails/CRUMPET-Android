@@ -59,12 +59,7 @@ endif()
 
 add_executable(digitail ${digitail_SRCS})
 #kirigamiplugin is the static library built by us
-target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors ${digitail_EXTRA_LIBS})
-
-if(Qt5RemoteObjects_FOUND)
-    target_link_libraries(digitail Qt5::RemoteObjects)
-    target_compile_definitions(digitail PUBLIC -DHAS_QT5REMOTEOBJECTS)
-endif()
+target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
 
 install(TARGETS digitail ${INSTALL_TARGETS_DEFAULT_ARGS})
 

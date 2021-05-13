@@ -24,6 +24,8 @@ else()
     find_package(Qt5 5.12 REQUIRED Core Gui Quick Multimedia Sensors Test Widgets QuickControls2 Svg Bluetooth RemoteObjects)
 endif()
 
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED I18n)
+
 include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
@@ -31,5 +33,6 @@ include(KDECMakeSettings)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+ki18n_install(po)
 add_subdirectory(3rdparty)
 add_subdirectory(src)

@@ -56,13 +56,13 @@
 #include "Utilities.h"
 #include "PermissionsManager.h"
 
-#ifdef HAS_QT5REMOTEOBJECTS
 #include <QAbstractItemModelReplica>
 #include "rep_SettingsProxy_replica.h"
 #include "rep_BTConnectionManagerProxy_replica.h"
 #include "rep_CommandQueueProxy_replica.h"
 #include <rep_GestureControllerProxy_replica.h>
-#endif
+
+#include <klocalizedcontext.h>
 
 Q_IMPORT_PLUGIN(KirigamiPlugin)
 
@@ -94,6 +94,7 @@ int appMain(int argc, char *argv[])
 
     qInfo() << "Creating engine";
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextObject(new KLocalizedContext(&app));
     qInfo() << "Registering Kirigami types";
     KirigamiPlugin::getInstance().registerTypes(&engine);
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
