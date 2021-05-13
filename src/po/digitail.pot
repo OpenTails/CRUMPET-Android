@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Tail Company
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
+"POT-Creation-Date: 2021-05-13 15:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: qml/AboutPage.qml:33
+#, kde-format
+msgctxt ""
+"A label which describes the hardware revision of the connected gear, when "
+"only one item is connected"
+msgid "The connected gear is version %1"
+msgstr ""
+
+#: qml/AboutPage.qml:38
+#, kde-format
+msgctxt ""
+"A label which describes the hardware revision of a piece of connected gear, "
+"when more than one item is connected"
+msgid "The gear named %1 is version %2"
+msgstr ""
+
+#: qml/AboutPage.qml:59
+#, kde-format
+msgctxt "Task description for leinir"
+msgid "Lead Developer"
+msgstr ""
+
+#: qml/AboutPage.qml:66
+#, kde-format
+msgctxt "Task description for Ildar"
+msgid "Qt/QML Developer"
+msgstr ""
+
+#: qml/AlarmList.qml:28
+#, kde-format
+msgctxt "Title of the page which lists the alarms the user has set"
+msgid "Alarms"
+msgstr ""
+
+#: qml/AlarmList.qml:32
+#, kde-format
+msgctxt "Text for a button which will adds a new alarm to the list"
+msgid "Add New Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:44
+#, kde-format
+msgctxt ""
+"Title for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid "Select another name"
+msgstr ""
+
+#: qml/AlarmList.qml:45
+#, kde-format
+msgctxt ""
+"Main text for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid ""
+"Unable to add the alarm because we already have an alarm with the same "
+"name.\n"
+"\n"
+"Please select another name for the alarm."
+msgstr ""
+
+#: qml/AlarmList.qml:49
+#, kde-format
+msgctxt ""
+"Title for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid "Alarm was removed"
+msgstr ""
+
+#: qml/AlarmList.qml:50
+#, kde-format
+msgctxt ""
+"Main text for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid ""
+"Unable to find an alarm with the name '%1'. Maybe another application "
+"instance has removed it."
+msgstr ""
+
+#: qml/AlarmList.qml:80
+#, kde-format
+msgctxt ""
+"Text for an action which allows the user to pick what command the alarm will "
+"cause to be sent"
+msgid "Edit Alarm Commands"
+msgstr ""
+
+#: qml/AlarmList.qml:89
+#, kde-format
+msgctxt ""
+"Text for an action which allows the user to pick what time the alarm should "
+"fire"
+msgid "Set Time To Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:111
+#, kde-format
+msgctxt "Text for an action which allows the user to delete an alarm"
+msgid "Delete this Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:115
+#, kde-format
+msgctxt ""
+"Title for a message box which allows the user to delete a specific alarm"
+msgid "Remove the Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:116
+#, kde-format
+msgctxt ""
+"Main text for a message box which allows the user to delete a specific alarm"
+msgid "Are you sure that you want to remove the alarm '%1'?"
+msgstr ""
+
+#: qml/AlarmList.qml:135
+#, kde-format
+msgctxt ""
+"Descriptive text which explains what the functionality is of the alarm page"
+msgid ""
+"Set an alarm here. Pick a date and time for your alarm, and then add one or "
+"more moves you want to perform when you hit that time."
+msgstr ""
+
+#: qml/AlarmList.qml:142
+#, kde-format
+msgctxt ""
+"Descriptive text for a popup which allows the user to create a new, named "
+"alarm"
+msgid "Enter a name to use for your new alarm and click Create"
+msgstr ""
+
+#: qml/AlarmList.qml:143
+#, kde-format
+msgctxt ""
+"Placeholder text for the text box in which the name of a new alarm must be "
+"written"
+msgid "Enter your alarm name here"
+msgstr ""
+
+#: qml/AlarmList.qml:144
+#, kde-format
+msgctxt "Text on a button which causes an alarm to be created"
+msgid "Create"
+msgstr ""
