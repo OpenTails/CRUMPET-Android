@@ -23,7 +23,7 @@ import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "idleMode";
-    title: qsTr("Casual Mode Categories");
+    title: i18nc("Title for the page for selecting a move in Casual Mode", "Casual Mode Categories");
 
     Component {
         id: idleCategoryDelegate;
@@ -44,22 +44,22 @@ Kirigami.ScrollablePage {
     ListModel {
         id: availableCategories;
         ListElement {
-            name: qsTr("Calm and Relaxed");
+            name: i18nc("Description for the category for the Relaxed Moveset, on the page for selecting a move in Casual Mode", "Calm and Relaxed");
             category: "relaxed";
             color: "#1cdc9a";
         }
         ListElement {
-            name: qsTr("Fast and Excited");
+            name: i18nc("Description for the category for the Excited Moveset, on the page for selecting a move in Casual Mode", "Fast and Excited");
             category: "excited";
             color: "#c9ce3b";
         }
         ListElement {
-            name: qsTr("Frustrated and Tense");
+            name: i18nc("Description for the category for the Tense Moveset, on the page for selecting a move in Casual Mode", "Frustrated and Tense");
             category: "tense";
             color: "#f67400";
         }
         ListElement {
-            name: qsTr("LED Patterns");
+            name: i18nc("Description for the category for the LED Patterns, on the page for selecting a move in Casual Mode", "LED Patterns");
             category: "lights";
             color: "#93cee9";
         }
@@ -70,7 +70,7 @@ Kirigami.ScrollablePage {
         delegate: idleCategoryDelegate;
 
         header: InfoCard {
-            text: qsTr("This is where you set the pauses in between moves, as well as the families of moves that can be called upon.");
+            text: i18nc("Infocard for selecting the pauses in between moves, on the page for selecting a move in Casual Mode", "This is where you set the pauses in between moves, as well as the families of moves that can be called upon.");
         }
         footer: Kirigami.AbstractCard {
             contentItem: IdlePauseRangePicker {

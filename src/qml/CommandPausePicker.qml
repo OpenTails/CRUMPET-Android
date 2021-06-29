@@ -39,7 +39,7 @@ Kirigami.OverlaySheet {
     }
 
     header: Kirigami.Heading {
-        text: qsTr("Pick the duration of your pause");
+        text: i18nc("Heading for an overlay for picking the duration of a pause in the command list", "Pick the duration of your pause");
     }
 
     Column {
@@ -55,11 +55,11 @@ Kirigami.OverlaySheet {
 
         QQC2.Label {
             width: control.width - Kirigami.Units.largeSpacing * 4;
-            text: qsTr("%1 seconds").arg(durationSlider.value);
+            text: i18nc("A label which describes the slider for the duration of a pause, in the overlay for picking the duration of a pause, in a command list", "%1 seconds", durationSlider.value);
         }
 
         QQC2.Button {
-            text: qsTr("Add this pause");
+            text: i18nc("Button for an overlay for picking the duration of a pause in the command list", "Add this pause");
 
             onClicked: {
                 control.durationPicked(durationSlider.value);

@@ -182,7 +182,7 @@ Item {
         showCloseButton: true;
         property string command;
         header: Kirigami.Heading {
-            text: qsTr("Send where?");
+            text: i18nc("Header for the overlay for selecting the destination for a command", "Send where?");
         }
         Item {
             implicitWidth: Kirigami.Units.gridUnit * 30
@@ -191,7 +191,7 @@ Item {
                 spacing: 0;
                 anchors { left: parent.left; right: parent.right; }
                 InfoCard {
-                    text: qsTr("Pick from the list below where you want to send the command.");
+                    text: i18nc("Text for the overlay for selecting the destination for a command", "Pick from the list below where you want to send the command.");
                     Layout.fillWidth: true;
                 }
                 Repeater {
@@ -236,7 +236,7 @@ Item {
                     Layout.fillWidth: true;
                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                     Button {
-                        text: qsTr("Send To Selected");
+                        text: i18nc("Action for sending a command to the selected devices in a list", "Send To Selected");
                         enabled: selectorDeviceModel.hasCheckedIDs;
                         onClicked: {
                             root.commandActivated(sendCommandToSelector.command, selectorDeviceModel.checkedIDs());
@@ -245,7 +245,7 @@ Item {
                     }
                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                     Button {
-                        text: qsTr("Send To All");
+                        text: i18nc("Action for sending a command to all devices in a list", "Send To All");
                         onClicked: {
                             root.commandActivated(sendCommandToSelector.command, []);
                             sendCommandToSelector.close();
