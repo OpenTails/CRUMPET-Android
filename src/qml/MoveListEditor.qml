@@ -29,11 +29,11 @@ BaseCommandListEditor {
     title: moveListName;
     model: AppSettings.moveList
     infoCardFooter: QQC2.Button {
-        text: qsTr("Run Move List")
+        text: i18nc("Button for executing a command list inside the Move List Editor", "Run Move List")
         Layout.fillWidth: true
         onClicked: {
-            showMessageBox(qsTr("Run this list?"),
-                qsTr("Do you want to run this list?"),
+            showMessageBox(i18nc("Confirmation prompt title for executing a command list inside the Move List Editor", "Run this list?"),
+                i18nc("Confirmation prompt message for executing a command list inside the Move List Editor", "Do you want to run this list?"),
                 function() {
                     CommandQueue.pushCommands(AppSettings.moveList, []);
                 });
@@ -48,8 +48,8 @@ BaseCommandListEditor {
         AppSettings.addMoveListEntry(insertAt, command, destinations);
     }
     onRemoveCommand: {
-        showMessageBox(qsTr("Remove Move List Entry?"),
-                        qsTr("Are you sure that you want to remove this entry from your move list?"),
+        showMessageBox(i18nc("Confirmation prompt title for removing an entry from the Move List Editor", "Remove Move List Entry?"),
+                       i18nc("Confirmation prompt message for removing an entry from the Move List Editor", "Are you sure that you want to remove this entry from your move list?"),
                         function () {
                             AppSettings.removeMoveListEntry(index);
                         });

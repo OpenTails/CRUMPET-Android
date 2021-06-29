@@ -38,7 +38,7 @@ Kirigami.OverlaySheet {
 
     header: Kirigami.Heading {
         id: textHeader;
-        text: qsTr("Pick a name");
+        text: i18nc("Header for name picker", "Pick a name");
     }
 
     footer: QQC2.Button {
