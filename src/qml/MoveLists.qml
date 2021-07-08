@@ -24,11 +24,11 @@ import org.kde.kirigami 2.13 as Kirigami
 Kirigami.ScrollablePage {
     id: root;
     objectName: "moveLists";
-    title: i18nc("Title for the Move List Selection page", "Move Lists");
+    title: i18nc("Heading for the page for viewing Move Lists", "Move Lists");
 
     actions {
         main: Kirigami.Action {
-            text: i18nc("Button for adding a new Move List to the Move List Selection page", "Add New Move List");
+            text: i18nc("Label for the button for adding a new Move List, on the page for viewing Move Lists", "Add New Move List");
             icon.name: "list-add";
             onTriggered: {
                 namePicker.pickName();
@@ -45,15 +45,15 @@ Kirigami.ScrollablePage {
             }
             onClicked: {
                 AppSettings.setActiveMoveList(modelData);
-                showMessageBox(i18nc("Confirmation prompt title for running a Move List from the Move List Selection page", "Run this list?"),
-                               i18nc("Confirmation prompt message for running a Move List from the Move List Selection page", "Do you want to run the list %1?", modelData),
+                showMessageBox(i18nc("Heading for the prompt for confirming the action of running a list, on the page for viewing Move Lists", "Run this list?"),
+                               i18nc("Message for the prompt for confirming the action of running a list, on the page for viewing Move Lists", "Do you want to run the list %1?", modelData),
                                function() {
                                    CommandQueue.pushCommands(AppSettings.moveList, []);
                                });
             }
             actions: [
                 Kirigami.Action {
-                    text: i18nc("", "Edit Move List");
+                    text: i18nc("Label for the button for editing a move list, on the page for viewing Move Lists", "Edit Move List");
                     icon.name: "document-edit";
                     onTriggered: {
                         pageStack.push(editorPage, { moveListName: modelData });
@@ -61,12 +61,12 @@ Kirigami.ScrollablePage {
                 },
                 Kirigami.Action { separator: true; enabled: false; },
                 Kirigami.Action {
-                    text: i18nc("Button for deleting a Move List from the Move List Selection page", "Delete this Move List");
+                    text: i18nc("Label for the button for deleting a move list, on the page for viewing Move Lists", "Delete this Move List");
                     icon.name: "list-remove";
 
                     onTriggered: {
-                        showMessageBox(i18nc("Confirmation prompt title for deleting a Move List from the Move List selection page", "Remove the Move List"),
-                                       i18nc("Confirmation prompt message for deleting a Move List from the Move List selection page", "Are you sure that you want to remove the Move List '%1'?", modelData),
+                        showMessageBox(i18nc("Heading for the prompt for confirming the action of deleting a list, on the page for viewing Move Lists", "Remove the Move List"),
+                                       i18nc("Message for the prompt for confirming the action of deleting a list, on the page for viewing Move Lists", "Are you sure that you want to remove the Move List '%1'?", modelData),
                                        function () {
                                            AppSettings.removeMoveList(modelData);
                                        });
@@ -83,21 +83,21 @@ Kirigami.ScrollablePage {
         delegate: moveListDelegate;
         model: AppSettings.moveLists;
         header: InfoCard {
-            text: i18nc("Info card for the Move List selection page", "Create lists of moves, glows and pauses to send to your gear. To send a list you have created, tap it and pick OK. To perform actions on the ones you've created, like editing or even removing them entirely, swipe left on the item.");
+            text: i18nc("Description for the page for viewing Move Lists", "Create lists of moves, glows and pauses to send to your gear. To send a list you have created, tap it and pick OK. To perform actions on the ones you've created, like editing or even removing them entirely, swipe left on the item.");
         }
     }
 
     NamePicker {
         id: namePicker;
 
-        description: i18nc("Description for the name picker for creating a new Move List in the Move List Selection page", "Enter a name to use for your new move list and click Create");
-        placeholderText: i18nc("Placeholder text for the name picker for creating a new Move List in the Move List Selection page", "Enter your move list name here");
-        buttonOkText: i18nc("Confirmation button for the name picker for creating a new Move List in the Move List Selection page", "Create");
+        description: i18nc("Description for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Enter a name to use for your new move list and click Create");
+        placeholderText: i18nc("Placeholder text for the textfield for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Enter your move list name here");
+        buttonOkText: i18nc("Confirmating button for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Create");
 
         onNamePicked: {
             if (AppSettings.moveLists.includes(name)) {
-                showMessageBox(i18nc("Title for the warning for a name already being in use, in the name picker for creating a new Move List in the Move List Selection page", "Name Already Used"),
-                               i18nc("Message for the warning for a name already being in use, in the name picker for creating a new Move List in the Move List Selection page", "You already have a move list with the name %1. Please pick another name, as that won't work.").arg(name));
+                showMessageBox(i18nc("Header for the warning that a name is already in use, for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Name Already Used"),
+                               i18nc("Description for the warning that a name is already in use, for the prompt for giving a name to a move list, on the page for viewing Move Lists","You already have a move list with the name %1. Please pick another name, as that won't work.", name));
             } else {
                 AppSettings.addMoveList(name);
                 namePicker.close();

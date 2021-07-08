@@ -21,10 +21,10 @@ import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.ScrollablePage {
     objectName: "tailMoves";
-    title: qsTr("Moves");
+    title: i18nc("Heading for the Moves page", "Moves");
     actions {
         main: Kirigami.Action {
-            text: qsTr("Home Position");
+            text: i18nc("Button for returning the tail to its home position, on the Moves page", "Home Position");
             icon.name: "dialog-cancel";
             onTriggered: {
                 BTConnectionManager.sendMessage("TAILHM", []);
@@ -32,24 +32,24 @@ Kirigami.ScrollablePage {
         }
     }
     BaseMovesComponent {
-        infoText: qsTr("The list below shows all the moves available to your gear. Tap any of them to send them off to any of your connected devices!");
+        infoText: i18nc("Description for the list of moves, on the Moves page", "The list below shows all the moves available to your gear. Tap any of them to send them off to any of your connected devices!");
         onCommandActivated: {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);
         }
         categoriesModel: ListModel {
             ListElement {
-                name: qsTr("Calm and Relaxed");
+                name: i18nc("Description for the category for the Relaxed Moveset, on the Moves page", "Calm and Relaxed");
                 category: "relaxed";
                 color: "#1cdc9a";
             }
             ListElement {
-                name: qsTr("Fast and Excited");
+                name: i18nc("Description for the category for the Excited Moveset, on the Moves page", "Fast and Excited");
                 category: "excited";
                 color: "#c9ce3b";
             }
             ListElement {
-                name: qsTr("Frustrated and Tense");
+                name: i18nc("Description for the category for the Tense Moveset, on the Moves page", "Frustrated and Tense");
                 category: "tense";
                 color: "#f67400";
             }

@@ -43,20 +43,17 @@ Kirigami.AbstractCard {
     header: Kirigami.Heading {
         text: {
             if (!root.hasScanPermission) {
-                return qsTr("Let us look for your gear");
+                return i18nc("Header warning for missing scan permissions, for the gear connecting card", "Let us look for your gear");
             }
             else if (BTConnectionManager.discoveryRunning === true) {
-                return qsTr("Searching for gear...");
+                return i18nc("Header for whilst scanning, for the gear connecting card", "Searching for gear...");
             }
             else {
                 if (deviceFilterProxy.count === 0) {
-                    return qsTr("No gear found");
-                }
-                else if (deviceFilterProxy.count === 1) {
-                    return qsTr("One piece of gear available");
+                    return i18nc("Header warning that no gear has been found, for the gear connecting card", "No gear found");
                 }
                 else {
-                    return qsTr("Multiple pieces of gear available");
+                    return i18ncp("Header notifying that gear has been found, for the gear connecting card", "One piece of gear available", "Multiple pieces of gear available", deviceFilterProxy.count);
                 }
             }
         }
@@ -81,30 +78,23 @@ Kirigami.AbstractCard {
         horizontalAlignment: Text.AlignHCenter;
         text: {
             if (!root.hasScanPermission) {
-                return qsTr("To be able to find your gear, we need you to grant permission to access your location. Clicking the button below will show you a dialog that you need to press allow on. We do not use this information for anything else (feel free to get in touch if you want proof of this).");
+                return i18nc("Message warning for missing scan permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to access your location. Clicking the button below will show you a dialog that you need to press allow on. We do not use this information for anything else (feel free to get in touch if you want proof of this).");
             }
             else if (BTConnectionManager.discoveryRunning === true) {
                 if (deviceFilterProxy.count === 0) {
-                    return qsTr("None found yet...");
-                }
-                else if (deviceFilterProxy.count > 1) {
-                    return qsTr("Found %1 pieces of gear so far. To see them, push \"Show available gear...\" below.").arg(deviceFilterProxy.count);
+                    return i18nc("Message whilst scanning warning that no gear has been found, for the gear connecting card", "None found yet...");
                 }
                 else {
-                    return qsTr("1 piece of gear found. Simply wait, or push \"Connect\" below to control it.");
+                    return i18ncp("Message whilst scanning notifying that gear has been found, for the gear connecting card", "1 piece of gear found. Simply wait, or push \"Connect\" below to control it.", "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" below.", deviceFilterProxy.count);
                 }
             }
             else {
                 if (deviceFilterProxy.count === 0) {
-                    return qsTr("We were unable to find any gear. Please ensure that yours is nearby and switched on.");
+                    return i18nc("Message after scanning warning that no gear has been found, for the gear connecting card", "We were unable to find any gear. Please ensure that yours is nearby and switched on.");
                 }
-                else if (deviceFilterProxy.count > 1) {
-                    return qsTr("You are not currently connected to your gear, and we have found %1. Please push \"Show available gear...\" below to see what is available.").arg(deviceFilterProxy.count);
+                else{
+                    return i18ncp("Message after scanning notifying that gear has been found, for the gear connecting card", "You are not currently connected to your gear, but we know of one. Push \"Connect\" to connect to it.", "You are not currently connected to your gear, and we have found %1. Please push \"Show available gear...\" below to see what is available.", deviceFilterProxy.count);
                 }
-                else {
-                    return qsTr("You are not currently connected to your gear, but we know of one. Push \"Connect\" to connect to it.");
-                }
-            ;
             }
         }
     }
@@ -112,14 +102,14 @@ Kirigami.AbstractCard {
         Layout.fillWidth: true; Layout.fillHeight: true;
         text: {
             if (!root.hasScanPermission) {
-                return qsTr("Get Location Permission...");
+                return i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Location Permission...");
             }
             else if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
-                return qsTr("Look for gear");
+                return i18nc("Label for button that gets shown whilst no gear has been found, for the gear connecting card", "Look for gear");
             } else if (deviceFilterProxy.count === 1) {
-                return qsTr("Connect to %1").arg(deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
+                return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
             } else {
-                return qsTr("Show available gear...");
+                return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
             }
         }
         visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0);

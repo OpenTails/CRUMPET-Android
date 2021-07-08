@@ -55,7 +55,7 @@ Kirigami.OverlaySheet {
         rows: 4
 
         QQC2.Label {
-            text: qsTr("Hours")
+            text: i18nc("Label for the Hours field on a time picker", "Hours")
         }
 
         QQC2.SpinBox {
@@ -67,7 +67,7 @@ Kirigami.OverlaySheet {
         }
 
         QQC2.Label {
-            text: qsTr("Minutes")
+            text: i18nc("Label for the Minutes field on a time picker", "Minutes")
         }
 
         QQC2.SpinBox {
@@ -86,13 +86,13 @@ Kirigami.OverlaySheet {
 
             QQC2.RadioButton {
                 id: radioAm
-                text: qsTr("AM")
+                text: i18nc("Label for the AM option on a AM/PM selector of a time picker", "AM")
                 checked: is12Hours && hours < 12
             }
 
             QQC2.RadioButton {
                 id: radioPm
-                text: qsTr("PM")
+                text: i18nc("Label for the PM option on a AM/PM selector of a time picker", "PM")
                 checked: is12Hours && hours >= 12
             }
         }
@@ -104,7 +104,7 @@ Kirigami.OverlaySheet {
             Layout.fillWidth: true
 
             FlatButton {
-                text: qsTr("Now")
+                text: i18nc("Button for resetting a time field to the current time, on a time picker", "Now")
                 Layout.fillWidth: true
                 Layout.minimumWidth: implicitWidth
 
@@ -118,7 +118,7 @@ Kirigami.OverlaySheet {
             }
 
             FlatButton {
-                text: qsTr("Cancel")
+                text: i18nc("Button for cancelling the time entry, on a time picker", "Cancel")
                 Layout.fillWidth: true
                 Layout.minimumWidth: implicitWidth
 
@@ -126,7 +126,7 @@ Kirigami.OverlaySheet {
             }
 
             FlatButton {
-                text: qsTr("OK")
+                text: i18nc("Button for confirming the time entry, on a time picker", "OK")
                 Layout.fillWidth: true
                 Layout.minimumWidth: implicitWidth
 

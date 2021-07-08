@@ -23,7 +23,7 @@ import org.thetailcompany.digitail 1.0
 
 Kirigami.ScrollablePage {
     id: component;
-    title: qsTr("Gear Command Sets")
+    title: i18nc("Heading for the page for configuring command Sets", "Gear Command Sets")
     property string deviceID;
 
     ListView {
@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
             }
         }
         header: InfoCard {
-            text: qsTr("This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.").arg(deviceFilterProxy.deviceName);
+            text: i18nc("Description for the page for configuring Command Sets, for a specific gear", "This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.", deviceFilterProxy.deviceName);
         }
         delegate: Kirigami.SwipeListItem {
             id: listItem;
@@ -74,11 +74,11 @@ Kirigami.ScrollablePage {
             actions: [
                 Kirigami.Action {
                     visible: commandFile.isEditable;
-                    text: qsTr("Delete");
+                    text: i18nc("Button for deleting a Command Set, on the page for configuring Command Sets", "Delete");
                     icon.name: "list-remove";
                 },
                 Kirigami.Action {
-                    text: qsTr("Duplicate");
+                    text: i18nc("Button for duplicating a Command Set, on the page for configuring Command Sets", "Duplicate");
                     icon.name: "edit-duplicate";
                     onTriggered: {
                         var newFileName = "internal-crumpet-" + crumpetList.count;
@@ -87,7 +87,7 @@ Kirigami.ScrollablePage {
                 },
                 Kirigami.Action {
                     visible: commandFile.isEditable;
-                    text: qsTr("Edit Commands");
+                    text: i18nc("Button for editing a Command Set, on the page for configuring Command Sets", "Edit Commands");
                     icon.name: "document-edit";
                     onTriggered: { pageStack.push( crumpetEditor, { filename: modelData } ); }
                 }
@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
                 id: editorPage;
                 property string filename;
                 objectName: "crumpetEditor";
-                title: qsTr("Edit Commands")
+                title: i18nc("Header for the overlay for editing a Command Set, on the page for configuring Command Sets" ,"Edit Commands")
 
                 Component.onCompleted: {
                     contentEditor.text = AppSettings.commandFiles[editorPage.filename].contents;
@@ -107,7 +107,7 @@ Kirigami.ScrollablePage {
 
                 actions {
                     main: Kirigami.Action {
-                        text: qsTr("Save");
+                        text: i18nc("Button for saving a Command Set, on the overlay for editing a Command Set, on the page for configuring Command Sets", "Save");
                         icon.name: "file-save";
                         onTriggered: {
                             AppSettings.setCommandFileContents(editorPage.filename, contentEditor.text);
@@ -121,7 +121,7 @@ Kirigami.ScrollablePage {
                 TextEdit {
                     id: contentEditor;
                     Layout.fillWidth: true;
-                    text: "(this is where the content of the crumpet file goes,\nbecause we'll just have that here for now...)";
+                    text: i18nc("Placeholder text for the overlay for editing a Command Set, on the page for configuring Command Sets", "(this is where the content of the crumpet file goes,\nbecause we'll just have that here for now...)");
                     textFormat: TextEdit.PlainText;
                     wrapMode: TextEdit.Wrap
                     focus: true;

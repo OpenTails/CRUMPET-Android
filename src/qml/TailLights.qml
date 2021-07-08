@@ -21,10 +21,10 @@ import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.ScrollablePage {
     objectName: "tailLights";
-    title: qsTr("Glow Tips");
+    title: i18nc("Header for the page for the Glow Tips", "Glow Tips");
     actions {
         main: Kirigami.Action {
-            text: qsTr("Stop Lights");
+            text: i18nc("Button for stopping the light patterns, on the page for the Glow Tips", "Stop Lights");
             icon.name: "flashlight-off";
             onTriggered: {
                 BTConnectionManager.sendMessage("LEDOFF", []);
@@ -33,14 +33,14 @@ Kirigami.ScrollablePage {
     }
     BaseMovesComponent {
         width: parent.width;
-        infoText: qsTr("The list below shows all the light patterns available to your gear. Tap any of them to send them off to any of your connected devices!");
+        infoText: i18nc("Description for the list of light patterns, on the page for the Glow Tips", "The list below shows all the light patterns available to your gear. Tap any of them to send them off to any of your connected devices!");
         onCommandActivated: {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);
         }
         categoriesModel: ListModel {
             ListElement {
-                name: qsTr("LED Patterns");
+                name: i18nc("List element for the light patterns, on the page for the Glow Tips", "LED Patterns");
                 category: "lights";
                 color: "#93cee9";
             }
