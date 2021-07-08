@@ -90,6 +90,7 @@ int appMain(int argc, char *argv[])
     app.setApplicationVersion("Desktop");
 #endif
     KLocalizedString::setApplicationDomain("digitail");
+    KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../locale").arg(app.applicationDirPath()));
 
     QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
     QIcon::setThemeName(QStringLiteral("breeze-internal"));

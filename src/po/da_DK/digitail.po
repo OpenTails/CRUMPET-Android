@@ -1,0 +1,1304 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Dan Leinir Turthra Jensen <admin@leinir.dk>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
+"POT-Creation-Date: 2021-07-08 13:42+0100\n"
+"PO-Revision-Date: 2021-07-08 17:09+0100\n"
+"Last-Translator: Dan Leinir Turthra Jensen <admin@leinir.dk>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.04.2\n"
+
+#: qml/AboutPage.qml:33
+msgctxt ""
+"A label which describes the hardware revision of the connected gear, when "
+"only one item is connected"
+msgid "The connected gear is version %1"
+msgstr "Det tilkoblede udstyr er version %1"
+
+#: qml/AboutPage.qml:38
+msgctxt ""
+"A label which describes the hardware revision of a piece of connected gear, "
+"when more than one item is connected"
+msgid "The gear named %1 is version %2"
+msgstr "Udstyret med navnet %1 er version %2"
+
+#: qml/AboutPage.qml:59
+msgctxt "Task description for leinir"
+msgid "Lead Developer"
+msgstr "Hovedudvikler"
+
+#: qml/AboutPage.qml:66
+msgctxt "Task description for Ildar"
+msgid "Qt/QML Developer"
+msgstr "Qt/QML Udvikler"
+
+#: qml/AlarmList.qml:28
+msgctxt "Title of the page which lists the alarms the user has set"
+msgid "Alarms"
+msgstr "Alarmer"
+
+#: qml/AlarmList.qml:32
+msgctxt "Text for a button which will adds a new alarm to the list"
+msgid "Add New Alarm"
+msgstr "Tilføj Ny Alarm"
+
+#: qml/AlarmList.qml:44
+msgctxt ""
+"Title for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid "Select another name"
+msgstr "Vælg et andet navn"
+
+#: qml/AlarmList.qml:45
+msgctxt ""
+"Main text for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid ""
+"Unable to add the alarm because we already have an alarm with the same "
+"name.\n"
+"\n"
+"Please select another name for the alarm."
+msgstr ""
+"Kunne ikke tilføje alarmen, da der allerede findes en alarm med dette navn. "
+"Vælg venligst et andet navn til denne alarm."
+
+#: qml/AlarmList.qml:49
+msgctxt ""
+"Title for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid "Alarm was removed"
+msgstr "Alarmen blev fjernet"
+
+#: qml/AlarmList.qml:50
+msgctxt ""
+"Main text for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid ""
+"Unable to find an alarm with the name '%1'. Maybe another application "
+"instance has removed it."
+msgstr ""
+"Kunne ikke finde en alarm med navnet '%1'. Måske har en anden instans af"
+" programmet fjernet den."
+
+#: qml/AlarmList.qml:80
+msgctxt ""
+"Text for an action which allows the user to pick what command the alarm will "
+"cause to be sent"
+msgid "Edit Alarm Commands"
+msgstr "Rediger Alarm Kommandoer"
+
+#: qml/AlarmList.qml:89
+msgctxt ""
+"Text for an action which allows the user to pick what time the alarm should "
+"fire"
+msgid "Set Time To Alarm"
+msgstr "Set Alarm Tid"
+
+#: qml/AlarmList.qml:111
+msgctxt "Text for an action which allows the user to delete an alarm"
+msgid "Delete this Alarm"
+msgstr "Slet denne alarm"
+
+#: qml/AlarmList.qml:115
+msgctxt ""
+"Title for a message box which allows the user to delete a specific alarm"
+msgid "Remove the Alarm"
+msgstr "Fjern alarmen"
+
+#: qml/AlarmList.qml:116
+msgctxt ""
+"Main text for a message box which allows the user to delete a specific alarm"
+msgid "Are you sure that you want to remove the alarm '%1'?"
+msgstr "Er du sikker på du vil fjerne alarmen '%1'?"
+
+#: qml/AlarmList.qml:135
+msgctxt ""
+"Descriptive text which explains what the functionality is of the alarm page"
+msgid ""
+"Set an alarm here. Pick a date and time for your alarm, and then add one or "
+"more moves you want to perform when you hit that time."
+msgstr ""
+"Set en alarm her. Vælg en dato og en tid for din alarm, og sæt så en eller"
+" flere bevægelser som du vil udføre, når du når den tid."
+
+#: qml/AlarmList.qml:142
+msgctxt ""
+"Descriptive text for a popup which allows the user to create a new, named "
+"alarm"
+msgid "Enter a name to use for your new alarm and click Create"
+msgstr "Indtast et navn til din nye alarm og klik Skab"
+
+#: qml/AlarmList.qml:143
+msgctxt ""
+"Placeholder text for the text box in which the name of a new alarm must be "
+"written"
+msgid "Enter your alarm name here"
+msgstr "Indtast alarmens navn her"
+
+#: qml/AlarmList.qml:144
+msgctxt "Text on a button which causes an alarm to be created"
+msgid "Create"
+msgstr "Skab"
+
+#: qml/BaseCommandListEditor.qml:37
+msgctxt "Label for the button for adding a move to the Move List"
+msgid "Add Move To List"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:46
+msgctxt "Label for the button for adding a pause to the Move List"
+msgid "Add Pause To List"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:163
+msgctxt ""
+"Label for the button for adding a command after the selected element of a "
+"move list"
+msgid "Add command after"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:172
+msgctxt ""
+"Label for the button for adding a pause after the selected element of a move "
+"list"
+msgid "Add pause after"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:198
+msgctxt ""
+"Label for the cooldown period when it is larger than 0, on the Command List "
+"editor"
+msgid ""
+"<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
+"cooldown: %3 seconds</small>"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:199
+msgctxt ""
+"Label for the cooldown period when it is equal to 0, on the Command List "
+"editor"
+msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:219
+msgctxt "Description for the Command List Editor"
+msgid ""
+"This is your list of commands. It can include both moves, glows, and pauses. "
+"Tip: To add a new command underneath one you have in the list already, click "
+"the plus icon above the cumulative timestamp for that entry and pick one of "
+"the options in the menu."
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:270
+msgctxt ""
+"Label for the cumulative duration of a Command on the Command List Editor"
+msgid "Total duration: %1 second"
+msgid_plural "Total duration: %1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/BaseMovesComponent.qml:185
+msgctxt "Header for the overlay for selecting the destination for a command"
+msgid "Send where?"
+msgstr ""
+
+#: qml/BaseMovesComponent.qml:194
+msgctxt "Text for the overlay for selecting the destination for a command"
+msgid "Pick from the list below where you want to send the command."
+msgstr ""
+
+#: qml/BaseMovesComponent.qml:239
+msgctxt "Action for sending a command to the selected devices in a list"
+msgid "Send To Selected"
+msgstr ""
+
+#: qml/BaseMovesComponent.qml:248
+msgctxt "Action for sending a command to all devices in a list"
+msgid "Send To All"
+msgstr ""
+
+#: qml/CommandPausePicker.qml:42
+msgctxt ""
+"Heading for an overlay for picking the duration of a pause in the command "
+"list"
+msgid "Pick the duration of your pause"
+msgstr ""
+
+#: qml/CommandPausePicker.qml:58
+msgctxt ""
+"A label which describes the slider for the duration of a pause, in the "
+"overlay for picking the duration of a pause, in a command list"
+msgid "%1 seconds"
+msgstr ""
+
+#: qml/CommandPausePicker.qml:62
+msgctxt ""
+"Button for an overlay for picking the duration of a pause in the command list"
+msgid "Add this pause"
+msgstr ""
+
+#: qml/ConnectToTail.qml:69
+msgctxt ""
+"Button for the action of disconnecting a device, in the prompt for "
+"connecting a device"
+msgid "Disconnect"
+msgstr ""
+
+#: qml/ConnectToTail.qml:70
+msgctxt ""
+"Button for the action of connecting a device, in the prompt for connecting a "
+"device"
+msgid "Connect"
+msgstr ""
+
+#: qml/DatePicker.qml:239
+msgctxt "Button for selecting the date of today, in a date picker"
+msgid "Today"
+msgstr ""
+
+#: qml/DatePicker.qml:246
+msgctxt "Button for cancelling the selection of a date, in a date picker"
+msgid "Cancel"
+msgstr ""
+
+#: qml/DatePicker.qml:253
+msgctxt "Button for confirming the selection of a date, in a date picker"
+msgid "OK"
+msgstr ""
+
+#: qml/DeveloperModePage.qml:27
+msgctxt "Header for the Developer Mode page"
+msgid "Developer Mode"
+msgstr ""
+
+#: qml/DeveloperModePage.qml:34
+msgctxt "Button with a sound effect for the Developer Mode Page"
+msgid "MAX GLASH"
+msgstr ""
+
+#: qml/EarPoses.qml:24
+msgctxt "Title for the page for selecting a pose for the EarGear"
+msgid "Ear Poses"
+msgstr ""
+
+#: qml/EarPoses.qml:27
+msgctxt ""
+"Button for returning the EarGear to the home position, on the page for "
+"selecting a pose for the EarGear"
+msgid "Home Position"
+msgstr ""
+
+#: qml/EarPoses.qml:35
+msgctxt "Description for the page for selecting a pose for the EarGear"
+msgid ""
+"The list below shows all the poses available to your gear. Tap any of them "
+"to send them off to any of your connected devices!"
+msgstr ""
+
+#: qml/EarPoses.qml:42
+msgctxt ""
+"Heading for the list of poses, on the page for selecting a pose for the "
+"EarGear"
+msgid "Poses"
+msgstr ""
+
+#: qml/GearGestures.qml:28
+msgctxt "Title for the page for selecting a pose for the Gear"
+msgid "Gear Gestures"
+msgstr ""
+
+#: qml/GearGestures.qml:31
+msgctxt ""
+"Button for returning Gear to the home position, on the page for selecting a "
+"pose for the Gear"
+msgid "Home Position"
+msgstr ""
+
+#: qml/GearGestures.qml:47
+msgctxt "Info card for the page for selecting a pose for the Gear"
+msgid ""
+"Turn on one of the sensors below to make your gear react to gestures "
+"performed on this device, if there is nothing else going on (that is, no "
+"current commands, and an empty command queue). For example, make your ears "
+"perk up when the device recognises that is has been picked up, or start "
+"wagging when it detects that you have taken a step."
+msgstr ""
+
+#: qml/GearGestures.qml:70
+msgctxt ""
+"Title for the warning for having enabled multiple gestures at the same time, "
+"on the page for selecting a pose for the Gear"
+msgid "Multiple Gestures"
+msgstr ""
+
+#: qml/GearGestures.qml:71
+msgctxt ""
+"Description for the warning for having enabled multiple gestures at the same "
+"time, on the page for selecting a pose for the Gear"
+msgid ""
+"You are attempting to turn on more than one gesture at the same time. This "
+"will occasionally cause problems, primarily by being confusing to manage "
+"(for example, turning on both Walking and Shake is likely to cause both to "
+"be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
+"not enable this gesture."
+msgstr ""
+
+#: qml/GearGestures.qml:80
+msgctxt ""
+"Description for the checkbox for showing a gesture on the Welcome Page, on "
+"the page for selecting a pose for the Gear"
+msgid "Show On Welcome Page"
+msgstr ""
+
+#: qml/GearGestures.qml:93
+msgctxt ""
+"Default text for the button for picking a command, for when no command has "
+"been selected, on the page for selecting a pose for the Gear"
+msgid "(no command)"
+msgstr ""
+
+#: qml/IdleModePage.qml:26
+msgctxt "Title for the page for selecting a move in Casual Mode"
+msgid "Casual Mode Categories"
+msgstr "Afslapningstilstand"
+
+#: qml/IdleModePage.qml:46
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Calm and Relaxed"
+msgstr ""
+
+#: qml/IdleModePage.qml:51
+msgctxt ""
+"Description for the category for the Excited Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Fast and Excited"
+msgstr ""
+
+#: qml/IdleModePage.qml:56
+msgctxt ""
+"Description for the category for the Tense Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Frustrated and Tense"
+msgstr ""
+
+#: qml/IdleModePage.qml:61
+msgctxt ""
+"Description for the category for the LED Patterns, on the page for selecting "
+"a move in Casual Mode"
+msgid "LED Patterns"
+msgstr ""
+
+#: qml/IdleModePage.qml:72
+msgctxt ""
+"Infocard for selecting the pauses in between moves, on the page for "
+"selecting a move in Casual Mode"
+msgid ""
+"This is where you set the pauses in between moves, as well as the families "
+"of moves that can be called upon."
+msgstr ""
+
+#: qml/IdlePauseRangePicker.qml:30
+msgctxt ""
+"Label for selecting the range of pauses in between moves in Casual Mode"
+msgid "Range of pause between moves in seconds"
+msgstr ""
+
+#: qml/main.qml:62
+msgctxt "Title of the application"
+msgid "Crumpet"
+msgstr "Crumpet"
+
+#: qml/main.qml:85
+msgctxt "Text for the notification upon connecting successfully to a device"
+msgid "Connected successfully!"
+msgstr "Forbindelse lykkedes!"
+
+#: qml/main.qml:105
+msgctxt "Title for the warning for having Bluetooth disabled"
+msgid "Warning"
+msgstr "Advarsel"
+
+#: qml/main.qml:105
+msgctxt "Message for the warning for having Bluetooth disabled"
+msgid "Bluetooth is disabled"
+msgstr "Bluetooth er slået fra"
+
+#: qml/main.qml:107
+msgctxt "Title for the warning for not having detected any Bluetooth devices"
+msgid "Warning"
+msgstr "Advarsel"
+
+#: qml/main.qml:107
+msgctxt "Message for the warning for not having detected any Bluetooth devices"
+msgid "No Bluetooth Device"
+msgstr "Ingen Bluetooth enhed fundet"
+
+#: qml/main.qml:119
+msgctxt "Title for the popup for having enabled Developer Mode"
+msgid "Developer mode"
+msgstr "Udviklertilstand"
+
+#: qml/main.qml:119
+msgctxt "Message for the popup for having enabled Developer Mode"
+msgid "Developer mode is enabled"
+msgstr "Udviklertilstand slået til"
+
+#: qml/main.qml:121
+msgctxt "Title for the popup for having disabled Developer Mode"
+msgid "Developer mode"
+msgstr "Udviklertilstand"
+
+#: qml/main.qml:121
+msgctxt "Message for the popup for having disabled Developer Mode"
+msgid "Developer mode is disabled"
+msgstr "Udviklertilstand slået fra"
+
+#: qml/main.qml:126
+msgctxt "Title for the popup for getting a timeout for Casual Mode"
+msgid "Casual Mode is Off"
+msgstr "Afslapningstilstand Afbrudt"
+
+#: qml/main.qml:126
+msgctxt "Message for the popup for getting a timeout for Casual Mode"
+msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
+msgstr ""
+"Det kan godt være, det er til til at slappe lidt af. Afslapningstilstand er"
+" for"
+" dig, men dit udstyr arbejder stadig på højtryk, så det er en god ide at lade"
+" det have en lille lur en gang i mellem."
+
+#: qml/main.qml:187
+msgctxt "Button for opening the Crumpet page, from the landing page"
+msgid "Crumpet"
+msgstr "Crumpet"
+
+#: qml/main.qml:195
+msgctxt "Button for opening the Alarm page, from the landing page"
+msgid "Alarm"
+msgstr "Alarm"
+
+#: qml/main.qml:205
+msgctxt "Button for opening the Move List page, from the landing page"
+msgid "Move Lists"
+msgstr "Bevægelseslister"
+
+#: qml/main.qml:215
+msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
+msgid "Moves"
+msgstr "Bevægelser"
+
+#: qml/main.qml:224
+msgctxt "Button for opening the EarGear Poses page, from the landing page"
+msgid "Ear Poses"
+msgstr "Øre Positioner"
+
+#: qml/main.qml:233
+msgctxt "Button for opening the Glow Tips page, from the landing page"
+msgid "Glow Tips"
+msgstr "Lys-spidser"
+
+#: qml/main.qml:242
+msgctxt ""
+"Button for opening the page for setting up the Casual Mode, from the landing "
+"page"
+msgid "Casual Mode Settings"
+msgstr "Afslapningsindstillinger"
+
+#: qml/main.qml:251
+msgctxt "Button for opening the Gear Gestures page, from the landing page"
+msgid "Gear Gestures"
+msgstr "Udstyrsreaktioner"
+
+#: qml/main.qml:260
+msgctxt "Button for opening the Developer Mode page, from the landing page"
+msgid "Developer Mode"
+msgstr "Udviklertilstand"
+
+#: qml/main.qml:275
+msgctxt "Button for opening the Settings Page, from the landing page"
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: qml/main.qml:286
+msgctxt "Button for opening the About Us page, from the landing page"
+msgid "About"
+msgstr "Om"
+
+#: qml/main.qml:306
+msgctxt "Title for the confirmation popup for disconnecting your gear"
+msgid "Your gear is currently connected"
+msgstr "Dit udstyr er forbundet"
+
+#: qml/main.qml:307
+msgctxt "Message for the confirmation popup for disconnecting your gear"
+msgid ""
+"You are currently connected to some of your gear.\n"
+"\n"
+"Are you sure that you want to disconnect and quit?"
+msgstr ""
+"Du er stadig koblet til noget af dit udstyr."
+"Er du sikker på, at du vil koble fra og lukke Crumpet ned?"
+
+#: qml/main.qml:371
+msgctxt "Description for the prompt for entering a name for your Gear"
+msgid "Enter a name to use for your new gear"
+msgstr "Indtast et navn som vi kan kalde dit udstyr"
+
+#: qml/main.qml:372
+msgctxt "Placeholder text for the prompt for entering a name for your Gear"
+msgid "Enter the name here"
+msgstr "Indtast navnet her"
+
+#: qml/main.qml:373
+msgctxt ""
+"Button for confirming the save of your new name, for the prompt for entering "
+"a name for your Gear"
+msgid "Save"
+msgstr "Gem"
+
+#: qml/main.qml:411
+msgctxt "Label for your gear that gets shown when attempting to connect to it"
+msgid "Attempting to connect..."
+msgstr "Forsøger at forbinde..."
+
+#: qml/MessageBox.qml:47
+msgctxt "Confirmation button for a generic message"
+msgid "Ok"
+msgstr "Ok"
+
+#: qml/MessageBox.qml:66
+msgctxt "Cancel button for a generic message"
+msgid "Cancel"
+msgstr "Afbryd"
+
+#: qml/MoveListEditor.qml:32
+msgctxt ""
+"Label for the button for running a Move List, on the Move List Editor page"
+msgid "Run Move List"
+msgstr "Kør Bevægelsesliste"
+
+#: qml/MoveListEditor.qml:35
+msgctxt ""
+"Heading for the confirmation prompt for running a Move List, on the Move "
+"List Editor page"
+msgid "Run this list?"
+msgstr "Kør denne liste?"
+
+#: qml/MoveListEditor.qml:36
+msgctxt ""
+"Message for the confirmation prompt for running a Move List, on the Move "
+"List Editor page"
+msgid "Do you want to run this list?"
+msgstr "Vil du køre denne liste?"
+
+#: qml/MoveListEditor.qml:51
+msgctxt ""
+"Header for the confirmation prompt for removing a Move List Entry, on the "
+"Move List Editor page"
+msgid "Remove Move List Entry?"
+msgstr "Fjern Bevægelsesliste"
+
+#: qml/MoveListEditor.qml:52
+msgctxt ""
+"Message for the confirmation prompt for removing a Move List Entry, on the "
+"Move List Editor page"
+msgid "Are you sure that you want to remove this entry from your move list?"
+msgstr "Er du sikker på, at du vil fjerne denne del af din bevægelsesliste?"
+
+#: qml/MoveLists.qml:27
+msgctxt "Heading for the page for viewing Move Lists"
+msgid "Move Lists"
+msgstr "Bevægelseslister"
+
+#: qml/MoveLists.qml:31
+msgctxt ""
+"Label for the button for adding a new Move List, on the page for viewing "
+"Move Lists"
+msgid "Add New Move List"
+msgstr "Tilføj Ny Bevægelsesliste"
+
+#: qml/MoveLists.qml:48
+msgctxt ""
+"Heading for the prompt for confirming the action of running a list, on the "
+"page for viewing Move Lists"
+msgid "Run this list?"
+msgstr "Kør denne liste?"
+
+#: qml/MoveLists.qml:49
+msgctxt ""
+"Message for the prompt for confirming the action of running a list, on the "
+"page for viewing Move Lists"
+msgid "Do you want to run the list %1?"
+msgstr "Vil du køre denne liste?"
+
+#: qml/MoveLists.qml:56
+msgctxt ""
+"Label for the button for editing a move list, on the page for viewing Move "
+"Lists"
+msgid "Edit Move List"
+msgstr "Rediger Bevægelsesliste"
+
+#: qml/MoveLists.qml:64
+msgctxt ""
+"Label for the button for deleting a move list, on the page for viewing Move "
+"Lists"
+msgid "Delete this Move List"
+msgstr "Slet Denne Bevægelsesliste"
+
+#: qml/MoveLists.qml:68
+msgctxt ""
+"Heading for the prompt for confirming the action of deleting a list, on the "
+"page for viewing Move Lists"
+msgid "Remove the Move List"
+msgstr "Fjern Bevægelseslisten"
+
+#: qml/MoveLists.qml:69
+msgctxt ""
+"Message for the prompt for confirming the action of deleting a list, on the "
+"page for viewing Move Lists"
+msgid "Are you sure that you want to remove the Move List '%1'?"
+msgstr "Er du sikker på, at du vil fjerne bevægelseslisten '%1'?"
+
+#: qml/MoveLists.qml:86
+msgctxt "Description for the page for viewing Move Lists"
+msgid ""
+"Create lists of moves, glows and pauses to send to your gear. To send a list "
+"you have created, tap it and pick OK. To perform actions on the ones you've "
+"created, like editing or even removing them entirely, swipe left on the item."
+msgstr ""
+"Skab en liste at bevægelser, lys, og pauser til at sende til dit udstyr. For"
+" at sende "
+"en liste du har lavet, klik på den og vælg OK. For at udføre aktioner på de"
+" lister du "
+"allerede har lavet, som eksempelvis at redigere, eller endda fjerne dem,"
+" stryg til venstre."
+
+#: qml/MoveLists.qml:93
+msgctxt ""
+"Description for the prompt for giving a name to a move list, on the page for "
+"viewing Move Lists"
+msgid "Enter a name to use for your new move list and click Create"
+msgstr "Indtast et navn du vil bruge til til nye liste og klik Skab."
+
+#: qml/MoveLists.qml:94
+msgctxt ""
+"Placeholder text for the textfield for the prompt for giving a name to a "
+"move list, on the page for viewing Move Lists"
+msgid "Enter your move list name here"
+msgstr "Indtast din listes navn her"
+
+#: qml/MoveLists.qml:95
+msgctxt ""
+"Confirmating button for the prompt for giving a name to a move list, on the "
+"page for viewing Move Lists"
+msgid "Create"
+msgstr "Skab"
+
+#: qml/MoveLists.qml:99
+msgctxt ""
+"Header for the warning that a name is already in use, for the prompt for "
+"giving a name to a move list, on the page for viewing Move Lists"
+msgid "Name Already Used"
+msgstr "Navn Allerede Brugt"
+
+#: qml/MoveLists.qml:100
+msgctxt ""
+"Description for the warning that a name is already in use, for the prompt "
+"for giving a name to a move list, on the page for viewing Move Lists"
+msgid ""
+"You already have a move list with the name %1. Please pick another name, as "
+"that won't work."
+msgstr ""
+"Du har allerede en liste med navnet %1. Indtast venligst et andet navn, da"
+" flere lister "
+"med det samme navn ikke virker specielt godt."
+
+#: qml/NamePicker.qml:41
+msgctxt "Text header for picking a name"
+msgid "Pick a name"
+msgstr "Vælg et navn"
+
+#: qml/NotConnectedCard.qml:46
+msgctxt ""
+"Header warning for missing scan permissions, for the gear connecting card"
+msgid "Let us look for your gear"
+msgstr "Lad os finde dit udstyr"
+
+#: qml/NotConnectedCard.qml:49
+msgctxt "Header for whilst scanning, for the gear connecting card"
+msgid "Searching for gear..."
+msgstr "Søger efter udstyr..."
+
+#: qml/NotConnectedCard.qml:53
+msgctxt ""
+"Header warning that no gear has been found, for the gear connecting card"
+msgid "No gear found"
+msgstr "Intet udstyr fundet"
+
+#: qml/NotConnectedCard.qml:56
+msgctxt ""
+"Header notifying that gear has been found, for the gear connecting card"
+msgid "One piece of gear available"
+msgid_plural "Multiple pieces of gear available"
+msgstr[0] "Et stykke udstyr fundet"
+msgstr[1] "Flere stykker udstyr fundet"
+
+#: qml/NotConnectedCard.qml:81
+msgctxt ""
+"Message warning for missing scan permissions, for the gear connecting card"
+msgid ""
+"To be able to find your gear, we need you to grant permission to access your "
+"location. Clicking the button below will show you a dialog that you need to "
+"press allow on. We do not use this information for anything else (feel free "
+"to get in touch if you want proof of this)."
+msgstr ""
+"For at kunne finde dit udstyr er vi nødt til at have tilladelse til at tilgå"
+" din "
+"position. Når du kliker på knappen nedenunder vil du blive vist en dialog "
+"hvor du skal klikke på Tillad. Vi bruger ikke denne information til andet "
+"(og du er velkommen til at tage kontakt, hvis du vil have bevis på det)."
+
+#: qml/NotConnectedCard.qml:85
+msgctxt ""
+"Message whilst scanning warning that no gear has been found, for the gear "
+"connecting card"
+msgid "None found yet..."
+msgstr "Intet fundet endnu..."
+
+#: qml/NotConnectedCard.qml:88
+msgctxt ""
+"Message whilst scanning notifying that gear has been found, for the gear "
+"connecting card"
+msgid ""
+"1 piece of gear found. Simply wait, or push \"Connect\" below to control it."
+msgid_plural ""
+"Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
+"below."
+msgstr[0] ""
+"1 stykke udstyr funder. Enten vent, eller klik på \"Forbind\" nedenunder for"
+" at kontrollere det."
+msgstr[1] ""
+"Fandt %1 stykker udstyr ind til viddere. Klik på \"Se tilgængeligt"
+" udstyr...\" nedenunder for at se dem"
+
+#: qml/NotConnectedCard.qml:93
+msgctxt ""
+"Message after scanning warning that no gear has been found, for the gear "
+"connecting card"
+msgid ""
+"We were unable to find any gear. Please ensure that yours is nearby and "
+"switched on."
+msgstr ""
+"Vi kunne ikke finde noget udstyr. Sørg for det er i nærheden og at det er"
+" tændt."
+
+#: qml/NotConnectedCard.qml:96
+msgctxt ""
+"Message after scanning notifying that gear has been found, for the gear "
+"connecting card"
+msgid ""
+"You are not currently connected to your gear, but we know of one. Push "
+"\"Connect\" to connect to it."
+msgid_plural ""
+"You are not currently connected to your gear, and we have found %1. Please "
+"push \"Show available gear...\" below to see what is available."
+msgstr[0] ""
+"Du er ikke forbundet til dit udstyr, men vi er bekendt med et styk som er"
+" tilgængeligt. "
+"Klik \"Forbind\" for at forbinde til det."
+msgstr[1] ""
+"Du er ikke forbundet til dit udstyr, og vi har fundet %1 tilgængelige. Klik "
+"\"Vis tilgængeligt udstyr...\" nedenunder for at se dem."
+
+#: qml/NotConnectedCard.qml:105
+msgctxt ""
+"Label for button for opening the settings tab to fix missing scan "
+"permissions, for the gear connecting card"
+msgid "Get Location Permission..."
+msgstr "Giv Tilladelse Til Position..."
+
+#: qml/NotConnectedCard.qml:108
+msgctxt ""
+"Label for button that gets shown whilst no gear has been found, for the gear "
+"connecting card"
+msgid "Look for gear"
+msgstr "Se efter udstyr"
+
+#: qml/NotConnectedCard.qml:110
+msgctxt ""
+"Label for button for connecting to a specific piece of gear, for the gear "
+"connecting card"
+msgid "Connect to %1"
+msgstr "Forbind til %1"
+
+#: qml/NotConnectedCard.qml:112
+msgctxt ""
+"Label for button for showing a list of available gear, for the gear "
+"connecting card"
+msgid "Show available gear..."
+msgstr "Vis tilgængeligt udstyr..."
+
+#: qml/PickACommandSheet.qml:30
+msgctxt ""
+"Heading for the overlay for picking a command, for configuring a move list"
+msgid "Pick a command"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:33
+msgctxt ""
+"Description for the overlay for picking a command, for configuring a move "
+"list"
+msgid ""
+"The list below shows all the moves and light patterns available to your "
+"gear. Tap any of them to pick that command."
+msgstr ""
+
+#: qml/PickACommandSheet.qml:41
+msgctxt ""
+"Description for the category for the Ear Gear poses, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Poses"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:46
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Calm and Relaxed"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:51
+msgctxt ""
+"Description for the category for the Excited Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Fast and Excited"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:56
+msgctxt ""
+"Description for the category for the Tense Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Frustrated and Tense"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:61
+msgctxt ""
+"Description for the category for the LED Patterns, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "LED Patterns"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:26
+msgctxt "Heading for the page for configuring command Sets"
+msgid "Gear Command Sets"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:45
+msgctxt ""
+"Description for the page for configuring Command Sets, for a specific gear"
+msgid ""
+"This is all the command sets you have available to enable for %1. You can "
+"add new ones, edit them, and remove them. You cannot edit the built-in "
+"lists, but you can duplicate them and then edit those."
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:77
+msgctxt ""
+"Button for deleting a Command Set, on the page for configuring Command Sets"
+msgid "Delete"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:81
+msgctxt ""
+"Button for duplicating a Command Set, on the page for configuring Command "
+"Sets"
+msgid "Duplicate"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:90
+msgctxt ""
+"Button for editing a Command Set, on the page for configuring Command Sets"
+msgid "Edit Commands"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:102
+msgctxt ""
+"Header for the overlay for editing a Command Set, on the page for "
+"configuring Command Sets"
+msgid "Edit Commands"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:110
+msgctxt ""
+"Button for saving a Command Set, on the overlay for editing a Command Set, "
+"on the page for configuring Command Sets"
+msgid "Save"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:124
+msgctxt ""
+"Placeholder text for the overlay for editing a Command Set, on the page for "
+"configuring Command Sets"
+msgid ""
+"(this is where the content of the crumpet file goes,\n"
+"because we'll just have that here for now...)"
+msgstr ""
+
+#: qml/SettingsPage.qml:29
+msgctxt "Title for the settings page"
+msgid "Settings"
+msgstr ""
+
+#: qml/SettingsPage.qml:36
+msgctxt "Header for the instruction panel, on the settings page"
+msgid "Instructions"
+msgstr ""
+
+#: qml/SettingsPage.qml:37
+msgctxt "Description for the instruction panel on the settings page"
+msgid ""
+"Please download and read the instructions by clicking the link below. This "
+"includes instructions on how to wear your tail or ears, along with some nice "
+"graphics showing you how."
+msgstr ""
+
+#: qml/SettingsPage.qml:52
+msgctxt "Header for the panel on automatic reconnection, on the settings page"
+msgid "Automatic Reconnection"
+msgstr ""
+
+#: qml/SettingsPage.qml:53
+msgctxt ""
+"Description for the panel on automatic reconnection, on the settings page"
+msgid ""
+"In certain situations, the app might lose its connection to your gear. "
+"Ticking this option will ensure that the app will attempt to reconnect "
+"automatically when the connection is lost."
+msgstr ""
+
+#: qml/SettingsPage.qml:55
+msgctxt ""
+"Checkbox for enabling automatic reconnection, on the automatic reconnection "
+"panel in the settings page"
+msgid "Reconnect Automatically"
+msgstr ""
+
+#: qml/SettingsPage.qml:64
+msgctxt "Header for the panel for changing gear names, on the settings page"
+msgid "Gear Names"
+msgstr ""
+
+#: qml/SettingsPage.qml:65
+msgctxt ""
+"Description for the panel for changing gear names, on the settings page"
+msgid ""
+"If you want to clear the names of any gear you have given a name, click the "
+"button below to make the app forget them all."
+msgstr ""
+
+#: qml/SettingsPage.qml:67
+msgctxt ""
+"Label for the button for clearing gear names, on the panel for changing gear "
+"names, on the settings page"
+msgid "Forget Gear Names"
+msgstr ""
+
+#: qml/SettingsPage.qml:70
+msgctxt ""
+"Header for the warning prompt for clearing gear names, on the panel for "
+"changing gear names, on the settings page"
+msgid "Clear the names?"
+msgstr ""
+
+#: qml/SettingsPage.qml:71
+msgctxt ""
+"Text for the warning prompt for clearing gear names, on the panel for "
+"changing gear names, on the settings page"
+msgid ""
+"Please confirm that you do, in fact, want to clear all your saved device "
+"names."
+msgstr ""
+
+#: qml/SettingsPage.qml:78
+msgctxt ""
+"Header for the panel for adding commands to your gear, on the settings page"
+msgid "Gear Commands"
+msgstr ""
+
+#: qml/SettingsPage.qml:79
+msgctxt ""
+"Description for the panel for adding commands to your gear, on the settings "
+"page"
+msgid ""
+"While the app ships with a number of command sets out of the box, this is "
+"not all that your gear can do. You can modify what is sent to your gear, and "
+"we'll remember for each of them which commands you want to use. To be able "
+"to more easily use this, make sure to give your gear a name, so you can tell "
+"them apart more easily."
+msgstr ""
+
+#: qml/SettingsPage.qml:83
+msgctxt ""
+"Checkbox for hiding non-connected gear, on the panel for adding commands to "
+"your gear, on the settings page"
+msgid "Only Show Connected Gear"
+msgstr ""
+
+#: qml/SettingsPage.qml:96
+msgctxt ""
+"Warning for the list of configurable gear being empty, on the panel for "
+"adding commands to your gear, on the settings page"
+msgid "No gear to configure..."
+msgstr ""
+
+#: qml/SettingsPage.qml:121
+msgctxt ""
+"Heading for the panel for adjusting microphone levels for the earGear, on "
+"the settings page"
+msgid "EarGear Hearing"
+msgstr ""
+
+#: qml/SettingsPage.qml:122
+msgctxt ""
+"Description for the panel for adjusting microphone levels for the earGear, "
+"on the settings page"
+msgid ""
+"If your EarGear is acting a bit like it isn't hearing right, it might need "
+"to have its balance checked. To make sure it works the best, you will want "
+"to be in a quiet room before you tap the balance button below (pause your "
+"music, close the door to your bedroom, etc). This value is stored in the "
+"box, so you shouldn't generally need to do it more than once. You might also "
+"need to swap the direction around (for example, you might want to put your "
+"controller box either on the front or the back of your body, or upside down "
+"so the cable can run more gracefully)."
+msgstr ""
+
+#: qml/SettingsPage.qml:138
+msgctxt ""
+"Label for the button for unswapping left and right, on the panel for "
+"adjusting microphone levels for the earGear, on the settings page"
+msgid "Unswap left and right"
+msgstr ""
+
+#: qml/SettingsPage.qml:139
+msgctxt ""
+"Label for the button for swapping left and right, the panel for adjusting "
+"microphone levels for the earGear, on the settings page"
+msgid "Swap left and right"
+msgstr ""
+
+#: qml/SettingsPage.qml:146
+msgctxt ""
+"Label for the button for rebalancing microphone levels, the panel for "
+"adjusting microphone levels for the earGear, on the settings page"
+msgid "Rebalance Microphones"
+msgstr ""
+
+#: qml/SettingsPage.qml:158
+msgctxt ""
+"Heading for the panel for the demo modus of the app, on the settings page"
+msgid "Fake Tail"
+msgstr ""
+
+#: qml/SettingsPage.qml:159
+msgctxt ""
+"Description for the panel for the demo modus of the app, on the settings page"
+msgid ""
+"If you have just downloaded the app, for example in anticipation of the "
+"arrival of your brand new, super shiny DIGITAiL or EarGear, you might want "
+"to explore what the app can do. You can click the button below to trick the "
+"app into thinking that there is a tail nearby, and let you explore what "
+"options exist. Enabling this option will make a fake tail show up on the "
+"welcome page."
+msgstr ""
+
+#: qml/SettingsPage.qml:161
+msgctxt ""
+"Label for the checkbox for showing a fake tail inside the app, on the panel "
+"for the demo modus of the app, on the settings page"
+msgid "Show Fake Tail"
+msgstr ""
+
+#: qml/TailLights.qml:24
+msgctxt "Header for the page for the Glow Tips"
+msgid "Glow Tips"
+msgstr ""
+
+#: qml/TailLights.qml:27
+msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
+msgid "Stop Lights"
+msgstr ""
+
+#: qml/TailLights.qml:36
+msgctxt ""
+"Description for the list of light patterns, on the page for the Glow Tips"
+msgid ""
+"The list below shows all the light patterns available to your gear. Tap any "
+"of them to send them off to any of your connected devices!"
+msgstr ""
+
+#: qml/TailLights.qml:43
+msgctxt "List element for the light patterns, on the page for the Glow Tips"
+msgid "LED Patterns"
+msgstr ""
+
+#: qml/TailMoves.qml:24
+msgctxt "Heading for the Moves page"
+msgid "Moves"
+msgstr "Bevægelser"
+
+#: qml/TailMoves.qml:27
+msgctxt "Button for returning the tail to its home position, on the Moves page"
+msgid "Home Position"
+msgstr ""
+
+#: qml/TailMoves.qml:35
+msgctxt "Description for the list of moves, on the Moves page"
+msgid ""
+"The list below shows all the moves available to your gear. Tap any of them "
+"to send them off to any of your connected devices!"
+msgstr ""
+
+#: qml/TailMoves.qml:42
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the Moves page"
+msgid "Calm and Relaxed"
+msgstr ""
+
+#: qml/TailMoves.qml:47
+msgctxt ""
+"Description for the category for the Excited Moveset, on the Moves page"
+msgid "Fast and Excited"
+msgstr ""
+
+#: qml/TailMoves.qml:52
+msgctxt "Description for the category for the Tense Moveset, on the Moves page"
+msgid "Frustrated and Tense"
+msgstr ""
+
+#: qml/TimePicker.qml:58
+msgctxt "Label for the Hours field on a time picker"
+msgid "Hours"
+msgstr "Timer"
+
+#: qml/TimePicker.qml:70
+msgctxt "Label for the Minutes field on a time picker"
+msgid "Minutes"
+msgstr "Minuter"
+
+#: qml/TimePicker.qml:89
+msgctxt "Label for the AM option on a AM/PM selector of a time picker"
+msgid "AM"
+msgstr "AM"
+
+#: qml/TimePicker.qml:95
+msgctxt "Label for the PM option on a AM/PM selector of a time picker"
+msgid "PM"
+msgstr "PM"
+
+#: qml/TimePicker.qml:107
+msgctxt ""
+"Button for resetting a time field to the current time, on a time picker"
+msgid "Now"
+msgstr "Nu"
+
+#: qml/TimePicker.qml:121
+msgctxt "Button for cancelling the time entry, on a time picker"
+msgid "Cancel"
+msgstr "Afbryd"
+
+#: qml/TimePicker.qml:129
+msgctxt "Button for confirming the time entry, on a time picker"
+msgid "OK"
+msgstr "OK"
+
+#: qml/WelcomePage.qml:28
+msgctxt "Header for the welcome page"
+msgid "Crumpet"
+msgstr "Crumpet"
+
+#: qml/WelcomePage.qml:31
+msgctxt "Label for the button for disconnecting gear, on the welcome page"
+msgid "Disconnect"
+msgstr "Afkobl"
+
+#: qml/WelcomePage.qml:31
+msgctxt "Label for the button for connecting gear, on the welcome page"
+msgid "Connect"
+msgstr "Tilkobl"
+
+#: qml/WelcomePage.qml:50
+msgctxt ""
+"Label for the button for connecting additional gear, on the welcome page"
+msgid "Connect More..."
+msgstr "Tilkobl Flere..."
+
+#: qml/WelcomePage.qml:65
+msgctxt "Label for the button for opening the Moves page, on the welcome page"
+msgid "Moves"
+msgstr "Bevægelser"
+
+#: qml/WelcomePage.qml:83
+msgctxt ""
+"Label for the button for opening the Ear Poses page, on the welcome page"
+msgid "Ear Poses"
+msgstr "Øre Positioner"
+
+#: qml/WelcomePage.qml:101
+msgctxt ""
+"Label for the button for opening the Glow Tips page, on the welcome page"
+msgid "Glow Tips"
+msgstr "Lys-spidser"
+
+#: qml/WelcomePage.qml:120
+msgctxt "Label for the button for opening the Alarms page, on the welcome page"
+msgid "Alarm"
+msgstr "Alarm"
+
+#: qml/WelcomePage.qml:135
+msgctxt ""
+"Label for the button for opening the Move List page, on the welcome page"
+msgid "Move List"
+msgstr "Bevægelseslister"
+
+#: qml/WelcomePage.qml:182
+msgctxt ""
+"Label for the button for opening the Casual Mode page, on the welcome page"
+msgid "Casual Mode"
+msgstr "Afslapningstilstand"
+
+#: qml/WelcomePage.qml:197
+msgctxt ""
+"Label for the button for configuring the Casual Mode, on the welcome page"
+msgid "Casual Mode Settings"
+msgstr "Afslapningsindstillinger"
+
+#: qml/WelcomePage.qml:242
+msgctxt "Heading for the panel for turning on Listening Mode"
+msgid "Listening Mode"
+msgstr "Lyttereaktioner"
+
+#: qml/WelcomePage.qml:260
+msgctxt "Label for the checkbox for turning on Listening Mode"
+msgid ""
+"Turn this on to make your gear react to sounds around it for five minutes at "
+"a time."
+msgstr ""
+"Tænd dette, så dit udstyr reagerer på lyde omkring det fem minutter af gangen."
+
+#: qml/WelcomePage.qml:305
+msgctxt ""
+"Label for the button for opening the Gear Gestures page, on the welcome page"
+msgid "Gear Gestures"
+msgstr "Udstyrsreaktioner"
