@@ -67,7 +67,7 @@ Kirigami.OverlaySheet {
                 QQC2.Button {
                     text: model.isConnected ? 
                         i18nc("Button for the action of disconnecting a device, in the prompt for connecting a device", "Disconnect") : 
-                        i18nc("Button for the action of connecting a device, in the prompt for connecting a device","Connect")
+                        i18nc("Button for the action of connecting a device, in the prompt for connecting a device", "Connect")
                     onClicked: {
                         if (model.isConnected) {
                             BTConnectionManager.disconnectDevice(model.deviceID);
