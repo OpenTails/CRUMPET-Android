@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
                 id: editorPage;
                 property string filename;
                 objectName: "crumpetEditor";
-                title: i18nc("Header for the overlay for editing a Command Set, on the page for configuring Command Sets" ,"Edit Commands")
+                title: i18nc("Header for the overlay for editing a Command Set, on the page for configuring Command Sets", "Edit Commands")
 
                 Component.onCompleted: {
                     contentEditor.text = AppSettings.commandFiles[editorPage.filename].contents;
