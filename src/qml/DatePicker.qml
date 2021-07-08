@@ -236,21 +236,21 @@ Kirigami.OverlaySheet {
                 Layout.fillWidth: true
 
                 FlatButton {
-                    text: qsTr("Today")
+                    text: i18nc("Button for selecting the date of today, in a date picker", "Today")
                     Layout.fillWidth: true
 
                     onClicked: selectedDate = new Date()
                 }
 
                 FlatButton {
-                    text: qsTr("Cancel")
+                    text: i18nc("Button for cancelling the selection of a date, in a date picker", "Cancel")
                     Layout.fillWidth: true
 
                     onClicked: close()
                 }
 
                 FlatButton {
-                    text: qsTr("OK")
+                    text: i18nc("Button for confirming the selection of a date, in a date picker", "OK")
                     Layout.fillWidth: true
 
                     onClicked: {

@@ -24,14 +24,14 @@ import QtMultimedia 5.8
 
 Kirigami.ScrollablePage {
     objectName: "developerModePage";
-    title: qsTr("Developer Mode");
+    title: i18nc("Header for the Developer Mode page", "Developer Mode");
 
     Column {
         width: root.width - Kirigami.Units.largeSpacing * 4;
         spacing: Kirigami.Units.largeSpacing;
 
         QQC2.Button {
-            text: qsTr("MAX GLASH");
+            text: i18nc("Button with a sound effect for the Developer Mode Page", "MAX GLASH");
 
             Layout.fillWidth: true;
 

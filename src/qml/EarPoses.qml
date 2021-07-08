@@ -21,10 +21,10 @@ import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.ScrollablePage {
     objectName: "earPoses";
-    title: qsTr("Ear Poses");
+    title: i18nc("Title for the page for selecting a pose for the EarGear", "Ear Poses");
     actions {
         main: Kirigami.Action {
-            text: qsTr("Home Position");
+            text: i18nc("Button for returning the EarGear to the home position, on the page for selecting a pose for the EarGear", "Home Position");
             icon.name: "go-home";
             onTriggered: {
                 BTConnectionManager.sendMessage("TAILHM", []);
@@ -32,14 +32,14 @@ Kirigami.ScrollablePage {
         }
     }
     BaseMovesComponent {
-        infoText: qsTr("The list below shows all the poses available to your gear. Tap any of them to send them off to any of your connected devices!");
+        infoText: i18nc("Description for the page for selecting a pose for the EarGear", "The list below shows all the poses available to your gear. Tap any of them to send them off to any of your connected devices!");
         onCommandActivated: {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);
         }
         categoriesModel: ListModel {
             ListElement {
-                name: qsTr("Poses");
+                name: i18nc("Heading for the list of poses, on the page for selecting a pose for the EarGear", "Poses");
                 category: "eargearposes";
                 color: "#93cee9";
             }

@@ -27,10 +27,10 @@ Kirigami.OverlaySheet {
     }
     signal commandPicked(string command, variant destinations);
     header: Kirigami.Heading {
-        text: qsTr("Pick a command");
+        text: i18nc("Heading for the overlay for picking a command, for configuring a move list", "Pick a command");
     }
     BaseMovesComponent {
-        infoText: qsTr("The list below shows all the moves and light patterns available to your gear. Tap any of them to pick that command.");
+        infoText: i18nc("Description for the overlay for picking a command, for configuring a move list", "The list below shows all the moves and light patterns available to your gear. Tap any of them to pick that command.");
         width: root.width - Kirigami.Units.largeSpacing * 4;
         ignoreAvailability: true;
         onCommandActivated: {
@@ -38,27 +38,27 @@ Kirigami.OverlaySheet {
         }
         categoriesModel: ListModel {
             ListElement {
-                name: qsTr("Poses");
+                name: i18nc("Description for the category for the Ear Gear poses, on the overlay for picking a command, for configuring a move list", "Poses");
                 category: "eargearposes";
                 color: "#93cee9";
             }
             ListElement {
-                name: qsTr("Calm and Relaxed");
+                name: i18nc("Description for the category for the Relaxed Moveset, on the overlay for picking a command, for configuring a move list", "Calm and Relaxed");
                 category: "relaxed";
                 color: "#1cdc9a";
             }
             ListElement {
-                name: qsTr("Fast and Excited");
+                name: i18nc("Description for the category for the Excited Moveset, on the overlay for picking a command, for configuring a move list", "Fast and Excited");
                 category: "excited";
                 color: "#c9ce3b";
             }
             ListElement {
-                name: qsTr("Frustrated and Tense");
+                name: i18nc("Description for the category for the Tense Moveset, on the overlay for picking a command, for configuring a move list", "Frustrated and Tense");
                 category: "tense";
                 color: "#f67400";
             }
             ListElement {
-                name: qsTr("LED Patterns");
+                name: i18nc("Description for the category for the LED Patterns, on the overlay for picking a command, for configuring a move list", "LED Patterns");
                 category: "lights";
                 color: "#93cee9";
             }

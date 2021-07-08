@@ -44,7 +44,7 @@ Kirigami.OverlaySheet {
         Layout.fillWidth: true
 
         QQC2.Button {
-            text: qsTr("Ok");
+            text: i18nc("Confirmation button for a generic message", "Ok");
             highlighted: true;
             Layout.fillWidth: true
             Layout.preferredWidth: applicationWindow().width
@@ -63,7 +63,7 @@ Kirigami.OverlaySheet {
 
         QQC2.Button {
             id: buttonCancel
-            text: qsTr("Cancel");
+            text: i18nc("Cancel button for a generic message", "Cancel");
             Layout.fillWidth: true
             Layout.preferredWidth: applicationWindow().width
 

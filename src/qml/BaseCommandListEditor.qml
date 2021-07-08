@@ -34,7 +34,7 @@ Kirigami.ScrollablePage {
 
     actions {
         main: Kirigami.Action {
-            text: qsTr("Add Move To List");
+            text: i18nc("Label for the button for adding a move to the Move List", "Add Move To List");
             icon.name: "list-add";
             onTriggered: {
                 pickACommand.insertAt = commandListView.count;
@@ -43,7 +43,7 @@ Kirigami.ScrollablePage {
         }
 
         right: Kirigami.Action {
-            text: qsTr("Add Pause To List");
+            text: i18nc("Label for the button for adding a pause to the Move List", "Add Pause To List");
             icon.name: "accept_time_event";
             onTriggered: {
                 commandPausePicker.insertAt = commandListView.count;
@@ -160,7 +160,7 @@ Kirigami.ScrollablePage {
                                 id: addCommandMenu
                                 y: parent.height
                                 QQC2.Action {
-                                    text: qsTr("Add command after");
+                                    text: i18nc("Label for the button for adding a command after the selected element of a move list", "Add command after");
                                     icon.name: "list-add";
 
                                     onTriggered: {
@@ -169,7 +169,7 @@ Kirigami.ScrollablePage {
                                     }
                                 }
                                 QQC2.Action {
-                                    text: qsTr("Add pause after");
+                                    text: i18nc("Label for the button for adding a pause after the selected element of a move list", "Add pause after");
                                     icon.name: "accept_time_event";
 
                                     onTriggered: {
@@ -195,8 +195,8 @@ Kirigami.ScrollablePage {
                 height: paintedHeight
                 color: command["minimumCooldown"] > 0 ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
                 text: command["minimumCooldown"] > 0
-                        ? qsTr("<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional cooldown: %3 seconds</small>").arg(title).arg(command["duration"] / 1000).arg(command["minimumCooldown"] / 1000)
-                        : qsTr("<strong>%1</strong><br/><small>%2 seconds</small>").arg(title).arg(command["duration"] / 1000)
+                        ? i18nc("Label for the cooldown period when it is larger than 0, on the Command List editor", "<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional cooldown: %3 seconds</small>", title, command["duration"] / 1000, command["minimumCooldown"] / 1000)
+                        : i18nc("Label for the cooldown period when it is equal to 0, on the Command List editor", "<strong>%1</strong><br/><small>%2 seconds</small>", title, command["duration"] / 1000)
             }
             QQC2.ToolButton {
                 id: commandRemovalButton
@@ -216,7 +216,7 @@ Kirigami.ScrollablePage {
         width: control.width - Kirigami.Units.largeSpacing * 4
         InfoCard {
             id: infoCard
-            text: qsTr("This is your list of commands. It can include both moves, glows, and pauses. Tip: To add a new command underneath one you have in the list already, click the plus icon above the cumulative timestamp for that entry and pick one of the options in the menu.");
+            text: i18nc("Description for the Command List Editor", "This is your list of commands. It can include both moves, glows, and pauses. Tip: To add a new command underneath one you have in the list already, click the plus icon above the cumulative timestamp for that entry and pick one of the options in the menu.");
             footer: control.infoCardFooter
         }
         Repeater {
@@ -267,7 +267,7 @@ Kirigami.ScrollablePage {
                                 for (var i = 0; i < control.allDurations.length ; ++i) {
                                     cummulative += control.allDurations[i];
                                 }
-                                cummulativeDuration.text = qsTr("Total duration: %1 seconds").arg(cummulative / 1000);
+                                cummulativeDuration.text = i18ncp("Label for the cumulative duration of a Command on the Command List Editor", "Total duration: %1 second", "Total duration: %1 seconds", cummulative / 1000);
                             }
                         }
                     }

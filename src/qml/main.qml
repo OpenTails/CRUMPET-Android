@@ -59,7 +59,7 @@ Kirigami.ApplicationWindow {
     }
 
     visible: true;
-    title: qsTr("Crumpet");
+    title: i18nc("Title of the application", "Crumpet");
     pageStack.defaultColumnWidth: root.width;
 
     Connections {
@@ -82,7 +82,7 @@ Kirigami.ApplicationWindow {
 
         onIsConnectedChanged: {
             if (isConnected === true) {
-                showPassiveNotification(qsTr("Connected successfully!"), 1000);
+                showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
                 if(root.pageToPush !== null) {
                     switchToPage(root.pageToPush);
                     root.pageToPush = null;
@@ -102,9 +102,9 @@ Kirigami.ApplicationWindow {
 
         function checkBluetoothState() {
             if (BTConnectionManager.bluetoothState === 0 ) {
-                showMessageBox(qsTr("Warning"), qsTr("Bluetooth is disabled"));
+                showMessageBox(i18nc("Title for the warning for having Bluetooth disabled", "Warning"), i18nc("Message for the warning for having Bluetooth disabled", "Bluetooth is disabled"));
             } else if (BTConnectionManager.bluetoothState === 2) {
-                showMessageBox(qsTr("Warning"), qsTr("No Bluetooth Device"));
+                showMessageBox(i18nc("Title for the warning for not having detected any Bluetooth devices", "Warning"), i18nc("Message for the warning for not having detected any Bluetooth devices", "No Bluetooth Device"));
             } else {
                 console.log("Bluetooth is enabled");
             }
@@ -116,14 +116,14 @@ Kirigami.ApplicationWindow {
 
         onDeveloperModeChanged: {
             if (AppSettings.developerMode) {
-                showMessageBox(qsTr("Developer mode"), qsTr("Developer mode is enabled"));
+                showMessageBox(i18nc("Title for the popup for having enabled Developer Mode", "Developer mode"), i18nc("Message for the popup for having enabled Developer Mode", "Developer mode is enabled"));
             } else {
-                showMessageBox(qsTr("Developer mode"), qsTr("Developer mode is disabled"));
+                showMessageBox(i18nc("Title for the popup for having disabled Developer Mode", "Developer mode"), i18nc("Message for the popup for having disabled Developer Mode", "Developer mode is disabled"));
             }
         }
 
         onIdleModeTimeout: {
-            showMessageBox(qsTr("Casual Mode is Off"), qsTr("Maybe its time for a rest... Let your tail or ears have a power-nap."));
+            showMessageBox(i18nc("Title for the popup for getting a timeout for Casual Mode", "Casual Mode is Off"), i18nc("Message for the popup for getting a timeout for Casual Mode", "Maybe its time for a rest... Let your tail or ears have a power-nap."));
         }
     }
 
@@ -184,7 +184,7 @@ Kirigami.ApplicationWindow {
 
         actions: [
             Kirigami.Action {
-                text: qsTr("Crumpet");
+                text: i18nc("Button for opening the Crumpet page, from the landing page", "Crumpet");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "welcomePage";
                 icon.name: "go-home";
                 onTriggered: {
@@ -192,7 +192,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Alarm");
+                text: i18nc("Button for opening the Alarm page, from the landing page", "Alarm");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor");
                 icon.name: ":/images/alarm.svg";
                 onTriggered: {
@@ -202,7 +202,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Move Lists");
+                text: i18nc("Button for opening the Move List page, from the landing page", "Move Lists");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor");
                 icon.name: ":/images/movelist.svg";
                 onTriggered: {
@@ -212,7 +212,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Moves");
+                text: i18nc("Button for opening the Tail Gear Moves page, from the landing page", "Moves");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailMoves";
                 icon.name: ":/images/moves.svg";
                 visible: connectedDevicesModel.count > 0;
@@ -221,7 +221,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Ear Poses");
+                text: i18nc("Button for opening the EarGear Poses page, from the landing page", "Ear Poses");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "earPoses";
                 icon.name: ":/images/earposes.svg";
                 visible: hasListeningModel.count > 0;
@@ -230,7 +230,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Glow Tips");
+                text: i18nc("Button for opening the Glow Tips page, from the landing page", "Glow Tips");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailLights";
                 icon.name: ":/images/glowtip.svg";
                 visible: connectedDevicesModel.count > hasListeningModel.count;
@@ -239,7 +239,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Casual Mode Settings");
+                text: i18nc("Button for opening the page for setting up the Casual Mode, from the landing page", "Casual Mode Settings");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
                 icon.name: ":/images/casualmode.svg";
                 visible: connectedDevicesModel.count > 0;
@@ -248,7 +248,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Gear Gestures");
+                text: i18nc("Button for opening the Gear Gestures page, from the landing page", "Gear Gestures");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "gearGestures";
                 icon.name: ":/images/movelist.svg";
                 visible: connectedDevicesModel.count > 0;
@@ -257,7 +257,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("Developer Mode");
+                text: i18nc("Button for opening the Developer Mode page, from the landing page", "Developer Mode");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "developerModePage";
                 icon.name: "code-context";
                 visible: AppSettings !== null ? AppSettings.developerMode : false;
@@ -272,7 +272,7 @@ Kirigami.ApplicationWindow {
                 separator: true;
             },
             Kirigami.Action {
-                text: qsTr("Settings");
+                text: i18nc("Button for opening the Settings Page, from the landing page", "Settings");
                 checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "settingsPage"): "";
                 icon.name: "settings-configure";
 
@@ -283,7 +283,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: qsTr("About");
+                text: i18nc("Button for opening the About Us page, from the landing page", "About");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "aboutPage";
                 icon.name: "help-about";
                 onTriggered: {
@@ -303,8 +303,8 @@ Kirigami.ApplicationWindow {
 
                 event.accepted = true;
 
-                showMessageBox(qsTr("Your gear is currently connected"),
-                               qsTr("You are currently connected to some of your gear.\n\nAre you sure that you want to disconnect and quit?"),
+                showMessageBox(i18nc("Title for the confirmation popup for disconnecting your gear", "Your gear is currently connected"),
+                               i18nc("Message for the confirmation popup for disconnecting your gear", "You are currently connected to some of your gear.\n\nAre you sure that you want to disconnect and quit?"),
                                function () {
                                    if(BTConnectionManager.isConnected) {
                                        BTConnectionManager.disconnectDevice();
@@ -368,9 +368,9 @@ Kirigami.ApplicationWindow {
 
         property string deviceID: "0";
 
-        description: qsTr("Enter a name to use for your new gear");
-        placeholderText: qsTr("Enter the name here");
-        buttonOkText: qsTr("Save");
+        description: i18nc("Description for the prompt for entering a name for your Gear", "Enter a name to use for your new gear");
+        placeholderText: i18nc("Placeholder text for the prompt for entering a name for your Gear", "Enter the name here");
+        buttonOkText: i18nc("Button for confirming the save of your new name, for the prompt for entering a name for your Gear", "Save");
 
         onNamePicked: {
             BTConnectionManager.setDeviceName(deviceID, name);
@@ -408,7 +408,7 @@ Kirigami.ApplicationWindow {
                 bottomMargin: Kirigami.Units.smallMargin;
                 horizontalCenter: parent.horizontalCenter;
             }
-            text: qsTr("Attempting to connect...");
+            text: i18nc("Label for your gear that gets shown when attempting to connect to it", "Attempting to connect...");
         }
         BusyIndicator {
             anchors {
@@ -426,7 +426,7 @@ Kirigami.ApplicationWindow {
 
     //        actions: [
     //            Kirigami.Action {
-    //                text: qsTr("Ok")
+    //                text: i18nc("Confirmation button for an inline message", "Ok")
     //            }
     //        ]
     //    }

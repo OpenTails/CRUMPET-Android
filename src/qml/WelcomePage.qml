@@ -25,10 +25,10 @@ import org.thetailcompany.digitail 1.0 as Digitail
 Kirigami.ScrollablePage {
     id: root;
     objectName: "welcomePage";
-    title: qsTr("Crumpet");
+    title: i18nc("Header for the welcome page", "Crumpet");
     actions {
         main: Kirigami.Action {
-            text: BTConnectionManager.isConnected ? "Disconnect" : "Connect";
+            text: BTConnectionManager.isConnected ? i18nc("Label for the button for disconnecting gear, on the welcome page", "Disconnect") : i18nc("Label for the button for connecting gear, on the welcome page","Connect");
             icon.name: BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
             onTriggered: {
                 if(BTConnectionManager.isConnected) {
@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
         right: (BTConnectionManager.isConnected && DeviceModel !== null && DeviceModel.rowCount() > 1) ? connectMoreAction : null
     }
     property QtObject connectMoreAction: Kirigami.Action {
-        text: qsTr("Connect More...");
+        text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");
         icon.name: "list-add";
         onTriggered: connectToTail.open();
     }
@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
         Kirigami.AbstractCard {
             contentItem: ColumnLayout {
                 Kirigami.BasicListItem {
-                    text: qsTr("Moves");
+                    text: i18nc("Label for the button for opening the Moves page, on the welcome page", "Moves");
                     visible: opacity > 0;
                     opacity: connectedDevicesModel.count > 0 ? 1 : 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
@@ -80,7 +80,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 Kirigami.BasicListItem {
-                    text: qsTr("Ear Poses");
+                    text: i18nc("Label for the button for opening the Ear Poses page, on the welcome page", "Ear Poses");
                     visible: opacity > 0;
                     opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
@@ -98,7 +98,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 Kirigami.BasicListItem {
-                    text: qsTr("Glow Tips");
+                    text: i18nc("Label for the button for opening the Glow Tips page, on the welcome page", "Glow Tips");
                     visible: opacity > 0;
                     opacity: connectedDevicesModel.count > hasListeningDevicesRepeater.count ? 1 : 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
@@ -117,7 +117,7 @@ Kirigami.ScrollablePage {
                 }
                 Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; visible: connectedDevicesModel.count > 0; }
                 Kirigami.BasicListItem {
-                    text: qsTr("Alarm");
+                    text: i18nc("Label for the button for opening the Alarms page, on the welcome page", "Alarm");
                     icon: ":/images/alarm.svg";
                     separatorVisible: false;
                     onClicked: {
@@ -132,7 +132,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 Kirigami.BasicListItem {
-                    text: qsTr("Move List");
+                    text: i18nc("Label for the button for opening the Move List page, on the welcome page", "Move List");
                     icon: ":/images/movelist.svg";
                     separatorVisible: false;
                     onClicked: {
@@ -148,11 +148,11 @@ Kirigami.ScrollablePage {
                 }
 //                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
 //                     Kirigami.BasicListItem {
-//                         text: qsTr("Poses");
+//                         text: i18nc("Label for the button for opening the Poses page, on the welcome page", "Poses");
 //                         icon: ":/images/tail.svg";
 //                         separatorVisible: false;
 //                         onClicked: {
-//                             showPassiveNotification(qsTr("Sorry, nothing yet..."), 1500);
+//                             showPassiveNotification(i18nc("Warning for the missing functionality of the Poses page", "Sorry, nothing yet..."), 1500);
 //                         }
 //                         Kirigami.Icon {
 //                             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
@@ -179,7 +179,7 @@ Kirigami.ScrollablePage {
                         source: ":/images/casualmode.svg"
                     }
                     Kirigami.Heading {
-                        text: qsTr("Casual Mode");
+                        text: i18nc("Label for the button for opening the Casual Mode page, on the welcome page", "Casual Mode");
                         Layout.fillWidth: true;
                     }
                     CheckBox {
@@ -194,7 +194,7 @@ Kirigami.ScrollablePage {
             Component {
                 id: casualModeSettingsListItem
                 Kirigami.BasicListItem {
-                        text: qsTr("Casual Mode Settings");
+                        text: i18nc("Label for the button for configuring the Casual Mode, on the welcome page", "Casual Mode Settings");
                         Layout.fillWidth: true;
                         separatorVisible: false;
                         icon: "settings-configure";
@@ -239,7 +239,7 @@ Kirigami.ScrollablePage {
                     source: ":/images/listeningmode.svg"
                 }
                 Kirigami.Heading {
-                    text: qsTr("Listening Mode");
+                    text: i18nc("Heading for the panel for turning on Listening Mode", "Listening Mode");
                     Layout.fillWidth: true;
                     Digitail.FilterProxyModel {
                         id: connectedDevicesModel
@@ -257,7 +257,7 @@ Kirigami.ScrollablePage {
                 Label {
                     width: parent.width;
                     wrapMode: Text.Wrap;
-                    text: qsTr("Turn this on to make your gear react to sounds around it for five minutes at a time.");
+                    text: i18nc("Label for the checkbox for turning on Listening Mode", "Turn this on to make your gear react to sounds around it for five minutes at a time.");
                 }
                 Repeater {
                     id: hasListeningDevicesRepeater;
@@ -302,7 +302,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 Kirigami.Heading {
-                    text: qsTr("Gear Gestures");
+                    text: i18nc("Label for the button for opening the Gear Gestures page, on the welcome page", "Gear Gestures");
                     Layout.fillWidth: true;
                     Digitail.FilterProxyModel {
                         id: pinnedSensorsModel;
@@ -348,7 +348,7 @@ Kirigami.ScrollablePage {
         }
 
 //         Button {
-//             text: qsTr("Tailkiller! Slow Wag 1 + 3sec pause loop");
+//             text: i18nc("Button for executing the killer poke cycle, intended to destroy your gear", "Tailkiller! Slow Wag 1 + 3sec pause loop");
 //             Layout.fillWidth: true;
 //             onClicked: {
 //                 for(var i = 0; i < 1000; ++i) {
