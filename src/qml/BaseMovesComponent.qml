@@ -27,7 +27,7 @@ import org.thetailcompany.digitail 1.0
 Item {
     id: root;
 
-    property QtObject categoriesModel: ListModel { }
+    property var categoriesModel: ListModel { }
     property alias infoText: infoCard.text;
     // If you don't care about whether a command is available on a device right now,
     // set this property to true (it will also not highlight currently running commands)
@@ -54,7 +54,7 @@ Item {
             opacity: commandRepeater.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             background: Rectangle {
-                color: model.color
+                color: modelData["color"]
                 layer.enabled: true
                 layer.effect: DropShadow {
                     horizontalOffset: 0
@@ -65,7 +65,7 @@ Item {
                 }
             }
             header: Kirigami.Heading {
-                text: model.name
+                text: modelData["name"]
                 level: 2
             }
             contentItem: Flow {
@@ -75,7 +75,7 @@ Item {
                     id: filterProxy;
                     sourceModel: CommandModel;
                     filterRole: 260; // the Category role ID
-                    filterString: model.category;
+                    filterString: modelData["category"];
                 }
                 Component {
                     id: commandDelegate

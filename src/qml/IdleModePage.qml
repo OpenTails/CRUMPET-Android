@@ -28,42 +28,41 @@ Kirigami.ScrollablePage {
     Component {
         id: idleCategoryDelegate;
         Kirigami.BasicListItem {
-            icon: AppSettings.idleCategories.indexOf(model.category) >= 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-            label: model.name;
+            icon: AppSettings.idleCategories.indexOf(modelData["category"]) >= 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+            label: modelData["name"];
             onClicked: {
-                var idx = AppSettings.idleCategories.indexOf(model.category);
+                var idx = AppSettings.idleCategories.indexOf(modelData["category"]);
                 if(idx >= 0) {
-                    AppSettings.removeIdleCategory(model.category);
+                    AppSettings.removeIdleCategory(modelData["category"]);
                 }
                 else {
-                    AppSettings.addIdleCategory(model.category);
+                    AppSettings.addIdleCategory(modelData["category"]);
                 }
             }
         }
     }
-    ListModel {
-        id: availableCategories;
-        ListElement {
-            name: i18nc("Description for the category for the Relaxed Moveset, on the page for selecting a move in Casual Mode", "Calm and Relaxed");
-            category: "relaxed";
-            color: "#1cdc9a";
+    property var availableCategories: [
+        {
+            name: i18nc("Description for the category for the Relaxed Moveset, on the page for selecting a move in Casual Mode", "Calm and Relaxed"),
+            category: "relaxed",
+            color: "#1cdc9a",
+        },
+        {
+            name: i18nc("Description for the category for the Excited Moveset, on the page for selecting a move in Casual Mode", "Fast and Excited"),
+            category: "excited",
+            color: "#c9ce3b",
+        },
+        {
+            name: i18nc("Description for the category for the Tense Moveset, on the page for selecting a move in Casual Mode", "Frustrated and Tense"),
+            category: "tense",
+            color: "#f67400",
+        },
+        {
+            name: i18nc("Description for the category for the LED Patterns, on the page for selecting a move in Casual Mode", "LED Patterns"),
+            category: "lights",
+            color: "#93cee9",
         }
-        ListElement {
-            name: i18nc("Description for the category for the Excited Moveset, on the page for selecting a move in Casual Mode", "Fast and Excited");
-            category: "excited";
-            color: "#c9ce3b";
-        }
-        ListElement {
-            name: i18nc("Description for the category for the Tense Moveset, on the page for selecting a move in Casual Mode", "Frustrated and Tense");
-            category: "tense";
-            color: "#f67400";
-        }
-        ListElement {
-            name: i18nc("Description for the category for the LED Patterns, on the page for selecting a move in Casual Mode", "LED Patterns");
-            category: "lights";
-            color: "#93cee9";
-        }
-    }
+    ]
 
     ListView {
         model: availableCategories;

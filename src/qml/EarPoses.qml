@@ -37,12 +37,12 @@ Kirigami.ScrollablePage {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);
         }
-        categoriesModel: ListModel {
-            ListElement {
-                name: i18nc("Heading for the list of poses, on the page for selecting a pose for the EarGear", "Poses");
-                category: "eargearposes";
-                color: "#93cee9";
+        categoriesModel: [
+            {
+                name: i18nc("Heading for the list of poses, on the page for selecting a pose for the EarGear", "Poses"),
+                category: "eargearposes",
+                color: "#93cee9",
             }
-        }
+        ]
     }
 }

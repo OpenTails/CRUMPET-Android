@@ -38,12 +38,12 @@ Kirigami.ScrollablePage {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);
         }
-        categoriesModel: ListModel {
-            ListElement {
-                name: i18nc("List element for the light patterns, on the page for the Glow Tips", "LED Patterns");
-                category: "lights";
-                color: "#93cee9";
+        categoriesModel: [
+            {
+                name: i18nc("List element for the light patterns, on the page for the Glow Tips", "LED Patterns"),
+                category: "lights",
+                color: "#93cee9",
             }
-        }
+        ]
     }
 }

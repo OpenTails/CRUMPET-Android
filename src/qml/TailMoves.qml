@@ -37,22 +37,22 @@ Kirigami.ScrollablePage {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);
         }
-        categoriesModel: ListModel {
-            ListElement {
-                name: i18nc("Description for the category for the Relaxed Moveset, on the Moves page", "Calm and Relaxed");
-                category: "relaxed";
-                color: "#1cdc9a";
+        categoriesModel: [
+            {
+                name: i18nc("Description for the category for the Relaxed Moveset, on the Moves page", "Calm and Relaxed"),
+                category: "relaxed",
+                color: "#1cdc9a",
+            },
+            {
+                name: i18nc("Description for the category for the Excited Moveset, on the Moves page", "Fast and Excited"),
+                category: "excited",
+                color: "#c9ce3b",
+            },
+            {
+                name: i18nc("Description for the category for the Tense Moveset, on the Moves page", "Frustrated and Tense"),
+                category: "tense",
+                color: "#f67400",
             }
-            ListElement {
-                name: i18nc("Description for the category for the Excited Moveset, on the Moves page", "Fast and Excited");
-                category: "excited";
-                color: "#c9ce3b";
-            }
-            ListElement {
-                name: i18nc("Description for the category for the Tense Moveset, on the Moves page", "Frustrated and Tense");
-                category: "tense";
-                color: "#f67400";
-            }
-        }
+        ]
     }
 }
