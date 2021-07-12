@@ -53,24 +53,21 @@ Item {
             visible: opacity > 0;
             opacity: commandRepeater.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-            background: Rectangle {
+            background: Kirigami.ShadowedRectangle {
                 color: modelData["color"]
-                layer.enabled: true
-                layer.effect: DropShadow {
-                    horizontalOffset: 0
-                    verticalOffset: 1
-                    radius: 12
-                    samples: 32
-                    color: Qt.rgba(0, 0, 0, 0.5)
-                }
+                radius: Kirigami.Units.largeSpacing
             }
             header: Kirigami.Heading {
                 text: modelData["name"]
                 level: 2
             }
-            contentItem: Flow {
+            contentItem: GridLayout {
                 id: commandGrid;
-                width: categoryRoot.width - (Kirigami.Units.largeSpacing * 4)
+                columns: commandGrid.width / (Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit * 10)
+                property int rowCount: Math.ceil(filterProxy.count / columns)
+                Layout.preferredHeight: (Kirigami.Units.gridUnit * 10 + Kirigami.Units.largeSpacing * 4) * rowCount
+                rowSpacing: 0
+                columnSpacing: 0
                 FilterProxyModel {
                     id: filterProxy;
                     sourceModel: CommandModel;
@@ -80,48 +77,50 @@ Item {
                 Component {
                     id: commandDelegate
                     Item {
-                        width: commandGrid.width / root.itemsAcross;
-                        height: width;
+                        Layout.fillWidth: true
+                        Layout.minimumHeight: Kirigami.Units.gridUnit * 10
+                        Layout.maximumHeight: Kirigami.Units.gridUnit * 10
                         opacity: model.isAvailable || model.isRunning ? 1 : 0.5;
                         Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
                         Rectangle {
                             anchors {
-                                fill: parent;
+                                horizontalCenter: parent.horizontalCenter
                                 margins: Kirigami.Units.smallSpacing;
                             }
+                            height: Kirigami.Units.gridUnit * 10 - Kirigami.Units.largeSpacing * 2
+                            width: height
                             border {
                                 width: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
                                 color: "silver";
                             }
                             radius: width / 2
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                        }
-                        Label {
-                            anchors {
-                                fill: parent;
-                                margins: Kirigami.Units.smallSpacing * 2;
+                            Label {
+                                anchors {
+                                    fill: parent;
+                                }
+                                wrapMode: Text.Wrap;
+                                horizontalAlignment: Text.AlignHCenter;
+                                verticalAlignment: Text.AlignVCenter;
+                                text: model.name ? model.name : "";
+                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
                             }
-                            wrapMode: Text.Wrap;
-                            horizontalAlignment: Text.AlignHCenter;
-                            verticalAlignment: Text.AlignVCenter;
-                            text: model.name ? model.name : "";
-                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                        }
-                        MouseArea {
-                            anchors.fill: parent;
-                            // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
-                            property string command: model.command ? model.command : "";
-                            onClicked: { sendCommandToSelector.selectDestination(command); }
-                            enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
-                        }
-                        BusyIndicator {
-                            anchors {
-                                fill: parent;
-                                margins: Kirigami.Units.smallSpacing;
+                            MouseArea {
+                                anchors.fill: parent;
+                                // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
+                                property string command: model.command ? model.command : "";
+                                onClicked: { sendCommandToSelector.selectDestination(command); }
+                                enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
                             }
-                            opacity: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
-                            Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
-                            running: opacity > 0
+                            BusyIndicator {
+                                anchors {
+                                    fill: parent;
+                                    margins: Kirigami.Units.smallSpacing;
+                                }
+                                opacity: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
+                                Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
+                                running: opacity > 0
+                            }
                         }
                     }
                 }
