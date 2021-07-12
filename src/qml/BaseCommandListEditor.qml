@@ -23,6 +23,11 @@ import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.13 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
 
+// Add in "edit" action for command entries, so a command can be swapped for another
+// Add in "edit" action for pause entries, so duration can be changed
+// Add in move up/down actions
+// Work out how to make the attachment points not look like they are dragable ;)
+
 Kirigami.ScrollablePage {
     id: control;
 
