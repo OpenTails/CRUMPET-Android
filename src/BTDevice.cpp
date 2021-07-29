@@ -29,6 +29,7 @@ public:
     Private() {}
     ~Private() {}
 
+    bool supportsOTA{false};
     bool checked{true};
     QString name;
     QStringList enabledCommandsFiles;
@@ -67,6 +68,17 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
 BTDevice::~BTDevice()
 {
     delete d;
+}
+
+bool BTDevice::supportsOTA()
+{
+    return d->supportsOTA;
+}
+
+void BTDevice::setSupportsOTA(bool supportsOTA)
+{
+    d->supportsOTA = supportsOTA;
+    Q_EMIT supportsOTAChanged();
 }
 
 bool BTDevice::checked() const

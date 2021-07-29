@@ -205,6 +205,9 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
     BTDevice* newDevice{nullptr};
     if (deviceInfo.name() == QLatin1String{"(!)Tail1"}) {
         newDevice = new BTDeviceTail(deviceInfo, this);
+    } else if (deviceInfo.name() == QLatin1String{"mitail"}) {
+        newDevice = new BTDeviceTail(deviceInfo, this);
+        newDevice->setSupportsOTA(true);
     } else if (deviceInfo.name() == QLatin1String{"EarGear"}) {
         newDevice = new BTDeviceEars(deviceInfo, this);
     } else {
@@ -220,6 +223,7 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
     // It feels a little dirty to do it this way...
     static const QStringList acceptedDeviceNames{
         QLatin1String{"EarGear"},
+        QLatin1String{"mitail"},
         QLatin1String{"(!)Tail1"},
         QLatin1String{"FAKE"}
     };

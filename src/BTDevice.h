@@ -38,6 +38,7 @@ class BTDevice : public QObject
     Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
     Q_PROPERTY(QString deviceID READ deviceID CONSTANT)
     Q_PROPERTY(QStringList enabledCommandsFiles READ enabledCommandsFiles NOTIFY enabledCommandsFilesChanged)
+    Q_PROPERTY(bool supportsOTA READ supportsOTA NOTIFY supportsOTAChanged)
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
@@ -46,6 +47,10 @@ public:
 
     TailCommandModel* commandModel{new TailCommandModel(this)};
     QMap<QString, QString> commandShorthands;
+
+    bool supportsOTA();
+    void setSupportsOTA(bool supportsOTA);
+    Q_SIGNAL void supportsOTAChanged();
 
     bool checked() const;
     void setChecked(bool checked);
