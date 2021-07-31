@@ -18,6 +18,8 @@
 #include "GestureDetectorModel.h"
 #include "GestureController.h"
 
+#include <KLocalizedString>
+
 #include <QSettings>
 #include <QSensorGesture>
 
@@ -216,19 +218,27 @@ GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, Gestur
     : d(new Private)
 {
     static const QHash<QString, QString> sensorNames{
-        {QLatin1String("shakeLeft"), QLatin1String("Shake Left")},
-        {QLatin1String("shakeRight"), QLatin1String("Shake Right")},
-        {QLatin1String("shakeUp"), QLatin1String("Shake Up")},
-        {QLatin1String("shakeDown"), QLatin1String("Shake Down")},
-        {QLatin1String("twistLeft"), QLatin1String("Twist Left")},
-        {QLatin1String("twistRight"), QLatin1String("Twist Right")},
-        {QLatin1String("pickup"), QLatin1String("Pick Up")},
-        {QLatin1String("turnover"), QLatin1String("Turn Over")},
-        {QLatin1String("walkingStarted"), QLatin1String("Walking Started")},
-        {QLatin1String("walkingStopped"), QLatin1String("Walking Stopped")},
-        {QLatin1String("stepDetected"), QLatin1String("Step Detected")},
-        {QLatin1String("evenStepDetected"), QLatin1String("Even-numbered Step Detected")},
-        {QLatin1String("oddStepDetected"), QLatin1String("Odd-numbered Step Detected")}
+        {QLatin1String("doubletap"), i18nc("The name of a sensor", "Double Tap")},
+        {QLatin1String("hover"), i18nc("The name of a sensor", "Hover")},
+        {QLatin1String("freefall"), i18nc("The name of a sensor", "Freefall")},
+        {QLatin1String("landed"), i18nc("The name of a sensor", "Landed")},
+        {QLatin1String("cover"), i18nc("The name of a sensor", "Cover Gesture")},
+        {QLatin1String("shake"), i18nc("The name of a sensor", "Shake Gesture")},
+        {QLatin1String("slam"), i18nc("The name of a sensor", "Slam Gesture")},
+        {QLatin1String("whip"), i18nc("The name of a sensor", "Whip Gesture")},
+        {QLatin1String("shakeLeft"), i18nc("The name of a sensor", "Shake Left")},
+        {QLatin1String("shakeRight"), i18nc("The name of a sensor", "Shake Right")},
+        {QLatin1String("shakeUp"), i18nc("The name of a sensor", "Shake Up")},
+        {QLatin1String("shakeDown"), i18nc("The name of a sensor", "Shake Down")},
+        {QLatin1String("twistLeft"), i18nc("The name of a sensor", "Twist Left")},
+        {QLatin1String("twistRight"), i18nc("The name of a sensor", "Twist Right")},
+        {QLatin1String("pickup"), i18nc("The name of a sensor", "Pick Up")},
+        {QLatin1String("turnover"), i18nc("The name of a sensor", "Turn Over")},
+        {QLatin1String("walkingStarted"), i18nc("The name of a sensor", "Walking Started")},
+        {QLatin1String("walkingStopped"), i18nc("The name of a sensor", "Walking Stopped")},
+        {QLatin1String("stepDetected"), i18nc("The name of a sensor", "Step Detected")},
+        {QLatin1String("evenStepDetected"), i18nc("The name of a sensor", "Even-numbered Step Detected")},
+        {QLatin1String("oddStepDetected"), i18nc("The name of a sensor", "Odd-numbered Step Detected")}
     };
 
     d->controller = q;

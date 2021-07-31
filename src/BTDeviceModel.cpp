@@ -21,6 +21,7 @@
 #include "BTDeviceTail.h"
 #include "BTDeviceFake.h"
 #include "BTDeviceEars.h"
+#include "BTDeviceMitail.h"
 
 class BTDeviceModel::Private
 {
@@ -206,8 +207,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
     if (deviceInfo.name() == QLatin1String{"(!)Tail1"}) {
         newDevice = new BTDeviceTail(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"mitail"}) {
-        newDevice = new BTDeviceTail(deviceInfo, this);
-        newDevice->setSupportsOTA(true);
+        newDevice = new BTDeviceMitail(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"EarGear"}) {
         newDevice = new BTDeviceEars(deviceInfo, this);
     } else {

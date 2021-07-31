@@ -17,6 +17,8 @@
 
 #include "CommandPersistence.h"
 
+#include <KLocalizedString>
+
 #include <QDebug>
 
 #include <QDir>
@@ -52,7 +54,7 @@ public:
         QDir directory{path};
         if (!directory.exists()) {
             if (!directory.mkpath(QLatin1String{"."})) {
-                reportError(QLatin1String{"Failed to create the directory for the stored commands"});
+                reportError(i18nc("Error message for when we could not create the path that command files are stored in", "Failed to create the directory for the stored commands"));
                 return QString{};
             }
         }
@@ -112,13 +114,13 @@ bool CommandPersistence::deserialize(const QString& json)
             setShorthands(shorthandList);
         }
         else {
-            d->reportError(QString{"There are no commands in this file. This is possible, but not common."});
+            d->reportError(i18nc("Error message for when there are no commands found in a command file (possible, but uncommon, so not a critical error)", "There are no commands in this file. This is possible, but not common."));
         }
         // The commands list still gets cleared out when loading a file with no commands in it
         setCommands(commandsList);
     }
     else {
-        d->reportError(QString{"Failed to load your commands, due to a parsing error at %1: %2\nCode leading up to the error:\n%3"}.arg(parseError.offset).arg(parseError.errorString()).arg(json.midRef(qMax(0, parseError.offset - 50), 50)));
+        d->reportError(i18nc("Error message when command file loading failed entirely caused by a parsing error, with details", "Failed to load your commands, due to a parsing error at %1: %2\nCode leading up to the error:\n%3", parseError.offset, parseError.errorString(), json.mid(qMax(0, parseError.offset - 50), 50)));
     }
     return keepgoing;
 }
@@ -169,7 +171,7 @@ bool CommandPersistence::read()
             keepgoing = deserialize(data);
         }
         else {
-            d->reportError(QString{"Could not open the file %1 for reading"}.arg(pathName));
+            d->reportError(i18nc("Error message when attempting to load commands and the file could not be accessed for reading purposes", "Could not open the file %1 for reading", pathName));
         }
     }
     // No need to report error, the pathname generator already did that
@@ -189,7 +191,7 @@ bool CommandPersistence::write()
             file.close();
         }
         else {
-            d->reportError(QString{"Could not open the file %1 for writing"}.arg(pathName));
+            d->reportError(i18nc("Error message when attempting to save commands and the file could not be accessed for writing purposes", "Could not open the file %1 for writing", pathName));
         }
     }
     return keepgoing;

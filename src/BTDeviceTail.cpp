@@ -17,6 +17,8 @@
 
 #include "BTDeviceTail.h"
 
+#include <KLocalizedString>
+
 #include <QCoreApplication>
 #include <QFile>
 #include <QTimer>
@@ -53,11 +55,11 @@ public:
                 if (reconnectThrottle > 10) {
                     q->disconnectDevice();
                     reconnectThrottle = 0;
-                    q->deviceMessage(q->deviceID(), QString("Attempted to reconnect too many times to %1 (%2). To connect to it, please check that it is on, charged, and near enough.").arg(q->name()).arg(q->deviceID()));
+                    q->deviceMessage(q->deviceID(), i18nc("Error message shown when automatic reconnection has been attempted too often", "Attempted to reconnect too many times to %1 (%2). To connect to it, please check that it is on, charged, and near enough.", q->name(), q->deviceID()));
                     return;
                 }
                 qDebug() << q->name() << q->deviceID() << "Connection lost - attempting to reconnect.";
-                q->deviceMessage(q->deviceID(), QString("Connection lost to %1, attempting to reconnect...").arg(q->name()));
+                q->deviceMessage(q->deviceID(), i18nc("A status message sent when the connection to a device has been lost, and we are attempting to connect again automatically", "Connection lost to %1, attempting to reconnect...", q->name()));
                 ++reconnectThrottle;
                 btControl->connectToDevice();
             }
@@ -86,7 +88,7 @@ public:
             tailCharacteristic = tailService->characteristic(tailStateCharacteristicUuid);
             if (!tailCharacteristic.isValid()) {
                 qDebug() << q->name() << q->deviceID() << "Tail characteristic not found, this is bad";
-                q->deviceMessage(q->deviceID(), QString("It looks like this device is not a DIGITAiL (could not find the tail characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
+                q->deviceMessage(q->deviceID(), i18nc("A message when sent when attempting to connect to a device which does not have a specific expected feature", "It looks like this device is not a DIGITAiL (could not find the tail characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
                 q->disconnectDevice();
                 break;
             }
@@ -251,7 +253,7 @@ void BTDeviceTail::connectDevice()
 
                 if (!service) {
                     qWarning() << "Cannot create QLowEnergyService for {0000ffe0-0000-1000-8000-00805f9b34fb}";
-                    emit deviceMessage(deviceID(), QLatin1String("An error occured while connecting to your tail (the service object could not be created). If you feel this is in error, please try again!"));
+                    emit deviceMessage(deviceID(), i18nc("Warning message when the main service was not found on the device", "An error occured while connecting to your tail (the service object could not be created). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -269,13 +271,13 @@ void BTDeviceTail::connectDevice()
 
             switch(error) {
                 case QLowEnergyController::UnknownError:
-                    emit deviceMessage(deviceID(), QLatin1String("An error occurred. If you are trying to connect to your tail, make sure it is on and close to this device."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your tail, make sure it is on and close to this device."));
                     break;
                 case QLowEnergyController::RemoteHostClosedError:
-                    emit deviceMessage(deviceID(), QLatin1String("The tail closed the connection."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The tail closed the connection."));
                     break;
                 case QLowEnergyController::ConnectionError:
-                    emit deviceMessage(deviceID(), QLatin1String("Failed to connect to your tail. Please try again (perhaps move it closer?)"));
+                    emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your tail. Please try again (perhaps move it closer?)"));
                     break;
                 default:
                     break;
@@ -295,7 +297,7 @@ void BTDeviceTail::connectDevice()
 
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-        emit deviceMessage(deviceID(), QLatin1String("The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
+        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
         disconnectDevice();
     });
 
