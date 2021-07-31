@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
-"POT-Creation-Date: 2021-07-08 13:42+0100\n"
+"POT-Creation-Date: 2021-07-31 21:39+0100\n"
 "PO-Revision-Date: 2021-07-08 20:28+0200\n"
 "Last-Translator: Marcos Zuriaga <marcos@wolfi.es>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -16,6 +16,370 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 19.12.3\n"
+
+#: BTDeviceEars.cpp:66 BTDeviceMitail.cpp:65 BTDeviceTail.cpp:58
+msgctxt ""
+"Error message shown when automatic reconnection has been attempted too often"
+msgid ""
+"Attempted to reconnect too many times to %1 (%2). To connect to it, please "
+"check that it is on, charged, and near enough."
+msgstr ""
+
+#: BTDeviceEars.cpp:70 BTDeviceMitail.cpp:69 BTDeviceTail.cpp:62
+#, fuzzy
+msgctxt ""
+"A status message sent when the connection to a device has been lost, and we "
+"are attempting to connect again automatically"
+msgid "Connection lost to %1, attempting to reconnect..."
+msgstr "Intentando conectarse..."
+
+#: BTDeviceEars.cpp:100
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:108
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:224
+msgctxt ""
+"Informational message for when the microphone balancing operation has "
+"completed"
+msgid "Microphone balancing completed"
+msgstr ""
+
+#: BTDeviceEars.cpp:300
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your EarGear box (the main service "
+"object could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceEars.cpp:314
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your EarGear box (the battery service "
+"was not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceEars.cpp:343
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"battery level characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:373
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your ears, make sure the "
+"box is on and close to this device."
+msgstr ""
+
+#: BTDeviceEars.cpp:376
+msgctxt "Warning that the device disconnected itself"
+msgid "The EarGear box closed the connection."
+msgstr ""
+
+#: BTDeviceEars.cpp:379
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your EarGear box. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+
+#: BTDeviceEars.cpp:399
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The EarGear box closed the connection, either by being turned off or losing "
+"power. Remember to charge your ears!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:99
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"writing characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:107
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"reading characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:259
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:273
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:302
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail (could not find the battery level "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:332
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail, make sure it "
+"is on and close to this device."
+msgstr ""
+
+#: BTDeviceMitail.cpp:335
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail closed the connection."
+msgstr ""
+
+#: BTDeviceMitail.cpp:338
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: BTDeviceMitail.cpp:358
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail closed the connection, either by being turned off or losing "
+"power. Remember to charge your tail!"
+msgstr ""
+
+#: BTDeviceTail.cpp:91
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a DIGITAiL (could not find the tail "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceTail.cpp:256
+msgctxt "Warning message when the main service was not found on the device"
+msgid ""
+"An error occured while connecting to your tail (the service object could not "
+"be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceTail.cpp:274
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your tail, make sure it "
+"is on and close to this device."
+msgstr ""
+
+#: BTDeviceTail.cpp:277
+msgctxt "Warning that the device disconnected itself"
+msgid "The tail closed the connection."
+msgstr ""
+
+#: BTDeviceTail.cpp:280
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your tail. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: BTDeviceTail.cpp:300
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The tail closed the connection, either by being turned off or losing power. "
+"Remember to charge your tail!"
+msgstr ""
+
+#: CommandPersistence.cpp:57
+msgctxt ""
+"Error message for when we could not create the path that command files are "
+"stored in"
+msgid "Failed to create the directory for the stored commands"
+msgstr ""
+
+#: CommandPersistence.cpp:117
+msgctxt ""
+"Error message for when there are no commands found in a command file "
+"(possible, but uncommon, so not a critical error)"
+msgid "There are no commands in this file. This is possible, but not common."
+msgstr ""
+
+#: CommandPersistence.cpp:123
+msgctxt ""
+"Error message when command file loading failed entirely caused by a parsing "
+"error, with details"
+msgid ""
+"Failed to load your commands, due to a parsing error at %1: %2\n"
+"Code leading up to the error:\n"
+"%3"
+msgstr ""
+
+#: CommandPersistence.cpp:174
+msgctxt ""
+"Error message when attempting to load commands and the file could not be "
+"accessed for reading purposes"
+msgid "Could not open the file %1 for reading"
+msgstr ""
+
+#: CommandPersistence.cpp:194
+msgctxt ""
+"Error message when attempting to save commands and the file could not be "
+"accessed for writing purposes"
+msgid "Could not open the file %1 for writing"
+msgstr ""
+
+#: GestureDetectorModel.cpp:221
+msgctxt "The name of a sensor"
+msgid "Double Tap"
+msgstr ""
+
+#: GestureDetectorModel.cpp:222
+msgctxt "The name of a sensor"
+msgid "Hover"
+msgstr ""
+
+#: GestureDetectorModel.cpp:223
+msgctxt "The name of a sensor"
+msgid "Freefall"
+msgstr ""
+
+#: GestureDetectorModel.cpp:224
+msgctxt "The name of a sensor"
+msgid "Landed"
+msgstr ""
+
+#: GestureDetectorModel.cpp:225
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Cover Gesture"
+msgstr "Gestos del equipo"
+
+#: GestureDetectorModel.cpp:226
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Shake Gesture"
+msgstr "Gestos del equipo"
+
+#: GestureDetectorModel.cpp:227
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Slam Gesture"
+msgstr "Gestos del equipo"
+
+#: GestureDetectorModel.cpp:228
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Whip Gesture"
+msgstr "Múltiples gestos"
+
+#: GestureDetectorModel.cpp:229
+msgctxt "The name of a sensor"
+msgid "Shake Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:230
+msgctxt "The name of a sensor"
+msgid "Shake Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:231
+msgctxt "The name of a sensor"
+msgid "Shake Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:232
+msgctxt "The name of a sensor"
+msgid "Shake Down"
+msgstr ""
+
+#: GestureDetectorModel.cpp:233
+msgctxt "The name of a sensor"
+msgid "Twist Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:234
+msgctxt "The name of a sensor"
+msgid "Twist Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:235
+msgctxt "The name of a sensor"
+msgid "Pick Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:236
+msgctxt "The name of a sensor"
+msgid "Turn Over"
+msgstr ""
+
+#: GestureDetectorModel.cpp:237
+msgctxt "The name of a sensor"
+msgid "Walking Started"
+msgstr ""
+
+#: GestureDetectorModel.cpp:238
+msgctxt "The name of a sensor"
+msgid "Walking Stopped"
+msgstr ""
+
+#: GestureDetectorModel.cpp:239
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Step Detected"
+msgstr "Enviar al seleccionado"
+
+#: GestureDetectorModel.cpp:240
+msgctxt "The name of a sensor"
+msgid "Even-numbered Step Detected"
+msgstr ""
+
+#: GestureDetectorModel.cpp:241
+msgctxt "The name of a sensor"
+msgid "Odd-numbered Step Detected"
+msgstr ""
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -31,12 +395,12 @@ msgctxt ""
 msgid "The gear named %1 is version %2"
 msgstr "El dispositivo con nombre %1 tiene la versión %2"
 
-#: qml/AboutPage.qml:59
+#: qml/AboutPage.qml:60
 msgctxt "Task description for leinir"
 msgid "Lead Developer"
 msgstr "Principal Desarrollador"
 
-#: qml/AboutPage.qml:66
+#: qml/AboutPage.qml:67
 msgctxt "Task description for Ildar"
 msgid "Qt/QML Developer"
 msgstr "Desarrollador de QT/QML"
@@ -68,8 +432,8 @@ msgid ""
 "\n"
 "Please select another name for the alarm."
 msgstr ""
-"No fue posible configurar la alarma por que ya existe otra con el mismo"
-" nombre.\n"
+"No fue posible configurar la alarma por que ya existe otra con el mismo "
+"nombre.\n"
 "\n"
 "Por favor, elije otro nombre para la alarma."
 
@@ -88,8 +452,8 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
-"No fue posible encontrar una alarma con el nombre '%1'. Quizás otra instancia"
-" de la aplicación la ha eliminado."
+"No fue posible encontrar una alarma con el nombre '%1'. Quizás otra "
+"instancia de la aplicación la ha eliminado."
 
 #: qml/AlarmList.qml:80
 msgctxt ""
@@ -129,8 +493,8 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
-"Configura una alarma aquí. Elije la fecha y hora para tu alarma y después"
-" añade uno o más movimientos que desees ejecutar cuando llegue ese momento."
+"Configura una alarma aquí. Elije la fecha y hora para tu alarma y después "
+"añade uno o más movimientos que desees ejecutar cuando llegue ese momento."
 
 #: qml/AlarmList.qml:142
 msgctxt ""
@@ -152,31 +516,31 @@ msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
 msgstr "Crear"
 
-#: qml/BaseCommandListEditor.qml:37
+#: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
 msgstr "Añadir movimiento a la lista"
 
-#: qml/BaseCommandListEditor.qml:46
+#: qml/BaseCommandListEditor.qml:51
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
 msgstr "Añadir pausa a la lista"
 
-#: qml/BaseCommandListEditor.qml:163
+#: qml/BaseCommandListEditor.qml:168
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
 msgstr "Añadir un comando a continuación"
 
-#: qml/BaseCommandListEditor.qml:172
+#: qml/BaseCommandListEditor.qml:177
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
 msgstr "Añadir una pausa a continuación"
 
-#: qml/BaseCommandListEditor.qml:198
+#: qml/BaseCommandListEditor.qml:203
 msgctxt ""
 "Label for the cooldown period when it is larger than 0, on the Command List "
 "editor"
@@ -184,17 +548,17 @@ msgid ""
 "<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
 "cooldown: %3 seconds</small>"
 msgstr ""
-"<strong>%1</strong><br/><small>%2 segundos</small><br/><small>Espera"
-" adicional: %3 segundos</small>"
+"<strong>%1</strong><br/><small>%2 segundos</small><br/><small>Espera "
+"adicional: %3 segundos</small>"
 
-#: qml/BaseCommandListEditor.qml:199
+#: qml/BaseCommandListEditor.qml:204
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
 msgstr "<strong>%1</strong><br/><small>%2 segundos</small>"
 
-#: qml/BaseCommandListEditor.qml:219
+#: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
 msgid ""
 "This is your list of commands. It can include both moves, glows, and pauses. "
@@ -202,13 +566,12 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
-"Esta es tu lista de comandos. Puede incluir tanto movimientos, como brillos y"
-" pausas. "
-"Consejo: Para añadir un nuevo comando debajo de uno que ya tienes en la"
-" lista, haz click en el botón con un icono de suma sobre la marca de tiempo"
-" acumulativa para dicha entrada y elije una de las opciones en el menú."
+"Esta es tu lista de comandos. Puede incluir tanto movimientos, como brillos "
+"y pausas. Consejo: Para añadir un nuevo comando debajo de uno que ya tienes "
+"en la lista, haz click en el botón con un icono de suma sobre la marca de "
+"tiempo acumulativa para dicha entrada y elije una de las opciones en el menú."
 
-#: qml/BaseCommandListEditor.qml:270
+#: qml/BaseCommandListEditor.qml:275
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
@@ -216,22 +579,22 @@ msgid_plural "Total duration: %1 seconds"
 msgstr[0] "Duración total: %1 segundo"
 msgstr[1] "Duración total: %1 segundos"
 
-#: qml/BaseMovesComponent.qml:185
+#: qml/BaseMovesComponent.qml:184
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
 msgstr "¿A donde lo quieres enviar?"
 
-#: qml/BaseMovesComponent.qml:194
+#: qml/BaseMovesComponent.qml:193
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
 msgstr "Elije de la siguiente lista el destino al que enviar el comando."
 
-#: qml/BaseMovesComponent.qml:239
+#: qml/BaseMovesComponent.qml:238
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
 msgstr "Enviar al seleccionado"
 
-#: qml/BaseMovesComponent.qml:248
+#: qml/BaseMovesComponent.qml:247
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
 msgstr "Enviar a todos"
@@ -313,9 +676,9 @@ msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
-"La siguiente lista muestra todas las posiciones disponibles para tu equipo."
-" ¡Toca cualquiera de ellas para enviarlo a cualquiera de los dispositivos"
-" conectados!"
+"La siguiente lista muestra todas las posiciones disponibles para tu equipo. "
+"¡Toca cualquiera de ellas para enviarlo a cualquiera de los dispositivos "
+"conectados!"
 
 #: qml/EarPoses.qml:42
 msgctxt ""
@@ -345,12 +708,12 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"Activa uno de los siguientes sensores para hacer que tu equipo reaccione a"
-" gestos realizados en este dispositivo, siempre que no se esté ejecutando"
-" otra acción (es decir, que no quede ningún comando en ejecución y la cola de"
-" comandos este vacía). Por ejemplo, haz que tus orejas se pongan tiesas"
-" cuando el dispositivo reconozca que ha sido recogido, o empieza a mover la"
-" cola cuando se detecte que has dado un paso."
+"Activa uno de los siguientes sensores para hacer que tu equipo reaccione a "
+"gestos realizados en este dispositivo, siempre que no se esté ejecutando "
+"otra acción (es decir, que no quede ningún comando en ejecución y la cola de "
+"comandos este vacía). Por ejemplo, haz que tus orejas se pongan tiesas "
+"cuando el dispositivo reconozca que ha sido recogido, o empieza a mover la "
+"cola cuando se detecte que has dado un paso."
 
 #: qml/GearGestures.qml:70
 msgctxt ""
@@ -370,11 +733,12 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
-"Estas intentando activas más de un gesto al mismo tiempo. Esto puede provocar"
-" problemas en algunos casos, mayormente por ser confuso de gestionar (por"
-" ejemplo, al activar al mismo tiempo \"Caminar\" y \"Agitar\" es probable que"
-" ambos sean detectados). Si estás seguro de que esto es lo que quieres toca"
-" \"Aceptar\", o toca \"cancelar\" para que no se active este gesto."
+"Estas intentando activas más de un gesto al mismo tiempo. Esto puede "
+"provocar problemas en algunos casos, mayormente por ser confuso de gestionar "
+"(por ejemplo, al activar al mismo tiempo \"Caminar\" y \"Agitar\" es "
+"probable que ambos sean detectados). Si estás seguro de que esto es lo que "
+"quieres toca \"Aceptar\", o toca \"cancelar\" para que no se active este "
+"gesto."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
@@ -431,8 +795,8 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
-"Aquí puedes configurar tanto las pausas entre movimientos como las familias"
-" de movimientos que se pueden llamar."
+"Aquí puedes configurar tanto las pausas entre movimientos como las familias "
+"de movimientos que se pueden llamar."
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
@@ -499,8 +863,8 @@ msgstr "El modo casual está desactivado"
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
-"Quizás sea tiempo para un descanso... Deja que tu cola u orejas se echen una"
-" pequeña siesta."
+"Quizás sea tiempo para un descanso... Deja que tu cola u orejas se echen una "
+"pequeña siesta."
 
 #: qml/main.qml:187
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -702,10 +1066,10 @@ msgid ""
 "you have created, tap it and pick OK. To perform actions on the ones you've "
 "created, like editing or even removing them entirely, swipe left on the item."
 msgstr ""
-"Crear listas de movimientos, brillos y pausas para enviar a tu equipo. Para"
-" enviar una lista ya creada, tocala y luego elije \"Aceptar\". Para realizar"
-" acciones en las que ya has creado, como editarlas o eliminarlas, arrastra a"
-" la izquierda en la entrada correspondiente."
+"Crear listas de movimientos, brillos y pausas para enviar a tu equipo. Para "
+"enviar una lista ya creada, tocala y luego elije \"Aceptar\". Para realizar "
+"acciones en las que ya has creado, como editarlas o eliminarlas, arrastra a "
+"la izquierda en la entrada correspondiente."
 
 #: qml/MoveLists.qml:93
 msgctxt ""
@@ -743,8 +1107,8 @@ msgid ""
 "You already have a move list with the name %1. Please pick another name, as "
 "that won't work."
 msgstr ""
-"Ya tienes una lista de movimientos con el nombre %1. Por favor, elige otro"
-" nombre."
+"Ya tienes una lista de movimientos con el nombre %1. Por favor, elige otro "
+"nombre."
 
 #: qml/NamePicker.qml:41
 msgctxt "Text header for picking a name"
@@ -785,11 +1149,11 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
-"Para que podamos encontrar tu equipamiento, necesitamos que nos des permiso"
-" para acceder a tu ubicación. Haciendo click en el siguiente botón te"
-" mostrará un diálogo en el que nos debes dar permiso. No utilizamos esta"
-" información para nada más (por favor, ponte en contacto con nosotros si"
-" quieres pruebas de esto sin problemas)."
+"Para que podamos encontrar tu equipamiento, necesitamos que nos des permiso "
+"para acceder a tu ubicación. Haciendo click en el siguiente botón te "
+"mostrará un diálogo en el que nos debes dar permiso. No utilizamos esta "
+"información para nada más (por favor, ponte en contacto con nosotros si "
+"quieres pruebas de esto sin problemas)."
 
 #: qml/NotConnectedCard.qml:85
 msgctxt ""
@@ -808,11 +1172,11 @@ msgid_plural ""
 "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
 "below."
 msgstr[0] ""
-"1 pieza de equipamiento encontrada. Simplemente espera, o pulsa \"Conectar\""
-" a continuación para controlarlo."
+"1 pieza de equipamiento encontrada. Simplemente espera, o pulsa \"Conectar\" "
+"a continuación para controlarlo."
 msgstr[1] ""
-"Se han encontrado %1 piezas de equipamiento hasta ahora. Para verlas pulsa"
-" \"Mostrar equipamiento disponible...\" a continuación"
+"Se han encontrado %1 piezas de equipamiento hasta ahora. Para verlas pulsa "
+"\"Mostrar equipamiento disponible...\" a continuación"
 
 #: qml/NotConnectedCard.qml:93
 msgctxt ""
@@ -822,8 +1186,8 @@ msgid ""
 "We were unable to find any gear. Please ensure that yours is nearby and "
 "switched on."
 msgstr ""
-"No hemos sido capaces de encontrar ningún equipamiento. Por favor, asegurate"
-" de que el tuyo se encuentre en las proximidades y esté encendido."
+"No hemos sido capaces de encontrar ningún equipamiento. Por favor, asegurate "
+"de que el tuyo se encuentre en las proximidades y esté encendido."
 
 #: qml/NotConnectedCard.qml:96
 msgctxt ""
@@ -836,12 +1200,12 @@ msgid_plural ""
 "You are not currently connected to your gear, and we have found %1. Please "
 "push \"Show available gear...\" below to see what is available."
 msgstr[0] ""
-"No estás conectado a tu equipamiento actualmente, pero sabemos que tienes"
-" uno. Pulsa \"Conectar\" para conectarte a el."
+"No estás conectado a tu equipamiento actualmente, pero sabemos que tienes "
+"uno. Pulsa \"Conectar\" para conectarte a el."
 msgstr[1] ""
-"No estás conectado actualmente a tu equipamiento, y hemos encontrado %1. Por"
-" favor, pulsa \"Mostrar equipamiento disponible...\" a continuación para ver"
-" que se encuentra disponible."
+"No estás conectado actualmente a tu equipamiento, y hemos encontrado %1. Por "
+"favor, pulsa \"Mostrar equipamiento disponible...\" a continuación para ver "
+"que se encuentra disponible."
 
 #: qml/NotConnectedCard.qml:105
 msgctxt ""
@@ -885,9 +1249,9 @@ msgid ""
 "The list below shows all the moves and light patterns available to your "
 "gear. Tap any of them to pick that command."
 msgstr ""
-"La siguiente lista muestra todos los movimientos y patrones de iluminación"
-" disponibles para tu equipo. Pulsa cualquiera de ellos para elegir ese"
-" comando."
+"La siguiente lista muestra todos los movimientos y patrones de iluminación "
+"disponibles para tu equipo. Pulsa cualquiera de ellos para elegir ese "
+"comando."
 
 #: qml/PickACommandSheet.qml:41
 msgctxt ""
@@ -930,7 +1294,6 @@ msgid "Gear Command Sets"
 msgstr "Grupos de comandos para el equipo"
 
 #: qml/SettingsCrumpetPicker.qml:45
-#, fuzzy
 msgctxt ""
 "Description for the page for configuring Command Sets, for a specific gear"
 msgid ""

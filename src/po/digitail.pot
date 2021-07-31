@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
-"POT-Creation-Date: 2021-07-08 13:42+0100\n"
+"POT-Creation-Date: 2021-07-31 21:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,364 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: BTDeviceEars.cpp:66 BTDeviceMitail.cpp:65 BTDeviceTail.cpp:58
+msgctxt ""
+"Error message shown when automatic reconnection has been attempted too often"
+msgid ""
+"Attempted to reconnect too many times to %1 (%2). To connect to it, please "
+"check that it is on, charged, and near enough."
+msgstr ""
+
+#: BTDeviceEars.cpp:70 BTDeviceMitail.cpp:69 BTDeviceTail.cpp:62
+msgctxt ""
+"A status message sent when the connection to a device has been lost, and we "
+"are attempting to connect again automatically"
+msgid "Connection lost to %1, attempting to reconnect..."
+msgstr ""
+
+#: BTDeviceEars.cpp:100
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:108
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:224
+msgctxt ""
+"Informational message for when the microphone balancing operation has "
+"completed"
+msgid "Microphone balancing completed"
+msgstr ""
+
+#: BTDeviceEars.cpp:300
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your EarGear box (the main service "
+"object could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceEars.cpp:314
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your EarGear box (the battery service "
+"was not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceEars.cpp:343
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"battery level characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:373
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your ears, make sure the "
+"box is on and close to this device."
+msgstr ""
+
+#: BTDeviceEars.cpp:376
+msgctxt "Warning that the device disconnected itself"
+msgid "The EarGear box closed the connection."
+msgstr ""
+
+#: BTDeviceEars.cpp:379
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your EarGear box. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+
+#: BTDeviceEars.cpp:399
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The EarGear box closed the connection, either by being turned off or losing "
+"power. Remember to charge your ears!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:99
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"writing characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:107
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"reading characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:259
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:273
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:302
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail (could not find the battery level "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:332
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail, make sure it "
+"is on and close to this device."
+msgstr ""
+
+#: BTDeviceMitail.cpp:335
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail closed the connection."
+msgstr ""
+
+#: BTDeviceMitail.cpp:338
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: BTDeviceMitail.cpp:358
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail closed the connection, either by being turned off or losing "
+"power. Remember to charge your tail!"
+msgstr ""
+
+#: BTDeviceTail.cpp:91
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a DIGITAiL (could not find the tail "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceTail.cpp:256
+msgctxt "Warning message when the main service was not found on the device"
+msgid ""
+"An error occured while connecting to your tail (the service object could not "
+"be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceTail.cpp:274
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your tail, make sure it "
+"is on and close to this device."
+msgstr ""
+
+#: BTDeviceTail.cpp:277
+msgctxt "Warning that the device disconnected itself"
+msgid "The tail closed the connection."
+msgstr ""
+
+#: BTDeviceTail.cpp:280
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your tail. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: BTDeviceTail.cpp:300
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The tail closed the connection, either by being turned off or losing power. "
+"Remember to charge your tail!"
+msgstr ""
+
+#: CommandPersistence.cpp:57
+msgctxt ""
+"Error message for when we could not create the path that command files are "
+"stored in"
+msgid "Failed to create the directory for the stored commands"
+msgstr ""
+
+#: CommandPersistence.cpp:117
+msgctxt ""
+"Error message for when there are no commands found in a command file "
+"(possible, but uncommon, so not a critical error)"
+msgid "There are no commands in this file. This is possible, but not common."
+msgstr ""
+
+#: CommandPersistence.cpp:123
+msgctxt ""
+"Error message when command file loading failed entirely caused by a parsing "
+"error, with details"
+msgid ""
+"Failed to load your commands, due to a parsing error at %1: %2\n"
+"Code leading up to the error:\n"
+"%3"
+msgstr ""
+
+#: CommandPersistence.cpp:174
+msgctxt ""
+"Error message when attempting to load commands and the file could not be "
+"accessed for reading purposes"
+msgid "Could not open the file %1 for reading"
+msgstr ""
+
+#: CommandPersistence.cpp:194
+msgctxt ""
+"Error message when attempting to save commands and the file could not be "
+"accessed for writing purposes"
+msgid "Could not open the file %1 for writing"
+msgstr ""
+
+#: GestureDetectorModel.cpp:221
+msgctxt "The name of a sensor"
+msgid "Double Tap"
+msgstr ""
+
+#: GestureDetectorModel.cpp:222
+msgctxt "The name of a sensor"
+msgid "Hover"
+msgstr ""
+
+#: GestureDetectorModel.cpp:223
+msgctxt "The name of a sensor"
+msgid "Freefall"
+msgstr ""
+
+#: GestureDetectorModel.cpp:224
+msgctxt "The name of a sensor"
+msgid "Landed"
+msgstr ""
+
+#: GestureDetectorModel.cpp:225
+msgctxt "The name of a sensor"
+msgid "Cover Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:226
+msgctxt "The name of a sensor"
+msgid "Shake Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:227
+msgctxt "The name of a sensor"
+msgid "Slam Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:228
+msgctxt "The name of a sensor"
+msgid "Whip Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:229
+msgctxt "The name of a sensor"
+msgid "Shake Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:230
+msgctxt "The name of a sensor"
+msgid "Shake Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:231
+msgctxt "The name of a sensor"
+msgid "Shake Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:232
+msgctxt "The name of a sensor"
+msgid "Shake Down"
+msgstr ""
+
+#: GestureDetectorModel.cpp:233
+msgctxt "The name of a sensor"
+msgid "Twist Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:234
+msgctxt "The name of a sensor"
+msgid "Twist Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:235
+msgctxt "The name of a sensor"
+msgid "Pick Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:236
+msgctxt "The name of a sensor"
+msgid "Turn Over"
+msgstr ""
+
+#: GestureDetectorModel.cpp:237
+msgctxt "The name of a sensor"
+msgid "Walking Started"
+msgstr ""
+
+#: GestureDetectorModel.cpp:238
+msgctxt "The name of a sensor"
+msgid "Walking Stopped"
+msgstr ""
+
+#: GestureDetectorModel.cpp:239
+msgctxt "The name of a sensor"
+msgid "Step Detected"
+msgstr ""
+
+#: GestureDetectorModel.cpp:240
+msgctxt "The name of a sensor"
+msgid "Even-numbered Step Detected"
+msgstr ""
+
+#: GestureDetectorModel.cpp:241
+msgctxt "The name of a sensor"
+msgid "Odd-numbered Step Detected"
+msgstr ""
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -32,12 +390,12 @@ msgctxt ""
 msgid "The gear named %1 is version %2"
 msgstr ""
 
-#: qml/AboutPage.qml:59
+#: qml/AboutPage.qml:60
 msgctxt "Task description for leinir"
 msgid "Lead Developer"
 msgstr ""
 
-#: qml/AboutPage.qml:66
+#: qml/AboutPage.qml:67
 msgctxt "Task description for Ildar"
 msgid "Qt/QML Developer"
 msgstr ""
@@ -144,31 +502,31 @@ msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:37
+#: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:46
+#: qml/BaseCommandListEditor.qml:51
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:163
+#: qml/BaseCommandListEditor.qml:168
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:172
+#: qml/BaseCommandListEditor.qml:177
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:198
+#: qml/BaseCommandListEditor.qml:203
 msgctxt ""
 "Label for the cooldown period when it is larger than 0, on the Command List "
 "editor"
@@ -177,14 +535,14 @@ msgid ""
 "cooldown: %3 seconds</small>"
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:199
+#: qml/BaseCommandListEditor.qml:204
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:219
+#: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
 msgid ""
 "This is your list of commands. It can include both moves, glows, and pauses. "
@@ -193,7 +551,7 @@ msgid ""
 "the options in the menu."
 msgstr ""
 
-#: qml/BaseCommandListEditor.qml:270
+#: qml/BaseCommandListEditor.qml:275
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
@@ -201,22 +559,22 @@ msgid_plural "Total duration: %1 seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/BaseMovesComponent.qml:185
+#: qml/BaseMovesComponent.qml:184
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
 msgstr ""
 
-#: qml/BaseMovesComponent.qml:194
+#: qml/BaseMovesComponent.qml:193
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
 msgstr ""
 
-#: qml/BaseMovesComponent.qml:239
+#: qml/BaseMovesComponent.qml:238
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
 msgstr ""
 
-#: qml/BaseMovesComponent.qml:248
+#: qml/BaseMovesComponent.qml:247
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
 msgstr ""

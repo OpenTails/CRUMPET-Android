@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
-"POT-Creation-Date: 2021-07-08 13:42+0100\n"
+"POT-Creation-Date: 2021-07-31 21:39+0100\n"
 "PO-Revision-Date: 2021-07-08 17:40+0100\n"
 "Last-Translator: Caroline the Husky <mii@miifox.nl>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -16,6 +16,371 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.04.2\n"
+
+#: BTDeviceEars.cpp:66 BTDeviceMitail.cpp:65 BTDeviceTail.cpp:58
+msgctxt ""
+"Error message shown when automatic reconnection has been attempted too often"
+msgid ""
+"Attempted to reconnect too many times to %1 (%2). To connect to it, please "
+"check that it is on, charged, and near enough."
+msgstr ""
+
+#: BTDeviceEars.cpp:70 BTDeviceMitail.cpp:69 BTDeviceTail.cpp:62
+#, fuzzy
+msgctxt ""
+"A status message sent when the connection to a device has been lost, and we "
+"are attempting to connect again automatically"
+msgid "Connection lost to %1, attempting to reconnect..."
+msgstr "Aan het verbinden..."
+
+#: BTDeviceEars.cpp:100
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:108
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:224
+msgctxt ""
+"Informational message for when the microphone balancing operation has "
+"completed"
+msgid "Microphone balancing completed"
+msgstr ""
+
+#: BTDeviceEars.cpp:300
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your EarGear box (the main service "
+"object could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceEars.cpp:314
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your EarGear box (the battery service "
+"was not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceEars.cpp:343
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"battery level characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceEars.cpp:373
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your ears, make sure the "
+"box is on and close to this device."
+msgstr ""
+
+#: BTDeviceEars.cpp:376
+msgctxt "Warning that the device disconnected itself"
+msgid "The EarGear box closed the connection."
+msgstr ""
+
+#: BTDeviceEars.cpp:379
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your EarGear box. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+
+#: BTDeviceEars.cpp:399
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The EarGear box closed the connection, either by being turned off or losing "
+"power. Remember to charge your ears!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:99
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"writing characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:107
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"reading characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:259
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:273
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceMitail.cpp:302
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail (could not find the battery level "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceMitail.cpp:332
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail, make sure it "
+"is on and close to this device."
+msgstr ""
+
+#: BTDeviceMitail.cpp:335
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail closed the connection."
+msgstr ""
+
+#: BTDeviceMitail.cpp:338
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: BTDeviceMitail.cpp:358
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail closed the connection, either by being turned off or losing "
+"power. Remember to charge your tail!"
+msgstr ""
+
+#: BTDeviceTail.cpp:91
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a DIGITAiL (could not find the tail "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: BTDeviceTail.cpp:256
+msgctxt "Warning message when the main service was not found on the device"
+msgid ""
+"An error occured while connecting to your tail (the service object could not "
+"be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: BTDeviceTail.cpp:274
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your tail, make sure it "
+"is on and close to this device."
+msgstr ""
+
+#: BTDeviceTail.cpp:277
+#, fuzzy
+msgctxt "Warning that the device disconnected itself"
+msgid "The tail closed the connection."
+msgstr "Automatisch herverbinden"
+
+#: BTDeviceTail.cpp:280
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your tail. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: BTDeviceTail.cpp:300
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The tail closed the connection, either by being turned off or losing power. "
+"Remember to charge your tail!"
+msgstr ""
+
+#: CommandPersistence.cpp:57
+msgctxt ""
+"Error message for when we could not create the path that command files are "
+"stored in"
+msgid "Failed to create the directory for the stored commands"
+msgstr ""
+
+#: CommandPersistence.cpp:117
+msgctxt ""
+"Error message for when there are no commands found in a command file "
+"(possible, but uncommon, so not a critical error)"
+msgid "There are no commands in this file. This is possible, but not common."
+msgstr ""
+
+#: CommandPersistence.cpp:123
+msgctxt ""
+"Error message when command file loading failed entirely caused by a parsing "
+"error, with details"
+msgid ""
+"Failed to load your commands, due to a parsing error at %1: %2\n"
+"Code leading up to the error:\n"
+"%3"
+msgstr ""
+
+#: CommandPersistence.cpp:174
+msgctxt ""
+"Error message when attempting to load commands and the file could not be "
+"accessed for reading purposes"
+msgid "Could not open the file %1 for reading"
+msgstr ""
+
+#: CommandPersistence.cpp:194
+msgctxt ""
+"Error message when attempting to save commands and the file could not be "
+"accessed for writing purposes"
+msgid "Could not open the file %1 for writing"
+msgstr ""
+
+#: GestureDetectorModel.cpp:221
+msgctxt "The name of a sensor"
+msgid "Double Tap"
+msgstr ""
+
+#: GestureDetectorModel.cpp:222
+msgctxt "The name of a sensor"
+msgid "Hover"
+msgstr ""
+
+#: GestureDetectorModel.cpp:223
+msgctxt "The name of a sensor"
+msgid "Freefall"
+msgstr ""
+
+#: GestureDetectorModel.cpp:224
+msgctxt "The name of a sensor"
+msgid "Landed"
+msgstr ""
+
+#: GestureDetectorModel.cpp:225
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Cover Gesture"
+msgstr "Gear Gebaren"
+
+#: GestureDetectorModel.cpp:226
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Shake Gesture"
+msgstr "Gear Gebaren"
+
+#: GestureDetectorModel.cpp:227
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Slam Gesture"
+msgstr "Gear Gebaren"
+
+#: GestureDetectorModel.cpp:228
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Whip Gesture"
+msgstr "Meerdere Gebaren "
+
+#: GestureDetectorModel.cpp:229
+msgctxt "The name of a sensor"
+msgid "Shake Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:230
+msgctxt "The name of a sensor"
+msgid "Shake Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:231
+msgctxt "The name of a sensor"
+msgid "Shake Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:232
+msgctxt "The name of a sensor"
+msgid "Shake Down"
+msgstr ""
+
+#: GestureDetectorModel.cpp:233
+msgctxt "The name of a sensor"
+msgid "Twist Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:234
+msgctxt "The name of a sensor"
+msgid "Twist Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:235
+msgctxt "The name of a sensor"
+msgid "Pick Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:236
+msgctxt "The name of a sensor"
+msgid "Turn Over"
+msgstr ""
+
+#: GestureDetectorModel.cpp:237
+msgctxt "The name of a sensor"
+msgid "Walking Started"
+msgstr ""
+
+#: GestureDetectorModel.cpp:238
+msgctxt "The name of a sensor"
+msgid "Walking Stopped"
+msgstr ""
+
+#: GestureDetectorModel.cpp:239
+#, fuzzy
+msgctxt "The name of a sensor"
+msgid "Step Detected"
+msgstr "Verzend naar geselecteerde Gear"
+
+#: GestureDetectorModel.cpp:240
+msgctxt "The name of a sensor"
+msgid "Even-numbered Step Detected"
+msgstr ""
+
+#: GestureDetectorModel.cpp:241
+msgctxt "The name of a sensor"
+msgid "Odd-numbered Step Detected"
+msgstr ""
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -31,12 +396,12 @@ msgctxt ""
 msgid "The gear named %1 is version %2"
 msgstr "De Gear genaamt %1 is versie %2"
 
-#: qml/AboutPage.qml:59
+#: qml/AboutPage.qml:60
 msgctxt "Task description for leinir"
 msgid "Lead Developer"
 msgstr "Hoofdontwikkelaar"
 
-#: qml/AboutPage.qml:66
+#: qml/AboutPage.qml:67
 msgctxt "Task description for Ildar"
 msgid "Qt/QML Developer"
 msgstr "QT/QML ontwikkelaar"
@@ -84,8 +449,8 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
-"Kan het alarm '%1' niet vinden. Is die misschien door een ander"
-" programmainstantie verwijderd?"
+"Kan het alarm '%1' niet vinden. Is die misschien door een ander "
+"programmainstantie verwijderd?"
 
 #: qml/AlarmList.qml:80
 msgctxt ""
@@ -125,8 +490,8 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
-"Stel een alarm hier in. Kies een datum en tijd voor je alarm, en voeg dan een"
-" of meerdere bewegingen toe om op dat moment te triggeren."
+"Stel een alarm hier in. Kies een datum en tijd voor je alarm, en voeg dan "
+"een of meerdere bewegingen toe om op dat moment te triggeren."
 
 #: qml/AlarmList.qml:142
 msgctxt ""
@@ -147,31 +512,31 @@ msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
 msgstr "Aanmaken"
 
-#: qml/BaseCommandListEditor.qml:37
+#: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
 msgstr "Opdracht toevoegen aan lijst"
 
-#: qml/BaseCommandListEditor.qml:46
+#: qml/BaseCommandListEditor.qml:51
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
 msgstr "Pauze toevoegen aan lijst"
 
-#: qml/BaseCommandListEditor.qml:163
+#: qml/BaseCommandListEditor.qml:168
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
 msgstr "Opdracht toevoegen"
 
-#: qml/BaseCommandListEditor.qml:172
+#: qml/BaseCommandListEditor.qml:177
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
 msgstr "Pauze toevoegen"
 
-#: qml/BaseCommandListEditor.qml:198
+#: qml/BaseCommandListEditor.qml:203
 msgctxt ""
 "Label for the cooldown period when it is larger than 0, on the Command List "
 "editor"
@@ -182,14 +547,14 @@ msgstr ""
 "<strong>%1</strong><br/><small>%2 seconden</small><br/><small>Extra "
 "cooldown: %3 seconds</small>"
 
-#: qml/BaseCommandListEditor.qml:199
+#: qml/BaseCommandListEditor.qml:204
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
 msgstr "<strong>%1</strong><br/><small>%2 seconden</small>"
 
-#: qml/BaseCommandListEditor.qml:219
+#: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
 msgid ""
 "This is your list of commands. It can include both moves, glows, and pauses. "
@@ -197,12 +562,12 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
-"Dit is de lijst met opdrachten. Hier zitten bewegingen, lichtpatronen en"
-" pauses bij.\n"
-"Tip: Om een nieuwe opdracht toe te voegen in de lijst, klik op de plus knop"
-" boven de tijdstempel voor die opdracht en kies er een uit het menu."
+"Dit is de lijst met opdrachten. Hier zitten bewegingen, lichtpatronen en "
+"pauses bij.\n"
+"Tip: Om een nieuwe opdracht toe te voegen in de lijst, klik op de plus knop "
+"boven de tijdstempel voor die opdracht en kies er een uit het menu."
 
-#: qml/BaseCommandListEditor.qml:270
+#: qml/BaseCommandListEditor.qml:275
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
@@ -210,22 +575,22 @@ msgid_plural "Total duration: %1 seconds"
 msgstr[0] "Totale duur: %1 seconden"
 msgstr[1] ""
 
-#: qml/BaseMovesComponent.qml:185
+#: qml/BaseMovesComponent.qml:184
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
 msgstr "Naar welk apparaat versturen?"
 
-#: qml/BaseMovesComponent.qml:194
+#: qml/BaseMovesComponent.qml:193
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
 msgstr "Kies hier waar je de opdracht naar wil verzenden"
 
-#: qml/BaseMovesComponent.qml:239
+#: qml/BaseMovesComponent.qml:238
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
 msgstr "Verzend naar geselecteerde Gear"
 
-#: qml/BaseMovesComponent.qml:248
+#: qml/BaseMovesComponent.qml:247
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
 msgstr "Verzend naar allen"
@@ -307,8 +672,8 @@ msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
-"Hier staan alle posities voor je Gear. Druk op een hiervan om dat naar je"
-" apparatuur te verzenden!"
+"Hier staan alle posities voor je Gear. Druk op een hiervan om dat naar je "
+"apparatuur te verzenden!"
 
 #: qml/EarPoses.qml:42
 msgctxt ""
@@ -338,10 +703,10 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"Zet een van de sensors aan om je Gear te laten reageren op zijn omgeving"
-" (mits die zich in ruststand bevind). Als voorbeeld: Laat je oren opfloppen"
-" wanneer je je telefoon oppakt, of begin met je staart te wapperen wanneer je"
-" begint te lopen?"
+"Zet een van de sensors aan om je Gear te laten reageren op zijn omgeving "
+"(mits die zich in ruststand bevind). Als voorbeeld: Laat je oren opfloppen "
+"wanneer je je telefoon oppakt, of begin met je staart te wapperen wanneer je "
+"begint te lopen?"
 
 #: qml/GearGestures.qml:70
 msgctxt ""
@@ -361,9 +726,9 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
-"Je probeert meerdere gebaren tegelijk te activeren. Dit kan de Gear door de"
-" war brengen, doordat meerdere opdrachten dan kruislings kunnen lopen. Als je"
-" zeker weet wat je doet, druk dan op OK, druk anders op Annuleren."
+"Je probeert meerdere gebaren tegelijk te activeren. Dit kan de Gear door de "
+"war brengen, doordat meerdere opdrachten dan kruislings kunnen lopen. Als je "
+"zeker weet wat je doet, druk dan op OK, druk anders op Annuleren."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
@@ -420,8 +785,8 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
-"Hier kan je de pauses tussen bewegingen inprogrammeren, en de types"
-" bewegingen kiezen."
+"Hier kan je de pauses tussen bewegingen inprogrammeren, en de types "
+"bewegingen kiezen."
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
@@ -488,8 +853,8 @@ msgstr "Intelligente Modus is uitgeschakeld"
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
-"Misschien tijd om een rustpause te geven aan je staart en oren... voordat je"
-" oren in de fik vliegen!"
+"Misschien tijd om een rustpause te geven aan je staart en oren... voordat je "
+"oren in de fik vliegen!"
 
 #: qml/main.qml:187
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -691,9 +1056,9 @@ msgid ""
 "you have created, tap it and pick OK. To perform actions on the ones you've "
 "created, like editing or even removing them entirely, swipe left on the item."
 msgstr ""
-"Maak opdrachtenlijsten aan met bewegingen, lichtpatronen, en pauses, om naar"
-" je Gear te verzenden. Om een programma te verzenden, kies er een en druk op"
-" OK. Om een actie te bewerken of te verwijderen, swipe het item naar links."
+"Maak opdrachtenlijsten aan met bewegingen, lichtpatronen, en pauses, om naar "
+"je Gear te verzenden. Om een programma te verzenden, kies er een en druk op "
+"OK. Om een actie te bewerken of te verwijderen, swipe het item naar links."
 
 #: qml/MoveLists.qml:93
 msgctxt ""
@@ -731,8 +1096,8 @@ msgid ""
 "You already have a move list with the name %1. Please pick another name, as "
 "that won't work."
 msgstr ""
-"Er is al een andere opdrachtlijst genaamt %1. Gelieve een andere naam te"
-" kiezen."
+"Er is al een andere opdrachtlijst genaamt %1. Gelieve een andere naam te "
+"kiezen."
 
 #: qml/NamePicker.qml:41
 msgctxt "Text header for picking a name"
@@ -773,10 +1138,10 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
-"Om met je Gear te kunnen verbinden hebben we toestemming nodig voor het"
-" uitlezen van je locatie. Druk op de onderstaande knop om deze toestemming"
-" uit te geven. Wij gebruiken deze info nergens anders voor... als je meer"
-" informatie wil, neem dan contact met ons op"
+"Om met je Gear te kunnen verbinden hebben we toestemming nodig voor het "
+"uitlezen van je locatie. Druk op de onderstaande knop om deze toestemming "
+"uit te geven. Wij gebruiken deze info nergens anders voor... als je meer "
+"informatie wil, neem dan contact met ons op"
 
 #: qml/NotConnectedCard.qml:85
 msgctxt ""
@@ -795,8 +1160,8 @@ msgid_plural ""
 "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
 "below."
 msgstr[0] ""
-"Een Gear gevonden. Wacht een ogenblik, of druk op \"Verbinden\" om verbinding"
-" aan te leggen"
+"Een Gear gevonden. Wacht een ogenblik, of druk op \"Verbinden\" om "
+"verbinding aan te leggen"
 msgstr[1] ""
 "%1 stuks Gear gevonden. Om deze te zien, druk op de onderstaande knop..."
 
@@ -808,8 +1173,8 @@ msgid ""
 "We were unable to find any gear. Please ensure that yours is nearby and "
 "switched on."
 msgstr ""
-"We konden geen Gear vinden. Gelieve zeker te zijn dat je Gear aan staat en"
-" zich in de buurt van je telefoon bevind."
+"We konden geen Gear vinden. Gelieve zeker te zijn dat je Gear aan staat en "
+"zich in de buurt van je telefoon bevind."
 
 #: qml/NotConnectedCard.qml:96
 msgctxt ""
@@ -822,11 +1187,11 @@ msgid_plural ""
 "You are not currently connected to your gear, and we have found %1. Please "
 "push \"Show available gear...\" below to see what is available."
 msgstr[0] ""
-"Je bent nog niet verbonden met je Gear, maar we kennen deze wel. Druk op"
-" \"Verbinden\" om hiermee te verbinden."
+"Je bent nog niet verbonden met je Gear, maar we kennen deze wel. Druk op "
+"\"Verbinden\" om hiermee te verbinden."
 msgstr[1] ""
-"Je bent nog niet verbonden met je Gear, maar we hebben %1 Gears gevonden!"
-" Druk op de knop om te zien wat beschikbaar is."
+"Je bent nog niet verbonden met je Gear, maar we hebben %1 Gears gevonden! "
+"Druk op de knop om te zien wat beschikbaar is."
 
 #: qml/NotConnectedCard.qml:105
 msgctxt ""
@@ -870,8 +1235,8 @@ msgid ""
 "The list below shows all the moves and light patterns available to your "
 "gear. Tap any of them to pick that command."
 msgstr ""
-"Hier staan alle bewegingen en lichtpatronen voor je Gear. Druk op een hiervan"
-" om dat naar je apparatuur te verzenden!"
+"Hier staan alle bewegingen en lichtpatronen voor je Gear. Druk op een "
+"hiervan om dat naar je apparatuur te verzenden!"
 
 #: qml/PickACommandSheet.qml:41
 msgctxt ""
@@ -921,9 +1286,9 @@ msgid ""
 "add new ones, edit them, and remove them. You cannot edit the built-in "
 "lists, but you can duplicate them and then edit those."
 msgstr ""
-"Dit zijn alle opdrachten die geschikt zijn voor %1. Hier kan je er toevoegen,"
-" bewerken, en verwijderen. Je kan niet de ingebouwde opdrachten bewerken,"
-" maar je kan ze wel kopieren en die bewerken."
+"Dit zijn alle opdrachten die geschikt zijn voor %1. Hier kan je er "
+"toevoegen, bewerken, en verwijderen. Je kan niet de ingebouwde opdrachten "
+"bewerken, maar je kan ze wel kopieren en die bewerken."
 
 #: qml/SettingsCrumpetPicker.qml:77
 msgctxt ""
@@ -986,8 +1351,8 @@ msgid ""
 "includes instructions on how to wear your tail or ears, along with some nice "
 "graphics showing you how."
 msgstr ""
-"Gelieve de handleiding te downloaden van de link hieronder. Hierin staan hoe"
-" de staart en oren worden gedragen."
+"Gelieve de handleiding te downloaden van de link hieronder. Hierin staan hoe "
+"de staart en oren worden gedragen."
 
 #: qml/SettingsPage.qml:52
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
@@ -1002,9 +1367,9 @@ msgid ""
 "Ticking this option will ensure that the app will attempt to reconnect "
 "automatically when the connection is lost."
 msgstr ""
-"Soms kan de app zijn verbinding kwijtraken. Met deze optie blijft de app naar"
-" zijn gear zoeken, zodat hij direct weer verbind wanneer die de Gear weer"
-" terug vind."
+"Soms kan de app zijn verbinding kwijtraken. Met deze optie blijft de app "
+"naar zijn gear zoeken, zodat hij direct weer verbind wanneer die de Gear "
+"weer terug vind."
 
 #: qml/SettingsPage.qml:55
 msgctxt ""
@@ -1067,10 +1432,10 @@ msgid ""
 "to more easily use this, make sure to give your gear a name, so you can tell "
 "them apart more easily."
 msgstr ""
-"Ondanks alle ingebouwde functionaliteit, is er nog veel meer wat je Gear kan"
-" doen! Je kan bewerken wat je verzend naar je Gear, en elk apparaat onthoud"
-" wat je heb opgeslagen. Om het nog makkelijker te maken, geef eerst je Gear"
-" een naam, zodat je kan weten welke Gear wat is."
+"Ondanks alle ingebouwde functionaliteit, is er nog veel meer wat je Gear kan "
+"doen! Je kan bewerken wat je verzend naar je Gear, en elk apparaat onthoud "
+"wat je heb opgeslagen. Om het nog makkelijker te maken, geef eerst je Gear "
+"een naam, zodat je kan weten welke Gear wat is."
 
 #: qml/SettingsPage.qml:83
 msgctxt ""
@@ -1107,13 +1472,13 @@ msgid ""
 "controller box either on the front or the back of your body, or upside down "
 "so the cable can run more gracefully)."
 msgstr ""
-"Als je EarGear niet goed op omgevingsgeluid reageert, moeten de ingebouwde"
-" microfoons misschien ingesteld worden. Om ze te kalibreren, ga naar een"
-" stille ruimte en druk om de kalibratieknop. Deze waarde wordt opgeslagen in"
-" het kastje, dus een keer kalibreren zou voldoende moeten zijn. Het kan ook"
-" zo zijn dat links en rechts omgekeerd moeten worden (voorbeeld: als je het"
-" kastje rond je rug draagt in plaats van rond je nek, of bijvoorbeeld op zijn"
-" kop), dit kan door op Links en Rechts Omkeren te selecteren."
+"Als je EarGear niet goed op omgevingsgeluid reageert, moeten de ingebouwde "
+"microfoons misschien ingesteld worden. Om ze te kalibreren, ga naar een "
+"stille ruimte en druk om de kalibratieknop. Deze waarde wordt opgeslagen in "
+"het kastje, dus een keer kalibreren zou voldoende moeten zijn. Het kan ook "
+"zo zijn dat links en rechts omgekeerd moeten worden (voorbeeld: als je het "
+"kastje rond je rug draagt in plaats van rond je nek, of bijvoorbeeld op zijn "
+"kop), dit kan door op Links en Rechts Omkeren te selecteren."
 
 #: qml/SettingsPage.qml:138
 msgctxt ""
@@ -1153,11 +1518,11 @@ msgid ""
 "options exist. Enabling this option will make a fake tail show up on the "
 "welcome page."
 msgstr ""
-"Als je net de app heb gedownload, bijvoorbeeld omdat je een brand-nieuwe"
-" MiTail DigiTail of EarGear heb besteld, kan je hiermee alvast de app"
-" uitproberen. Dan verschijnt er een virtuele staart uit de lucht, waar je"
-" alle functionaliteit op kan uitproberen! Alleen maar een beetje fantasie"
-" nodig..."
+"Als je net de app heb gedownload, bijvoorbeeld omdat je een brand-nieuwe "
+"MiTail DigiTail of EarGear heb besteld, kan je hiermee alvast de app "
+"uitproberen. Dan verschijnt er een virtuele staart uit de lucht, waar je "
+"alle functionaliteit op kan uitproberen! Alleen maar een beetje fantasie "
+"nodig..."
 
 #: qml/SettingsPage.qml:161
 msgctxt ""
@@ -1183,8 +1548,8 @@ msgid ""
 "The list below shows all the light patterns available to your gear. Tap any "
 "of them to send them off to any of your connected devices!"
 msgstr ""
-"Hier staan alle lichtpatronen voor je Gear. Druk op een hiervan om dat naar"
-" je apparatuur te verzenden!"
+"Hier staan alle lichtpatronen voor je Gear. Druk op een hiervan om dat naar "
+"je apparatuur te verzenden!"
 
 #: qml/TailLights.qml:43
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -1207,8 +1572,8 @@ msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
-"Hier staan alle bewegingen voor je Gear. Druk op een hiervan om dat naar je"
-" apparatuur te verzenden!"
+"Hier staan alle bewegingen voor je Gear. Druk op een hiervan om dat naar je "
+"apparatuur te verzenden!"
 
 #: qml/TailMoves.qml:42
 msgctxt ""
