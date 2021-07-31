@@ -25,6 +25,7 @@ target_sources(digitail
     BTDevice.cpp
     BTDeviceEars.cpp
     BTDeviceFake.cpp
+    BTDeviceMitail.cpp
     BTDeviceTail.cpp
     BTDeviceCommandModel.cpp
     BTDeviceModel.cpp
