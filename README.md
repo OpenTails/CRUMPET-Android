@@ -13,7 +13,7 @@ Please see separate document entitled "EarGear Protocol" for full details
 
 You find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
-Device name is "(!)Tail1" (for DIGITAiL) or "mitail" for MiTail!
+Device name is "(!)Tail1" (for DIGITAiL) or "mitail" for MiTail
 
 Device Service [0xffe0] (for DIGITAIL)
 3af2108b-d066-42da-a7d4-55648fa0a9b6 for MiTail
