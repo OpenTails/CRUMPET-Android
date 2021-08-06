@@ -9,21 +9,26 @@ For information on the basic concepts of the application's codebase, and for inf
 
 Please see separate document entitled "EarGear Protocol" for full details
 
-## DIGITAiL NOTES
+## DIGITAiL / MiTail NOTES
 
 You find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
-Device name is "(!)Tail1" 
+Device name is "(!)Tail1" (for DIGITAiL) or "mitail" for MiTail!
 
-Device Service [0xffe0]
+Device Service [0xffe0] (for DIGITAIL)
+3af2108b-d066-42da-a7d4-55648fa0a9b6 for MiTail
 
 Device Characteristic [0xffe1]
+
+MiTail
+5bfd6484-ddee-4723-bfe6-b653372bbfd6 - Rx characteristic 
+c6612b64-0087-4974-939e-68968ef294b0 - Tx characteristic
 
 All aspects of the Tail are controlled through this service and this characteristic.
 The app will send a text string to the tail to the right characteristic. 
 And there are 11 built in moves you can call up immediately.
 
-*YOU CANNOT USE THE TAIL WHILE IT IS BEING POWERED BY THE POWER ADAPTOR*
+*YOU CANNOT USE DIGITAiL WHILE IT IS BEING POWERED BY THE POWER ADAPTOR* however you can with MiTail.
 
 ## BUILT IN MOVES
 
@@ -113,17 +118,10 @@ This will be the go-to mode for people who wear their Tail a lot - at a conventi
 
 We are creating Casual Mode by sending the moves at the appropriate time. However in the latest firmware, it is possible to let the tail receive on composite command to do this itself. Please see the Protocol Document for syntax.
 
-## MOVE DESIGNER - As yet uncreated
-
-See the Protocol Doc for methods of describing moves, and how to send them to the Tail.
-
-I've been imagining a screen with a tail viewed as if your looking back at the person wearing it. The tip of the tail is in the centre of the screen. With a mouse, you drag it one way or the other, and it "springs" back and the other way creating a pattern. If you want a shorter move, you just let it go a shorter distance. Or a higher way, drag it higher. See what i mean? And it has a kind of gravity keeping it moving until it comes to rest. Something like that.
-
 ## NOTIFICATIONS
 
 Notifications will available once we are hooked in to the phone notification system
 This is not part of the project until the other two modes are complete.
-
 
 
 # How To Compile The App
