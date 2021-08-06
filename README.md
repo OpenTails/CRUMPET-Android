@@ -9,7 +9,7 @@ For information on the basic concepts of the application's codebase, and for inf
 
 Please see separate document entitled "EarGear Protocol" for full details
 
-## DIGITAiL / MiTail NOTES
+## DIGITAiL / MiTail notes
 
 You find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
