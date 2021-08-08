@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2021-07-31 21:39+0100\n"
-"PO-Revision-Date: 2021-07-31 21:42+0100\n"
+"PO-Revision-Date: 2021-08-08 15:09+0100\n"
 "Last-Translator: Dan Leinir Turthra Jensen <admin@leinir.dk>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: en_GB\n"
@@ -44,6 +44,10 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Det ser ud so om denne enhed ikke er en EarGear kontrolboks (kunne ikke finde "
+"den primære øre skrivekarakkteristik). Hvis du er helt sikker på at den er,"
+" tag kontakt "
+"til The Tail Company og rapporter denne fejl."
 
 #: BTDeviceEars.cpp:108
 msgctxt ""
@@ -54,13 +58,17 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Det ser ud so om denne enhed ikke er en EarGear kontrolboks (kunne ikke finde "
+"den primære øre læsekarakkteristik). Hvis du er helt sikker på at den er, tag"
+" kontakt "
+"til The Tail Company og rapporter denne fejl."
 
 #: BTDeviceEars.cpp:224
 msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr ""
+msgstr "Mikrofon genbalancering komplet"
 
 #: BTDeviceEars.cpp:300
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -68,6 +76,9 @@ msgid ""
 "An error occurred while connecting to your EarGear box (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Der opstod en fejl mens vi forsøgte at forbinde til din EarGear boks (det"
+" primære "
+"service objekt kunne ikke skabes). Hvis du tror dette er en fejl, prøv igen!"
 
 #: BTDeviceEars.cpp:314
 msgctxt ""
@@ -76,6 +87,9 @@ msgid ""
 "An error occurred while connecting to your EarGear box (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"Der opstod en fejl mens vi forsøgte at forbinde til din EarGear boks (batteri"
+" informations "
+"servicen var ikke tilgængelig). Hvis du tror dette er en fejl, prøv igen!"
 
 #: BTDeviceEars.cpp:343
 msgctxt ""
@@ -85,6 +99,10 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Det ser ud so om denne enhed ikke er en EarGear kontrolboks (kunne ikke finde "
+"batteri informations karakteristikken). Hvis du er helt sikker på at den er,"
+" tag kontakt "
+"til The Tail Company og rapporter denne fejl."
 
 #: BTDeviceEars.cpp:373
 msgctxt "Warning that some unknown error happened"
@@ -92,11 +110,14 @@ msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "box is on and close to this device."
 msgstr ""
+"Der opstod en fejl. Hvis du forsøger at forbinde til dine ører, vær sikker"
+" på, "
+"at din boks er tændt, og tæt på denne enhed."
 
 #: BTDeviceEars.cpp:376
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear box closed the connection."
-msgstr ""
+msgstr "EarGear boksen lukkede forbindelsen."
 
 #: BTDeviceEars.cpp:379
 msgctxt ""
@@ -106,6 +127,8 @@ msgid ""
 "Failed to connect to your EarGear box. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Der opstod en fejl under forbindelsen til din EarGear boks. Prøv igen (måske"
+" skal boksen flyttes tættere på?)"
 
 #: BTDeviceEars.cpp:399
 msgctxt ""
@@ -115,6 +138,9 @@ msgid ""
 "The EarGear box closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
+"EarGear boksen lukkede forbindelsen, enten ved at blive slukket eller ved at"
+" løbe tør for batteri. "
+"Husk at oplade dine ører!"
 
 #: BTDeviceMitail.cpp:99
 msgctxt ""
@@ -125,6 +151,9 @@ msgid ""
 "writing characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens primære"
+" skrivekarakteristik). "
+"Hvis du er sikker på det er, tag kontakt til The Tail Company med denne fejl."
 
 #: BTDeviceMitail.cpp:107
 msgctxt ""
@@ -135,6 +164,9 @@ msgid ""
 "reading characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens primære"
+" læsekarakteristik). "
+"Hvis du er sikker på det er, tag kontakt til The Tail Company med denne fejl."
 
 #: BTDeviceMitail.cpp:259
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -142,6 +174,9 @@ msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Det ser ud som om dette ikke er en MiTail (kunne ikke skabe det primære "
+" service objekt). "
+"Hvis du tror dette er en fejl, prøv igen!"
 
 #: BTDeviceMitail.cpp:273
 msgctxt ""
@@ -150,6 +185,9 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"Det ser ud som om dette ikke er en MiTail (batteri informations servicen var"
+" ikke tilgængelig). "
+"Hvis du tror dette er en fejl, prøv igen!"
 
 #: BTDeviceMitail.cpp:302
 msgctxt ""
@@ -159,6 +197,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens batteri"
+" karakteristik). "
+"Hvis du er sikker på det er, tag kontakt til The Tail Company med denne fejl."
 
 #: BTDeviceMitail.cpp:332
 msgctxt "Warning that some unknown error happened"
@@ -166,11 +207,14 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Der opstod en fejl. Hvis du er ved at forsøge at forbinde til din MiTail, vær"
+" sikker på, "
+"at den er tændt og tæt på denne enhed."
 
 #: BTDeviceMitail.cpp:335
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
-msgstr ""
+msgstr "MiTail lukkede forbindelsen."
 
 #: BTDeviceMitail.cpp:338
 msgctxt ""
@@ -179,6 +223,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
+"Kunne ikke forbinde til din MiTail. Forsøg igen (måske skal den tættere på?)"
 
 #: BTDeviceMitail.cpp:358
 msgctxt ""
@@ -188,6 +233,8 @@ msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
+"Din MiTail lukkede forbindelsen, enten ved at blive slukket, eller "
+"ved at løbe tør for strøm. Husk at oplade din hale!"
 
 #: BTDeviceTail.cpp:91
 msgctxt ""
@@ -198,6 +245,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens primære"
+" skrivekarakteristik). "
+"Hvis du er sikker på det er, tag kontakt til The Tail Company med denne fejl."
 
 #: BTDeviceTail.cpp:256
 msgctxt "Warning message when the main service was not found on the device"
@@ -205,6 +255,9 @@ msgid ""
 "An error occured while connecting to your tail (the service object could not "
 "be created). If you feel this is in error, please try again!"
 msgstr ""
+"Det opstod en fej under forbindelsen til din hale (service objektet kunne"
+" ikke skabes). "
+"Hvid du tror dette er en fejl, forsøg igen!"
 
 #: BTDeviceTail.cpp:274
 msgctxt "Warning that some unknown error happened"
@@ -212,11 +265,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your tail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Det opstod en fejl. Hvis du er ved at forsøge at forbinde til din hale, "
+"vær sikker på, at den er tændt, og er tæt på denne enhed."
 
 #: BTDeviceTail.cpp:277
 msgctxt "Warning that the device disconnected itself"
 msgid "The tail closed the connection."
-msgstr ""
+msgstr "Halen lukkede forbindelsen."
 
 #: BTDeviceTail.cpp:280
 msgctxt ""
@@ -225,6 +280,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your tail. Please try again (perhaps move it closer?)"
 msgstr ""
+"Kunne ikke forbinde til din hale. Forsøg igen (måske skal den tættere på?)"
 
 #: BTDeviceTail.cpp:300
 msgctxt ""
@@ -234,13 +290,16 @@ msgid ""
 "The tail closed the connection, either by being turned off or losing power. "
 "Remember to charge your tail!"
 msgstr ""
+"Halen lukkede forbindelsen, enten ved at blive slukket eller ved at løbe tør"
+" for strøm. "
+"Husk at oplade din hale!"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr ""
+msgstr "Kunne ikke skabe en mappe til at gemme kommandoer i"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
@@ -248,6 +307,7 @@ msgctxt ""
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
 msgstr ""
+"Det er ingen kommandoer i denne fil. Dette er muligt, men ualmindeligt."
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -258,129 +318,128 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
+"Kunne ikke indlæse dine kommandoer grundet en parsefejl ved %1: %2\n"
+"Koden som ledte op til fejlen:\n"
+"%3"
 
 #: CommandPersistence.cpp:174
 msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Kunne ikke åbne filen %1 for læsning"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "Kunne ikke åbne filen %1 for skrivning"
 
 #: GestureDetectorModel.cpp:221
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr ""
+msgstr "Dobbelt Tap"
 
 #: GestureDetectorModel.cpp:222
 msgctxt "The name of a sensor"
 msgid "Hover"
-msgstr ""
+msgstr "Svæv"
 
 #: GestureDetectorModel.cpp:223
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr ""
+msgstr "Frifald"
 
 #: GestureDetectorModel.cpp:224
 msgctxt "The name of a sensor"
 msgid "Landed"
-msgstr ""
+msgstr "Landing"
 
 #: GestureDetectorModel.cpp:225
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
-msgstr "Udstyrsreaktioner"
+msgstr "Dækning"
 
 #: GestureDetectorModel.cpp:226
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr "Udstyrsreaktioner"
+msgstr "Ryste"
 
 #: GestureDetectorModel.cpp:227
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr "Udstyrsreaktioner"
+msgstr "Slå"
 
 #: GestureDetectorModel.cpp:228
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr "Udstyrsreaktioner"
+msgstr "Pisk"
 
 #: GestureDetectorModel.cpp:229
 msgctxt "The name of a sensor"
 msgid "Shake Left"
-msgstr ""
+msgstr "Ryst Til Venstre"
 
 #: GestureDetectorModel.cpp:230
 msgctxt "The name of a sensor"
 msgid "Shake Right"
-msgstr ""
+msgstr "Ryst Til Højre"
 
 #: GestureDetectorModel.cpp:231
 msgctxt "The name of a sensor"
 msgid "Shake Up"
-msgstr ""
+msgstr "Ryst Opad"
 
 #: GestureDetectorModel.cpp:232
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr ""
+msgstr "Ryst Nedad"
 
 #: GestureDetectorModel.cpp:233
 msgctxt "The name of a sensor"
 msgid "Twist Left"
-msgstr ""
+msgstr "Drej Til Venstre"
 
 #: GestureDetectorModel.cpp:234
 msgctxt "The name of a sensor"
 msgid "Twist Right"
-msgstr ""
+msgstr "Drej Til Højre"
 
 #: GestureDetectorModel.cpp:235
 msgctxt "The name of a sensor"
 msgid "Pick Up"
-msgstr ""
+msgstr "Saml Op"
 
 #: GestureDetectorModel.cpp:236
 msgctxt "The name of a sensor"
 msgid "Turn Over"
-msgstr ""
+msgstr "Vend Om"
 
 #: GestureDetectorModel.cpp:237
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr ""
+msgstr "Gang Begyndt"
 
 #: GestureDetectorModel.cpp:238
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr ""
+msgstr "Gang Endt"
 
 #: GestureDetectorModel.cpp:239
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr ""
+msgstr "Trin Opdaget"
 
 #: GestureDetectorModel.cpp:240
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr ""
+msgstr "Lige-talt Trin Opdaget"
 
 #: GestureDetectorModel.cpp:241
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr ""
+msgstr "Ulige-talt Trin Opdaget"
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -517,26 +576,26 @@ msgstr "Skab"
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
-msgstr ""
+msgstr "Tilføj Til Bevægelsesliste"
 
 #: qml/BaseCommandListEditor.qml:51
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
-msgstr ""
+msgstr "Tilføj Pause Til Listen"
 
 #: qml/BaseCommandListEditor.qml:168
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
-msgstr ""
+msgstr "Tilføj Kommndo Efter"
 
 #: qml/BaseCommandListEditor.qml:177
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
-msgstr ""
+msgstr "Tilføj Kommando Efter"
 
 #: qml/BaseCommandListEditor.qml:203
 msgctxt ""
@@ -546,13 +605,15 @@ msgid ""
 "<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
 "cooldown: %3 seconds</small>"
 msgstr ""
+"<strong>%1</strong><br /><small>%2 sekunder</small><br /><small>Ekstra"
+" nedkøling: %3 sekunder</small>"
 
 #: qml/BaseCommandListEditor.qml:204
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
-msgstr ""
+msgstr "<strong>%1</strong><br /><small>%2 sekunder</small>"
 
 #: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
@@ -562,105 +623,111 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
+"Dette er din liste af kommandoer. Den kan inkludere både bevægelser, lys, og"
+" pauser. "
+"Tip: For at tilføje en ny kommando under en du allerede har i listen, klik på"
+" det lille plus "
+"ikon over det optalte tidsstempel for det punkt, og vælg en af mulighederne i"
+" menuen."
 
 #: qml/BaseCommandListEditor.qml:275
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Total varighed: %1 sekund"
+msgstr[1] "Total varighed: %1 sekunder"
 
 #: qml/BaseMovesComponent.qml:184
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
-msgstr ""
+msgstr "Send hvortil?"
 
 #: qml/BaseMovesComponent.qml:193
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr ""
+msgstr "Vælg hvor du vil sende kommandoen til fra listen nedenunder."
 
 #: qml/BaseMovesComponent.qml:238
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
-msgstr ""
+msgstr "Send Til Udvalg"
 
 #: qml/BaseMovesComponent.qml:247
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
-msgstr ""
+msgstr "Send Til Alle"
 
 #: qml/CommandPausePicker.qml:42
 msgctxt ""
 "Heading for an overlay for picking the duration of a pause in the command "
 "list"
 msgid "Pick the duration of your pause"
-msgstr ""
+msgstr "Vælg længden af din pause"
 
 #: qml/CommandPausePicker.qml:58
 msgctxt ""
 "A label which describes the slider for the duration of a pause, in the "
 "overlay for picking the duration of a pause, in a command list"
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 sekunder"
 
 #: qml/CommandPausePicker.qml:62
 msgctxt ""
 "Button for an overlay for picking the duration of a pause in the command list"
 msgid "Add this pause"
-msgstr ""
+msgstr "Tilføj denne pause"
 
 #: qml/ConnectToTail.qml:69
 msgctxt ""
 "Button for the action of disconnecting a device, in the prompt for "
 "connecting a device"
 msgid "Disconnect"
-msgstr ""
+msgstr "Frakobl"
 
 #: qml/ConnectToTail.qml:70
 msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
 msgid "Connect"
-msgstr ""
+msgstr "Forbind"
 
 #: qml/DatePicker.qml:239
 msgctxt "Button for selecting the date of today, in a date picker"
 msgid "Today"
-msgstr ""
+msgstr "Idag"
 
 #: qml/DatePicker.qml:246
 msgctxt "Button for cancelling the selection of a date, in a date picker"
 msgid "Cancel"
-msgstr ""
+msgstr "Afbryd"
 
 #: qml/DatePicker.qml:253
 msgctxt "Button for confirming the selection of a date, in a date picker"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: qml/DeveloperModePage.qml:27
 msgctxt "Header for the Developer Mode page"
 msgid "Developer Mode"
-msgstr ""
+msgstr "Udviklertilstand"
 
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr ""
+msgstr "MAX GLASH"
 
 #: qml/EarPoses.qml:24
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr ""
+msgstr "Øre Positioner"
 
 #: qml/EarPoses.qml:27
 msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
-msgstr ""
+msgstr "Hjemmeposition"
 
 #: qml/EarPoses.qml:35
 msgctxt "Description for the page for selecting a pose for the EarGear"
@@ -668,25 +735,28 @@ msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
+"Listen nedenfor viser alle positionerne din enhed har tilgængelig. Tryk på"
+" dem "
+"for at sende den til en eller flere af dine forbundede enhedet!"
 
 #: qml/EarPoses.qml:42
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
 msgid "Poses"
-msgstr ""
+msgstr "Positioner"
 
 #: qml/GearGestures.qml:28
 msgctxt "Title for the page for selecting a pose for the Gear"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Udstyrsreaktioner"
 
 #: qml/GearGestures.qml:31
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting a "
 "pose for the Gear"
 msgid "Home Position"
-msgstr ""
+msgstr "Hjemmeposition"
 
 #: qml/GearGestures.qml:47
 msgctxt "Info card for the page for selecting a pose for the Gear"
@@ -697,13 +767,22 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
+"Slå en af sensorne nedenfor til for at få dit udstyr til at reagere på"
+" bevægelser "
+"udført på denne enhed, hvis der ikke er andet igang (det vil sige, hvis der"
+" ikke er "
+"nogen igangvægende kommandoer, og det er en tom kommandokø). For eksempel "
+"kan du få dine ører til at stå til opmærksomhed når enheden bemærker den er"
+" blevet "
+"samlet op, eller den kan gå i gang med at logre når den opdager du har taget"
+" et skridt."
 
 #: qml/GearGestures.qml:70
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting a pose for the Gear"
 msgid "Multiple Gestures"
-msgstr ""
+msgstr "Flere Bevægelser"
 
 #: qml/GearGestures.qml:71
 msgctxt ""
@@ -716,20 +795,25 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
+"Du er ved at tænde for mere end en bevægelse på samme tid. Dette "
+"vil nogle gange skabe problemer, primært ved at være forvirrende "
+"(for eksempel, hvis du tænder for både ryst og gang vil de ofte blive "
+"opdaget samtidigt). Hvis du er sikker på, at du vil gøre dette, tryk OK, "
+"eller tryk Afbryd for ikke at tænde for denne bevægese."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting a pose for the Gear"
 msgid "Show On Welcome Page"
-msgstr ""
+msgstr "Vis På Velkomstsiden"
 
 #: qml/GearGestures.qml:93
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting a pose for the Gear"
 msgid "(no command)"
-msgstr ""
+msgstr "(ingen kommando)"
 
 #: qml/IdleModePage.qml:26
 msgctxt "Title for the page for selecting a move in Casual Mode"
@@ -741,28 +825,28 @@ msgctxt ""
 "Description for the category for the Relaxed Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Rolig og Afslappet"
 
 #: qml/IdleModePage.qml:51
 msgctxt ""
 "Description for the category for the Excited Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Hurtig og Begejstret"
 
 #: qml/IdleModePage.qml:56
 msgctxt ""
 "Description for the category for the Tense Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustreret og Spændt"
 
 #: qml/IdleModePage.qml:61
 msgctxt ""
 "Description for the category for the LED Patterns, on the page for selecting "
 "a move in Casual Mode"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED-mønstre"
 
 #: qml/IdleModePage.qml:72
 msgctxt ""
@@ -772,12 +856,14 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
+"Dette er hvor du sætter pauser mellem bevægelser, og vælger de "
+"familier af bevægelser der kan blive valgt fra."
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
 "Label for selecting the range of pauses in between moves in Casual Mode"
 msgid "Range of pause between moves in seconds"
-msgstr ""
+msgstr "Rækkevidde af pauser mellem bevægelser i sekunder"
 
 #: qml/main.qml:62
 msgctxt "Title of the application"
@@ -1213,7 +1299,7 @@ msgstr "Vis tilgængeligt udstyr..."
 msgctxt ""
 "Heading for the overlay for picking a command, for configuring a move list"
 msgid "Pick a command"
-msgstr ""
+msgstr "Vælg en kommando"
 
 #: qml/PickACommandSheet.qml:33
 msgctxt ""
@@ -1223,46 +1309,48 @@ msgid ""
 "The list below shows all the moves and light patterns available to your "
 "gear. Tap any of them to pick that command."
 msgstr ""
+"Listen nedenfor viser alle de kommandoer og lys-mønstre der er tilgængelige "
+"til dit udstyr. Tryk på dem for at lave et valg."
 
 #: qml/PickACommandSheet.qml:41
 msgctxt ""
 "Description for the category for the Ear Gear poses, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Poses"
-msgstr ""
+msgstr "Positioner"
 
 #: qml/PickACommandSheet.qml:46
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Rolig og Afslappet"
 
 #: qml/PickACommandSheet.qml:51
 msgctxt ""
 "Description for the category for the Excited Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Hurtig og Begejstret"
 
 #: qml/PickACommandSheet.qml:56
 msgctxt ""
 "Description for the category for the Tense Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustreret og Spændt"
 
 #: qml/PickACommandSheet.qml:61
 msgctxt ""
 "Description for the category for the LED Patterns, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED-mønstre"
 
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
 msgid "Gear Command Sets"
-msgstr ""
+msgstr "Udstyrskommandosamlinger"
 
 #: qml/SettingsCrumpetPicker.qml:45
 msgctxt ""
@@ -1272,39 +1360,44 @@ msgid ""
 "add new ones, edit them, and remove them. You cannot edit the built-in "
 "lists, but you can duplicate them and then edit those."
 msgstr ""
+"Dette er alle de kommandosamlinger du har tilgængelige til %1. Du kan tilføje"
+" nye, "
+"redigere dem, og fjerne dem. Du kan ikke redigere de indbyggede samlinger,"
+" men "
+"du kan duplikere dem og redigere dem."
 
 #: qml/SettingsCrumpetPicker.qml:77
 msgctxt ""
 "Button for deleting a Command Set, on the page for configuring Command Sets"
 msgid "Delete"
-msgstr ""
+msgstr "Slet"
 
 #: qml/SettingsCrumpetPicker.qml:81
 msgctxt ""
 "Button for duplicating a Command Set, on the page for configuring Command "
 "Sets"
 msgid "Duplicate"
-msgstr ""
+msgstr "Dupliker"
 
 #: qml/SettingsCrumpetPicker.qml:90
 msgctxt ""
 "Button for editing a Command Set, on the page for configuring Command Sets"
 msgid "Edit Commands"
-msgstr ""
+msgstr "Rediger Kommandoer"
 
 #: qml/SettingsCrumpetPicker.qml:102
 msgctxt ""
 "Header for the overlay for editing a Command Set, on the page for "
 "configuring Command Sets"
 msgid "Edit Commands"
-msgstr ""
+msgstr "Rediger Kommandoer"
 
 #: qml/SettingsCrumpetPicker.qml:110
 msgctxt ""
 "Button for saving a Command Set, on the overlay for editing a Command Set, "
 "on the page for configuring Command Sets"
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 #: qml/SettingsCrumpetPicker.qml:124
 msgctxt ""
@@ -1314,16 +1407,18 @@ msgid ""
 "(this is where the content of the crumpet file goes,\n"
 "because we'll just have that here for now...)"
 msgstr ""
+"(dette er hvor crumpet filens indhold kan findes,\n"
+"fordi det kan bare få lov at leve her ind til viddere...)"
 
 #: qml/SettingsPage.qml:29
 msgctxt "Title for the settings page"
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 #: qml/SettingsPage.qml:36
 msgctxt "Header for the instruction panel, on the settings page"
 msgid "Instructions"
-msgstr ""
+msgstr "Instruktioner"
 
 #: qml/SettingsPage.qml:37
 msgctxt "Description for the instruction panel on the settings page"
@@ -1332,11 +1427,14 @@ msgid ""
 "includes instructions on how to wear your tail or ears, along with some nice "
 "graphics showing you how."
 msgstr ""
+"Hent og læs instruktionerne ned ved at trykke på linket nedenfor. Dette "
+"inkluderer instruktioner om, hvordan du bærer til hale eller dine ører, "
+"sammen med nogle dejlige billeder som viser dig hvordan."
 
 #: qml/SettingsPage.qml:52
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
 msgid "Automatic Reconnection"
-msgstr ""
+msgstr "Automatisk Genforbindelse"
 
 #: qml/SettingsPage.qml:53
 msgctxt ""
@@ -1346,18 +1444,21 @@ msgid ""
 "Ticking this option will ensure that the app will attempt to reconnect "
 "automatically when the connection is lost."
 msgstr ""
+"In nogle situationer vil appen tabe forbindelsen til dit udstyr. "
+"Tilvælg af denne mulighed vil lade appen forsøge at genforbinde "
+"automatisk når forbindelsen bliver tabt."
 
 #: qml/SettingsPage.qml:55
 msgctxt ""
 "Checkbox for enabling automatic reconnection, on the automatic reconnection "
 "panel in the settings page"
 msgid "Reconnect Automatically"
-msgstr ""
+msgstr "Genforbind Automatisk"
 
 #: qml/SettingsPage.qml:64
 msgctxt "Header for the panel for changing gear names, on the settings page"
 msgid "Gear Names"
-msgstr ""
+msgstr "Udstyrsnavne"
 
 #: qml/SettingsPage.qml:65
 msgctxt ""
@@ -1366,20 +1467,22 @@ msgid ""
 "If you want to clear the names of any gear you have given a name, click the "
 "button below to make the app forget them all."
 msgstr ""
+"Hvis du vil fjerne de navne, du har givet dit udstyr, kan du trykke på "
+"knappen nedenfor for at glemme dem allesammen."
 
 #: qml/SettingsPage.qml:67
 msgctxt ""
 "Label for the button for clearing gear names, on the panel for changing gear "
 "names, on the settings page"
 msgid "Forget Gear Names"
-msgstr ""
+msgstr "Glem Udstyrsnavne"
 
 #: qml/SettingsPage.qml:70
 msgctxt ""
 "Header for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
 msgid "Clear the names?"
-msgstr ""
+msgstr "Glem navnene?"
 
 #: qml/SettingsPage.qml:71
 msgctxt ""
@@ -1388,13 +1491,13 @@ msgctxt ""
 msgid ""
 "Please confirm that you do, in fact, want to clear all your saved device "
 "names."
-msgstr ""
+msgstr "Bekræft at du vil fjerne alle navne du har givet dit udstyr."
 
 #: qml/SettingsPage.qml:78
 msgctxt ""
 "Header for the panel for adding commands to your gear, on the settings page"
 msgid "Gear Commands"
-msgstr ""
+msgstr "Udstyrskommandoer"
 
 #: qml/SettingsPage.qml:79
 msgctxt ""
@@ -1407,27 +1510,34 @@ msgid ""
 "to more easily use this, make sure to give your gear a name, so you can tell "
 "them apart more easily."
 msgstr ""
+"Selv om appen kommer med en bunke kommandoer, så kan dit udstyr flere mere"
+" end det. "
+"Du kan ændre de kommandoer der bliver sendt til dit udstyr, og vi vil huske,"
+" hvilke du har "
+"valgt til hver enkel. For at gøre det nemmere at bruge, vær sikker på at du"
+" giver dit udstyr "
+"et navn, så det er nemmere at kende hvilken du bruger."
 
 #: qml/SettingsPage.qml:83
 msgctxt ""
 "Checkbox for hiding non-connected gear, on the panel for adding commands to "
 "your gear, on the settings page"
 msgid "Only Show Connected Gear"
-msgstr ""
+msgstr "Vis Kun Tilkoblet Udstyr"
 
 #: qml/SettingsPage.qml:96
 msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
-msgstr ""
+msgstr "Intet udstyr at indstille"
 
 #: qml/SettingsPage.qml:121
 msgctxt ""
 "Heading for the panel for adjusting microphone levels for the earGear, on "
 "the settings page"
 msgid "EarGear Hearing"
-msgstr ""
+msgstr "EarGear Hørelse"
 
 #: qml/SettingsPage.qml:122
 msgctxt ""
@@ -1443,33 +1553,48 @@ msgid ""
 "controller box either on the front or the back of your body, or upside down "
 "so the cable can run more gracefully)."
 msgstr ""
+"Hvis dit EarGear opfører sig som om det ikke kan høre ordentligt er det"
+" muligt, "
+"det skal have sin balance undersøgt. For at sørge for det virker bedst skal"
+" du helst "
+"være i et stille område før du trykker på genbalanceringsknappen nedenfor"
+" (sæt din "
+"musik på pause, luk døren til dit værelse og så viddere). Denne værdi er gemt"
+" på "
+"boksen, så du skulle generelt set ikke have brug for at gøre det mere end en"
+" gang. "
+"Det er muligt du har brug for at bytte rundt på retningen (for eksempel, hvis"
+" du "
+"flytter kontrolboksen enten forpå eller bagpå din krop, eller på hovedet, så"
+" kablet "
+"kan blive ført mere yndefuldt)"
 
 #: qml/SettingsPage.qml:138
 msgctxt ""
 "Label for the button for unswapping left and right, on the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Unswap left and right"
-msgstr ""
+msgstr "Afbyt venstre og højre"
 
 #: qml/SettingsPage.qml:139
 msgctxt ""
 "Label for the button for swapping left and right, the panel for adjusting "
 "microphone levels for the earGear, on the settings page"
 msgid "Swap left and right"
-msgstr ""
+msgstr "Byt venstre og højre"
 
 #: qml/SettingsPage.qml:146
 msgctxt ""
 "Label for the button for rebalancing microphone levels, the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Rebalance Microphones"
-msgstr ""
+msgstr "Genbalancer Mikrofonerne"
 
 #: qml/SettingsPage.qml:158
 msgctxt ""
 "Heading for the panel for the demo modus of the app, on the settings page"
 msgid "Fake Tail"
-msgstr ""
+msgstr "Falsk Hale"
 
 #: qml/SettingsPage.qml:159
 msgctxt ""
@@ -1482,23 +1607,32 @@ msgid ""
 "options exist. Enabling this option will make a fake tail show up on the "
 "welcome page."
 msgstr ""
+"Hvis du lige har nedhentet appen, for eksempel mens du venter på din"
+" sprit-nye, "
+"super-duper DIGITAiL eller EarGear, og du vil have lidt af et kig på, hvad"
+" appen kan, "
+"så kan du vælge denne mulighed for at snyde appen til at tro, der er en hale"
+" i nærheden, "
+"så du kan udforske hvad du kan gøre. Tilvælg denne mulighed for at få en"
+" falsk hale "
+"til at dukke op på velkomstsiden."
 
 #: qml/SettingsPage.qml:161
 msgctxt ""
 "Label for the checkbox for showing a fake tail inside the app, on the panel "
 "for the demo modus of the app, on the settings page"
 msgid "Show Fake Tail"
-msgstr ""
+msgstr "Vis Falsk Hale"
 
 #: qml/TailLights.qml:24
 msgctxt "Header for the page for the Glow Tips"
 msgid "Glow Tips"
-msgstr ""
+msgstr "Lys-spidser"
 
 #: qml/TailLights.qml:27
 msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
 msgid "Stop Lights"
-msgstr ""
+msgstr "Stop Lys"
 
 #: qml/TailLights.qml:36
 msgctxt ""
@@ -1507,11 +1641,13 @@ msgid ""
 "The list below shows all the light patterns available to your gear. Tap any "
 "of them to send them off to any of your connected devices!"
 msgstr ""
+"Listen nedenfor viser alle de lys-mønstre dit udstyr har tilgængeligt. Tryk "
+"på dem for at sende dem til en eller flere af dine enheder!"
 
 #: qml/TailLights.qml:43
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED Mønstre"
 
 #: qml/TailMoves.qml:24
 msgctxt "Heading for the Moves page"
@@ -1521,7 +1657,7 @@ msgstr "Bevægelser"
 #: qml/TailMoves.qml:27
 msgctxt "Button for returning the tail to its home position, on the Moves page"
 msgid "Home Position"
-msgstr ""
+msgstr "Hjemmeposition"
 
 #: qml/TailMoves.qml:35
 msgctxt "Description for the list of moves, on the Moves page"
@@ -1529,23 +1665,26 @@ msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
+"Listen nedenfor viser alle de bevægelser der er tilgængelige for dit udstyr."
+" Tryk på "
+"dem for at sende dem til en eller flere af dine enheder!"
 
 #: qml/TailMoves.qml:42
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Moves page"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Rolig og Afslappet"
 
 #: qml/TailMoves.qml:47
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Moves page"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Hurtig og Begejstret"
 
 #: qml/TailMoves.qml:52
 msgctxt "Description for the category for the Tense Moveset, on the Moves page"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustreret og Spændt"
 
 #: qml/TimePicker.qml:58
 msgctxt "Label for the Hours field on a time picker"
