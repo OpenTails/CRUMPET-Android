@@ -6,3 +6,6 @@
 	path = 3rdparty/breeze-icons
 	url = https://invent.kde.org/frameworks/breeze-icons.git
 	branch = master
+[submodule "3rdparty/ki18n"]
+	path = 3rdparty/ki18n
+	url = https://invent.kde.org/frameworks/ki18n.git
