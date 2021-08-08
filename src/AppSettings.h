@@ -79,6 +79,10 @@ public:
     void removeAlarmCommand(int index) override;
     virtual QVariantMap deviceNames() const override;
 
+    QStringList availableLanguages() const override;
+    QString languageOverride() const override;
+    void setLanguageOverride ( QString languageOverride ) override;
+
     /**
      * A map of the available command files, with the following structure:
      * [QString (filename)] => QVariantMap [QString (title)] => QString - A short title for the file as interpreted from the contents on load

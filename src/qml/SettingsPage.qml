@@ -155,7 +155,32 @@ Kirigami.ScrollablePage {
         }
 
         SettingsCard {
-            headerText: i18nc("Heading for the panel for the demo modus of the app, on the settings page","Fake Tail");
+            headerText: i18nc("Heading for the panel of the language selector, on the settings page", "Language");
+            descriptionText: i18nc("Description of the language selection option on the settings page", "Usually, Crumpet will use the language that your device uses, or English if that language is not available. However, if you wish to force some language, you can select it here, and we will use that language instead.");
+            footer: QQC2.ComboBox {
+                model: AppSettings.availableLanguages
+                currentIndex: {
+                    var found = 0; // Default language option
+                    for (var i = 0; i < count; ++i) {
+                        if (AppSettings.availableLanguages[i].endsWith("(%1)".arg(AppSettings.languageOverride))) {
+                            found = i;
+                            break;
+                        }
+                    }
+                    return found;
+                }
+                onActivated: {
+                    if (currentIndex == 0) {
+                        AppSettings.languageOverride = "";
+                    } else {
+                        AppSettings.languageOverride = AppSettings.availableLanguages[currentIndex];
+                    }
+                }
+            }
+        }
+
+        SettingsCard {
+            headerText: i18nc("Heading for the panel for the demo modus of the app, on the settings page", "Fake Tail");
             descriptionText: i18nc("Description for the panel for the demo modus of the app, on the settings page", "If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL or EarGear, you might want to explore what the app can do. You can click the button below to trick the app into thinking that there is a tail nearby, and let you explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
             footer: QQC2.CheckBox {
                 text: i18nc("Label for the checkbox for showing a fake tail inside the app, on the panel for the demo modus of the app, on the settings page", "Show Fake Tail")

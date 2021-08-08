@@ -28,6 +28,9 @@ class SettingsProxy {
     PROP(bool fakeTailMode READWRITE)
     PROP(QVariantMap deviceNames READONLY)
 
+    PROP(QStringList availableLanguages READONLY)
+    PROP(QString languageOverride READWRITE)
+
     PROP(QStringList moveLists READONLY)
     SLOT(void addMoveList(const QString& moveListName))
     SLOT(void removeMoveList(const QString& moveListName))

@@ -130,6 +130,15 @@ int appMain(int argc, char *argv[])
         }
     }
     engine.rootContext()->setContextProperty(QLatin1String("AppSettings"), settingsReplica.data());
+    auto retranslate = [&settingsReplica](){
+        if (settingsReplica->languageOverride().isEmpty()) {
+            KLocalizedString::clearLanguages();
+        } else {
+            KLocalizedString::setLanguages(QStringList() << settingsReplica->languageOverride() << "en_US");
+        }
+    };
+    QObject::connect(settingsReplica.data(), &SettingsProxyReplica::languageOverrideChanged, &app, retranslate);
+    retranslate();
 
     QSharedPointer<BTConnectionManagerProxyReplica> btConnectionManagerReplica(repNode->acquire<BTConnectionManagerProxyReplica>());
     res = btConnectionManagerReplica->waitForSource();
@@ -226,6 +235,9 @@ int serviceMain(int argc, char *argv[])
     app.setOrganizationDomain("thetailcompany.com");
     app.setApplicationName("DIGITAiL");
     qInfo() << "Service starting...";
+
+    KLocalizedString::setApplicationDomain("digitail");
+    KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../locale").arg(app.applicationDirPath()));
 
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
 

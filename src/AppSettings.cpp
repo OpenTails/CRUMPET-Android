@@ -21,6 +21,8 @@
 #include "Alarm.h"
 #include "CommandPersistence.h"
 
+#include <KLocalizedString>
+
 #include <QCoreApplication>
 #include <QFile>
 #include <QSettings>
@@ -43,6 +45,7 @@ public:
     int idleMinPause = 15;
     int idleMaxPause = 60;
     bool fakeTailMode = false;
+    QString languageOverride;
 
     QMap<QString, QStringList> moveLists;
     QString activeMoveListName;
@@ -68,6 +71,7 @@ AppSettings::AppSettings(QObject* parent)
     d->idleMinPause = settings.value("idleMinPause", d->idleMinPause).toInt();
     d->idleMaxPause = settings.value("idleMaxPause", d->idleMaxPause).toInt();
     d->fakeTailMode = settings.value("fakeTailMode", d->fakeTailMode).toBool();
+    d->languageOverride = settings.value("languageOverride", d->languageOverride).toString();
 
     settings.beginGroup("MoveLists");
     QStringList moveLists = settings.allKeys();
@@ -388,6 +392,47 @@ QVariantMap AppSettings::deviceNames() const
     }
     settings.endGroup();
     return namesMap;
+}
+
+QStringList AppSettings::availableLanguages() const
+{
+    static QStringList languages;
+    if (languages.isEmpty()) {
+        QSet<QString> codes = KLocalizedString::availableApplicationTranslations();
+        for (const QString& code : codes) {
+            QLocale locale(code);
+            languages << QString("%1 (%2)").arg(locale.nativeLanguageName()).arg(code);
+        }
+        languages.sort();
+        languages.prepend(QString("System Language"));
+    }
+    return languages;
+}
+
+QString AppSettings::languageOverride() const
+{
+    return d->languageOverride;
+}
+
+void AppSettings::setLanguageOverride(QString languageOverride)
+{
+    if (d->languageOverride != languageOverride) {
+        QString languageCode = languageOverride;
+        if (languageOverride.endsWith(")")) {
+            int firstPos = languageCode.lastIndexOf("(") + 1;
+            int lastPos = languageCode.lastIndexOf(")");
+            languageCode = languageCode.mid(firstPos, lastPos - firstPos);
+        }
+        d->languageOverride = languageCode;
+        QSettings settings;
+        settings.setValue("languageOverride", d->languageOverride);
+        Q_EMIT languageOverrideChanged(languageOverride);
+        if (d->languageOverride.isEmpty()) {
+            KLocalizedString::clearLanguages();
+        } else {
+            KLocalizedString::setLanguages(QStringList() << d->languageOverride << "en_US");
+        }
+    }
 }
 
 void AppSettings::removeAlarm(const QString& alarmName)
