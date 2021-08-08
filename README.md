@@ -28,7 +28,7 @@ All aspects of the Tail are controlled through this service and this characteris
 The app will send a text string to the tail to the right characteristic. 
 And there are 11 built in moves you can call up immediately.
 
-*YOU CANNOT USE DIGITAiL WHILE IT IS BEING POWERED BY THE POWER ADAPTOR* however you can with MiTail.
+You cannot use DIGITAiL when it is connected to the power supply, however you can with MiTail.
 
 ## BUILT IN MOVES
 
