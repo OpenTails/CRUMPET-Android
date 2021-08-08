@@ -1,14 +1,19 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.16)
 project(digitail VERSION 0.1)
 if (POLICY CMP0063)
     cmake_policy(SET CMP0063 NEW)
 endif()
 
-find_package(ECM 5.52.0 REQUIRED CONFIG)
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/qtremoteobjects/lib/cmake)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(BREEZEICONS_DIR ${CMAKE_SOURCE_DIR}/3rdparty/breeze-icons/)
 set(DISABLE_DBUS true)
+
+add_subdirectory(3rdparty)
+
+find_package(ECM 5.52.0 REQUIRED CONFIG)
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_BINARY_DIR}/3rdparty/ki18n/cmake/)
 
 # Android has no DBus, so we can't use that. Sniff things and tell the code
 if(CMAKE_SYSTEM_NAME STREQUAL Android)
@@ -30,8 +35,4 @@ include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-add_subdirectory(3rdparty)
 add_subdirectory(src)
