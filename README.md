@@ -61,6 +61,16 @@ LEDSTR - strobo
 ```
 and an Leds off command: LEDOFF
 
+### MiTail OTA updates
+
+It is always recommended to connect a power source to MiTail before updating the firmware. 
+We can detect whether external power is connected, but not whether it is the mains, or a powerpack.
+Crumpet will insist that the tail has >50 percent charge too before beginning.
+
+At the end of a succesful OTA update, the tail will reboot, as long as its connected to external power.
+If it is not connected to external power, it will power off at the end of the update and need to be manually switched back on.
+However, Crumpet will not perform the update unless the mains or power packs are detected.
+
 ### OTHER COMMANDS
 ```
 VER - returns the firmware version number
