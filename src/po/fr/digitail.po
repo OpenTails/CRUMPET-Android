@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2021-07-31 21:39+0100\n"
-"PO-Revision-Date: 2021-07-08 21:05+0100\n"
+"PO-Revision-Date: 2021-08-04 14:13+0100\n"
 "Last-Translator: Caroline the Husky <mii@miifox.nl>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: en_US\n"
@@ -24,14 +24,15 @@ msgid ""
 "Attempted to reconnect too many times to %1 (%2). To connect to it, please "
 "check that it is on, charged, and near enough."
 msgstr ""
+"Tentative de reconnexion excessives à %1 (%2). Pour vous y connecter,"
+" veuillez vérifier qu'il est allumé, chargé et suffisamment proche."
 
 #: BTDeviceEars.cpp:70 BTDeviceMitail.cpp:69 BTDeviceTail.cpp:62
-#, fuzzy
 msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr "Tentative de connexion..."
+msgstr "Connexion perdue avec %1, tentative de reconnexion..."
 
 #: BTDeviceEars.cpp:100
 msgctxt ""
@@ -42,6 +43,10 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil EarGear (il n'a pas pu"
+" trouver les caractéristiques principales d'écriture des oreilles). Si vous"
+" êtes certain que c'est bien le cas, veuillez signaler cette erreur à The"
+" Tail Company."
 
 #: BTDeviceEars.cpp:108
 msgctxt ""
@@ -52,13 +57,17 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil EarGear (il n'a pas pu"
+" trouver les caractéristiques principales de lecture des oreilles). Si vous"
+" êtes certain que c'est bien le cas, veuillez signaler cette erreur à The"
+" Tail Company."
 
 #: BTDeviceEars.cpp:224
 msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr ""
+msgstr "Rebalancement des microphones terminé"
 
 #: BTDeviceEars.cpp:300
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -66,6 +75,9 @@ msgid ""
 "An error occurred while connecting to your EarGear box (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Une erreur s'est produite lors de la connexion à votre boîtier EarGear"
+" (l'objet de service principal n'a pas pu être créé). Si vous pensez qu'il"
+" s'agit d'une erreur, veuillez réessayer !"
 
 #: BTDeviceEars.cpp:314
 msgctxt ""
@@ -74,6 +86,9 @@ msgid ""
 "An error occurred while connecting to your EarGear box (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"Une erreur s'est produite lors de la connexion à votre boîtier EarGear"
+" (l'objet de service de batterie n'est pas disponible). Si vous pensez qu'il"
+" s'agit d'une erreur, veuillez réessayer !"
 
 #: BTDeviceEars.cpp:343
 msgctxt ""
@@ -83,6 +98,9 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Il semble que cet appareil ne soit pas un boîtier EarGear (pas pu trouver la"
+" caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit"
+" bien d'un EarGear, veuillez signaler cette erreur à The Tail Company."
 
 #: BTDeviceEars.cpp:373
 msgctxt "Warning that some unknown error happened"
@@ -90,11 +108,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "box is on and close to this device."
 msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à vos oreilles,"
+" assurez-vous que le boîtier est allumée et proche de cet appareil."
 
 #: BTDeviceEars.cpp:376
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear box closed the connection."
-msgstr ""
+msgstr "Le boîtier EarGear a fermé la connexion."
 
 #: BTDeviceEars.cpp:379
 msgctxt ""
@@ -104,6 +124,8 @@ msgid ""
 "Failed to connect to your EarGear box. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"La connexion à votre boîtier EarGear a échoué. Veuillez réessayer (peut-être"
+" le déplacer plus proche ?)"
 
 #: BTDeviceEars.cpp:399
 msgctxt ""
@@ -113,6 +135,8 @@ msgid ""
 "The EarGear box closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
+"Le boîtier EarGear a fermé la connexion, soit en étant éteint, soit en étant"
+" déchargé. N'oubliez pas de charger vos oreilles !"
 
 #: BTDeviceMitail.cpp:99
 msgctxt ""
@@ -123,6 +147,10 @@ msgid ""
 "writing characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu"
+" trouver les caractéristiques principales d'écriture de la queue). Si vous"
+" êtes certain que c'est bien le cas, veuillez signaler cette erreur à The"
+" Tail Company."
 
 #: BTDeviceMitail.cpp:107
 msgctxt ""
@@ -133,6 +161,10 @@ msgid ""
 "reading characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu"
+" trouver les caractéristiques principales de lecture de la queue). Si vous"
+" êtes certain que c'est bien le cas, veuillez signaler cette erreur à The"
+" Tail Company."
 
 #: BTDeviceMitail.cpp:259
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -140,6 +172,9 @@ msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de"
+" service principal n'a pas pu être créé). Si vous pensez qu'il s'agit d'une"
+" erreur, veuillez réessayer !"
 
 #: BTDeviceMitail.cpp:273
 msgctxt ""
@@ -148,6 +183,9 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de"
+" service de batterie n'est pas disponible). Si vous pensez qu'il s'agit d'une"
+" erreur, veuillez réessayer !"
 
 #: BTDeviceMitail.cpp:302
 msgctxt ""
@@ -157,6 +195,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Il semble que cet appareil ne soit pas un MiTail (pas pu trouver la"
+" caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit"
+" bien d'un MiTail, veuillez signaler cette erreur à The Tail Company."
 
 #: BTDeviceMitail.cpp:332
 msgctxt "Warning that some unknown error happened"
@@ -164,11 +205,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à votre MiTail,"
+" assurez-vous que la queue soit allumée et proche de cet appareil."
 
 #: BTDeviceMitail.cpp:335
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
-msgstr ""
+msgstr "Le MiTail a fermé la connexion."
 
 #: BTDeviceMitail.cpp:338
 msgctxt ""
@@ -177,6 +220,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
+"La connexion à votre MiTail a échoué. Veuillez réessayer (peut-être le"
+" déplacer plus proche ?)"
 
 #: BTDeviceMitail.cpp:358
 msgctxt ""
@@ -186,6 +231,8 @@ msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
+"Le MiTail a fermé la connexion, soit en étant éteint, soit en étant déchargé."
+" N'oubliez pas de charger votre queue !"
 
 #: BTDeviceTail.cpp:91
 msgctxt ""
@@ -196,6 +243,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Il semble que cet appareil ne soit pas un DIGITAIL (pas pu trouver ses"
+" caractéristiques). Si vous êtes certain qu'il s'agit bien d'un DIGITAIL,"
+" veuillez signaler cette erreur à The Tail Company."
 
 #: BTDeviceTail.cpp:256
 msgctxt "Warning message when the main service was not found on the device"
@@ -203,6 +253,9 @@ msgid ""
 "An error occured while connecting to your tail (the service object could not "
 "be created). If you feel this is in error, please try again!"
 msgstr ""
+"Une erreur s'est produite lors de la connexion à votre queue (l'objet de"
+" service principal n'a pas pu être créé). Si vous pensez qu'il s'agit d'une"
+" erreur, veuillez réessayer !"
 
 #: BTDeviceTail.cpp:274
 msgctxt "Warning that some unknown error happened"
@@ -210,12 +263,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your tail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à votre queue,"
+" assurez-vous que la queue soit allumée et proche de cet appareil."
 
 #: BTDeviceTail.cpp:277
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The tail closed the connection."
-msgstr "Reconnection automatique"
+msgstr "La queue a fermé la connexion."
 
 #: BTDeviceTail.cpp:280
 msgctxt ""
@@ -224,6 +278,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your tail. Please try again (perhaps move it closer?)"
 msgstr ""
+"La connexion à votre queue a échoué. Veuillez réessayer (peut-être le"
+" déplacer plus proche ?)"
 
 #: BTDeviceTail.cpp:300
 msgctxt ""
@@ -233,20 +289,22 @@ msgid ""
 "The tail closed the connection, either by being turned off or losing power. "
 "Remember to charge your tail!"
 msgstr ""
+"La queue a fermé la connexion, soit en étant éteint, soit en étant déchargé."
+" N'oubliez pas de charger votre queue !"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr ""
+msgstr "La création du répertoire pour les commandes stockées a échoué."
 
 #: CommandPersistence.cpp:117
 msgctxt ""
 "Error message for when there are no commands found in a command file "
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
-msgstr ""
+msgstr "Aucune commande dans ce fichier. Possible, mais peu courant."
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -257,130 +315,129 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
+"Impossible de charger vos commandes, en raison d'une erreur d'analyse à %1 : "
+"%2\n"
+"Code conduisant à l'erreur:\n"
+"%3"
 
 #: CommandPersistence.cpp:174
 msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Impossible d'ouvrir le fichier %1 pour la lecture"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "Impossible d'ouvrir le fichier %1 pour l'écriture"
 
 #: GestureDetectorModel.cpp:221
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr ""
+msgstr "Double tape"
 
 #: GestureDetectorModel.cpp:222
 msgctxt "The name of a sensor"
 msgid "Hover"
-msgstr ""
+msgstr "Survol"
 
 #: GestureDetectorModel.cpp:223
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr ""
+msgstr "Tombe libre"
 
 #: GestureDetectorModel.cpp:224
 msgctxt "The name of a sensor"
 msgid "Landed"
-msgstr ""
+msgstr "Atterrissage"
 
 #: GestureDetectorModel.cpp:225
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
-msgstr "Gestes"
+msgstr "Geste de couverture"
 
 #: GestureDetectorModel.cpp:226
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr "Gestes"
+msgstr "Geste de secousse"
 
 #: GestureDetectorModel.cpp:227
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr "Gestes"
+msgstr "Geste de claquement"
 
 #: GestureDetectorModel.cpp:228
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr "Gestes multiples"
+msgstr "Geste de fouet"
 
 #: GestureDetectorModel.cpp:229
 msgctxt "The name of a sensor"
 msgid "Shake Left"
-msgstr ""
+msgstr "Secousse à gauche"
 
 #: GestureDetectorModel.cpp:230
 msgctxt "The name of a sensor"
 msgid "Shake Right"
-msgstr ""
+msgstr "Secousse à droite"
 
 #: GestureDetectorModel.cpp:231
 msgctxt "The name of a sensor"
 msgid "Shake Up"
-msgstr ""
+msgstr "Secousse vers l'haut"
 
 #: GestureDetectorModel.cpp:232
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr ""
+msgstr "Secousse vers le bas"
 
 #: GestureDetectorModel.cpp:233
 msgctxt "The name of a sensor"
 msgid "Twist Left"
-msgstr ""
+msgstr "Tourne à gauche"
 
 #: GestureDetectorModel.cpp:234
 msgctxt "The name of a sensor"
 msgid "Twist Right"
-msgstr ""
+msgstr "Tourne à droite"
 
 #: GestureDetectorModel.cpp:235
 msgctxt "The name of a sensor"
 msgid "Pick Up"
-msgstr ""
+msgstr "Ramasser"
 
 #: GestureDetectorModel.cpp:236
 msgctxt "The name of a sensor"
 msgid "Turn Over"
-msgstr ""
+msgstr "Retournement"
 
 #: GestureDetectorModel.cpp:237
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr ""
+msgstr "Debut de marche"
 
 #: GestureDetectorModel.cpp:238
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr ""
+msgstr "Fin de marche"
 
 #: GestureDetectorModel.cpp:239
-#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr "Envoyer a l'appareil sélectionné"
+msgstr "Pas détecté"
 
 #: GestureDetectorModel.cpp:240
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr ""
+msgstr "Pas pair détecté"
 
 #: GestureDetectorModel.cpp:241
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr ""
+msgstr "Pas impair détecté"
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -579,8 +636,8 @@ msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Durée totale: %1 seconde"
+msgstr[1] "Durée totale: %1 secondes"
 
 #: qml/BaseMovesComponent.qml:184
 msgctxt "Header for the overlay for selecting the destination for a command"
@@ -659,7 +716,7 @@ msgstr "Mode developeur"
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr "GLASH AU MAX!"
+msgstr "Calin a Caroline ^^"
 
 #: qml/EarPoses.qml:24
 msgctxt "Title for the page for selecting a pose for the EarGear"
