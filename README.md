@@ -65,7 +65,7 @@ and an Leds off command: LEDOFF
 
 It is always recommended to connect a power source to MiTail before updating the firmware. 
 We can detect whether external power is connected, but not whether it is the mains, or a powerpack.
-Crumpet will insist that the tail has >50 percent charge too before beginning.
+Crumpet will insist that the tail is both connected to the mains or a powerpack, and has more than 50 percent charge before beginning the update.
 
 At the end of a succesful OTA update, the tail will reboot, as long as its connected to external power.
 If it is not connected to external power, it will power off at the end of the update and need to be manually switched back on.
