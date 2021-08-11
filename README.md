@@ -1,5 +1,5 @@
 # CRUMPET - The Brains For Your Tail Company Gear
-This document contains information about how Crumpet talks to Tail Company gear, and explains some of the decisions we have taken.
+This document contains information about how Crumpet talks to Tail Company gear, and explains some of the decisions we have taken. This document may be interesting if you want to create your own gear-controlling app. Just bear in mind why we have taken these decisions, so as not to damage your gear.
 
 This document is in flux with the launch of MiTail, and is updated regularly.
 
@@ -9,31 +9,30 @@ For information on the basic concepts of the application's codebase, and for inf
 
 Please see separate document entitled "EarGear Protocol" for full details
 
-## DIGITAiL / MiTail notes
+## DIGITAiL & MiTail over BLE
 
 Over Bluetooth, you find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
-DIGITAiL
+#DIGITAiL
 Device name is "(!)Tail1" (for DIGITAiL) or "mitail" for MiTail
-
 Device Service [0xffe0] (for DIGITAiL)
-
 Device Characteristic [0xffe1]
 
 Note: You cannot use DIGITAiL when it is connected to the power supply.
 
-MiTail
+#MiTail
 Device name is "mitail"
 Device Service is 3af2108b-d066-42da-a7d4-55648fa0a9b6
 5bfd6484-ddee-4723-bfe6-b653372bbfd6 - Rx characteristic 
 c6612b64-0087-4974-939e-68968ef294b0 - Tx characteristic
 
 All aspects of the Tail are controlled through these services and these characteristics.
-The app will send a text string to the tail to the right characteristic.
-
-And there are 11 built in moves you can call up immediately.
 
 Note: you can use MiTail whilst its charging.
+
+--
+
+There are 11 built in moves you can call up immediately.
 
 ## BUILT IN MOVES
 
@@ -68,20 +67,19 @@ and an Leds off command: LEDOFF
 
 ### MiTail OTA updates
 
-It is always recommended to connect a power source to MiTail before updating the firmware. 
+It is always recommended to connect a power source to MiTail before updating the firmware and Crumpet will enforce this.
 We can detect whether external power is connected, but not whether it is the mains, or a powerpack.
-Crumpet will insist that the tail is both connected to the mains or a powerpack, and has more than 50 percent charge before beginning the update.
-Crumpet also does the version checking of the firmware. Is it more recent? Ok, ill flash it. The tail doesnt check. It will accept whatever it is sent, as long as it agrees with the MD5 checksum.
 
+Crumpet will insist that the tail is both connected to the mains or a powerpack, and has more than 50 percent charge, before beginning the update.
+Crumpet also does the version checking of the firmware. Is it more recent? Ok, ill flash it. The tail doesnt check this. It will accept whatever it is sent, as long as it agrees with the MD5 checksum which accompanies it.
 
 At the end of a succesful OTA update, the tail will reboot, as long as its connected to external power.
 If it is not connected to external power, it will power off at the end of the update and need to be manually switched back on.
 However, Crumpet will not perform the update unless the mains or power packs are detected.
 
-
-The filename sent to the tail doesn't matter. All the code is rewritten when flashed, except for the bootloader.
+The filename of the update sent to the tail doesn't matter. All the code is rewritten when flashed, except for the bootloader.
 There are 2 partitions (A and B). Lets say A has the current booted code in it and the tail is running from there. We start an OTA update.
-MiTail copies it to partition B. On successful receipt, it then marks that partion for a temporary boot and reboots. If all is well, it makes it permanent.
+MiTail copies the new file to partition B. On successful receipt, it then marks that partion for a temporary boot and reboots. If all is well, it makes it permanent.
 If not, it reverts to partion A
 
 ### OTHER COMMANDS
