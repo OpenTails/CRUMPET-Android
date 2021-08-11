@@ -124,27 +124,6 @@ Pulse Erect
 ```
 
 
-## MOVE PLAYLIST
-
-A simple way of chaining pre-defined moves together. We need a pause in between moves
-which serves both to make the system cooler, and also more natural.
-
-Pauses defined as a range, so that they are of varying length.
-
-I suggest we auto-generate or preset 4 playlists - a slow gentler one, a faster, excited one, an angry, frustrated one, and a list with all moves in. These could be a predefined list. But it would be nice if we randomise them every time, including pauses.
-
-## CASUAL MODE
-
-This will be the go-to mode for people who wear their Tail a lot - at a convention or around the house! Just click the top level button to string together calm and energetic moves, with a random duration pauses in between. No other input required
-
-We are creating Casual Mode by sending the moves at the appropriate time. However in the latest firmware, it is possible to let the tail receive on composite command to do this itself. Please see the Protocol Document for syntax.
-
-## NOTIFICATIONS
-
-Notifications will available once we are hooked in to the phone notification system
-This is not part of the project until the other two modes are complete.
-
-
 # How To Compile The App
 
 Building the app is a multi step process, so please make sure you do the steps in the right order.
