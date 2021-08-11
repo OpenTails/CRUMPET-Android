@@ -1,7 +1,7 @@
 # CRUMPET - The Brains For Your Tail Company Gear
-Development of the app to control our new breed of animatronic gear, from tails to ears, and everything inbetween!
+This document contains information about how Crumpet talks to Tail Company gear, and explains some of the decisions we have taken.
 
-We are currently editing files to be less DIGITAiL only..
+This document is in flux with the launch of MiTail, and is updated regularly.
 
 For information on the basic concepts of the application's codebase, and for information on how you should approach the code if you wish to contribute, please see our [HACKING document](HACKING.md).
 
@@ -11,24 +11,29 @@ Please see separate document entitled "EarGear Protocol" for full details
 
 ## DIGITAiL / MiTail notes
 
-You find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
+Over Bluetooth, you find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
+DIGITAiL
 Device name is "(!)Tail1" (for DIGITAiL) or "mitail" for MiTail
 
 Device Service [0xffe0] (for DIGITAiL)
-3af2108b-d066-42da-a7d4-55648fa0a9b6 for MiTail
 
 Device Characteristic [0xffe1]
 
+Note: You cannot use DIGITAiL when it is connected to the power supply.
+
 MiTail
+Device name is "mitail"
+Device Service is 3af2108b-d066-42da-a7d4-55648fa0a9b6
 5bfd6484-ddee-4723-bfe6-b653372bbfd6 - Rx characteristic 
 c6612b64-0087-4974-939e-68968ef294b0 - Tx characteristic
 
-All aspects of the Tail are controlled through this service and this characteristic.
-The app will send a text string to the tail to the right characteristic. 
+All aspects of the Tail are controlled through these services and these characteristics.
+The app will send a text string to the tail to the right characteristic.
+
 And there are 11 built in moves you can call up immediately.
 
-You cannot use DIGITAiL when it is connected to the power supply, but you can use MiTail whilst its charging.
+Note: you can use MiTail whilst its charging.
 
 ## BUILT IN MOVES
 
