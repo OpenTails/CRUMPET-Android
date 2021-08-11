@@ -66,10 +66,18 @@ and an Leds off command: LEDOFF
 It is always recommended to connect a power source to MiTail before updating the firmware. 
 We can detect whether external power is connected, but not whether it is the mains, or a powerpack.
 Crumpet will insist that the tail is both connected to the mains or a powerpack, and has more than 50 percent charge before beginning the update.
+Crumpet also does the version checking of the firmware. Is it more recent? Ok, ill flash it. The tail doesnt check. It will accept whatever it is sent, as long as it agrees with the MD5 checksum.
+
 
 At the end of a succesful OTA update, the tail will reboot, as long as its connected to external power.
 If it is not connected to external power, it will power off at the end of the update and need to be manually switched back on.
 However, Crumpet will not perform the update unless the mains or power packs are detected.
+
+
+The filename sent to the tail doesn't matter. All the code is rewritten when flashed, except for the bootloader.
+There are 2 partitions (A and B). Lets say A has the current booted code in it and the tail is running from there. We start an OTA update.
+MiTail copies it to partition B. On successful receipt, it then marks that partion for a temporary boot and reboots. If all is well, it makes it permanent.
+If not, it reverts to partion A
 
 ### OTHER COMMANDS
 ```
