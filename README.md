@@ -15,7 +15,7 @@ You find the device by its ID, then you find its service (like its battery gauge
 
 Device name is "(!)Tail1" (for DIGITAiL) or "mitail" for MiTail
 
-Device Service [0xffe0] (for DIGITAIL)
+Device Service [0xffe0] (for DIGITAiL)
 3af2108b-d066-42da-a7d4-55648fa0a9b6 for MiTail
 
 Device Characteristic [0xffe1]
@@ -28,7 +28,7 @@ All aspects of the Tail are controlled through this service and this characteris
 The app will send a text string to the tail to the right characteristic. 
 And there are 11 built in moves you can call up immediately.
 
-You cannot use DIGITAiL when it is connected to the power supply, however you can with MiTail.
+You cannot use DIGITAiL when it is connected to the power supply, but you can use MiTail whilst its charging.
 
 ## BUILT IN MOVES
 
