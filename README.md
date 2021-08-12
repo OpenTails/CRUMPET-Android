@@ -23,6 +23,7 @@ Note: You cannot use DIGITAiL when it is connected to the power supply.
 MiTail
 Device name is "mitail"
 Device Service is 3af2108b-d066-42da-a7d4-55648fa0a9b6
+
 5bfd6484-ddee-4723-bfe6-b653372bbfd6 - Rx characteristic 
 c6612b64-0087-4974-939e-68968ef294b0 - Tx characteristic
 
