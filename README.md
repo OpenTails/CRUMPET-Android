@@ -13,15 +13,17 @@ Please see separate document entitled "EarGear Protocol" for full details
 
 Over Bluetooth, you find the device by its ID, then you find its service (like its battery gauge) and the its characteristic (what's the power level?) and then Connect. And read the info, and show it, or write to it!
 
-DIGITAiL
+# DIGITAiL
 Device name is "(!)Tail1" (for DIGITAiL) or "mitail" for MiTail
 Device Service [0xffe0] (for DIGITAiL)
 Device Characteristic [0xffe1]
 
 Note: You cannot use DIGITAiL when it is connected to the power supply.
 
-MiTail
+# MiTail
+
 Device name is "mitail"
+
 Device Service is 3af2108b-d066-42da-a7d4-55648fa0a9b6
 
 5bfd6484-ddee-4723-bfe6-b653372bbfd6 - Rx characteristic 
