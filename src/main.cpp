@@ -78,6 +78,11 @@ int appMain(int argc, char *argv[])
     QApplication app(argc, argv);
 #endif
     //qputenv("QML_IMPORT_TRACE", "1");
+    PermissionsManager* permissionsManager = new PermissionsManager(&app);
+    permissionsManager->requestPermission("android.permission.WRITE_EXTERNAL_STORAGE");
+    while(!permissionsManager->hasPermission("android.permission.WRITE_EXTERNAL_STORAGE")) {
+        app.processEvents();
+    }
 
 #ifdef Q_OS_ANDROID
     qDebug() << "Starting service, if it isn't already...";
@@ -89,8 +94,13 @@ int appMain(int argc, char *argv[])
 #else
     app.setApplicationVersion("Desktop");
 #endif
+
     KLocalizedString::setApplicationDomain("digitail");
+#if defined(__ANDROID__)
+    KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/share/locale");
+#else
     KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../locale").arg(app.applicationDirPath()));
+#endif
 
     QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
     QIcon::setThemeName(QStringLiteral("breeze-internal"));
@@ -179,7 +189,6 @@ int appMain(int argc, char *argv[])
         return -1;
     }
 
-    PermissionsManager* permissionsManager = new PermissionsManager(&app);
     QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
         if(permissionsManager->hasPermission(QString("ACCESS_FINE_LOCATION"))) {
             // Don't launch the discovery immediately, let's give things a change to start up...
@@ -237,7 +246,11 @@ int serviceMain(int argc, char *argv[])
     qInfo() << "Service starting...";
 
     KLocalizedString::setApplicationDomain("digitail");
+#if defined(__ANDROID__)
+    KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/share/locale");
+#else
     KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../locale").arg(app.applicationDirPath()));
+#endif
 
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
 
