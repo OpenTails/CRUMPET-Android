@@ -74,7 +74,7 @@ Kirigami.ScrollablePage {
                 "duration": 0
             }
 
-            property string title: command["name"];
+            property string title: command["name"].length > 0 ? command["name"] : "(what?)";
 
             Component.onCompleted: {
                 Digitail.Utilities.getCommand(modelData);
