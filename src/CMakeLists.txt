@@ -70,6 +70,8 @@ add_custom_target(convert_translations_for_embedding
 add_dependencies(digitail convert_translations_for_embedding)
 
 install(TARGETS digitail ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+include(${KI18n_BINARY_DIR}/cmake/KF5I18nMacros.cmake)
 ki18n_install(po)
 
 # kirigami_package_breeze_icons(ICONS application-menu document-decrypt folder-sync go-next go-previous go-up handle-left handle-right view-list-icons applications-graphics media-record-symbolic)
