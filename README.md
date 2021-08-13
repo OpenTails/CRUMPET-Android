@@ -257,6 +257,7 @@ mkdir build-arm
 cd build-arm
 export ANDROID_ARCH_ABI=armeabi-v7a
 cmake \
+    -DCMAKE_FIND_ROOT_PATH=/opt/kdeandroid-arm \
     -DCMAKE_TOOLCHAIN_FILE=/opt/nativetooling/share/ECM/toolchain/Android.cmake \
     -DCMAKE_INSTALL_PREFIX="/opt/kdeandroid-arm" \
     -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt \
@@ -283,6 +284,7 @@ mkdir build-arm64
 cd build-arm64
 export ANDROID_ARCH_ABI=arm64-v8a
 cmake \
+    -DCMAKE_FIND_ROOT_PATH=/opt/kdeandroid-arm64 \
     -DCMAKE_TOOLCHAIN_FILE=/opt/nativetooling/share/ECM/toolchain/Android.cmake \
     -DCMAKE_INSTALL_PREFIX="/opt/kdeandroid-arm64" \
     -DECM_ADDITIONAL_FIND_ROOT_PATH=/opt/Qt \
