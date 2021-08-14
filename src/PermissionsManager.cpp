@@ -19,6 +19,7 @@
 
 #include <QCoreApplication>
 #include <QTimer>
+#include <QDebug>
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
@@ -89,8 +90,13 @@ void PermissionsManager::requestPermission(const QString& permission)
 
 void PermissionsManager::requestPermissionNow(const QString& permission)
 {
+    QEventLoop loop;
     d->permissionsToRequest << QString("android.permission.%1").arg(permission);
     d->doRequest();
+    connect(this, &PermissionsManager::permissionsChanged, &loop, &QEventLoop::quit);
+    connect(this, &PermissionsManager::permissionsChanged, &loop, [](){ qDebug() << "Permissions changed, exit event loop"; });
+    qDebug() << "Starting inner event loop for immediate permissions request";
+    loop.exec();
 }
 
 bool PermissionsManager::hasPermission(const QString& permission) const

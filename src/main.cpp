@@ -80,8 +80,9 @@ int appMain(int argc, char *argv[])
     //qputenv("QML_IMPORT_TRACE", "1");
     PermissionsManager* permissionsManager = new PermissionsManager(&app);
     permissionsManager->requestPermissionNow("android.permission.WRITE_EXTERNAL_STORAGE");
-    while(!permissionsManager->hasPermission("android.permission.WRITE_EXTERNAL_STORAGE")) {
-        app.processEvents();
+    if(!permissionsManager->hasPermission("android.permission.WRITE_EXTERNAL_STORAGE")) {
+        qCritical() << "We were not granted the external storage access.";
+        app.quit();
     }
 
 #ifdef Q_OS_ANDROID
