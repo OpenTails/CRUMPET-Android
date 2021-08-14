@@ -28,6 +28,7 @@ public:
     ~PermissionsManager() override;
 
     Q_INVOKABLE void requestPermission(const QString& permission);
+    Q_INVOKABLE void requestPermissionNow(const QString& permission);
     Q_INVOKABLE bool hasPermission(const QString& permission) const;
     Q_SIGNAL void permissionsChanged();
 private:

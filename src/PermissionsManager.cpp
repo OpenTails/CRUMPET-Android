@@ -87,6 +87,12 @@ void PermissionsManager::requestPermission(const QString& permission)
     d->requestDelay.start();
 }
 
+void PermissionsManager::requestPermissionNow(const QString& permission)
+{
+    d->permissionsToRequest << QString("android.permission.%1").arg(permission);
+    d->doRequest();
+}
+
 bool PermissionsManager::hasPermission(const QString& permission) const
 {
 #ifdef Q_OS_ANDROID

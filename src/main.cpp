@@ -79,7 +79,7 @@ int appMain(int argc, char *argv[])
 #endif
     //qputenv("QML_IMPORT_TRACE", "1");
     PermissionsManager* permissionsManager = new PermissionsManager(&app);
-    permissionsManager->requestPermission("android.permission.WRITE_EXTERNAL_STORAGE");
+    permissionsManager->requestPermissionNow("android.permission.WRITE_EXTERNAL_STORAGE");
     while(!permissionsManager->hasPermission("android.permission.WRITE_EXTERNAL_STORAGE")) {
         app.processEvents();
     }
