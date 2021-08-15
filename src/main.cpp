@@ -98,7 +98,11 @@ int appMain(int argc, char *argv[])
 
     KLocalizedString::setApplicationDomain("digitail");
 #if defined(__ANDROID__)
-    KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/share/locale");
+    KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
+    QStringList languages{"da_DK", "es_ES", "fr", "nl_NL"};
+    for (const QString& language : languages) {
+        qDebug() << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
+    }
 #else
     KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../locale").arg(app.applicationDirPath()));
 #endif
