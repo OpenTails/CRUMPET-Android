@@ -28,6 +28,7 @@ Kirigami.AbstractCard {
         id: headerLabel;
         level: 2
         padding: Kirigami.Units.smallSpacing;
+        wrapMode: Text.Wrap;
     }
     contentItem: QQC2.Label {
         id: descriptionLabel;

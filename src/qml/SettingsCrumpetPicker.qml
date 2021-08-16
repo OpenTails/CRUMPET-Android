@@ -65,6 +65,7 @@ Kirigami.ScrollablePage {
                 }
                 QQC2.Label {
                     Layout.fillWidth: true;
+                    wrapMode: Text.Wrap;
                     text: commandFile.title
                 }
             }

@@ -60,6 +60,7 @@ Item {
             header: Kirigami.Heading {
                 text: modelData["name"]
                 level: 2
+                wrapMode: Text.Wrap;
             }
             contentItem: GridLayout {
                 id: commandGrid;

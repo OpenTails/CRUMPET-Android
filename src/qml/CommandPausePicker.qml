@@ -40,6 +40,7 @@ Kirigami.OverlaySheet {
 
     header: Kirigami.Heading {
         text: i18nc("Heading for an overlay for picking the duration of a pause in the command list", "Pick the duration of your pause");
+        wrapMode: Text.Wrap;
     }
 
     Column {

@@ -38,6 +38,7 @@ Kirigami.OverlaySheet {
 
     header: Kirigami.Heading {
         id: textHeader;
+        wrapMode: Text.Wrap;
     }
 
     footer: RowLayout {

@@ -28,6 +28,7 @@ ColumnLayout {
     Layout.fillWidth: true;
     Label {
         text: i18nc("Label for selecting the range of pauses in between moves in Casual Mode", "Range of pause between moves in seconds");
+        wrapMode: Text.Wrap;
         Layout.fillWidth: true;
     }
 

@@ -28,6 +28,7 @@ Kirigami.OverlaySheet {
     signal commandPicked(string command, variant destinations);
     header: Kirigami.Heading {
         text: i18nc("Heading for the overlay for picking a command, for configuring a move list", "Pick a command");
+        wrapMode: Text.Wrap;
     }
     BaseMovesComponent {
         infoText: i18nc("Description for the overlay for picking a command, for configuring a move list", "The list below shows all the moves and light patterns available to your gear. Tap any of them to pick that command.");

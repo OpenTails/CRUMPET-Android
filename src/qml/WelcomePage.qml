@@ -181,6 +181,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Heading {
                         text: i18nc("Label for the button for opening the Casual Mode page, on the welcome page", "Casual Mode");
                         Layout.fillWidth: true;
+                        wrapMode: Text.Wrap;
                     }
                     CheckBox {
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
@@ -241,6 +242,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Heading {
                     text: i18nc("Heading for the panel for turning on Listening Mode", "Listening Mode");
                     Layout.fillWidth: true;
+                    wrapMode: Text.Wrap;
                     Digitail.FilterProxyModel {
                         id: connectedDevicesModel
                         sourceModel: DeviceModel;
@@ -304,6 +306,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Heading {
                     text: i18nc("Label for the button for opening the Gear Gestures page, on the welcome page", "Gear Gestures");
                     Layout.fillWidth: true;
+                    wrapMode: Text.Wrap;
                     Digitail.FilterProxyModel {
                         id: pinnedSensorsModel;
                         sourceModel: GestureDetectorModel;

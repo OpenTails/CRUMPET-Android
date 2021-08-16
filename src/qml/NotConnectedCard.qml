@@ -60,6 +60,7 @@ Kirigami.AbstractCard {
         level: 2
         padding: Kirigami.Units.smallSpacing;
         horizontalAlignment: Text.AlignHCenter;
+        wrapMode: Text.Wrap;
         BusyIndicator {
             anchors {
                 top: parent.top;
