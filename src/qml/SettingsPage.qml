@@ -39,6 +39,10 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true; Layout.fillHeight: true;
                     Kirigami.UrlButton {
                         Layout.fillWidth: true; Layout.fillHeight: true;
+                        url: "http://thetailcompany.com/mitail.pdf";
+                    }
+                    Kirigami.UrlButton {
+                        Layout.fillWidth: true; Layout.fillHeight: true;
                         url: "http://thetailcompany.com/digitail.pdf";
                     }
                     Kirigami.UrlButton {
