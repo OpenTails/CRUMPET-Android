@@ -52,8 +52,8 @@ Item {
         Item {
             id: categoryRoot;
             Layout.fillWidth: true;
-            Layout.minimumHeight: categoryHeading.height + commandGrid.height + Kirigami.Units.smallSpacing * 2
-            Layout.maximumHeight: categoryHeading.height + commandGrid.height + Kirigami.Units.smallSpacing * 2
+            Layout.minimumHeight: categoryHeading.height + commandGrid.height + Kirigami.Units.largeSpacing * 2
+            Layout.maximumHeight: categoryHeading.height + commandGrid.height + Kirigami.Units.largeSpacing * 2
             visible: opacity > 0;
             opacity: commandRepeater.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
@@ -72,7 +72,7 @@ Item {
                 Kirigami.Heading {
                     id: categoryHeading
                     Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.smallSpacing
+                    Layout.margins: Kirigami.Units.largeSpacing
                     text: modelData["name"]
                     level: 2
                     wrapMode: Text.Wrap;
