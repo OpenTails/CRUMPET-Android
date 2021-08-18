@@ -51,8 +51,8 @@ public:
 
     QTimer pingTimer;
     QBluetoothUuid deviceServiceUuid{QLatin1String{"3af2108b-d066-42da-a7d4-55648fa0a9b6"}};
-    QBluetoothUuid deviceCommandWriteCharacteristicUuid{QLatin1String("{c6612b64-0087-4974-939e-68968ef294b0}")};
-    QBluetoothUuid deviceCommandReadCharacteristicUuid{QLatin1String("{5bfd6484-ddee-4723-bfe6-b653372bbfd6}")};
+    QBluetoothUuid deviceCommandReadCharacteristicUuid{QLatin1String("{c6612b64-0087-4974-939e-68968ef294b0}")};
+    QBluetoothUuid deviceCommandWriteCharacteristicUuid{QLatin1String("{5bfd6484-ddee-4723-bfe6-b653372bbfd6}")};
 
     int reconnectThrottle{0};
     void reconnectDevice(QObject* context)
@@ -103,7 +103,7 @@ public:
 
             deviceCommandReadCharacteristic = deviceService->characteristic(deviceCommandReadCharacteristicUuid);
             if (!deviceCommandReadCharacteristic.isValid()) {
-                qDebug() << q->name() << q->deviceID() << "EarGear command reading characteristic not found, this is bad";
+                qDebug() << q->name() << q->deviceID() << "MiTail command reading characteristic not found, this is bad";
                 q->deviceMessage(q->deviceID(), i18nc("A message when sent when attempting to connect to a device which does not have a specific expected feature", "It looks like this device is not a MiTail (could not find the main device reading characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
                 q->disconnectDevice();
                 break;
@@ -112,8 +112,13 @@ public:
             q->commandModel->clear();
 
             // Get the descriptor, and turn on notifications
-            QLowEnergyDescriptor earsDescriptor = deviceCommandReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
-            deviceService->writeDescriptor(earsDescriptor, QByteArray::fromHex("0100"));
+            QLowEnergyDescriptor commandUpdateDescriptor = deviceCommandReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+            if (deviceCommandReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
+                deviceService->writeDescriptor(commandUpdateDescriptor, QByteArray::fromHex("0100"));
+            }
+            if (deviceCommandReadCharacteristic.properties() & QLowEnergyCharacteristic::Indicate) {
+                deviceService->writeDescriptor(commandUpdateDescriptor, QByteArray::fromHex("0200"));
+            }
 
             reconnectThrottle = 0;
             emit q->isConnectedChanged(q->isConnected());
