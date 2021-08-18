@@ -63,6 +63,16 @@ Kirigami.ApplicationWindow {
     pageStack.defaultColumnWidth: root.width;
 
     Connections {
+        target: PermissionsManager;
+        ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
+        function onPermissionsChanged() {
+            root.hasScanPermission = PermissionsManager.hasPermission("ACCESS_FINE_LOCATION");
+        }
+    }
+    property bool hasScanPermission: PermissionsManager.hasPermission("ACCESS_FINE_LOCATION");
+    onHasScanPermissionChanged: btConnection.checkBluetoothState();
+
+    Connections {
         id: btConnection
         target: BTConnectionManager;
         onMessage: {
@@ -101,12 +111,14 @@ Kirigami.ApplicationWindow {
         }
 
         function checkBluetoothState() {
-            if (BTConnectionManager.bluetoothState === 0 ) {
-                showMessageBox(i18nc("Title for the warning for having Bluetooth disabled", "Warning"), i18nc("Message for the warning for having Bluetooth disabled", "Bluetooth is disabled"));
-            } else if (BTConnectionManager.bluetoothState === 2) {
-                showMessageBox(i18nc("Title for the warning for not having detected any Bluetooth devices", "Warning"), i18nc("Message for the warning for not having detected any Bluetooth devices", "No Bluetooth Device"));
-            } else {
-                console.log("Bluetooth is enabled");
+            if (root.hasScanPermission) {
+                if (BTConnectionManager.bluetoothState === 0 ) {
+                    showMessageBox(i18nc("Title for the warning for having Bluetooth disabled", "Warning"), i18nc("Message for the warning for having Bluetooth disabled", "Bluetooth is disabled"));
+                } else if (BTConnectionManager.bluetoothState === 2) {
+                    showMessageBox(i18nc("Title for the warning for not having detected any Bluetooth devices", "Warning"), i18nc("Message for the warning for not having detected any Bluetooth devices", "No Bluetooth Device"));
+                } else {
+                    console.log("Bluetooth is enabled");
+                }
             }
         }
     }
