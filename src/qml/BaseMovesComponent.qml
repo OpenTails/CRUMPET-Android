@@ -45,90 +45,107 @@ Item {
     height: contents.height;
     property int itemsAcross: pageStack.currentItem.width > pageStack.currentItem.height ? 4 : 3;
 
+    property int commandButtonSize: Kirigami.Units.gridUnit * 5
+
     Component {
         id: categoryDelegate;
-        Kirigami.AbstractCard {
+        Item {
             id: categoryRoot;
             Layout.fillWidth: true;
+            Layout.minimumHeight: categoryHeading.height + commandGrid.height
+            Layout.maximumHeight: categoryHeading.height + commandGrid.height
             visible: opacity > 0;
             opacity: commandRepeater.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-            background: Kirigami.ShadowedRectangle {
+            Kirigami.ShadowedRectangle {
                 color: modelData["color"]
                 radius: Kirigami.Units.largeSpacing
+                anchors.fill: parent
             }
-            header: Kirigami.Heading {
-                text: modelData["name"]
-                level: 2
-                wrapMode: Text.Wrap;
-            }
-            contentItem: GridLayout {
-                id: commandGrid;
-                columns: commandGrid.width / (Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit * 10)
-                property int rowCount: Math.ceil(filterProxy.count / columns)
-                Layout.preferredHeight: (Kirigami.Units.gridUnit * 10 + Kirigami.Units.largeSpacing * 4) * rowCount
-                rowSpacing: 0
-                columnSpacing: 0
-                FilterProxyModel {
-                    id: filterProxy;
-                    sourceModel: CommandModel;
-                    filterRole: 260; // the Category role ID
-                    filterString: modelData["category"];
+            ColumnLayout {
+                height: categoryHeading.height + commandGrid.height
+                anchors {
+                    left: parent.left;
+                    right: parent.right;
                 }
-                Component {
-                    id: commandDelegate
-                    Item {
-                        Layout.fillWidth: true
-                        Layout.minimumHeight: Kirigami.Units.gridUnit * 10
-                        Layout.maximumHeight: Kirigami.Units.gridUnit * 10
-                        opacity: model.isAvailable || model.isRunning ? 1 : 0.5;
-                        Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
-                        Rectangle {
-                            anchors {
-                                horizontalCenter: parent.horizontalCenter
-                                margins: Kirigami.Units.smallSpacing;
-                            }
-                            height: Kirigami.Units.gridUnit * 10 - Kirigami.Units.largeSpacing * 2
-                            width: height
-                            border {
-                                width: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
-                                color: "silver";
-                            }
-                            radius: width / 2
-                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            Label {
+                Kirigami.Heading {
+                    id: categoryHeading
+                    Layout.fillWidth: true
+                    Layout.margins: Kirigami.Units.smallSpacing
+                    text: modelData["name"]
+                    level: 2
+                    wrapMode: Text.Wrap;
+                }
+                GridLayout {
+                    id: commandGrid;
+                    columns: commandGrid.width / root.commandButtonSize
+                    property int rowCount: Math.ceil(filterProxy.count / columns)
+                    Layout.fillWidth: true
+                    Layout.minimumHeight: root.commandButtonSize * (rowCount + 1)
+                    Layout.maximumHeight: root.commandButtonSize * (rowCount + 1)
+                    rowSpacing: 0
+                    columnSpacing: 0
+                    FilterProxyModel {
+                        id: filterProxy;
+                        sourceModel: CommandModel;
+                        filterRole: 260; // the Category role ID
+                        filterString: modelData["category"];
+                    }
+                    Component {
+                        id: commandDelegate
+                        Item {
+                            Layout.fillWidth: true
+                            Layout.minimumHeight: root.commandButtonSize
+                            Layout.maximumHeight: root.commandButtonSize
+                            opacity: model.isAvailable || model.isRunning ? 1 : 0.5;
+                            Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
+                            Rectangle {
                                 anchors {
-                                    fill: parent;
-                                }
-                                wrapMode: Text.Wrap;
-                                horizontalAlignment: Text.AlignHCenter;
-                                verticalAlignment: Text.AlignVCenter;
-                                text: model.name ? model.name : "";
-                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            }
-                            MouseArea {
-                                anchors.fill: parent;
-                                // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
-                                property string command: model.command ? model.command : "";
-                                onClicked: { sendCommandToSelector.selectDestination(command); }
-                                enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
-                            }
-                            BusyIndicator {
-                                anchors {
-                                    fill: parent;
+                                    horizontalCenter: parent.horizontalCenter
                                     margins: Kirigami.Units.smallSpacing;
                                 }
-                                opacity: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
-                                Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
-                                running: opacity > 0
+                                height: root.commandButtonSize - Kirigami.Units.smallSpacing * 2
+                                width: height
+                                border {
+                                    width: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
+                                    color: "silver";
+                                }
+                                radius: width / 2
+                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                Label {
+                                    anchors {
+                                        fill: parent;
+                                    }
+                                    wrapMode: Text.Wrap;
+                                    horizontalAlignment: Text.AlignHCenter;
+                                    verticalAlignment: Text.AlignVCenter;
+                                    text: model.name ? model.name : "";
+                                    Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                }
+                                MouseArea {
+                                    anchors.fill: parent;
+                                    // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
+                                    property string command: model.command ? model.command : "";
+                                    onClicked: { sendCommandToSelector.selectDestination(command); }
+                                    enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
+                                }
+                                BusyIndicator {
+                                    anchors {
+                                        fill: parent;
+                                        margins: Kirigami.Units.smallSpacing;
+                                    }
+                                    opacity: model.isRunning ? (root.ignoreAvailability ? 0 : 1) : 0;
+                                    Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
+                                    running: opacity > 0
+                                }
                             }
                         }
                     }
-                }
-                Repeater {
-                    id: commandRepeater;
-                    model: filterProxy;
-                    delegate: commandDelegate;
+                    Repeater {
+                        id: commandRepeater;
+                        model: filterProxy;
+                        delegate: commandDelegate;
+                    }
                 }
             }
         }
