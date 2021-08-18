@@ -52,8 +52,8 @@ Item {
         Item {
             id: categoryRoot;
             Layout.fillWidth: true;
-            Layout.minimumHeight: categoryHeading.height + commandGrid.height
-            Layout.maximumHeight: categoryHeading.height + commandGrid.height
+            Layout.minimumHeight: categoryHeading.height + commandGrid.height + Kirigami.Units.smallSpacing * 2
+            Layout.maximumHeight: categoryHeading.height + commandGrid.height + Kirigami.Units.smallSpacing * 2
             visible: opacity > 0;
             opacity: commandRepeater.count > 0 ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
@@ -64,6 +64,7 @@ Item {
             }
             ColumnLayout {
                 height: categoryHeading.height + commandGrid.height
+                spacing: 0
                 anchors {
                     left: parent.left;
                     right: parent.right;
@@ -81,8 +82,8 @@ Item {
                     columns: commandGrid.width / root.commandButtonSize
                     property int rowCount: Math.ceil(filterProxy.count / columns)
                     Layout.fillWidth: true
-                    Layout.minimumHeight: root.commandButtonSize * (rowCount + 1)
-                    Layout.maximumHeight: root.commandButtonSize * (rowCount + 1)
+                    Layout.minimumHeight: root.commandButtonSize * rowCount
+                    Layout.maximumHeight: root.commandButtonSize * rowCount
                     rowSpacing: 0
                     columnSpacing: 0
                     FilterProxyModel {
