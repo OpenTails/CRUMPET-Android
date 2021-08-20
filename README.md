@@ -93,7 +93,9 @@ SHUTDOWN - powers off the unit (will lose the connection!)
 BATT - returns Bn (n= 0,1,2,3,4 number of 'bars')
 USERMOVE and USERLEDS which deal with user created moves or LED patterns
 ```
-Also, commands are case insensitive
+Also, DIGITAiL commands are case insensitive. MiTail commands must be in all caps.
+
+AUTOMODE is another command, created for iOS devices, where sending bluetooth in the background is prohibited.
 
 Note about Battery Level: the batteries are read charge-wise only when the app asks. There is a super-quick flash of any connected LEDS when the reading is done. The charge level is returned BATTn with n showing charge. If the Tail determines the charge is low, the tail will flash the internal red led.
 
