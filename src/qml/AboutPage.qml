@@ -49,7 +49,7 @@ Kirigami.AboutPage {
         "productName" : "digitail/controller",
         "programLogo" : "qrc:/icon-round.png",
         "componentName" : "digitail",
-        "shortDescription" : "Crumpet, DIGITAiL, and EarGear designed and created by The Tail Company",
+        "shortDescription" : "Crumpet, MiTail, DIGITAiL, and EarGear designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
         "bugAddress" : "info@thetailcompany.com",
         "version" : AppVersion,
@@ -57,14 +57,15 @@ Kirigami.AboutPage {
         "authors" : [
                     {
                         "name" : "Dan Leinir Turthra Jensen",
-                        "task" : i18nc("Task description for leinir", "Lead Developer"),
+                        // TODO Reenable this when the about page wraps the person delegate properly
+                        //"task" : i18nc("Task description for leinir", "Lead Developer"),
                         "emailAddress" : "admin@leinir.dk",
                         "webAddress" : "https://leinir.dk/",
                         "ocsUsername" : "leinir"
                     },
                     {
                         "name" : "Ildar Gilmanov",
-                        "task" : i18nc("Task description for Ildar", "Qt/QML Developer"),
+                        //"task" : i18nc("Task description for Ildar", "Qt/QML Developer"),
                         "emailAddress" : "gil.ildar@gmail.com"
                     }
                 ],
