@@ -1,3 +1,10 @@
+23
+- Add MiTail support
+- Add translation support (Danish, French, Dutch, and Spanish for now)
+- NEW PERMISSION: Write External Storage, used for translation support
+- The command selector page should be much faster now
+- Fix a few layout niggles
+
 22
 - Command list editor is now a timeline style view rather than just a list
 - Walking detection introduced
