@@ -65,35 +65,46 @@ Column {
                 Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
             }
 
-            Row {
-                spacing: Kirigami.Units.smallSpacing;
+            Rectangle {
                 anchors.right: parent.right;
+                height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing * 2;
+                width: Kirigami.Units.iconSizes.small * 4 + Kirigami.Units.smallSpacing * 5;
+                color: "transparent";
 
-                Repeater {
-                    model: 4;
+                border {
+                    width: 2;
+                    color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
+                }
+                radius: Kirigami.Units.smallSpacing;
+                Row {
+                    spacing: Kirigami.Units.smallSpacing;
+                    anchors {
+                        fill: parent;
+                        margins: Kirigami.Units.smallSpacing;
+                    }
 
-                    Rectangle {
-                        height: Kirigami.Units.iconSizes.small;
-                        width: height;
-                        radius: height / 2;
-                        color: "transparent";
-
-                        border {
-                            width: 1;
-                            color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
-                        }
-
-                        anchors.verticalCenter: parent.verticalCenter;
+                    Repeater {
+                        model: 4;
 
                         Rectangle {
                             visible: modelData < batteryDelegate.batteryLevel;
-                            height: parent.height - Kirigami.Units.smallSpacing * 2;
+                            height: Kirigami.Units.iconSizes.small
                             width: height;
-                            radius: height / 2;
+                            radius: Kirigami.Units.smallSpacing / 2;
                             color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
-                            anchors.centerIn: parent;
                         }
                     }
+                }
+                Rectangle {
+                    anchors {
+                        top: parent.top;
+                        left: parent.right;
+                        bottom: parent.bottom;
+                        topMargin: parent.height / 3;
+                        bottomMargin: parent.height / 3;
+                    }
+                    width: 2
+                    color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
                 }
             }
         }
