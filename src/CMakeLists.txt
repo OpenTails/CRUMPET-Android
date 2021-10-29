@@ -63,11 +63,11 @@ endif()
 target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
 
 # Translations
-add_custom_target(convert_translations_for_embedding
-    ${CMAKE_CURRENT_SOURCE_DIR}/convert_translations.sh ${CMAKE_BINARY_DIR}
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-)
-add_dependencies(digitail convert_translations_for_embedding)
+#add_custom_target(convert_translations_for_embedding
+    #${CMAKE_CURRENT_SOURCE_DIR}/convert_translations.sh ${CMAKE_BINARY_DIR}
+    #WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+#)
+#add_dependencies(digitail convert_translations_for_embedding)
 
 install(TARGETS digitail ${INSTALL_TARGETS_DEFAULT_ARGS})
 
