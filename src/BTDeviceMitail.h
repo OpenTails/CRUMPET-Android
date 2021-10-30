@@ -39,6 +39,12 @@ public:
     QStringList defaultCommandFiles() const override;
 
     void sendMessage(const QString &message) override;
+
+    Q_INVOKABLE void checkOTA() override;
+    Q_INVOKABLE bool hasAvailableOTA() override;
+    Q_INVOKABLE void downloadOTAData() override;
+    Q_INVOKABLE void setOTAData ( const QString& md5sum, const QByteArray& firmware ) override;
+    Q_INVOKABLE void startOTA() override;
 private:
     class Private;
     Private* d;

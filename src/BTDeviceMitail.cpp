@@ -20,7 +20,13 @@
 #include <KLocalizedString>
 
 #include <QCoreApplication>
+#include <QCryptographicHash>
 #include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QPointer>
 #include <QTimer>
 
 #include "AppSettings.h"
@@ -157,6 +163,19 @@ public:
             else if (theValue == QLatin1String{"MiTail started"}) {
                 qDebug() << q->name() << q->deviceID() << "MiTail detected the connection";
             }
+            else if (stateResult[0] == QLatin1String("OTA") || firmwareProgress > -1) {
+                if (firmwareProgress < firmware.size()) {
+                    // send firmware bytes in chunks of MTU size minus 3, until we're done
+                    static const int MTUSize{20}; // tiny size, but... a little odd
+                    firmwareChunk = firmware.mid(firmwareProgress + 1, MTUSize);
+                    firmwareProgress += firmwareChunk.size();
+                    deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
+                    q->deviceMessage(q->deviceID(), i18n("Uploading firmware: %1/%2", firmwareProgress, firmware.size()));
+                } else {
+                    // we presumably just rebooted...
+                    qDebug() << "We presumably just rebooted?";
+                }
+            }
             else if (stateResult.last() == QLatin1String{"BEGIN"}) {
                 q->commandModel->setRunning(currentCall, true);
                 // ****************************************************
@@ -208,6 +227,72 @@ public:
         qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
         currentCall = newValue;
         emit q->currentCallChanged(currentCall);
+    }
+
+
+    QByteArray firmware;
+    QString otaVersion;
+    QUrl firmwareUrl;
+    QString firmwareMD5;
+    QByteArray firmwareChunk;
+    int firmwareProgress{-1};
+
+    enum DownloadOperation {
+        NoDownloadOperation,
+        DownloadingOTAInformation,
+        DownloadingOTAData,
+    };
+    DownloadOperation downloadOperation{NoDownloadOperation};
+    QNetworkAccessManager qnam;
+    QPointer<QNetworkReply> networkReply;
+    void handleRedirect(QNetworkReply *reply)
+    {
+        QNetworkAccessManager *qnam = reply->manager();
+        if (reply->error() != QNetworkReply::NoError) {
+            return;
+        }
+        const QUrl possibleRedirectUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+        if (!possibleRedirectUrl.isEmpty()) {
+            const QUrl redirectUrl = reply->url().resolved(possibleRedirectUrl);
+            if (redirectUrl == reply->url()) {
+                // no infinite redirections thank you very much
+                reply->deleteLater();
+                return;
+            }
+            reply->deleteLater();
+            QNetworkRequest request(possibleRedirectUrl);
+            request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
+            networkReply = qnam->get(request);
+            connect(networkReply.data(), &QNetworkReply::finished, q, [this]() {
+                handleFinished(networkReply);
+            });
+        }
+    }
+    void handleFinished(QNetworkReply* reply) {
+        reply->deleteLater();
+        if (reply->attribute(QNetworkRequest::RedirectionTargetAttribute).isNull()) {
+            // Then we are doing the thing
+            QByteArray downloadedData = reply->readAll();
+            if (downloadOperation == DownloadingOTAInformation) {
+                // The OTA information is a json object with three properties (the version, the md5sum, and the url for the firmware payload)
+                QJsonDocument document = QJsonDocument::fromJson(downloadedData);
+                if (document.isObject()) {
+                    QJsonObject fwInfoObj = document.object();
+                    firmwareUrl = fwInfoObj.value("url").toString();
+                    firmwareMD5 = fwInfoObj.value("md5sum").toString();
+                    otaVersion = fwInfoObj.value("version").toString();
+                    Q_EMIT q->hasAvailableOTAChanged();
+                } else {
+                    q->deviceMessage(q->deviceID(), i18nc("Warning message for when the firmware update information file did not contain a JSON object", "The file used to determine information about new firmware versions did not contain the expected format of data. This is likely a temporary error, or a connection issue. If you run into this problem repeatedly, please get in touch."));
+                }
+            } else if (downloadOperation == DownloadingOTAData) {
+                q->setOTAData(firmwareMD5, downloadedData);
+            }
+            downloadOperation = NoDownloadOperation;
+        } else {
+            // If it has contents, we're redirecting
+            handleRedirect(reply);
+        }
     }
 };
 
@@ -446,4 +531,52 @@ void BTDeviceMitail::sendMessage(const QString &message)
 QStringList BTDeviceMitail::defaultCommandFiles() const
 {
     return QStringList{QLatin1String{":/commands/digitail-builtin.crumpet"}};
+}
+
+void BTDeviceMitail::checkOTA()
+{
+    if (d->downloadOperation == Private::NoDownloadOperation) {
+        d->downloadOperation = Private::DownloadingOTAInformation;
+        QNetworkRequest request(QUrl("https://thetailcompany.com/fw/mitail"));
+        d->networkReply = d->qnam.get(request);
+        connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
+    }
+}
+
+bool BTDeviceMitail::hasAvailableOTA()
+{
+    if (!d->otaVersion.isEmpty() && d->version < d->otaVersion) {
+        // this will need thought... comparing the version strings like this will not work
+        return true;
+    }
+    return false;
+}
+
+void BTDeviceMitail::downloadOTAData()
+{
+    if (d->downloadOperation == Private::NoDownloadOperation) {
+        d->downloadOperation = Private::DownloadingOTAInformation;
+        QNetworkRequest request(d->firmwareUrl);
+        d->networkReply = d->qnam.get(request);
+        connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
+    }
+}
+
+void BTDeviceMitail::setOTAData(const QString& md5sum, const QByteArray& firmware)
+{
+    if (md5sum == QCryptographicHash::hash(firmware, QCryptographicHash::Md5)) {
+        d->firmware = firmware;
+    } else {
+        deviceMessage(deviceID(), i18n("The downloaded firmware update did not contain what we expected. This is commonly due to a problem with the download itself having failed, and you should simply try again. If it continues to fail, please get in touch with us and we can try and work something out!"));
+        d->firmware.clear();
+    }
+    d->firmwareProgress = -1;
+}
+
+void BTDeviceMitail::startOTA()
+{
+    // send "OTA (length of firmware in bytes) (md5sum)"
+    QString otaInitialiser = QString("OTA ").arg(d->firmware.length()).arg(d->firmwareMD5);
+    sendMessage(otaInitialiser);
+    // next step will happen in Private::characteristicChanged
 }
