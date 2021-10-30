@@ -37,6 +37,7 @@ BTDeviceFake::BTDeviceFake(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     , d(new Private)
 {
     d->batteryTimer.setInterval(1000);
+    setSupportsOTA(true);
     connect(&d->batteryTimer, &QTimer::timeout, this, [this](){
         if (d->batteryLevel > 3) {
             d->batteryLevel = 0;
