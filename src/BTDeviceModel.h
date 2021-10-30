@@ -50,7 +50,10 @@ public:
         HasListening,            // 265
         ListeningState,          // 266 - either 0 (off), 1 (on in iOS mode), or 2 (full feedback mode)
         EnabledCommandsFiles,    // 267 - a stringlist
-        MicsSwapped              // 268 - boolean value for whether or not the microphones have been swapped
+        MicsSwapped,             // 268 - boolean value for whether or not the microphones have been swapped
+        SupportsOTA,             // 269 - boolean value for whether or not the device supports over the air updates
+        HasAvailableOTA,         // 270 - boolean value for whether or not there is an update available for the device
+        HasOTAData,              // 271 - boolean value for whether or not firmware has been downloaded and is ready to be installed
     };
 
     AppSettings* appSettings() const;

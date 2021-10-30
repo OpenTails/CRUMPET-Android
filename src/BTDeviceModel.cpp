@@ -115,7 +115,10 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {HasListening, "hasListening"},
         {ListeningState, "listeningState"},
         {EnabledCommandsFiles, "enabledCommandsFiles"},
-        {MicsSwapped, "micsSwapped"}
+        {MicsSwapped, "micsSwapped"},
+        {SupportsOTA, "supportsOTA"},
+        {HasAvailableOTA, "hasAvailableOTA"},
+        {HasOTAData, "hasOTAData"},
     };
     return roles;
 }
@@ -176,6 +179,15 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 value = micsSwapped;
                 break;
             }
+            case SupportsOTA:
+                value = device->supportsOTA();
+                break;
+            case HasAvailableOTA:
+                value = device->hasAvailableOTA();
+                break;
+            case HasOTAData:
+                value = device->hasOTAData();
+                break;
             default:
                 break;
         }
@@ -255,6 +267,15 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
             } else {
                 emit deviceDisconnected(newDevice);
             }
+        });
+        connect(newDevice, &BTDevice::supportsOTAChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, SupportsOTA);
+        });
+        connect(newDevice, &BTDevice::hasAvailableOTAChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, HasAvailableOTA);
+        });
+        connect(newDevice, &BTDevice::hasOTADataChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, HasOTAData);
         });
         connect(newDevice, &BTDevice::batteryLevelChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, BatteryLevel);

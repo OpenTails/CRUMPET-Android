@@ -39,6 +39,8 @@ class BTDevice : public QObject
     Q_PROPERTY(QString deviceID READ deviceID CONSTANT)
     Q_PROPERTY(QStringList enabledCommandsFiles READ enabledCommandsFiles NOTIFY enabledCommandsFilesChanged)
     Q_PROPERTY(bool supportsOTA READ supportsOTA NOTIFY supportsOTAChanged)
+    Q_PROPERTY(bool hasAvailableOTA READ hasAvailableOTA NOTIFY hasAvailableOTAChanged)
+    Q_PROPERTY(bool hasOTAData READ hasOTAData NOTIFY hasOTADataChanged)
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
@@ -90,6 +92,15 @@ public:
     virtual void sendMessage(const QString &message) = 0;
 
     Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
+
+    Q_INVOKABLE virtual void checkOTA() {};
+    Q_INVOKABLE virtual bool hasAvailableOTA() { return false; };
+    Q_SIGNAL void hasAvailableOTAChanged();
+    Q_INVOKABLE virtual void downloadOTAData() {};
+    Q_INVOKABLE virtual bool hasOTAData() { return false; }
+    Q_SIGNAL void hasOTADataChanged();
+    Q_INVOKABLE virtual void setOTAData(const QString &md5sum, const QByteArray &firmware) { Q_UNUSED(md5sum); Q_UNUSED(firmware); };
+    Q_INVOKABLE virtual void startOTA() {};
 private:
     class Private;
     Private* d;
