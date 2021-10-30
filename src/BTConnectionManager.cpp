@@ -310,3 +310,11 @@ void BTConnectionManager::setDeviceCommandsFileEnabled(const QString& deviceID, 
         device->setCommandsFileEnabledState(filename, enabled);
     }
 }
+
+void BTConnectionManager::callDeviceFunction(const QString& deviceID, const QString& functionName)
+{
+    BTDevice* device = d->deviceModel->getDevice(deviceID);
+    if (device) {
+        QMetaObject::invokeMethod(device, functionName.toUtf8());
+    }
+}

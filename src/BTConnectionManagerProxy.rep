@@ -31,6 +31,9 @@ class BTConnectionManagerProxy {
     SLOT(void setDeviceListeningState(const QString& deviceID, int listeningMode))
     SLOT(void clearDeviceNames())
 
+    // Use this to call a function on a specific device without digging too deeply (for example, call the checkOTA function)
+    SLOT(void callDeviceFunction(const QString& deviceID, const QString& functionName))
+
     // Designed to fill up a map with information, based on the command found in the QVariantMap key "command"'s value
     PROP(QVariantMap command)
     SLOT(QVariantMap getCommand(const QString& command))
