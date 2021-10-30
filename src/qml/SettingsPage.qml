@@ -159,6 +159,51 @@ Kirigami.ScrollablePage {
         }
 
         SettingsCard {
+            visible: otaRepearer.count > 0
+            headerText: i18nc("Heading for the panel for checking for and performing firmware updates for gear which supports this", "Gear Firmware");
+            descriptionText: i18nc("Description for the panel for checking for and perfirming firmware updates for gear which supports this", "If your gear supports firmware updates, you can check for new ones by clicking the \"Check\" button below, and if there is one, you can then click the button underneath to download and install the update.");
+            footer: ColumnLayout {
+                Repeater {
+                    id: otaRepearer
+                    model: FilterProxyModel {
+                        sourceModel: onlyConnectedFilterProxy
+                        filterRole: 269; // the supportsOTA role
+                        filterBoolean: true;
+                    }
+                    delegate: ColumnLayout {
+                        Kirigami.Heading {
+                            Layout.fillWidth: true;
+                            text: model.name
+                        }
+                        QQC2.Button {
+                            Layout.fillWidth: true;
+                            text: i18nc("Label for the button which makes the app go online and check for the newest firmware available for the specific device", "Check For New Firmware");
+                            onClicked: {
+                                BTConnectionManager.callDeviceFunction(model.deviceID, "checkOTA");
+                            }
+                        }
+                        QQC2.Button {
+                            visible: model.hasAvailableOTA
+                            Layout.fillWidth: true;
+                            text: i18nc("Label for the button which makes the app download the newest available firmware (only visible when updated firmware has been found)", "Download");
+                            onClicked: {
+                                BTConnectionManager.callDeviceFunction(model.deviceID, "downloadOTAData");
+                            }
+                        }
+                        QQC2.Button {
+                            visible: model.hasOTAData
+                            Layout.fillWidth: true;
+                            text: i18nc("Label for the button which makes the app install the newest available firmware (only visible when updated firmware has been downloaded successfully)", "Install");
+                            onClicked: {
+                                BTConnectionManager.callDeviceFunction(model.deviceID, "startOTA");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        SettingsCard {
             headerText: i18nc("Heading for the panel of the language selector, on the settings page", "Language");
             descriptionText: i18nc("Description of the language selection option on the settings page", "Usually, Crumpet will use the language that your device uses, or English if that language is not available. However, if you wish to force some language, you can select it here, and we will use that language instead.");
             footer: QQC2.ComboBox {
