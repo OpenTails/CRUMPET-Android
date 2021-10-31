@@ -608,7 +608,7 @@ void BTDeviceMitail::startOTA()
     setDeviceProgress(0);
     setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));
     // send "OTA (length of firmware in bytes) (md5sum)"
-    QString otaInitialiser = QString("OTA ").arg(d->firmware.length()).arg(d->firmwareMD5);
+    QString otaInitialiser = QString("OTA %1 %2").arg(d->firmware.length()).arg(d->firmwareMD5);
     sendMessage(otaInitialiser);
     // next step will happen in Private::characteristicChanged
 }
