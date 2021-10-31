@@ -54,6 +54,9 @@ public:
         SupportsOTA,             // 269 - boolean value for whether or not the device supports over the air updates
         HasAvailableOTA,         // 270 - boolean value for whether or not there is an update available for the device
         HasOTAData,              // 271 - boolean value for whether or not firmware has been downloaded and is ready to be installed
+        DeviceProgress,          // 272 - integer from -1 through 100 (-1 meaning nothing ongoing, 0 meaning unknown progress, 1 through 100 being a percentage)
+        ProgressDescription,     // 273 - string describing the current step for the device progress
+        OperationInProgress,     // 274 - boolean which is true when the DeviceProgress role's value is larger than -1
     };
 
     AppSettings* appSettings() const;

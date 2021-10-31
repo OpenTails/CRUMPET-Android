@@ -119,6 +119,9 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {SupportsOTA, "supportsOTA"},
         {HasAvailableOTA, "hasAvailableOTA"},
         {HasOTAData, "hasOTAData"},
+        {DeviceProgress, "deviceProgress"},
+        {ProgressDescription, "progressDescription"},
+        {OperationInProgress, "operationInProgress"},
     };
     return roles;
 }
@@ -187,6 +190,15 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case HasOTAData:
                 value = device->hasOTAData();
+                break;
+            case DeviceProgress:
+                value = device->deviceProgress();
+                break;
+            case ProgressDescription:
+                value = device->progressDescription();
+                break;
+            case OperationInProgress:
+                value = device->deviceProgress() > -1;
                 break;
             default:
                 break;
@@ -267,6 +279,13 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
             } else {
                 emit deviceDisconnected(newDevice);
             }
+        });
+        connect(newDevice, &BTDevice::progressDescriptionChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, ProgressDescription);
+        });
+        connect(newDevice, &BTDevice::deviceProgressChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, OperationInProgress);
+            d->notifyDeviceDataChanged(newDevice, DeviceProgress);
         });
         connect(newDevice, &BTDevice::supportsOTAChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, SupportsOTA);
