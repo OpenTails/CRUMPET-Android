@@ -157,6 +157,22 @@ public:
                 version = newValue;
                 emit q->versionChanged(newValue);
                 pingTimer.start();
+                if (firmwareProgress > -1) {
+                    if (otaVersion == newValue) {
+                        // successful update get!
+                        q->setProgressDescription(i18nc("Message shown to the user when a firmware update completed successfully", "Congratulations, your gear has been successfully updated to version %1!", version));
+                    } else {
+                        // sadface, update failed...
+                        q->setProgressDescription(i18nc("Message shown to the user when a firmware update failed", "<p><b>Update Failed!</b></p><p>Sorry, but the upgrade failed. Most often this is due to the transfer being corrupted during the upload process itself, which is why your gear has a safe fallback to just go back to your old firmware version upon a failure. You can try the update again by starting again.</p>"));
+                    }
+                    q->setDeviceProgress(0);
+                    firmwareProgress = -1;
+                    firmwareChunk.clear();
+                    QTimer::singleShot(5000, q, [this](){
+                        q->setDeviceProgress(-1);
+                        q->setProgressDescription("");
+                    });
+                }
             }
             else if (stateResult[0] == QLatin1String{"PONG"} || stateResult[0] == QLatin1String{"OK"}) {
                 if (currentCall != QLatin1String{"PING"}) {
@@ -386,8 +402,6 @@ void BTDeviceMitail::connectDevice()
                         setDeviceProgress(0);
                         setProgressDescription(i18nc("Message asking people to tell us when a firmware update failed, and that this is the error they got", "<p><b>Update Failed!</b></p><p>We have tried to update your firmware too rapidly for your device, and have had to abort. If you are getting this error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please contact us on info@thetailcompany.com and tell us that you got this error.</p>"));
                         d->firmwareProgress = -1;
-                        d->firmware.clear();
-                        d->firmwareMD5.clear();
                         d->firmwareChunk.clear();
                     }
                 });
@@ -482,9 +496,21 @@ void BTDeviceMitail::connectDevice()
     });
 
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
-        qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The MiTail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
-        disconnectDevice();
+        if (d->firmwareProgress > -1) {
+            qDebug() << name() << deviceID() << "Rebooting after firmware installation, say as much and then wait and try a reconnection...";
+            QTimer::singleShot(5000, this, [this](){
+                setDeviceProgress(0);
+                setProgressDescription(i18nc("", "Attempting to reconnect to your gear..."));
+                connectDevice();
+            });
+            disconnectDevice();
+            setDeviceProgress(0);
+            setProgressDescription(i18nc("Message shown to the user after firmware upload has completed and the tail is expected to reboot", "Firmware upload complete, waiting for your gear to reboot automatically before attempting to reconnect..."));
+        } else {
+            qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
+            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The MiTail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
+            disconnectDevice();
+        }
     });
 
     // Connect
