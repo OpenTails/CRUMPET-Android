@@ -183,14 +183,14 @@ Kirigami.ScrollablePage {
                             }
                         }
                         QQC2.Label {
-                            visible: model.hasAvailableOTA
+                            visible: model.hasAvailableOTA && !model.hasOTAData
                             Layout.fillWidth: true;
                             horizontalAlignment: Text.AlignHCenter;
                             text: i18nc("Label displaying the currently installed and available firmware versions when they are different", "You currently have version %1 installed, and version %2 is available for you to install", model.deviceVersion, model.otaVersion)
                             wrapMode: Text.Wrap;
                         }
                         QQC2.Button {
-                            visible: model.hasAvailableOTA
+                            visible: model.hasAvailableOTA && model.hasOTAData
                             Layout.fillWidth: true;
                             text: i18nc("Label for the button which makes the app download the newest available firmware (only visible when updated firmware has been found)", "Download");
                             onClicked: {
@@ -200,7 +200,7 @@ Kirigami.ScrollablePage {
                         QQC2.Label {
                             visible: model.hasOTAData
                             Layout.fillWidth: true;
-                            text: i18nc("Label giving a set of instructions and warnings that users should be aware of before attempting to install new firmware", "Before updating your gear, please make sure you do the following:
+                            text: i18nc("Label giving a set of instructions and warnings that users should be aware of before attempting to install new firmware", "Before updating your gear from %1 to %2, please make sure you do the following:
 
 - Connect your gear to the USB charger and make sure it is charging. Keep it connected to the power while you update the firmware.
 
@@ -208,7 +208,7 @@ Kirigami.ScrollablePage {
 
 Upgrading your gear takes around 3 minutes. You must not switch off the gear or the phone while its working!
 
-Once the new firmware is beamed to your gear, it will disconnect from the app and reboot. This is quite normal! It should automatically reconnect, but in case it doesn't, just click the Connect button on the front page as usual.")
+Once the new firmware is beamed to your gear, it will disconnect from the app and reboot. This is quite normal! It should automatically reconnect, but in case it doesn't, just click the Connect button on the front page as usual.", model.deviceVersion, model.otaVersion)
                             wrapMode: Text.Wrap;
                         }
                         QQC2.Button {
