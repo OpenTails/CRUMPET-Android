@@ -41,6 +41,8 @@ class BTDevice : public QObject
     Q_PROPERTY(bool supportsOTA READ supportsOTA NOTIFY supportsOTAChanged)
     Q_PROPERTY(bool hasAvailableOTA READ hasAvailableOTA NOTIFY hasAvailableOTAChanged)
     Q_PROPERTY(bool hasOTAData READ hasOTAData NOTIFY hasOTADataChanged)
+    Q_PROPERTY(int deviceProgress READ deviceProgress NOTIFY deviceProgressChanged)
+    Q_PROPERTY(QString progressDescription READ progressDescription NOTIFY progressDescriptionChanged)
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
@@ -101,6 +103,14 @@ public:
     Q_SIGNAL void hasOTADataChanged();
     Q_INVOKABLE virtual void setOTAData(const QString &md5sum, const QByteArray &firmware) { Q_UNUSED(md5sum); Q_UNUSED(firmware); };
     Q_INVOKABLE virtual void startOTA() {};
+
+    // A number from -1 to 100 (-1 meaning nothing ongoing, 0 meaning unknown progress, 1 through 100 being a percentage)
+    int deviceProgress() const;
+    Q_SIGNAL void deviceProgressChanged();
+    void setDeviceProgress(int progress);
+    QString progressDescription() const;
+    Q_SIGNAL void progressDescriptionChanged();
+    void setProgressDescription(const QString &progressDescription);
 private:
     class Private;
     Private* d;

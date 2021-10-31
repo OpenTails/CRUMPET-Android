@@ -32,6 +32,8 @@ public:
     bool supportsOTA{false};
     bool checked{true};
     QString name;
+    int deviceProgress{-1};
+    QString progressDescription;
     QStringList enabledCommandsFiles;
     BTDeviceModel* parentModel;
 };
@@ -168,4 +170,30 @@ void BTDevice::reloadCommands() {
 QStringList BTDevice::defaultCommandFiles() const
 {
     return QStringList{QLatin1String{":/commands/digitail-builtin.crumpet"}};
+}
+
+int BTDevice::deviceProgress() const
+{
+    return d->deviceProgress;
+}
+
+void BTDevice::setDeviceProgress(int progress)
+{
+    if (d->deviceProgress != progress) {
+        d->deviceProgress = progress;
+        Q_EMIT deviceProgressChanged();
+    }
+}
+
+QString BTDevice::progressDescription() const
+{
+    return d->progressDescription;
+}
+
+void BTDevice::setProgressDescription(const QString& progressDescription)
+{
+    if (d->progressDescription != progressDescription) {
+        d->progressDescription = progressDescription;
+        Q_EMIT progressDescriptionChanged();
+    }
 }
