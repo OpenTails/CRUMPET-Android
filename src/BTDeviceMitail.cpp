@@ -220,12 +220,12 @@ public:
         if (firmwareProgress > -1) {
             if (firmwareProgress < firmware.size()) {
                 // send firmware bytes in chunks of MTU size minus 3, until we're done
-                static const int MTUSize{20}; // tiny size, but... a little odd
+                static const int MTUSize{500}; // tiny size, but... a little odd
                 firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
                 firmwareProgress += firmwareChunk.size();
                 deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
                 q->setDeviceProgress(1 + (99 * (firmwareProgress / firmware.size())));
-                qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size();
+                qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length();
             } else {
                 // we presumably just rebooted...
                 qDebug() << "We presumably just rebooted?";
@@ -374,6 +374,7 @@ void BTDeviceMitail::connectDevice()
                 connect(d->deviceService, &QLowEnergyService::stateChanged, this, [this](QLowEnergyService::ServiceState newState){ d->serviceStateChanged(newState); });
                 connect(d->deviceService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic& info, const QByteArray& value){ d->characteristicChanged(info, value); });
                 connect(d->deviceService, &QLowEnergyService::characteristicWritten, this, [this](const QLowEnergyCharacteristic& info, const QByteArray& value){ d->characteristicWritten(info, value); });
+                connect(d->deviceService, QOverload<QLowEnergyService::ServiceError>::of(&QLowEnergyService::error), this, [this](QLowEnergyService::ServiceError newError){ qDebug() << name() << deviceID() << "Error occurred for service:" << newError; });
                 d->deviceService->discoverDetails();
 
                 // Battery service
