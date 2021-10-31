@@ -173,7 +173,7 @@ public:
                     firmwareChunk = firmware.mid(firmwareProgress + 1, MTUSize);
                     firmwareProgress += firmwareChunk.size();
                     deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
-                    q->setDeviceProgress(100 * (firmwareProgress / firmware.size()));
+                    q->setDeviceProgress(1 + (99 * (firmwareProgress / firmware.size())));
                     q->deviceMessage(q->deviceID(), i18n("Uploading firmware: %1/%2", firmwareProgress, firmware.size()));
                 } else {
                     // we presumably just rebooted...
@@ -323,7 +323,7 @@ BTDeviceMitail::BTDeviceMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* 
     // out to be a problem that we pull the battery this often, we can
     // add a separate ping keepalive functon.
     connect(&d->pingTimer, &QTimer::timeout,
-            [this](){ if(d->currentCall.isEmpty()) { sendMessage("PING"); } });
+            [this](){ if(d->currentCall.isEmpty() && d->firmwareProgress == -1) { sendMessage("PING"); } });
 
     d->pingTimer.setTimerType(Qt::VeryCoarseTimer);
     d->pingTimer.setInterval(60000 / 2);
@@ -522,26 +522,28 @@ QString BTDeviceMitail::deviceID() const
 
 void BTDeviceMitail::sendMessage(const QString &message)
 {
-    QString actualMessage{message};
-    if (commandShorthands.contains(message)) {
-        actualMessage = commandShorthands[message];
-    }
-
-    if (d->deviceCommandWriteCharacteristic.isValid() && d->deviceService) {
-        QString actualCall{actualMessage};
-        if (actualMessage.contains(';')) {
-            d->callQueue = actualMessage.split(';');
-            actualCall = d->callQueue.takeFirst();
-        }
-        if (actualMessage != message) {
-            // As we're translating, we need to manually set this message as running and not trust the device to tell us
-            commandModel->setRunning(message, true);
+    if (d->firmwareProgress == -1) {
+        QString actualMessage{message};
+        if (commandShorthands.contains(message)) {
+            actualMessage = commandShorthands[message];
         }
 
-        d->currentSubCall = actualCall;
-        d->deviceService->writeCharacteristic(d->deviceCommandWriteCharacteristic, actualCall.toUtf8());
-        d->currentCall = message;
-        emit currentCallChanged(message);
+        if (d->deviceCommandWriteCharacteristic.isValid() && d->deviceService) {
+            QString actualCall{actualMessage};
+            if (actualMessage.contains(';')) {
+                d->callQueue = actualMessage.split(';');
+                actualCall = d->callQueue.takeFirst();
+            }
+            if (actualMessage != message) {
+                // As we're translating, we need to manually set this message as running and not trust the device to tell us
+                commandModel->setRunning(message, true);
+            }
+
+            d->currentSubCall = actualCall;
+            d->deviceService->writeCharacteristic(d->deviceCommandWriteCharacteristic, actualCall.toUtf8());
+            d->currentCall = message;
+            emit currentCallChanged(message);
+        }
     }
 }
 
@@ -609,6 +611,7 @@ void BTDeviceMitail::startOTA()
     setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));
     // send "OTA (length of firmware in bytes) (md5sum)"
     QString otaInitialiser = QString("OTA %1 %2").arg(d->firmware.length()).arg(d->firmwareMD5);
-    sendMessage(otaInitialiser);
+    d->firmwareProgress = 0;
+    d->deviceService->writeCharacteristic(d->deviceCommandWriteCharacteristic, otaInitialiser.toUtf8());
     // next step will happen in Private::characteristicChanged
 }
