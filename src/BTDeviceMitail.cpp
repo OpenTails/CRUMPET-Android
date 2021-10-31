@@ -144,6 +144,9 @@ public:
 
         if (deviceCommandReadCharacteristicUuid == characteristic.uuid()) {
             QString theValue(newValue);
+            if (theValue.endsWith("\x00")) {
+                theValue = theValue.left(theValue.length());
+            }
             QStringList stateResult = theValue.split(' ');
             if (theValue == QLatin1String{"System is busy now"}) {
                 // Postpone what we attempted to send a few moments before trying again, as the device is currently busy
@@ -155,12 +158,12 @@ public:
                 emit q->versionChanged(newValue);
                 pingTimer.start();
             }
-            else if (stateResult[0] == QLatin1String{"PONG"}) {
+            else if (stateResult[0] == QLatin1String{"PONG"} || stateResult[0] == QLatin1String{"OK"}) {
                 if (currentCall != QLatin1String{"PING"}) {
                     qWarning() << q->name() << q->deviceID() << "We got an out-of-order response for a ping";
                 }
             }
-            else if (theValue == QLatin1String{"MiTail started"}) {
+            else if (theValue.startsWith(QLatin1String{"MiTail started"})) {
                 qDebug() << q->name() << q->deviceID() << "MiTail detected the connection";
             }
             else if (stateResult[0] == QLatin1String("OTA") || firmwareProgress > -1) {
@@ -170,6 +173,7 @@ public:
                     firmwareChunk = firmware.mid(firmwareProgress + 1, MTUSize);
                     firmwareProgress += firmwareChunk.size();
                     deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
+                    q->setDeviceProgress(100 * (firmwareProgress / firmware.size()));
                     q->deviceMessage(q->deviceID(), i18n("Uploading firmware: %1/%2", firmwareProgress, firmware.size()));
                 } else {
                     // we presumably just rebooted...
@@ -263,6 +267,13 @@ public:
             QNetworkRequest request(possibleRedirectUrl);
             request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
             networkReply = qnam->get(request);
+            connect(networkReply.data(), &QNetworkReply::downloadProgress, q, [this](quint64 received, quint64 total){
+                if (total > 0) {
+                    q->setDeviceProgress(100 * (received/total));
+                } else {
+                    q->setDeviceProgress(0);
+                }
+            });
             connect(networkReply.data(), &QNetworkReply::finished, q, [this]() {
                 handleFinished(networkReply);
             });
@@ -283,11 +294,16 @@ public:
                     otaVersion = fwInfoObj.value("version").toString();
                     Q_EMIT q->hasAvailableOTAChanged();
                 } else {
+                    qDebug() << q->name() << q->deviceID() << downloadedData;
                     q->deviceMessage(q->deviceID(), i18nc("Warning message for when the firmware update information file did not contain a JSON object", "The file used to determine information about new firmware versions did not contain the expected format of data. This is likely a temporary error, or a connection issue. If you run into this problem repeatedly, please get in touch."));
                 }
             } else if (downloadOperation == DownloadingOTAData) {
+                q->setDeviceProgress(0);
+                q->setProgressDescription(i18nc("Message for when we are checking the downloaded firmware data", "Checking integrity of the downloaded firmware data..."));
                 q->setOTAData(firmwareMD5, downloadedData);
             }
+            q->setDeviceProgress(-1);
+            q->setProgressDescription(QString{});
             downloadOperation = NoDownloadOperation;
         } else {
             // If it has contents, we're redirecting
@@ -367,6 +383,7 @@ void BTDeviceMitail::connectDevice()
                 else {
                     connect(d->batteryService, &QLowEnergyService::characteristicRead, this, [this](const QLowEnergyCharacteristic &, const QByteArray &value){
                         d->batteryLevel = (int)value.at(0) / 20;
+                        qDebug() << name() << deviceID() << "Updated battery to" << value;
                         emit batteryLevelChanged(d->batteryLevel);
                     });
                     connect(d->batteryService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic&, const QByteArray& value){
@@ -536,6 +553,8 @@ QStringList BTDeviceMitail::defaultCommandFiles() const
 void BTDeviceMitail::checkOTA()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
+        setDeviceProgress(0);
+        setProgressDescription(i18nc("Message shown alongside a progress bar when downloading update information", "Downloading firmware update information"));
         d->downloadOperation = Private::DownloadingOTAInformation;
         QNetworkRequest request(QUrl("https://thetailcompany.com/fw/mitail"));
         d->networkReply = d->qnam.get(request);
@@ -545,7 +564,7 @@ void BTDeviceMitail::checkOTA()
 
 bool BTDeviceMitail::hasAvailableOTA()
 {
-    if (!d->otaVersion.isEmpty() && d->version < d->otaVersion) {
+    if (!d->otaVersion.isEmpty() && d->version != d->otaVersion) {
         // this will need thought... comparing the version strings like this will not work
         return true;
     }
@@ -555,26 +574,39 @@ bool BTDeviceMitail::hasAvailableOTA()
 void BTDeviceMitail::downloadOTAData()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
-        d->downloadOperation = Private::DownloadingOTAInformation;
+        setDeviceProgress(0);
+        setProgressDescription(i18nc("Message shown along a progress bar when downloading the firmware payload itself", "Downloading firmware update from The Tail Company's website..."));
+        d->downloadOperation = Private::DownloadingOTAData;
         QNetworkRequest request(d->firmwareUrl);
         d->networkReply = d->qnam.get(request);
+        connect(d->networkReply.data(), &QNetworkReply::downloadProgress, this, [this](quint64 received, quint64 total){ if (total > 0) { setDeviceProgress(100 * (received/total)); } else { setDeviceProgress(0); } });
         connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
     }
 }
 
 void BTDeviceMitail::setOTAData(const QString& md5sum, const QByteArray& firmware)
 {
-    if (md5sum == QCryptographicHash::hash(firmware, QCryptographicHash::Md5)) {
+    QString calculatedSum = QString(QCryptographicHash::hash(firmware, QCryptographicHash::Md5).toHex());
+    if (md5sum == calculatedSum) {
         d->firmware = firmware;
     } else {
-        deviceMessage(deviceID(), i18n("The downloaded firmware update did not contain what we expected. This is commonly due to a problem with the download itself having failed, and you should simply try again. If it continues to fail, please get in touch with us and we can try and work something out!"));
+        deviceMessage(deviceID(), i18nc("", "The downloaded firmware update did not contain what we expected. This is commonly due to a problem with the download itself having failed, and you should simply try again. If it continues to fail, please get in touch with us and we can try and work something out!"));
+        qWarning() << name() << deviceID() << "Downloaded firmware has md5sum" << calculatedSum << "and based on the remote info, we expected" << md5sum;
         d->firmware.clear();
     }
     d->firmwareProgress = -1;
+    Q_EMIT hasOTADataChanged();
+}
+
+bool BTDeviceMitail::hasOTAData()
+{
+    return d->firmware.length() > 0;
 }
 
 void BTDeviceMitail::startOTA()
 {
+    setDeviceProgress(0);
+    setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));
     // send "OTA (length of firmware in bytes) (md5sum)"
     QString otaInitialiser = QString("OTA ").arg(d->firmware.length()).arg(d->firmwareMD5);
     sendMessage(otaInitialiser);

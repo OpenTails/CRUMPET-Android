@@ -41,9 +41,10 @@ public:
     void sendMessage(const QString &message) override;
 
     Q_INVOKABLE void checkOTA() override;
-    Q_INVOKABLE bool hasAvailableOTA() override;
+    bool hasAvailableOTA() override;
     Q_INVOKABLE void downloadOTAData() override;
     Q_INVOKABLE void setOTAData ( const QString& md5sum, const QByteArray& firmware ) override;
+    bool hasOTAData() override;
     Q_INVOKABLE void startOTA() override;
 private:
     class Private;
