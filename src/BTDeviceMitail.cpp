@@ -219,8 +219,7 @@ public:
     {
         if (firmwareProgress > -1) {
             if (firmwareProgress < firmware.size()) {
-                // send firmware bytes in chunks of MTU size minus 3, until we're done
-                static const int MTUSize{1000}; // evil big size for a start, see if we can't make things break...
+                static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
                 firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
                 firmwareProgress += firmwareChunk.size();
                 deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
