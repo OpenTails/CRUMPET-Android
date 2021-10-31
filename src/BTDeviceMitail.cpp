@@ -376,10 +376,10 @@ void BTDeviceMitail::connectDevice()
                 connect(d->deviceService, &QLowEnergyService::characteristicWritten, this, [this](const QLowEnergyCharacteristic& info, const QByteArray& value){ d->characteristicWritten(info, value); });
                 connect(d->deviceService, QOverload<QLowEnergyService::ServiceError>::of(&QLowEnergyService::error), this, [this](QLowEnergyService::ServiceError newError){
                     qDebug() << name() << deviceID() << "Error occurred for service:" << newError;
-                    // Looks odd - this is the android error GATT_INVALID_ATTRIBUTE_LENGTH, which should not usually happen
-                    // but as we can't actually read the MTU size out of QLowEnergyCharacteristic until 6.2, we'll just
-                    // have to... do a thing and ask people to report back for now.
-                    if ((int)newError == 13) {
+                    if (newError == QLowEnergyService::CharacteristicWriteError && d->firmwareProgress > -1) {
+                        // This will usually be the android error GATT_INVALID_ATTRIBUTE_LENGTH, which should not usually happen
+                        // but as we can't actually read the MTU size out of QLowEnergyCharacteristic until 6.2, we'll just
+                        // have to... do a thing and ask people to report back for now.
                         QTimer::singleShot(5000, this, [this](){
                             setDeviceProgress(-1);
                             setProgressDescription("");
