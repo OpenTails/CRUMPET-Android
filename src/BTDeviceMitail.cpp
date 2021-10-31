@@ -380,12 +380,12 @@ void BTDeviceMitail::connectDevice()
                         // This will usually be the android error GATT_INVALID_ATTRIBUTE_LENGTH, which should not usually happen
                         // but as we can't actually read the MTU size out of QLowEnergyCharacteristic until 6.2, we'll just
                         // have to... do a thing and ask people to report back for now.
-                        QTimer::singleShot(5000, this, [this](){
+                        QTimer::singleShot(10000, this, [this](){
                             setDeviceProgress(-1);
                             setProgressDescription("");
                         });
                         setDeviceProgress(0);
-                        setProgressDescription(i18nc("Message asking people to tell us when a firmware update failed, and that this is the error they got", "<p><b>Update Failed!</b></p><p>We have tried to update your firmware too rapidly for your device, and have had to abort.</p><p>If you are getting this error: <em>Firstly</em>, don't worry, your gear is safe. <em>Secondly</em>, please contact us on info@thetailcompany.com and tell us that you got this error.</p>"));
+                        setProgressDescription(i18nc("Message asking people to tell us when a firmware update failed, and that this is the error they got", "<p><b>Update Failed!</b></p><p>We have tried to update your firmware too rapidly for your device, and have had to abort. If you are getting this error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please contact us on info@thetailcompany.com and tell us that you got this error.</p>"));
                         d->firmwareProgress = -1;
                         d->firmware.clear();
                         d->firmwareMD5.clear();
