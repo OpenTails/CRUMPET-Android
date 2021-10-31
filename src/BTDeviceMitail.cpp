@@ -374,7 +374,24 @@ void BTDeviceMitail::connectDevice()
                 connect(d->deviceService, &QLowEnergyService::stateChanged, this, [this](QLowEnergyService::ServiceState newState){ d->serviceStateChanged(newState); });
                 connect(d->deviceService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic& info, const QByteArray& value){ d->characteristicChanged(info, value); });
                 connect(d->deviceService, &QLowEnergyService::characteristicWritten, this, [this](const QLowEnergyCharacteristic& info, const QByteArray& value){ d->characteristicWritten(info, value); });
-                connect(d->deviceService, QOverload<QLowEnergyService::ServiceError>::of(&QLowEnergyService::error), this, [this](QLowEnergyService::ServiceError newError){ qDebug() << name() << deviceID() << "Error occurred for service:" << newError; });
+                connect(d->deviceService, QOverload<QLowEnergyService::ServiceError>::of(&QLowEnergyService::error), this, [this](QLowEnergyService::ServiceError newError){
+                    qDebug() << name() << deviceID() << "Error occurred for service:" << newError;
+                    // Looks odd - this is the android error GATT_INVALID_ATTRIBUTE_LENGTH, which should not usually happen
+                    // but as we can't actually read the MTU size out of QLowEnergyCharacteristic until 6.2, we'll just
+                    // have to... do a thing and ask people to report back for now.
+                    if ((int)newError == 13) {
+                        QTimer::singleShot(5000, this, [this](){
+                            setDeviceProgress(-1);
+                            setProgressDescription("");
+                        });
+                        setDeviceProgress(0);
+                        setProgressDescription(i18nc("Message asking people to tell us when a firmware update failed, and that this is the error they got", "We have tried to update your firmware too rapidly for your device, and have had to abort. If you are getting this error when attempting to do a firmware update on your gear: Firstly, don't worry, your gear is safe. Secondly, please contact us on info@thetailcompany.com and tell us that you got this error."));
+                        d->firmwareProgress = -1;
+                        d->firmware.clear();
+                        d->firmwareMD5.clear();
+                        d->firmwareChunk.clear();
+                    }
+                });
                 d->deviceService->discoverDetails();
 
                 // Battery service
