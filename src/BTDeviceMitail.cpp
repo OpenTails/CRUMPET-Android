@@ -220,12 +220,12 @@ public:
         if (firmwareProgress > -1) {
             if (firmwareProgress < firmware.size()) {
                 // send firmware bytes in chunks of MTU size minus 3, until we're done
-                static const int MTUSize{500}; // tiny size, but... a little odd
+                static const int MTUSize{1000}; // evil big size for a start, see if we can't make things break...
                 firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
                 firmwareProgress += firmwareChunk.size();
                 deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
-                q->setDeviceProgress(1 + (99 * (firmwareProgress / firmware.size())));
-                qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length();
+                q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
+                qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length();
             } else {
                 // we presumably just rebooted...
                 qDebug() << "We presumably just rebooted?";
@@ -273,7 +273,7 @@ public:
             networkReply = qnam->get(request);
             connect(networkReply.data(), &QNetworkReply::downloadProgress, q, [this](quint64 received, quint64 total){
                 if (total > 0) {
-                    q->setDeviceProgress(100 * (received/total));
+                    q->setDeviceProgress(100 * (received/(double)total));
                 } else {
                     q->setDeviceProgress(0);
                 }
@@ -586,7 +586,7 @@ void BTDeviceMitail::downloadOTAData()
         d->downloadOperation = Private::DownloadingOTAData;
         QNetworkRequest request(d->firmwareUrl);
         d->networkReply = d->qnam.get(request);
-        connect(d->networkReply.data(), &QNetworkReply::downloadProgress, this, [this](quint64 received, quint64 total){ if (total > 0) { setDeviceProgress(100 * (received/total)); } else { setDeviceProgress(0); } });
+        connect(d->networkReply.data(), &QNetworkReply::downloadProgress, this, [this](quint64 received, quint64 total){ if (total > 0) { setDeviceProgress(100 * (received/(double)total)); } else { setDeviceProgress(0); } });
         connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
     }
 }
