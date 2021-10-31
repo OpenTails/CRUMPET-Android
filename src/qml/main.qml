@@ -446,4 +446,53 @@ Kirigami.ApplicationWindow {
     MessageBox {
         id: messageBox;
     }
+
+    Item {
+        anchors.fill: parent;
+        visible: opacity > 0
+        opacity: deviceProgressRepeater.count > 0 ? 1 : 0
+        Behavior on opacity { PropertyAnimation { duration: 250; } }
+        Rectangle {
+            anchors.fill: parent;
+            color: Kirigami.Theme.backgroundColor
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            opacity: 0.7
+        }
+        MouseArea {
+            anchors.fill: parent;
+            onClicked: { /* Do nothing, we're just blocking clicks */ }
+        }
+        ColumnLayout {
+            anchors {
+                fill: parent;
+                margins: Kirigami.Units.largeSpacing;
+            }
+            Item { Layout.fillWidth: true; Layout.fillHeight: true; }
+            Repeater {
+                id: deviceProgressRepeater
+                model: FilterProxyModel {
+                    sourceModel: connectedDevicesModel
+                    filterRole: 274; // the operationInProgress role
+                    filterBoolean: true;
+                }
+                delegate: Kirigami.AbstractCard {
+                    Layout.fillWidth: true;
+                    header: Kirigami.Heading {
+                        text: model.name
+                    }
+                    contentItem: Label {
+                        text: model.progressDescription;
+                    }
+                    footer: ProgressBar {
+                        from: 1
+                        to: 100
+                        indeterminate: model.deviceProgress === 0
+                        value: model.deviceProgress
+                    }
+                }
+            }
+            Item { Layout.fillWidth: true; Layout.fillHeight: true; }
+        }
+    }
 }
