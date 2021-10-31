@@ -311,6 +311,9 @@ public:
                     firmwareUrl = fwInfoObj.value("url").toString();
                     firmwareMD5 = fwInfoObj.value("md5sum").toString();
                     otaVersion = fwInfoObj.value("version").toString();
+                    if (otaVersion == version) {
+                        q->deviceMessage(q->deviceID(), i18nc("Message shown to the user when they already have the newest firmware installed", "You already have the newest version of the firmware installed on your gear, congratulations!"));
+                    }
                     Q_EMIT q->hasAvailableOTAChanged();
                 } else {
                     qDebug() << q->name() << q->deviceID() << downloadedData;
