@@ -128,7 +128,7 @@ public:
 
             reconnectThrottle = 0;
             emit q->isConnectedChanged(q->isConnected());
-            q->sendMessage("VER"); // Ask for the version, and then react to the response...
+            deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, "VER"); // Ask for the version, and then react to the response...
 
             break;
         }
