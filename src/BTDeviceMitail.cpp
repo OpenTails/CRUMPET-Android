@@ -607,6 +607,12 @@ void BTDeviceMitail::checkOTA()
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
         setProgressDescription(i18nc("Message shown alongside a progress bar when downloading update information", "Downloading firmware update information"));
+        d->firmwareUrl.clear();
+        d->firmwareMD5.clear();
+        d->otaVersion.clear();
+        d->firmware.clear();
+        Q_EMIT hasAvailableOTAChanged();
+        Q_EMIT hasOTADataChanged();
         d->downloadOperation = Private::DownloadingOTAInformation;
         QNetworkRequest request(QUrl("https://thetailcompany.com/fw/mitail"));
         d->networkReply = d->qnam.get(request);
@@ -633,6 +639,8 @@ void BTDeviceMitail::downloadOTAData()
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
         setProgressDescription(i18nc("Message shown along a progress bar when downloading the firmware payload itself", "Downloading firmware update from The Tail Company's website..."));
+        d->firmware.clear();
+        Q_EMIT hasOTADataChanged();
         d->downloadOperation = Private::DownloadingOTAData;
         QNetworkRequest request(d->firmwareUrl);
         d->networkReply = d->qnam.get(request);
