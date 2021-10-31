@@ -57,6 +57,7 @@ public:
         DeviceProgress,          // 272 - integer from -1 through 100 (-1 meaning nothing ongoing, 0 meaning unknown progress, 1 through 100 being a percentage)
         ProgressDescription,     // 273 - string describing the current step for the device progress
         OperationInProgress,     // 274 - boolean which is true when the DeviceProgress role's value is larger than -1
+        OTAVersion,              // 275 - string containing the available OTA version
     };
 
     AppSettings* appSettings() const;

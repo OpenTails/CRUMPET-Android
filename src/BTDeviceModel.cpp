@@ -122,6 +122,7 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {DeviceProgress, "deviceProgress"},
         {ProgressDescription, "progressDescription"},
         {OperationInProgress, "operationInProgress"},
+        {OTAVersion, "otaVersion"},
     };
     return roles;
 }
@@ -199,6 +200,9 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case OperationInProgress:
                 value = device->deviceProgress() > -1;
+                break;
+            case OTAVersion:
+                value = device->otaVersion();
                 break;
             default:
                 break;
@@ -292,6 +296,7 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::hasAvailableOTAChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasAvailableOTA);
+            d->notifyDeviceDataChanged(newDevice, OTAVersion);
         });
         connect(newDevice, &BTDevice::hasOTADataChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasOTAData);

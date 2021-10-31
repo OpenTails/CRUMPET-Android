@@ -182,6 +182,12 @@ Kirigami.ScrollablePage {
                                 BTConnectionManager.callDeviceFunction(model.deviceID, "checkOTA");
                             }
                         }
+                        QQC2.Label {
+                            visible: model.hasAvailableOTA
+                            Layout.fillWidth: true;
+                            horizontalAlignment: Text.AlignHCenter;
+                            text: i18nc("Label displaying the currently installed and available firmware versions when they are different", "You currently have version %1 installed, and version %2 is available for you to install", model.deviceVersion, model.otaVersion)
+                        }
                         QQC2.Button {
                             visible: model.hasAvailableOTA
                             Layout.fillWidth: true;

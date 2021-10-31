@@ -40,6 +40,7 @@ class BTDevice : public QObject
     Q_PROPERTY(QStringList enabledCommandsFiles READ enabledCommandsFiles NOTIFY enabledCommandsFilesChanged)
     Q_PROPERTY(bool supportsOTA READ supportsOTA NOTIFY supportsOTAChanged)
     Q_PROPERTY(bool hasAvailableOTA READ hasAvailableOTA NOTIFY hasAvailableOTAChanged)
+    Q_PROPERTY(QString otaVersion READ otaVersion NOTIFY hasAvailableOTAChanged);
     Q_PROPERTY(bool hasOTAData READ hasOTAData NOTIFY hasOTADataChanged)
     Q_PROPERTY(int deviceProgress READ deviceProgress NOTIFY deviceProgressChanged)
     Q_PROPERTY(QString progressDescription READ progressDescription NOTIFY progressDescriptionChanged)
@@ -97,6 +98,7 @@ public:
 
     Q_INVOKABLE virtual void checkOTA() {};
     Q_INVOKABLE virtual bool hasAvailableOTA() { return false; };
+    Q_INVOKABLE virtual QString otaVersion() { return QString{}; };
     Q_SIGNAL void hasAvailableOTAChanged();
     Q_INVOKABLE virtual void downloadOTAData() {};
     Q_INVOKABLE virtual bool hasOTAData() { return false; }

@@ -595,6 +595,11 @@ bool BTDeviceMitail::hasAvailableOTA()
     return false;
 }
 
+QString BTDeviceMitail::otaVersion()
+{
+    return d->otaVersion;
+}
+
 void BTDeviceMitail::downloadOTAData()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
