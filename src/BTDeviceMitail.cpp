@@ -217,7 +217,6 @@ public:
 
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
-        qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
         if (firmwareProgress > -1) {
             if (firmwareProgress < firmware.size()) {
                 // send firmware bytes in chunks of MTU size minus 3, until we're done
@@ -226,14 +225,16 @@ public:
                 firmwareProgress += firmwareChunk.size();
                 deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
                 q->setDeviceProgress(1 + (99 * (firmwareProgress / firmware.size())));
-                q->deviceMessage(q->deviceID(), i18n("Uploading firmware: %1/%2", firmwareProgress, firmware.size()));
+                qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size();
             } else {
                 // we presumably just rebooted...
                 qDebug() << "We presumably just rebooted?";
             }
+        } else {
+            qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
+            currentCall = newValue;
+            emit q->currentCallChanged(currentCall);
         }
-        currentCall = newValue;
-        emit q->currentCallChanged(currentCall);
     }
 
 
