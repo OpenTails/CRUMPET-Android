@@ -218,11 +218,11 @@ public:
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
         qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-        if (firmwareProgress > 1) {
+        if (firmwareProgress > -1) {
             if (firmwareProgress < firmware.size()) {
                 // send firmware bytes in chunks of MTU size minus 3, until we're done
                 static const int MTUSize{20}; // tiny size, but... a little odd
-                firmwareChunk = firmware.mid(firmwareProgress + 1, MTUSize);
+                firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
                 firmwareProgress += firmwareChunk.size();
                 deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, firmwareChunk);
                 q->setDeviceProgress(1 + (99 * (firmwareProgress / firmware.size())));
