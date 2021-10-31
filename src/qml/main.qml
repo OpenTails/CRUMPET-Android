@@ -480,9 +480,11 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true;
                     header: Kirigami.Heading {
                         text: model.name
+                        elide: Text.ElideRight
                     }
                     contentItem: Label {
                         text: model.progressDescription;
+                        wrapMode: Text.Wrap;
                     }
                     footer: ProgressBar {
                         from: 1
