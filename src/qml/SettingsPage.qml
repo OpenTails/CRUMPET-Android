@@ -138,8 +138,8 @@ Kirigami.ScrollablePage {
                             text: model.name;
                         }
                         QQC2.Button {
-                            text: model.micsSwapped === true ?  
-                                i18nc("Label for the button for unswapping left and right, on the panel for adjusting microphone levels for the earGear, on the settings page", "Unswap left and right") : 
+                            text: model.micsSwapped === true ?
+                                i18nc("Label for the button for unswapping left and right, on the panel for adjusting microphone levels for the earGear, on the settings page", "Unswap left and right") :
                                 i18nc("Label for the button for swapping left and right, the panel for adjusting microphone levels for the earGear, on the settings page", "Swap left and right");
                             Layout.fillWidth: true;
                             onClicked: {
