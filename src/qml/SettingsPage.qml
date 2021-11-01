@@ -190,7 +190,7 @@ Kirigami.ScrollablePage {
                             wrapMode: Text.Wrap;
                         }
                         QQC2.Button {
-                            visible: model.hasAvailableOTA && model.hasOTAData
+                            visible: model.hasAvailableOTA && !model.hasOTAData
                             Layout.fillWidth: true;
                             text: i18nc("Label for the button which makes the app download the newest available firmware (only visible when updated firmware has been found)", "Download");
                             onClicked: {
