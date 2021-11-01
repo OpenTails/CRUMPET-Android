@@ -480,7 +480,11 @@ void BTDeviceMitail::connectDevice()
                     emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The MiTail closed the connection."));
                     break;
                 case QLowEnergyController::ConnectionError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"));
+                    if (d->firmwareProgress > -1) {
+                        emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"));
+                    } else {
+                        QTimer::singleShot(2000, this, &BTDeviceMitail::connectDevice);
+                    }
                     break;
                 default:
                     break;
@@ -502,18 +506,19 @@ void BTDeviceMitail::connectDevice()
         if (d->firmwareProgress > -1) {
             qDebug() << name() << deviceID() << "Rebooting after firmware installation, say as much and then wait and try a reconnection...";
             QTimer::singleShot(5000, this, [this](){
-                setDeviceProgress(0);
-                setProgressDescription(i18nc("", "Attempting to reconnect to your gear..."));
-                connectDevice();
+                if (!isConnected()) {
+                    setDeviceProgress(0);
+                    setProgressDescription(i18nc("", "Attempting to reconnect to your gear..."));
+                    connectDevice();
+                }
             });
-            disconnectDevice();
             setDeviceProgress(0);
             setProgressDescription(i18nc("Message shown to the user after firmware upload has completed and the tail is expected to reboot", "Firmware upload complete, waiting for your gear to reboot automatically before attempting to reconnect..."));
         } else {
             qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
             emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The MiTail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
-            disconnectDevice();
         }
+        disconnectDevice();
     });
 
     // Connect
