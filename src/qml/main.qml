@@ -472,7 +472,7 @@ Kirigami.ApplicationWindow {
             Repeater {
                 id: deviceProgressRepeater
                 model: FilterProxyModel {
-                    sourceModel: connectedDevicesModel
+                    sourceModel: DeviceModel
                     filterRole: 274; // the operationInProgress role
                     filterBoolean: true;
                 }
