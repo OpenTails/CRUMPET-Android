@@ -508,7 +508,7 @@ void BTDeviceMitail::connectDevice()
             QTimer::singleShot(5000, this, [this](){
                 if (!isConnected()) {
                     setDeviceProgress(0);
-                    setProgressDescription(i18nc("", "Attempting to reconnect to your gear..."));
+                    setProgressDescription(i18nc("Message shown to the user when a firmware upload has completed and the device has rebooted itself", "Attempting to reconnect to your gear..."));
                     connectDevice();
                 }
             });
