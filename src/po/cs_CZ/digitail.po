@@ -1,21 +1,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Caroline the Husky <mii@miifox.nl>, 2021.
+# Kuba <stegoceras@seznam.cz>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2021-11-02 18:36+0000\n"
-"PO-Revision-Date: 2021-08-04 13:42+0100\n"
-"Last-Translator: Caroline the Husky <mii@miifox.nl>\n"
-"Language-Team: English <kde-i18n-doc@kde.org>\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2021-08-29 20:03+0200\n"
+"Last-Translator: Kuba <stegoceras@seznam.cz>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.04.2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.08.0\n"
 
 #: BTDeviceEars.cpp:66 BTDeviceMitail.cpp:71 BTDeviceTail.cpp:58
 msgctxt ""
@@ -24,15 +24,15 @@ msgid ""
 "Attempted to reconnect too many times to %1 (%2). To connect to it, please "
 "check that it is on, charged, and near enough."
 msgstr ""
-"Teveel pogingen gedaan om te verbinden met %1 (%2). Om te verbinden, zorg "
-"ervoor dat de Gear aanstaat, opgeladen is, en in de buurt is van je apparaat"
+"Nastalo příliš mnoho pokusů o připojení k %1 (%2). Pro připojení zkontroluj "
+"jestli je %1 zapnuto, stav nabití a vzdálenost."
 
 #: BTDeviceEars.cpp:70 BTDeviceMitail.cpp:75 BTDeviceTail.cpp:62
 msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr "Verbinding kwijtgeraakt met %1, proberen te herverbinden..."
+msgstr "Připojení k %1 ztraceno, pokouším se o znovupřipojení..."
 
 #: BTDeviceEars.cpp:100
 msgctxt ""
@@ -43,9 +43,9 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen EarGear controller is (kan het "
-"apparaat niet aanspreken). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"Vypadá to že toto zařízení není EarGear ovladač (nebylo možné nalézt hlavní "
+"zápisové charakteristiky uší). Pokud si jsi jist že se jedná o správné "
+"zařízení, zděl tuto chybu The Tail company."
 
 #: BTDeviceEars.cpp:108
 msgctxt ""
@@ -56,16 +56,16 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen EarGear controller is (kan het "
-"apparaat niet uitlezen). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"Vypadá to že toto zařízení není EarGear ovladač (nebylo možné nalézt hlavní "
+"čtecí charakteristiky uší). Pokud si jsi jist že se jedná o správné "
+"zařízení, zděl tuto chybu The Tail company."
 
 #: BTDeviceEars.cpp:224
 msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr "Microfoons met success uitgebalanceerd."
+msgstr "Balancování mikrofonu dokončeno"
 
 #: BTDeviceEars.cpp:300
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -73,9 +73,8 @@ msgid ""
 "An error occurred while connecting to your EarGear box (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de EarGear box (het "
-"main service object kon niet aangemaakt worden). Als dit een fout is, "
-"probeer dan opnieuw!"
+"Nastala chyba při připojování k EarGear boxu (hlavní servisní objekt nemohl "
+"být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: BTDeviceEars.cpp:314
 msgctxt ""
@@ -84,9 +83,8 @@ msgid ""
 "An error occurred while connecting to your EarGear box (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de EarGear box (de "
-"batterij kon niet worden aangesproken). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Nastala chyba při připojování k EarGear boxu (připojení k ovládání baterie "
+"nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: BTDeviceEars.cpp:343
 msgctxt ""
@@ -96,9 +94,9 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen EarGear controller is (kan de "
-"batterij level parameter niet uitlezen). Als je zeker bent met het juiste "
-"apparaat te verbinden, neem dan contact op met The Tail Company"
+"Vypadá to že toto zařízení není EarGear ovlač (nebylo možné nalézt informace "
+"o stavu baterie). Pokud si jsi jist že se jedná o správné zařízení, zděl "
+"tuto chybu The Tail company."
 
 #: BTDeviceEars.cpp:373
 msgctxt "Warning that some unknown error happened"
@@ -106,13 +104,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "box is on and close to this device."
 msgstr ""
-"Er is iets misgegaan. Als je probeerde met de EarGear te verbinden, zorg er "
-"dan voor dat de Gear aanstaat en in de buurt is van je apparaat."
+"Nastala chyba. Pokud se snažíš připojit ke svým uším, ujisti se že je box "
+"zapnut a v blízkosti tohoto zařízení."
 
 #: BTDeviceEars.cpp:376
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear box closed the connection."
-msgstr "De EarGear heeft de verbinding onderbroken."
+msgstr "EarGear box ukončil připojení."
 
 #: BTDeviceEars.cpp:379
 msgctxt ""
@@ -122,8 +120,8 @@ msgid ""
 "Failed to connect to your EarGear box. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Verbinden met de EarGear mislukt. Probeer opnieuw (misschien dichterbij "
-"houden?)"
+"Nepodařilo se připojit ke tvému EarGear boxu. Prosím zkus to znovu (možná ho "
+"přibliž?)"
 
 #: BTDeviceEars.cpp:399
 msgctxt ""
@@ -133,8 +131,8 @@ msgid ""
 "The EarGear box closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
-"De EarGear heeft de verbinding onderbroken, doordat die is uitgeschakeld of "
-"de batterij leeg was. Vergeet niet je oren op te laden!"
+"EarGear box ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň "
+"nabít své uši!"
 
 #: BTDeviceMitail.cpp:105
 msgctxt ""
@@ -145,9 +143,9 @@ msgid ""
 "writing characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
-"aanspreken). Als je zeker bent met het juiste apparaat te verbinden, neem "
-"dan contact op met The Tail Company"
+"Vypadá to že toto zařízení není MiTail (nebylo možné nalézt hlavní zápisové "
+"charakteristiky zařízení). Pokud si jsi jist že se jedná o správné zařízení, "
+"zděl tuto chybu The Tail company."
 
 #: BTDeviceMitail.cpp:113
 msgctxt ""
@@ -158,9 +156,9 @@ msgid ""
 "reading characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
-"uitlezen). Als je zeker bent met het juiste apparaat te verbinden, neem dan "
-"contact op met The Tail Company"
+"Vypadá to že toto zařízení není MiTail (nebylo možné nalézt hlavní čtecí "
+"charakteristiky zařízení). Pokud si jsi jist že se jedná o správné zařízení, "
+"zděl tuto chybu The Tail company."
 
 #: BTDeviceMitail.cpp:163
 msgctxt ""
@@ -221,9 +219,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de MiTail (het main "
-"service object kon niet aangemaakt worden). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Nastala chyba při připojování k tvému MiTail (hlavní servisní objekt nemohl "
+"být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: BTDeviceMitail.cpp:403
 msgctxt ""
@@ -244,9 +241,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de MiTail (de "
-"batterij kon niet worden aangesproken). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Nastala chyba při připojování k tvému MiTail (připojení k ovládání baterie "
+"nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: BTDeviceMitail.cpp:444
 msgctxt ""
@@ -256,9 +252,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen MiTail is (kan de batterij level "
-"parameter niet uitlezen). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"Vypadá to že toto zařízení není MiTail (nebylo možné nalézt informace o "
+"stavu baterie). Pokud si jsi jist že se jedná o správné zařízení, zděl tuto "
+"chybu The Tail company."
 
 #: BTDeviceMitail.cpp:474
 msgctxt "Warning that some unknown error happened"
@@ -266,13 +262,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
-"Er is iets misgegaan. Als je probeerde met de MiTail te verbinden, zorg er "
-"dan voor dat die aanstaat en in de buurt is van je apparaat."
+"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je "
+"box  zapnut a v blízkosti tohoto zařízení."
 
 #: BTDeviceMitail.cpp:477
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
-msgstr "De MiTail heeft de verbinding onderbroken."
+msgstr "MiTail ukončil připojení."
 
 #: BTDeviceMitail.cpp:481
 msgctxt ""
@@ -281,8 +277,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
-"Verbinden met de MiTail mislukt. Probeer opnieuw (misschien dichterbij "
-"houden?)"
+"Nepodařilo se připojit ke tvému MiTail. Prosím zkus to znovu (možná ho "
+"přibliž?)"
 
 #: BTDeviceMitail.cpp:508
 #, fuzzy
@@ -290,7 +286,7 @@ msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr "Aan het verbinden..."
+msgstr "Zkouším se připojit..."
 
 #: BTDeviceMitail.cpp:513
 msgctxt ""
@@ -309,8 +305,8 @@ msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
-"De MiTail heeft de verbinding onderbroken, doordat die is uitgeschakeld of "
-"de batterij leeg was. Vergeet niet je staart op te laden!"
+"MiTail ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít "
+"svůj ocas!"
 
 #: BTDeviceMitail.cpp:611
 msgctxt ""
@@ -352,9 +348,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen DIGITAIL is (kan het apparaat niet "
-"aanspreken). Als je zeker bent met het juiste apparaat te verbinden, neem "
-"dan contact op met The Tail Company"
+"Vypadá to že toto zařízení není DIGITAiL (nebylo možné nalézt "
+"charakteristiky ocasu). Pokud jsi si jist že se jedná o správné zařízení, "
+"zděl tuto chybu The Tail company."
 
 #: BTDeviceTail.cpp:256
 msgctxt "Warning message when the main service was not found on the device"
@@ -362,9 +358,8 @@ msgid ""
 "An error occured while connecting to your tail (the service object could not "
 "be created). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de staart (het main "
-"service object kon niet aangemaakt worden). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Nastala chyba při připojování k tvému ocasu (servisní objekt nemohl být "
+"vytvořen). Pokud se tak nemělo stát, zkuste to znovu!"
 
 #: BTDeviceTail.cpp:274
 msgctxt "Warning that some unknown error happened"
@@ -372,13 +367,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your tail, make sure it "
 "is on and close to this device."
 msgstr ""
-"Er is iets misgegaan. Als je probeerde met de staart te verbinden, zorg er "
-"dan voor dat die aanstaat en in de buurt is van je apparaat."
+"Nastala chyba. Pokud se snažíš připojit ke svému ocasu, ujisti se že je "
+"zapnut a v blízkosti tohoto zařízení."
 
 #: BTDeviceTail.cpp:277
 msgctxt "Warning that the device disconnected itself"
 msgid "The tail closed the connection."
-msgstr "De staart heeft de verbinding onderbroken."
+msgstr "Ocas ukončil připojení."
 
 #: BTDeviceTail.cpp:280
 msgctxt ""
@@ -387,8 +382,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your tail. Please try again (perhaps move it closer?)"
 msgstr ""
-"Verbinden met de staart mislukt Probeer opnieuw (misschien dichterbij "
-"houden?)"
+"Nepodařilo se připojit k tvému ocasu. Prosím zkus to znovu (možná ho "
+"přibliž?)"
 
 #: BTDeviceTail.cpp:300
 msgctxt ""
@@ -398,24 +393,22 @@ msgid ""
 "The tail closed the connection, either by being turned off or losing power. "
 "Remember to charge your tail!"
 msgstr ""
-"De staart heeft de verbinding onderbroken, doordat die is uitgeschakeld of "
-"de batterij leeg was. Vergeet niet je staart op te laden!"
+"Ocas ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít svůj "
+"ocas!"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr "Aanmaken van de map voor de opgeslagen opdrachten mislukt"
+msgstr "Nepodařilo se vytvořit složku pro uložené příkazy"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
 "Error message for when there are no commands found in a command file "
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
-msgstr ""
-"Er staan geen opdrachten in dit bestand. Dit is mogelijk, maar "
-"ongebruikelijk."
+msgstr "Tento soubor neobsahuje žádné příkazy. Je to možné, ale neobvyklé."
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -426,8 +419,8 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
-"Syntax fout in opdracht op %1: %2\n"
-"Code voor deze fout:\n"
+"Nepodařilo se nahrát příkazy kvůli chybě syntaxe v %1: %2\n"
+"Kód vedoucí k chybě: \n"
 "%3"
 
 #: CommandPersistence.cpp:174
@@ -435,150 +428,150 @@ msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr "Kon bestand %1 niet openen om uit te lezen"
+msgstr "Nebylo možné otevřít soubor %1 pro čtení"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr "Kon bestand %1 niet openen om te schrijven"
+msgstr "Nebylo možné otevřít soubor %1 pro zápis"
 
 #: GestureDetectorModel.cpp:221
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr "Dubbeltap"
+msgstr "dvojklik"
 
 #: GestureDetectorModel.cpp:222
 msgctxt "The name of a sensor"
 msgid "Hover"
-msgstr "Zweven"
+msgstr "Vznášení"
 
 #: GestureDetectorModel.cpp:223
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr "Vrije val"
+msgstr "Volný pád"
 
 #: GestureDetectorModel.cpp:224
 msgctxt "The name of a sensor"
 msgid "Landed"
-msgstr "Geland"
+msgstr "přistání"
 
 #: GestureDetectorModel.cpp:225
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
-msgstr "Bedekken"
+msgstr "Akce přikrytí"
 
 #: GestureDetectorModel.cpp:226
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr "Schudden"
+msgstr "Akce zatřesení"
 
 #: GestureDetectorModel.cpp:227
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr "Slaan"
+msgstr "Akce bouchnutí"
 
 #: GestureDetectorModel.cpp:228
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr "Sweep"
+msgstr "Akce švihnutí"
 
 #: GestureDetectorModel.cpp:229
 msgctxt "The name of a sensor"
 msgid "Shake Left"
-msgstr "Links schudden"
+msgstr "Zatřesení vlevo"
 
 #: GestureDetectorModel.cpp:230
 msgctxt "The name of a sensor"
 msgid "Shake Right"
-msgstr "Rechts schudden"
+msgstr "Zatřesení vpravo"
 
 #: GestureDetectorModel.cpp:231
 msgctxt "The name of a sensor"
 msgid "Shake Up"
-msgstr "Omhoog schudden"
+msgstr "Zatřesení vzhůru"
 
 #: GestureDetectorModel.cpp:232
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr "Omlaag schudden"
+msgstr "Zatřesení dolů"
 
 #: GestureDetectorModel.cpp:233
 msgctxt "The name of a sensor"
 msgid "Twist Left"
-msgstr "Links draaien"
+msgstr "Otočení vlevo"
 
 #: GestureDetectorModel.cpp:234
 msgctxt "The name of a sensor"
 msgid "Twist Right"
-msgstr "Rechts draaien"
+msgstr "Otočení vpravo"
 
 #: GestureDetectorModel.cpp:235
 msgctxt "The name of a sensor"
 msgid "Pick Up"
-msgstr "Oppakken"
+msgstr "Zvednutí"
 
 #: GestureDetectorModel.cpp:236
 msgctxt "The name of a sensor"
 msgid "Turn Over"
-msgstr "Kantelen"
+msgstr "Převrácení"
 
 #: GestureDetectorModel.cpp:237
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr "Beginnen met lopen"
+msgstr "Začátek chůze"
 
 #: GestureDetectorModel.cpp:238
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr "Stoppen met lopen"
+msgstr "Konec chůze"
 
 #: GestureDetectorModel.cpp:239
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr "Stap gezet"
+msgstr "Detekován krok"
 
 #: GestureDetectorModel.cpp:240
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr "Even stap gezet"
+msgstr "Sudý krok detekován"
 
 #: GestureDetectorModel.cpp:241
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr "Oneven stap gezet"
+msgstr "Lichý krok detekován"
 
 #: qml/AboutPage.qml:33
 msgctxt ""
 "A label which describes the hardware revision of the connected gear, when "
 "only one item is connected"
 msgid "The connected gear is version %1"
-msgstr "De verbonden Gear is versie %1"
+msgstr "Připojené zařízení je verze %1"
 
 #: qml/AboutPage.qml:38
 msgctxt ""
 "A label which describes the hardware revision of a piece of connected gear, "
 "when more than one item is connected"
 msgid "The gear named %1 is version %2"
-msgstr "De Gear genaamt %1 is versie %2"
+msgstr "Zařízení jménem %1 je verze %2"
 
 #: qml/AlarmList.qml:28
 msgctxt "Title of the page which lists the alarms the user has set"
 msgid "Alarms"
-msgstr "Alarmen"
+msgstr "Upozornění"
 
 #: qml/AlarmList.qml:32
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr "Nieuw alarm toevoegen"
+msgstr "Přidej upozornění"
 
 #: qml/AlarmList.qml:44
 msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
-msgstr "Kies een andere naam"
+msgstr "Zvol jiné jméno"
 
 #: qml/AlarmList.qml:45
 msgctxt ""
@@ -589,14 +582,17 @@ msgid ""
 "name.\n"
 "\n"
 "Please select another name for the alarm."
-msgstr "Deze naam is al in gebruik"
+msgstr ""
+"Nelze přidat upozornění, upozornění s tímto jménem již existuje.\n"
+"\n"
+"Prosím zvol jiné jméno pro upozornění."
 
 #: qml/AlarmList.qml:49
 msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr "Alarm is verwijderd"
+msgstr "Upozornění bylo odstraněno."
 
 #: qml/AlarmList.qml:50
 msgctxt ""
@@ -605,40 +601,38 @@ msgctxt ""
 msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
-msgstr ""
-"Kan het alarm '%1' niet vinden. Is die misschien door een ander "
-"programmainstantie verwijderd?"
+msgstr "Nelze najít upozornění se jménem '%1'. Možná už bylo odstraněno jinak."
 
 #: qml/AlarmList.qml:80
 msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
-msgstr "Alarm opdracht kiezen"
+msgstr "Upravit přikazy upozornění"
 
 #: qml/AlarmList.qml:89
 msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr "Tijd kiezen voor alarm"
+msgstr "Nastavit čas upozornění"
 
 #: qml/AlarmList.qml:111
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
-msgstr "Alarm verwijderen"
+msgstr "Smazat toto upozornění"
 
 #: qml/AlarmList.qml:115
 msgctxt ""
 "Title for a message box which allows the user to delete a specific alarm"
 msgid "Remove the Alarm"
-msgstr "Alarm verwijderen"
+msgstr "Odstranit toto upozornění"
 
 #: qml/AlarmList.qml:116
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
-msgstr "Weet je zeker dat je alarm '%1' wil verwijderen?"
+msgstr "Opravdu chceš odstranit upozornění '%1'?"
 
 #: qml/AlarmList.qml:135
 msgctxt ""
@@ -647,51 +641,51 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
-"Stel een alarm hier in. Kies een datum en tijd voor je alarm, en voeg dan "
-"een of meerdere bewegingen toe om op dat moment te triggeren."
+"Tady nastavíš upozornění. Zvol datum a čas svého upozornění, poté přidej "
+"jeden nebo více pohybů které se mají odehrát v daný čas."
 
 #: qml/AlarmList.qml:142
 msgctxt ""
 "Descriptive text for a popup which allows the user to create a new, named "
 "alarm"
 msgid "Enter a name to use for your new alarm and click Create"
-msgstr "Geef je alarm een naam en klik op Aanmaken"
+msgstr "Zadej jméno pro tvoje nové upozornění a zvol Vytvořit"
 
 #: qml/AlarmList.qml:143
 msgctxt ""
 "Placeholder text for the text box in which the name of a new alarm must be "
 "written"
 msgid "Enter your alarm name here"
-msgstr "Geef je alarm een naam"
+msgstr "Zde zadej jméno tvého upozornění"
 
 #: qml/AlarmList.qml:144
 msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
-msgstr "Aanmaken"
+msgstr "Vytvořit"
 
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
-msgstr "Opdracht toevoegen aan lijst"
+msgstr "Přidej pohyb do seznamu"
 
 #: qml/BaseCommandListEditor.qml:51
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
-msgstr "Pauze toevoegen aan lijst"
+msgstr "Přidej pauzu do seznamu"
 
 #: qml/BaseCommandListEditor.qml:168
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
-msgstr "Opdracht toevoegen"
+msgstr "Přidej příkaz po"
 
 #: qml/BaseCommandListEditor.qml:177
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
-msgstr "Pauze toevoegen"
+msgstr "Přidej pauzu po"
 
 #: qml/BaseCommandListEditor.qml:203
 msgctxt ""
@@ -701,15 +695,15 @@ msgid ""
 "<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
 "cooldown: %3 seconds</small>"
 msgstr ""
-"<strong>%1</strong><br/><small>%2 seconden</small><br/><small>Extra "
-"cooldown: %3 seconds</small>"
+"<strong>%1</strong><br/><small>%2 sekund(y)</small><br/><small>Další pauza: "
+"%3 sekund(y)</small>"
 
 #: qml/BaseCommandListEditor.qml:204
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
-msgstr "<strong>%1</strong><br/><small>%2 seconden</small>"
+msgstr "<strong>%1</strong><br/><small>%2 sekund(y)</small>"
 
 #: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
@@ -719,109 +713,109 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
-"Dit is de lijst met opdrachten. Hier zitten bewegingen, lichtpatronen en "
-"pauses bij.\n"
-"Tip: Om een nieuwe opdracht toe te voegen in de lijst, klik op de plus knop "
-"boven de tijdstempel voor die opdracht en kies er een uit het menu."
+"Toto je seznam příkazů. Může obsahovat pohyby, světla a pauzy.Tip: Na "
+"přidání nového příkazu pod ten, který už v seznamu máš, klikni na ikonu Plus "
+"nad celkovým časem daného záznamu a vyber jednu z možností v menu."
 
 #: qml/BaseCommandListEditor.qml:275
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] "Totale duur: %1 seconden"
-msgstr[1] "Totale duur: %1 seconden"
+msgstr[0] "Celková doba trvání: %1 sekunda"
+msgstr[1] "Celková doba trvání: %1 sekund(y)"
+msgstr[2] "Celková doba trvání: %1 sekund(y)"
 
 #: qml/BaseMovesComponent.qml:203
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
-msgstr "Naar welk apparaat versturen?"
+msgstr "Kam poslat?"
 
 #: qml/BaseMovesComponent.qml:212
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr "Kies hier waar je de opdracht naar wil verzenden"
+msgstr "Vyber z následujícího seznamu, kam chceš zaslat tento příkaz."
 
 #: qml/BaseMovesComponent.qml:257
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
-msgstr "Verzend naar geselecteerde Gear"
+msgstr "Zaslat do zvoleného"
 
 #: qml/BaseMovesComponent.qml:266
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
-msgstr "Verzend naar allen"
+msgstr "Zaslat do všech"
 
 #: qml/CommandPausePicker.qml:42
 msgctxt ""
 "Heading for an overlay for picking the duration of a pause in the command "
 "list"
 msgid "Pick the duration of your pause"
-msgstr "Kies de lengte van de pause"
+msgstr "Zvol dobu trvání pauzy"
 
 #: qml/CommandPausePicker.qml:59
 msgctxt ""
 "A label which describes the slider for the duration of a pause, in the "
 "overlay for picking the duration of a pause, in a command list"
 msgid "%1 seconds"
-msgstr "%1 seconden"
+msgstr "%1 sekund(y)"
 
 #: qml/CommandPausePicker.qml:63
 msgctxt ""
 "Button for an overlay for picking the duration of a pause in the command list"
 msgid "Add this pause"
-msgstr "Voeg pause toe"
+msgstr "Přidej pauzu"
 
 #: qml/ConnectToTail.qml:69
 msgctxt ""
 "Button for the action of disconnecting a device, in the prompt for "
 "connecting a device"
 msgid "Disconnect"
-msgstr "Verbinding verbreken"
+msgstr "Odpojit"
 
 #: qml/ConnectToTail.qml:70
 msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
 msgid "Connect"
-msgstr "Verbinden"
+msgstr "Připojit"
 
 #: qml/DatePicker.qml:239
 msgctxt "Button for selecting the date of today, in a date picker"
 msgid "Today"
-msgstr "Vandaag"
+msgstr "Dnes"
 
 #: qml/DatePicker.qml:246
 msgctxt "Button for cancelling the selection of a date, in a date picker"
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr "Zrušit"
 
 #: qml/DatePicker.qml:253
 msgctxt "Button for confirming the selection of a date, in a date picker"
 msgid "OK"
-msgstr "Ok"
+msgstr "OK"
 
 #: qml/DeveloperModePage.qml:27
 msgctxt "Header for the Developer Mode page"
 msgid "Developer Mode"
-msgstr "Ontwikkelaarsmodus"
+msgstr "Vývojářský mód"
 
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr "Geef Caroline een aai ^^"
+msgstr "MAX GLASH"
 
 #: qml/EarPoses.qml:24
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr "EarGear poses"
+msgstr "Pózy uší"
 
 #: qml/EarPoses.qml:27
 msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Základní pozice"
 
 #: qml/EarPoses.qml:35
 msgctxt "Description for the page for selecting a pose for the EarGear"
@@ -829,27 +823,27 @@ msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
-"Hier staan alle posities voor je Gear. Druk op een hiervan om dat naar je "
-"apparatuur te verzenden!"
+"Tento seznam ukazuje všechny pózy, které může tvoje zařízení vykonat. Zvol "
+"kteroukoli, aby ji provedlo tvé zařízení!"
 
 #: qml/EarPoses.qml:42
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
 msgid "Poses"
-msgstr "Poses"
+msgstr "Pózy"
 
 #: qml/GearGestures.qml:28
 msgctxt "Title for the page for selecting a pose for the Gear"
 msgid "Gear Gestures"
-msgstr "Gear Gebaren"
+msgstr "Akce zařízení"
 
 #: qml/GearGestures.qml:31
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting a "
 "pose for the Gear"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Základní pozice"
 
 #: qml/GearGestures.qml:47
 msgctxt "Info card for the page for selecting a pose for the Gear"
@@ -860,17 +854,18 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"Zet een van de sensors aan om je Gear te laten reageren op zijn omgeving "
-"(mits die zich in ruststand bevind). Als voorbeeld: Laat je oren opfloppen "
-"wanneer je je telefoon oppakt, of begin met je staart te wapperen wanneer je "
-"begint te lopen?"
+"Zapni jeden z následujících senzorů, aby tvoje zařízení reagovalo na akce s "
+"tímto mobilním zařízením, když neprobíhá jiná aktivita (to znamená žádný "
+"momentální příkaz a prázdná příkazová fronta). Například uši se můžou "
+"zvednout, když zvedneš toto zařízení, nebo se můžou začít hýbat když uděláš "
+"krok."
 
 #: qml/GearGestures.qml:70
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting a pose for the Gear"
 msgid "Multiple Gestures"
-msgstr "Meerdere Gebaren "
+msgstr "Příliš mnoho akcí"
 
 #: qml/GearGestures.qml:71
 msgctxt ""
@@ -883,56 +878,57 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
-"Je probeert meerdere gebaren tegelijk te activeren. Dit kan de Gear door de "
-"war brengen, doordat meerdere opdrachten dan kruislings kunnen lopen. Als je "
-"zeker weet wat je doet, druk dan op OK, druk anders op Annuleren."
+"Pokoušíš se zapnout více akcí najednou. To může někdy způsobit problémy s "
+"ovládáním (například pokud zapneš Chůzi a Zatřesení naráz, budou se "
+"pravděpodobně detekovat společně). Pokud opravdu chceš toto udělat, klikni "
+"na OK, nebo zruš aktivaci."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting a pose for the Gear"
 msgid "Show On Welcome Page"
-msgstr "Laat op welkomstpagina zien"
+msgstr "Zobraz na uvítací stránce"
 
 #: qml/GearGestures.qml:93
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting a pose for the Gear"
 msgid "(no command)"
-msgstr "(geen opdracht)"
+msgstr "(žádný příkaz)"
 
 #: qml/IdleModePage.qml:26
 msgctxt "Title for the page for selecting a move in Casual Mode"
 msgid "Casual Mode Categories"
-msgstr "Intelligente Modus categorieën"
+msgstr "Kategorie casual módu"
 
 #: qml/IdleModePage.qml:46
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Calm and Relaxed"
-msgstr "Rustig en relax"
+msgstr "Klidný a uvolněný"
 
 #: qml/IdleModePage.qml:51
 msgctxt ""
 "Description for the category for the Excited Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Fast and Excited"
-msgstr "Opgewonden"
+msgstr "Rychlý a nadšený"
 
 #: qml/IdleModePage.qml:56
 msgctxt ""
 "Description for the category for the Tense Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Frustrated and Tense"
-msgstr "Geirriteerd"
+msgstr "Frustrovaný a napjatý"
 
 #: qml/IdleModePage.qml:61
 msgctxt ""
 "Description for the category for the LED Patterns, on the page for selecting "
 "a move in Casual Mode"
 msgid "LED Patterns"
-msgstr "Lichtpatronen"
+msgstr "LED vzory"
 
 #: qml/IdleModePage.qml:72
 msgctxt ""
@@ -942,14 +938,14 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
-"Hier kan je de pauses tussen bewegingen inprogrammeren, en de types "
-"bewegingen kiezen."
+"Zde si můžeš nastavit pauzy mezi pohyby nebo sadami pohybů, které si zde "
+"můžeš zobrazit."
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
 "Label for selecting the range of pauses in between moves in Casual Mode"
 msgid "Range of pause between moves in seconds"
-msgstr "Pausebereik tussen bewegingen, in seconden"
+msgstr "Prodleva mezi pohyby v sekundách"
 
 #: qml/main.qml:62
 msgctxt "Title of the application"
@@ -959,59 +955,57 @@ msgstr "Crumpet"
 #: qml/main.qml:98
 msgctxt "Text for the notification upon connecting successfully to a device"
 msgid "Connected successfully!"
-msgstr "Verbonden!"
+msgstr "Připojení úspěšné!"
 
 #: qml/main.qml:119
 msgctxt "Title for the warning for having Bluetooth disabled"
 msgid "Warning"
-msgstr "Opgelet!"
+msgstr "Varování"
 
 #: qml/main.qml:119
 msgctxt "Message for the warning for having Bluetooth disabled"
 msgid "Bluetooth is disabled"
-msgstr "Je Bluetooth staat uit"
+msgstr "Bluetooth je vypnuto"
 
 #: qml/main.qml:121
 msgctxt "Title for the warning for not having detected any Bluetooth devices"
 msgid "Warning"
-msgstr "Opgelet!"
+msgstr "Varování"
 
 #: qml/main.qml:121
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
 msgid "No Bluetooth Device"
-msgstr "Geen Bluetooth apparaat gevonden."
+msgstr "Nenalezeno Bluetooth zařízení"
 
 #: qml/main.qml:134
 msgctxt "Title for the popup for having enabled Developer Mode"
 msgid "Developer mode"
-msgstr "Ontwikkelaarsmodus"
+msgstr "Vývojářský mód"
 
 #: qml/main.qml:134
 msgctxt "Message for the popup for having enabled Developer Mode"
 msgid "Developer mode is enabled"
-msgstr "Ontwikkelaarsmodus is ingeschakeld"
+msgstr "Vývojářský mód zapnut"
 
 #: qml/main.qml:136
 msgctxt "Title for the popup for having disabled Developer Mode"
 msgid "Developer mode"
-msgstr "Ontwikkelaarsmodus"
+msgstr "Vývojářský mód"
 
 #: qml/main.qml:136
 msgctxt "Message for the popup for having disabled Developer Mode"
 msgid "Developer mode is disabled"
-msgstr "Ontwikkelaarsmodus is uitgeschakeld"
+msgstr "Vývojářský mód vypnut"
 
 #: qml/main.qml:141
 msgctxt "Title for the popup for getting a timeout for Casual Mode"
 msgid "Casual Mode is Off"
-msgstr "Intelligente Modus is uitgeschakeld"
+msgstr "Casual mód vypnut"
 
 #: qml/main.qml:141
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
-msgstr ""
-"Misschien tijd om een rustpause te geven aan je staart en oren... voordat je "
-"oren in de fik vliegen!"
+msgstr "Možná je čas na pauzu... Nech svůj ocas nebo uši odpočinout"
 
 #: qml/main.qml:202
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -1021,59 +1015,59 @@ msgstr "Crumpet"
 #: qml/main.qml:210
 msgctxt "Button for opening the Alarm page, from the landing page"
 msgid "Alarm"
-msgstr "Alarm"
+msgstr "Upozornění"
 
 #: qml/main.qml:220
 msgctxt "Button for opening the Move List page, from the landing page"
 msgid "Move Lists"
-msgstr "Opdrachtenlijsten"
+msgstr "Seznam pohybů"
 
 #: qml/main.qml:230
 msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
 msgid "Moves"
-msgstr "Bewegingen"
+msgstr "Pohyby"
 
 #: qml/main.qml:239
 msgctxt "Button for opening the EarGear Poses page, from the landing page"
 msgid "Ear Poses"
-msgstr "EarGear poses"
+msgstr "Pózy uší"
 
 #: qml/main.qml:248
 msgctxt "Button for opening the Glow Tips page, from the landing page"
 msgid "Glow Tips"
-msgstr "Lichten"
+msgstr "Svítící konce"
 
 #: qml/main.qml:257
 msgctxt ""
 "Button for opening the page for setting up the Casual Mode, from the landing "
 "page"
 msgid "Casual Mode Settings"
-msgstr "Instellingen Intelligente Modus"
+msgstr "Nastavení casual módu"
 
 #: qml/main.qml:266
 msgctxt "Button for opening the Gear Gestures page, from the landing page"
 msgid "Gear Gestures"
-msgstr "Gear gebaren"
+msgstr "Akce zařízení"
 
 #: qml/main.qml:275
 msgctxt "Button for opening the Developer Mode page, from the landing page"
 msgid "Developer Mode"
-msgstr "Ontwikkelaarsmodus"
+msgstr "Vývojářský Mód"
 
 #: qml/main.qml:290
 msgctxt "Button for opening the Settings Page, from the landing page"
 msgid "Settings"
-msgstr "Instellingen"
+msgstr "Nastavení"
 
 #: qml/main.qml:301
 msgctxt "Button for opening the About Us page, from the landing page"
 msgid "About"
-msgstr "Over ons"
+msgstr "O nás"
 
 #: qml/main.qml:321
 msgctxt "Title for the confirmation popup for disconnecting your gear"
 msgid "Your gear is currently connected"
-msgstr "Je Gear is verbonden"
+msgstr "Tvoje zařízení je připojené"
 
 #: qml/main.qml:322
 msgctxt "Message for the confirmation popup for disconnecting your gear"
@@ -1082,31 +1076,31 @@ msgid ""
 "\n"
 "Are you sure that you want to disconnect and quit?"
 msgstr ""
-"Je bent nog met Gear verbonden.\n"
+"Jsi připojen ke svému zařízení.\n"
 "\n"
-"Weet je zeker dat je de verbinding wil verbreken en wil afsluiten?"
+"Jsi si jist že se chceš odpojit?"
 
 #: qml/main.qml:386
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your new gear"
-msgstr "Vul een naam in voor je nieuwe Gear"
+msgstr "Zvol jméno pro svoje nové zařízení"
 
 #: qml/main.qml:387
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the name here"
-msgstr "Geef je Gear een naam"
+msgstr "Zadej jméno zde"
 
 #: qml/main.qml:388
 msgctxt ""
 "Button for confirming the save of your new name, for the prompt for entering "
 "a name for your Gear"
 msgid "Save"
-msgstr "Opslaan"
+msgstr "Uložit"
 
 #: qml/main.qml:426
 msgctxt "Label for your gear that gets shown when attempting to connect to it"
 msgid "Attempting to connect..."
-msgstr "Aan het verbinden..."
+msgstr "Zkouším se připojit..."
 
 #: qml/MessageBox.qml:48
 msgctxt "Confirmation button for a generic message"
@@ -1116,95 +1110,95 @@ msgstr "Ok"
 #: qml/MessageBox.qml:67
 msgctxt "Cancel button for a generic message"
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr "Zrušit"
 
 #: qml/MoveListEditor.qml:32
 msgctxt ""
 "Label for the button for running a Move List, on the Move List Editor page"
 msgid "Run Move List"
-msgstr "Opdrachtenlijst uitvoeren"
+msgstr "Spusť seznam pohybů"
 
 #: qml/MoveListEditor.qml:35
 msgctxt ""
 "Heading for the confirmation prompt for running a Move List, on the Move "
 "List Editor page"
 msgid "Run this list?"
-msgstr "Programma uitvoeren?"
+msgstr "Spustit tento seznam?"
 
 #: qml/MoveListEditor.qml:36
 msgctxt ""
 "Message for the confirmation prompt for running a Move List, on the Move "
 "List Editor page"
 msgid "Do you want to run this list?"
-msgstr "Wil je dit programma uitvoeren?"
+msgstr "Chceš spustit tento seznam?"
 
 #: qml/MoveListEditor.qml:51
 msgctxt ""
 "Header for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Remove Move List Entry?"
-msgstr "Beweging verwijderen uit de lijst?"
+msgstr "Odstranit ze seznamu pohybů?"
 
 #: qml/MoveListEditor.qml:52
 msgctxt ""
 "Message for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Are you sure that you want to remove this entry from your move list?"
-msgstr "Weet je zeker dat je deze beweging uit de lijst wil verwijderen?"
+msgstr "Opravdu chceš odstranit tento pohyb ze seznamu pohybů?"
 
 #: qml/MoveLists.qml:27
 msgctxt "Heading for the page for viewing Move Lists"
 msgid "Move Lists"
-msgstr "Opdrachtenlijsten"
+msgstr "Seznam pohybů"
 
 #: qml/MoveLists.qml:31
 msgctxt ""
 "Label for the button for adding a new Move List, on the page for viewing "
 "Move Lists"
 msgid "Add New Move List"
-msgstr "Nieuwe opdrachtenlijst aanmaken"
+msgstr "Přidej nový seznam pohybů"
 
 #: qml/MoveLists.qml:48
 msgctxt ""
 "Heading for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Run this list?"
-msgstr "Opdrachtenlijst uitvoeren?"
+msgstr "Spustit tento seznam?"
 
 #: qml/MoveLists.qml:49
 msgctxt ""
 "Message for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Do you want to run the list %1?"
-msgstr "Wil je opdrachtenlijst %1 uitvoeren?"
+msgstr "Chceš spustit seznam %1?"
 
 #: qml/MoveLists.qml:56
 msgctxt ""
 "Label for the button for editing a move list, on the page for viewing Move "
 "Lists"
 msgid "Edit Move List"
-msgstr "Opdrachtenlijst bewerken"
+msgstr "Uprav seznam pohybů"
 
 #: qml/MoveLists.qml:64
 msgctxt ""
 "Label for the button for deleting a move list, on the page for viewing Move "
 "Lists"
 msgid "Delete this Move List"
-msgstr "Deze opdrachtenlijst verwijderen"
+msgstr "Smaž tento seznam pohybů"
 
 #: qml/MoveLists.qml:68
 msgctxt ""
 "Heading for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Remove the Move List"
-msgstr "Verwijder opdrachtenlijst"
+msgstr "Odstranit seznam pohybů"
 
 #: qml/MoveLists.qml:69
 msgctxt ""
 "Message for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Are you sure that you want to remove the Move List '%1'?"
-msgstr "Weet je zeker dat je opdrachtenlijst '%1' wilt verwijderen?"
+msgstr "Opravdu chceš odstranit seznam pohybů '%1'?"
 
 #: qml/MoveLists.qml:86
 msgctxt "Description for the page for viewing Move Lists"
@@ -1213,37 +1207,37 @@ msgid ""
 "you have created, tap it and pick OK. To perform actions on the ones you've "
 "created, like editing or even removing them entirely, swipe left on the item."
 msgstr ""
-"Maak opdrachtenlijsten aan met bewegingen, lichtpatronen, en pauses, om naar "
-"je Gear te verzenden. Om een programma te verzenden, kies er een en druk op "
-"OK. Om een actie te bewerken of te verwijderen, swipe het item naar links."
+"Vytvoř seznam pohybů, světel a pauz pro tvoje zařízení. Pro odeslánína něj "
+"klikni a zvol OK. Pro práci se seznamem,například editaci nebo odstranění, "
+"jej posuň doleva."
 
 #: qml/MoveLists.qml:93
 msgctxt ""
 "Description for the prompt for giving a name to a move list, on the page for "
 "viewing Move Lists"
 msgid "Enter a name to use for your new move list and click Create"
-msgstr "Vul een naam in voor je opdrachtenlijst en druk op Aanmaken"
+msgstr "Zadej jméno pro tvůj nový seznam a zvol Vytvořit"
 
 #: qml/MoveLists.qml:94
 msgctxt ""
 "Placeholder text for the textfield for the prompt for giving a name to a "
 "move list, on the page for viewing Move Lists"
 msgid "Enter your move list name here"
-msgstr "Programmanaam"
+msgstr "Zde zadej jméno tvého seznamu pohybů"
 
 #: qml/MoveLists.qml:95
 msgctxt ""
 "Confirmating button for the prompt for giving a name to a move list, on the "
 "page for viewing Move Lists"
 msgid "Create"
-msgstr "Toevoegen"
+msgstr "Vytvořit"
 
 #: qml/MoveLists.qml:99
 msgctxt ""
 "Header for the warning that a name is already in use, for the prompt for "
 "giving a name to a move list, on the page for viewing Move Lists"
 msgid "Name Already Used"
-msgstr "Naam is al in gebruik"
+msgstr "Jméno už je použito"
 
 #: qml/MoveLists.qml:100
 msgctxt ""
@@ -1252,39 +1246,38 @@ msgctxt ""
 msgid ""
 "You already have a move list with the name %1. Please pick another name, as "
 "that won't work."
-msgstr ""
-"Er is al een andere opdrachtlijst genaamt %1. Gelieve een andere naam te "
-"kiezen."
+msgstr "Seznam se jménem %1 již existuje. Prosím zvol jiné jméno."
 
 #: qml/NamePicker.qml:41
 msgctxt "Text header for picking a name"
 msgid "Pick a name"
-msgstr "Kies een naam"
+msgstr "Zvol jméno"
 
 #: qml/NotConnectedCard.qml:46
 msgctxt ""
 "Header warning for missing scan permissions, for the gear connecting card"
 msgid "Let us look for your gear"
-msgstr "Toestemming voor het zoeken naar Gear"
+msgstr "Dovol nám vyhledat tvoje zařízení"
 
 #: qml/NotConnectedCard.qml:49
 msgctxt "Header for whilst scanning, for the gear connecting card"
 msgid "Searching for gear..."
-msgstr "Zoeken naar Gear..."
+msgstr "Hledání zařízení..."
 
 #: qml/NotConnectedCard.qml:53
 msgctxt ""
 "Header warning that no gear has been found, for the gear connecting card"
 msgid "No gear found"
-msgstr "Geen Gear gevonden."
+msgstr "Nenalezeno žádné zařízení"
 
 #: qml/NotConnectedCard.qml:56
 msgctxt ""
 "Header notifying that gear has been found, for the gear connecting card"
 msgid "One piece of gear available"
 msgid_plural "Multiple pieces of gear available"
-msgstr[0] "Een Gear gevonden!"
-msgstr[1] "Meerdere Gears gevonden!"
+msgstr[0] "Jedno zařízení dostupné"
+msgstr[1] "Několik zařízení dostupných"
+msgstr[2] "Několik zařízení dostupných"
 
 #: qml/NotConnectedCard.qml:82
 msgctxt ""
@@ -1295,17 +1288,17 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
-"Om met je Gear te kunnen verbinden hebben we toestemming nodig voor het "
-"uitlezen van je locatie. Druk op de onderstaande knop om deze toestemming "
-"uit te geven. Wij gebruiken deze info nergens anders voor... als je meer "
-"informatie wil, neem dan contact met ons op"
+"Potřebujeme, abys nám povolil sledování tvé lokace, abychom našli tvé "
+"vybavení. Kliknutím na tlačítko pod touto zprávou vyvolej okno pro udělení "
+"povolení. Tyto informace nevyužíváme žádným jiným způsobem (můžeš nás "
+"kontaktovat, pokud to chceš dokázat)."
 
 #: qml/NotConnectedCard.qml:86
 msgctxt ""
 "Message whilst scanning warning that no gear has been found, for the gear "
 "connecting card"
 msgid "None found yet..."
-msgstr "Nog niks gevonden... even geduld a.u.b."
+msgstr "Zatím nic nenalezeno..."
 
 #: qml/NotConnectedCard.qml:89
 msgctxt ""
@@ -1316,11 +1309,11 @@ msgid ""
 msgid_plural ""
 "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
 "below."
-msgstr[0] ""
-"Een Gear gevonden. Wacht een ogenblik, of druk op \"Verbinden\" om "
-"verbinding aan te leggen"
+msgstr[0] "1 zařízení nalezeno. Počkej, nebo zvol \"Připojit\" pro ovládání."
 msgstr[1] ""
-"%1 stuks Gear gevonden. Om deze te zien, druk op de onderstaande knop..."
+"Nalezeno %1 zařízení. Pro zobrazení, zvol \"Zobrazit dostupné zařízení...\""
+msgstr[2] ""
+"Nalezeno %1 zařízení. Pro zobrazení, zvol \"Zobrazit dostupné zařízení...\""
 
 #: qml/NotConnectedCard.qml:94
 msgctxt ""
@@ -1330,8 +1323,7 @@ msgid ""
 "We were unable to find any gear. Please ensure that yours is nearby and "
 "switched on."
 msgstr ""
-"We konden geen Gear vinden. Gelieve zeker te zijn dat je Gear aan staat en "
-"zich in de buurt van je telefoon bevind."
+"Nemohli jsme najít žádné zařízení. Ujisti se, že tvoje je blízko a zapnuté."
 
 #: qml/NotConnectedCard.qml:97
 msgctxt ""
@@ -1344,45 +1336,48 @@ msgid_plural ""
 "You are not currently connected to your gear, and we have found %1. Please "
 "push \"Show available gear...\" below to see what is available."
 msgstr[0] ""
-"Je bent nog niet verbonden met je Gear, maar we kennen deze wel. Druk op "
-"\"Verbinden\" om hiermee te verbinden."
+"Momentálně nejsi připojen k žádnému zařízení, jedno je dostupné. Zvol "
+"\"Připojit\" pro připojení."
 msgstr[1] ""
-"Je bent nog niet verbonden met je Gear, maar we hebben %1 Gears gevonden! "
-"Druk op de knop om te zien wat beschikbaar is."
+"Momentálně nejsi připojen k žádnému zařízení, ale %1 jsou dostupná. Pro "
+"zobrazení možných připojení zvol \"Zobrazit dostupné zařízení...\""
+msgstr[2] ""
+"Momentálně nejsi připojen k žádnému zařízení, ale %1 jsou dostupná. Pro "
+"zobrazení možných připojení zvol \"Zobrazit dostupné zařízení...\""
 
 #: qml/NotConnectedCard.qml:106
 msgctxt ""
 "Label for button for opening the settings tab to fix missing scan "
 "permissions, for the gear connecting card"
 msgid "Get Location Permission..."
-msgstr "Verkrijg locatietoestemmingen..."
+msgstr "Udělit povolení pro lokaci..."
 
 #: qml/NotConnectedCard.qml:109
 msgctxt ""
 "Label for button that gets shown whilst no gear has been found, for the gear "
 "connecting card"
 msgid "Look for gear"
-msgstr "Zoek naar Gear"
+msgstr "Vyhledej zařízení"
 
 #: qml/NotConnectedCard.qml:111
 msgctxt ""
 "Label for button for connecting to a specific piece of gear, for the gear "
 "connecting card"
 msgid "Connect to %1"
-msgstr "Verbinden met %1"
+msgstr "Připojit k %1"
 
 #: qml/NotConnectedCard.qml:113
 msgctxt ""
 "Label for button for showing a list of available gear, for the gear "
 "connecting card"
 msgid "Show available gear..."
-msgstr "Laat gevonden Gear zien..."
+msgstr "Zobrazit dostupná zařízení..."
 
 #: qml/PickACommandSheet.qml:30
 msgctxt ""
 "Heading for the overlay for picking a command, for configuring a move list"
 msgid "Pick a command"
-msgstr "Kies een opdracht"
+msgstr "Zvol příkaz"
 
 #: qml/PickACommandSheet.qml:34
 msgctxt ""
@@ -1392,48 +1387,48 @@ msgid ""
 "The list below shows all the moves and light patterns available to your "
 "gear. Tap any of them to pick that command."
 msgstr ""
-"Hier staan alle bewegingen en lichtpatronen voor je Gear. Druk op een "
-"hiervan om dat naar je apparatuur te verzenden!"
+"Seznam níže zobrazuje všechny pohyby a světelné vzory dostupné pro zařízení."
+"Zvol dotykem pro výběr příkazu."
 
 #: qml/PickACommandSheet.qml:42
 msgctxt ""
 "Description for the category for the Ear Gear poses, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Poses"
-msgstr "EarGear poses"
+msgstr "Pózy"
 
 #: qml/PickACommandSheet.qml:47
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Calm and Relaxed"
-msgstr "Rustig en relax"
+msgstr "Klidný a uvolněný"
 
 #: qml/PickACommandSheet.qml:52
 msgctxt ""
 "Description for the category for the Excited Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Fast and Excited"
-msgstr "Opgewonden"
+msgstr "Rychlý a nadšený"
 
 #: qml/PickACommandSheet.qml:57
 msgctxt ""
 "Description for the category for the Tense Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Frustrated and Tense"
-msgstr "Geirriteerd"
+msgstr "Frustrovaný a napjatý"
 
 #: qml/PickACommandSheet.qml:62
 msgctxt ""
 "Description for the category for the LED Patterns, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "LED Patterns"
-msgstr "Lichtpatronen"
+msgstr "LED vzory"
 
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
 msgid "Gear Command Sets"
-msgstr "Opdrachten"
+msgstr "Sady příkazů pro vybavení"
 
 #: qml/SettingsCrumpetPicker.qml:45
 msgctxt ""
@@ -1443,42 +1438,42 @@ msgid ""
 "add new ones, edit them, and remove them. You cannot edit the built-in "
 "lists, but you can duplicate them and then edit those."
 msgstr ""
-"Dit zijn alle opdrachten die geschikt zijn voor %1. Hier kan je er "
-"toevoegen, bewerken, en verwijderen. Je kan niet de ingebouwde opdrachten "
-"bewerken, maar je kan ze wel kopieren en die bewerken."
+"Zde jsou všechny seznamy příkazů, které máš dostupné pro %1. Můžeš přidat "
+"nové, upravit nebo odstranit. Nemůžeš editovat předpřipravené seznamy, ale "
+"můžeš je kopírovat a editovat kopie."
 
 #: qml/SettingsCrumpetPicker.qml:78
 msgctxt ""
 "Button for deleting a Command Set, on the page for configuring Command Sets"
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Smazat"
 
 #: qml/SettingsCrumpetPicker.qml:82
 msgctxt ""
 "Button for duplicating a Command Set, on the page for configuring Command "
 "Sets"
 msgid "Duplicate"
-msgstr "Dupliceren"
+msgstr "Zkopírovat"
 
 #: qml/SettingsCrumpetPicker.qml:91
 msgctxt ""
 "Button for editing a Command Set, on the page for configuring Command Sets"
 msgid "Edit Commands"
-msgstr "Opdrachten bewerken"
+msgstr "Upravit příkazy"
 
 #: qml/SettingsCrumpetPicker.qml:103
 msgctxt ""
 "Header for the overlay for editing a Command Set, on the page for "
 "configuring Command Sets"
 msgid "Edit Commands"
-msgstr "Opdrachten bewerken"
+msgstr "Upravit příkazy"
 
 #: qml/SettingsCrumpetPicker.qml:111
 msgctxt ""
 "Button for saving a Command Set, on the overlay for editing a Command Set, "
 "on the page for configuring Command Sets"
 msgid "Save"
-msgstr "Opslaan"
+msgstr "Uložit"
 
 #: qml/SettingsCrumpetPicker.qml:125
 msgctxt ""
@@ -1487,19 +1482,17 @@ msgctxt ""
 msgid ""
 "(this is where the content of the crumpet file goes,\n"
 "because we'll just have that here for now...)"
-msgstr ""
-"(hier komt de inhoud van het crumpet bestand,\n"
-"we laten dat hier voorlopig staan...)"
+msgstr "(dočasný text, počkej až přidáme tuto funkci)"
 
 #: qml/SettingsPage.qml:29
 msgctxt "Title for the settings page"
 msgid "Settings"
-msgstr "Instellingen"
+msgstr "Nastavení"
 
 #: qml/SettingsPage.qml:36
 msgctxt "Header for the instruction panel, on the settings page"
 msgid "Instructions"
-msgstr "Handleiding"
+msgstr "Instrukce"
 
 #: qml/SettingsPage.qml:37
 msgctxt "Description for the instruction panel on the settings page"
@@ -1508,13 +1501,13 @@ msgid ""
 "includes instructions on how to wear your tail or ears, along with some nice "
 "graphics showing you how."
 msgstr ""
-"Gelieve de handleiding te downloaden van de link hieronder. Hierin staan hoe "
-"de staart en oren worden gedragen."
+"Kliknutím na odkaz níž si stáhneš instrukce pro přečtení. Součástí jsou "
+"instrukce jak nosit ocas a uši, včetně ilustračních obrázků."
 
 #: qml/SettingsPage.qml:56
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
 msgid "Automatic Reconnection"
-msgstr "Automatisch herverbinden"
+msgstr "Automatické obnovení připojení"
 
 #: qml/SettingsPage.qml:57
 msgctxt ""
@@ -1524,21 +1517,21 @@ msgid ""
 "Ticking this option will ensure that the app will attempt to reconnect "
 "automatically when the connection is lost."
 msgstr ""
-"Soms kan de app zijn verbinding kwijtraken. Met deze optie blijft de app "
-"naar zijn gear zoeken, zodat hij direct weer verbind wanneer die de Gear "
-"weer terug vind."
+"V některých situacích aplikace může ztratit připojení k tvému zařízení. "
+"Zaškrtnutím této možnosti umožníš aplikaci, aby se pokusila znovu připojit "
+"automaticky."
 
 #: qml/SettingsPage.qml:59
 msgctxt ""
 "Checkbox for enabling automatic reconnection, on the automatic reconnection "
 "panel in the settings page"
 msgid "Reconnect Automatically"
-msgstr "Automatisch herverbinden"
+msgstr "Znovupřipojení automaticky"
 
 #: qml/SettingsPage.qml:68
 msgctxt "Header for the panel for changing gear names, on the settings page"
 msgid "Gear Names"
-msgstr "Gear namen"
+msgstr "Jména zařízení"
 
 #: qml/SettingsPage.qml:69
 msgctxt ""
@@ -1547,21 +1540,21 @@ msgid ""
 "If you want to clear the names of any gear you have given a name, click the "
 "button below to make the app forget them all."
 msgstr ""
-"Als je alle namen van je Gear wilt verwijderen, druk op de volgende knop."
+"Pokud chceš smazat všechna jména zařízení naráz, stiskni tlačítko níže."
 
 #: qml/SettingsPage.qml:71
 msgctxt ""
 "Label for the button for clearing gear names, on the panel for changing gear "
 "names, on the settings page"
 msgid "Forget Gear Names"
-msgstr "Namen vergeten"
+msgstr "Zapomeň jména zařízení"
 
 #: qml/SettingsPage.qml:74
 msgctxt ""
 "Header for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
 msgid "Clear the names?"
-msgstr "Alle namen leegmaken?"
+msgstr "Smazat jména?"
 
 #: qml/SettingsPage.qml:75
 msgctxt ""
@@ -1570,13 +1563,13 @@ msgctxt ""
 msgid ""
 "Please confirm that you do, in fact, want to clear all your saved device "
 "names."
-msgstr "Weet je zeker dat je *alle* namen wilt wissen uit je telefooon?"
+msgstr "Prosím potvrď, že opravdu chceš smazat všechna uložená jména zařízení."
 
 #: qml/SettingsPage.qml:82
 msgctxt ""
 "Header for the panel for adding commands to your gear, on the settings page"
 msgid "Gear Commands"
-msgstr "Opdrachten"
+msgstr "Příkazy pro zařízení"
 
 #: qml/SettingsPage.qml:83
 msgctxt ""
@@ -1589,31 +1582,30 @@ msgid ""
 "to more easily use this, make sure to give your gear a name, so you can tell "
 "them apart more easily."
 msgstr ""
-"Ondanks alle ingebouwde functionaliteit, is er nog veel meer wat je Gear kan "
-"doen! Je kan bewerken wat je verzend naar je Gear, en elk apparaat onthoud "
-"wat je heb opgeslagen. Om het nog makkelijker te maken, geef eerst je Gear "
-"een naam, zodat je kan weten welke Gear wat is."
+"Ačkoli aplikace je dodávána s mnoha předpřipravenými příkazy, tvoje "
+"zařízenítoho dokáže víc. Můžeš modifikovat existující příkazy, a aplikace si "
+"zapamatuje tvé změny pro každé uložené a pojmenované zařízení."
 
 #: qml/SettingsPage.qml:87
 msgctxt ""
 "Checkbox for hiding non-connected gear, on the panel for adding commands to "
 "your gear, on the settings page"
 msgid "Only Show Connected Gear"
-msgstr "Alleen vebonden Gear laten zien"
+msgstr "Zobrazit pouze připojená zařízení"
 
 #: qml/SettingsPage.qml:100
 msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
-msgstr "Geen Gear te configureren"
+msgstr "Nenalezeno žádné zařízení pro konfiguraci... "
 
 #: qml/SettingsPage.qml:125
 msgctxt ""
 "Heading for the panel for adjusting microphone levels for the earGear, on "
 "the settings page"
 msgid "EarGear Hearing"
-msgstr "EarGear laten luisteren"
+msgstr "Eargear odposlech"
 
 #: qml/SettingsPage.qml:126
 msgctxt ""
@@ -1629,34 +1621,33 @@ msgid ""
 "controller box either on the front or the back of your body, or upside down "
 "so the cable can run more gracefully)."
 msgstr ""
-"Als je EarGear niet goed op omgevingsgeluid reageert, moeten de ingebouwde "
-"microfoons misschien ingesteld worden. Om ze te kalibreren, ga naar een "
-"stille ruimte en druk om de kalibratieknop. Deze waarde wordt opgeslagen in "
-"het kastje, dus een keer kalibreren zou voldoende moeten zijn. Het kan ook "
-"zo zijn dat links en rechts omgekeerd moeten worden (voorbeeld: als je het "
-"kastje rond je rug draagt in plaats van rond je nek, of bijvoorbeeld op zijn "
-"kop), dit kan door op Links en Rechts Omkeren te selecteren."
+"Pokud se tvůj EarGear chová, jako by neslyšel správně, možná potřebuje "
+"vyvážit. Pro nejlepší výsledky chceš být v tiché místnosti, potom stiskni "
+"tlačítko vespod (předtím vypni hudbu, zavři dveře do místnosti atd.) Hodnoty "
+"jsou uloženy v boxu, takže by nemělo být nutné to dělat víc než jednou. "
+"Možná bude potřeba změnit orientaci boxu (například můžeš chtít mít box "
+"vpředu nebo vzadu na těle, nebo vzhůru nohama, aby šlo lépe vést kabely)."
 
 #: qml/SettingsPage.qml:142
 msgctxt ""
 "Label for the button for unswapping left and right, on the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Unswap left and right"
-msgstr "Links en rechts terugkeren"
+msgstr "Zrušit záměnu levo a pravo"
 
 #: qml/SettingsPage.qml:143
 msgctxt ""
 "Label for the button for swapping left and right, the panel for adjusting "
 "microphone levels for the earGear, on the settings page"
 msgid "Swap left and right"
-msgstr "Links en rechts omkeren"
+msgstr "Zaměnit levo a pravo"
 
 #: qml/SettingsPage.qml:150
 msgctxt ""
 "Label for the button for rebalancing microphone levels, the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Rebalance Microphones"
-msgstr "Microfoon kalibreren"
+msgstr "Rebalancovat mikrofon"
 
 #: qml/SettingsPage.qml:163
 #, fuzzy
@@ -1664,7 +1655,7 @@ msgctxt ""
 "Heading for the panel for checking for and performing firmware updates for "
 "gear which supports this"
 msgid "Gear Firmware"
-msgstr "Gear namen"
+msgstr "Jména zařízení"
 
 #: qml/SettingsPage.qml:164
 msgctxt ""
@@ -1746,7 +1737,7 @@ msgstr ""
 msgctxt ""
 "Heading for the panel for the demo modus of the app, on the settings page"
 msgid "Fake Tail"
-msgstr "Nepstaart demomodus"
+msgstr "Falešný ocas"
 
 #: qml/SettingsPage.qml:246
 msgctxt ""
@@ -1759,28 +1750,27 @@ msgid ""
 "options exist. Enabling this option will make a fake tail show up on the "
 "welcome page."
 msgstr ""
-"Als je net de app heb gedownload, bijvoorbeeld omdat je een brand-nieuwe "
-"MiTail DigiTail of EarGear heb besteld, kan je hiermee alvast de app "
-"uitproberen. Dan verschijnt er een virtuele staart uit de lucht, waar je "
-"alle functionaliteit op kan uitproberen! Alleen maar een beetje fantasie "
-"nodig..."
+"Pokud jsi aplikaci právě stáhl, například pokud čekáš na dodávku zbrusu "
+"nového DIGITAiLu nebo EarGearu, asi chceš zjistit, co všechno bude umět. "
+"Tlačítkem dole můžeš nasimulovat připojení ocasu a vyzkoušet si možnosti. Po "
+"zapnutí této volby se na uvítací stránce objeví \"falešný ocas\"."
 
 #: qml/SettingsPage.qml:248
 msgctxt ""
 "Label for the checkbox for showing a fake tail inside the app, on the panel "
 "for the demo modus of the app, on the settings page"
 msgid "Show Fake Tail"
-msgstr "Nepstaart laten zien"
+msgstr "Zobrazit falešný ocas"
 
 #: qml/TailLights.qml:24
 msgctxt "Header for the page for the Glow Tips"
 msgid "Glow Tips"
-msgstr "Lichtpatronen"
+msgstr "Svítící konce"
 
 #: qml/TailLights.qml:27
 msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
 msgid "Stop Lights"
-msgstr "Lichten stoppen"
+msgstr "Vypnout světla"
 
 #: qml/TailLights.qml:36
 msgctxt ""
@@ -1789,23 +1779,23 @@ msgid ""
 "The list below shows all the light patterns available to your gear. Tap any "
 "of them to send them off to any of your connected devices!"
 msgstr ""
-"Hier staan alle lichtpatronen voor je Gear. Druk op een hiervan om dat naar "
-"je apparatuur te verzenden!"
+"Tento seznam ukazuje všechny světelné pózy, které může tvoje zařízení "
+"vykonat. Zvol kteroukoli, aby ji provedlo tvé zařízení!"
 
 #: qml/TailLights.qml:43
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
 msgid "LED Patterns"
-msgstr "Lichtpatronen"
+msgstr "LED vzory"
 
 #: qml/TailMoves.qml:24
 msgctxt "Heading for the Moves page"
 msgid "Moves"
-msgstr "Bewegingen"
+msgstr "Pohyby"
 
 #: qml/TailMoves.qml:27
 msgctxt "Button for returning the tail to its home position, on the Moves page"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Základní pozice"
 
 #: qml/TailMoves.qml:35
 msgctxt "Description for the list of moves, on the Moves page"
@@ -1813,35 +1803,35 @@ msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
-"Hier staan alle bewegingen voor je Gear. Druk op een hiervan om dat naar je "
-"apparatuur te verzenden!"
+"Tento seznam ukazuje všechny pohyby, které může tvoje zařízení vykonat. Zvol "
+"kteroukoli, aby ji provedlo tvé zařízení!"
 
 #: qml/TailMoves.qml:42
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Moves page"
 msgid "Calm and Relaxed"
-msgstr "Rustig en relax"
+msgstr "Klidný a uvolněný"
 
 #: qml/TailMoves.qml:47
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Moves page"
 msgid "Fast and Excited"
-msgstr "Opgewonden"
+msgstr "Rychlý a nadšený"
 
 #: qml/TailMoves.qml:52
 msgctxt "Description for the category for the Tense Moveset, on the Moves page"
 msgid "Frustrated and Tense"
-msgstr "Geirriteerd"
+msgstr "Frustrovaný a napjatý"
 
 #: qml/TimePicker.qml:58
 msgctxt "Label for the Hours field on a time picker"
 msgid "Hours"
-msgstr "Uren"
+msgstr "Hodin"
 
 #: qml/TimePicker.qml:70
 msgctxt "Label for the Minutes field on a time picker"
 msgid "Minutes"
-msgstr "Minuten"
+msgstr "Minut"
 
 #: qml/TimePicker.qml:89
 msgctxt "Label for the AM option on a AM/PM selector of a time picker"
@@ -1857,17 +1847,17 @@ msgstr "PM"
 msgctxt ""
 "Button for resetting a time field to the current time, on a time picker"
 msgid "Now"
-msgstr "Nu"
+msgstr "Nyní"
 
 #: qml/TimePicker.qml:121
 msgctxt "Button for cancelling the time entry, on a time picker"
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr "Zrušit"
 
 #: qml/TimePicker.qml:129
 msgctxt "Button for confirming the time entry, on a time picker"
 msgid "OK"
-msgstr "Ok"
+msgstr "OK"
 
 #: qml/WelcomePage.qml:28
 msgctxt "Header for the welcome page"
@@ -1877,81 +1867,82 @@ msgstr "Crumpet"
 #: qml/WelcomePage.qml:31
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
 msgid "Disconnect"
-msgstr "Verbinding verbreken"
+msgstr "Odpojit"
 
 #: qml/WelcomePage.qml:31
 msgctxt "Label for the button for connecting gear, on the welcome page"
 msgid "Connect"
-msgstr "Verbinden"
+msgstr "Připojit"
 
 #: qml/WelcomePage.qml:50
 msgctxt ""
 "Label for the button for connecting additional gear, on the welcome page"
 msgid "Connect More..."
-msgstr "Meer verbinden..."
+msgstr "Připojit více..."
 
 #: qml/WelcomePage.qml:65
 msgctxt "Label for the button for opening the Moves page, on the welcome page"
 msgid "Moves"
-msgstr "Bewegingen"
+msgstr "Pohyby"
 
 #: qml/WelcomePage.qml:83
 msgctxt ""
 "Label for the button for opening the Ear Poses page, on the welcome page"
 msgid "Ear Poses"
-msgstr "EarGear poses"
+msgstr "Pózy uší"
 
 #: qml/WelcomePage.qml:101
 msgctxt ""
 "Label for the button for opening the Glow Tips page, on the welcome page"
 msgid "Glow Tips"
-msgstr "Lichtpatronen"
+msgstr "Svítící konce"
 
 #: qml/WelcomePage.qml:120
 msgctxt "Label for the button for opening the Alarms page, on the welcome page"
 msgid "Alarm"
-msgstr "Alarm"
+msgstr "Upozornění"
 
 #: qml/WelcomePage.qml:135
 msgctxt ""
 "Label for the button for opening the Move List page, on the welcome page"
 msgid "Move List"
-msgstr "Opdrachtenlijst"
+msgstr "Seznam pohybů"
 
 #: qml/WelcomePage.qml:182
 msgctxt ""
 "Label for the button for opening the Casual Mode page, on the welcome page"
 msgid "Casual Mode"
-msgstr "Intelligente Modus"
+msgstr "Casual mód"
 
 #: qml/WelcomePage.qml:198
 msgctxt ""
 "Label for the button for configuring the Casual Mode, on the welcome page"
 msgid "Casual Mode Settings"
-msgstr "Intelligente Modus instellingen"
+msgstr "Nastavení casual módu"
 
 #: qml/WelcomePage.qml:243
 msgctxt "Heading for the panel for turning on Listening Mode"
 msgid "Listening Mode"
-msgstr "Luistermodus"
+msgstr "Mód odposlechu"
 
 #: qml/WelcomePage.qml:262
 msgctxt "Label for the checkbox for turning on Listening Mode"
 msgid ""
 "Turn this on to make your gear react to sounds around it for five minutes at "
 "a time."
-msgstr "Zet dit aan om je gear op geluiden te laten reageren (max: 5 minuten)"
+msgstr ""
+"Zapni tuto funkci, aby tvé zařízení reagovalo na zvuk po dobu pěti minut."
 
 #: qml/WelcomePage.qml:307
 msgctxt ""
 "Label for the button for opening the Gear Gestures page, on the welcome page"
 msgid "Gear Gestures"
-msgstr "Gear Gebaren"
+msgstr "Akce zařízení"
 
 #~ msgctxt "Task description for leinir"
 #~ msgid "Lead Developer"
-#~ msgstr "Hoofdontwikkelaar"
+#~ msgstr "Vedoucí vývojář"
 
 #~ msgctxt "Task description for Ildar"
 #~ msgid "Qt/QML Developer"
-#~ msgstr "QT/QML ontwikkelaar"
+#~ msgstr "Qt/QML vývojář"

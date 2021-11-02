@@ -200,15 +200,7 @@ Kirigami.ScrollablePage {
                         QQC2.Label {
                             visible: model.hasOTAData
                             Layout.fillWidth: true;
-                            text: i18nc("Label giving a set of instructions and warnings that users should be aware of before attempting to install new firmware", "Before updating your gear from %1 to %2, please make sure you do the following:
-
-- Connect your gear to the USB charger and make sure it is charging. Keep it connected to the power while you update the firmware.
-
-- Also make sure your phone has more than 50% charge before you begin the update process.
-
-Upgrading your gear takes around 3 minutes. You must not switch off the gear or the phone while its working!
-
-Once the new firmware is beamed to your gear, it will disconnect from the app and reboot. This is quite normal! It should automatically reconnect, but in case it doesn't, just click the Connect button on the front page as usual.", model.deviceVersion, model.otaVersion)
+                            text: i18nc("Label giving a set of instructions and warnings that users should be aware of before attempting to install new firmware", "Before updating your gear from %1 to %2, please make sure you do the following:\n\n- Connect your gear to the USB charger and make sure it is charging. Keep it connected to the power while you update the firmware.\n\n- Also make sure your phone has more than 50% charge before you begin the update process.\n\nUpgrading your gear takes around 3 minutes. You must not switch off the gear or the phone while its working!\n\nOnce the new firmware is beamed to your gear, it will disconnect from the app and reboot. This is quite normal! It should automatically reconnect, but in case it doesn't, just click the Connect button on the front page as usual.", model.deviceVersion, model.otaVersion)
                             wrapMode: Text.Wrap;
                         }
                         QQC2.Button {
