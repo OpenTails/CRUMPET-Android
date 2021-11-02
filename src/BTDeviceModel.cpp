@@ -277,6 +277,7 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
 
         // General stuff
         connect(newDevice, &BTDevice::deviceMessage, this, &BTDeviceModel::deviceMessage);
+        connect(newDevice, &BTDevice::deviceBlockingMessage, this, &BTDeviceModel::deviceBlockingMessage);
         connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](bool isConnected){
             if (isConnected) {
                 emit deviceConnected(newDevice);

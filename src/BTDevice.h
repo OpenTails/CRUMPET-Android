@@ -95,6 +95,7 @@ public:
     virtual void sendMessage(const QString &message) = 0;
 
     Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
+    Q_SIGNAL void deviceBlockingMessage(const QString& title, const QString& message);
 
     Q_INVOKABLE virtual void checkOTA() {};
     Q_INVOKABLE virtual bool hasAvailableOTA() { return false; };

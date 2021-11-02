@@ -160,18 +160,15 @@ public:
                 if (firmwareProgress > -1) {
                     if (otaVersion == newValue) {
                         // successful update get!
-                        q->setProgressDescription(i18nc("Message shown to the user when a firmware update completed successfully", "Congratulations, your gear has been successfully updated to version %1!", version));
+                        q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a successful firmware upgrade", "Upgrade Successful"), i18nc("Message shown to the user when a firmware update completed successfully", "Congratulations, your gear has been successfully updated to version %1!", version));
                     } else {
                         // sadface, update failed...
-                        q->setProgressDescription(i18nc("Message shown to the user when a firmware update failed", "<p><b>Update Failed!</b></p><p>Sorry, but the upgrade failed. Most often this is due to the transfer being corrupted during the upload process itself, which is why your gear has a safe fallback to just go back to your old firmware version upon a failure. You can try the update again by starting again.</p>"));
+                        q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon an unsuccessful firmware upgrade", "Update Failed"), i18nc("Message shown to the user when a firmware update failed", "<p>Sorry, but the upgrade failed. Most often this is due to the transfer being corrupted during the upload process itself, which is why your gear has a safe fallback to just go back to your old firmware version upon a failure. You can try the update again by clicking the Install button gain.</p>"));
                     }
-                    q->setDeviceProgress(0);
+                    q->setProgressDescription("");
+                    q->setDeviceProgress(-1);
                     firmwareProgress = -1;
                     firmwareChunk.clear();
-                    QTimer::singleShot(5000, q, [this](){
-                        q->setDeviceProgress(-1);
-                        q->setProgressDescription("");
-                    });
                 }
             }
             else if (stateResult[0] == QLatin1String{"PONG"} || stateResult[0] == QLatin1String{"OK"}) {

@@ -42,6 +42,7 @@ class BTConnectionManagerProxy {
 
     SIGNAL(messageReceived(const QString &sender, const QString &message))
     SIGNAL(message(const QString& message))
+    SIGNAL(blockingMessage(const QString& title, const QString& message))
     SIGNAL(deviceNamesCleared())
     SIGNAL(deviceConnected(const QString& deviceID))
 };

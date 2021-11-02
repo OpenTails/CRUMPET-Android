@@ -78,6 +78,9 @@ Kirigami.ApplicationWindow {
         onMessage: {
             showPassiveNotification(message, 5000);
         }
+        onBlockingMessage: {
+            messageBox.showMessageBox(title, message);
+        }
 
         onDiscoveryRunningChanged: {
             if (BTConnectionManager.discoveryRunning === false) {
