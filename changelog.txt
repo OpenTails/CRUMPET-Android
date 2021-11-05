@@ -1,3 +1,9 @@
+24
+- Redo the battery indicator (hopefully less confusing now)
+- Add support for updating MiTail firmware
+- Add updated translations, and new partial translations for Russian and Czech
+- Update Kirigami snapshot
+
 23
 - Add MiTail support
 - Add translation support (Danish, French, Dutch, and Spanish for now)
