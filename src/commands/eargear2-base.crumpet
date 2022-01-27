@@ -214,34 +214,35 @@
         },
         {
             "Command" : "FLICK LEFT",
-            "Expansion: [ "LETWIST 30", "PAUSE 2000", "EARHOME" ]
+            "Expansion": [ "LETWIST 30", "PAUSE 2000", "EARHOME" ]
         },
         {
             "Command" : "FLICK RIGHT",
-            "Expansion: [ "RITWIST 30", "PAUSE 2000", "EARHOME" ]
+            "Expansion": [ "RITWIST 30", "PAUSE 2000", "EARHOME" ]
         },
         {
             "Command" : "EARS WIDE",
-            "Expansion: [ "Botwist 30", "PAUSE 2000", "EARHOME" ]
+            "Expansion": [ "Botwist 30", "PAUSE 2000", "EARHOME" ]
         },
         {
             "Command" : "HEWO",
-            "Expansion: [ "LETWIST 30", "PAUSE 1 sec", "RITWIST 30", "PAUSE 3000", "EARHOME" ]
+            "Expansion": [ "LETWIST 30", "PAUSE 1 sec", "RITWIST 30", "PAUSE 3000", "EARHOME" ]
         },
         {
             "Command" : "LEFT LISTEN",
-            "Expansion: [ "LETWIST 20", "RITWIST 100", "PAUSE 2000", "EARHOME" ]
+            "Expansion": [ "LETWIST 20", "RITWIST 100", "PAUSE 2000", "EARHOME" ]
         },
         {
             "Command" : "RIGHT LISTEN",
-            "Expansion: [ "RITWIST 20", "LETWIST 100", "PAUSE 2000", "EARHOME" ]
+            "Expansion": [ "RITWIST 20", "LETWIST 100", "PAUSE 2000", "EARHOME" ]
         },
         {
             "Command" : "DOUBLE LEFT",
-            "Expansion: [ "LETWIST 20", "PAUSE 500", "LETWIST 90", "LETWIST 20 ", "PAUSE 500", "EARHOME" ]
+            "Expansion": [ "LETWIST 20", "PAUSE 500", "LETWIST 90", "LETWIST 20 ", "PAUSE 500", "EARHOME" ]
         },
         {
             "Command" : "DOUBLE RIGHT",
-            "Expansion: [ "RITWIST 20", "PAUSE 500", "RITWIST 90", "RITWIST 20", "PAUSE 500", "EARHOME" ]
+            "Expansion": [ "RITWIST 20", "PAUSE 500", "RITWIST 90", "RITWIST 20", "PAUSE 500", "EARHOME" ]
+        }
     ]
 }
