@@ -507,5 +507,10 @@ void BTDeviceEars::sendMessage(const QString &message)
 
 QStringList BTDeviceEars::defaultCommandFiles() const
 {
-    return QStringList{QLatin1String{":/commands/eargear-base.crumpet"}};
+    if (name() == QLatin1String{"EarGear"}) {
+        return QStringList{QLatin1String{":/commands/eargear-base.crumpet"}};
+    }
+    else {
+        return QStringList{QLatin1String{":/commands/eargear2-base.crumpet"}};
+    }
 }

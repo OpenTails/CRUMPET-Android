@@ -1,0 +1,247 @@
+{
+    "Title": "EarGear Built-ins",
+    "Description": "The basic set of commands defined in the DIGITAiL firmware",
+    "Commands": [
+        {
+            "Category": "",
+            "Command": "TAILHM",
+            "Duration": 200,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tail Home Position"
+        },
+        {
+            "Category": "relaxed",
+            "Command": "TAILS1",
+            "Duration": 11530,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "One"
+        },
+        {
+            "Category": "relaxed",
+            "Command": "TAILS2",
+            "Duration": 7100,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Two"
+        },
+        {
+            "Category": "relaxed",
+            "Command": "TAILS3",
+            "Duration": 8500,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Three"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILFA",
+            "Duration": 9960,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Fast Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILSH",
+            "Duration": 7460,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Short Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILHA",
+            "Duration": 8860,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Happy Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILER",
+            "Duration": 5800,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Stand up!"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILT1",
+            "Duration": 4060,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tremble 1"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILT2",
+            "Duration": 5550,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tremble 2"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILET",
+            "Duration": 4730,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tremble Erect"
+        },
+        {
+            "Category": "tense",
+            "Command": "TAILEP",
+            "Duration": 9760,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "High Wag"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Flick Left",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "FLICK LEFT"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Flick Right",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "FLICK RIGHT"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Ears Wide",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "EARS WIDE"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Hewo!",
+            "Duration": 4000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "HEWO"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Left Listen",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "LEFT LISTEN"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Right Listen",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "RIGHT LISTEN"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Double Left",
+            "Duration": 1000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "DOUBLE LEFT"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "Double Right",
+            "Duration": 1000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "DOUBLE RIGHT"
+        }
+    ],
+    "Shorthands": [
+        {
+            "Command": "TAILHM",
+            "Expansion": [ "EARHOME" ]
+        },
+        {
+            "Command": "TAILS1",
+            "Expansion": [ "DSSP 30 30 50 50", "RITILT 160", "RITILT 25", "EARHOME" ]
+        },
+        {
+            "Command": "TAILS2",
+            "Expansion": [ "DSSP 50 50 30 30", "EARHOME" ]
+        },
+        {
+            "Command": "TAILS3",
+            "Expansion": [ "DSSP 30 30 30 30", "LETILT 160", "LETILT 25", "EARHOME" ]
+        },
+        {
+            "Command": "TAILFA",
+            "Expansion": [ "DSSP 50 50 50 50", "EARHOME" ]
+        },
+        {
+            "Command": "TAILSH",
+            "Expansion": [ "RITWIST 160", "RITWIST 25", "RITWIST 160", "RITWIST 25", "EARHOME" ]
+        },
+        {
+            "Command": "TAILHA",
+            "Expansion": [ "LETWIST 160", "LETWIST 25", "LETWIST 160", "LETWIST 25", "EARHOME" ]
+        },
+        {
+            "Command": "TAILER",
+            "Expansion": [ "DSSP 90 90 50 50", "PAUSE 300", "DSSP 90 90 120 120", "EARHOME" ]
+        },
+        {
+            "Command": "TAILT1",
+            "Expansion": [ "RITWIST 160", "PAUSE 300", "EARHOME" ]
+        },
+        {
+            "Command": "TAILT2",
+            "Expansion": [ "RITWIST 25", "PAUSE 300", "EARHOME" ]
+        },
+        {
+            "Command": "TAILET",
+            "Expansion": [ "LETWIST 160", "PAUSE 300", "EARHOME" ]
+        },
+        {
+            "Command": "TAILEP",
+            "Expansion": [ "LETWIST 25", "PAUSE 300", "EARHOME" ]
+        },
+        {
+            "Command" : "FLICK LEFT",
+            "Expansion: [ "LETWIST 30", "PAUSE 2000", "EARHOME" ]
+        },
+        {
+            "Command" : "FLICK RIGHT",
+            "Expansion: [ "RITWIST 30", "PAUSE 2000", "EARHOME" ]
+        },
+        {
+            "Command" : "EARS WIDE",
+            "Expansion: [ "Botwist 30", "PAUSE 2000", "EARHOME" ]
+        },
+        {
+            "Command" : "HEWO",
+            "Expansion: [ "LETWIST 30", "PAUSE 1 sec", "RITWIST 30", "PAUSE 3000", "EARHOME" ]
+        },
+        {
+            "Command" : "LEFT LISTEN",
+            "Expansion: [ "LETWIST 20", "RITWIST 100", "PAUSE 2000", "EARHOME" ]
+        },
+        {
+            "Command" : "RIGHT LISTEN",
+            "Expansion: [ "RITWIST 20", "LETWIST 100", "PAUSE 2000", "EARHOME" ]
+        },
+        {
+            "Command" : "DOUBLE LEFT",
+            "Expansion: [ "LETWIST 20", "PAUSE 500", "LETWIST 90", "LETWIST 20 ", "PAUSE 500", "EARHOME" ]
+        },
+        {
+            "Command" : "DOUBLE RIGHT",
+            "Expansion: [ "RITWIST 20", "PAUSE 500", "RITWIST 90", "RITWIST 20", "PAUSE 500", "EARHOME" ]
+    ]
+}

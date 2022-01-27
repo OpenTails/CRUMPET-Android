@@ -104,7 +104,7 @@ AppSettings::AppSettings(QObject* parent)
     connect(d->alarmList, &AlarmList::alarmExisted, this, &AppSettings::alarmExisted);
     connect(d->alarmList, &AlarmList::alarmNotExisted, this, &AppSettings::alarmNotExisted);
 
-    const QStringList builtInCrumpets{QLatin1String{":/commands/eargear-base.crumpet"}, QLatin1String{":/commands/digitail-builtin.crumpet"}};
+    const QStringList builtInCrumpets{QLatin1String{":/commands/eargear-base.crumpet"}, QLatin1String{":/commands/eargear2-base.crumpet"}, QLatin1String{":/commands/digitail-builtin.crumpet"}};
     for (const QString& filename : builtInCrumpets) {
         QString data;
         QFile file(filename);

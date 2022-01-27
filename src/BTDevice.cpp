@@ -47,6 +47,8 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     // Set the digitail name to something more friendly than (!)Tail1
     if (d->name == "(!)Tail1") {
         d->name = "DIGITAiL";
+    } else if (d->name == "EG2") {
+        d->name = "EarGear 2";
     }
     d->parentModel = parent;
 
