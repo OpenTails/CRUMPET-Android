@@ -222,7 +222,7 @@
         },
         {
             "Command" : "EARS WIDE",
-            "Expansion": [ "Botwist 30", "PAUSE 2000", "EARHOME" ]
+            "Expansion": [ "BOTWIST 30", "PAUSE 2000", "EARHOME" ]
         },
         {
             "Command" : "HEWO",
