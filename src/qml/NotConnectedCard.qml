@@ -112,7 +112,7 @@ Kirigami.AbstractCard {
                     return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
                 }
             }
-            visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0) && !(BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0);
+            visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0)
             onClicked: {
                 if (!root.hasScanPermission) {
                     PermissionsManager.requestPermission("ACCESS_FINE_LOCATION");
