@@ -45,7 +45,10 @@ Kirigami.ScrollablePage {
             }
         }
         left: BTConnectionManager.discoveryRunning ? null : searchForMoreAction
-        right: (BTConnectionManager.isConnected && DeviceModel !== null && DeviceModel.rowCount() > 1) ? connectMoreAction : null
+        right: (BTConnectionManager.isConnected && allDevicesModel.count > 1) ? connectMoreAction : null
+    }
+    property QtObject allDevicesModel: Digitail.FilterProxyModel {
+        sourceModel: DeviceModel;
     }
     property QtObject connectMoreAction: Kirigami.Action {
         text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");

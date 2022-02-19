@@ -25,7 +25,7 @@ import org.thetailcompany.digitail 1.0
 Kirigami.AbstractCard {
     id: root;
     visible: opacity > 0
-    opacity: BTConnectionManager.isConnected ? 0 : 1;
+    opacity: (!BTConnectionManager.isConnected || BTConnectionManager.discoveryRunning) ? 1 : 0;
     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
     width: parent.width;
     FilterProxyModel {
