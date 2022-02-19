@@ -32,6 +32,7 @@
         <file alias="actions/22/view-left-new.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-new.svg</file>
 <!--         <file alias="actions/22/view-media-playlist.svg">../3rdparty/breeze-icons/icons/actions/22/view-media-playlist.svg</file> -->
         <file alias="actions/22/view-right-close.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-close.svg</file>
+        <file alias="actions/22/view-refresh.svg">../3rdparty/breeze-icons/icons/actions/22/view-refresh.svg</file>
         <file alias="actions/22/view-right-new.svg">../3rdparty/breeze-icons/icons/actions/22/view-right-new.svg</file>
         <file alias="actions/22/window-close.svg">../3rdparty/breeze-icons/icons/actions/22/window-close.svg</file>
         <file alias="actions/32/application-menu.svg">../3rdparty/breeze-icons/icons/actions/32/application-menu.svg</file>

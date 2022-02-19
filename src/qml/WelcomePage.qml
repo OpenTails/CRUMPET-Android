@@ -44,12 +44,18 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+        left: BTConnectionManager.discoveryRunning ? null : searchForMoreAction
         right: (BTConnectionManager.isConnected && DeviceModel !== null && DeviceModel.rowCount() > 1) ? connectMoreAction : null
     }
     property QtObject connectMoreAction: Kirigami.Action {
         text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");
         icon.name: "list-add";
         onTriggered: connectToTail.open();
+    }
+    property QtObject searchForMoreAction: Kirigami.Action {
+        text: i18nc("Label for the button for looking for additional gear, on the welcome page", "Look for gear");
+        icon.name: "view-refresh";
+        onTriggered: BTConnectionManager.startDiscovery();
     }
 
     ColumnLayout {
