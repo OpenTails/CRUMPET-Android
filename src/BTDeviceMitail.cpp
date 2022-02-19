@@ -174,6 +174,8 @@ public:
             else if (stateResult[0] == QLatin1String{"GLOWTIP"}) {
                 if (stateResult[1] == QLatin1String{"TRUE"}) {
                     q->setHasLights(true);
+                } else {
+                    q->setHasLights(false);
                 }
             }
             else if (stateResult[0] == QLatin1String{"PONG"} || stateResult[0] == QLatin1String{"OK"}) {
@@ -342,6 +344,7 @@ BTDeviceMitail::BTDeviceMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* 
 {
     d->parentModel = parent;
     setSupportsOTA(true);
+    setHasLights(true); // Just in case someone has an old firmware loaded
 
     // The battery timer also functions as a keepalive call. If it turns
     // out to be a problem that we pull the battery this often, we can
