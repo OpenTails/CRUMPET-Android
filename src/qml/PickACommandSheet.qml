@@ -18,6 +18,7 @@
 
 import QtQuick 2.7
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.OverlaySheet {
     id: root;
@@ -37,32 +38,67 @@ Kirigami.OverlaySheet {
         onCommandActivated: {
             pickACommand.commandPicked(command, destinations);
         }
-        categoriesModel: [
-            {
-                name: i18nc("Description for the category for the Ear Gear poses, on the overlay for picking a command, for configuring a move list", "Poses"),
-                category: "eargearposes",
-                color: "#93cee9",
-            },
-            {
-                name: i18nc("Description for the category for the Relaxed Moveset, on the overlay for picking a command, for configuring a move list", "Calm and Relaxed"),
-                category: "relaxed",
-                color: "#1cdc9a",
-            },
-            {
-                name: i18nc("Description for the category for the Excited Moveset, on the overlay for picking a command, for configuring a move list", "Fast and Excited"),
-                category: "excited",
-                color: "#c9ce3b",
-            },
-            {
-                name: i18nc("Description for the category for the Tense Moveset, on the overlay for picking a command, for configuring a move list", "Frustrated and Tense"),
-                category: "tense",
-                color: "#f67400",
-            },
-            {
-                name: i18nc("Description for the category for the LED Patterns, on the overlay for picking a command, for configuring a move list", "LED Patterns"),
-                category: "lights",
-                color: "#93cee9",
-            }
-        ]
+        categoriesModel: connectedWithLightsModel.count > 0
+            ? [
+                {
+                    name: i18nc("Description for the category for the Ear Gear poses, on the overlay for picking a command, for configuring a move list", "Poses"),
+                    category: "eargearposes",
+                    color: "#93cee9",
+                },
+                {
+                    name: i18nc("Description for the category for the Relaxed Moveset, on the overlay for picking a command, for configuring a move list", "Calm and Relaxed"),
+                    category: "relaxed",
+                    color: "#1cdc9a",
+                },
+                {
+                    name: i18nc("Description for the category for the Excited Moveset, on the overlay for picking a command, for configuring a move list", "Fast and Excited"),
+                    category: "excited",
+                    color: "#c9ce3b",
+                },
+                {
+                    name: i18nc("Description for the category for the Tense Moveset, on the overlay for picking a command, for configuring a move list", "Frustrated and Tense"),
+                    category: "tense",
+                    color: "#f67400",
+                },
+                {
+                    name: i18nc("Description for the category for the LED Patterns, on the overlay for picking a command, for configuring a move list", "LED Patterns"),
+                    category: "lights",
+                    color: "#93cee9",
+                }
+            ]
+            : [
+                {
+                    name: i18nc("Description for the category for the Ear Gear poses, on the overlay for picking a command, for configuring a move list", "Poses"),
+                    category: "eargearposes",
+                    color: "#93cee9",
+                },
+                {
+                    name: i18nc("Description for the category for the Relaxed Moveset, on the overlay for picking a command, for configuring a move list", "Calm and Relaxed"),
+                    category: "relaxed",
+                    color: "#1cdc9a",
+                },
+                {
+                    name: i18nc("Description for the category for the Excited Moveset, on the overlay for picking a command, for configuring a move list", "Fast and Excited"),
+                    category: "excited",
+                    color: "#c9ce3b",
+                },
+                {
+                    name: i18nc("Description for the category for the Tense Moveset, on the overlay for picking a command, for configuring a move list", "Frustrated and Tense"),
+                    category: "tense",
+                    color: "#f67400",
+                }
+            ]
+        Digitail.FilterProxyModel {
+            id: connectedWithLightsModel;
+            sourceModel: connectedDevicesModel;
+            filterRole: 276; // the hasLights role
+            filterBoolean: true;
+        }
+        Digitail.FilterProxyModel {
+            id: connectedDevicesModel
+            sourceModel: DeviceModel;
+            filterRole: 262; // the isConnected role
+            filterBoolean: true;
+        }
     }
 }
