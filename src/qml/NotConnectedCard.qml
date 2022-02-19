@@ -99,34 +99,39 @@ Kirigami.AbstractCard {
             }
         }
     }
-    footer: Button {
+    footer: ColumnLayout {
         Layout.fillWidth: true; Layout.fillHeight: true;
-        text: {
-            if (!root.hasScanPermission) {
-                return i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Location Permission...");
+        Button {
+            Layout.fillWidth: true; Layout.fillHeight: true;
+            text: {
+                if (!root.hasScanPermission) {
+                    return i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Location Permission...");
+                } else if (deviceFilterProxy.count === 1) {
+                    return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
+                } else {
+                    return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
+                }
             }
-            else if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
-                return i18nc("Label for button that gets shown whilst no gear has been found, for the gear connecting card", "Look for gear");
-            } else if (deviceFilterProxy.count === 1) {
-                return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
-            } else {
-                return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
+            visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0) && !(BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0);
+            onClicked: {
+                if (!root.hasScanPermission) {
+                    PermissionsManager.requestPermission("ACCESS_FINE_LOCATION");
+                }
+                else if(deviceFilterProxy.count === 1) {
+                    // Calling this will stop the discovery immediately and connect to the one tail that we've found
+                    BTConnectionManager.stopDiscovery();
+                }
+                else {
+                    connectToTail.open();
+                }
             }
         }
-        visible: !(BTConnectionManager.discoveryRunning === true && deviceFilterProxy.count === 0);
-        onClicked: {
-            if (!root.hasScanPermission) {
-                PermissionsManager.requestPermission("ACCESS_FINE_LOCATION");
-            }
-            else if (BTConnectionManager.discoveryRunning === false && deviceFilterProxy.count === 0) {
+        Button {
+            Layout.fillWidth: true; Layout.fillHeight: true;
+            visible: !BTConnectionManager.discoveryRunning && root.hasScanPermission
+            text: i18nc("Label for button which causes the list of available gear to be refreshed, for the gear connecting card", "Look for gear")
+            onClicked: {
                 BTConnectionManager.startDiscovery();
-            }
-            else if(deviceFilterProxy.count === 1) {
-                // Calling this will stop the discovery immediately and connect to the one tail that we've found
-                BTConnectionManager.stopDiscovery();
-            }
-            else {
-                connectToTail.open();
             }
         }
     }
