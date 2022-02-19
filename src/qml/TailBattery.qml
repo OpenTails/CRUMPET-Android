@@ -37,7 +37,7 @@ Column {
         }
         Item {
             id: batteryDelegate
-            height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing;
+            height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing * 3;
             width: batteryLayout.width
             property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
             Label {
