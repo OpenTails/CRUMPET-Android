@@ -100,7 +100,7 @@ Kirigami.ScrollablePage {
                 Kirigami.BasicListItem {
                     text: i18nc("Label for the button for opening the Glow Tips page, on the welcome page", "Glow Tips");
                     visible: opacity > 0;
-                    opacity: connectedDevicesModel.count > hasListeningDevicesRepeater.count ? 1 : 0;
+                    opacity: connectedWithLightsModel.count > 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
                     icon: ":/images/glowtip.svg";
                     separatorVisible: false;
@@ -113,6 +113,12 @@ Kirigami.ScrollablePage {
                         width: Kirigami.Units.iconSizes.small;
                         height: width;
                         source: "go-next";
+                    }
+                    Digitail.FilterProxyModel {
+                        id: connectedWithLightsModel;
+                        sourceModel: connectedDevicesModel;
+                        filterRole: 276; // the hasLights role
+                        filterBoolean: true;
                     }
                 }
                 Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; visible: connectedDevicesModel.count > 0; }

@@ -44,6 +44,7 @@ class BTDevice : public QObject
     Q_PROPERTY(bool hasOTAData READ hasOTAData NOTIFY hasOTADataChanged)
     Q_PROPERTY(int deviceProgress READ deviceProgress NOTIFY deviceProgressChanged)
     Q_PROPERTY(QString progressDescription READ progressDescription NOTIFY progressDescriptionChanged)
+    Q_PROPERTY(bool hasLights READ hasLights NOTIFY hasLightsChanged)
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
@@ -114,6 +115,10 @@ public:
     QString progressDescription() const;
     Q_SIGNAL void progressDescriptionChanged();
     void setProgressDescription(const QString &progressDescription);
+
+    bool hasLights() const;
+    void setHasLights(bool hasLights);
+    Q_SIGNAL void hasLightsChanged();
 private:
     class Private;
     Private* d;

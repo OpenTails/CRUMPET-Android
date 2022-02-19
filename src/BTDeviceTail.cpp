@@ -210,6 +210,7 @@ BTDeviceTail::BTDeviceTail(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     , d(new Private(this))
 {
     d->parentModel = parent;
+    setHasLights(true);
 
     // The battery timer also functions as a keepalive call. If it turns
     // out to be a problem that we pull the battery this often, we can

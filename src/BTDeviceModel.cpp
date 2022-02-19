@@ -123,6 +123,7 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {ProgressDescription, "progressDescription"},
         {OperationInProgress, "operationInProgress"},
         {OTAVersion, "otaVersion"},
+        {HasLights, "hasLights"},
     };
     return roles;
 }
@@ -203,6 +204,9 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case OTAVersion:
                 value = device->otaVersion();
+                break;
+            case HasLights:
+                value = device->hasLights();
                 break;
             default:
                 break;
@@ -329,6 +333,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::checkedChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, Checked);
+        });
+        connect(newDevice, &BTDevice::hasLightsChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, HasLights);
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);

@@ -31,6 +31,7 @@ public:
 
     bool supportsOTA{false};
     bool checked{true};
+    bool hasLights{false};
     QString name;
     int deviceProgress{-1};
     QString progressDescription;
@@ -197,5 +198,18 @@ void BTDevice::setProgressDescription(const QString& progressDescription)
     if (d->progressDescription != progressDescription) {
         d->progressDescription = progressDescription;
         Q_EMIT progressDescriptionChanged();
+    }
+}
+
+bool BTDevice::hasLights() const
+{
+    return d->hasLights;
+}
+
+void BTDevice::setHasLights(bool hasLights)
+{
+    if (d->hasLights != hasLights) {
+        d->hasLights = hasLights;
+        Q_EMIT hasLightsChanged();
     }
 }

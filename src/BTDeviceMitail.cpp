@@ -171,6 +171,11 @@ public:
                     firmwareChunk.clear();
                 }
             }
+            else if (stateResult[0] == QLatin1String{"GLOWTIP"}) {
+                if (stateResult[1] == QLatin1String{"TRUE"}) {
+                    q->setHasLights(true);
+                }
+            }
             else if (stateResult[0] == QLatin1String{"PONG"} || stateResult[0] == QLatin1String{"OK"}) {
                 if (currentCall != QLatin1String{"PING"}) {
                     qWarning() << q->name() << q->deviceID() << "We got an out-of-order response for a ping";
