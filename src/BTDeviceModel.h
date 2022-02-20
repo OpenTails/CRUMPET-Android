@@ -59,6 +59,9 @@ public:
         OperationInProgress,     // 274 - boolean which is true when the DeviceProgress role's value is larger than -1
         OTAVersion,              // 275 - string containing the available OTA version
         HasLights,               // 276 - boolean value for whether or not the gear has support for lights
+        HasShutdown,             // 277 - boolean value for whether or not the gear supports the SHUTDOWN command
+        HasNoPhoneMode,          // 278 - boolean value for whether or not the gear supports no phone mode
+        NoPhoneModeGroups,       // 279 - variantlist where the key is the ID of a group, and the value is the human readable group names of that group
     };
 
     AppSettings* appSettings() const;

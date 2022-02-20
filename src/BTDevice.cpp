@@ -32,6 +32,9 @@ public:
     bool supportsOTA{false};
     bool checked{true};
     bool hasLights{false};
+    bool hasShutdown{false};
+    bool hasNoPhoneMode{false};
+    QVariantHash noPhoneModeGroups;
     QString name;
     int deviceProgress{-1};
     QString progressDescription;
@@ -211,5 +214,44 @@ void BTDevice::setHasLights(bool hasLights)
     if (d->hasLights != hasLights) {
         d->hasLights = hasLights;
         Q_EMIT hasLightsChanged();
+    }
+}
+
+bool BTDevice::hasShutdown() const
+{
+    return d->hasShutdown;
+}
+
+void BTDevice::setHasShutdown(bool hasShutdown)
+{
+    if (d->hasShutdown != hasShutdown) {
+        d->hasShutdown = hasShutdown;
+        Q_EMIT hasShutdownChanged();
+    }
+}
+
+bool BTDevice::hasNoPhoneMode() const
+{
+    return d->hasNoPhoneMode;
+}
+
+void BTDevice::setHasNoPhoneMode(bool hasNoPhoneMode)
+{
+    if (d->hasNoPhoneMode != hasNoPhoneMode) {
+        d->hasNoPhoneMode = hasNoPhoneMode;
+        Q_EMIT hasNoPhoneModeChanged();
+    }
+}
+
+QVariantHash BTDevice::noPhoneModeGroups() const
+{
+    return d->noPhoneModeGroups;
+}
+
+void BTDevice::setNoPhoneModeGroups(QVariantHash noPhoneModeGroups)
+{
+    if (d->noPhoneModeGroups != noPhoneModeGroups) {
+        d->noPhoneModeGroups = noPhoneModeGroups;
+        Q_EMIT noPhoneModeGroupsChanged();
     }
 }

@@ -124,6 +124,9 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {OperationInProgress, "operationInProgress"},
         {OTAVersion, "otaVersion"},
         {HasLights, "hasLights"},
+        {HasShutdown, "hasShutdown"},
+        {HasNoPhoneMode, "hasNoPhoneMode"},
+        {NoPhoneModeGroups, "noPhoneModeGroups"},
     };
     return roles;
 }
@@ -207,6 +210,15 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case HasLights:
                 value = device->hasLights();
+                break;
+            case HasShutdown:
+                value = device->hasShutdown();
+                break;
+            case HasNoPhoneMode:
+                value = device->hasNoPhoneMode();
+                break;
+            case NoPhoneModeGroups:
+                value = device->noPhoneModeGroups();
                 break;
             default:
                 break;
@@ -336,6 +348,15 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::hasLightsChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasLights);
+        });
+        connect(newDevice, &BTDevice::hasShutdownChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, HasShutdown);
+        });
+        connect(newDevice, &BTDevice::hasNoPhoneModeChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, HasNoPhoneMode);
+        });
+        connect(newDevice, &BTDevice::noPhoneModeGroupsChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, NoPhoneModeGroups);
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);

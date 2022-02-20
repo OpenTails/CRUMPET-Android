@@ -149,6 +149,15 @@ public:
                 version = newValue;
                 emit q->versionChanged(newValue);
                 q->setListenMode(listenMode);
+                if (q->name() == QLatin1String{"EarGear"}) {
+                    q->setHasShutdown(false);
+                    q->setHasNoPhoneMode(false);
+                }
+                else {
+                    q->setHasShutdown(true);
+                    q->setHasNoPhoneMode(true);
+                    q->setNoPhoneModeGroups({});
+                }
                 pingTimer.start();
             }
             else if (stateResult[0] == QLatin1String{"PONG"}) {
