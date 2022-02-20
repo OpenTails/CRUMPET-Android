@@ -401,6 +401,9 @@ Kirigami.ApplicationWindow {
             connectingToTail.opacity = 1;
         }
     }
+    DisconnectOptions {
+        id: disconnectionOptions;
+    }
 
     Item {
         id: connectingToTail;

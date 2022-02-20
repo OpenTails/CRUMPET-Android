@@ -70,7 +70,7 @@ Kirigami.OverlaySheet {
                         i18nc("Button for the action of connecting a device, in the prompt for connecting a device", "Connect")
                     onClicked: {
                         if (model.isConnected) {
-                            BTConnectionManager.disconnectDevice(model.deviceID);
+                            disconnectionOptions.disconnectGear(model.deviceID);
                         } else {
                             sheet.close();
                             sheet.attemptToConnect(model.deviceID, pageToPush);

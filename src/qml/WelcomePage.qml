@@ -32,7 +32,12 @@ Kirigami.ScrollablePage {
             icon.name: BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
             onTriggered: {
                 if(BTConnectionManager.isConnected) {
-                    BTConnectionManager.disconnectDevice("");
+                    if(BTConnectionManager.deviceCount === 1) {
+                        disconnectionOptions.disconnectGear(connectedDevicesModel.data(connectedDevicesModel.index(0, 0), 258));
+                    }
+                    else {
+                        connectToTail.open();
+                    }
                 }
                 else {
                     if(BTConnectionManager.deviceCount === 1) {
