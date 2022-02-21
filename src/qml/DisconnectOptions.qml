@@ -142,7 +142,8 @@ Kirigami.OverlaySheet {
                             constructedMessage += "T" + pauseRangeSlider.first.value;
                             constructedMessage += "T" + pauseRangeSlider.second.value;
                             constructedMessage += "T254";
-                            BTConnectionManager.sendMessage(constructedMessage);
+                            BTConnectionManager.sendMessage(constructedMessage, [model.deviceID]);
+                            BTConnectionManager.disconnectDevice(model.deviceID);
                             root.close();
                         }
                     }
