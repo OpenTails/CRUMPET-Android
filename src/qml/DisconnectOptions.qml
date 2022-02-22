@@ -93,17 +93,6 @@ Kirigami.OverlaySheet {
                         Layout.leftMargin: Kirigami.Units.largeSpacing;
                         Layout.fillWidth: true;
 
-                        first.onMoved: {
-                            AppSettings.idleMinPause = first.value;
-                        }
-
-                        second.onMoved: {
-                            if (second.value < 20) {
-                                second.value = 20;
-                            }
-                            AppSettings.idleMaxPause = second.value;
-                        }
-
                         Component.onCompleted: {
                             pauseRangeSlider.setValues(AppSettings.idleMinPause, AppSettings.idleMaxPause);
                         }
@@ -139,9 +128,10 @@ Kirigami.OverlaySheet {
                                 }
                                 constructedMessage += " ";
                             }
-                            constructedMessage += "T" + pauseRangeSlider.first.value;
-                            constructedMessage += "T" + pauseRangeSlider.second.value;
+                            constructedMessage += "T" + Math.floor(pauseRangeSlider.first.value);
+                            constructedMessage += "T" + Math.floor(pauseRangeSlider.second.value);
                             constructedMessage += "T254";
+                            console.log("Sending no phone mode message: " + constructedMessage);
                             BTConnectionManager.sendMessage(constructedMessage, [model.deviceID]);
                             BTConnectionManager.disconnectDevice(model.deviceID);
                             root.close();
