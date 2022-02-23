@@ -124,7 +124,7 @@ Kirigami.OverlaySheet {
                             var constructedMessage = "AUTOMODE ";
                             if (noPhoneModeCategoriesRepeater.count > 0) {
                                 for (var i = 0; i < noPhoneModeCategoriesRepeater.count; ++i) {
-                                    constructedMessage += "G" + noPhoneModeCategoriesRepeater.item(i).key;
+                                    constructedMessage += "G" + noPhoneModeCategoriesRepeater.itemAt(i).key;
                                 }
                                 constructedMessage += " ";
                             }
