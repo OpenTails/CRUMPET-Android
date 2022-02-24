@@ -34,7 +34,7 @@ public:
     bool hasLights{false};
     bool hasShutdown{false};
     bool hasNoPhoneMode{false};
-    QVariantHash noPhoneModeGroups;
+    QVariantList noPhoneModeGroups;
     QString name;
     int deviceProgress{-1};
     QString progressDescription;
@@ -243,12 +243,12 @@ void BTDevice::setHasNoPhoneMode(bool hasNoPhoneMode)
     }
 }
 
-QVariantHash BTDevice::noPhoneModeGroups() const
+QVariantList BTDevice::noPhoneModeGroups() const
 {
     return d->noPhoneModeGroups;
 }
 
-void BTDevice::setNoPhoneModeGroups(QVariantHash noPhoneModeGroups)
+void BTDevice::setNoPhoneModeGroups(QVariantList noPhoneModeGroups)
 {
     if (d->noPhoneModeGroups != noPhoneModeGroups) {
         d->noPhoneModeGroups = noPhoneModeGroups;

@@ -18,6 +18,8 @@
 #include "BTDeviceFake.h"
 #include "CommandPersistence.h"
 
+#include <KLocalizedString>
+
 #include <QFile>
 
 class BTDeviceFake::Private {
@@ -39,6 +41,13 @@ BTDeviceFake::BTDeviceFake(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     d->batteryTimer.setInterval(1000);
     setSupportsOTA(true);
     setHasLights(true);
+    setHasShutdown(true);
+    setHasNoPhoneMode(true);
+    setNoPhoneModeGroups({
+        i18nc("Name of the calm and relaxed group as used for no phone group selection", "Calm and Relaxed"),
+        i18nc("Name of the fast and excited group as used for no phone group selection", "Fast and Excited"),
+        i18nc("Name of the frustrated and tense group as used for no phone group selection", "Frustrated and Tense"),
+    });
     connect(&d->batteryTimer, &QTimer::timeout, this, [this](){
         if (d->batteryLevel > 3) {
             d->batteryLevel = 0;

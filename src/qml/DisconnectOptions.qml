@@ -45,18 +45,20 @@ Kirigami.OverlaySheet {
                 filterRole: 258 // The deviceID role
             }
             delegate: ColumnLayout {
+                id: disconnectOptionsDelegate
                 Layout.fillWidth: true;
                 Layout.fillHeight: true;
                 spacing: Kirigami.Units.largeSpacing;
+                property var funnyGroups: model.noPhoneModeGroups ? model.noPhoneModeGroups : []
                 Label {
                     Layout.fillWidth: true;
                     wrapMode: Text.Wrap;
-                    text: i18nc("Label above the list of options available for disconnecting from a piece of gear", "Please select how you would like to disconnect from %1.", model.name);
+                    text: i18nc("Label above the list of options available for disconnecting from a piece of gear", "Please select how you would like to disconnect from %1.", (model.name ? model.name : " "));
                 }
                 ColumnLayout {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
-                    visible: model.hasNoPhoneMode
+                    visible: model.hasNoPhoneMode ? model.hasNoPhoneMode : false
                     Rectangle {
                         Layout.fillWidth: true;
                         Layout.minimumHeight: 1
@@ -69,12 +71,12 @@ Kirigami.OverlaySheet {
                         text: i18nc("Label above the list of options available for disconnecting from a piece of gear", "Pick this option to set up No Phone Mode and disconnect, so you can leave the phone off. This works like a basic Casual Mode, but without the phone to operate it. (Handy if you're costuming and have nowhere to stow your phone)");
                     }
                     Repeater {
-                        id: noPhoneModeCategoriesRepeater
-                        model: Object.keys(model.noPhoneModeCategories).length
+                        id: noPhoneModeGroupsRepeater
+                        model: disconnectOptionsDelegate.funnyGroups
                         delegate: Kirigami.BasicListItem {
                             property bool categoryPicked: (model.index === 0)
-                            property string categoryKey: Object.keys(model.noPhoneModeCategories)[idx]
-                            property string categoryValue: model.noPhoneModeCategories[key]
+                            property string categoryKey: model.index + 1
+                            property string categoryValue: modelData
                             icon: categoryPicked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                             label: categoryValue
                             onClicked: {
@@ -122,9 +124,11 @@ Kirigami.OverlaySheet {
                         text: i18nc("Label for the button in the disconnection options popup which puts the gear into autonomous, or no phone, mode", "Engage No Phone Mode");
                         onClicked: {
                             var constructedMessage = "AUTOMODE ";
-                            if (noPhoneModeCategoriesRepeater.count > 0) {
-                                for (var i = 0; i < noPhoneModeCategoriesRepeater.count; ++i) {
-                                    constructedMessage += "G" + noPhoneModeCategoriesRepeater.itemAt(i).key;
+                            if (noPhoneModeGroupsRepeater.count > 0) {
+                                for (var i = 0; i < noPhoneModeGroupsRepeater.count; ++i) {
+                                    if (noPhoneModeGroupsRepeater.itemAt(i).categoryPicked) {
+                                        constructedMessage += "G" + noPhoneModeGroupsRepeater.itemAt(i).categoryKey;
+                                    }
                                 }
                                 constructedMessage += " ";
                             }
@@ -163,7 +167,7 @@ Kirigami.OverlaySheet {
                 ColumnLayout {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
-                    visible: model.hasShutdown
+                    visible: model.hasShutdown ? model.hasShutdown : false
                     Rectangle {
                         Layout.fillWidth: true;
                         Layout.minimumHeight: 1

@@ -348,9 +348,9 @@ BTDeviceMitail::BTDeviceMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* 
     setHasShutdown(true);
     setHasNoPhoneMode(true);
     setNoPhoneModeGroups({
-        {"1", i18nc("Name of the calm and relaxed group as used for no phone group selection", "Calm and Relaxed")},
-        {"2", i18nc("Name of the fast and excited group as used for no phone group selection", "Fast and Excited")},
-        {"3", i18nc("Name of the frustrated and tense group as used for no phone group selection", "Frustrated and Tense")},
+        i18nc("Name of the calm and relaxed group as used for no phone group selection", "Calm and Relaxed"),
+        i18nc("Name of the fast and excited group as used for no phone group selection", "Fast and Excited"),
+        i18nc("Name of the frustrated and tense group as used for no phone group selection", "Frustrated and Tense"),
     });
 
     // The battery timer also functions as a keepalive call. If it turns
