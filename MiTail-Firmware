@@ -2,6 +2,8 @@
 
 Changelog
 
+4.0.1 MiTail cannot be switched off during charging 
+4.0.0 New moves, smoothing, cleaned up code, NFM, and more.
 3.2.8 - First release. Small aesthetic change to TAILER, to account for shorter tails
 
 OTA updates taking approximately 3 minutes to flash new partition.
