@@ -169,6 +169,9 @@ public:
                     q->setDeviceProgress(-1);
                     firmwareProgress = -1;
                     firmwareChunk.clear();
+                } else {
+                    // Logic here is, the user explicitly picks what to do when disconnecting the app from a tail
+                    q->sendMessage("STOPNPM");
                 }
             }
             else if (stateResult[0] == QLatin1String{"GLOWTIP"}) {
