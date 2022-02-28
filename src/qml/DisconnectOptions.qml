@@ -59,13 +59,27 @@ Kirigami.OverlaySheet {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
                     visible: model.hasNoPhoneMode ? model.hasNoPhoneMode : false
-                    Rectangle {
-                        Layout.fillWidth: true;
-                        Layout.minimumHeight: 1
-                        Layout.maximumHeight: 1
-                        color: Kirigami.Theme.disabledTextColor
+                    RowLayout {
+                        Rectangle {
+                            Layout.fillWidth: true;
+                            Layout.minimumHeight: 1;
+                            Layout.maximumHeight: 1;
+                            color: Kirigami.Theme.disabledTextColor;
+                        }
+                        ToolButton {
+                            Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
+                            Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
+                            Layout.minimumHeight: Kirigami.Units.iconSizes.medium;
+                            Layout.maximumHeight: Kirigami.Units.iconSizes.medium;
+                            icon.name: "question";
+                            onClicked: {
+                                noPhoneModeDescription.visible = !noPhoneModeDescription.visible;
+                            }
+                        }
                     }
                     Label {
+                        id: noPhoneModeDescription;
+                        visible: false;
                         Layout.fillWidth: true;
                         wrapMode: Text.Wrap;
                         text: i18nc("Label above the list of options available for disconnecting from a piece of gear", "Pick this option to set up No Phone Mode and disconnect, so you can leave the phone off. This works like a basic Casual Mode, but without the phone to operate it. (Handy if you're costuming and have nowhere to stow your phone)");
@@ -84,6 +98,11 @@ Kirigami.OverlaySheet {
                             }
                         }
                     }
+                    Label {
+                        Layout.fillWidth: true;
+                        wrapMode: Text.Wrap;
+                        text: i18nc("Label for the slider which lets the user pick how long to wait between No Phone mode picks its commands", "No Phone Mode will wait between %1 and %2 seconds before picking its next move.", Math.floor(pauseRangeSlider.first.value), Math.floor(pauseRangeSlider.second.value));
+                    }
                     RangeSlider {
                         id: pauseRangeSlider;
 
@@ -99,31 +118,23 @@ Kirigami.OverlaySheet {
                             pauseRangeSlider.setValues(AppSettings.idleMinPause, AppSettings.idleMaxPause);
                         }
                     }
-
-                    Item {
-                        Layout.minimumHeight: childrenRect.height;
-                        Layout.maximumHeight: childrenRect.height;
-                        Layout.leftMargin: Kirigami.Units.largeSpacing;
+                    Label {
                         Layout.fillWidth: true;
-                        Label {
-                            text: Math.floor(pauseRangeSlider.first.value);
-                            anchors {
-                                left: parent.left;
-                                right: parent.horizontalCentre;
-                            }
-                        }
-                        Label {
-                            text: Math.floor(pauseRangeSlider.second.value);
-                            anchors {
-                                left: parent.horizontalCentre;
-                                right: parent.right;
-                            }
-                        }
+                        wrapMode: Text.Wrap;
+                        text: i18nc("Label for the slider which lets the user pick how long to wait before No Phone mode is fully activated", "No Phone Mode will wait %1 minute(s) before picking the first move.", noPhoneModeDelay.value);
+                    }
+                    Slider {
+                        id: noPhoneModeDelay;
+                        Layout.fillWidth: true;
+                        from: 1;
+                        to: 4;
+                        stepSize: 1.0;
                     }
                     Button {
                         text: i18nc("Label for the button in the disconnection options popup which puts the gear into autonomous, or no phone, mode", "Engage No Phone Mode");
+                        Layout.fillWidth: true;
                         onClicked: {
-                            var constructedMessage = "AUTOMODE ";
+                            var constructedMessage = "AUTOMOVE ";
                             if (noPhoneModeGroupsRepeater.count > 0) {
                                 for (var i = 0; i < noPhoneModeGroupsRepeater.count; ++i) {
                                     if (noPhoneModeGroupsRepeater.itemAt(i).categoryPicked) {
@@ -134,7 +145,7 @@ Kirigami.OverlaySheet {
                             }
                             constructedMessage += "T" + Math.floor(pauseRangeSlider.first.value);
                             constructedMessage += "T" + Math.floor(pauseRangeSlider.second.value);
-                            constructedMessage += "T254";
+                            constructedMessage += "T25" + Math.floor(noPhoneModeDelay.value);
                             console.log("Sending no phone mode message: " + constructedMessage);
                             BTConnectionManager.sendMessage(constructedMessage, [model.deviceID]);
                             BTConnectionManager.disconnectDevice(model.deviceID);
@@ -145,19 +156,34 @@ Kirigami.OverlaySheet {
                 ColumnLayout {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
-                    Rectangle {
-                        Layout.fillWidth: true;
-                        Layout.minimumHeight: 1
-                        Layout.maximumHeight: 1
-                        color: Kirigami.Theme.disabledTextColor
+                    RowLayout {
+                        Rectangle {
+                            Layout.fillWidth: true;
+                            Layout.minimumHeight: 1;
+                            Layout.maximumHeight: 1;
+                            color: Kirigami.Theme.disabledTextColor;
+                        }
+                        ToolButton {
+                            Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
+                            Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
+                            Layout.minimumHeight: Kirigami.Units.iconSizes.medium;
+                            Layout.maximumHeight: Kirigami.Units.iconSizes.medium;
+                            icon.name: "question";
+                            onClicked: {
+                                justDisconnectDescription.visible = !justDisconnectDescription.visible;
+                            }
+                        }
                     }
                     Label {
+                        id: justDisconnectDescription;
+                        visible: false;
                         Layout.fillWidth: true;
                         wrapMode: Text.Wrap;
                         text: i18nc("Label above the list of options available for disconnecting from a piece of gear", "Pick this option to disconnect from the gear without turning it off (handy if you want to charge it).");
                     }
                     Button {
                         text: i18nc("Label for the button in the disconnection options popup which only disconnects the gear", "Disconnect");
+                        Layout.fillWidth: true;
                         onClicked: {
                             BTConnectionManager.disconnectDevice(model.deviceID);
                             root.close();
@@ -168,19 +194,34 @@ Kirigami.OverlaySheet {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
                     visible: model.hasShutdown ? model.hasShutdown : false
-                    Rectangle {
-                        Layout.fillWidth: true;
-                        Layout.minimumHeight: 1
-                        Layout.maximumHeight: 1
-                        color: Kirigami.Theme.disabledTextColor
+                    RowLayout {
+                        Rectangle {
+                            Layout.fillWidth: true;
+                            Layout.minimumHeight: 1;
+                            Layout.maximumHeight: 1;
+                            color: Kirigami.Theme.disabledTextColor;
+                        }
+                        ToolButton {
+                            Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
+                            Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
+                            Layout.minimumHeight: Kirigami.Units.iconSizes.medium;
+                            Layout.maximumHeight: Kirigami.Units.iconSizes.medium;
+                            icon.name: "question";
+                            onClicked: {
+                                shutdownDescription.visible = !shutdownDescription.visible;
+                            }
+                        }
                     }
                     Label {
+                        id: shutdownDescription;
+                        visible: false;
                         Layout.fillWidth: true;
                         wrapMode: Text.Wrap;
                         text: i18nc("Label above the list of options available for shutting down the piece of gear", "Pick this option to turn off the gear rather than simply disconnecting (handy if you're putting it away immediately)");
                     }
                     Button {
                         text: i18nc("Label for the button in the disconnection options popup which only disconnects the gear", "Shut Down Gear");
+                        Layout.fillWidth: true;
                         onClicked: {
                             BTConnectionManager.sendMessage("SHUTDOWN", [model.deviceID]);
                             BTConnectionManager.disconnectDevice(model.deviceID);
