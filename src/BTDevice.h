@@ -36,6 +36,7 @@ class BTDevice : public QObject
     Q_PROPERTY(QString currentCall READ currentCall NOTIFY currentCallChanged)
     Q_PROPERTY(QString activeCommandTitles READ activeCommandTitles NOTIFY activeCommandTitlesChanged)
     Q_PROPERTY(int batteryLevel READ batteryLevel NOTIFY batteryLevelChanged)
+    Q_PROPERTY(int batteryLevelPercent READ batteryLevelPercent NOTIFY batteryLevelPercentChanged)
     Q_PROPERTY(QString deviceID READ deviceID CONSTANT)
     Q_PROPERTY(QStringList enabledCommandsFiles READ enabledCommandsFiles NOTIFY enabledCommandsFilesChanged)
     Q_PROPERTY(bool supportsOTA READ supportsOTA NOTIFY supportsOTAChanged)
@@ -91,6 +92,10 @@ public:
 
     virtual int batteryLevel() const = 0;
     Q_SIGNAL void batteryLevelChanged(int batteryLevel);
+
+    int batteryLevelPercent() const;
+    void setBatteryLevelPercent(int batteryLevelPercent);
+    Q_SIGNAL void batteryLevelPercentChanged();
 
     virtual void connectDevice() = 0;
     virtual void disconnectDevice() = 0;

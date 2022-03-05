@@ -40,6 +40,7 @@ Column {
             height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing * 3;
             width: batteryLayout.width
             property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
+            property int batteryLevelPercent: model.batteryLevelPercent !== undefined ? model.batteryLevelPercent : 0
             property int chargingState: model.chargingState !== undefined ? model.chargingState : 0
             Label {
                 id: batteryLabel;
@@ -96,6 +97,17 @@ Column {
                             break;
                     }
                 }
+                Label {
+                    anchors {
+                        right: parent.left;
+                        rightMargin: Kirigami.Units.smallSpacing;
+                        top: parent.top;
+                        bottom: parent.bottom;
+                    }
+                    verticalAlignment: Text.AlignVCenter
+                    text: batteryDelegate.batteryLevelPercent + "%";
+                }
+            }
         }
     }
 }

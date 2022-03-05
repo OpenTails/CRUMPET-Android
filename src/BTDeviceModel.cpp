@@ -128,6 +128,7 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {HasNoPhoneMode, "hasNoPhoneMode"},
         {NoPhoneModeGroups, "noPhoneModeGroups"},
         {ChargingState, "chargingState"},
+        {BatteryLevelPercent, "batteryLevelPercent"},
     };
     return roles;
 }
@@ -223,6 +224,9 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case ChargingState:
                 value = device->chargingState();
+                break;
+            case BatteryLevelPercent:
+                value = device->batteryLevelPercent();
                 break;
             default:
                 break;
@@ -364,6 +368,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::chargingStateChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, ChargingState);
+        });
+        connect(newDevice, &BTDevice::batteryLevelPercentChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, BatteryLevelPercent);
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);

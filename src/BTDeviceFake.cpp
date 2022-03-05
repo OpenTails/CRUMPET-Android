@@ -62,6 +62,7 @@ BTDeviceFake::BTDeviceFake(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
         } else {
             d->batteryLevel++;
         }
+        setBatteryLevelPercent(d->batteryLevel * 25);
         emit batteryLevelChanged(d->batteryLevel);
     });
 }

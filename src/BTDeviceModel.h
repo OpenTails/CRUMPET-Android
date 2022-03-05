@@ -63,6 +63,7 @@ public:
         HasNoPhoneMode,          // 278 - boolean value for whether or not the gear supports no phone mode
         NoPhoneModeGroups,       // 279 - variantlist where the key is the ID of a group, and the value is the human readable group names of that group
         ChargingState,           // 280 - integer describing what charging state the device is in (0 is not plugged in, 1 is charging, 2 is plugged in and fully charged)
+        BatteryLevelPercent,     // 281 - integer between 0 and 100 representing the current battery level
     };
 
     AppSettings* appSettings() const;

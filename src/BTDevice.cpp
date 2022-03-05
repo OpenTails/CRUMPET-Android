@@ -29,6 +29,7 @@ public:
     Private() {}
     ~Private() {}
 
+    int batteryLevelPercent{100};
     bool supportsOTA{false};
     bool checked{true};
     bool hasLights{false};
@@ -111,6 +112,19 @@ void BTDevice::setName(const QString& name)
     if (d->name != name) {
         d->name = name;
         emit nameChanged(name);
+    }
+}
+
+int BTDevice::batteryLevelPercent() const
+{
+    return d->batteryLevelPercent;
+}
+
+void BTDevice::setBatteryLevelPercent(int batteryLevelPercent)
+{
+    if (d->batteryLevelPercent != batteryLevelPercent) {
+        d->batteryLevelPercent = batteryLevelPercent;
+        Q_EMIT batteryLevelPercentChanged();
     }
 }
 

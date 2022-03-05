@@ -133,6 +133,7 @@ public:
                 // unfortunately without a space, so we have to specialcase it a bit
                 if(theValue.startsWith(QLatin1String("BAT"))) {
                     batteryLevel = theValue.right(1).toInt();
+                    q->setBatteryLevelPercent(batteryLevel * 25);
                     emit q->batteryLevelChanged(batteryLevel);
                 }
                 else if(stateResult.count() == 1 && !previousThing.isEmpty()) {

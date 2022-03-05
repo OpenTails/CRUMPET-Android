@@ -460,11 +460,13 @@ void BTDeviceMitail::connectDevice()
                 else {
                     connect(d->batteryService, &QLowEnergyService::characteristicRead, this, [this](const QLowEnergyCharacteristic &, const QByteArray &value){
                         d->batteryLevel = (int)value.at(0) / 20;
+                        setBatteryLevelPercent((int)value.at(0));
                         qDebug() << name() << deviceID() << "Updated battery to" << value;
                         emit batteryLevelChanged(d->batteryLevel);
                     });
                     connect(d->batteryService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic&, const QByteArray& value){
                         d->batteryLevel = (int)value.at(0) / 20;
+                        setBatteryLevelPercent((int)value.at(0));
                         emit batteryLevelChanged(d->batteryLevel);
                     });
                     connect(d->batteryService, &QLowEnergyService::stateChanged, this, [this](QLowEnergyService::ServiceState newState){
