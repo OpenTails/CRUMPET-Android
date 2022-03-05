@@ -59,12 +59,17 @@ Kirigami.OverlaySheet {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
                     visible: model.hasNoPhoneMode ? model.hasNoPhoneMode : false
+                    Rectangle {
+                        Layout.fillWidth: true;
+                        Layout.minimumHeight: 1;
+                        Layout.maximumHeight: 1;
+                        color: Kirigami.Theme.disabledTextColor;
+                    }
                     RowLayout {
-                        Rectangle {
+                        Label {
                             Layout.fillWidth: true;
-                            Layout.minimumHeight: 1;
-                            Layout.maximumHeight: 1;
-                            color: Kirigami.Theme.disabledTextColor;
+                            text: i18nc("Label above the section that lets you set up the gear for use without a phone and then disconnect", "Use Gear Without Your Phone");
+                            elide: Text.ElideRight
                         }
                         ToolButton {
                             Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
@@ -156,12 +161,16 @@ Kirigami.OverlaySheet {
                 ColumnLayout {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
+                    Rectangle {
+                        Layout.fillWidth: true;
+                        Layout.minimumHeight: 1;
+                        Layout.maximumHeight: 1;
+                        color: Kirigami.Theme.disabledTextColor;
+                    }
                     RowLayout {
-                        Rectangle {
+                        Label {
                             Layout.fillWidth: true;
-                            Layout.minimumHeight: 1;
-                            Layout.maximumHeight: 1;
-                            color: Kirigami.Theme.disabledTextColor;
+                            text: i18nc("Label above the section that lets the user simply disconnect from the gear", "Just Disconnect");
                         }
                         ToolButton {
                             Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
@@ -194,12 +203,16 @@ Kirigami.OverlaySheet {
                     Layout.fillWidth: true;
                     spacing: Kirigami.Units.smallSpacing
                     visible: model.hasShutdown ? model.hasShutdown : false
+                    Rectangle {
+                        Layout.fillWidth: true;
+                        Layout.minimumHeight: 1;
+                        Layout.maximumHeight: 1;
+                        color: Kirigami.Theme.disabledTextColor;
+                    }
                     RowLayout {
-                        Rectangle {
+                        Label {
                             Layout.fillWidth: true;
-                            Layout.minimumHeight: 1;
-                            Layout.maximumHeight: 1;
-                            color: Kirigami.Theme.disabledTextColor;
+                            text: i18nc("Header label for the section which lets you tell the gear to shut down before disconnecting", "Disconnect and Shut Down");
                         }
                         ToolButton {
                             Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
