@@ -40,6 +40,18 @@
         <file alias="actions/32/settings-configure.svg">../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
         <file alias="emblems/16/checkbox-checked.svg">../3rdparty/breeze-icons/icons/emblems/16/installed.svg</file>
         <file alias="emblems/16/checkbox-unchecked.svg">../3rdparty/breeze-icons/icons/emblems/16/noninstalled.svg</file>
+
+        <file alias="status/22/battery-000.svg">../3rdparty/breeze-icons/icons/status/22/battery-000.svg</file>
+        <file alias="status/22/battery-000-charging.svg">../3rdparty/breeze-icons/icons/status/22/battery-000-charging.svg</file>
+        <file alias="status/22/battery-020.svg">../3rdparty/breeze-icons/icons/status/22/battery-020.svg</file>
+        <file alias="status/22/battery-020-charging.svg">../3rdparty/breeze-icons/icons/status/22/battery-020-charging.svg</file>
+        <file alias="status/22/battery-050.svg">../3rdparty/breeze-icons/icons/status/22/battery-050.svg</file>
+        <file alias="status/22/battery-050-charging.svg">../3rdparty/breeze-icons/icons/status/22/battery-050-charging.svg</file>
+        <file alias="status/22/battery-070.svg">../3rdparty/breeze-icons/icons/status/22/battery-070.svg</file>
+        <file alias="status/22/battery-070-charging.svg">../3rdparty/breeze-icons/icons/status/22/battery-070-charging.svg</file>
+        <file alias="status/22/battery-100.svg">../3rdparty/breeze-icons/icons/status/22/battery-100.svg</file>
+        <file alias="status/22/battery-100-charging.svg">../3rdparty/breeze-icons/icons/status/22/battery-100-charging.svg</file>
+
         <file alias="index.theme">icontheme-index.theme</file>
     </qresource>
 <!--    <qresource prefix="/org/kde/kirigami/">

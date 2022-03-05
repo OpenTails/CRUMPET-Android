@@ -40,6 +40,7 @@ Column {
             height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing * 3;
             width: batteryLayout.width
             property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
+            property int chargingState: model.chargingState !== undefined ? model.chargingState : 0
             Label {
                 id: batteryLabel;
                 anchors {
@@ -65,48 +66,36 @@ Column {
                 Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
             }
 
-            Rectangle {
-                anchors.right: parent.right;
-                height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing * 2;
-                width: Kirigami.Units.iconSizes.small * 4 + Kirigami.Units.smallSpacing * 5;
-                color: "transparent";
-
-                border {
-                    width: 2;
-                    color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
+            Kirigami.Icon {
+                anchors {
+                    right: parent.right
+                    top: parent.top
+                    bottom: parent.bottom
+                    margins: 1
                 }
-                radius: Kirigami.Units.smallSpacing;
-                Row {
-                    spacing: Kirigami.Units.smallSpacing;
-                    anchors {
-                        fill: parent;
-                        margins: Kirigami.Units.smallSpacing;
-                    }
-
-                    Repeater {
-                        model: 4;
-
-                        Rectangle {
-                            visible: modelData < batteryDelegate.batteryLevel;
-                            height: Kirigami.Units.iconSizes.small
-                            width: height;
-                            radius: Kirigami.Units.smallSpacing / 2;
-                            color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
-                        }
+                width: height;
+                property string chargingString: batteryDelegate.chargingState > 0 ? "-charging" : "";
+                source: {
+                    switch(batteryDelegate.batteryLevel) {
+                        case 0:
+                            return "battery-000" + chargingString
+                            break;
+                        case 1:
+                            return "battery-020" + chargingString
+                            break;
+                        case 2:
+                            return "battery-050" + chargingString
+                            break;
+                        case 3:
+                            return "battery-070" + chargingString
+                            break;
+                        case 4:
+                        case 5:
+                        default:
+                            return "battery-100" + chargingString
+                            break;
                     }
                 }
-                Rectangle {
-                    anchors {
-                        top: parent.top;
-                        left: parent.right;
-                        bottom: parent.bottom;
-                        topMargin: parent.height / 3;
-                        bottomMargin: parent.height / 3;
-                    }
-                    width: 2
-                    color: batteryDelegate.batteryLevel <= 1 ? "red" : "black";
-                }
-            }
         }
     }
 }
