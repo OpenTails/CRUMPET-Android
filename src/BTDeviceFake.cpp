@@ -27,6 +27,7 @@ public:
     Private() {}
     bool isConnected{false};
     int batteryLevel{0};
+    bool isCharging{false};
     QString currentCall;
     QString deviceID{"FA:KE:TA:IL"};
     QString version{"Fake V2"};
@@ -50,6 +51,13 @@ BTDeviceFake::BTDeviceFake(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     });
     connect(&d->batteryTimer, &QTimer::timeout, this, [this](){
         if (d->batteryLevel > 3) {
+            if (d->isCharging) {
+                d->isCharging = false;
+                setChargingState(0);
+            } else {
+                d->isCharging = true;
+                setChargingState(1);
+            }
             d->batteryLevel = 0;
         } else {
             d->batteryLevel++;
