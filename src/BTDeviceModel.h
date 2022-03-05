@@ -62,6 +62,7 @@ public:
         HasShutdown,             // 277 - boolean value for whether or not the gear supports the SHUTDOWN command
         HasNoPhoneMode,          // 278 - boolean value for whether or not the gear supports no phone mode
         NoPhoneModeGroups,       // 279 - variantlist where the key is the ID of a group, and the value is the human readable group names of that group
+        ChargingState,           // 280 - integer describing what charging state the device is in (0 is not plugged in, 1 is charging, 2 is plugged in and fully charged)
     };
 
     AppSettings* appSettings() const;

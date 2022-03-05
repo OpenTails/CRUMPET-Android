@@ -35,6 +35,7 @@ public:
     bool hasShutdown{false};
     bool hasNoPhoneMode{false};
     QVariantList noPhoneModeGroups;
+    int chargingState{0};
     QString name;
     int deviceProgress{-1};
     QString progressDescription;
@@ -253,5 +254,18 @@ void BTDevice::setNoPhoneModeGroups(QVariantList noPhoneModeGroups)
     if (d->noPhoneModeGroups != noPhoneModeGroups) {
         d->noPhoneModeGroups = noPhoneModeGroups;
         Q_EMIT noPhoneModeGroupsChanged();
+    }
+}
+
+int BTDevice::chargingState() const
+{
+    return d->chargingState;
+}
+
+void BTDevice::setChargingState(int chargingState)
+{
+    if (d->chargingState != chargingState) {
+        d->chargingState = chargingState;
+        Q_EMIT chargingStateChanged();
     }
 }

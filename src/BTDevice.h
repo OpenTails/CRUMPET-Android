@@ -48,6 +48,7 @@ class BTDevice : public QObject
     Q_PROPERTY(bool hasShutdown READ hasShutdown NOTIFY hasShutdownChanged)
     Q_PROPERTY(bool hasNoPhoneMode READ hasNoPhoneMode NOTIFY hasNoPhoneModeChanged)
     Q_PROPERTY(QVariantList noPhoneModeGroups READ noPhoneModeGroups NOTIFY noPhoneModeGroupsChanged)
+    Q_PROPERTY(int chargingState READ chargingState NOTIFY chargingStateChanged)
 public:
     explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDevice() override;
@@ -133,6 +134,10 @@ public:
     QVariantList noPhoneModeGroups() const;
     void setNoPhoneModeGroups(QVariantList noPhoneModeGroups);
     Q_SIGNAL void noPhoneModeGroupsChanged();
+
+    int chargingState() const;
+    void setChargingState(int chargingState);
+    Q_SIGNAL void chargingStateChanged();
 private:
     class Private;
     Private* d;
