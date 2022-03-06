@@ -30,13 +30,10 @@ Kirigami.OverlaySheet {
     }
     property alias deviceID: relevantDeviceModel.filterString
 
-    header: Kirigami.Heading {
-        text: i18nc("Heading for the overlay for picking options when disconnecting from a piece of gear", "Disconnect?");
-        wrapMode: Text.Wrap;
-    }
-    ColumnLayout {
+    showCloseButton: true;
+    title: i18nc("Heading for the overlay for picking options when disconnecting from a piece of gear", "Disconnect?");
+    contentItem: ColumnLayout {
         Layout.fillWidth: true;
-        Layout.fillHeight: true;
         spacing: 0
         Repeater {
             model: Digitail.FilterProxyModel {
@@ -243,6 +240,10 @@ Kirigami.OverlaySheet {
                     }
                 }
             }
+        }
+        Item {
+            Layout.fillWidth: true
+            Layout.minimumHeight: 150
         }
     }
 }
