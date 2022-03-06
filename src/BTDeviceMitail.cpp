@@ -445,19 +445,19 @@ void BTDeviceMitail::connectDevice()
                     connect(d->batteryService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic& characteristic, const QByteArray& value){
                         if (characteristic.uuid() == d->deviceChargingReadCharacteristicUuid) {
                             QString theValue(value);
-                                if (theValue.endsWith("\x00")) {
-                                    theValue = theValue.left(theValue.length());
+                            if (theValue.endsWith("\x00")) {
+                                theValue = theValue.left(theValue.length());
+                            }
+                            QStringList stateResult = theValue.split(' ');
+                            if (stateResult[0] == QLatin1String{"CHARGING"}) {
+                                if (stateResult[1] == QLatin1String{"ON"}) {
+                                    setChargingState(1);
+                                } else if (stateResult[1] == QLatin1String{"FULL"}) {
+                                    setChargingState(2);
+                                } else {
+                                    setChargingState(0);
                                 }
-                                QStringList stateResult = theValue.split(' ');
-                                if (stateResult[0] == QLatin1String{"CHARGING"}) {
-                                    if (stateResult[1] == QLatin1String{"ON"}) {
-                                        setChargingState(1);
-                                    } else if (stateResult[1] == QLatin1String{"FULL"}) {
-                                        setChargingState(2);
-                                    } else {
-                                        setChargingState(0);
-                                    }
-                                }
+                            }
                         }
                         else {
                             d->batteryLevel = (int)value.at(0) / 20;
@@ -493,8 +493,11 @@ void BTDeviceMitail::connectDevice()
                             }
                             d->batteryService->writeDescriptor(batteryDescriptor, QByteArray::fromHex("0100"));
 
-                            batteryDescriptor = d->deviceChargingReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
                             d->deviceChargingReadCharacteristic = d->batteryService->characteristic(d->deviceChargingReadCharacteristicUuid);
+                            if (!d->deviceChargingReadCharacteristic.isValid()) {
+                                qDebug() << name() << deviceID() << "Couldn't get the charging state characteristic - this is fine for old tails, so not getting angry about this";
+                            }
+                            batteryDescriptor = d->deviceChargingReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
                             if (d->deviceChargingReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
                                 d->batteryService->writeDescriptor(batteryDescriptor, QByteArray::fromHex("0100"));
                             }
