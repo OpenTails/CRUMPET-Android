@@ -67,7 +67,8 @@ Column {
                 Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
             }
 
-            Kirigami.Icon {
+            Image {
+                id: batteryIcon
                 anchors {
                     right: parent.right
                     top: parent.top
@@ -75,38 +76,38 @@ Column {
                     margins: 1
                 }
                 width: height;
-                property string chargingString: batteryDelegate.chargingState > 0 ? "-charging" : "";
+                property string chargingString: batteryDelegate.chargingState > 0 ? "-charging.svg" : ".svg";
                 source: {
                     switch(batteryDelegate.batteryLevel) {
                         case 0:
-                            return "battery-000" + chargingString
+                            return "qrc:/icons/breeze-internal/status/22/battery-000" + chargingString
                             break;
                         case 1:
-                            return "battery-020" + chargingString
+                            return "qrc:/icons/breeze-internal/status/22/battery-020" + chargingString
                             break;
                         case 2:
-                            return "battery-050" + chargingString
+                            return "qrc:/icons/breeze-internal/status/22/battery-050" + chargingString
                             break;
                         case 3:
-                            return "battery-070" + chargingString
+                            return "qrc:/icons/breeze-internal/status/22/battery-070" + chargingString
                             break;
                         case 4:
                         case 5:
                         default:
-                            return "battery-100" + chargingString
+                            return "qrc:/icons/breeze-internal/status/22/battery-100" + chargingString
                             break;
                     }
                 }
-                Label {
-                    anchors {
-                        right: parent.left;
-                        rightMargin: Kirigami.Units.smallSpacing;
-                        top: parent.top;
-                        bottom: parent.bottom;
-                    }
-                    verticalAlignment: Text.AlignVCenter
-                    text: batteryDelegate.batteryLevelPercent + "%";
+            }
+            Label {
+                anchors {
+                    right: batteryIcon.left;
+                    rightMargin: Kirigami.Units.smallSpacing;
+                    top: batteryIcon.top;
+                    bottom: batteryIcon.bottom;
                 }
+                verticalAlignment: Text.AlignVCenter
+                text: batteryDelegate.batteryLevelPercent + "%";
             }
         }
     }
