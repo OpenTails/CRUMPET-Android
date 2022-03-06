@@ -51,10 +51,10 @@ public:
     QLowEnergyService* deviceService{nullptr};
     QLowEnergyCharacteristic deviceCommandWriteCharacteristic;
     QLowEnergyCharacteristic deviceCommandReadCharacteristic;
-    QLowEnergyCharacteristic deviceChargingReadCharacteristic;
 
     QLowEnergyService* batteryService{nullptr};
     QLowEnergyCharacteristic batteryCharacteristic;
+    QLowEnergyCharacteristic deviceChargingReadCharacteristic;
 
     QTimer pingTimer;
     QBluetoothUuid deviceServiceUuid{QLatin1String{"3af2108b-d066-42da-a7d4-55648fa0a9b6"}};
@@ -126,12 +126,6 @@ public:
             }
             if (deviceCommandReadCharacteristic.properties() & QLowEnergyCharacteristic::Indicate) {
                 deviceService->writeDescriptor(commandUpdateDescriptor, QByteArray::fromHex("0200"));
-            }
-
-            commandUpdateDescriptor = deviceChargingReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
-            deviceChargingReadCharacteristic = deviceService->characteristic(deviceChargingReadCharacteristicUuid);
-            if (deviceChargingReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
-                deviceService->writeDescriptor(commandUpdateDescriptor, QByteArray::fromHex("0100"));
             }
 
             reconnectThrottle = 0;
@@ -240,22 +234,6 @@ public:
             }
             else {
                 qDebug() << q->name() << q->deviceID() << "Unexpected response: Did not understand" << newValue;
-            }
-        }
-        else if (deviceChargingReadCharacteristicUuid == characteristic.uuid()) {
-            QString theValue(newValue);
-            if (theValue.endsWith("\x00")) {
-                theValue = theValue.left(theValue.length());
-            }
-            QStringList stateResult = theValue.split(' ');
-            if (stateResult[0] == QLatin1String{"CHARGING"}) {
-                if (stateResult[1] == QLatin1String{"ON"}) {
-                    q->setChargingState(1);
-                } else if (stateResult[1] == QLatin1String{"FULL"}) {
-                    q->setChargingState(2);
-                } else {
-                    q->setChargingState(0);
-                }
             }
         }
         currentCall.clear();
@@ -464,10 +442,28 @@ void BTDeviceMitail::connectDevice()
                         qDebug() << name() << deviceID() << "Updated battery to" << value;
                         emit batteryLevelChanged(d->batteryLevel);
                     });
-                    connect(d->batteryService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic&, const QByteArray& value){
-                        d->batteryLevel = (int)value.at(0) / 20;
-                        setBatteryLevelPercent((int)value.at(0));
-                        emit batteryLevelChanged(d->batteryLevel);
+                    connect(d->batteryService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic& characteristic, const QByteArray& value){
+                        if (characteristic.uuid() == d->deviceChargingReadCharacteristicUuid) {
+                            QString theValue(value);
+                                if (theValue.endsWith("\x00")) {
+                                    theValue = theValue.left(theValue.length());
+                                }
+                                QStringList stateResult = theValue.split(' ');
+                                if (stateResult[0] == QLatin1String{"CHARGING"}) {
+                                    if (stateResult[1] == QLatin1String{"ON"}) {
+                                        setChargingState(1);
+                                    } else if (stateResult[1] == QLatin1String{"FULL"}) {
+                                        setChargingState(2);
+                                    } else {
+                                        setChargingState(0);
+                                    }
+                                }
+                        }
+                        else {
+                            d->batteryLevel = (int)value.at(0) / 20;
+                            setBatteryLevelPercent((int)value.at(0));
+                            emit batteryLevelChanged(d->batteryLevel);
+                        }
                     });
                     connect(d->batteryService, &QLowEnergyService::stateChanged, this, [this](QLowEnergyService::ServiceState newState){
                         switch (newState) {
@@ -496,6 +492,13 @@ void BTDeviceMitail::connectDevice()
                                 qDebug() << "This is bad, no battery descriptor...";
                             }
                             d->batteryService->writeDescriptor(batteryDescriptor, QByteArray::fromHex("0100"));
+
+                            batteryDescriptor = d->deviceChargingReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+                            d->deviceChargingReadCharacteristic = d->batteryService->characteristic(d->deviceChargingReadCharacteristicUuid);
+                            if (d->deviceChargingReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
+                                d->batteryService->writeDescriptor(batteryDescriptor, QByteArray::fromHex("0100"));
+                            }
+
                             d->batteryService->readCharacteristic(d->batteryCharacteristic);
 
                             break;
