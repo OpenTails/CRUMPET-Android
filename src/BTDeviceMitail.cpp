@@ -443,6 +443,7 @@ void BTDeviceMitail::connectDevice()
                         emit batteryLevelChanged(d->batteryLevel);
                     });
                     connect(d->batteryService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic& characteristic, const QByteArray& value){
+                        qDebug() << name() << deviceID() << "Battery service value changed:" << value;
                         if (characteristic.uuid() == d->deviceChargingReadCharacteristicUuid) {
                             QString theValue(value);
                             if (theValue.endsWith("\x00")) {
@@ -450,6 +451,7 @@ void BTDeviceMitail::connectDevice()
                             }
                             QStringList stateResult = theValue.split(' ');
                             if (stateResult[0] == QLatin1String{"CHARGING"}) {
+                                qDebug() << "Charging state changing";
                                 if (stateResult[1] == QLatin1String{"ON"}) {
                                     setChargingState(1);
                                 } else if (stateResult[1] == QLatin1String{"FULL"}) {
