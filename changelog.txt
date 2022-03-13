@@ -1,3 +1,11 @@
+25
+- Add No Phone Mode and Shutdown options when disconnecting from gear
+- Much better battery visualisation, and add charge indicator
+- Add glowtip detection
+- Add refresh to search for new devices when app already knows of some
+- Add initial support for EarGear 2
+- Updated translations
+
 24
 - Redo the battery indicator (hopefully less confusing now)
 - Add support for updating MiTail firmware
