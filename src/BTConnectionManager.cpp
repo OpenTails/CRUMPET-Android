@@ -303,6 +303,14 @@ void BTConnectionManager::setDeviceListeningState(const QString& deviceID, int l
     }
 }
 
+void BTConnectionManager::setDeviceTiltState(const QString &deviceID, bool tiltState)
+{
+    BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(d->deviceModel->getDevice(deviceID));
+    if (ears) {
+        ears->setTiltMode(tiltState);
+    }
+}
+
 void BTConnectionManager::setDeviceCommandsFileEnabled(const QString& deviceID, const QString& filename, bool enabled)
 {
     qDebug() << Q_FUNC_INFO << deviceID << filename << enabled;

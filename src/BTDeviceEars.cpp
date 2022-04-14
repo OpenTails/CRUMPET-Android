@@ -38,6 +38,9 @@ public:
     int batteryLevel{0};
     bool micsSwapped{false};
     ListenMode listenMode{ListenModeOff};
+    bool canBalanceListening{true};
+    bool hasTilt{false};
+    bool tiltEnabled{false};
 
     QString currentCall;
     QString currentSubCall;
@@ -178,6 +181,16 @@ public:
                     emit q->listenModeChanged();
                 }
             }
+            else if (stateResult[0] == QLatin1String{"TILTMODE"}) {
+                bool newState = false;
+                if (stateResult[1] != QLatin1String{"OFF"}) {
+                    newState = true;
+                }
+                if (tiltEnabled != newState) {
+                    tiltEnabled = newState;
+                    emit q->tiltEnabledChanged();
+                }
+            }
             else if (currentCall == QLatin1String{"LISTEN IOS"} && theValue == QLatin1String{"DSSP END"}) {
                 // This is a hack for some firmware versions, which do not report
                 // their state correctly (sending instead a "DSSP END" message)
@@ -272,6 +285,13 @@ BTDeviceEars::BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     d->pingTimer.setTimerType(Qt::VeryCoarseTimer);
     d->pingTimer.setInterval(60000 / 2);
     d->pingTimer.setSingleShot(false);
+
+    if (deviceInfo.name() != QLatin1String{"EarGear"}) {
+        d->canBalanceListening = false;
+        Q_EMIT canBalanceListeningChanged();
+        d->hasTilt = true;
+        Q_EMIT hasTiltChanged();
+    }
 }
 
 BTDeviceEars::~BTDeviceEars()
@@ -491,6 +511,31 @@ bool BTDeviceEars::micsSwapped() const
     return d->micsSwapped;
 }
 
+bool BTDeviceEars::hasTilt() const
+{
+    return d->hasTilt;
+}
+
+bool BTDeviceEars::canBalanceListening() const
+{
+    return d->canBalanceListening;
+}
+
+bool BTDeviceEars::tiltEnabled() const
+{
+    return d->tiltEnabled;
+}
+
+void BTDeviceEars::setTiltMode(bool tiltState)
+{
+    if (tiltState) {
+        sendMessage("TILTMODE START");
+    }
+    else {
+        sendMessage("ENDTILTMODE");
+    }
+}
+
 void BTDeviceEars::sendMessage(const QString &message)
 {
     QString actualMessage{message};
@@ -518,7 +563,7 @@ void BTDeviceEars::sendMessage(const QString &message)
 
 QStringList BTDeviceEars::defaultCommandFiles() const
 {
-    if (name() == QLatin1String{"EarGear"}) {
+    if (deviceInfo.name() == QLatin1String{"EarGear"}) {
         return QStringList{QLatin1String{":/commands/eargear-base.crumpet"}};
     }
     else {

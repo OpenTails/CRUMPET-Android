@@ -136,7 +136,7 @@ Kirigami.OverlaySheet {
                         text: i18nc("Label for the button in the disconnection options popup which puts the gear into autonomous, or no phone, mode", "Engage No Phone Mode");
                         Layout.fillWidth: true;
                         onClicked: {
-                            var constructedMessage = "AUTOMOVE ";
+                            var constructedMessage = "AUTOMODE ";
                             if (noPhoneModeGroupsRepeater.count > 0) {
                                 for (var i = 0; i < noPhoneModeGroupsRepeater.count; ++i) {
                                     if (noPhoneModeGroupsRepeater.itemAt(i).categoryPicked) {

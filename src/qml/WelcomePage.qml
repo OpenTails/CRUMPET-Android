@@ -307,6 +307,59 @@ Kirigami.ScrollablePage {
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
         Kirigami.AbstractCard {
             visible: opacity > 0;
+            opacity: hasTiltDevicesRepeater.count > 0 ? 1 : 0;
+            Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
+            Layout.fillWidth: true;
+            header: RowLayout {
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
+                    Layout.margins: Kirigami.Units.smallSpacing;
+                    width: Kirigami.Units.iconSizes.small;
+                    height: width;
+                    source: ":/images/tiltmode.svg"
+                }
+                Kirigami.Heading {
+                    text: i18nc("Heading for the panel for turning on Tilt Mode", "Tilt Mode");
+                    Layout.fillWidth: true;
+                    wrapMode: Text.Wrap;
+                }
+            }
+            contentItem: Column {
+                id: tiltingColumn;
+                Layout.fillWidth: true;
+                height: childrenRect.height;
+                spacing: 0;
+                Label {
+                    width: parent.width;
+                    wrapMode: Text.Wrap;
+                    text: i18nc("Label for the checkbox for turning on Tilt Mode", "Turn this on to make your gear react to tilting movements.");
+                }
+                Repeater {
+                    id: hasTiltDevicesRepeater;
+                    model: Digitail.FilterProxyModel {
+                        sourceModel: connectedDevicesModel;
+                        filterRole: 282; // the hasTilt role
+                        filterBoolean: true;
+                    }
+                    Kirigami.BasicListItem {
+                        width: tiltingColumn.width;
+                        separatorVisible: false;
+                        icon: model.tiltEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        label: model.name;
+                        onClicked: {
+                            var newState = false;
+                            if (model.tiltEnabled == false) {
+                                newState = true;
+                            }
+                            BTConnectionManager.setDeviceTiltState(model.deviceID, newState);
+                        }
+                    }
+                }
+            }
+        }
+        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+        Kirigami.AbstractCard {
+            visible: opacity > 0;
             opacity: BTConnectionManager.isConnected ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             Layout.fillWidth: true;

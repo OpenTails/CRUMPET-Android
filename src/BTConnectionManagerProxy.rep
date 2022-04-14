@@ -29,6 +29,7 @@ class BTConnectionManagerProxy {
     SLOT(void setDeviceName(const QString& deviceID, const QString& deviceName))
     SLOT(void setDeviceChecked(const QString& deviceID, bool checked))
     SLOT(void setDeviceListeningState(const QString& deviceID, int listeningMode))
+    SLOT(void setDeviceTiltState(const QString& deviceID, bool tiltState))
     SLOT(void clearDeviceNames())
 
     // Use this to call a function on a specific device without digging too deeply (for example, call the checkOTA function)

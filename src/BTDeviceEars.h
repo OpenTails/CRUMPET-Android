@@ -25,6 +25,9 @@ class BTDeviceEars : public BTDevice
     Q_OBJECT
     Q_PROPERTY(ListenMode listenMode READ listenMode WRITE setListenMode NOTIFY listenModeChanged)
     Q_PROPERTY(bool micsSwapped READ micsSwapped NOTIFY micsSwappedChanged)
+    Q_PROPERTY(bool hasTilt READ hasTilt NOTIFY hasTiltChanged)
+    Q_PROPERTY(bool canBalanceListening READ canBalanceListening NOTIFY canBalanceListeningChanged)
+    Q_PROPERTY(bool tiltEnabled READ tiltEnabled NOTIFY tiltEnabledChanged)
 public:
     explicit BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
     ~BTDeviceEars() override;
@@ -53,6 +56,16 @@ public:
 
     bool micsSwapped() const;
     Q_SIGNAL void micsSwappedChanged();
+
+    bool hasTilt() const;
+    Q_SIGNAL void hasTiltChanged();
+
+    bool canBalanceListening() const;
+    Q_SIGNAL void canBalanceListeningChanged();
+
+    bool tiltEnabled() const;
+    Q_SIGNAL void tiltEnabledChanged();
+    void setTiltMode(bool tiltState);
 
     void sendMessage(const QString &message) override;
 private:

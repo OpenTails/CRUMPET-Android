@@ -129,6 +129,9 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {NoPhoneModeGroups, "noPhoneModeGroups"},
         {ChargingState, "chargingState"},
         {BatteryLevelPercent, "batteryLevelPercent"},
+        {HasTilt, "hasTilt"},
+        {CanBalanceListening, "canBalanceListening"},
+        {TiltEnabled, "tiltEnabled"},
     };
     return roles;
 }
@@ -228,6 +231,36 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
             case BatteryLevelPercent:
                 value = device->batteryLevelPercent();
                 break;
+            case HasTilt:
+            {
+                bool hasTilt{false};
+                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                if (ears) {
+                    hasTilt = ears->hasTilt();
+                }
+                value = hasTilt;
+                break;
+            }
+            case CanBalanceListening:
+            {
+                bool canBalanceListening{false};
+                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                if (ears) {
+                    canBalanceListening = ears->canBalanceListening();
+                }
+                value = canBalanceListening;
+                break;
+            }
+            case TiltEnabled:
+            {
+                bool tiltEnabled{false};
+                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                if (ears) {
+                    tiltEnabled = ears->tiltEnabled();
+                }
+                value = tiltEnabled;
+                break;
+            }
             default:
                 break;
         }
@@ -299,6 +332,12 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
             });
             connect(ears, &BTDeviceEars::micsSwappedChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, MicsSwapped);
+            });
+            connect(ears, &BTDeviceEars::hasTiltChanged, this, [this, newDevice](){
+                d->notifyDeviceDataChanged(newDevice, HasTilt);
+            });
+            connect(ears, &BTDeviceEars::canBalanceListeningChanged, this, [this, newDevice](){
+                d->notifyDeviceDataChanged(newDevice, CanBalanceListening);
             });
         }
 

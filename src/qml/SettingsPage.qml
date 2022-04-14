@@ -129,7 +129,7 @@ Kirigami.ScrollablePage {
                     id: gearCommandsRepeaterEarOptions;
                     model: FilterProxyModel {
                         sourceModel: onlyConnectedFilterProxy;
-                        filterRole: 265; // the hasListening role
+                        filterRole: 283; // the canBalanceListening role
                         filterBoolean: true;
                     }
                     delegate: ColumnLayout {

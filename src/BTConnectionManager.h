@@ -91,6 +91,7 @@ public Q_SLOTS:
      */
     void setDeviceListeningState(const QString& deviceID, int listeningMode) override;
 
+    void setDeviceTiltState(const QString& deviceID, bool tiltState) override;
     /**
      * Explicitly set whether or not a specific commands file is enabled for the specified device.
      * This will cause the commands for the device to be reloaded entirely.
