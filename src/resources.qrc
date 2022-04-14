@@ -48,5 +48,6 @@
         <file>images/listeningmode.svg</file>
         <file>images/movelist.svg</file>
         <file>images/moves.svg</file>
+        <file>images/tiltmode.svg</file>
     </qresource>
 </RCC>
