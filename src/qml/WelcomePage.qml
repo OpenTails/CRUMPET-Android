@@ -344,14 +344,10 @@ Kirigami.ScrollablePage {
                     Kirigami.BasicListItem {
                         width: tiltingColumn.width;
                         separatorVisible: false;
-                        icon: model.tiltEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        icon: model.tiltEnabled === true ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         label: model.name;
                         onClicked: {
-                            var newState = false;
-                            if (model.tiltEnabled == false) {
-                                newState = true;
-                            }
-                            BTConnectionManager.setDeviceTiltState(model.deviceID, newState);
+                            BTConnectionManager.setDeviceTiltState(model.deviceID, !model.tiltEnabled);
                         }
                     }
                 }
