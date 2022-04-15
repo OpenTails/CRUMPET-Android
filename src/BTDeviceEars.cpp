@@ -137,6 +137,9 @@ public:
 
         if (earsCommandReadCharacteristicUuid == characteristic.uuid()) {
             QString theValue(newValue);
+            if (theValue.endsWith("\x00")) {
+                theValue = theValue.left(theValue.length());
+            }
             QStringList stateResult = theValue.split(' ');
             if (theValue == QLatin1String{"System is busy now"}) {
                 // Postpone what we attempted to send a few moments before trying again, as the ears are currently busy
