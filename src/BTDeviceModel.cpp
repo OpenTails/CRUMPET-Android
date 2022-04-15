@@ -339,6 +339,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
             connect(ears, &BTDeviceEars::canBalanceListeningChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, CanBalanceListening);
             });
+            connect(ears, &BTDeviceEars::tiltEnabledChanged, this, [this, newDevice](){
+                d->notifyDeviceDataChanged(newDevice, TiltEnabled);
+            });
         }
 
         // General stuff
