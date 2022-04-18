@@ -111,6 +111,15 @@ public:
                 break;
             }
 
+            // Get the descriptor, and turn on notifications
+            QLowEnergyDescriptor earsDescriptor = earsCommandWriteCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+            if (earsCommandWriteCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
+                earsService->writeDescriptor(earsDescriptor, QByteArray::fromHex("0100"));
+            }
+            if (earsCommandWriteCharacteristic.properties() & QLowEnergyCharacteristic::Indicate) {
+                earsService->writeDescriptor(earsDescriptor, QByteArray::fromHex("0200"));
+            }
+
             earsCommandReadCharacteristic = earsService->characteristic(earsCommandReadCharacteristicUuid);
             if (!earsCommandReadCharacteristic.isValid()) {
                 qDebug() << q->name() << q->deviceID() << "EarGear command reading characteristic not found, this is bad";
@@ -122,8 +131,13 @@ public:
             q->commandModel->clear();
 
             // Get the descriptor, and turn on notifications
-            QLowEnergyDescriptor earsDescriptor = earsCommandReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
-            earsService->writeDescriptor(earsDescriptor, QByteArray::fromHex("0100"));
+            earsDescriptor = earsCommandReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+            if (earsCommandReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
+                earsService->writeDescriptor(earsDescriptor, QByteArray::fromHex("0100"));
+            }
+            if (earsCommandReadCharacteristic.properties() & QLowEnergyCharacteristic::Indicate) {
+                earsService->writeDescriptor(earsDescriptor, QByteArray::fromHex("0200"));
+            }
 
             reconnectThrottle = 0;
             emit q->isConnectedChanged(q->isConnected());
