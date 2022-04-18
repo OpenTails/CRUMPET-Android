@@ -20,7 +20,13 @@
 #include <KLocalizedString>
 
 #include <QCoreApplication>
+#include <QCryptographicHash>
 #include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QPointer>
 #include <QTimer>
 
 #include "AppSettings.h"
@@ -165,6 +171,22 @@ public:
                     q->setNoPhoneModeGroups({});
                 }
                 pingTimer.start();
+                if (firmwareProgress > -1) {
+                    if (otaVersion == newValue) {
+                        // successful update get!
+                        q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a successful firmware upgrade", "Upgrade Successful"), i18nc("Message shown to the user when a firmware update completed successfully", "Congratulations, your gear has been successfully updated to version %1!", version));
+                    } else {
+                        // sadface, update failed...
+                        q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon an unsuccessful firmware upgrade", "Update Failed"), i18nc("Message shown to the user when a firmware update failed", "<p>Sorry, but the upgrade failed. Most often this is due to the transfer being corrupted during the upload process itself, which is why your gear has a safe fallback to just go back to your old firmware version upon a failure. You can try the update again by clicking the Install button gain.</p>"));
+                    }
+                    q->setProgressDescription("");
+                    q->setDeviceProgress(-1);
+                    firmwareProgress = -1;
+                    firmwareChunk.clear();
+                } else {
+                    // Logic here is, the user explicitly picks what to do when disconnecting the app from a tail
+                    q->sendMessage("STOPNPM");
+                }
             }
             else if (stateResult[0] == QLatin1String{"PONG"}) {
                 if (currentCall != QLatin1String{"PING"}) {
@@ -172,7 +194,10 @@ public:
                 }
             }
             else if (theValue == QLatin1String{"EarGear started"}) {
-                qDebug() << q->name() << q->deviceID() << "EarGear box detected the connection";
+                qDebug() << q->name() << q->deviceID() << "EarGear detected the connection";
+            }
+            else if (stateResult[0] == QLatin1String("OTA") || firmwareProgress > -1) {
+                qDebug() << "Firmware update is happening...";
             }
             else if (stateResult[0] == QLatin1String{"LISTEN"}) {
                 ListenMode newMode = ListenModeOff;
@@ -270,9 +295,105 @@ public:
 
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
-        qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-        currentCall = newValue;
-        emit q->currentCallChanged(currentCall);
+        if (firmwareProgress > -1) {
+            if (firmwareProgress < firmware.size()) {
+                static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
+                firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
+                firmwareProgress += firmwareChunk.size();
+                earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
+                q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
+                qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length();
+            } else {
+                // we presumably just rebooted...
+                qDebug() << "We presumably just rebooted?";
+            }
+        }
+        else {
+            qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
+            currentCall = newValue;
+            emit q->currentCallChanged(currentCall);
+        }
+    }
+
+
+    QByteArray firmware;
+    QString otaVersion;
+    QUrl firmwareUrl;
+    QString firmwareMD5;
+    QByteArray firmwareChunk;
+    int firmwareProgress{-1};
+
+    enum DownloadOperation {
+        NoDownloadOperation,
+        DownloadingOTAInformation,
+        DownloadingOTAData,
+    };
+    DownloadOperation downloadOperation{NoDownloadOperation};
+    QNetworkAccessManager qnam;
+    QPointer<QNetworkReply> networkReply;
+    void handleRedirect(QNetworkReply *reply)
+    {
+        QNetworkAccessManager *qnam = reply->manager();
+        if (reply->error() != QNetworkReply::NoError) {
+            return;
+        }
+        const QUrl possibleRedirectUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+        if (!possibleRedirectUrl.isEmpty()) {
+            const QUrl redirectUrl = reply->url().resolved(possibleRedirectUrl);
+            if (redirectUrl == reply->url()) {
+                // no infinite redirections thank you very much
+                reply->deleteLater();
+                return;
+            }
+            reply->deleteLater();
+            QNetworkRequest request(possibleRedirectUrl);
+            request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
+            networkReply = qnam->get(request);
+            connect(networkReply.data(), &QNetworkReply::downloadProgress, q, [this](quint64 received, quint64 total){
+                if (total > 0) {
+                    q->setDeviceProgress(100 * (received/(double)total));
+                } else {
+                    q->setDeviceProgress(0);
+                }
+            });
+            connect(networkReply.data(), &QNetworkReply::finished, q, [this]() {
+                handleFinished(networkReply);
+            });
+        }
+    }
+    void handleFinished(QNetworkReply* reply) {
+        reply->deleteLater();
+        if (reply->attribute(QNetworkRequest::RedirectionTargetAttribute).isNull()) {
+            // Then we are doing the thing
+            QByteArray downloadedData = reply->readAll();
+            if (downloadOperation == DownloadingOTAInformation) {
+                // The OTA information is a json object with three properties (the version, the md5sum, and the url for the firmware payload)
+                QJsonDocument document = QJsonDocument::fromJson(downloadedData);
+                if (document.isObject()) {
+                    QJsonObject fwInfoObj = document.object();
+                    firmwareUrl = fwInfoObj.value("url").toString();
+                    firmwareMD5 = fwInfoObj.value("md5sum").toString();
+                    otaVersion = fwInfoObj.value("version").toString();
+                    if (otaVersion == version) {
+                        q->deviceMessage(q->deviceID(), i18nc("Message shown to the user when they already have the newest firmware installed", "You already have the newest version of the firmware installed on your gear, congratulations!"));
+                    }
+                    Q_EMIT q->hasAvailableOTAChanged();
+                } else {
+                    qDebug() << q->name() << q->deviceID() << downloadedData;
+                    q->deviceMessage(q->deviceID(), i18nc("Warning message for when the firmware update information file did not contain a JSON object", "The file used to determine information about new firmware versions did not contain the expected format of data. This is likely a temporary error, or a connection issue. If you run into this problem repeatedly, please get in touch."));
+                }
+            } else if (downloadOperation == DownloadingOTAData) {
+                q->setDeviceProgress(0);
+                q->setProgressDescription(i18nc("Message for when we are checking the downloaded firmware data", "Checking integrity of the downloaded firmware data..."));
+                q->setOTAData(firmwareMD5, downloadedData);
+            }
+            q->setDeviceProgress(-1);
+            q->setProgressDescription(QString{});
+            downloadOperation = NoDownloadOperation;
+        } else {
+            // If it has contents, we're redirecting
+            handleRedirect(reply);
+        }
     }
 };
 
@@ -293,6 +414,7 @@ BTDeviceEars::BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     d->pingTimer.setSingleShot(false);
 
     if (deviceInfo.name() != QLatin1String{"EarGear"}) {
+        setSupportsOTA(true);
         d->canBalanceListening = false;
         Q_EMIT canBalanceListeningChanged();
         d->hasTilt = true;
@@ -332,7 +454,7 @@ void BTDeviceEars::connectDevice()
                 d->earsService = d->btControl->createServiceObject(QBluetoothUuid(QLatin1String("{927dee04-ddd4-4582-8e42-69dc9fbfae66}")));
                 if (!d->earsService) {
                     qWarning() << "Cannot create QLowEnergyService for {927dee04-ddd4-4582-8e42-69dc9fbfae66}";
-                    emit deviceMessage(deviceID(), i18nc("Warning message when a fault occurred during a connection attempt", "An error occurred while connecting to your EarGear box (the main service object could not be created). If you feel this is in error, please try again!"));
+                    emit deviceMessage(deviceID(), i18nc("Warning message when a fault occurred during a connection attempt", "An error occurred while connecting to your EarGear (the main service object could not be created). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -346,7 +468,7 @@ void BTDeviceEars::connectDevice()
                 d->batteryService = d->btControl->createServiceObject(QBluetoothUuid::BatteryService);
                 if (!d->batteryService) {
                     qWarning() << "Failed to create battery service";
-                    emit deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on a device", "An error occurred while connecting to your EarGear box (the battery service was not available). If you feel this is in error, please try again!"));
+                    emit deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on a device", "An error occurred while connecting to your EarGear (the battery service was not available). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -407,13 +529,13 @@ void BTDeviceEars::connectDevice()
 
             switch(error) {
                 case QLowEnergyController::UnknownError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your ears, make sure the box is on and close to this device."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your ears, make sure the EarGear is on and close to this device."));
                     break;
                 case QLowEnergyController::RemoteHostClosedError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The EarGear box closed the connection."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The EarGear closed the connection."));
                     break;
                 case QLowEnergyController::ConnectionError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your EarGear box. Please try again (perhaps move it closer?)"));
+                    emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"));
                     break;
                 default:
                     break;
@@ -433,7 +555,7 @@ void BTDeviceEars::connectDevice()
 
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The EarGear box closed the connection, either by being turned off or losing power. Remember to charge your ears!"));
+        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The EarGear closed the connection, either by being turned off or losing power. Remember to charge your ears!"));
         disconnectDevice();
     });
 
@@ -535,10 +657,10 @@ bool BTDeviceEars::tiltEnabled() const
 void BTDeviceEars::setTiltMode(bool tiltState)
 {
     if (tiltState) {
-        sendMessage("TILTMODE START");
+        sendMessage(QLatin1String{"TILTMODE START"});
     }
     else {
-        sendMessage("ENDTILTMODE");
+        sendMessage(QLatin1String{"ENDTILTMODE"});
     }
 }
 
@@ -575,4 +697,82 @@ QStringList BTDeviceEars::defaultCommandFiles() const
     else {
         return QStringList{QLatin1String{":/commands/eargear2-base.crumpet"}};
     }
+}
+
+
+void BTDeviceEars::checkOTA()
+{
+    if (d->downloadOperation == Private::NoDownloadOperation) {
+        setDeviceProgress(0);
+        setProgressDescription(i18nc("Message shown alongside a progress bar when downloading update information", "Downloading firmware update information"));
+        d->firmwareUrl.clear();
+        d->firmwareMD5.clear();
+        d->otaVersion.clear();
+        d->firmware.clear();
+        Q_EMIT hasAvailableOTAChanged();
+        Q_EMIT hasOTADataChanged();
+        d->downloadOperation = Private::DownloadingOTAInformation;
+        QNetworkRequest request(QUrl("https://thetailcompany.com/fw/eargear"));
+        d->networkReply = d->qnam.get(request);
+        connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
+    }
+}
+
+bool BTDeviceEars::hasAvailableOTA()
+{
+    if (!d->otaVersion.isEmpty() && d->version != d->otaVersion) {
+        // this will need thought... comparing the version strings like this will not work
+        return true;
+    }
+    return false;
+}
+
+QString BTDeviceEars::otaVersion()
+{
+    return d->otaVersion;
+}
+
+void BTDeviceEars::downloadOTAData()
+{
+    if (d->downloadOperation == Private::NoDownloadOperation) {
+        setDeviceProgress(0);
+        setProgressDescription(i18nc("Message shown along a progress bar when downloading the firmware payload itself", "Downloading firmware update from The Tail Company's website..."));
+        d->firmware.clear();
+        Q_EMIT hasOTADataChanged();
+        d->downloadOperation = Private::DownloadingOTAData;
+        QNetworkRequest request(d->firmwareUrl);
+        d->networkReply = d->qnam.get(request);
+        connect(d->networkReply.data(), &QNetworkReply::downloadProgress, this, [this](quint64 received, quint64 total){ if (total > 0) { setDeviceProgress(100 * (received/(double)total)); } else { setDeviceProgress(0); } });
+        connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
+    }
+}
+
+void BTDeviceEars::setOTAData(const QString& md5sum, const QByteArray& firmware)
+{
+    QString calculatedSum = QString(QCryptographicHash::hash(firmware, QCryptographicHash::Md5).toHex());
+    if (md5sum == calculatedSum) {
+        d->firmware = firmware;
+    } else {
+        deviceMessage(deviceID(), i18nc("", "The downloaded firmware update did not contain what we expected. This is commonly due to a problem with the download itself having failed, and you should simply try again. If it continues to fail, please get in touch with us and we can try and work something out!"));
+        qWarning() << name() << deviceID() << "Downloaded firmware has md5sum" << calculatedSum << "and based on the remote info, we expected" << md5sum;
+        d->firmware.clear();
+    }
+    d->firmwareProgress = -1;
+    Q_EMIT hasOTADataChanged();
+}
+
+bool BTDeviceEars::hasOTAData()
+{
+    return d->firmware.length() > 0;
+}
+
+void BTDeviceEars::startOTA()
+{
+    setDeviceProgress(0);
+    setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));
+    // send "OTA (length of firmware in bytes) (md5sum)"
+    QString otaInitialiser = QString("OTA %1 %2").arg(d->firmware.length()).arg(d->firmwareMD5);
+    d->firmwareProgress = 0;
+    d->earsService->writeCharacteristic(d->earsCommandWriteCharacteristic, otaInitialiser.toUtf8());
+    // next step will happen in Private::characteristicChanged
 }

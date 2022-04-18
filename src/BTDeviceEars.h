@@ -68,6 +68,14 @@ public:
     void setTiltMode(bool tiltState);
 
     void sendMessage(const QString &message) override;
+
+    Q_INVOKABLE void checkOTA() override;
+    bool hasAvailableOTA() override;
+    QString otaVersion() override;
+    Q_INVOKABLE void downloadOTAData() override;
+    Q_INVOKABLE void setOTAData ( const QString& md5sum, const QByteArray& firmware ) override;
+    bool hasOTAData() override;
+    Q_INVOKABLE void startOTA() override;
 private:
     class Private;
     Private* d;
