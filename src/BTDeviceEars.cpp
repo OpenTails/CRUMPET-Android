@@ -309,23 +309,25 @@ public:
 
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
-        if (firmwareProgress > -1) {
-            if (firmwareProgress < firmware.size()) {
-                static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
-                firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
-                firmwareProgress += firmwareChunk.size();
-                earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
-                q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
-                qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length();
-            } else {
-                // we presumably just rebooted...
-                qDebug() << "We presumably just rebooted?";
+        if (characteristic.uuid() == earsCommandWriteCharacteristicUuid) {
+            if (firmwareProgress > -1) {
+                if (firmwareProgress < firmware.size()) {
+                    static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
+                    firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
+                    firmwareProgress += firmwareChunk.size();
+                    earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
+                    q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
+                    qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length();
+                } else {
+                    // we presumably just rebooted...
+                    qDebug() << "We presumably just rebooted?";
+                }
             }
-        }
-        else {
-            qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-            currentCall = newValue;
-            emit q->currentCallChanged(currentCall);
+            else {
+                qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
+                currentCall = newValue;
+                emit q->currentCallChanged(currentCall);
+            }
         }
     }
 
