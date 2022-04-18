@@ -210,6 +210,10 @@ public:
             else if (theValue == QLatin1String{"EarGear started"}) {
                 qDebug() << q->name() << q->deviceID() << "EarGear detected the connection";
             }
+            else if (theValue == QLatin1String{"BEGIN OTA"}) {
+                qDebug() << "Starting firmware update";
+                firmwareProgress = 0;
+            }
             else if (stateResult[0] == QLatin1String("OTA") || firmwareProgress > -1) {
                 qDebug() << "Firmware update is happening...";
             }
@@ -302,14 +306,10 @@ public:
             else {
                 qDebug() << q->name() << q->deviceID() << "Unexpected response: Did not understand" << newValue;
             }
+            currentCall.clear();
+            emit q->currentCallChanged(currentCall);
         }
-        currentCall.clear();
-        emit q->currentCallChanged(currentCall);
-    }
-
-    void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
-    {
-        if (characteristic.uuid() == earsCommandWriteCharacteristicUuid) {
+        else if (characteristic.uuid() == earsCommandWriteCharacteristicUuid) {
             if (firmwareProgress > -1) {
                 if (firmwareProgress < firmware.size()) {
                     static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
@@ -323,12 +323,14 @@ public:
                     qDebug() << "We presumably just rebooted?";
                 }
             }
-            else {
-                qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-                currentCall = newValue;
-                emit q->currentCallChanged(currentCall);
-            }
         }
+    }
+
+    void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
+    {
+        qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
+        currentCall = newValue;
+        emit q->currentCallChanged(currentCall);
     }
 
 
@@ -788,7 +790,6 @@ void BTDeviceEars::startOTA()
     setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));
     // send "OTA (length of firmware in bytes) (md5sum)"
     QString otaInitialiser = QString("OTA %1 %2").arg(d->firmware.length()).arg(d->firmwareMD5);
-    d->firmwareProgress = 0;
     d->earsService->writeCharacteristic(d->earsCommandWriteCharacteristic, otaInitialiser.toUtf8());
     // next step will happen in Private::characteristicChanged
 }
