@@ -425,7 +425,7 @@ BTDeviceEars::BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     // out to be a problem that we pull the battery this often, we can
     // add a separate ping keepalive functon.
     connect(&d->pingTimer, &QTimer::timeout,
-            [this](){ if(d->currentCall.isEmpty()) { sendMessage("PING"); } });
+            [this](){ if(d->currentCall.isEmpty() && d->firmwareProgress == -1) { sendMessage("PING"); } });
 
     d->pingTimer.setTimerType(Qt::VeryCoarseTimer);
     d->pingTimer.setInterval(60000 / 2);
