@@ -53,6 +53,7 @@ ColumnLayout {
                     verticalAlignment: Text.AlignVCenter
                     text: typeof model.activeCommandTitles !== "undefined" ? model.activeCommandTitles : ""
                     opacity: text === "" ? 0 : 0.5
+                    elide: Text.ElideRight;
                     Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
                 }
                 Image {
