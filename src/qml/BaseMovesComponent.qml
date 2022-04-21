@@ -29,6 +29,7 @@ Item {
 
     property var categoriesModel: ListModel { }
     property alias infoText: infoCard.text;
+    property alias infoFooter: infoCard.footer;
     // If you don't care about whether a command is available on a device right now,
     // set this property to true (it will also not highlight currently running commands)
     property bool ignoreAvailability: false;

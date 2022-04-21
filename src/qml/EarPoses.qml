@@ -17,6 +17,8 @@
  */
 
 import QtQuick 2.7
+import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.ScrollablePage {
@@ -33,6 +35,24 @@ Kirigami.ScrollablePage {
     }
     BaseMovesComponent {
         infoText: i18nc("Description for the page for selecting a pose for the EarGear", "The list below shows all the poses available to your gear. Tap any of them to send them off to any of your connected devices!");
+        infoFooter: RowLayout {
+            QQC2.Button {
+                text: i18nc("Label for the button for setting EarGear moves to run more slowly", "Be Calm")
+                Layout.fillWidth: true
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                onClicked: {
+                    BTConnectionManager.sendMessage("SPEED SLOW", []);
+                }
+            }
+            QQC2.Button {
+                text: i18nc("Label for the button for setting EarGear moves to run faster", "Be Excited")
+                Layout.fillWidth: true
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                onClicked: {
+                    BTConnectionManager.sendMessage("SPEED FAST", []);
+                }
+            }
+        }
         onCommandActivated: {
             CommandQueue.clear("");
             CommandQueue.pushCommand(command, destinations);
