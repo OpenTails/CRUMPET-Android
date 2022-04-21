@@ -69,10 +69,10 @@ Kirigami.OverlaySheet {
                         i18nc("Button for the action of disconnecting a device, in the prompt for connecting a device", "Disconnect") : 
                         i18nc("Button for the action of connecting a device, in the prompt for connecting a device", "Connect")
                     onClicked: {
+                        sheet.close();
                         if (model.isConnected) {
                             disconnectionOptions.disconnectGear(model.deviceID);
                         } else {
-                            sheet.close();
                             sheet.attemptToConnect(model.deviceID, pageToPush);
                             pageToPush = null;
                         }
