@@ -103,6 +103,7 @@ void BTDeviceFake::connectDevice()
         d->isConnected = true;
         emit isConnectedChanged(isConnected());
         reloadCommands();
+        setKnownFirmwareMessage(i18nc("An example message to show people what the firmware message will look like for a real device", "This is a message that's supposed to inform people that there is something <b>important</b> going on with their firmware"));
         d->batteryTimer.start();
     });
 }
