@@ -35,11 +35,19 @@ class BTDeviceMitail::Private {
 public:
     Private(BTDeviceMitail* qq)
         : q(qq)
-    {}
+    {
+        knownFirmwareMessages[QLatin1String{"VER 4.03"}] = i18nc("A message displayed to the user when firmware version 4.03 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 4.03 firmware installed, which is outdated and has a known issue with charging. We would strongly recommend updating to the newest firmware. Head over to settings and find the Firmware section to perform the update.");
+        knownFirmwareMessages[QLatin1String{"VER 4.02"}] = i18nc("A message displayed to the user when firmware version 4.02 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 4.02 firmware installed, which is outdated and has a known issue with charging. We would strongly recommend updating to the newest firmware. Head over to settings and find the Firmware section to perform the update.");
+        knownFirmwareMessages[QLatin1String{"VER 4.01"}] = i18nc("A message displayed to the user when firmware version 4.01 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 4.01 firmware installed, which is outdated and has a known issue with charging. We would strongly recommend updating to the newest firmware. Head over to settings and find the Firmware section to perform the update.");
+        knownFirmwareMessages[QLatin1String{"VER 4.00"}] = i18nc("A message displayed to the user when firmware version 4.00 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 4.00 firmware installed, which is outdated and has a known issue with charging. We would strongly recommend updating to the newest firmware. Head over to settings and find the Firmware section to perform the update.");
+        knownFirmwareMessages[QLatin1String{"VER 3.2.11"}] = i18nc("A message displayed to the user when firmware version 3.2.11 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 3.2.11 firmware installed, which is outdated and has a known issue with charging, as well as various other issues. We would strongly recommend updating to the newest firmware. Head over to settings and find the Firmware section to perform the update.");
+        knownFirmwareMessages[QLatin1String{"VER 3.2.10"}] = i18nc("A message displayed to the user when firmware version 3.2.10 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 3.2.10 firmware installed, which is outdated and has a known issue with charging, as well as various other issues. We would strongly recommend updating to the newest firmware. Head over to settings and find the Firmware section to perform the update.");
+    }
     ~Private() {}
     BTDeviceMitail* q;
     BTDeviceModel* parentModel;
 
+    QHash<QString, QString> knownFirmwareMessages;
     QString version{"(unknown)"};
     int batteryLevel{0};
 
@@ -158,6 +166,7 @@ public:
                 q->reloadCommands();
                 version = newValue;
                 emit q->versionChanged(newValue);
+                q->setKnownFirmwareMessage(knownFirmwareMessages.value(version, QLatin1String{}));
                 pingTimer.start();
                 if (firmwareProgress > -1) {
                     if (otaVersion == newValue) {
