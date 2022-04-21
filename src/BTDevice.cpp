@@ -37,6 +37,7 @@ public:
     bool hasNoPhoneMode{false};
     QVariantList noPhoneModeGroups;
     int chargingState{0};
+    QString knownFirmwareMessage;
     QString name;
     int deviceProgress{-1};
     QString progressDescription;
@@ -281,5 +282,18 @@ void BTDevice::setChargingState(int chargingState)
     if (d->chargingState != chargingState) {
         d->chargingState = chargingState;
         Q_EMIT chargingStateChanged();
+    }
+}
+
+QString BTDevice::knownFirmwareMessage() const
+{
+    return d->knownFirmwareMessage;
+}
+
+void BTDevice::setKnownFirmwareMessage(const QString &knownFirmwareMessage)
+{
+    if (d->knownFirmwareMessage != knownFirmwareMessage) {
+        d->knownFirmwareMessage = knownFirmwareMessage;
+        Q_EMIT knownFirmwareMessageChanged();
     }
 }

@@ -67,6 +67,7 @@ public:
         HasTilt,                 // 282 - boolean value for whether the device has tilt detection
         CanBalanceListening,     // 283 - boolean value for whether the device is able to be re-balanced
         TiltEnabled,             // 284 - boolean value for whether the device currently has tilt mode enabled
+        KnownFirmwareMessage,    // 285 - a string which, if not empty, contains a description of the current firmware version, and why the device should be updated
     };
 
     AppSettings* appSettings() const;

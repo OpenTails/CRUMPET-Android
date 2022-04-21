@@ -132,6 +132,7 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
         {HasTilt, "hasTilt"},
         {CanBalanceListening, "canBalanceListening"},
         {TiltEnabled, "tiltEnabled"},
+        {KnownFirmwareMessage, "knownFirmwareMessage"},
     };
     return roles;
 }
@@ -261,6 +262,9 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 value = tiltEnabled;
                 break;
             }
+            case KnownFirmwareMessage:
+                value = device->knownFirmwareMessage();
+                break;
             default:
                 break;
         }
@@ -413,6 +417,9 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         });
         connect(newDevice, &BTDevice::batteryLevelPercentChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, BatteryLevelPercent);
+        });
+        connect(newDevice, &BTDevice::knownFirmwareMessageChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, KnownFirmwareMessage);
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);
