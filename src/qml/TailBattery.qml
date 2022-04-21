@@ -17,16 +17,16 @@
  */
 
 import QtQuick 2.7
+import QtQuick.Layouts 1.11
 import QtQuick.Controls 2.0
 
 import org.kde.kirigami 2.13 as Kirigami
 import org.thetailcompany.digitail 1.0
 
-Column {
+ColumnLayout {
     id: batteryLayout
     enabled: visible;
-    visible: height > 0;
-    height: batteryRep.count * Kirigami.Units.iconSizes.small;
+    visible: batteryRep.count > 0;
     Repeater {
         id: batteryRep;
         model: FilterProxyModel {
@@ -35,79 +35,65 @@ Column {
             filterRole: 262; // the isConnected role
             filterBoolean: true;
         }
-        Item {
-            id: batteryDelegate
-            height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing * 3;
-            width: batteryLayout.width
-            property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
-            property int batteryLevelPercent: model.batteryLevelPercent !== undefined ? model.batteryLevelPercent : 0
-            property int chargingState: model.chargingState !== undefined ? model.chargingState : 0
-            Label {
-                id: batteryLabel;
-                anchors {
-                    top: parent.top;
-                    bottom: parent.bottom;
+        ColumnLayout {
+            RowLayout {
+                id: batteryDelegate
+                Layout.fillWidth: true
+                property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
+                property int batteryLevelPercent: model.batteryLevelPercent !== undefined ? model.batteryLevelPercent : 0
+                property int chargingState: model.chargingState !== undefined ? model.chargingState : 0
+                Label {
+                    Layout.fillHeight: true
+                    verticalAlignment: Text.AlignVCenter
+                    text: typeof model.name !== "undefined" ? model.name : ""
                 }
-                width: paintedWidth
-                verticalAlignment: Text.AlignVCenter
-                text: typeof model.name !== "undefined" ? model.name : ""
-            }
-            Label {
-                id: commandLabel;
-                anchors {
-                    left: batteryLabel.right;
-                    leftMargin: Kirigami.Units.smallSpacing;
-                    top: parent.top;
-                    bottom: parent.bottom;
+                Label {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    verticalAlignment: Text.AlignVCenter
+                    text: typeof model.activeCommandTitles !== "undefined" ? model.activeCommandTitles : ""
+                    opacity: text === "" ? 0 : 0.5
+                    Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
                 }
-                width: paintedWidth
-                verticalAlignment: Text.AlignVCenter
-                text: typeof model.activeCommandTitles !== "undefined" ? model.activeCommandTitles : ""
-                opacity: text === "" ? 0 : 0.5
-                Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
-            }
-
-            Image {
-                id: batteryIcon
-                anchors {
-                    right: parent.right
-                    top: parent.top
-                    bottom: parent.bottom
-                    margins: 1
-                }
-                width: height;
-                property string chargingString: batteryDelegate.chargingState > 0 ? "-charging.svg" : ".svg";
-                source: {
-                    switch(batteryDelegate.batteryLevel) {
-                        case 0:
-                            return "qrc:/icons/breeze-internal/status/22/battery-000" + chargingString
-                            break;
-                        case 1:
-                            return "qrc:/icons/breeze-internal/status/22/battery-020" + chargingString
-                            break;
-                        case 2:
-                            return "qrc:/icons/breeze-internal/status/22/battery-050" + chargingString
-                            break;
-                        case 3:
-                            return "qrc:/icons/breeze-internal/status/22/battery-070" + chargingString
-                            break;
-                        case 4:
-                        case 5:
-                        default:
-                            return "qrc:/icons/breeze-internal/status/22/battery-100" + chargingString
-                            break;
+                Image {
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                    Layout.minimumWidth: height;
+                    Layout.maximumWidth: height;
+                    property string chargingString: batteryDelegate.chargingState > 0 ? "-charging.svg" : ".svg";
+                    source: {
+                        switch(batteryDelegate.batteryLevel) {
+                            case 0:
+                                return "qrc:/icons/breeze-internal/status/22/battery-000" + chargingString
+                                break;
+                            case 1:
+                                return "qrc:/icons/breeze-internal/status/22/battery-020" + chargingString
+                                break;
+                            case 2:
+                                return "qrc:/icons/breeze-internal/status/22/battery-050" + chargingString
+                                break;
+                            case 3:
+                                return "qrc:/icons/breeze-internal/status/22/battery-070" + chargingString
+                                break;
+                            case 4:
+                            case 5:
+                            default:
+                                return "qrc:/icons/breeze-internal/status/22/battery-100" + chargingString
+                                break;
+                        }
                     }
                 }
+                Label {
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                    Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
+                    Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
+                    verticalAlignment: Text.AlignVCenter
+                    text: batteryDelegate.batteryLevelPercent + "%";
+                }
             }
             Label {
-                anchors {
-                    right: batteryIcon.left;
-                    rightMargin: Kirigami.Units.smallSpacing;
-                    top: batteryIcon.top;
-                    bottom: batteryIcon.bottom;
-                }
-                verticalAlignment: Text.AlignVCenter
-                text: batteryDelegate.batteryLevelPercent + "%";
+                Layout.fillWidth: true
+                wrapMode: Text.Wrap
+                text: typeof model.knownFirmwareMessage !== "undefined" ? knownFirmwareMessage : ""
             }
         }
     }
