@@ -175,7 +175,7 @@ public:
                 version = newValue;
                 emit q->versionChanged(newValue);
                 q->setListenMode(listenMode);
-                if (q->name() == QLatin1String{"EarGear"}) {
+                if (q->deviceInfo.name() == QLatin1String{"EarGear"}) {
                     q->setHasShutdown(false);
                     q->setHasNoPhoneMode(false);
                 }
@@ -317,7 +317,8 @@ public:
                     firmwareProgress += firmwareChunk.size();
                     earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
                     q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
-                    qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length();
+                    QByteArray receivedSize{newValue.mid(0, newValue.size() - 1)};
+                    qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length() << "and we think it means the other end received" << receivedSize.toUInt() << "or perhaps" << QString{receivedSize};
                 } else {
                     // we presumably just rebooted...
                     qDebug() << "We presumably just rebooted?";
