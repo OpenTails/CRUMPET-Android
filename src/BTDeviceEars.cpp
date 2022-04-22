@@ -311,17 +311,17 @@ public:
         }
         else if (characteristic.uuid() == earsCommandWriteCharacteristicUuid) {
             if (firmwareProgress > -1) {
+                quint32 receivedBytes;
+                memcpy(&receivedBytes, newValue.data(), newValue.size());
                 if (firmwareProgress < firmware.size()) {
                     static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
                     firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
                     firmwareProgress += firmwareChunk.size();
                     earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
                     q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
-                    QByteArray receivedSize{newValue.mid(0, newValue.size() - 1)};
-                    qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length() << "and we think it means the other end received" << receivedSize.toInt() << "or" << newValue.toInt() << "or perhaps" << QString{receivedSize};
+                    qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "bytes, and the other end says that so far it has received" << receivedBytes;
                 } else {
-                    // we presumably just rebooted...
-                    qDebug() << "We presumably just rebooted?";
+                    qDebug() << "The gear says it has have received" << receivedBytes << "out of" << firmware.size() << "which means it should be rebooting momentarily...";
                 }
             }
         }
