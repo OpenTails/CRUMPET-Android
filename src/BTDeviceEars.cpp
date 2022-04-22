@@ -318,7 +318,7 @@ public:
                     earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
                     q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
                     QByteArray receivedSize{newValue.mid(0, newValue.size() - 1)};
-                    qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length() << "and we think it means the other end received" << receivedSize.toUInt() << "or perhaps" << QString{receivedSize};
+                    qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "The newValue value was of length" << newValue.length() << "and we think it means the other end received" << receivedSize.toInt() << "or" << newValue.toInt() << "or perhaps" << QString{receivedSize};
                 } else {
                     // we presumably just rebooted...
                     qDebug() << "We presumably just rebooted?";
