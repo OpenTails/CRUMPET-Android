@@ -51,6 +51,7 @@
         <file alias="status/22/battery-070-charging.svg">../3rdparty/breeze-icons/icons/status/22/battery-070-charging.svg</file>
         <file alias="status/22/battery-100.svg">../3rdparty/breeze-icons/icons/status/22/battery-100.svg</file>
         <file alias="status/22/battery-100-charging.svg">../3rdparty/breeze-icons/icons/status/22/battery-100-charging.svg</file>
+        <file alias="status/22/dialog-warning.svg">../3rdparty/breeze-icons/icons/status/22/dialog-warning.svg</file>
 
         <file alias="index.theme">icontheme-index.theme</file>
     </qresource>

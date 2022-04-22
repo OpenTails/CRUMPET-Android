@@ -91,10 +91,41 @@ ColumnLayout {
                     text: batteryDelegate.batteryLevelPercent + "%";
                 }
             }
-            Label {
+            Rectangle {
                 Layout.fillWidth: true
-                wrapMode: Text.Wrap
-                text: typeof model.knownFirmwareMessage !== "undefined" ? knownFirmwareMessage : ""
+                Layout.preferredHeight: knownFirmwareMessageLayout.height + Kirigami.Units.smallSpacing * 2
+                visible: knownFirmwareMessageLabel.text.length > 0
+                Kirigami.Theme.inherit: false
+                Kirigami.Theme.colorSet: Kirigami.Theme.Tooltip
+                border {
+                    width: 1
+                    color: Kirigami.Theme.textColor
+                }
+                color: Kirigami.Theme.backgroundColor
+                radius: Kirigami.Units.smallSpacing
+                RowLayout {
+                    id: knownFirmwareMessageLayout
+                    anchors {
+                        top: parent.top;
+                        left: parent.left;
+                        right: parent.right;
+                        margins: Kirigami.Units.smallSpacing;
+                    }
+                    Kirigami.Icon {
+                        Layout.fillHeight: true;
+                        Layout.minimumWidth: Kirigami.Units.iconSizes.large;
+                        Layout.maximumWidth: Kirigami.Units.iconSizes.large;
+                        source: "qrc:/icons/breeze-internal/status/22/dialog-warning.svg"
+                    }
+                    Label {
+                        id: knownFirmwareMessageLabel
+                        Layout.fillHeight: true;
+                        Layout.fillWidth: true;
+                        wrapMode: Text.Wrap
+                        color: Kirigami.Theme.textColor
+                        text: typeof model.knownFirmwareMessage !== "undefined" ? knownFirmwareMessage : ""
+                    }
+                }
             }
         }
     }
