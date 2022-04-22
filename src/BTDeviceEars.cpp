@@ -212,7 +212,9 @@ public:
             }
             else if (theValue == QLatin1String{"BEGIN OTA"}) {
                 qDebug() << "Starting firmware update";
-                firmwareProgress = 0;
+                if (firmwareProgress == -1) {
+                    firmwareProgress = 0;
+                }
             }
             else if (stateResult[0] == QLatin1String("OTA") || firmwareProgress > -1) {
                 qDebug() << "Firmware update is happening...";
@@ -312,7 +314,19 @@ public:
         else if (characteristic.uuid() == earsCommandWriteCharacteristicUuid) {
             if (firmwareProgress > -1) {
                 quint32 receivedBytes;
-                memcpy(&receivedBytes, newValue.data(), newValue.size());
+                if (newValue.size() == 4) {
+                    memcpy(&receivedBytes, newValue.data(), newValue.size());
+                }
+                else if (newValue.size() == 2) {
+                    quint16 tempVal;
+                    memcpy(&tempVal, newValue.data(), newValue.size());
+                    receivedBytes = tempVal;
+                }
+                else if (newValue.size() == 2) {
+                    quint8 tempVal;
+                    memcpy(&tempVal, newValue.data(), newValue.size());
+                    receivedBytes = tempVal;
+                }
                 if (firmwareProgress < firmware.size()) {
                     static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
                     firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
@@ -320,7 +334,8 @@ public:
                     earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
                     q->setDeviceProgress(1 + (99 * (firmwareProgress / (double)firmware.size())));
                     qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "bytes, and the other end says that so far it has received" << receivedBytes;
-                } else {
+                }
+                else {
                     qDebug() << "The gear says it has have received" << receivedBytes << "out of" << firmware.size() << "which means it should be rebooting momentarily...";
                 }
             }
