@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
-"POT-Creation-Date: 2022-03-06 14:07+0000\n"
+"POT-Creation-Date: 2022-04-23 16:50+0100\n"
 "PO-Revision-Date: 2022-03-11 21:34+0100\n"
 "Last-Translator: Kuba <stegoceras@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: BTDeviceEars.cpp:66 BTDeviceMitail.cpp:73 BTDeviceTail.cpp:58
+#: BTDeviceEars.cpp:75 BTDeviceMitail.cpp:81 BTDeviceTail.cpp:58
 msgctxt ""
 "Error message shown when automatic reconnection has been attempted too often"
 msgid ""
@@ -27,14 +27,14 @@ msgstr ""
 "Nastalo příliš mnoho pokusů o připojení k %1 (%2). Pro připojení zkontroluj "
 "jestli je %1 zapnuto, stav nabití a vzdálenost."
 
-#: BTDeviceEars.cpp:70 BTDeviceMitail.cpp:77 BTDeviceTail.cpp:62
+#: BTDeviceEars.cpp:79 BTDeviceMitail.cpp:85 BTDeviceTail.cpp:62
 msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
 msgstr "Připojení k %1 ztraceno, pokouším se o znovupřipojení..."
 
-#: BTDeviceEars.cpp:100
+#: BTDeviceEars.cpp:109
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -47,7 +47,7 @@ msgstr ""
 "zápisové charakteristiky uší). Pokud si jsi jist že se jedná o správné "
 "zařízení, zděl tuto chybu The Tail company."
 
-#: BTDeviceEars.cpp:108
+#: BTDeviceEars.cpp:126
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -60,33 +60,95 @@ msgstr ""
 "čtecí charakteristiky uší). Pokud si jsi jist že se jedná o správné "
 "zařízení, zděl tuto chybu The Tail company."
 
-#: BTDeviceEars.cpp:233
+#: BTDeviceEars.cpp:191 BTDeviceMitail.cpp:174
+msgctxt ""
+"Title of the message box shown to the user upon a successful firmware upgrade"
+msgid "Upgrade Successful"
+msgstr "Update úspěšný"
+
+#: BTDeviceEars.cpp:191 BTDeviceMitail.cpp:174
+msgctxt ""
+"Message shown to the user when a firmware update completed successfully"
+msgid "Congratulations, your gear has been successfully updated to version %1!"
+msgstr "Gratuluji, tvoje zařízení bylo úspěšně updatováno na verzi %1!"
+
+#: BTDeviceEars.cpp:194 BTDeviceMitail.cpp:177
+msgctxt ""
+"Title of the message box shown to the user upon an unsuccessful firmware "
+"upgrade"
+msgid "Update Failed"
+msgstr "Update selhal"
+
+#: BTDeviceEars.cpp:194 BTDeviceMitail.cpp:177
+msgctxt "Message shown to the user when a firmware update failed"
+msgid ""
+"<p>Sorry, but the upgrade failed. Most often this is due to the transfer "
+"being corrupted during the upload process itself, which is why your gear has "
+"a safe fallback to just go back to your old firmware version upon a failure. "
+"You can try the update again by clicking the Install button gain.</p>"
+msgstr ""
+"<p>Vypadá to že update selhal. To se nejčastěji stává kvůli špatnému přenosu "
+"během nahrávacího procesu. Tvoje zařízení se bezpečně vrátilo na předchozí "
+"verzi firmwaru. Update můžeš zkusit znovu kliknutím na tlačítko Instalace.</"
+"p>"
+
+#: BTDeviceEars.cpp:297
 msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
 msgstr "Balancování mikrofonu dokončeno"
 
-#: BTDeviceEars.cpp:309
+#: BTDeviceEars.cpp:412 BTDeviceMitail.cpp:333
+msgctxt ""
+"Message shown to the user when they already have the newest firmware "
+"installed"
+msgid ""
+"You already have the newest version of the firmware installed on your gear, "
+"congratulations!"
+msgstr "Tvoje zařízení má již nainstalovanou nejnovější verzi firmwaru. "
+
+#: BTDeviceEars.cpp:417 BTDeviceMitail.cpp:338
+msgctxt ""
+"Warning message for when the firmware update information file did not "
+"contain a JSON object"
+msgid ""
+"The file used to determine information about new firmware versions did not "
+"contain the expected format of data. This is likely a temporary error, or a "
+"connection issue. If you run into this problem repeatedly, please get in "
+"touch."
+msgstr ""
+"Soubor pro kontrolu informací o firmwaru neobsahuje správný formát dat. Toto "
+"je buď dočasná chyba, nebo chyba připojení. Pokud se tato chyba opakuje, "
+"informuj nás."
+
+#: BTDeviceEars.cpp:421 BTDeviceMitail.cpp:342
+msgctxt "Message for when we are checking the downloaded firmware data"
+msgid "Checking integrity of the downloaded firmware data..."
+msgstr "Kontrola integrity stažených dat firmwaru..."
+
+#: BTDeviceEars.cpp:491
+#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
-"An error occurred while connecting to your EarGear box (the main service "
-"object could not be created). If you feel this is in error, please try again!"
+"An error occurred while connecting to your EarGear (the main service object "
+"could not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Nastala chyba při připojování k EarGear boxu (hlavní servisní objekt nemohl "
 "být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
 
-#: BTDeviceEars.cpp:323
+#: BTDeviceEars.cpp:505
+#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
-"An error occurred while connecting to your EarGear box (the battery service "
-"was not available). If you feel this is in error, please try again!"
+"An error occurred while connecting to your EarGear (the battery service was "
+"not available). If you feel this is in error, please try again!"
 msgstr ""
 "Nastala chyba při připojování k EarGear boxu (připojení k ovládání baterie "
 "nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
 
-#: BTDeviceEars.cpp:354
+#: BTDeviceEars.cpp:536
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -98,64 +160,200 @@ msgstr ""
 "o stavu baterie). Pokud si jsi jist že se jedná o správné zařízení, zděl "
 "tuto chybu The Tail company."
 
-#: BTDeviceEars.cpp:384
+#: BTDeviceEars.cpp:566
+#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
-"box is on and close to this device."
+"EarGear is on and close to this device."
 msgstr ""
 "Nastala chyba. Pokud se snažíš připojit ke svým uším, ujisti se že je box "
 "zapnut a v blízkosti tohoto zařízení."
 
-#: BTDeviceEars.cpp:387
+#: BTDeviceEars.cpp:569
+#, fuzzy
 msgctxt "Warning that the device disconnected itself"
-msgid "The EarGear box closed the connection."
+msgid "The EarGear closed the connection."
 msgstr "EarGear box ukončil připojení."
 
-#: BTDeviceEars.cpp:390
+#: BTDeviceEars.cpp:572
+#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
 msgid ""
-"Failed to connect to your EarGear box. Please try again (perhaps move it "
-"closer?)"
+"Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
 "Nepodařilo se připojit ke tvému EarGear boxu. Prosím zkus to znovu (možná ho "
 "přibliž?)"
 
-#: BTDeviceEars.cpp:410
+#: BTDeviceEars.cpp:593
+msgctxt ""
+"Title for a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid "Firmware Update Completed"
+msgstr ""
+
+#: BTDeviceEars.cpp:593
+msgctxt ""
+"Body of a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid ""
+"The firmware upload has been completed, and your gear has turned itself off. "
+"If it did not turn itself back on again, close this message, turn it on "
+"manually, and then connect to it. If it turned itself back on again, you can "
+"just close this message."
+msgstr ""
+
+#: BTDeviceEars.cpp:598
+#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
 msgid ""
-"The EarGear box closed the connection, either by being turned off or losing "
+"The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
 "EarGear box ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň "
 "nabít své uši!"
 
-#: BTDeviceFake.cpp:48 BTDeviceMitail.cpp:356
+#: BTDeviceEars.cpp:748 BTDeviceMitail.cpp:670
+msgctxt ""
+"Message shown alongside a progress bar when downloading update information"
+msgid "Downloading firmware update information"
+msgstr "Stahování informací o firmwarovém updatu"
+
+#: BTDeviceEars.cpp:780 BTDeviceMitail.cpp:702
+msgctxt ""
+"Message shown along a progress bar when downloading the firmware payload "
+"itself"
+msgid "Downloading firmware update from The Tail Company's website..."
+msgstr "Stahování firmwarovém updatu z webu The Tail Company..."
+
+#: BTDeviceEars.cpp:797 BTDeviceMitail.cpp:719
+msgctxt ""
+msgid ""
+"The downloaded firmware update did not contain what we expected. This is "
+"commonly due to a problem with the download itself having failed, and you "
+"should simply try again. If it continues to fail, please get in touch with "
+"us and we can try and work something out!"
+msgstr ""
+"Stažený update firmwaru neobsahuje co by měl. Obvykle se tohle stane kvůli "
+"problému se stahováním. Zkus to znovu, a pokud se situace bude opakovat, "
+"kontaktuj nás a my se pokusíme najít řešení! "
+
+#: BTDeviceEars.cpp:813
+#, fuzzy
+msgctxt "Message shown during firmware update processes"
+msgid ""
+"Uploading firmware to your gear. Please keep your devices very near each "
+"other, and make sure both have plenty of charge (or plug in a charger now). "
+"Once completed, your gear will either reboot or turn itself off and "
+"disconnect from this device. Once it is started back up again, you will be "
+"able to connect to it again."
+msgstr ""
+"Nahrávání firmwaru do tvého zařízení. Prosím nech mobil a zařízení blízko u "
+"sebe, a ujisti se že jsou dostatečně nabitá (případně je připoj k "
+"nabíječce). Jakmile update skončí, tvoje zařízení se restartuje a odpojí. Po "
+"restartu bude možné opět připojit."
+
+#: BTDeviceFake.cpp:48 BTDeviceMitail.cpp:365
 #, fuzzy
 msgctxt ""
 "Name of the calm and relaxed group as used for no phone group selection"
 msgid "Calm and Relaxed"
 msgstr "Klidný a uvolněný"
 
-#: BTDeviceFake.cpp:49 BTDeviceMitail.cpp:357
+#: BTDeviceFake.cpp:49 BTDeviceMitail.cpp:366
 #, fuzzy
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
 msgstr "Rychlý a nadšený"
 
-#: BTDeviceFake.cpp:50 BTDeviceMitail.cpp:358
+#: BTDeviceFake.cpp:50 BTDeviceMitail.cpp:367
 #, fuzzy
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
 msgstr "Frustrovaný a napjatý"
 
-#: BTDeviceMitail.cpp:107
+#: BTDeviceFake.cpp:106
+msgctxt ""
+"An example message to show people what the firmware message will look like "
+"for a real device"
+msgid ""
+"This is a message that's supposed to inform people that there is something "
+"<b>important</b> going on with their firmware"
+msgstr ""
+
+#: BTDeviceMitail.cpp:39
+msgctxt ""
+"A message displayed to the user when firmware version 4.03 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.03 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: BTDeviceMitail.cpp:40
+msgctxt ""
+"A message displayed to the user when firmware version 4.02 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.02 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: BTDeviceMitail.cpp:41
+msgctxt ""
+"A message displayed to the user when firmware version 4.01 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.01 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: BTDeviceMitail.cpp:42
+msgctxt ""
+"A message displayed to the user when firmware version 4.00 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.00 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: BTDeviceMitail.cpp:43
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.11 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 3.2.11 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: BTDeviceMitail.cpp:44
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.10 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 3.2.10 firmware  installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+
+#: BTDeviceMitail.cpp:115
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -168,7 +366,7 @@ msgstr ""
 "charakteristiky zařízení). Pokud si jsi jist že se jedná o správné zařízení, "
 "zděl tuto chybu The Tail company."
 
-#: BTDeviceMitail.cpp:115
+#: BTDeviceMitail.cpp:123
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -181,67 +379,7 @@ msgstr ""
 "charakteristiky zařízení). Pokud si jsi jist že se jedná o správné zařízení, "
 "zděl tuto chybu The Tail company."
 
-#: BTDeviceMitail.cpp:165
-msgctxt ""
-"Title of the message box shown to the user upon a successful firmware upgrade"
-msgid "Upgrade Successful"
-msgstr "Update úspěšný"
-
-#: BTDeviceMitail.cpp:165
-msgctxt ""
-"Message shown to the user when a firmware update completed successfully"
-msgid "Congratulations, your gear has been successfully updated to version %1!"
-msgstr "Gratuluji, tvoje zařízení bylo úspěšně updatováno na verzi %1!"
-
-#: BTDeviceMitail.cpp:168
-msgctxt ""
-"Title of the message box shown to the user upon an unsuccessful firmware "
-"upgrade"
-msgid "Update Failed"
-msgstr "Update selhal"
-
-#: BTDeviceMitail.cpp:168
-msgctxt "Message shown to the user when a firmware update failed"
-msgid ""
-"<p>Sorry, but the upgrade failed. Most often this is due to the transfer "
-"being corrupted during the upload process itself, which is why your gear has "
-"a safe fallback to just go back to your old firmware version upon a failure. "
-"You can try the update again by clicking the Install button gain.</p>"
-msgstr ""
-"<p>Vypadá to že update selhal. To se nejčastěji stává kvůli špatnému přenosu"
-" během nahrávacího procesu. Tvoje zařízení se bezpečně vrátilo na předchozí"
-" verzi firmwaru. Update můžeš zkusit znovu kliknutím na tlačítko Instalace.<"
-"/p>"
-
-#: BTDeviceMitail.cpp:324
-msgctxt ""
-"Message shown to the user when they already have the newest firmware "
-"installed"
-msgid ""
-"You already have the newest version of the firmware installed on your gear, "
-"congratulations!"
-msgstr "Tvoje zařízení má již nainstalovanou nejnovější verzi firmwaru. "
-
-#: BTDeviceMitail.cpp:329
-msgctxt ""
-"Warning message for when the firmware update information file did not "
-"contain a JSON object"
-msgid ""
-"The file used to determine information about new firmware versions did not "
-"contain the expected format of data. This is likely a temporary error, or a "
-"connection issue. If you run into this problem repeatedly, please get in "
-"touch."
-msgstr ""
-"Soubor pro kontrolu informací o firmwaru neobsahuje správný formát dat. Toto"
-" je buď dočasná chyba, nebo chyba připojení. Pokud se tato chyba opakuje,"
-" informuj nás."
-
-#: BTDeviceMitail.cpp:333
-msgctxt "Message for when we are checking the downloaded firmware data"
-msgid "Checking integrity of the downloaded firmware data..."
-msgstr "Kontrola integrity stažených dat firmwaru..."
-
-#: BTDeviceMitail.cpp:404
+#: BTDeviceMitail.cpp:413
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
@@ -250,7 +388,7 @@ msgstr ""
 "Nastala chyba při připojování k tvému MiTail (hlavní servisní objekt nemohl "
 "být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
 
-#: BTDeviceMitail.cpp:423
+#: BTDeviceMitail.cpp:432
 msgctxt ""
 "Message asking people to tell us when a firmware update failed, and that "
 "this is the error they got"
@@ -261,12 +399,12 @@ msgid ""
 "contact us on info@thetailcompany.com and tell us that you got this error.</"
 "p>"
 msgstr ""
-"<p><b>Update selhal!</b></p><p>Pokusili jsme se updatovat firmware moc"
-" rychle, a museli jsme proces přerušit. Pokud vidíš tuto chybu:</p><p>Nemusíš"
-" se bát, tvoje zařízení je v pořádku.</p><p>Následně nás prosím kontaktuj na"
-" info@thetailcompany.com a informuj nás o této chybě.</p>"
+"<p><b>Update selhal!</b></p><p>Pokusili jsme se updatovat firmware moc "
+"rychle, a museli jsme proces přerušit. Pokud vidíš tuto chybu:</p><p>Nemusíš "
+"se bát, tvoje zařízení je v pořádku.</p><p>Následně nás prosím kontaktuj na "
+"info@thetailcompany.com a informuj nás o této chybě.</p>"
 
-#: BTDeviceMitail.cpp:434
+#: BTDeviceMitail.cpp:443
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
@@ -276,7 +414,7 @@ msgstr ""
 "Nastala chyba při připojování k tvému MiTail (připojení k ovládání baterie "
 "nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
 
-#: BTDeviceMitail.cpp:484
+#: BTDeviceMitail.cpp:493
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -288,7 +426,7 @@ msgstr ""
 "stavu baterie). Pokud si jsi jist že se jedná o správné zařízení, zděl tuto "
 "chybu The Tail company."
 
-#: BTDeviceMitail.cpp:524
+#: BTDeviceMitail.cpp:533
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
@@ -297,12 +435,12 @@ msgstr ""
 "Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je "
 "box  zapnut a v blízkosti tohoto zařízení."
 
-#: BTDeviceMitail.cpp:527
+#: BTDeviceMitail.cpp:536
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
 msgstr "MiTail ukončil připojení."
 
-#: BTDeviceMitail.cpp:531
+#: BTDeviceMitail.cpp:540
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -312,7 +450,7 @@ msgstr ""
 "Nepodařilo se připojit ke tvému MiTail. Prosím zkus to znovu (možná ho "
 "přibliž?)"
 
-#: BTDeviceMitail.cpp:558
+#: BTDeviceMitail.cpp:567
 #, fuzzy
 msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
@@ -320,7 +458,7 @@ msgctxt ""
 msgid "Attempting to reconnect to your gear..."
 msgstr "Zkouším se připojit..."
 
-#: BTDeviceMitail.cpp:563
+#: BTDeviceMitail.cpp:572
 msgctxt ""
 "Message shown to the user after firmware upload has completed and the tail "
 "is expected to reboot"
@@ -328,10 +466,10 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
-"Stažení firmwaru úspěšné, čekáme na automatický reboot tvého zařízení před"
-" pokusem o připojení..."
+"Stažení firmwaru úspěšné, čekáme na automatický reboot tvého zařízení před "
+"pokusem o připojení..."
 
-#: BTDeviceMitail.cpp:566
+#: BTDeviceMitail.cpp:575
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -342,32 +480,7 @@ msgstr ""
 "MiTail ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít "
 "svůj ocas!"
 
-#: BTDeviceMitail.cpp:661
-msgctxt ""
-"Message shown alongside a progress bar when downloading update information"
-msgid "Downloading firmware update information"
-msgstr "Stahování informací o firmwarovém updatu"
-
-#: BTDeviceMitail.cpp:693
-msgctxt ""
-"Message shown along a progress bar when downloading the firmware payload "
-"itself"
-msgid "Downloading firmware update from The Tail Company's website..."
-msgstr "Stahování firmwarovém updatu z webu The Tail Company..."
-
-#: BTDeviceMitail.cpp:710
-msgctxt ""
-msgid ""
-"The downloaded firmware update did not contain what we expected. This is "
-"commonly due to a problem with the download itself having failed, and you "
-"should simply try again. If it continues to fail, please get in touch with "
-"us and we can try and work something out!"
-msgstr ""
-"Stažený update firmwaru neobsahuje co by měl. Obvykle se tohle stane kvůli"
-" problému se stahováním. Zkus to znovu, a pokud se situace bude opakovat,"
-" kontaktuj nás a my se pokusíme najít řešení! "
-
-#: BTDeviceMitail.cpp:726
+#: BTDeviceMitail.cpp:735
 msgctxt "Message shown during firmware update processes"
 msgid ""
 "Uploading firmware to your gear. Please keep your devices very near each "
@@ -375,10 +488,10 @@ msgid ""
 "Once completed, your gear will restart and disconnect from this device. Once "
 "rebooted, you will be able to connect to it again."
 msgstr ""
-"Nahrávání firmwaru do tvého zařízení. Prosím nech mobil a zařízení blízko u"
-" sebe, a ujisti se že jsou dostatečně nabitá (případně je připoj k"
-" nabíječce). Jakmile update skončí, tvoje zařízení se restartuje a odpojí. Po"
-" restartu bude možné opět připojit."
+"Nahrávání firmwaru do tvého zařízení. Prosím nech mobil a zařízení blízko u "
+"sebe, a ujisti se že jsou dostatečně nabitá (případně je připoj k "
+"nabíječce). Jakmile update skončí, tvoje zařízení se restartuje a odpojí. Po "
+"restartu bude možné opět připojit."
 
 #: BTDeviceTail.cpp:91
 msgctxt ""
@@ -767,22 +880,22 @@ msgstr[0] "Celková doba trvání: %1 sekunda"
 msgstr[1] "Celková doba trvání: %1 sekund(y)"
 msgstr[2] "Celková doba trvání: %1 sekund(y)"
 
-#: qml/BaseMovesComponent.qml:203
+#: qml/BaseMovesComponent.qml:204
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
 msgstr "Kam poslat?"
 
-#: qml/BaseMovesComponent.qml:212
+#: qml/BaseMovesComponent.qml:213
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
 msgstr "Vyber z následujícího seznamu, kam chceš zaslat tento příkaz."
 
-#: qml/BaseMovesComponent.qml:257
+#: qml/BaseMovesComponent.qml:258
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
 msgstr "Zaslat do zvoleného"
 
-#: qml/BaseMovesComponent.qml:266
+#: qml/BaseMovesComponent.qml:267
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
 msgstr "Zaslat do všech"
@@ -877,9 +990,9 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
-"Zvol tuto možnost pro zapnutí bezmobilního módu, abys mohl nechat mobil"
-" stranou. Tento mód funguje podobně jako Casual mód, ale nepotřebuje mobil k"
-" používání (hodí se pokud cosplayuješ a nemáš kam uložit mobil)"
+"Zvol tuto možnost pro zapnutí bezmobilního módu, abys mohl nechat mobil "
+"stranou. Tento mód funguje podobně jako Casual mód, ale nepotřebuje mobil k "
+"používání (hodí se pokud cosplayuješ a nemáš kam uložit mobil)"
 
 #: qml/DisconnectOptions.qml:106
 msgctxt ""
@@ -920,8 +1033,8 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
-"Zvol tuto možnost pro odpojení bez vypnutí zařízení (vhodné pokud chceš"
-" zařízení nabít)"
+"Zvol tuto možnost pro odpojení bez vypnutí zařízení (vhodné pokud chceš "
+"zařízení nabít)"
 
 #: qml/DisconnectOptions.qml:191
 #, fuzzy
@@ -945,8 +1058,8 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
-"Zvol tuto možnost pro vypnutí zařízení místo odpojení (vhodné pokud zařízení"
-" někam uklízíš)"
+"Zvol tuto možnost pro vypnutí zařízení místo odpojení (vhodné pokud zařízení "
+"někam uklízíš)"
 
 #: qml/DisconnectOptions.qml:233
 msgctxt ""
@@ -955,19 +1068,19 @@ msgctxt ""
 msgid "Shut Down Gear"
 msgstr "Vypnout zařízení"
 
-#: qml/EarPoses.qml:24
+#: qml/EarPoses.qml:26
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
 msgstr "Pózy uší"
 
-#: qml/EarPoses.qml:27
+#: qml/EarPoses.qml:29
 msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
 msgstr "Základní pozice"
 
-#: qml/EarPoses.qml:35
+#: qml/EarPoses.qml:37
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
@@ -976,7 +1089,18 @@ msgstr ""
 "Tento seznam ukazuje všechny pózy, které může tvoje zařízení vykonat. Zvol "
 "kteroukoli, aby ji provedlo tvé zařízení!"
 
-#: qml/EarPoses.qml:42
+#: qml/EarPoses.qml:40
+msgctxt "Label for the button for setting EarGear moves to run more slowly"
+msgid "Be Calm"
+msgstr ""
+
+#: qml/EarPoses.qml:48
+#, fuzzy
+msgctxt "Label for the button for setting EarGear moves to run faster"
+msgid "Be Excited"
+msgstr "Rychlý a nadšený"
+
+#: qml/EarPoses.qml:62
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
@@ -1817,9 +1941,9 @@ msgid ""
 "clicking the \"Check\" button below, and if there is one, you can then click "
 "the button underneath to download and install the update."
 msgstr ""
-"Pokud tvé zařízení podporuje updaty firmwaru, můžeš zkontrolovat jejich"
-" dostupnost stisknutím tlačítka kontroly níže. Pokud najdeme dostupný update,"
-" tlačítkem níže ho budeš moct stáhnout a nainstalovat."
+"Pokud tvé zařízení podporuje updaty firmwaru, můžeš zkontrolovat jejich "
+"dostupnost stisknutím tlačítka kontroly níže. Pokud najdeme dostupný update, "
+"tlačítkem níže ho budeš moct stáhnout a nainstalovat."
 
 #: qml/SettingsPage.qml:180
 msgctxt ""
@@ -1867,17 +1991,17 @@ msgid ""
 msgstr ""
 "Před updatem zařízení z %1 na %2, zajisti předm následující:\n"
 "\n"
-"-Připoj svoje zařízení k USB nabíječce a ujisti se že se nabíjí. Nech"
-" zařízení připojené po dobu updatu firmwaru.\n"
+"-Připoj svoje zařízení k USB nabíječce a ujisti se že se nabíjí. Nech "
+"zařízení připojené po dobu updatu firmwaru.\n"
 "\n"
 "-Ujisti se že tvůj mobil má více než 50% baterie před začátkem updatu.\n"
 "\n"
-"Update tvého zařízení zabere přibližně 3 minuty. Po dobu updatu nevypínej"
-" svoje zařízení nebo mobil!\n"
+"Update tvého zařízení zabere přibližně 3 minuty. Po dobu updatu nevypínej "
+"svoje zařízení nebo mobil!\n"
 "\n"
-"Jakmile se update dokončí, zařízení se odpojí a restartuje. Poté by se mělo"
-" znovu samo připojit, ale pokud se tak nestane, budeš ho moct připojit na"
-" hlavní stránce jako obvykle."
+"Jakmile se update dokončí, zařízení se odpojí a restartuje. Poté by se mělo "
+"znovu samo připojit, ale pokud se tak nestane, budeš ho moct připojit na "
+"hlavní stránce jako obvykle."
 
 #: qml/SettingsPage.qml:209
 msgctxt ""
@@ -1899,8 +2023,8 @@ msgid ""
 "that language is not available. However, if you wish to force some language, "
 "you can select it here, and we will use that language instead."
 msgstr ""
-"Obvykle Crumpet používá jazyk tvého zařízení, nebo Angličtinu pokud tvůj"
-" jazyk není dostupný. Pokud ovšem chceš zvolit jiný jazyk, zvol ho zde."
+"Obvykle Crumpet používá jazyk tvého zařízení, nebo Angličtinu pokud tvůj "
+"jazyk není dostupný. Pokud ovšem chceš zvolit jiný jazyk, zvol ho zde."
 
 #: qml/SettingsPage.qml:245
 msgctxt ""
@@ -2109,7 +2233,20 @@ msgid ""
 msgstr ""
 "Zapni tuto funkci, aby tvé zařízení reagovalo na zvuk po dobu pěti minut."
 
-#: qml/WelcomePage.qml:327
+#: qml/WelcomePage.qml:322
+#, fuzzy
+msgctxt "Heading for the panel for turning on Tilt Mode"
+msgid "Tilt Mode"
+msgstr "Mód odposlechu"
+
+#: qml/WelcomePage.qml:335
+#, fuzzy
+msgctxt "Label for the checkbox for turning on Tilt Mode"
+msgid "Turn this on to make your gear react to tilting movements."
+msgstr ""
+"Zapni tuto funkci, aby tvé zařízení reagovalo na zvuk po dobu pěti minut."
+
+#: qml/WelcomePage.qml:376
 msgctxt ""
 "Label for the button for opening the Gear Gestures page, on the welcome page"
 msgid "Gear Gestures"
