@@ -810,7 +810,7 @@ bool BTDeviceEars::hasOTAData()
 void BTDeviceEars::startOTA()
 {
     setDeviceProgress(0);
-    setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));
+    setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will either reboot or turn itself off and disconnect from this device. Once it is started back up again, you will be able to connect to it again."));
     // send "OTA (length of firmware in bytes) (md5sum)"
     QString otaInitialiser = QString("OTA %1 %2").arg(d->firmware.length()).arg(d->firmwareMD5);
     d->earsService->writeCharacteristic(d->earsCommandWriteCharacteristic, otaInitialiser.toUtf8());
