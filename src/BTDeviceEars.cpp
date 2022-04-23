@@ -589,7 +589,14 @@ void BTDeviceEars::connectDevice()
 
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The EarGear closed the connection, either by being turned off or losing power. Remember to charge your ears!"));
+        if (d->firmwareProgress >=  d->firmware.size()) {
+            Q_EMIT deviceBlockingMessage(i18nc("Title for a message box shown after the device disconnects after completing the firmware update", "Firmware Update Completed"), i18nc("Body of a message box shown after the device disconnects after completing the firmware update", "The firmware upload has been completed, and your gear has turned itself off. If it did not turn itself back on again, close this message, turn it on manually, and then connect to it. If it turned itself back on again, you can just close this message."));
+            setProgressDescription("");
+            setDeviceProgress(-1);
+        }
+        else {
+            Q_EMIT deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The EarGear closed the connection, either by being turned off or losing power. Remember to charge your ears!"));
+        }
         disconnectDevice();
     });
 
