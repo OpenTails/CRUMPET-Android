@@ -1,3 +1,9 @@
+26
+- Add support for EarGear 2 firmware update
+- Warn people if they are running an old enough firmware that we actually know without checking remotely that it is outdated
+- Add basic tilt mode support for EG2
+- Add Calm/Excited speed setters for EG2 (on Poses page)
+
 25
 - Add No Phone Mode and Shutdown options when disconnecting from gear
 - Much better battery visualisation, and add charge indicator
