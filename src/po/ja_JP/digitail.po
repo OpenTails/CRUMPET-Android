@@ -1,0 +1,2142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Untitled project\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-29 02:10+0900\n"
+"PO-Revision-Date: 2022-05-29 21:18+0900\n"
+"Last-Translator: Rohaan\n"
+"Language-Team: Japanese (Japan)\n"
+"Language: ja-JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz\n"
+"X-Loco-Source-Locale: en-JP\n"
+"X-Loco-Project-Id: 128344\n"
+"X-Loco-Api-Version: 1.0.26 20220328-1"
+
+#: BTDeviceEars.cpp:75 BTDeviceMitail.cpp:81 BTDeviceTail.cpp:58
+#: loco:629257cb95222c3d5a0848f2
+msgctxt ""
+"Error message shown when automatic reconnection has been attempted too often"
+msgid ""
+"Attempted to reconnect too many times to %1 (%2). To connect to it, please "
+"check that it is on, charged, and near enough."
+msgstr ""
+"1 (%2) への再接続を試行した回数が多すぎます。接続するには、電源が入っていること、充電されていること、近くにあることを確認してください。"
+
+#: BTDeviceEars.cpp:79 BTDeviceMitail.cpp:85 BTDeviceTail.cpp:62
+#: loco:629257cb95222c3d5a0848f3
+msgctxt ""
+"A status message sent when the connection to a device has been lost, and we "
+"are attempting to connect again automatically"
+msgid "Connection lost to %1, attempting to reconnect..."
+msgstr "1 への接続が失われました。再接続を試みています..."
+
+#: BTDeviceEars.cpp:109 loco:629257cb95222c3d5a0848f4
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"このデバイスはEarGearコントローラではないようです（メインの耳の書き込み特性が見つかりませんでした）。もし、間違いなくそうであると確信される場合は、このエラーをThe"
+" Tail Companyにご報告ください。"
+
+#: BTDeviceEars.cpp:126 loco:629257cb95222c3d5a0848f5
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"このデバイスはEarGearコントローラではないようです（メインの耳読みの特性が見つかりませんでした）。もし、間違いなくそうであると確信される場合は、このエラーをThe"
+" Tail Companyに報告してください。"
+
+#: BTDeviceEars.cpp:191 BTDeviceMitail.cpp:174 loco:629257cb95222c3d5a0848f6
+msgctxt ""
+"Title of the message box shown to the user upon a successful firmware upgrade"
+msgid "Upgrade Successful"
+msgstr "アップグレード成功"
+
+#: BTDeviceEars.cpp:191 BTDeviceMitail.cpp:174 loco:629257cb95222c3d5a0848f7
+msgctxt ""
+"Message shown to the user when a firmware update completed successfully"
+msgid "Congratulations, your gear has been successfully updated to version %1!"
+msgstr "おめでとうございます！お使いのギアはバージョン %1 に正常に更新されました。"
+
+#: BTDeviceEars.cpp:194 BTDeviceMitail.cpp:177 loco:629257cb95222c3d5a0848f8
+msgctxt ""
+"Title of the message box shown to the user upon an unsuccessful firmware "
+"upgrade"
+msgid "Update Failed"
+msgstr "アップデートに失敗しました"
+
+#: BTDeviceEars.cpp:194 BTDeviceMitail.cpp:177 loco:629257cb95222c3d5a0848f9
+msgctxt "Message shown to the user when a firmware update failed"
+msgid ""
+"<p>Sorry, but the upgrade failed. Most often this is due to the transfer "
+"being corrupted during the upload process itself, which is why your gear has "
+"a safe fallback to just go back to your old firmware version upon a failure. "
+"You can try the update again by clicking the Install button gain.</p>"
+msgstr ""
+"<p>申し訳ありませんが、アップグレードに失敗しました。ほとんどの場合、アップロード "
+"プロセス中に転送が破損したことが原因です。そのため、失敗したときに、古いファームウェア "
+"バージョンに戻るように安全なフォールバック機能が備わっています。インストールボタンをクリックすることで、再度アップデートを試みることができます。</p>"
+
+#: BTDeviceEars.cpp:297 loco:629257cb95222c3d5a0848fa
+msgctxt ""
+"Informational message for when the microphone balancing operation has "
+"completed"
+msgid "Microphone balancing completed"
+msgstr "マイクバランス調整完了"
+
+#: BTDeviceEars.cpp:412 BTDeviceMitail.cpp:333 loco:629257cb95222c3d5a0848fb
+msgctxt ""
+"Message shown to the user when they already have the newest firmware "
+"installed"
+msgid ""
+"You already have the newest version of the firmware installed on your gear, "
+"congratulations!"
+msgstr "すでに最新バージョンのファームウェアが機器にインストールされていますね、おめでとうございます。"
+
+#: BTDeviceEars.cpp:417 BTDeviceMitail.cpp:338 loco:629257cb95222c3d5a0848fc
+msgctxt ""
+"Warning message for when the firmware update information file did not "
+"contain a JSON object"
+msgid ""
+"The file used to determine information about new firmware versions did not "
+"contain the expected format of data. This is likely a temporary error, or a "
+"connection issue. If you run into this problem repeatedly, please get in "
+"touch."
+msgstr ""
+"新しいファームウェアのバージョンに関する情報を判断するために使用されたファイルに、期待されるデータ形式が含まれていませんでした。これは、一時的なエラーか、接続の問題だと思われます。この問題が繰り返し発生する場合は、ご連絡ください。"
+
+#: BTDeviceEars.cpp:421 BTDeviceMitail.cpp:342 loco:629257cb95222c3d5a0848fd
+msgctxt "Message for when we are checking the downloaded firmware data"
+msgid "Checking integrity of the downloaded firmware data..."
+msgstr "ダウンロードしたファームウェアのデータの整合性を確認する..."
+
+#: BTDeviceEars.cpp:491 loco:629257cb95222c3d5a0848fe
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your EarGear (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+"お客様のEarGearへの接続中にエラーが発生しました（メインサービスオブジェクトを作成できませんでした）。もしこれがエラーだと感じたら、もう一度試してみてください。"
+
+#: BTDeviceEars.cpp:505 loco:629257cb95222c3d5a0848ff
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your EarGear (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr "EarGearへの接続中にエラーが発生しました（バッテリーサービスを利用できませんでした）。エラーと思われる場合は、もう一度お試しください。"
+
+#: BTDeviceEars.cpp:536 loco:629257cb95222c3d5a084900
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"battery level characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"このデバイスはEarGearコントローラではないようです（バッテリーレベルの特性が見つかりませんでした）。もし、間違いなくそうであると確信される場合は、このエラーをThe"
+" Tail Companyに報告してください。"
+
+#: BTDeviceEars.cpp:566 loco:629257cb95222c3d5a084901
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your ears, make sure the "
+"EarGear is on and close to this device."
+msgstr "エラーが発生しました。耳に接続しようとしている場合、EarGearがオンになっており、このデバイスに近づいていることを確認してください。"
+
+#: BTDeviceEars.cpp:569 loco:629257cb95222c3d5a084902
+msgctxt "Warning that the device disconnected itself"
+msgid "The EarGear closed the connection."
+msgstr "EarGearは接続を閉じた。"
+
+#: BTDeviceEars.cpp:572 loco:629257cb95222c3d5a084903
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
+msgstr "EarGearへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近くに移動できるかも？）"
+
+#: BTDeviceEars.cpp:593 loco:629257cb95222c3d5a084904
+msgctxt ""
+"Title for a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid "Firmware Update Completed"
+msgstr "ファームウェアのアップデート完了"
+
+#: BTDeviceEars.cpp:593 loco:629257cb95222c3d5a084905
+msgctxt ""
+"Body of a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid ""
+"The firmware upload has been completed, and your gear has turned itself off. "
+"If it did not turn itself back on again, close this message, turn it on "
+"manually, and then connect to it. If it turned itself back on again, you can "
+"just close this message."
+msgstr ""
+"ファームウェアのアップロードが完了し、機器の電源がオフになりました。再び電源が入らなかった場合は、このメッセージを閉じて手動で電源を入れ、接続してください。再び電源が入った場合は、このメッセージを閉じてください。"
+
+#: BTDeviceEars.cpp:598 loco:629257cb95222c3d5a084906
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The EarGear closed the connection, either by being turned off or losing "
+"power. Remember to charge your ears!"
+msgstr "EarGearは、電源を切るか、電源を失うかして、接続を閉じたのです。耳を充電することを忘れないでください"
+
+#: BTDeviceEars.cpp:748 BTDeviceMitail.cpp:670 loco:629257cb95222c3d5a084907
+msgctxt ""
+"Message shown alongside a progress bar when downloading update information"
+msgid "Downloading firmware update information"
+msgstr "ファームウェアのアップデート情報をダウンロードする"
+
+#: BTDeviceEars.cpp:780 BTDeviceMitail.cpp:702 loco:629257cb95222c3d5a084908
+msgctxt ""
+"Message shown along a progress bar when downloading the firmware payload "
+"itself"
+msgid "Downloading firmware update from The Tail Company's website..."
+msgstr "テイルカンパニーのホームページからファームウェアのアップデートをダウンロードする..."
+
+#: BTDeviceEars.cpp:797 BTDeviceMitail.cpp:719 loco:629257cb95222c3d5a084909
+msgid ""
+"The downloaded firmware update did not contain what we expected. This is "
+"commonly due to a problem with the download itself having failed, and you "
+"should simply try again. If it continues to fail, please get in touch with "
+"us and we can try and work something out!"
+msgstr ""
+"ダウンロードしたファームウェアアップデートに期待したものが含まれていない。これは、ダウンロードそのものに失敗していることが原因ですので、もう一度やり直してください。ダウンロードに失敗し続ける場合は、弊社までご連絡ください。"
+
+#: BTDeviceEars.cpp:813 loco:629257cb95222c3d5a08490a
+msgctxt "Message shown during firmware update processes"
+msgid ""
+"Uploading firmware to your gear. Please keep your devices very near each "
+"other, and make sure both have plenty of charge (or plug in a charger now). "
+"Once completed, your gear will either reboot or turn itself off and "
+"disconnect from this device. Once it is started back up again, you will be "
+"able to connect to it again."
+msgstr ""
+"機材にファームウェアをアップロードする。デバイスを互いによく近づけて、両方とも十分な充電があることを確認してください（または今すぐ充電器を接続してください）。アップロードが完了すると、あなたのギアは再起動するか、電源を切ってこのデバイスから切断されます。再び起動すると、再び接続できるようになります。"
+
+#: BTDeviceFake.cpp:48 BTDeviceMitail.cpp:365 loco:629257cb95222c3d5a08490b
+msgctxt ""
+"Name of the calm and relaxed group as used for no phone group selection"
+msgid "Calm and Relaxed"
+msgstr "落ち着きとくつろぎ"
+
+#: BTDeviceFake.cpp:49 BTDeviceMitail.cpp:366 loco:629257cb95222c3d5a08490c
+msgctxt ""
+"Name of the fast and excited group as used for no phone group selection"
+msgid "Fast and Excited"
+msgstr "速くと興奮"
+
+#: BTDeviceFake.cpp:50 BTDeviceMitail.cpp:367 loco:629257cb95222c3d5a08490d
+msgctxt ""
+"Name of the frustrated and tense group as used for no phone group selection"
+msgid "Frustrated and Tense"
+msgstr "イライラとピリピリ"
+
+#: BTDeviceFake.cpp:106 loco:629257cb95222c3d5a08490e
+msgctxt ""
+"An example message to show people what the firmware message will look like "
+"for a real device"
+msgid ""
+"This is a message that's supposed to inform people that there is something "
+"<b>important</b> going on with their firmware"
+msgstr "これは、ファームウェアに何か<b>重要な</b>ことが起こっていることを知らせるためのメッセージです。"
+
+#: BTDeviceMitail.cpp:39 loco:629257cb95222c3d5a08490f
+msgctxt ""
+"A message displayed to the user when firmware version 4.03 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.03 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+"お使いのテールには、現在バージョン4."
+"03のファームウェアがインストールされていますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するために、最新のファームウェアにアップデートすることを<b"
+">強くお勧めします。</b> ファームウェアセクションを探し、アップデートを実行します。"
+
+#: BTDeviceMitail.cpp:40 loco:629257cb95222c3d5a084910
+msgctxt ""
+"A message displayed to the user when firmware version 4.02 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.02 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+"お使いのテールには、現在バージョン4."
+"02のファームウェアがインストールされていますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するために、最新のファームウェアにアップデートすることを<b"
+">強くお勧めします。</b> ファームウェアセクションを探し、アップデートを実行します。"
+
+#: BTDeviceMitail.cpp:41 loco:629257cb95222c3d5a084911
+msgctxt ""
+"A message displayed to the user when firmware version 4.01 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.01 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+"お使いのテールには、現在バージョン4."
+"01のファームウェアがインストールされていますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するために、最新のファームウェアにアップデートすることを<b"
+">強くお勧めします。</b> ファームウェアセクションを探し、アップデートを実行します。"
+
+#: BTDeviceMitail.cpp:42 loco:629257cb95222c3d5a084912
+msgctxt ""
+"A message displayed to the user when firmware version 4.00 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 4.00 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+"お使いのテールには、現在バージョン4."
+"00のファームウェアがインストールされていますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するために、最新のファームウェアにアップデートすることを<b"
+">強くお勧めします。</b> ファームウェアセクションを探し、アップデートを実行します。"
+
+#: BTDeviceMitail.cpp:43 loco:629257cb95222c3d5a084913
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.11 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 3.2.11 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+"お使いのテールには、現在バージョン3.2."
+"11のファームウェアがインストールされていますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するために、最新のファームウェアにアップデートすることを<b"
+">強くお勧めします。</b> ファームウェアセクションを探し、アップデートを実行します。"
+
+#: BTDeviceMitail.cpp:44 loco:629257cb95222c3d5a084914
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.10 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your tail currently has version 3.2.10 firmware  installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+"お使いのテールには、現在バージョン3.2."
+"10のファームウェアがインストールされていますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するために、最新のファームウェアにアップデートすることを<b"
+">強くお勧めします。</b> ファームウェアセクションを探し、アップデートを実行します。"
+
+#: BTDeviceMitail.cpp:115 loco:629257cb95222c3d5a084915
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"writing characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+"このデバイスはMiTailではないようです（メインデバイスの書き込み特性が見つかりませんでした）。もし、間違いなくMiTailであると確信される場合は、このエラーをThe"
+" Tail Companyにご報告ください。"
+
+#: BTDeviceMitail.cpp:123 loco:629257cb95222c3d5a084916
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"reading characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+"このデバイスはMiTailではないようです（メインデバイスの読み取り特性を見つけられませんでした）。もし、間違いなくMiTailであることが確認できましたら、このエラーをThe"
+" Tail Companyにご報告ください。"
+
+#: BTDeviceMitail.cpp:413 loco:629257cb95222c3d5a084917
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+"MiTailへの接続中にエラーが発生しました（メインサービスオブジェクトを作成できませんでした）。エラーと思われる場合は、もう一度お試しください。"
+
+#: BTDeviceMitail.cpp:432 loco:629257cb95222c3d5a084918
+msgctxt ""
+"Message asking people to tell us when a firmware update failed, and that "
+"this is the error they got"
+msgid ""
+"<p><b>Update Failed!</b></p><p>We have tried to update your firmware too "
+"rapidly for your device, and have had to abort. If you are getting this "
+"error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please "
+"contact us on info@thetailcompany.com and tell us that you got this error."
+"</p>"
+msgstr ""
+"<p><b>アップデートに失敗しました</b></p><p> "
+"ファームウェアのアップデートを試みたのですが、お使いのデバイスの速度が速すぎたため、中断せざるを得なくなりました。</p><p> <p>"
+"このエラーが発生した場合</p><p> まず最初に、あなたの機器は安全ですのでご安心ください。</p><p> <p>"
+"次に、info@thetailcompany.com、このエラーが表示されたことを連絡してください。"
+
+#: BTDeviceMitail.cpp:443 loco:629257cb95222c3d5a084919
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+"MiTailへの接続中にエラーが発生しました（バッテリーサービスが利用できませんでした）。エラーと思われる場合は、お手数ですが再度お試しください。"
+
+#: BTDeviceMitail.cpp:493 loco:629257cb95222c3d5a08491a
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail (could not find the battery level "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+"このデバイスはMiTailではないようです（バッテリーレベルの特性が見つかりませんでした）。もし、間違いなくMiTailであると確信される場合は、このエラーをThe"
+" Tail Companyにご報告ください。"
+
+#: BTDeviceMitail.cpp:533 loco:629257cb95222c3d5a08491b
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail, make sure it "
+"is on and close to this device."
+msgstr "エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入っているか、本機に近づいているかを確認してください。"
+
+#: BTDeviceMitail.cpp:536 loco:629257cb95222c3d5a08491c
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail closed the connection."
+msgstr "MiTailは接続を終了した。"
+
+#: BTDeviceMitail.cpp:540 loco:629257cb95222c3d5a08491d
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
+msgstr "MiTailへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近くに移動できるかもしれません）。"
+
+#: BTDeviceMitail.cpp:567 loco:629257cb95222c3d5a08491e
+msgctxt ""
+"Message shown to the user when a firmware upload has completed and the "
+"device has rebooted itself"
+msgid "Attempting to reconnect to your gear..."
+msgstr "機材との再接続を試みる..."
+
+#: BTDeviceMitail.cpp:572 loco:629257cb95222c3d5a08491f
+msgctxt ""
+"Message shown to the user after firmware upload has completed and the tail "
+"is expected to reboot"
+msgid ""
+"Firmware upload complete, waiting for your gear to reboot automatically "
+"before attempting to reconnect..."
+msgstr "ファームウェアのアップロードが完了し、再接続を試みる前に、機器が自動的に再起動するのを待ちます..."
+
+#: BTDeviceMitail.cpp:575 loco:629257cb95222c3d5a084920
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail closed the connection, either by being turned off or losing power."
+" Remember to charge your tail!"
+msgstr "MiTailは、電源を切るか、電源を失うかして、接続を閉じました。テールを充電することを忘れないでください"
+
+#: BTDeviceMitail.cpp:735 loco:629257cb95222c3d5a084921
+msgctxt "Message shown during firmware update processes"
+msgid ""
+"Uploading firmware to your gear. Please keep your devices very near each "
+"other, and make sure both have plenty of charge (or plug in a charger now). "
+"Once completed, your gear will restart and disconnect from this device. Once "
+"rebooted, you will be able to connect to it again."
+msgstr ""
+"機材にファームウェアをアップロードする。デバイスを互いによく近づけて、両方とも十分な充電があることを確認してください（または今すぐ充電器を接続してください）。完了すると、あなたのギアは再起動し、このデバイスから切断されます。再起動すると、再び接続できるようになります。"
+
+#: BTDeviceTail.cpp:91 loco:629257cb95222c3d5a084922
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a DIGITAiL (could not find the tail "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+"このデバイスはDIGITAiLではないようです（テールの特性を見つけることができませんでした）。もし、間違いなくそうであると確信される場合は、このエラーをThe"
+" Tail Companyにご報告ください。"
+
+#: BTDeviceTail.cpp:258 loco:629257cb95222c3d5a084923
+msgctxt "Warning message when the main service was not found on the device"
+msgid ""
+"An error occured while connecting to your tail (the service object could not "
+"be created). If you feel this is in error, please try again!"
+msgstr "テールへの接続中にエラーが発生しました（サービスオブジェクトを作成できませんでした）。エラーと思われる場合は、もう一度お試しください。"
+
+#: BTDeviceTail.cpp:276 loco:629257cb95222c3d5a084924
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your tail, make sure it "
+"is on and close to this device."
+msgstr "エラーが発生しました。テールに接続しようとしている場合、テールの電源が入っていて、このデバイスに近づいていることを確認してください。"
+
+#: BTDeviceTail.cpp:279 loco:629257cb95222c3d5a084925
+msgctxt "Warning that the device disconnected itself"
+msgid "The tail closed the connection."
+msgstr "テールが接続を閉じた。"
+
+#: BTDeviceTail.cpp:282 loco:629257cb95222c3d5a084926
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your tail. Please try again (perhaps move it closer?)"
+msgstr "テールへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近くに移動できるかも？）"
+
+#: BTDeviceTail.cpp:302 loco:629257cb95222c3d5a084927
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The tail closed the connection, either by being turned off or losing power. "
+"Remember to charge your tail!"
+msgstr "テールが接続を閉じたのは、電源を切ったか、電源を失ったかのどちらかです。テールの充電を忘れないようにしましょう"
+
+#: CommandPersistence.cpp:57 loco:629257cb95222c3d5a084928
+msgctxt ""
+"Error message for when we could not create the path that command files are "
+"stored in"
+msgid "Failed to create the directory for the stored commands"
+msgstr "ストアドコマンド用のディレクトリの作成に失敗しました。"
+
+#: CommandPersistence.cpp:117 loco:629257cb95222c3d5a084929
+msgctxt ""
+"Error message for when there are no commands found in a command file "
+"(possible, but uncommon, so not a critical error)"
+msgid "There are no commands in this file. This is possible, but not common."
+msgstr "このファイルにはコマンドがありません。これは可能ですが、一般的ではありません。"
+
+#: CommandPersistence.cpp:123 loco:629257cb95222c3d5a08492a
+msgctxt ""
+"Error message when command file loading failed entirely caused by a parsing "
+"error, with details"
+msgid ""
+"Failed to load your commands, due to a parsing error at %1: %2\n"
+"Code leading up to the error:\n"
+"%3"
+msgstr ""
+"1: %2 でパージング・エラーが発生したため、コマンドのロードに失敗しました。\n"
+"エラーに至るまでのコード。\n"
+"%3"
+
+#: CommandPersistence.cpp:174 loco:629257cb95222c3d5a08492b
+msgctxt ""
+"Error message when attempting to load commands and the file could not be "
+"accessed for reading purposes"
+msgid "Could not open the file %1 for reading"
+msgstr "読み取り用にファイル %1 を開くことができませんでした。"
+
+#: CommandPersistence.cpp:194 loco:629257cb95222c3d5a08492c
+msgctxt ""
+"Error message when attempting to save commands and the file could not be "
+"accessed for writing purposes"
+msgid "Could not open the file %1 for writing"
+msgstr "書き込みのためにファイル %1 を開くことができませんでした。"
+
+#: GestureDetectorModel.cpp:221 loco:629257cb95222c3d5a08492d
+msgctxt "The name of a sensor"
+msgid "Double Tap"
+msgstr "ダブルタップ"
+
+#: GestureDetectorModel.cpp:222 loco:629257cb95222c3d5a08492e
+msgctxt "The name of a sensor"
+msgid "Hover"
+msgstr "ホバー"
+
+#: GestureDetectorModel.cpp:223 loco:629257cb95222c3d5a08492f
+msgctxt "The name of a sensor"
+msgid "Freefall"
+msgstr "フリーフォール"
+
+#: GestureDetectorModel.cpp:224 loco:629257cb95222c3d5a084930
+msgctxt "The name of a sensor"
+msgid "Landed"
+msgstr "陸上"
+
+#: GestureDetectorModel.cpp:225 loco:629257cb95222c3d5a084931
+msgctxt "The name of a sensor"
+msgid "Cover Gesture"
+msgstr "カバージェスチャー"
+
+#: GestureDetectorModel.cpp:226 loco:629257cb95222c3d5a084932
+msgctxt "The name of a sensor"
+msgid "Shake Gesture"
+msgstr "シェイクジェスチャー"
+
+#: GestureDetectorModel.cpp:227 loco:629257cb95222c3d5a084933
+msgctxt "The name of a sensor"
+msgid "Slam Gesture"
+msgstr "スラムのジェスチャー"
+
+#: GestureDetectorModel.cpp:228 loco:629257cb95222c3d5a084934
+msgctxt "The name of a sensor"
+msgid "Whip Gesture"
+msgstr "ウィップジェスチャー"
+
+#: GestureDetectorModel.cpp:229 loco:629257cb95222c3d5a084935
+msgctxt "The name of a sensor"
+msgid "Shake Left"
+msgstr "シェイクレフト"
+
+#: GestureDetectorModel.cpp:230 loco:629257cb95222c3d5a084936
+msgctxt "The name of a sensor"
+msgid "Shake Right"
+msgstr "Shake Right"
+
+#: GestureDetectorModel.cpp:231 loco:629257cb95222c3d5a084937
+msgctxt "The name of a sensor"
+msgid "Shake Up"
+msgstr "シェイクアップ"
+
+#: GestureDetectorModel.cpp:232 loco:629257cb95222c3d5a084938
+msgctxt "The name of a sensor"
+msgid "Shake Down"
+msgstr "シェイクダウン"
+
+#: GestureDetectorModel.cpp:233 loco:629257cb95222c3d5a084939
+msgctxt "The name of a sensor"
+msgid "Twist Left"
+msgstr "ツイストレフト"
+
+#: GestureDetectorModel.cpp:234 loco:629257cb95222c3d5a08493a
+msgctxt "The name of a sensor"
+msgid "Twist Right"
+msgstr "ツイストライト"
+
+#: GestureDetectorModel.cpp:235 loco:629257cb95222c3d5a08493b
+msgctxt "The name of a sensor"
+msgid "Pick Up"
+msgstr "ピックアップ"
+
+#: GestureDetectorModel.cpp:236 loco:629257cb95222c3d5a08493c
+msgctxt "The name of a sensor"
+msgid "Turn Over"
+msgstr "ターンオーバー"
+
+#: GestureDetectorModel.cpp:237 loco:629257cb95222c3d5a08493d
+msgctxt "The name of a sensor"
+msgid "Walking Started"
+msgstr "ウォーキングスタート"
+
+#: GestureDetectorModel.cpp:238 loco:629257cb95222c3d5a08493e
+msgctxt "The name of a sensor"
+msgid "Walking Stopped"
+msgstr "ウォーキングストップ"
+
+#: GestureDetectorModel.cpp:239 loco:629257cb95222c3d5a08493f
+msgctxt "The name of a sensor"
+msgid "Step Detected"
+msgstr "検出されたステップ"
+
+#: GestureDetectorModel.cpp:240 loco:629257cb95222c3d5a084940
+msgctxt "The name of a sensor"
+msgid "Even-numbered Step Detected"
+msgstr "偶数ステップ検出"
+
+#: GestureDetectorModel.cpp:241 loco:629257cb95222c3d5a084941
+msgctxt "The name of a sensor"
+msgid "Odd-numbered Step Detected"
+msgstr "奇数ステップ検出"
+
+#: qml/AboutPage.qml:33 loco:629257cb95222c3d5a084942
+msgctxt ""
+"A label which describes the hardware revision of the connected gear, when "
+"only one item is connected"
+msgid "The connected gear is version %1"
+msgstr "接続されているギアはバージョン %1 です。"
+
+#: qml/AboutPage.qml:38 loco:629257cb95222c3d5a084943
+msgctxt ""
+"A label which describes the hardware revision of a piece of connected gear, "
+"when more than one item is connected"
+msgid "The gear named %1 is version %2"
+msgstr "%1という名前のギアはバージョン%2です。"
+
+#: qml/AlarmList.qml:28 loco:629257cb95222c3d5a084944
+msgctxt "Title of the page which lists the alarms the user has set"
+msgid "Alarms"
+msgstr "アラーム"
+
+#: qml/AlarmList.qml:32 loco:629257cb95222c3d5a084945
+msgctxt "Text for a button which will adds a new alarm to the list"
+msgid "Add New Alarm"
+msgstr "新規アラームの追加"
+
+#: qml/AlarmList.qml:44 loco:629257cb95222c3d5a084946
+msgctxt ""
+"Title for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid "Select another name"
+msgstr "別の名前を選択する"
+
+#: qml/AlarmList.qml:45 loco:629257cb95222c3d5a084947
+msgctxt ""
+"Main text for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid ""
+"Unable to add the alarm because we already have an alarm with the same name."
+"\n"
+"\n"
+"Please select another name for the alarm."
+msgstr ""
+"同じ名前のアラームがすでにあるため、アラームを追加できません。\n"
+"\n"
+"別のアラーム名を選択してください。"
+
+#: qml/AlarmList.qml:49 loco:629257cb95222c3d5a084948
+msgctxt ""
+"Title for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid "Alarm was removed"
+msgstr "アラームが解除された"
+
+#: qml/AlarmList.qml:50 loco:629257cb95222c3d5a084949
+msgctxt ""
+"Main text for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid ""
+"Unable to find an alarm with the name '%1'. Maybe another application "
+"instance has removed it."
+msgstr "名前 '%1' を持つアラームを見つけることができません。別のアプリケーション・インスタンスによって削除された可能性があります。"
+
+#: qml/AlarmList.qml:80 loco:629257cb95222c3d5a08494a
+msgctxt ""
+"Text for an action which allows the user to pick what command the alarm will "
+"cause to be sent"
+msgid "Edit Alarm Commands"
+msgstr "アラームコマンドを編集する"
+
+#: qml/AlarmList.qml:89 loco:629257cb95222c3d5a08494b
+msgctxt ""
+"Text for an action which allows the user to pick what time the alarm should "
+"fire"
+msgid "Set Time To Alarm"
+msgstr "アラームまでの時間を設定する"
+
+#: qml/AlarmList.qml:111 loco:629257cb95222c3d5a08494c
+msgctxt "Text for an action which allows the user to delete an alarm"
+msgid "Delete this Alarm"
+msgstr "このアラームを削除する"
+
+#: qml/AlarmList.qml:115 loco:629257cb95222c3d5a08494d
+msgctxt ""
+"Title for a message box which allows the user to delete a specific alarm"
+msgid "Remove the Alarm"
+msgstr "アラームを削除"
+
+#: qml/AlarmList.qml:116 loco:629257cb95222c3d5a08494e
+msgctxt ""
+"Main text for a message box which allows the user to delete a specific alarm"
+msgid "Are you sure that you want to remove the alarm '%1'?"
+msgstr "アラーム '%1' を本当に削除しますか？"
+
+#: qml/AlarmList.qml:135 loco:629257cb95222c3d5a08494f
+msgctxt ""
+"Descriptive text which explains what the functionality is of the alarm page"
+msgid ""
+"Set an alarm here. Pick a date and time for your alarm, and then add one or "
+"more moves you want to perform when you hit that time."
+msgstr "ここでアラームを設定します。アラームの日付と時間を選び、その時間になったら実行したい動きを1つまたは複数追加します。"
+
+#: qml/AlarmList.qml:142 loco:629257cb95222c3d5a084950
+msgctxt ""
+"Descriptive text for a popup which allows the user to create a new, named "
+"alarm"
+msgid "Enter a name to use for your new alarm and click Create"
+msgstr "新しいアラームに使用する名前を入力し、[作成]をクリックします。"
+
+#: qml/AlarmList.qml:143 loco:629257cb95222c3d5a084951
+msgctxt ""
+"Placeholder text for the text box in which the name of a new alarm must be "
+"written"
+msgid "Enter your alarm name here"
+msgstr "ここにアラーム名を入力"
+
+#: qml/AlarmList.qml:144 loco:629257cb95222c3d5a084952
+msgctxt "Text on a button which causes an alarm to be created"
+msgid "Create"
+msgstr "作成"
+
+#: qml/BaseCommandListEditor.qml:42 loco:629257cb95222c3d5a084953
+msgctxt "Label for the button for adding a move to the Move List"
+msgid "Add Move To List"
+msgstr "リストへの移動の追加"
+
+#: qml/BaseCommandListEditor.qml:51 loco:629257cb95222c3d5a084954
+msgctxt "Label for the button for adding a pause to the Move List"
+msgid "Add Pause To List"
+msgstr "ポーズをリストに追加"
+
+#: qml/BaseCommandListEditor.qml:168 loco:629257cb95222c3d5a084955
+msgctxt ""
+"Label for the button for adding a command after the selected element of a "
+"move list"
+msgid "Add command after"
+msgstr "後にコマンドを追加します。"
+
+#: qml/BaseCommandListEditor.qml:177 loco:629257cb95222c3d5a084956
+msgctxt ""
+"Label for the button for adding a pause after the selected element of a move "
+"list"
+msgid "Add pause after"
+msgstr "後にポーズを追加します。"
+
+#: qml/BaseCommandListEditor.qml:203 loco:629257cb95222c3d5a084957
+msgctxt ""
+"Label for the cooldown period when it is larger than 0, on the Command List "
+"editor"
+msgid ""
+"<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
+"cooldown: %3 seconds</small>"
+msgstr ""
+"<strong>%1</strong><br/><small>%2秒</small><br/><small>クールダウンを追加：%3 秒</small>"
+
+#: qml/BaseCommandListEditor.qml:204 loco:629257cb95222c3d5a084958
+msgctxt ""
+"Label for the cooldown period when it is equal to 0, on the Command List "
+"editor"
+msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
+msgstr "<strong>%1</strong><br/><small>%2 秒</small>"
+
+#: qml/BaseCommandListEditor.qml:224 loco:629257cb95222c3d5a084959
+msgctxt "Description for the Command List Editor"
+msgid ""
+"This is your list of commands. It can include both moves, glows, and pauses. "
+"Tip: To add a new command underneath one you have in the list already, click "
+"the plus icon above the cumulative timestamp for that entry and pick one of "
+"the options in the menu."
+msgstr ""
+"これは、コマンドのリストです。ムーブ、グロー、ポーズを含むことができます。ヒント : "
+"新しいコマンドをリストの下に追加するには、そのエントリの累積タイムスタンプの上にあるプラスアイコンをクリックし、メニューのオプションを1つ選びます。"
+
+#: qml/BaseCommandListEditor.qml:275 loco:629257cb95222c3d5a08495a
+msgctxt ""
+"Label for the cumulative duration of a Command on the Command List Editor"
+msgid "Total duration: %1 second"
+msgid_plural "Total duration: %1 seconds"
+msgstr[0] "合計時間: %1 秒"
+
+#: qml/BaseMovesComponent.qml:204 loco:629257cb95222c3d5a08495c
+msgctxt "Header for the overlay for selecting the destination for a command"
+msgid "Send where?"
+msgstr "どこに送る？"
+
+#: qml/BaseMovesComponent.qml:213 loco:629257cb95222c3d5a08495d
+msgctxt "Text for the overlay for selecting the destination for a command"
+msgid "Pick from the list below where you want to send the command."
+msgstr "下のリストから、コマンドを送信する場所を選んでください。"
+
+#: qml/BaseMovesComponent.qml:258 loco:629257cb95222c3d5a08495e
+msgctxt "Action for sending a command to the selected devices in a list"
+msgid "Send To Selected"
+msgstr "選択された人に送る"
+
+#: qml/BaseMovesComponent.qml:267 loco:629257cb95222c3d5a08495f
+msgctxt "Action for sending a command to all devices in a list"
+msgid "Send To All"
+msgstr "すべてに送信する"
+
+#: qml/CommandPausePicker.qml:42 loco:629257cb95222c3d5a084960
+msgctxt ""
+"Heading for an overlay for picking the duration of a pause in the command "
+"list"
+msgid "Pick the duration of your pause"
+msgstr "一時停止する時間を選ぶ"
+
+#: qml/CommandPausePicker.qml:59 loco:629257cb95222c3d5a084961
+msgctxt ""
+"A label which describes the slider for the duration of a pause, in the "
+"overlay for picking the duration of a pause, in a command list"
+msgid "%1 seconds"
+msgstr "%1秒"
+
+#: qml/CommandPausePicker.qml:63 loco:629257cb95222c3d5a084962
+msgctxt ""
+"Button for an overlay for picking the duration of a pause in the command list"
+msgid "Add this pause"
+msgstr "このポーズを追加する"
+
+#: qml/ConnectToTail.qml:69 loco:629257cb95222c3d5a084963
+msgctxt ""
+"Button for the action of disconnecting a device, in the prompt for "
+"connecting a device"
+msgid "Disconnect"
+msgstr "ディスコネクト"
+
+#: qml/ConnectToTail.qml:70 loco:629257cb95222c3d5a084964
+msgctxt ""
+"Button for the action of connecting a device, in the prompt for connecting a "
+"device"
+msgid "Connect"
+msgstr "接続"
+
+#: qml/DatePicker.qml:239 loco:629257cb95222c3d5a084965
+msgctxt "Button for selecting the date of today, in a date picker"
+msgid "Today"
+msgstr "今日"
+
+#: qml/DatePicker.qml:246 loco:629257cb95222c3d5a084966
+msgctxt "Button for cancelling the selection of a date, in a date picker"
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: qml/DatePicker.qml:253 loco:629257cb95222c3d5a084967
+msgctxt "Button for confirming the selection of a date, in a date picker"
+msgid "OK"
+msgstr "オーケー"
+
+#: qml/DeveloperModePage.qml:27 loco:629257cb95222c3d5a084968
+msgctxt "Header for the Developer Mode page"
+msgid "Developer Mode"
+msgstr "デベロッパーモード"
+
+#: qml/DeveloperModePage.qml:34 loco:629257cb95222c3d5a084969
+msgctxt "Button with a sound effect for the Developer Mode Page"
+msgid "MAX GLASH"
+msgstr "MAX GLASH"
+
+#: qml/DisconnectOptions.qml:34 loco:629257cb95222c3d5a08496a
+msgctxt ""
+"Heading for the overlay for picking options when disconnecting from a piece "
+"of gear"
+msgid "Disconnect?"
+msgstr "ディスコネクト？"
+
+#: qml/DisconnectOptions.qml:53 loco:629257cb95222c3d5a08496b
+msgctxt ""
+"Label above the list of options available for disconnecting from a piece of "
+"gear"
+msgid "Please select how you would like to disconnect from %1."
+msgstr "1との接続を解除する方法を選択してください。"
+
+#: qml/DisconnectOptions.qml:68 loco:629257cb95222c3d5a08496c
+msgctxt ""
+"Label above the section that lets you set up the gear for use without a "
+"phone and then disconnect"
+msgid "Use Gear Without Your Phone"
+msgstr "スマホがなくてもギアを使える"
+
+#: qml/DisconnectOptions.qml:87 loco:629257cb95222c3d5a08496d
+msgctxt ""
+"Label above the list of options available for disconnecting from a piece of "
+"gear"
+msgid ""
+"Pick this option to set up No Phone Mode and disconnect, so you can leave "
+"the phone off. This works like a basic Casual Mode, but without the phone to "
+"operate it. (Handy if you're costuming and have nowhere to stow your phone)"
+msgstr ""
+"このオプションを選ぶと、ノーフォンモードが設定され、切断されるため、電話を切ったままにしておくことができます。これは、基本的なカジュアルモードと同じように機能しますが、操作するための電話を使用しません。(コスチュームを着ていて、携帯電話を収納する場所がない場合に便利です。）"
+
+#: qml/DisconnectOptions.qml:106 loco:629257cb95222c3d5a08496e
+msgctxt ""
+"Label for the slider which lets the user pick how long to wait between No "
+"Phone mode picks its commands"
+msgid ""
+"No Phone Mode will wait between %1 and %2 seconds before picking its next "
+"move."
+msgstr "ノーフォンモードは、次の動作を選択する前に、%1秒から%2秒の間待機します。"
+
+#: qml/DisconnectOptions.qml:126 loco:629257cb95222c3d5a08496f
+msgctxt ""
+"Label for the slider which lets the user pick how long to wait before No "
+"Phone mode is fully activated"
+msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
+msgstr "ノーフォンモードは、最初の手を選ぶまで、%1分(s)待機します。"
+
+#: qml/DisconnectOptions.qml:136 loco:629257cb95222c3d5a084970
+msgctxt ""
+"Label for the button in the disconnection options popup which puts the gear "
+"into autonomous, or no phone, mode"
+msgid "Engage No Phone Mode"
+msgstr "ノーフォンモードを設定する"
+
+#: qml/DisconnectOptions.qml:170 loco:629257cb95222c3d5a084971
+msgctxt ""
+"Label above the section that lets the user simply disconnect from the gear"
+msgid "Just Disconnect"
+msgstr "ジャストディスコネクト"
+
+#: qml/DisconnectOptions.qml:188 loco:629257cb95222c3d5a084972
+msgctxt ""
+"Label above the list of options available for disconnecting from a piece of "
+"gear"
+msgid ""
+"Pick this option to disconnect from the gear without turning it off (handy "
+"if you want to charge it)."
+msgstr "このオプションを選択すると、ギアの電源を切らずに切断することができます（充電する場合に便利です）。"
+
+#: qml/DisconnectOptions.qml:191 loco:629257cb95222c3d5a084973
+msgctxt ""
+"Label for the button in the disconnection options popup which only "
+"disconnects the gear"
+msgid "Disconnect"
+msgstr "ディスコネクト"
+
+#: qml/DisconnectOptions.qml:212 loco:629257cb95222c3d5a084974
+msgctxt ""
+"Header label for the section which lets you tell the gear to shut down "
+"before disconnecting"
+msgid "Disconnect and Shut Down"
+msgstr "切断とシャットダウン"
+
+#: qml/DisconnectOptions.qml:230 loco:629257cb95222c3d5a084975
+msgctxt ""
+"Label above the list of options available for shutting down the piece of gear"
+msgid ""
+"Pick this option to turn off the gear rather than simply disconnecting "
+"(handy if you're putting it away immediately)"
+msgstr "このオプションを選ぶと、単に接続を切るのではなく、ギアの電源を切ることができます（すぐに片付ける場合に便利です）"
+
+#: qml/DisconnectOptions.qml:233 loco:629257cb95222c3d5a084976
+msgctxt ""
+"Label for the button in the disconnection options popup which only "
+"disconnects the gear"
+msgid "Shut Down Gear"
+msgstr "シャットダウンギア"
+
+#: qml/EarPoses.qml:26 loco:629257cb95222c3d5a084977
+msgctxt "Title for the page for selecting a pose for the EarGear"
+msgid "Ear Poses"
+msgstr "イヤーポーズ"
+
+#: qml/EarPoses.qml:29 loco:629257cb95222c3d5a084978
+msgctxt ""
+"Button for returning the EarGear to the home position, on the page for "
+"selecting a pose for the EarGear"
+msgid "Home Position"
+msgstr "ホームポジション"
+
+#: qml/EarPoses.qml:37 loco:629257cb95222c3d5a084979
+msgctxt "Description for the page for selecting a pose for the EarGear"
+msgid ""
+"The list below shows all the poses available to your gear. Tap any of them "
+"to send them off to any of your connected devices!"
+msgstr ""
+"下のリストには、あなたのギアで利用できるすべてのポーズが表示されます。ポーズをタップすると、接続されているすべてのデバイスにポーズが送信されます。"
+
+#: qml/EarPoses.qml:40 loco:629257cb95222c3d5a08497a
+msgctxt "Label for the button for setting EarGear moves to run more slowly"
+msgid "Be Calm"
+msgstr "冷静になる"
+
+#: qml/EarPoses.qml:48 loco:629257cb95222c3d5a08497b
+msgctxt "Label for the button for setting EarGear moves to run faster"
+msgid "Be Excited"
+msgstr "わくわくする"
+
+#: qml/EarPoses.qml:62 loco:629257cb95222c3d5a08497c
+msgctxt ""
+"Heading for the list of poses, on the page for selecting a pose for the "
+"EarGear"
+msgid "Poses"
+msgstr "ポーズ"
+
+#: qml/GearGestures.qml:28 loco:629257cb95222c3d5a08497d
+msgctxt "Title for the page for selecting a pose for the Gear"
+msgid "Gear Gestures"
+msgstr "ギアジェスチャー"
+
+#: qml/GearGestures.qml:31 loco:629257cb95222c3d5a08497e
+msgctxt ""
+"Button for returning Gear to the home position, on the page for selecting a "
+"pose for the Gear"
+msgid "Home Position"
+msgstr "ホームポジション"
+
+#: qml/GearGestures.qml:47 loco:629257cb95222c3d5a08497f
+msgctxt "Info card for the page for selecting a pose for the Gear"
+msgid ""
+"Turn on one of the sensors below to make your gear react to gestures "
+"performed on this device, if there is nothing else going on (that is, no "
+"current commands, and an empty command queue). For example, make your ears "
+"perk up when the device recognises that is has been picked up, or start "
+"wagging when it detects that you have taken a step."
+msgstr ""
+"以下のセンサーのいずれかをオンにすると、他に何もしていない（つまり、現在のコマンドがなく、コマンドキューが空である）場合に、このデバイスで行われたジェスチャーにギアを反応させることができます。例えば、抱き上げられたことを認識すると耳をピクピクさせたり、一歩踏み出したことを検出すると体を揺らしたりします。"
+
+#: qml/GearGestures.qml:70 loco:629257cb95222c3d5a084980
+msgctxt ""
+"Title for the warning for having enabled multiple gestures at the same time, "
+"on the page for selecting a pose for the Gear"
+msgid "Multiple Gestures"
+msgstr "マルチジェスチャー"
+
+#: qml/GearGestures.qml:71 loco:629257cb95222c3d5a084981
+msgctxt ""
+"Description for the warning for having enabled multiple gestures at the same "
+"time, on the page for selecting a pose for the Gear"
+msgid ""
+"You are attempting to turn on more than one gesture at the same time. This "
+"will occasionally cause problems, primarily by being confusing to manage "
+"(for example, turning on both Walking and Shake is likely to cause both to "
+"be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
+"not enable this gesture."
+msgstr ""
+"複数のジェスチャーを同時にオンにしようとしています。これは、主に管理を混乱させることによって、問題を引き起こすことがあります（たとえば、「歩く」と「シェイク」の両方をオンにすると、両方が検出される可能性があります）。このジェスチャーを有効にする場合は「OK」を、無効にする場合は「キャンセル」をタップしてください。"
+
+#: qml/GearGestures.qml:80 loco:629257cb95222c3d5a084982
+msgctxt ""
+"Description for the checkbox for showing a gesture on the Welcome Page, on "
+"the page for selecting a pose for the Gear"
+msgid "Show On Welcome Page"
+msgstr "ウェルカムページに表示"
+
+#: qml/GearGestures.qml:93 loco:629257cb95222c3d5a084983
+msgctxt ""
+"Default text for the button for picking a command, for when no command has "
+"been selected, on the page for selecting a pose for the Gear"
+msgid "(no command)"
+msgstr "(コマンドなし)"
+
+#: qml/IdleModePage.qml:26 loco:629257cb95222c3d5a084984
+msgctxt "Title for the page for selecting a move in Casual Mode"
+msgid "Casual Mode Categories"
+msgstr "カジュアルモード カテゴリー"
+
+#: qml/IdleModePage.qml:46 loco:629257cb95222c3d5a084985
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Calm and Relaxed"
+msgstr "落ち着きとリラックス"
+
+#: qml/IdleModePage.qml:51 loco:629257cb95222c3d5a084986
+msgctxt ""
+"Description for the category for the Excited Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Fast and Excited"
+msgstr "Fast and Excited"
+
+#: qml/IdleModePage.qml:56 loco:629257cb95222c3d5a084987
+msgctxt ""
+"Description for the category for the Tense Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Frustrated and Tense"
+msgstr "イライラとピリピリ"
+
+#: qml/IdleModePage.qml:61 loco:629257cb95222c3d5a084988
+msgctxt ""
+"Description for the category for the LED Patterns, on the page for selecting "
+"a move in Casual Mode"
+msgid "LED Patterns"
+msgstr "LEDパターン"
+
+#: qml/IdleModePage.qml:72 loco:629257cb95222c3d5a084989
+msgctxt ""
+"Infocard for selecting the pauses in between moves, on the page for "
+"selecting a move in Casual Mode"
+msgid ""
+"This is where you set the pauses in between moves, as well as the families "
+"of moves that can be called upon."
+msgstr "ここでは、技と技の間のポーズや、呼び出せる技のファミリーを設定します。"
+
+#: qml/IdlePauseRangePicker.qml:30 loco:629257cb95222c3d5a08498a
+msgctxt ""
+"Label for selecting the range of pauses in between moves in Casual Mode"
+msgid "Range of pause between moves in seconds"
+msgstr "移動間隙の範囲（秒）"
+
+#: qml/main.qml:62 loco:629257cb95222c3d5a08498b
+msgctxt "Title of the application"
+msgid "Crumpet"
+msgstr "クランペット"
+
+#: qml/main.qml:98 loco:629257cb95222c3d5a08498c
+msgctxt "Text for the notification upon connecting successfully to a device"
+msgid "Connected successfully!"
+msgstr "正常に接続されました。"
+
+#: qml/main.qml:119 loco:629257cb95222c3d5a08498d
+msgctxt "Title for the warning for having Bluetooth disabled"
+msgid "Warning"
+msgstr "警告"
+
+#: qml/main.qml:119 loco:629257cb95222c3d5a08498e
+msgctxt "Message for the warning for having Bluetooth disabled"
+msgid "Bluetooth is disabled"
+msgstr "Bluetoothは無効です"
+
+#: qml/main.qml:121 loco:629257cb95222c3d5a08498f
+msgctxt "Title for the warning for not having detected any Bluetooth devices"
+msgid "Warning"
+msgstr "警告"
+
+#: qml/main.qml:121 loco:629257cb95222c3d5a084990
+msgctxt "Message for the warning for not having detected any Bluetooth devices"
+msgid "No Bluetooth Device"
+msgstr "Bluetoothデバイスがない"
+
+#: qml/main.qml:134 loco:629257cb95222c3d5a084991
+msgctxt "Title for the popup for having enabled Developer Mode"
+msgid "Developer mode"
+msgstr "デベロッパーモード"
+
+#: qml/main.qml:134 loco:629257cb95222c3d5a084992
+msgctxt "Message for the popup for having enabled Developer Mode"
+msgid "Developer mode is enabled"
+msgstr "デベロッパーモードは無効です"
+
+#: qml/main.qml:136 loco:629257cb95222c3d5a084993
+msgctxt "Title for the popup for having disabled Developer Mode"
+msgid "Developer mode"
+msgstr "デベロッパーモード"
+
+#: qml/main.qml:136 loco:629257cb95222c3d5a084994
+msgctxt "Message for the popup for having disabled Developer Mode"
+msgid "Developer mode is disabled"
+msgstr "デベロッパーモードは無効です"
+
+#: qml/main.qml:141 loco:629257cb95222c3d5a084995
+msgctxt "Title for the popup for getting a timeout for Casual Mode"
+msgid "Casual Mode is Off"
+msgstr "カジュアルモードはオフ"
+
+#: qml/main.qml:141 loco:629257cb95222c3d5a084996
+msgctxt "Message for the popup for getting a timeout for Casual Mode"
+msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
+msgstr "ちょっと一休み...。しっぽや耳を休ませてあげましょう。"
+
+#: qml/main.qml:202 loco:629257cb95222c3d5a084997
+msgctxt "Button for opening the Crumpet page, from the landing page"
+msgid "Crumpet"
+msgstr "クランペット"
+
+#: qml/main.qml:210 loco:629257cb95222c3d5a084998
+msgctxt "Button for opening the Alarm page, from the landing page"
+msgid "Alarm"
+msgstr "アラーム"
+
+#: qml/main.qml:220 loco:629257cb95222c3d5a084999
+msgctxt "Button for opening the Move List page, from the landing page"
+msgid "Move Lists"
+msgstr "Move Lists"
+
+#: qml/main.qml:230 loco:629257cb95222c3d5a08499a
+msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
+msgid "Moves"
+msgstr "Moves"
+
+#: qml/main.qml:239 loco:629257cb95222c3d5a08499b
+msgctxt "Button for opening the EarGear Poses page, from the landing page"
+msgid "Ear Poses"
+msgstr "イヤーポーズ"
+
+#: qml/main.qml:248 loco:629257cb95222c3d5a08499c
+msgctxt "Button for opening the Glow Tips page, from the landing page"
+msgid "Glow Tips"
+msgstr "グローチップ"
+
+#: qml/main.qml:257 loco:629257cb95222c3d5a08499d
+msgctxt ""
+"Button for opening the page for setting up the Casual Mode, from the landing "
+"page"
+msgid "Casual Mode Settings"
+msgstr "カジュアルモード設定"
+
+#: qml/main.qml:266 loco:629257cb95222c3d5a08499e
+msgctxt "Button for opening the Gear Gestures page, from the landing page"
+msgid "Gear Gestures"
+msgstr "ギアジェスチャー"
+
+#: qml/main.qml:275 loco:629257cb95222c3d5a08499f
+msgctxt "Button for opening the Developer Mode page, from the landing page"
+msgid "Developer Mode"
+msgstr "デベロッパーモード"
+
+#: qml/main.qml:290 loco:629257cb95222c3d5a0849a0
+msgctxt "Button for opening the Settings Page, from the landing page"
+msgid "Settings"
+msgstr "設定"
+
+#: qml/main.qml:301 loco:629257cb95222c3d5a0849a1
+msgctxt "Button for opening the About Us page, from the landing page"
+msgid "About"
+msgstr "約"
+
+#: qml/main.qml:321 loco:629257cb95222c3d5a0849a2
+msgctxt "Title for the confirmation popup for disconnecting your gear"
+msgid "Your gear is currently connected"
+msgstr "現在接続されている機器"
+
+#: qml/main.qml:322 loco:629257cb95222c3d5a0849a3
+msgctxt "Message for the confirmation popup for disconnecting your gear"
+msgid ""
+"You are currently connected to some of your gear.\n"
+"\n"
+"Are you sure that you want to disconnect and quit?"
+msgstr ""
+"現在、いくつかの機材に接続されています。\n"
+"\n"
+"本当に接続を解除して終了しますか？"
+
+#: qml/main.qml:386 loco:629257cb95222c3d5a0849a4
+msgctxt "Description for the prompt for entering a name for your Gear"
+msgid "Enter a name to use for your new gear"
+msgstr "新しいギアに使用する名前を入力します"
+
+#: qml/main.qml:387 loco:629257cb95222c3d5a0849a5
+msgctxt "Placeholder text for the prompt for entering a name for your Gear"
+msgid "Enter the name here"
+msgstr "ここに名前を入力"
+
+#: qml/main.qml:388 loco:629257cb95222c3d5a0849a6
+msgctxt ""
+"Button for confirming the save of your new name, for the prompt for entering "
+"a name for your Gear"
+msgid "Save"
+msgstr "セーブ"
+
+#: qml/main.qml:429 loco:629257cb95222c3d5a0849a7
+msgctxt "Label for your gear that gets shown when attempting to connect to it"
+msgid "Attempting to connect..."
+msgstr "接続を試みている..."
+
+#: qml/MessageBox.qml:48 loco:629257cb95222c3d5a0849a8
+msgctxt "Confirmation button for a generic message"
+msgid "Ok"
+msgstr "OK"
+
+#: qml/MessageBox.qml:67 loco:629257cb95222c3d5a0849a9
+msgctxt "Cancel button for a generic message"
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: qml/MoveListEditor.qml:32 loco:629257cb95222c3d5a0849aa
+msgctxt ""
+"Label for the button for running a Move List, on the Move List Editor page"
+msgid "Run Move List"
+msgstr "ムーブリストの実行"
+
+#: qml/MoveListEditor.qml:35 loco:629257cb95222c3d5a0849ab
+msgctxt ""
+"Heading for the confirmation prompt for running a Move List, on the Move "
+"List Editor page"
+msgid "Run this list?"
+msgstr "このリストを実行しますか？"
+
+#: qml/MoveListEditor.qml:36 loco:629257cb95222c3d5a0849ac
+msgctxt ""
+"Message for the confirmation prompt for running a Move List, on the Move "
+"List Editor page"
+msgid "Do you want to run this list?"
+msgstr "このリストを実行したいですか？"
+
+#: qml/MoveListEditor.qml:51 loco:629257cb95222c3d5a0849ad
+msgctxt ""
+"Header for the confirmation prompt for removing a Move List Entry, on the "
+"Move List Editor page"
+msgid "Remove Move List Entry?"
+msgstr "リスト移動エントリーを削除しますか？"
+
+#: qml/MoveListEditor.qml:52 loco:629257cb95222c3d5a0849ae
+msgctxt ""
+"Message for the confirmation prompt for removing a Move List Entry, on the "
+"Move List Editor page"
+msgid "Are you sure that you want to remove this entry from your move list?"
+msgstr "本当にこのエントリーを移動リストから削除しますか？"
+
+#: qml/MoveLists.qml:27 loco:629257cb95222c3d5a0849af
+msgctxt "Heading for the page for viewing Move Lists"
+msgid "Move Lists"
+msgstr "リスト移動"
+
+#: qml/MoveLists.qml:31 loco:629257cb95222c3d5a0849b0
+msgctxt ""
+"Label for the button for adding a new Move List, on the page for viewing "
+"Move Lists"
+msgid "Add New Move List"
+msgstr "新しいムーブリストを追加する"
+
+#: qml/MoveLists.qml:48 loco:629257cb95222c3d5a0849b1
+msgctxt ""
+"Heading for the prompt for confirming the action of running a list, on the "
+"page for viewing Move Lists"
+msgid "Run this list?"
+msgstr "このリストを実行しますか？"
+
+#: qml/MoveLists.qml:49 loco:629257cb95222c3d5a0849b2
+msgctxt ""
+"Message for the prompt for confirming the action of running a list, on the "
+"page for viewing Move Lists"
+msgid "Do you want to run the list %1?"
+msgstr "リスト %1 を実行しますか?"
+
+#: qml/MoveLists.qml:56 loco:629257cb95222c3d5a0849b3
+msgctxt ""
+"Label for the button for editing a move list, on the page for viewing Move "
+"Lists"
+msgid "Edit Move List"
+msgstr "ムーブリストの編集"
+
+#: qml/MoveLists.qml:64 loco:629257cb95222c3d5a0849b4
+msgctxt ""
+"Label for the button for deleting a move list, on the page for viewing Move "
+"Lists"
+msgid "Delete this Move List"
+msgstr "このムーブリストを削除する"
+
+#: qml/MoveLists.qml:68 loco:629257cb95222c3d5a0849b5
+msgctxt ""
+"Heading for the prompt for confirming the action of deleting a list, on the "
+"page for viewing Move Lists"
+msgid "Remove the Move List"
+msgstr "ムーブリストの削除"
+
+#: qml/MoveLists.qml:69 loco:629257cb95222c3d5a0849b6
+msgctxt ""
+"Message for the prompt for confirming the action of deleting a list, on the "
+"page for viewing Move Lists"
+msgid "Are you sure that you want to remove the Move List '%1'?"
+msgstr "移動リスト '%1' を本当に削除しますか?"
+
+#: qml/MoveLists.qml:86 loco:629257cb95222c3d5a0849b7
+msgctxt "Description for the page for viewing Move Lists"
+msgid ""
+"Create lists of moves, glows and pauses to send to your gear. To send a list "
+"you have created, tap it and pick OK. To perform actions on the ones you've "
+"created, like editing or even removing them entirely, swipe left on the item."
+msgstr ""
+"ムーブ、グロー、ポーズのリストを作成し、ギアに送信します。作成したリストを送信するには、リストをタップしてOKを選びます。作成したリストに対して、編集や削除などのアクションを実行するには、項目を左にスワイプします。"
+
+#: qml/MoveLists.qml:93 loco:629257cb95222c3d5a0849b8
+msgctxt ""
+"Description for the prompt for giving a name to a move list, on the page for "
+"viewing Move Lists"
+msgid "Enter a name to use for your new move list and click Create"
+msgstr "新しい移動リストに使用する名前を入力し、[作成]をクリックします。"
+
+#: qml/MoveLists.qml:94 loco:629257cb95222c3d5a0849b9
+msgctxt ""
+"Placeholder text for the textfield for the prompt for giving a name to a "
+"move list, on the page for viewing Move Lists"
+msgid "Enter your move list name here"
+msgstr "ムーブリスト名を入力してください。"
+
+#: qml/MoveLists.qml:95 loco:629257cb95222c3d5a0849ba
+msgctxt ""
+"Confirmating button for the prompt for giving a name to a move list, on the "
+"page for viewing Move Lists"
+msgid "Create"
+msgstr "作成"
+
+#: qml/MoveLists.qml:99 loco:629257cb95222c3d5a0849bb
+msgctxt ""
+"Header for the warning that a name is already in use, for the prompt for "
+"giving a name to a move list, on the page for viewing Move Lists"
+msgid "Name Already Used"
+msgstr "すでに使用されている名前"
+
+#: qml/MoveLists.qml:100 loco:629257cb95222c3d5a0849bc
+msgctxt ""
+"Description for the warning that a name is already in use, for the prompt "
+"for giving a name to a move list, on the page for viewing Move Lists"
+msgid ""
+"You already have a move list with the name %1. Please pick another name, as "
+"that won't work."
+msgstr "1 という名前の移動リストが既に存在します。うまくいかないので、他の名前を選んでください。"
+
+#: qml/NamePicker.qml:41 loco:629257cb95222c3d5a0849bd
+msgctxt "Text header for picking a name"
+msgid "Pick a name"
+msgstr "名前を決める"
+
+#: qml/NotConnectedCard.qml:46 loco:629257cb95222c3d5a0849be
+msgctxt ""
+"Header warning for missing scan permissions, for the gear connecting card"
+msgid "Let us look for your gear"
+msgstr "ギアを探します"
+
+#: qml/NotConnectedCard.qml:49 loco:629257cb95222c3d5a0849bf
+msgctxt "Header for whilst scanning, for the gear connecting card"
+msgid "Searching for gear..."
+msgstr "道具を探す..."
+
+#: qml/NotConnectedCard.qml:53 loco:629257cb95222c3d5a0849c0
+msgctxt ""
+"Header warning that no gear has been found, for the gear connecting card"
+msgid "No gear found"
+msgstr "ギアが見つかりません"
+
+#: qml/NotConnectedCard.qml:56 loco:629257cb95222c3d5a0849c1
+msgctxt ""
+"Header notifying that gear has been found, for the gear connecting card"
+msgid "One piece of gear available"
+msgid_plural "Multiple pieces of gear available"
+msgstr[0] "1枚で使用可能"
+
+#: qml/NotConnectedCard.qml:82 loco:629257cb95222c3d5a0849c3
+msgctxt ""
+"Message warning for missing scan permissions, for the gear connecting card"
+msgid ""
+"To be able to find your gear, we need you to grant permission to access your "
+"location. Clicking the button below will show you a dialog that you need to "
+"press allow on. We do not use this information for anything else (feel free "
+"to get in touch if you want proof of this)."
+msgstr ""
+"あなたのギアを見つけるためには、あなたの位置情報へのアクセスを許可する必要があります。下のボタンをクリックすると、ダイアログが表示されますので、許可ボタンを押してください。この情報を他の目的に使用することはありません（その証明が必要な場合はお気軽にお問い合わせください）。"
+
+#: qml/NotConnectedCard.qml:86 loco:629257cb95222c3d5a0849c4
+msgctxt ""
+"Message whilst scanning warning that no gear has been found, for the gear "
+"connecting card"
+msgid "None found yet..."
+msgstr "まだ見つかっていません..."
+
+#: qml/NotConnectedCard.qml:89 loco:629257cb95222c3d5a0849c5
+msgctxt ""
+"Message whilst scanning notifying that gear has been found, for the gear "
+"connecting card"
+msgid ""
+"1 piece of gear found. Simply wait, or push \"Connect\" below to control it."
+msgid_plural ""
+"Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
+"below."
+msgstr[0] "1件見つかりました。そのまま待つか、下の「接続」を押して操作してください。"
+
+#: qml/NotConnectedCard.qml:94 loco:629257cb95222c3d5a0849c7
+msgctxt ""
+"Message after scanning warning that no gear has been found, for the gear "
+"connecting card"
+msgid ""
+"We were unable to find any gear. Please ensure that yours is nearby and "
+"switched on."
+msgstr ""
+"We were unable to find any gear. Please ensure that yours is nearby and "
+"switched on."
+
+#: qml/NotConnectedCard.qml:97 loco:629257cb95222c3d5a0849c8
+msgctxt ""
+"Message after scanning notifying that gear has been found, for the gear "
+"connecting card"
+msgid ""
+"You are not currently connected to your gear, but we know of one. Push "
+"\"Connect\" to connect to it."
+msgid_plural ""
+"You are not currently connected to your gear, and we have found %1. Please "
+"push \"Show available gear...\" below to see what is available."
+msgstr[0] "あなたは現在、機材に接続されていませんが、私たちは1つ知っています。接続 \"を押して接続してください。"
+
+#: qml/NotConnectedCard.qml:108 loco:629257cb95222c3d5a0849ca
+msgctxt ""
+"Label for button for opening the settings tab to fix missing scan "
+"permissions, for the gear connecting card"
+msgid "Get Location Permission..."
+msgstr "位置情報の取得許可..."
+
+#: qml/NotConnectedCard.qml:110 loco:629257cb95222c3d5a0849cb
+msgctxt ""
+"Label for button for connecting to a specific piece of gear, for the gear "
+"connecting card"
+msgid "Connect to %1"
+msgstr "1に接続する"
+
+#: qml/NotConnectedCard.qml:112 loco:629257cb95222c3d5a0849cc
+msgctxt ""
+"Label for button for showing a list of available gear, for the gear "
+"connecting card"
+msgid "Show available gear..."
+msgstr "使用可能なギアを表示する..."
+
+#: qml/NotConnectedCard.qml:132 loco:629257cb95222c3d5a0849cd
+msgctxt ""
+"Label for button which causes the list of available gear to be refreshed, "
+"for the gear connecting card"
+msgid "Look for gear"
+msgstr "ギアを探す"
+
+#: qml/PickACommandSheet.qml:31 loco:629257cb95222c3d5a0849ce
+msgctxt ""
+"Heading for the overlay for picking a command, for configuring a move list"
+msgid "Pick a command"
+msgstr "コマンドを選ぶ"
+
+#: qml/PickACommandSheet.qml:35 loco:629257cb95222c3d5a0849cf
+msgctxt ""
+"Description for the overlay for picking a command, for configuring a move "
+"list"
+msgid ""
+"The list below shows all the moves and light patterns available to your gear."
+" Tap any of them to pick that command."
+msgstr "下のリストは、ギアで使用できるすべての技と光のパターンを示しています。どれかをタップすると、そのコマンドが選択されます。"
+
+#: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
+#: loco:629257cb95222c3d5a0849d0
+msgctxt ""
+"Description for the category for the Ear Gear poses, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Poses"
+msgstr "ポーズ"
+
+#: qml/PickACommandSheet.qml:49 qml/PickACommandSheet.qml:76
+#: loco:629257cb95222c3d5a0849d1
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Calm and Relaxed"
+msgstr "落ち着きとリラックス"
+
+#: qml/PickACommandSheet.qml:54 qml/PickACommandSheet.qml:81
+#: loco:629257cb95222c3d5a0849d2
+msgctxt ""
+"Description for the category for the Excited Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Fast and Excited"
+msgstr "速くと興奮"
+
+#: qml/PickACommandSheet.qml:59 qml/PickACommandSheet.qml:86
+#: loco:629257cb95222c3d5a0849d3
+msgctxt ""
+"Description for the category for the Tense Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Frustrated and Tense"
+msgstr "イライラとピリピリ"
+
+#: qml/PickACommandSheet.qml:64 loco:629257cb95222c3d5a0849d4
+msgctxt ""
+"Description for the category for the LED Patterns, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "LED Patterns"
+msgstr "LEDパターン"
+
+#: qml/SettingsCrumpetPicker.qml:26 loco:629257cb95222c3d5a0849d5
+msgctxt "Heading for the page for configuring command Sets"
+msgid "Gear Command Sets"
+msgstr "ギアコマンドセット"
+
+#: qml/SettingsCrumpetPicker.qml:45 loco:629257cb95222c3d5a0849d6
+msgctxt ""
+"Description for the page for configuring Command Sets, for a specific gear"
+msgid ""
+"This is all the command sets you have available to enable for %1. You can "
+"add new ones, edit them, and remove them. You cannot edit the built-in lists,"
+" but you can duplicate them and then edit those."
+msgstr ""
+"これは、%1 "
+"で有効にすることができるすべてのコマンド・セットです。新しいものを追加したり、編集したり、削除したりすることができます。組み込みのリストは編集できませんが、リストを複製して、それを編集することは可能です。"
+
+#: qml/SettingsCrumpetPicker.qml:78 loco:629257cb95222c3d5a0849d7
+msgctxt ""
+"Button for deleting a Command Set, on the page for configuring Command Sets"
+msgid "Delete"
+msgstr "デリート"
+
+#: qml/SettingsCrumpetPicker.qml:82 loco:629257cb95222c3d5a0849d8
+msgctxt ""
+"Button for duplicating a Command Set, on the page for configuring Command "
+"Sets"
+msgid "Duplicate"
+msgstr "デュプリケート"
+
+#: qml/SettingsCrumpetPicker.qml:91 loco:629257cb95222c3d5a0849d9
+msgctxt ""
+"Button for editing a Command Set, on the page for configuring Command Sets"
+msgid "Edit Commands"
+msgstr "編集コマンド"
+
+#: qml/SettingsCrumpetPicker.qml:103 loco:629257cb95222c3d5a0849da
+msgctxt ""
+"Header for the overlay for editing a Command Set, on the page for "
+"configuring Command Sets"
+msgid "Edit Commands"
+msgstr "編集コマンド"
+
+#: qml/SettingsCrumpetPicker.qml:111 loco:629257cb95222c3d5a0849db
+msgctxt ""
+"Button for saving a Command Set, on the overlay for editing a Command Set, "
+"on the page for configuring Command Sets"
+msgid "Save"
+msgstr "セーブ"
+
+#: qml/SettingsCrumpetPicker.qml:125 loco:629257cb95222c3d5a0849dc
+msgctxt ""
+"Placeholder text for the overlay for editing a Command Set, on the page for "
+"configuring Command Sets"
+msgid ""
+"(this is where the content of the crumpet file goes,\n"
+"because we'll just have that here for now...)"
+msgstr ""
+"(ここにクランプファイルの中身が入ります。\n"
+"というのも、とりあえずここに置いておくことにして...)"
+
+#: qml/SettingsPage.qml:29 loco:629257cb95222c3d5a0849dd
+msgctxt "Title for the settings page"
+msgid "Settings"
+msgstr "設定"
+
+#: qml/SettingsPage.qml:36 loco:629257cb95222c3d5a0849de
+msgctxt "Header for the instruction panel, on the settings page"
+msgid "Instructions"
+msgstr "取扱説明書"
+
+#: qml/SettingsPage.qml:37 loco:629257cb95222c3d5a0849df
+msgctxt "Description for the instruction panel on the settings page"
+msgid ""
+"Please download and read the instructions by clicking the link below. This "
+"includes instructions on how to wear your tail or ears, along with some nice "
+"graphics showing you how."
+msgstr ""
+"下のリンクをクリックして、説明書をダウンロードし、お読みください。これには、しっぽや耳の付け方の説明と、その方法を示す素敵なグラフィックが含まれています。"
+
+#: qml/SettingsPage.qml:56 loco:629257cb95222c3d5a0849e0
+msgctxt "Header for the panel on automatic reconnection, on the settings page"
+msgid "Automatic Reconnection"
+msgstr "自動再接続"
+
+#: qml/SettingsPage.qml:57 loco:629257cb95222c3d5a0849e1
+msgctxt ""
+"Description for the panel on automatic reconnection, on the settings page"
+msgid ""
+"In certain situations, the app might lose its connection to your gear. "
+"Ticking this option will ensure that the app will attempt to reconnect "
+"automatically when the connection is lost."
+msgstr ""
+"特定の状況下で、アプリがギアとの接続を失うことがあります。このオプションをオンにすると、接続が失われたときにアプリが自動的に再接続を試みるようになります。"
+
+#: qml/SettingsPage.qml:59 loco:629257cb95222c3d5a0849e2
+msgctxt ""
+"Checkbox for enabling automatic reconnection, on the automatic reconnection "
+"panel in the settings page"
+msgid "Reconnect Automatically"
+msgstr "自動で再接続する"
+
+#: qml/SettingsPage.qml:68 loco:629257cb95222c3d5a0849e3
+msgctxt "Header for the panel for changing gear names, on the settings page"
+msgid "Gear Names"
+msgstr "ギヤネーム"
+
+#: qml/SettingsPage.qml:69 loco:629257cb95222c3d5a0849e4
+msgctxt ""
+"Description for the panel for changing gear names, on the settings page"
+msgid ""
+"If you want to clear the names of any gear you have given a name, click the "
+"button below to make the app forget them all."
+msgstr "名前をつけたギアをすべて消去したい場合は、下のボタンをクリックすると、アプリが名前を忘れるようになります。"
+
+#: qml/SettingsPage.qml:71 loco:629257cb95222c3d5a0849e5
+msgctxt ""
+"Label for the button for clearing gear names, on the panel for changing gear "
+"names, on the settings page"
+msgid "Forget Gear Names"
+msgstr "ギアネームを忘れる"
+
+#: qml/SettingsPage.qml:74 loco:629257cb95222c3d5a0849e6
+msgctxt ""
+"Header for the warning prompt for clearing gear names, on the panel for "
+"changing gear names, on the settings page"
+msgid "Clear the names?"
+msgstr "名前を消す？"
+
+#: qml/SettingsPage.qml:75 loco:629257cb95222c3d5a0849e7
+msgctxt ""
+"Text for the warning prompt for clearing gear names, on the panel for "
+"changing gear names, on the settings page"
+msgid ""
+"Please confirm that you do, in fact, want to clear all your saved device "
+"names."
+msgstr "保存されているデバイス名をすべて消去することを確認してください。"
+
+#: qml/SettingsPage.qml:82 loco:629257cb95222c3d5a0849e8
+msgctxt ""
+"Header for the panel for adding commands to your gear, on the settings page"
+msgid "Gear Commands"
+msgstr "ギアコマンド"
+
+#: qml/SettingsPage.qml:83 loco:629257cb95222c3d5a0849e9
+msgctxt ""
+"Description for the panel for adding commands to your gear, on the settings "
+"page"
+msgid ""
+"While the app ships with a number of command sets out of the box, this is "
+"not all that your gear can do. You can modify what is sent to your gear, and "
+"we'll remember for each of them which commands you want to use. To be able "
+"to more easily use this, make sure to give your gear a name, so you can tell "
+"them apart more easily."
+msgstr ""
+"アプリには数多くのコマンドセットが箱から出されていますが、これがあなたのギアにできることのすべてではありません。ギアに送られるコマンドを変更することができ、あなたが使いたいコマンドをギアごとに記憶します。これをより簡単に使えるようにするために、ギアに名前をつけておくと、より簡単に見分けがつくようになります。"
+
+#: qml/SettingsPage.qml:87 loco:629257cb95222c3d5a0849ea
+msgctxt ""
+"Checkbox for hiding non-connected gear, on the panel for adding commands to "
+"your gear, on the settings page"
+msgid "Only Show Connected Gear"
+msgstr "コネクテッドギアのみ表示"
+
+#: qml/SettingsPage.qml:100 loco:629257cb95222c3d5a0849eb
+msgctxt ""
+"Warning for the list of configurable gear being empty, on the panel for "
+"adding commands to your gear, on the settings page"
+msgid "No gear to configure..."
+msgstr "構成するギアがない..."
+
+#: qml/SettingsPage.qml:125 loco:629257cb95222c3d5a0849ec
+msgctxt ""
+"Heading for the panel for adjusting microphone levels for the earGear, on "
+"the settings page"
+msgid "EarGear Hearing"
+msgstr "イヤギアヒアリング"
+
+#: qml/SettingsPage.qml:126 loco:629257cb95222c3d5a0849ed
+msgctxt ""
+"Description for the panel for adjusting microphone levels for the earGear, "
+"on the settings page"
+msgid ""
+"If your EarGear is acting a bit like it isn't hearing right, it might need "
+"to have its balance checked. To make sure it works the best, you will want "
+"to be in a quiet room before you tap the balance button below (pause your "
+"music, close the door to your bedroom, etc). This value is stored in the box,"
+" so you shouldn't generally need to do it more than once. You might also "
+"need to swap the direction around (for example, you might want to put your "
+"controller box either on the front or the back of your body, or upside down "
+"so the cable can run more gracefully)."
+msgstr ""
+"お使いのEarGearが正しく聞こえないような場合は、バランスチェックが必要な場合があります。最適に動作するように、下のバランスボタンをタップする前に、静かな部屋にいることをお勧めします（音楽を一時停止する、寝室のドアを閉めるなどしてください）。この値はボックス内に保存されるので、一般的に何度も行う必要はないはずです。また、向きを入れ替える必要があるかもしれません（例えば、ケーブルがより優雅に走ることができるように、コントローラーボックスを体の前面または背面に置くか、または逆さまにしたいかもしれません）。"
+
+#: qml/SettingsPage.qml:142 loco:629257cb95222c3d5a0849ee
+msgctxt ""
+"Label for the button for unswapping left and right, on the panel for "
+"adjusting microphone levels for the earGear, on the settings page"
+msgid "Unswap left and right"
+msgstr "左右のアンスワップ"
+
+#: qml/SettingsPage.qml:143 loco:629257cb95222c3d5a0849ef
+msgctxt ""
+"Label for the button for swapping left and right, the panel for adjusting "
+"microphone levels for the earGear, on the settings page"
+msgid "Swap left and right"
+msgstr "左右のスワップ"
+
+#: qml/SettingsPage.qml:150 loco:629257cb95222c3d5a0849f0
+msgctxt ""
+"Label for the button for rebalancing microphone levels, the panel for "
+"adjusting microphone levels for the earGear, on the settings page"
+msgid "Rebalance Microphones"
+msgstr "マイクロフォンのリバランス"
+
+#: qml/SettingsPage.qml:163 loco:629257cb95222c3d5a0849f1
+msgctxt ""
+"Heading for the panel for checking for and performing firmware updates for "
+"gear which supports this"
+msgid "Gear Firmware"
+msgstr "ギアファームウェア"
+
+#: qml/SettingsPage.qml:164 loco:629257cb95222c3d5a0849f2
+msgctxt ""
+"Description for the panel for checking for and perfirming firmware updates "
+"for gear which supports this"
+msgid ""
+"If your gear supports firmware updates, you can check for new ones by "
+"clicking the \"Check\" button below, and if there is one, you can then click "
+"the button underneath to download and install the update."
+msgstr ""
+"ファームウェアのアップデートに対応している機器では、下の「確認」ボタンをクリックして新しいファームウェアがあるかどうかを確認し、ある場合はその下のボタンをクリックしてアップデートをダウンロード、インストールすることが可能です。"
+
+#: qml/SettingsPage.qml:180 loco:629257cb95222c3d5a0849f3
+msgctxt ""
+"Label for the button which makes the app go online and check for the newest "
+"firmware available for the specific device"
+msgid "Check For New Firmware"
+msgstr "新しいファームウェアのチェック"
+
+#: qml/SettingsPage.qml:189 loco:629257cb95222c3d5a0849f4
+msgctxt ""
+"Label displaying the currently installed and available firmware versions "
+"when they are different"
+msgid ""
+"You currently have version %1 installed, and version %2 is available for you "
+"to install"
+msgstr "現在、バージョン %1 がインストールされていますが、バージョン %2 をインストールすることができます。"
+
+#: qml/SettingsPage.qml:195 loco:629257cb95222c3d5a0849f5
+msgctxt ""
+"Label for the button which makes the app download the newest available "
+"firmware (only visible when updated firmware has been found)"
+msgid "Download"
+msgstr "ダウンロード"
+
+#: qml/SettingsPage.qml:203 loco:629257cb95222c3d5a0849f6
+msgctxt ""
+"Label giving a set of instructions and warnings that users should be aware "
+"of before attempting to install new firmware"
+msgid ""
+"Before updating your gear from %1 to %2, please make sure you do the "
+"following:\n"
+"\n"
+"- Connect your gear to the USB charger and make sure it is charging. Keep it "
+"connected to the power while you update the firmware.\n"
+"\n"
+"- Also make sure your phone has more than 50% charge before you begin the "
+"update process.\n"
+"\n"
+"Upgrading your gear takes around 3 minutes. You must not switch off the gear "
+"or the phone while its working!\n"
+"\n"
+"Once the new firmware is beamed to your gear, it will disconnect from the "
+"app and reboot. This is quite normal! It should automatically reconnect, but "
+"in case it doesn't, just click the Connect button on the front page as usual."
+msgstr ""
+"ギアを%1から%2へアップデートする前に、以下のことを確認してください。\n"
+"\n"
+"- ギアをUSBチャージャーに接続し、充電中であることを確認する。ファームウェアをアップデートしている間は、電源に接続したままにしてください。\n"
+"\n"
+"- また、アップデート作業を開始する前に、携帯電話の充電が50%以上あることを確認してください。\n"
+"\n"
+"ギアのアップグレードには3分程度かかります。作業中はギアや携帯電話の電源を切らないでください。\n"
+"\n"
+"新しいファームウェアがギアに転送されると、ギアはアプリから切断され、再起動されます。これはごく普通のことです。自動的に再接続されるはずですが、再接続されない場合は、通常通り、フロントページの接続ボタンをクリックしてください。"
+
+#: qml/SettingsPage.qml:209 loco:629257cb95222c3d5a0849f7
+msgctxt ""
+"Label for the button which makes the app install the newest available "
+"firmware (only visible when updated firmware has been downloaded "
+"successfully)"
+msgid "Install"
+msgstr "インストール"
+
+#: qml/SettingsPage.qml:220 loco:629257cb95222c3d5a0849f8
+msgctxt "Heading for the panel of the language selector, on the settings page"
+msgid "Language"
+msgstr "言語"
+
+#: qml/SettingsPage.qml:221 loco:629257cb95222c3d5a0849f9
+msgctxt "Description of the language selection option on the settings page"
+msgid ""
+"Usually, Crumpet will use the language that your device uses, or English if "
+"that language is not available. However, if you wish to force some language, "
+"you can select it here, and we will use that language instead."
+msgstr ""
+"通常、Crumpetはあなたのデバイスが使用する言語を使用し、その言語が使用できない場合は英語を使用します。しかし、ある言語を強制的に使用したい場合は、ここで選択することができ、その言語を代わりに使用することになります。"
+
+#: qml/SettingsPage.qml:245 loco:629257cb95222c3d5a0849fa
+msgctxt ""
+"Heading for the panel for the demo modus of the app, on the settings page"
+msgid "Fake Tail"
+msgstr "フェイクテイル"
+
+#: qml/SettingsPage.qml:246 loco:629257cb95222c3d5a0849fb
+msgctxt ""
+"Description for the panel for the demo modus of the app, on the settings page"
+msgid ""
+"If you have just downloaded the app, for example in anticipation of the "
+"arrival of your brand new, super shiny DIGITAiL or EarGear, you might want "
+"to explore what the app can do. You can click the button below to trick the "
+"app into thinking that there is a tail nearby, and let you explore what "
+"options exist. Enabling this option will make a fake tail show up on the "
+"welcome page."
+msgstr ""
+"例えば、新品のピカピカのDIGITAiLやEarGearの到着を待って、アプリをダウンロードしたばかりの方は、アプリで何ができるかを探したくなるかもしれません。下のボタンをクリックすると、アプリが近くに尾行があると勘違いし、どんなオプションがあるのか探索することができます。このオプションを有効にすると、ウェルカムページに偽のしっぽが表示されます。"
+
+#: qml/SettingsPage.qml:248 loco:629257cb95222c3d5a0849fc
+msgctxt ""
+"Label for the checkbox for showing a fake tail inside the app, on the panel "
+"for the demo modus of the app, on the settings page"
+msgid "Show Fake Tail"
+msgstr "フェイクテールを表示する"
+
+#: qml/TailLights.qml:24 loco:629257cb95222c3d5a0849fd
+msgctxt "Header for the page for the Glow Tips"
+msgid "Glow Tips"
+msgstr "グローチップ"
+
+#: qml/TailLights.qml:27 loco:629257cb95222c3d5a0849fe
+msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
+msgid "Stop Lights"
+msgstr "ストップライト"
+
+#: qml/TailLights.qml:36 loco:629257cb95222c3d5a0849ff
+msgctxt ""
+"Description for the list of light patterns, on the page for the Glow Tips"
+msgid ""
+"The list below shows all the light patterns available to your gear. Tap any "
+"of them to send them off to any of your connected devices!"
+msgstr ""
+"下のリストは、あなたのギアで利用可能なすべての光のパターンを示しています。どれかをタップすると、接続されているすべてのデバイスに送信されます。"
+
+#: qml/TailLights.qml:43 loco:629257cb95222c3d5a084a00
+msgctxt "List element for the light patterns, on the page for the Glow Tips"
+msgid "LED Patterns"
+msgstr "LEDパターン"
+
+#: qml/TailMoves.qml:24 loco:629257cb95222c3d5a084a01
+msgctxt "Heading for the Moves page"
+msgid "Moves"
+msgstr "ムーブス"
+
+#: qml/TailMoves.qml:27 loco:629257cb95222c3d5a084a02
+msgctxt "Button for returning the tail to its home position, on the Moves page"
+msgid "Home Position"
+msgstr "ホームポジション"
+
+#: qml/TailMoves.qml:35 loco:629257cb95222c3d5a084a03
+msgctxt "Description for the list of moves, on the Moves page"
+msgid ""
+"The list below shows all the moves available to your gear. Tap any of them "
+"to send them off to any of your connected devices!"
+msgstr "下のリストは、あなたのギアで使用できるすべての技を表示しています。タップすると、接続されているすべてのデバイスに送信されます。"
+
+#: qml/TailMoves.qml:42 loco:629257cb95222c3d5a084a04
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the Moves page"
+msgid "Calm and Relaxed"
+msgstr "落ち着きとリラックス"
+
+#: qml/TailMoves.qml:47 loco:629257cb95222c3d5a084a05
+msgctxt ""
+"Description for the category for the Excited Moveset, on the Moves page"
+msgid "Fast and Excited"
+msgstr "速くと興奮"
+
+#: qml/TailMoves.qml:52 loco:629257cb95222c3d5a084a06
+msgctxt "Description for the category for the Tense Moveset, on the Moves page"
+msgid "Frustrated and Tense"
+msgstr "イライラとピリピリ"
+
+#: qml/TimePicker.qml:58 loco:629257cb95222c3d5a084a07
+msgctxt "Label for the Hours field on a time picker"
+msgid "Hours"
+msgstr "時"
+
+#: qml/TimePicker.qml:70 loco:629257cb95222c3d5a084a08
+msgctxt "Label for the Minutes field on a time picker"
+msgid "Minutes"
+msgstr "分"
+
+#: qml/TimePicker.qml:89 loco:629257cb95222c3d5a084a09
+msgctxt "Label for the AM option on a AM/PM selector of a time picker"
+msgid "AM"
+msgstr "AM"
+
+#: qml/TimePicker.qml:95 loco:629257cb95222c3d5a084a0a
+msgctxt "Label for the PM option on a AM/PM selector of a time picker"
+msgid "PM"
+msgstr "PM"
+
+#: qml/TimePicker.qml:107 loco:629257cb95222c3d5a084a0b
+msgctxt ""
+"Button for resetting a time field to the current time, on a time picker"
+msgid "Now"
+msgstr "今"
+
+#: qml/TimePicker.qml:121 loco:629257cb95222c3d5a084a0c
+msgctxt "Button for cancelling the time entry, on a time picker"
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: qml/TimePicker.qml:129 loco:629257cb95222c3d5a084a0d
+msgctxt "Button for confirming the time entry, on a time picker"
+msgid "OK"
+msgstr "オーケー"
+
+#: qml/WelcomePage.qml:28 loco:629257cb95222c3d5a084a0e
+msgctxt "Header for the welcome page"
+msgid "Crumpet"
+msgstr "クランペット"
+
+#: qml/WelcomePage.qml:31 loco:629257cb95222c3d5a084a0f
+msgctxt "Label for the button for disconnecting gear, on the welcome page"
+msgid "Disconnect"
+msgstr "ディスコネクト"
+
+#: qml/WelcomePage.qml:31 loco:629257cb95222c3d5a084a10
+msgctxt "Label for the button for connecting gear, on the welcome page"
+msgid "Connect"
+msgstr "接続"
+
+#: qml/WelcomePage.qml:59 loco:629257cb95222c3d5a084a11
+msgctxt ""
+"Label for the button for connecting additional gear, on the welcome page"
+msgid "Connect More..."
+msgstr "もっと接続する..."
+
+#: qml/WelcomePage.qml:64 loco:629257cb95222c3d5a084a12
+msgctxt ""
+"Label for the button for looking for additional gear, on the welcome page"
+msgid "Look for gear"
+msgstr "ギアを探す"
+
+#: qml/WelcomePage.qml:79 loco:629257cb95222c3d5a084a13
+msgctxt "Label for the button for opening the Moves page, on the welcome page"
+msgid "Moves"
+msgstr "ムーブス"
+
+#: qml/WelcomePage.qml:97 loco:629257cb95222c3d5a084a14
+msgctxt ""
+"Label for the button for opening the Ear Poses page, on the welcome page"
+msgid "Ear Poses"
+msgstr "イヤーポーズ"
+
+#: qml/WelcomePage.qml:115 loco:629257cb95222c3d5a084a15
+msgctxt ""
+"Label for the button for opening the Glow Tips page, on the welcome page"
+msgid "Glow Tips"
+msgstr "グローチップ"
+
+#: qml/WelcomePage.qml:140 loco:629257cb95222c3d5a084a16
+msgctxt "Label for the button for opening the Alarms page, on the welcome page"
+msgid "Alarm"
+msgstr "アラーム"
+
+#: qml/WelcomePage.qml:155 loco:629257cb95222c3d5a084a17
+msgctxt ""
+"Label for the button for opening the Move List page, on the welcome page"
+msgid "Move List"
+msgstr "ムーブリスト"
+
+#: qml/WelcomePage.qml:202 loco:629257cb95222c3d5a084a18
+msgctxt ""
+"Label for the button for opening the Casual Mode page, on the welcome page"
+msgid "Casual Mode"
+msgstr "カジュアルモード"
+
+#: qml/WelcomePage.qml:218 loco:629257cb95222c3d5a084a19
+msgctxt ""
+"Label for the button for configuring the Casual Mode, on the welcome page"
+msgid "Casual Mode Settings"
+msgstr "カジュアルモード設定"
+
+#: qml/WelcomePage.qml:263 loco:629257cb95222c3d5a084a1a
+msgctxt "Heading for the panel for turning on Listening Mode"
+msgid "Listening Mode"
+msgstr "リスニングモード"
+
+#: qml/WelcomePage.qml:282 loco:629257cb95222c3d5a084a1b
+msgctxt "Label for the checkbox for turning on Listening Mode"
+msgid ""
+"Turn this on to make your gear react to sounds around it for five minutes at "
+"a time."
+msgstr "これをオンにすると、5分間、周囲の音に機器が反応するようになります。"
+
+#: qml/WelcomePage.qml:322 loco:629257cb95222c3d5a084a1c
+msgctxt "Heading for the panel for turning on Tilt Mode"
+msgid "Tilt Mode"
+msgstr "チルトモード"
+
+#: qml/WelcomePage.qml:335 loco:629257cb95222c3d5a084a1d
+msgctxt "Label for the checkbox for turning on Tilt Mode"
+msgid "Turn this on to make your gear react to tilting movements."
+msgstr "オンにすると、ギアを傾ける動作に反応するようになります。"
+
+#: qml/WelcomePage.qml:376 loco:629257cb95222c3d5a084a1e
+msgctxt ""
+"Label for the button for opening the Gear Gestures page, on the welcome page"
+msgid "Gear Gestures"
+msgstr "ギアジェスチャー"
