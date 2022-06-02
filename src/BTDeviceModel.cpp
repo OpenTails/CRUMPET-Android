@@ -430,10 +430,10 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
                 endRemoveRows();
             }
         });
-        d->readDeviceNames();
 
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);
+        d->readDeviceNames();
         emit deviceAdded(newDevice);
         emit countChanged();
         endInsertRows();
