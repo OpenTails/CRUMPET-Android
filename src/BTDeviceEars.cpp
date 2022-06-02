@@ -31,6 +31,8 @@
 
 #include "AppSettings.h"
 
+static const QStringList knownARevision{"VER 1.0.12", "VER 1.0.13"};
+static const QStringList knownBRevision{"VER 1.0.13b"};
 class BTDeviceEars::Private {
 public:
     Private(BTDeviceEars* qq)
@@ -47,6 +49,7 @@ public:
     bool canBalanceListening{true};
     bool hasTilt{false};
     bool tiltEnabled{false};
+    int hardwareRevision{-1};
 
     QString currentCall;
     QString currentSubCall;
@@ -170,6 +173,23 @@ public:
                     QTimer::singleShot(1000, q, [this](){ q->sendMessage(currentSubCall); });
                 //}
             }
+            else if (stateResult[0] == QLatin1String{"HWREV"}) {
+                if (stateResult[1] == QLatin1String{"A"}) {
+                    hardwareRevision = 1;
+                }
+                else if (stateResult[1] == QLatin1String{"B"}) {
+                    hardwareRevision = 2;
+                }
+                else {
+                    // This is an unknown hardware revision - this likely is a bad thing,
+                    // but we then must assume there is a third that we do not know about
+                    // yet - let's pass that information to the checker, so it can react.
+                    // This is really only a bad thing if the user wants to update, so
+                    // we can basically ignore it until time comes to attempt to update.
+                    hardwareRevision = 3;
+                    qDebug() << q->name() << "Unexpected hardware revision:" << stateResult[1];
+                }
+            }
             else if (stateResult[0] == QLatin1String{"VER"}) {
                 q->reloadCommands();
                 version = newValue;
@@ -183,6 +203,12 @@ public:
                     q->setHasShutdown(true);
                     q->setHasNoPhoneMode(true);
                     q->setNoPhoneModeGroups({});
+                    if (knownARevision.contains(version)) {
+                        hardwareRevision = 1;
+                    }
+                    else if (knownBRevision.contains(version)) {
+                        hardwareRevision = 2;
+                    }
                 }
                 pingTimer.start();
                 if (firmwareProgress > -1) {
@@ -753,9 +779,26 @@ void BTDeviceEars::checkOTA()
         Q_EMIT hasAvailableOTAChanged();
         Q_EMIT hasOTADataChanged();
         d->downloadOperation = Private::DownloadingOTAInformation;
-        QNetworkRequest request(QUrl("https://thetailcompany.com/fw/eargear"));
-        d->networkReply = d->qnam.get(request);
-        connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
+        QString firmwareInfoUrl;
+        switch(d->hardwareRevision) {
+            case 1:
+                firmwareInfoUrl = "https://thetailcompany.com/fw/eargear";
+                break;
+            case 2:
+                firmwareInfoUrl = "https://thetailcompany.com/fw/eargear-b";
+                break;
+            case 3:
+                deviceBlockingMessage(name(), i18nc("Message shown in case the hardware revision is given by the firmware, but doesn't match one of our known ones, meaning the app is likely very outdated", "Your gear has reported a hardware revision that we do not know of. This means that your app is likely to be out of date and needs to be updated."));
+                break;
+        }
+        if (firmwareInfoUrl.isEmpty()) {
+            deviceBlockingMessage(name(), i18nc("Message shown in the unlikely case a firmware exists which does not report the expected hardware revision and which also is not known to us", "You have somehow got a firmware version which does not report the hardware revision of your ears, but which also is not known to fail to do so. This is a highly unexpected situation and we would appreciate it if you reported it directly to us at info@thetailcompany.com - thank you!"));
+        } else {
+            qDebug() << name() << "Fetching firmware information using url" << firmwareInfoUrl << "for revision" << d->hardwareRevision;
+            QNetworkRequest request(QUrl{firmwareInfoUrl});
+            d->networkReply = d->qnam.get(request);
+            connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
+        }
     }
 }
 
