@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2022-04-23 16:50+0100\n"
-"PO-Revision-Date: 2022-03-11 21:34+0100\n"
+"PO-Revision-Date: 2022-05-20 17:44+0200\n"
 "Last-Translator: Kuba <stegoceras@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs_CZ\n"
@@ -192,7 +192,7 @@ msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Updat firmwaru dokončen"
 
 #: BTDeviceEars.cpp:593
 msgctxt ""
@@ -204,6 +204,9 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"Update firmwaru byl dokončen a tvoje zařízení se vypnulo. Pokud se nezapnulo"
+" zpátky samo, zavři tuto zprávu, zapni ho ručně a znovu ho připoj. Pokud se"
+" zařízení zapnulo samo, stačí pouze zavřít tuto zprávu."
 
 #: BTDeviceEars.cpp:598
 #, fuzzy
@@ -286,6 +289,8 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
+"Toto je příklad zprávy informující že se s firmwarem děje něco <b>důležitého<"
+"/b>"
 
 #: BTDeviceMitail.cpp:39
 msgctxt ""
@@ -297,6 +302,9 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Tvůj ocas má momentálně firmware verze 4.03, který je zastaralý a má již"
+" známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro"
+" jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: BTDeviceMitail.cpp:40
 msgctxt ""
@@ -308,6 +316,9 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Tvůj ocas má momentálně firmware verze 4.02, který je zastaralý a má již"
+" známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro"
+" jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: BTDeviceMitail.cpp:41
 msgctxt ""
@@ -319,6 +330,9 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Tvůj ocas má momentálně firmware verze 4.01, který je zastaralý a má již"
+" známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro"
+" jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: BTDeviceMitail.cpp:42
 msgctxt ""
@@ -330,6 +344,9 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Tvůj ocas má momentálně firmware verze 4.00, který je zastaralý a má již"
+" známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro"
+" jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: BTDeviceMitail.cpp:43
 msgctxt ""
@@ -341,6 +358,9 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Tvůj ocas má momentálně firmware verze 3.2.11, který je zastaralý a má již"
+" známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro"
+" jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: BTDeviceMitail.cpp:44
 msgctxt ""
@@ -352,6 +372,9 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Tvůj ocas má momentálně firmware verze 3.2.10, který je zastaralý a má již"
+" známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro"
+" jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: BTDeviceMitail.cpp:115
 msgctxt ""
@@ -1092,7 +1115,7 @@ msgstr ""
 #: qml/EarPoses.qml:40
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
 msgid "Be Calm"
-msgstr ""
+msgstr "Uklidnit"
 
 #: qml/EarPoses.qml:48
 #, fuzzy
