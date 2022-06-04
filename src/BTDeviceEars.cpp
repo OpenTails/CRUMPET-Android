@@ -31,8 +31,8 @@
 
 #include "AppSettings.h"
 
-static const QStringList knownARevision{"VER 1.0.12", "VER 1.0.13"};
-static const QStringList knownBRevision{"VER 1.0.13b"};
+static const QStringList knownARevision{"VER 1.0.12", "VER 1.0.13", "VER 1.0.14"};
+static const QStringList knownBRevision{"VER 1.0.13b", "VER 1.0.14b"};
 class BTDeviceEars::Private {
 public:
     Private(BTDeviceEars* qq)
