@@ -1,3 +1,9 @@
+27
+- Fix reading stored gear names when they are discovered
+- Don't open the Connect To Gear popup when there's no gear to connect to
+- Handle EarGear 2 variant firmware updates
+- Add Japanese translation, update others
+
 26
 - Add support for EarGear 2 firmware update
 - Warn people if they are running an old enough firmware that we actually know without checking remotely that it is outdated
