@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
                     if(BTConnectionManager.deviceCount === 1) {
                         disconnectionOptions.disconnectGear(connectedDevicesModel.data(connectedDevicesModel.index(0, 0), 258));
                     }
-                    else {
+                    else if (BTConnectionManager.deviceCount > 1) {
                         connectToTail.open();
                     }
                 }
@@ -43,7 +43,7 @@ Kirigami.ScrollablePage {
                     if(BTConnectionManager.deviceCount === 1) {
                         BTConnectionManager.stopDiscovery();
                     }
-                    else {
+                    else if (BTConnectionManager.deviceCount > 1) {
                         connectToTail.open();
                     }
                 }
