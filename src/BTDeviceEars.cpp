@@ -173,7 +173,7 @@ public:
                     QTimer::singleShot(1000, q, [this](){ q->sendMessage(currentSubCall); });
                 //}
             }
-            else if (stateResult[0] == QLatin1String{"HWREV"}) {
+            else if (stateResult[0] == QLatin1String{"HWVER"}) {
                 if (stateResult[1] == QLatin1String{"A"}) {
                     hardwareRevision = 1;
                 }
