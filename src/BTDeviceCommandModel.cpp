@@ -180,7 +180,7 @@ public:
         QObject::connect(deviceCommands, &TailCommandModel::commandAdded, q, [this, device](const CommandInfo& command){ addCommand(command, device); });
         QObject::connect(deviceCommands, &TailCommandModel::commandRemoved, q, [this, device](const CommandInfo& command){ removeCommand(command, device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelAboutToBeReset, q, [this, device](){ removeDeviceCommands(device); });
-        QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ addDeviceCommands(device); });
+        QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ removeDeviceCommands(device); addDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractItemModel::dataChanged, q, [this, device](const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles){ deviceDataChanged(device, topLeft, bottomRight, roles); });
 
     }
