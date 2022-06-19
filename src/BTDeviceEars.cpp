@@ -209,6 +209,7 @@ public:
                     else if (knownBRevision.contains(version)) {
                         hardwareRevision = 2;
                     }
+                    q->sendMessage("HWVER");
                 }
                 pingTimer.start();
                 if (firmwareProgress > -1) {
