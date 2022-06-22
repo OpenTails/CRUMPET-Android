@@ -187,10 +187,11 @@ void AppSettings::setIdleMode(bool newValue)
 
         if (d->idleMode) {
             timer.setSingleShot(true);
-            timer.start(4 * 60 * 60 * 1000);
+            // One hour - had it at four before, but safety is better
+            timer.start(60 * 60 * 1000);
 
             connect(&timer, &QTimer::timeout, this, [this] {
-                qDebug() << "The Idle Mode timeous is reached";
+                qDebug() << "The Casual Mode timeout was reached";
                 setIdleMode(false);
                 emit idleModeTimeout();
             });

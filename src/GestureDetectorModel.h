@@ -57,6 +57,8 @@ public:
     // Index is the index of a gesture, but the state is set for all gestures with the same sensor
     void setGestureSensorEnabled(int index, bool enabled);
 
+    void setGestureSensorEnabled(GestureDetails* gesture, bool enabled);
+
 private:
     class Private;
     Private* d;
@@ -82,6 +84,8 @@ public:
     QStringList devices() const;
     bool visible() const;
 
+    void startDetection();
+    void stopDetection();
     bool sensorEnabled() const;
     bool sensorPinned() const;
 

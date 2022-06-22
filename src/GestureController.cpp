@@ -104,6 +104,11 @@ void GestureController::setConnectionManager(BTConnectionManager* connectionMana
     d->connectionManager = connectionManager;
 }
 
+BTConnectionManager *GestureController::connectionManager() const
+{
+    return d->connectionManager;
+}
+
 void GestureController::gestureDetected(const QString& gestureId)
 {
     d->gestureDetected(gestureId);

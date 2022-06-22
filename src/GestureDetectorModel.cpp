@@ -17,11 +17,13 @@
 
 #include "GestureDetectorModel.h"
 #include "GestureController.h"
+#include "BTConnectionManager.h"
 
 #include <KLocalizedString>
 
 #include <QSettings>
 #include <QSensorGesture>
+#include <QTimer>
 
 class GestureDetectorModel::Private {
 public:
@@ -168,6 +170,7 @@ public:
     bool visible{true};
     bool sensorPinned{false};
     bool sensorEnabled{false};
+    QTimer* disabler{nullptr};
 };
 
 void GestureDetectorModel::setGestureSensorPinned(int index, bool pinned)
@@ -187,12 +190,12 @@ void GestureDetectorModel::setGestureSensorPinned(int index, bool pinned)
     }
 }
 
-void toggleSensor(QSensorGesture* sensor, bool enabled)
+void toggleSensor(GestureDetails* gesture, bool enabled)
 {
     if (enabled) {
-        sensor->startDetection();
+        gesture->startDetection();
     } else {
-        sensor->stopDetection();
+        gesture->stopDetection();
     }
 }
 
@@ -211,7 +214,18 @@ void GestureDetectorModel::setGestureSensorEnabled(int index, bool enabled)
             gestureDetailsChanged(ges);
         }
     }
-    toggleSensor(gesture->sensor(), enabled);
+    toggleSensor(gesture, enabled);
+}
+
+void GestureDetectorModel::setGestureSensorEnabled(GestureDetails *gesture, bool enabled)
+{
+    for (int i = 0; i < d->entries.count(); ++i) {
+        GestureDetails* entry = d->entries[i];
+        if (entry == gesture) {
+            setGestureSensorEnabled(i, enabled);
+            break;
+        }
+    }
 }
 
 GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, GestureController* q)
@@ -243,6 +257,15 @@ GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, Gestur
 
     d->controller = q;
     d->gestureId = gestureId;
+
+    d->disabler = new QTimer(q);
+    d->disabler->setSingleShot(true);
+    // One hour of sensing before turning self back off again
+    d->disabler->setInterval(60 * 60 * 1000);
+    QObject::connect(d->disabler, &QTimer::timeout, q, [this](){
+        d->controller->model()->setGestureSensorEnabled(this, false);
+        d->controller->connectionManager()->message(i18nc("A message to inform the user a gesture recogniser has been on for too long and has been automatically disabled for the safety and health of their gear", "Disabled %1 detection after one hour. All animatronic gear needs a rest after long periods of use. Read our guide to responsible wagging in Settings for ways to keep your gear healthy.", d->humanName));
+    });
 
     d->humanName = QString("%1 gesture").arg(gestureId);
     const QString& humanName = sensorNames.value(gestureId);
@@ -284,7 +307,7 @@ void GestureDetails::load() {
     d->sensorPinned = settings.value(QString("%1/pinned").arg(sensorName()), defaultPinned.contains(d->sensor->validIds().first())).toBool();
     d->sensorEnabled = settings.value(QString("%1/enabled").arg(sensorName()), false).toBool();
     settings.endGroup();
-    toggleSensor(sensor(), d->sensorEnabled);
+    toggleSensor(this, d->sensorEnabled);
 }
 
 void GestureDetails::save() {
@@ -349,6 +372,18 @@ QStringList GestureDetails::devices() const
 bool GestureDetails::visible() const
 {
     return d->visible;
+}
+
+void GestureDetails::startDetection()
+{
+    d->sensor->startDetection();
+    d->disabler->start();
+}
+
+void GestureDetails::stopDetection()
+{
+    d->sensor->stopDetection();
+    d->disabler->stop();
 }
 
 bool GestureDetails::sensorEnabled() const

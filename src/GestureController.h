@@ -38,6 +38,7 @@ public:
     ~GestureController() override;
 
     void setConnectionManager(BTConnectionManager* connectionManager);
+    BTConnectionManager* connectionManager() const;
 
     Q_SLOT void setGestureDetails(int index, QString command, QStringList devices) override;
     // Index is the index of a gesture, but the state is set for all gestures with the same sensor
