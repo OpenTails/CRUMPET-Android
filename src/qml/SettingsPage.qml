@@ -37,16 +37,29 @@ Kirigami.ScrollablePage {
             descriptionText: i18nc("Description for the instruction panel on the settings page", "Please download and read the instructions by clicking the link below. This includes instructions on how to wear your tail or ears, along with some nice graphics showing you how.");
             footer: ColumnLayout{
                 Layout.fillWidth: true; Layout.fillHeight: true;
+                    QQC2.Label {
+                        Layout.fillWidth: true; Layout.fillHeight: true;
+                        horizontalAlignment: Text.AlignHCenter
+                        text: i18nc("Label showing all the items underneath are links to a PDF file", "Download PDF:")
+                    }
                     Kirigami.UrlButton {
                         Layout.fillWidth: true; Layout.fillHeight: true;
+                        text: i18nc("Label for downloading the general guide for safe use of the various gear", "Responsible Wagging Guide");
+                        url: "http://thetailcompany.com/responsiblewagging.pdf";
+                    }
+                    Kirigami.UrlButton {
+                        Layout.fillWidth: true; Layout.fillHeight: true;
+                        text: i18nc("Label for downloading the instructions for the MiTail", "MiTail Instructions");
                         url: "http://thetailcompany.com/mitail.pdf";
                     }
                     Kirigami.UrlButton {
                         Layout.fillWidth: true; Layout.fillHeight: true;
+                        text: i18nc("Label for downloading the instructions for the Digitail", "Digitail Instructions");
                         url: "http://thetailcompany.com/digitail.pdf";
                     }
                     Kirigami.UrlButton {
                         Layout.fillWidth: true; Layout.fillHeight: true;
+                        text: i18nc("Label for downloading the instructions for EarGear", "EarGear Instructions");
                         url: "http://thetailcompany.com/eargear.pdf";
                     }
             }
