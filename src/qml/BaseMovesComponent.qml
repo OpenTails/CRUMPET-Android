@@ -128,7 +128,8 @@ Item {
                                     anchors.fill: parent;
                                     // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                                     property string command: model.command ? model.command : "";
-                                    onClicked: { sendCommandToSelector.selectDestination(command); }
+                                    property var deviceIDs: model.deviceIDs ? model.deviceIDs : [];
+                                    onClicked: { sendCommandToSelector.selectDestination(command, deviceIDs); }
                                     enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
                                 }
                                 BusyIndicator {
@@ -189,17 +190,19 @@ Item {
     }
     Kirigami.OverlaySheet {
         id: sendCommandToSelector;
-        function selectDestination(command) {
+        function selectDestination(command, deviceIDs) {
             sendCommandToSelector.command = command;
-            if (selectorDeviceModel.count === 1) {
+            sendCommandToSelector.deviceIDs = deviceIDs;
+            if (sendCommandToSelector.deviceIDs.length === 1) {
                 // If there's only one device, simply assume that's what to send the command to
-                root.commandActivated(sendCommandToSelector.command, []);
+                root.commandActivated(sendCommandToSelector.command, sendCommandToSelector.deviceIDs[0]);
             } else {
                 sendCommandToSelector.open();
             }
         }
         showCloseButton: true;
         property string command;
+        property var deviceIDs: []
         header: Kirigami.Heading {
             text: i18nc("Header for the overlay for selecting the destination for a command", "Send where?");
         }
@@ -233,7 +236,7 @@ Item {
                         function checkedIDs() {
                             var theIDs = new Array();
                             for (var i = 0; i < count; ++i) {
-                                if(data(index(i, 0), 264) == true) { // if checked
+                                if(data(index(i, 0), 264) == true && sendCommandToSelector.deviceIDs.includes(data(index(i, 0), 258))) { // if checked and also in the device id list
                                     theIDs.push(data(index(i, 0), 258)); // add the device ID
                                 }
                             }
@@ -243,6 +246,7 @@ Item {
                     Kirigami.BasicListItem {
                         id: deviceListItem;
                         Layout.fillWidth: true;
+                        visible: sendCommandToSelector.deviceIDs.includes(model.deviceID)
                         text: model.name ? model.name : "";
                         icon: model.checked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
@@ -266,7 +270,7 @@ Item {
                     Button {
                         text: i18nc("Action for sending a command to all devices in a list", "Send To All");
                         onClicked: {
-                            root.commandActivated(sendCommandToSelector.command, []);
+                            root.commandActivated(sendCommandToSelector.command, sendCommandToSelector.deviceIDs);
                             sendCommandToSelector.close();
                         }
                     }
