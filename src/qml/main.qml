@@ -377,14 +377,22 @@ Kirigami.ApplicationWindow {
         function checkDeviceName(deviceID) {
             if (deviceID && !AppSettings.deviceNames[deviceID]) {
                 namePicker.deviceID = deviceID;
+                for(var i = 0; i < BTConnectionManager.deviceCount; ++i) {
+                    var deviceID = DeviceModel.data(DeviceModel.index(i, 0), 258); // DeviceID role
+                    if (deviceID == namePicker.deviceID) {
+                        namePicker.previousName = DeviceModel.data(DeviceModel.index(i, 0), 257); // Name role
+                        break;
+                    }
+                }
                 namePicker.pickName();
             }
         }
 
         property string deviceID: "0";
+        property string previousName: ""
 
         description: i18nc("Description for the prompt for entering a name for your Gear", "Enter a name to use for your new gear");
-        placeholderText: i18nc("Placeholder text for the prompt for entering a name for your Gear", "Enter the name here");
+        placeholderText: i18nc("Placeholder text for the prompt for entering a name for your Gear", "Enter the new name for %1 here", namePicker.previousName);
         buttonOkText: i18nc("Button for confirming the save of your new name, for the prompt for entering a name for your Gear", "Save");
 
         onNamePicked: {
