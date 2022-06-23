@@ -40,6 +40,24 @@ Kirigami.OverlaySheet {
             text: "Connect To Gear"
         }
     }
+    footer: RowLayout {
+        implicitWidth: Kirigami.Units.gridUnit * 30
+        QQC2.Button {
+            Layout.fillWidth: true
+            text: i18nc("Button for the action of connecting to all found devices, in the popup for connecting to devices", "Connect All")
+            onClicked: {
+                for(var i = 0; i < deviceList.count; ++i) {
+                    var isConnected = DeviceModel.data(DeviceModel.index(i, 0), 262); // IsConnected
+                    if (isConnected == false) {
+                        var deviceID = DeviceModel.data(DeviceModel.index(i, 0), 258); // DeviceID
+                        sheet.attemptToConnect(deviceID, sheet.pageToPush);
+                        sheet.pageToPush = null;
+                    }
+                }
+                sheet.close();
+            }
+        }
+    }
     ListView {
         id: deviceList;
         implicitWidth: Kirigami.Units.gridUnit * 30
