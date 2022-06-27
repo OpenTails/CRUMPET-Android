@@ -1,3 +1,10 @@
+28
+- Add Connect All to the available gear popup
+- You'll no longer see devices you can't send to when picking commands (for example, no tails when picking eargear poses)
+- Add Responsible Wagging guide to the settings page
+- Add a timeout to various modes (casual mode, walking and all the other gestures)
+- Fix the hardware variant support for EarGear
+
 27
 - Fix reading stored gear names when they are discovered
 - Don't open the Connect To Gear popup when there's no gear to connect to
