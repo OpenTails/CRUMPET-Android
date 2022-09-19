@@ -182,7 +182,13 @@ public:
         QObject::connect(deviceCommands, &QAbstractListModel::modelAboutToBeReset, q, [this, device](){ removeDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ removeDeviceCommands(device); addDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractItemModel::dataChanged, q, [this, device](const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles){ deviceDataChanged(device, topLeft, bottomRight, roles); });
-
+        QObject::connect(device, &QObject::destroyed, q, [this, device](){ removeDeviceCommands(device); });
+        QObject::connect(device, &BTDevice::isConnectedChanged, q, [this, device](){
+            removeDeviceCommands(device);
+            if (device->isConnected()) {
+                addDeviceCommands(device);
+            }
+        });
     }
 
     void unregisterDevice(BTDevice* device) {
