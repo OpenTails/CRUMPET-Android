@@ -37,6 +37,7 @@ FilterProxyModel::FilterProxyModel(QObject *parent)
     connect(this, &QAbstractItemModel::rowsInserted, this, [this](){ d->updateTimer.start(); });
     connect(this, &QAbstractItemModel::rowsRemoved, this, [this](){ d->updateTimer.start(); });
     connect(this, &QAbstractItemModel::dataChanged, this, [this](){ d->updateTimer.start(); });
+    connect(this, &QAbstractItemModel::modelReset, this, [this](){ d->updateTimer.start(); });
     connect(this, &QSortFilterProxyModel::sourceModelChanged, this, [this](){ d->updateTimer.start(); });
 }
 
