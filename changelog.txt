@@ -1,3 +1,6 @@
+29
+- Hotfix to disallow simultaneously enabling casual mode and gestures (such as the walking detector)
+
 28
 - Add Connect All to the available gear popup
 - You'll no longer see devices you can't send to when picking commands (for example, no tails when picking eargear poses)
