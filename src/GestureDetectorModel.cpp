@@ -28,6 +28,7 @@
 class GestureDetectorModel::Private {
 public:
     Private() {}
+    AppSettings* appSettings;
     GestureController* controller;
     QList<GestureDetails*> entries;
 };
@@ -124,6 +125,39 @@ int GestureDetectorModel::rowCount(const QModelIndex& parent) const
     return d->entries.count();
 }
 
+void GestureDetectorModel::setAppSettings(AppSettings *settings)
+{
+    if(d->appSettings) {
+        d->appSettings->disconnect(this);
+    }
+    d->appSettings = settings;
+    connect(d->appSettings, &AppSettings::idleModeChanged, this, [this](const bool &idleMode) {
+        // If idle mode was just turned on, disable all the gestures
+        if (idleMode) {
+            for (int i = 0; i < d->entries.count(); ++i) {
+                setGestureSensorEnabled(i, false);
+            }
+        }
+    });
+    // Now let's make sure we're sane on startup (because we'll have plenty of people out
+    // there who've got both walking and idle turned on at the same time, because it kind
+    // of makes sense, just that it's not great for the servos...)
+    if (d->appSettings) {
+        if (d->appSettings->idleMode()) {
+            for (int i = 0; i < d->entries.count(); ++i) {
+                setGestureSensorEnabled(i, false);
+            }
+        } else {
+            for (GestureDetails *details : d->entries) {
+                if (details->sensorEnabled()) {
+                    d->appSettings->setIdleMode(false);
+                    break;
+                }
+            }
+        }
+    }
+}
+
 void GestureDetectorModel::addGesture(GestureDetails* gesture)
 {
     beginInsertRows(QModelIndex(), d->entries.count(), d->entries.count());
@@ -215,6 +249,10 @@ void GestureDetectorModel::setGestureSensorEnabled(int index, bool enabled)
         }
     }
     toggleSensor(gesture, enabled);
+    // If we're turning on /any/ gesture, turn off idle mode
+    if (enabled && d->appSettings) {
+        d->appSettings->setIdleMode(false);
+    }
 }
 
 void GestureDetectorModel::setGestureSensorEnabled(GestureDetails *gesture, bool enabled)
