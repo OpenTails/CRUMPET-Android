@@ -42,7 +42,7 @@ public:
     int deviceProgress{-1};
     QString progressDescription;
     QStringList enabledCommandsFiles;
-    BTDeviceModel* parentModel;
+    BTDeviceModel* parentModel{nullptr};
 };
 
 BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)

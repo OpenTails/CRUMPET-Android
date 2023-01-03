@@ -28,8 +28,8 @@
 class GestureDetectorModel::Private {
 public:
     Private() {}
-    AppSettings* appSettings;
-    GestureController* controller;
+    AppSettings* appSettings{nullptr};
+    GestureController* controller{nullptr};
     QList<GestureDetails*> entries;
 };
 

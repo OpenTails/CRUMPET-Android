@@ -41,7 +41,7 @@ public:
     }
     ~Private() {}
 
-    CommandQueue* q;
+    CommandQueue* q{nullptr};
 
     struct Entry {
         Entry(const CommandInfo& command)
@@ -52,11 +52,11 @@ public:
         QStringList deviceIDs;
     };
     QVector<Entry*> commands;
-    BTConnectionManager* connectionManager;
+    BTConnectionManager* connectionManager{nullptr};
 
-    QTimer* popTimer;
-    QTimer* currentCommandTimer;
-    QTimer* currentCommandTimerChecker;
+    QTimer* popTimer{nullptr};
+    QTimer* currentCommandTimer{nullptr};
+    QTimer* currentCommandTimerChecker{nullptr};
 
     void pop()
     {

@@ -32,7 +32,7 @@ public:
         readDeviceNames();
     }
     ~Private() {}
-    BTDeviceModel* q;
+    BTDeviceModel* q{nullptr};
     BTDeviceFake* fakeDevice{nullptr};
 
     void readDeviceNames();

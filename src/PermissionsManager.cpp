@@ -34,7 +34,7 @@ public:
         requestDelay.setInterval(500);
         requestDelay.setSingleShot(true);
     }
-    PermissionsManager* q;
+    PermissionsManager* q{nullptr};
 
     QTimer requestDelay;
     QStringList permissionsToRequest;

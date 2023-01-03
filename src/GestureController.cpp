@@ -58,9 +58,9 @@ public:
         }
     }
     ~Private() { }
-    GestureController* q;
-    GestureDetectorModel* model;
-    BTConnectionManager* connectionManager;
+    GestureController* q{nullptr};
+    GestureDetectorModel* model{nullptr};
+    BTConnectionManager* connectionManager{nullptr};
 
     void gestureDetected(const QString& gestureId) {
         qDebug() << gestureId << "detected";

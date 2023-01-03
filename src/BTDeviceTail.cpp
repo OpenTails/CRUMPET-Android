@@ -32,8 +32,8 @@ public:
         : q(qq)
     {}
     ~Private() {}
-    BTDeviceTail* q;
-    BTDeviceModel* parentModel;
+    BTDeviceTail* q{nullptr};
+    BTDeviceModel* parentModel{nullptr};
 
     QString version{"(unknown)"};
     QString currentCall;

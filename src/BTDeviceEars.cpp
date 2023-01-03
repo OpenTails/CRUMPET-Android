@@ -39,8 +39,8 @@ public:
         : q(qq)
     {}
     ~Private() {}
-    BTDeviceEars* q;
-    BTDeviceModel* parentModel;
+    BTDeviceEars* q{nullptr};
+    BTDeviceModel* parentModel{nullptr};
 
     QString version{"(unknown)"};
     int batteryLevel{0};

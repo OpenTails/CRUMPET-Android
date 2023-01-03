@@ -34,7 +34,7 @@ public:
         : q(q)
     {}
     ~Private() {}
-    CommandPersistence* q;
+    CommandPersistence* q{nullptr};
 
     QString filename;
     CommandInfoList commands;

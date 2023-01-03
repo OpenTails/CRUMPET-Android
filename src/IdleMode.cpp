@@ -38,8 +38,8 @@ public:
         QObject::connect(&pushTimer, &QTimer::timeout, [this](){ actualPush(); });
     }
     ~Private() {}
-    AppSettings* appSettings;
-    BTConnectionManager* connectionManager;
+    AppSettings* appSettings{nullptr};
+    BTConnectionManager* connectionManager{nullptr};
 
 
     // Now we support multiple tails, we might end up in some odd situation where we get told by multiple tails
