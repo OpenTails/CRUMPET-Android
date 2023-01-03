@@ -27,7 +27,7 @@ class BTDeviceCommandModel::Private
 {
 public:
     Private(BTDeviceCommandModel* qq) : q(qq) {}
-    BTDeviceCommandModel* q;
+    BTDeviceCommandModel* q{nullptr};
     BTDeviceModel* deviceModel{nullptr};
     struct Entry {
         Entry(const CommandInfo& command)
@@ -43,7 +43,7 @@ public:
         Entry* entry{nullptr};
         // check if command already exists in some entry
         for (Entry* existing : commands) {
-            if (existing->command.compare(command)) {
+            if (existing->command.equivalent(command)) {
                 entry = existing;
                 break;
             }
@@ -65,7 +65,7 @@ public:
         Entry* entry{nullptr};
         // check if command exists
         for (Entry* existing : commands) {
-            if (existing->command.compare(command)) {
+            if (existing->command.equivalent(command)) {
                 entry = existing;
                 break;
             }
@@ -124,7 +124,7 @@ public:
             int entryIdx{-1};
             for (Entry* entry : commands) {
                 ++entryIdx;
-                if (entry->command.compare(cmd) && entry->devices.contains(device)) {
+                if (entry->command.equivalent(cmd) && entry->devices.contains(device)) {
                     theEntry = entry;
 //                     qDebug() << "Found the entry which has the same command" << theEntry;
                     break;

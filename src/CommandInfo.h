@@ -41,6 +41,7 @@ public:
 
     void clear();
     bool compare(const CommandInfo& other) const;
+    bool equivalent(const CommandInfo& other) const;
     /**
      * Returns true if name, command, category, and duration are all set, otherwise false
      */

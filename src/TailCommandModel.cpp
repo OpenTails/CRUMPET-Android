@@ -206,7 +206,7 @@ bool TailCommandModel::isRunning(const CommandInfo& cmd) const
 {
     bool retVal{false};
     for (const CommandInfo& ourCmd : d->commands) {
-        if (cmd.compare(ourCmd)) {
+        if (cmd.equivalent(ourCmd)) {
             retVal = ourCmd.isRunning;
             break;
         }
@@ -221,7 +221,7 @@ bool TailCommandModel::isAvailable(const CommandInfo& cmd) const
         retVal = true;
     } else {
         for (const CommandInfo& ourCmd : d->commands) {
-            if (cmd.compare(ourCmd)) {
+            if (cmd.equivalent(ourCmd)) {
                 retVal = ourCmd.isAvailable;
                 break;
             }

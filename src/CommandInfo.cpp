@@ -97,6 +97,17 @@ bool CommandInfo::compare(const CommandInfo& other) const
     );
 }
 
+bool CommandInfo::equivalent(const CommandInfo &other) const
+{
+    // Only checking the name, command, category, and group, as duration and cooldown is different per-device. Used for grouping purposes
+    return (
+        name == other.name &&
+        command == other.command &&
+        category == other.category &&
+        group == other.group
+    );
+}
+
 bool CommandInfo::isValid() const
 {
     if (name.isEmpty() || command.isEmpty() || category.isEmpty() || duration < 1) {
