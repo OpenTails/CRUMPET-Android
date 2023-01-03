@@ -392,7 +392,7 @@ Kirigami.ApplicationWindow {
         property string previousName: ""
 
         description: i18nc("Description for the prompt for entering a name for your Gear", "Enter a name to use for your new gear");
-        placeholderText: i18nc("Placeholder text for the prompt for entering a name for your Gear", "Enter the new name for %1 here", namePicker.previousName);
+        placeholderText: i18nc("Placeholder text for the prompt for entering a name for your Gear", "Enter the new name for %1 here", namePicker.previousName === "" ? "(unnamed)" : namePicker.previousName);
         buttonOkText: i18nc("Button for confirming the save of your new name, for the prompt for entering a name for your Gear", "Save");
 
         onNamePicked: {
