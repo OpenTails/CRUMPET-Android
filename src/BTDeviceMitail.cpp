@@ -44,8 +44,8 @@ public:
         knownFirmwareMessages[QLatin1String{"VER 3.2.10"}] = i18nc("A message displayed to the user when firmware version 3.2.10 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 3.2.10 firmware  installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
     }
     ~Private() {}
-    BTDeviceMitail* q;
-    BTDeviceModel* parentModel;
+    BTDeviceMitail* q{nullptr};
+    BTDeviceModel* parentModel{nullptr};
 
     QHash<QString, QString> knownFirmwareMessages;
     QString version{"(unknown)"};
@@ -660,7 +660,7 @@ void BTDeviceMitail::sendMessage(const QString &message)
 
 QStringList BTDeviceMitail::defaultCommandFiles() const
 {
-    return QStringList{QLatin1String{":/commands/digitail-builtin.crumpet"}};
+    return QStringList{QLatin1String{":/commands/mitail-builtin.crumpet"}};
 }
 
 void BTDeviceMitail::checkOTA()
