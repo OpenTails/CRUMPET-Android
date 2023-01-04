@@ -1,6 +1,6 @@
 {
     "Title": "EarGear Built-ins",
-    "Description": "The basic set of commands defined in the DIGITAiL firmware",
+    "Description": "The basic set of commands defined in the EarGear firmware",
     "Commands": [
         {
             "Category": "",
