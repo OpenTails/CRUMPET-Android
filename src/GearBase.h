@@ -23,7 +23,7 @@
 #include <QBluetoothAddress>
 #include <QLowEnergyController>
 
-#include "TailCommandModel.h"
+#include "GearCommandModel.h"
 #include "BTDeviceModel.h"
 
 class GearBase : public QObject
@@ -57,7 +57,7 @@ public:
 
     QBluetoothDeviceInfo deviceInfo;
 
-    TailCommandModel* commandModel{new TailCommandModel(this)};
+    GearCommandModel* commandModel{new GearCommandModel(this)};
     QMap<QString, QString> commandShorthands;
 
     bool supportsOTA();

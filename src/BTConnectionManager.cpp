@@ -20,7 +20,6 @@
 #include "BTDeviceModel.h"
 #include "GearEars.h"
 #include "GearBase.h"
-#include "TailCommandModel.h"
 #include "CommandQueue.h"
 #include "AppSettings.h"
 

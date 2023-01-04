@@ -19,7 +19,7 @@
 #define COMMANDQUEUE_H
 
 #include <QAbstractListModel>
-#include "TailCommandModel.h"
+#include "GearCommandModel.h"
 #include "rep_CommandQueueProxy_source.h"
 
 class BTConnectionManager;

@@ -19,7 +19,7 @@
 #define BTDEVICECOMMANDMODEL_H
 
 #include <QAbstractListModel>
-#include "TailCommandModel.h"
+#include "GearCommandModel.h"
 
 class BTDeviceModel;
 /**

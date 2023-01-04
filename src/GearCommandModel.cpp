@@ -15,13 +15,13 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "TailCommandModel.h"
+#include "GearCommandModel.h"
 
 #include <QDebug>
 #include <QTimer>
 #include <QRandomGenerator>
 
-class TailCommandModel::Private
+class GearCommandModel::Private
 {
 public:
     Private() {}
@@ -31,17 +31,17 @@ public:
     QHash<QString,QTimer*> commandDeactivators;
 };
 
-TailCommandModel::TailCommandModel(QObject* parent)
+GearCommandModel::GearCommandModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private)
 {}
 
-TailCommandModel::~TailCommandModel()
+GearCommandModel::~GearCommandModel()
 {
     delete d;
 }
 
-QHash< int, QByteArray > TailCommandModel::roleNames() const
+QHash< int, QByteArray > GearCommandModel::roleNames() const
 {
     static const QHash<int, QByteArray> roles{
         {Name, "name"},
@@ -55,7 +55,7 @@ QHash< int, QByteArray > TailCommandModel::roleNames() const
     return roles;
 }
 
-QVariant TailCommandModel::data(const QModelIndex& index, int role) const
+QVariant GearCommandModel::data(const QModelIndex& index, int role) const
 {
     QVariant value;
     if(index.isValid() && index.row() > -1 && index.row() < d->commands.count()) {
@@ -92,7 +92,7 @@ QVariant TailCommandModel::data(const QModelIndex& index, int role) const
     return value;
 }
 
-int TailCommandModel::rowCount(const QModelIndex& parent) const
+int GearCommandModel::rowCount(const QModelIndex& parent) const
 {
     if(parent.isValid()) {
         return 0;
@@ -100,14 +100,14 @@ int TailCommandModel::rowCount(const QModelIndex& parent) const
     return d->commands.count();
 }
 
-void TailCommandModel::clear()
+void GearCommandModel::clear()
 {
     beginResetModel();
     d->commands.clear();
     endResetModel();
 }
 
-void TailCommandModel::addCommand(const CommandInfo& command)
+void GearCommandModel::addCommand(const CommandInfo& command)
 {
     beginInsertRows(QModelIndex(), 0, 0);
     d->commands.insert(0, command);
@@ -115,7 +115,7 @@ void TailCommandModel::addCommand(const CommandInfo& command)
     endInsertRows();
 }
 
-void TailCommandModel::removeCommand(const CommandInfo& command)
+void GearCommandModel::removeCommand(const CommandInfo& command)
 {
     int idx{0};
     bool found{false};
@@ -134,7 +134,7 @@ void TailCommandModel::removeCommand(const CommandInfo& command)
     }
 }
 
-void TailCommandModel::setRunning(const QString& command, bool isRunning)
+void GearCommandModel::setRunning(const QString& command, bool isRunning)
 {
 //     qDebug() << "Command changing running state" << command << "being set to" << isRunning;
     int i = -1;
@@ -147,7 +147,7 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
 //                 qDebug() << "Changing state";
                 QModelIndex idx = index(i, 0);
                 theCommand.isRunning = isRunning;
-                dataChanged(idx, idx, QVector<int>() << TailCommandModel::IsRunning << TailCommandModel::IsAvailable);
+                dataChanged(idx, idx, QVector<int>() << GearCommandModel::IsRunning << GearCommandModel::IsAvailable);
 
                 // ensure isAvailable is correct (check if any are running in our group, and set the availability accordingly)
                 bool hasAnyActive{false};
@@ -163,7 +163,7 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
                     if (otherCommand.group == theCommand.group) {
                         otherCommand.isAvailable = !hasAnyActive;
                         QModelIndex idx2 = index(i2, 0);
-                        dataChanged(idx2, idx2, QVector<int>() << TailCommandModel::IsAvailable);
+                        dataChanged(idx2, idx2, QVector<int>() << GearCommandModel::IsAvailable);
                     }
                 }
             }
@@ -197,12 +197,12 @@ void TailCommandModel::setRunning(const QString& command, bool isRunning)
 //     qDebug() << "Done changing command running state";
 }
 
-const CommandInfoList& TailCommandModel::allCommands() const
+const CommandInfoList& GearCommandModel::allCommands() const
 {
     return d->commands;
 }
 
-bool TailCommandModel::isRunning(const CommandInfo& cmd) const
+bool GearCommandModel::isRunning(const CommandInfo& cmd) const
 {
     bool retVal{false};
     for (const CommandInfo& ourCmd : d->commands) {
@@ -214,7 +214,7 @@ bool TailCommandModel::isRunning(const CommandInfo& cmd) const
     return retVal;
 }
 
-bool TailCommandModel::isAvailable(const CommandInfo& cmd) const
+bool GearCommandModel::isAvailable(const CommandInfo& cmd) const
 {
     bool retVal{false};
     if (cmd.command == "TAILHM") {

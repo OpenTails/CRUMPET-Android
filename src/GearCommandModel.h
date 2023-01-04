@@ -22,12 +22,12 @@
 
 #include "CommandInfo.h"
 
-class TailCommandModel : public QAbstractListModel
+class GearCommandModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit TailCommandModel(QObject* parent = nullptr);
-    ~TailCommandModel() override;
+    explicit GearCommandModel(QObject* parent = nullptr);
+    ~GearCommandModel() override;
 
     enum Roles {
         Name = Qt::UserRole + 1,

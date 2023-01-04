@@ -22,6 +22,7 @@ target_sources(digitail
     PRIVATE
     main.cpp
     BTConnectionManager.cpp
+    GearCommandModel.cpp
     GearBase.cpp
     GearEars.cpp
     GearFake.cpp
@@ -37,7 +38,6 @@ target_sources(digitail
     GestureDetectorModel.cpp
     IdleMode.cpp
     AppSettings.cpp
-    TailCommandModel.cpp
     Utilities.cpp
     Alarm.cpp
     AlarmList.cpp

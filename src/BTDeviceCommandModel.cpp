@@ -20,7 +20,6 @@
 #include "BTDeviceModel.h"
 #include "CommandInfo.h"
 #include "GearBase.h"
-#include "TailCommandModel.h"
 
 #include <QRandomGenerator>
 
@@ -88,7 +87,7 @@ public:
     }
 
     void addDeviceCommands(GearBase* device) {
-        TailCommandModel* deviceCommands = device->commandModel;
+        GearCommandModel* deviceCommands = device->commandModel;
         for (const CommandInfo& command : deviceCommands->allCommands()) {
             addCommand(command, device);
         }
@@ -113,7 +112,7 @@ public:
     }
 
     void deviceDataChanged(GearBase* device, const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles) {
-        TailCommandModel* deviceCommands = device->commandModel;
+        GearCommandModel* deviceCommands = device->commandModel;
         int first = topLeft.row();
         int last = bottomRight.row();
         int i = -1;
@@ -139,11 +138,11 @@ public:
                     // such as the future IsAvailable field (for a less obstructive "you can't run this command
                     // now" method that is less app-blocky)
                     theRoles = q->roleNames().keys().toVector();
-//                     theRoles << TailCommandModel::IsRunning;
+//                     theRoles << GearCommandModel::IsRunning;
                 }
                 for (int role : theRoles) {
 //                     qDebug() << "The role which changed was" << role;
-                    if (role == TailCommandModel::IsRunning) {
+                    if (role == GearCommandModel::IsRunning) {
                         // we've got something we care about, let's deal with it
                         bool anyRunning{false};
                         for (GearBase* aDevice : theEntry->devices) {
@@ -154,7 +153,7 @@ public:
                         }
                         theEntry->command.isRunning = anyRunning;
                         ourRoles << BTDeviceCommandModel::IsRunning;
-                    } else if (role == TailCommandModel::IsAvailable) {
+                    } else if (role == GearCommandModel::IsAvailable) {
                         // we've got something we care about, let's deal with it
                         bool anyAvailable{false};
                         for (GearBase* aDevice : theEntry->devices) {
@@ -177,9 +176,9 @@ public:
     }
 
     void registerDevice(GearBase* device) {
-        TailCommandModel* deviceCommands = device->commandModel;
-        QObject::connect(deviceCommands, &TailCommandModel::commandAdded, q, [this, device](const CommandInfo& command){ addCommand(command, device); });
-        QObject::connect(deviceCommands, &TailCommandModel::commandRemoved, q, [this, device](const CommandInfo& command){ removeCommand(command, device); });
+        GearCommandModel* deviceCommands = device->commandModel;
+        QObject::connect(deviceCommands, &GearCommandModel::commandAdded, q, [this, device](const CommandInfo& command){ addCommand(command, device); });
+        QObject::connect(deviceCommands, &GearCommandModel::commandRemoved, q, [this, device](const CommandInfo& command){ removeCommand(command, device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelAboutToBeReset, q, [this, device](){ removeDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ removeDeviceCommands(device); addDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractItemModel::dataChanged, q, [this, device](const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles){ deviceDataChanged(device, topLeft, bottomRight, roles); });
