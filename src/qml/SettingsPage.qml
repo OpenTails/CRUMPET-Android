@@ -196,14 +196,14 @@ Kirigami.ScrollablePage {
                             }
                         }
                         QQC2.Label {
-                            visible: model.hasAvailableOTA && !model.hasOTAData
+                            visible: model.hasAvailableOTA === true && model.hasOTAData === false
                             Layout.fillWidth: true;
                             horizontalAlignment: Text.AlignHCenter;
-                            text: i18nc("Label displaying the currently installed and available firmware versions when they are different", "You currently have version %1 installed, and version %2 is available for you to install", model.deviceVersion, model.otaVersion)
+                            text: i18nc("Label displaying the currently installed and available firmware versions when they are different", "You currently have version %1 installed, and version %2 is available for you to install", model.deviceVersion ? model.deviceVersion : " ", model.otaVersion ? model.otaVersion : " ")
                             wrapMode: Text.Wrap;
                         }
                         QQC2.Button {
-                            visible: model.hasAvailableOTA && !model.hasOTAData
+                            visible: model.hasAvailableOTA === true && model.hasOTAData === false
                             Layout.fillWidth: true;
                             text: i18nc("Label for the button which makes the app download the newest available firmware (only visible when updated firmware has been found)", "Download");
                             onClicked: {
@@ -211,13 +211,13 @@ Kirigami.ScrollablePage {
                             }
                         }
                         QQC2.Label {
-                            visible: model.hasOTAData
+                            visible: model.hasOTAData === true
                             Layout.fillWidth: true;
-                            text: i18nc("Label giving a set of instructions and warnings that users should be aware of before attempting to install new firmware", "Before updating your gear from %1 to %2, please make sure you do the following:\n\n- Connect your gear to the USB charger and make sure it is charging. Keep it connected to the power while you update the firmware.\n\n- Also make sure your phone has more than 50% charge before you begin the update process.\n\nUpgrading your gear takes around 3 minutes. You must not switch off the gear or the phone while its working!\n\nOnce the new firmware is beamed to your gear, it will disconnect from the app and reboot. This is quite normal! It should automatically reconnect, but in case it doesn't, just click the Connect button on the front page as usual.", model.deviceVersion, model.otaVersion)
+                            text: i18nc("Label giving a set of instructions and warnings that users should be aware of before attempting to install new firmware", "Before updating your gear from %1 to %2, please make sure you do the following:\n\n- Connect your gear to the USB charger and make sure it is charging. Keep it connected to the power while you update the firmware.\n\n- Also make sure your phone has more than 50% charge before you begin the update process.\n\nUpgrading your gear takes around 3 minutes. You must not switch off the gear or the phone while its working!\n\nOnce the new firmware is beamed to your gear, it will disconnect from the app and reboot. This is quite normal! It should automatically reconnect, but in case it doesn't, just click the Connect button on the front page as usual.", model.deviceVersion ? model.deviceVersion : " ", model.otaVersion ? model.otaVersion : " ")
                             wrapMode: Text.Wrap;
                         }
                         QQC2.Button {
-                            visible: model.hasOTAData
+                            visible: model.hasOTAData === true
                             Layout.fillWidth: true;
                             text: i18nc("Label for the button which makes the app install the newest available firmware (only visible when updated firmware has been downloaded successfully)", "Install");
                             onClicked: {
