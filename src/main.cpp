@@ -57,7 +57,7 @@
 #include "PermissionsManager.h"
 
 #include <QAbstractItemModelReplica>
-#include "rep_SettingsProxy_replica.h"
+#include "rep_AppSettingsProxy_replica.h"
 #include "rep_BTConnectionManagerProxy_replica.h"
 #include "rep_CommandQueueProxy_replica.h"
 #include <rep_GestureControllerProxy_replica.h>
@@ -130,7 +130,7 @@ int appMain(int argc, char *argv[])
     repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
 
     qInfo() << "Connected, attempting to load replicas...";
-    QSharedPointer<SettingsProxyReplica> settingsReplica(repNode->acquire<SettingsProxyReplica>());
+    QSharedPointer<AppSettingsProxyReplica> settingsReplica(repNode->acquire<AppSettingsProxyReplica>());
     bool res = settingsReplica->waitForSource(500);
     if(!res) {
         qInfo() << "No service exists yet, so let's start it...";
@@ -138,7 +138,7 @@ int appMain(int argc, char *argv[])
         service.startDetached(app.applicationFilePath(), QStringList() << QStringLiteral("-service"));
         QCoreApplication::processEvents();
         repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
-        settingsReplica.reset(repNode->acquire<SettingsProxyReplica>());
+        settingsReplica.reset(repNode->acquire<AppSettingsProxyReplica>());
         res = settingsReplica->waitForSource(500);
         if (!res) {
             qCritical() << "Kapow! Replica for Settings failed to surface";
@@ -152,7 +152,7 @@ int appMain(int argc, char *argv[])
             KLocalizedString::setLanguages(QStringList() << settingsReplica->languageOverride() << "en_US");
         }
     };
-    QObject::connect(settingsReplica.data(), &SettingsProxyReplica::languageOverrideChanged, &app, retranslate);
+    QObject::connect(settingsReplica.data(), &AppSettingsProxyReplica::languageOverrideChanged, &app, retranslate);
     retranslate();
 
     QSharedPointer<BTConnectionManagerProxyReplica> btConnectionManagerReplica(repNode->acquire<BTConnectionManagerProxyReplica>());

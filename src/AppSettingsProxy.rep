@@ -15,7 +15,7 @@
 
 #include <QDateTime>
 
-class SettingsProxy {
+class AppSettingsProxy {
     PROP(bool advancedMode READWRITE)
     PROP(bool developerMode READWRITE)
     PROP(bool idleMode READWRITE)

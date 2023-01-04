@@ -7,12 +7,12 @@ include(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/KF5Kirigami2Macros.cmake)
 # Make sure we can register the types from the static library
 add_definitions(-DKIRIGAMI_BUILD_TYPE_STATIC)
 
+qt5_generate_repc(replication_sources AppSettingsProxy.rep SOURCE)
 qt5_generate_repc(replication_sources BTConnectionManagerProxy.rep SOURCE)
 qt5_generate_repc(replication_sources BTConnectionManagerProxy.rep REPLICA)
 qt5_generate_repc(replication_sources CommandQueueProxy.rep SOURCE)
 qt5_generate_repc(replication_sources CommandQueueProxy.rep REPLICA)
-qt5_generate_repc(replication_sources SettingsProxy.rep SOURCE)
-qt5_generate_repc(replication_sources SettingsProxy.rep REPLICA)
+qt5_generate_repc(replication_sources AppSettingsProxy.rep REPLICA)
 qt5_generate_repc(replication_sources GestureControllerProxy.rep SOURCE)
 qt5_generate_repc(replication_sources GestureControllerProxy.rep REPLICA)
 

@@ -58,7 +58,7 @@ public:
 };
 
 AppSettings::AppSettings(QObject* parent)
-    : SettingsProxySource(parent)
+    : AppSettingsProxySource(parent)
     , d(new Private)
 {
     QSettings settings;

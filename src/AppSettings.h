@@ -20,11 +20,11 @@
 #define SETTINGS_H
 
 #include <QObject>
-#include "rep_SettingsProxy_source.h"
+#include "rep_AppSettingsProxy_source.h"
 
 class AlarmList;
 
-class AppSettings : public SettingsProxySource
+class AppSettings : public AppSettingsProxySource
 {
     Q_OBJECT
 
