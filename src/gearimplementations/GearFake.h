@@ -24,7 +24,7 @@ class GearFake : public GearBase
 {
     Q_OBJECT
 public:
-    explicit GearFake(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    explicit GearFake(const QBluetoothDeviceInfo& info, DeviceModel * parent = nullptr);
     ~GearFake() override;
 
     bool isConnected() const override;

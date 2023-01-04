@@ -24,7 +24,7 @@
 #include <QLowEnergyController>
 
 #include "GearCommandModel.h"
-#include "BTDeviceModel.h"
+#include "DeviceModel.h"
 
 class GearBase : public QObject
 {
@@ -52,7 +52,7 @@ class GearBase : public QObject
     Q_PROPERTY(int chargingState READ chargingState NOTIFY chargingStateChanged)
     Q_PROPERTY(QString knownFirmwareMessage READ knownFirmwareMessage NOTIFY knownFirmwareMessageChanged)
 public:
-    explicit GearBase(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    explicit GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent = nullptr);
     ~GearBase() override;
 
     QBluetoothDeviceInfo deviceInfo;

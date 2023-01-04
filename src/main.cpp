@@ -44,7 +44,7 @@
 
 #include "../3rdparty/kirigami/src/kirigamiplugin.h"
 #include "BTConnectionManager.h"
-#include "BTDeviceModel.h"
+#include "DeviceModel.h"
 #include "CommandModel.h"
 #include "FilterProxyModel.h"
 #include "AlarmList.h"
@@ -170,8 +170,8 @@ int appMain(int argc, char *argv[])
     if(!res) { qCritical() << "Kapow! Replica for gestureControllerReplica failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("GestureController"), gestureControllerReplica.data());
 
-    QScopedPointer<QAbstractItemModelReplica> btDeviceModelReplica(repNode->acquireModel("DeviceModel"));
-    engine.rootContext()->setContextProperty(QLatin1String("DeviceModel"), btDeviceModelReplica.data());
+    QScopedPointer<QAbstractItemModelReplica> deviceModelReplica(repNode->acquireModel("DeviceModel"));
+    engine.rootContext()->setContextProperty(QLatin1String("DeviceModel"), deviceModelReplica.data());
 
     QScopedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel("CommandModel"));
     engine.rootContext()->setContextProperty(QLatin1String("CommandModel"), commandModelReplica.data());
@@ -298,11 +298,11 @@ int serviceMain(int argc, char *argv[])
         srcNode.enableRemoting(btConnectionManager);
 
         qDebug() << "Getting device model";
-        BTDeviceModel* btDeviceModel = qobject_cast<BTDeviceModel*>(btConnectionManager->deviceModel());
+        DeviceModel * deviceModel = qobject_cast<DeviceModel *>(btConnectionManager->deviceModel());
         qDebug() << "Replicating device model";
         QVector<int> roles;
-        roles << BTDeviceModel::Name << BTDeviceModel::DeviceID << BTDeviceModel::DeviceVersion << BTDeviceModel::BatteryLevel << BTDeviceModel::CurrentCall << BTDeviceModel::IsConnected << BTDeviceModel::ActiveCommandTitles << BTDeviceModel::Checked << BTDeviceModel::HasListening << BTDeviceModel::ListeningState << BTDeviceModel::EnabledCommandsFiles << BTDeviceModel::MicsSwapped << BTDeviceModel::SupportsOTA << BTDeviceModel::HasAvailableOTA << BTDeviceModel::HasOTAData << BTDeviceModel::DeviceProgress << BTDeviceModel::ProgressDescription << BTDeviceModel::OperationInProgress << BTDeviceModel::OTAVersion << BTDeviceModel::HasLights << BTDeviceModel::HasShutdown << BTDeviceModel::HasNoPhoneMode << BTDeviceModel::NoPhoneModeGroups << BTDeviceModel::ChargingState << BTDeviceModel::BatteryLevelPercent << BTDeviceModel::HasTilt << BTDeviceModel::CanBalanceListening << BTDeviceModel::TiltEnabled << BTDeviceModel::KnownFirmwareMessage;
-        srcNode.enableRemoting(btDeviceModel, "DeviceModel", roles);
+        roles << DeviceModel::Name << DeviceModel::DeviceID << DeviceModel::DeviceVersion << DeviceModel::BatteryLevel << DeviceModel::CurrentCall << DeviceModel::IsConnected << DeviceModel::ActiveCommandTitles << DeviceModel::Checked << DeviceModel::HasListening << DeviceModel::ListeningState << DeviceModel::EnabledCommandsFiles << DeviceModel::MicsSwapped << DeviceModel::SupportsOTA << DeviceModel::HasAvailableOTA << DeviceModel::HasOTAData << DeviceModel::DeviceProgress << DeviceModel::ProgressDescription << DeviceModel::OperationInProgress << DeviceModel::OTAVersion << DeviceModel::HasLights << DeviceModel::HasShutdown << DeviceModel::HasNoPhoneMode << DeviceModel::NoPhoneModeGroups << DeviceModel::ChargingState << DeviceModel::BatteryLevelPercent << DeviceModel::HasTilt << DeviceModel::CanBalanceListening << DeviceModel::TiltEnabled << DeviceModel::KnownFirmwareMessage;
+        srcNode.enableRemoting(deviceModel, "DeviceModel", roles);
 
         qDebug() << "Getting command model";
         CommandModel * tailCommandModel = qobject_cast<CommandModel *>(btConnectionManager->commandModel());

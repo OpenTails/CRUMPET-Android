@@ -35,7 +35,7 @@ public:
     QTimer batteryTimer;
 };
 
-GearFake::GearFake(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+GearFake::GearFake(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     : GearBase(info, parent)
     , d(new Private)
 {

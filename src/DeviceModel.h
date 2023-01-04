@@ -15,8 +15,8 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#ifndef BTDEVICEMODEL_H
-#define BTDEVICEMODEL_H
+#ifndef DEVICEMODEL_H
+#define DEVICEMODEL_H
 
 #include <QAbstractListModel>
 #include <QBluetoothDeviceInfo>
@@ -27,7 +27,7 @@
 class AppSettings;
 class GearBase;
 
-class BTDeviceModel : public QAbstractListModel
+class DeviceModel : public QAbstractListModel
 {
     Q_OBJECT
     /**
@@ -35,8 +35,8 @@ class BTDeviceModel : public QAbstractListModel
      */
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
 public:
-    explicit BTDeviceModel(QObject* parent = nullptr);
-    ~BTDeviceModel() override;
+    explicit DeviceModel (QObject* parent = nullptr);
+    ~DeviceModel() override;
 
     enum Roles {
         Name = Qt::UserRole + 1, // 257
@@ -136,4 +136,4 @@ private:
     Private* d;
 };
 
-#endif//BTDEVICEMODEL_H
+#endif//DEVICEMODEL_H

@@ -45,7 +45,7 @@ public:
     }
     ~Private() {}
     GearMitail* q{nullptr};
-    BTDeviceModel* parentModel{nullptr};
+    DeviceModel * parentModel{nullptr};
 
     QHash<QString, QString> knownFirmwareMessages;
     QString version{"(unknown)"};
@@ -352,7 +352,7 @@ public:
     }
 };
 
-GearMitail::GearMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+GearMitail::GearMitail(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     : GearBase(info, parent)
     , d(new Private(this))
 {

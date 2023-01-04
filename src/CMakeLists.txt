@@ -24,11 +24,11 @@ target_sources(digitail
     BTConnectionManager.cpp
     GearCommandModel.cpp
     GearBase.cpp
-    BTDeviceModel.cpp
     CommandInfo.cpp
     CommandModel.cpp
     CommandPersistence.cpp
     CommandQueue.cpp
+    DeviceModel.cpp
     FilterProxyModel.cpp
     GestureController.cpp
     GestureDetectorModel.cpp

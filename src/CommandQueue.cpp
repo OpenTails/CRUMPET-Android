@@ -18,7 +18,7 @@
 #include "CommandQueue.h"
 #include "BTConnectionManager.h"
 #include "CommandModel.h"
-#include "BTDeviceModel.h"
+#include "DeviceModel.h"
 
 #include <QTimer>
 

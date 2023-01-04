@@ -40,7 +40,7 @@ public:
     {}
     ~Private() {}
     GearEars* q{nullptr};
-    BTDeviceModel* parentModel{nullptr};
+    DeviceModel * parentModel{nullptr};
 
     QString version{"(unknown)"};
     int batteryLevel{0};
@@ -458,7 +458,7 @@ public:
     }
 };
 
-GearEars::GearEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+GearEars::GearEars(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     : GearBase(info, parent)
     , d(new Private(this))
 {

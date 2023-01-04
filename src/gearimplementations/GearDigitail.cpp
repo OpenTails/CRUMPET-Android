@@ -33,7 +33,7 @@ public:
     {}
     ~Private() {}
     GearDigitail* q{nullptr};
-    BTDeviceModel* parentModel{nullptr};
+    DeviceModel * parentModel{nullptr};
 
     QString version{"(unknown)"};
     QString currentCall;
@@ -206,7 +206,7 @@ public:
     }
 };
 
-GearDigitail::GearDigitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+GearDigitail::GearDigitail(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     : GearBase(info, parent)
     , d(new Private(this))
 {

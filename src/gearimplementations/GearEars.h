@@ -29,7 +29,7 @@ class GearEars : public GearBase
     Q_PROPERTY(bool canBalanceListening READ canBalanceListening NOTIFY canBalanceListeningChanged)
     Q_PROPERTY(bool tiltEnabled READ tiltEnabled NOTIFY tiltEnabledChanged)
 public:
-    explicit GearEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    explicit GearEars(const QBluetoothDeviceInfo& info, DeviceModel * parent = nullptr);
     ~GearEars() override;
 
     enum ListenMode {

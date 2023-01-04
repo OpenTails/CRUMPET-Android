@@ -17,7 +17,7 @@
 
 #include "CommandModel.h"
 
-#include "BTDeviceModel.h"
+#include "DeviceModel.h"
 #include "CommandInfo.h"
 #include "GearBase.h"
 
@@ -28,7 +28,7 @@ class CommandModel::Private
 public:
     Private(CommandModel * qq) : q(qq) {}
     CommandModel * q{nullptr};
-    BTDeviceModel* deviceModel{nullptr};
+    DeviceModel * deviceModel{nullptr};
     struct Entry {
         Entry(const CommandInfo& command)
             : command(command)
@@ -279,14 +279,14 @@ int CommandModel::rowCount(const QModelIndex& parent) const
     return d->commands.count();
 }
 
-void CommandModel::setDeviceModel(BTDeviceModel* deviceModel)
+void CommandModel::setDeviceModel(DeviceModel * deviceModel)
 {
     if (d->deviceModel) {
         d->deviceModel->disconnect(this);
     }
     d->deviceModel = deviceModel;
-    connect(deviceModel, &BTDeviceModel::deviceAdded, this, [this](GearBase* device){ d->registerDevice(device); });
-    connect(deviceModel, &BTDeviceModel::deviceRemoved, this, [this](GearBase* device){ d->unregisterDevice(device); });
+    connect(deviceModel, &DeviceModel::deviceAdded, this, [this](GearBase* device){ d->registerDevice(device); });
+    connect(deviceModel, &DeviceModel::deviceRemoved, this, [this](GearBase* device){ d->unregisterDevice(device); });
     for (int i = 0; i < deviceModel->rowCount() ; ++i) {
         d->registerDevice(deviceModel->getDevice(deviceModel->getDeviceID(i)));
     }

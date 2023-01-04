@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "BTDeviceModel.h"
+#include "DeviceModel.h"
 #include "AppSettings.h"
 #include "GearBase.h"
 #include "gearimplementations/GearDigitail.h"
@@ -23,16 +23,16 @@
 #include "gearimplementations/GearEars.h"
 #include "gearimplementations/GearMitail.h"
 
-class BTDeviceModel::Private
+class DeviceModel::Private
 {
 public:
-    Private(BTDeviceModel* qq)
+    Private(DeviceModel * qq)
         : q(qq)
     {
         readDeviceNames();
     }
     ~Private() {}
-    BTDeviceModel* q{nullptr};
+    DeviceModel * q{nullptr};
     GearBase* fakeDevice{nullptr};
 
     void readDeviceNames();
@@ -50,19 +50,19 @@ public:
     }
 };
 
-BTDeviceModel::BTDeviceModel(QObject* parent)
+DeviceModel::DeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private(this))
 {
     d->fakeDevice = new GearFake(QBluetoothDeviceInfo(QBluetoothAddress(QString("FA:KE:TA:IL")), QString("FAKE"), 0), this);
 }
 
-BTDeviceModel::~BTDeviceModel()
+DeviceModel::~DeviceModel()
 {
     delete d;
 }
 
-void BTDeviceModel::Private::readDeviceNames()
+void DeviceModel::Private::readDeviceNames()
 {
     if (!appSettings) {
         return;
@@ -79,12 +79,12 @@ void BTDeviceModel::Private::readDeviceNames()
     }
 }
 
-AppSettings *BTDeviceModel::appSettings() const
+AppSettings *DeviceModel::appSettings() const
 {
     return d->appSettings;
 }
 
-void BTDeviceModel::setAppSettings(AppSettings *appSettings)
+void DeviceModel::setAppSettings(AppSettings *appSettings)
 {
     d->appSettings = appSettings;
     connect(d->appSettings, &AppSettings::deviceNamesChanged, this, [this](){ d->readDeviceNames(); });
@@ -101,7 +101,7 @@ void BTDeviceModel::setAppSettings(AppSettings *appSettings)
     }
 }
 
-QHash< int, QByteArray > BTDeviceModel::roleNames() const
+QHash< int, QByteArray > DeviceModel::roleNames() const
 {
     static const QHash<int, QByteArray> roles{
         {Name, "name"},
@@ -137,7 +137,7 @@ QHash< int, QByteArray > BTDeviceModel::roleNames() const
     return roles;
 }
 
-QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
+QVariant DeviceModel::data(const QModelIndex& index, int role) const
 {
     QVariant value;
     if(index.isValid() && index.row() > -1 && index.row() < d->devices.count()) {
@@ -272,7 +272,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
     return value;
 }
 
-int BTDeviceModel::rowCount(const QModelIndex& parent) const
+int DeviceModel::rowCount(const QModelIndex& parent) const
 {
     if(parent.isValid()) {
         return 0;
@@ -280,7 +280,7 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
     return d->devices.count();
 }
 
-bool BTDeviceModel::isConnected() const
+bool DeviceModel::isConnected() const
 {
     for (GearBase* device : d->devices) {
         if (device->isConnected()) {
@@ -290,7 +290,7 @@ bool BTDeviceModel::isConnected() const
     return false;
 }
 
-void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
+void DeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
     GearBase* newDevice{nullptr};
     if (deviceInfo.name() == QLatin1String{"(!)Tail1"}) {
@@ -309,7 +309,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
     }
 }
 
-void BTDeviceModel::addDevice(GearBase* newDevice)
+void DeviceModel::addDevice(GearBase* newDevice)
 {
     // It feels a little dirty to do it this way...
     static const QStringList acceptedDeviceNames{
@@ -349,8 +349,8 @@ void BTDeviceModel::addDevice(GearBase* newDevice)
         }
 
         // General stuff
-        connect(newDevice, &GearBase::deviceMessage, this, &BTDeviceModel::deviceMessage);
-        connect(newDevice, &GearBase::deviceBlockingMessage, this, &BTDeviceModel::deviceBlockingMessage);
+        connect(newDevice, &GearBase::deviceMessage, this, &DeviceModel::deviceMessage);
+        connect(newDevice, &GearBase::deviceBlockingMessage, this, &DeviceModel::deviceBlockingMessage);
         connect(newDevice, &GearBase::isConnectedChanged, this, [this, newDevice](bool isConnected){
             if (isConnected) {
                 emit deviceConnected(newDevice);
@@ -440,7 +440,7 @@ void BTDeviceModel::addDevice(GearBase* newDevice)
     }
 }
 
-void BTDeviceModel::removeDevice(GearBase* device)
+void DeviceModel::removeDevice(GearBase* device)
 {
     int idx = d->devices.indexOf(device);
     if (idx > -1) {
@@ -456,12 +456,12 @@ void BTDeviceModel::removeDevice(GearBase* device)
     }
 }
 
-int BTDeviceModel::count()
+int DeviceModel::count()
 {
     return d->devices.count();
 }
 
-GearBase* BTDeviceModel::getDevice(const QString& deviceID) const
+GearBase* DeviceModel::getDevice(const QString& deviceID) const
 {
     for(GearBase* device : d->devices) {
         if(device->deviceID() == deviceID) {
@@ -471,7 +471,7 @@ GearBase* BTDeviceModel::getDevice(const QString& deviceID) const
     return nullptr;
 }
 
-GearBase * BTDeviceModel::getDeviceById ( int index ) const
+GearBase * DeviceModel::getDeviceById ( int index ) const
 {
     if (index > -1 && index < d->devices.count()) {
         return d->devices[index];
@@ -479,7 +479,7 @@ GearBase * BTDeviceModel::getDeviceById ( int index ) const
     return nullptr;
 }
 
-void BTDeviceModel::updateItem(const QString& deviceID)
+void DeviceModel::updateItem(const QString& deviceID)
 {
     d->readDeviceNames();
     for(int idx = 0; idx < d->devices.count(); ++idx) {
@@ -489,7 +489,7 @@ void BTDeviceModel::updateItem(const QString& deviceID)
     }
 }
 
-QString BTDeviceModel::getDeviceID(int deviceIndex) const
+QString DeviceModel::getDeviceID(int deviceIndex) const
 {
     if(deviceIndex >= 0 && deviceIndex < d->devices.count()) {
         return d->devices.at(deviceIndex)->deviceID();
@@ -497,7 +497,7 @@ QString BTDeviceModel::getDeviceID(int deviceIndex) const
     return QLatin1String();
 }
 
-void BTDeviceModel::sendMessage(const QString& message, const QStringList& deviceIDs)
+void DeviceModel::sendMessage(const QString& message, const QStringList& deviceIDs)
 {
     for (GearBase* device : d->devices) {
         // If there's no devices requested, send to everybody

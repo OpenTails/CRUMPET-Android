@@ -24,7 +24,7 @@ class GearMitail : public GearBase
 {
     Q_OBJECT
 public:
-    explicit GearMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    explicit GearMitail(const QBluetoothDeviceInfo& info, DeviceModel * parent = nullptr);
     ~GearMitail() override;
 
     bool isConnected() const override;

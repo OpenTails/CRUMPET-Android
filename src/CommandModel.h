@@ -21,7 +21,7 @@
 #include <QAbstractListModel>
 #include "GearCommandModel.h"
 
-class BTDeviceModel;
+class DeviceModel;
 /**
  * An agregation model, which agregates all the command models for all connected
  * devices and presents all the available commands only once (duplicates are allowed
@@ -53,7 +53,7 @@ public:
     /**
      * Set the DeviceModel which contains the devies this model should present commands from
      */
-    void setDeviceModel(BTDeviceModel* deviceModel);
+    void setDeviceModel(DeviceModel * deviceModel);
 
     /**
      * Get the command at a specified index

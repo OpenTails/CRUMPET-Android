@@ -24,7 +24,7 @@ class GearDigitail : public GearBase
 {
     Q_OBJECT
 public:
-    explicit GearDigitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    explicit GearDigitail(const QBluetoothDeviceInfo& info, DeviceModel * parent = nullptr);
     ~GearDigitail() override;
 
     bool isConnected() const override;

@@ -17,7 +17,7 @@
 
 #include "BTConnectionManager.h"
 #include "CommandModel.h"
-#include "BTDeviceModel.h"
+#include "DeviceModel.h"
 #include "gearimplementations/GearEars.h"
 #include "CommandQueue.h"
 #include "AppSettings.h"
@@ -41,7 +41,7 @@ public:
     QBluetoothUuid tailStateCharacteristicUuid;
 
     CommandModel * commandModel{nullptr};
-    BTDeviceModel* deviceModel{nullptr};
+    DeviceModel * deviceModel{nullptr};
     CommandQueue* commandQueue{nullptr};
 
     QBluetoothDeviceDiscoveryAgent* deviceDiscoveryAgent{nullptr};
@@ -57,7 +57,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     : BTConnectionManagerProxySource(parent)
     , d(new Private)
 {
-    d->deviceModel = new BTDeviceModel(this);
+    d->deviceModel = new DeviceModel(this);
     setAppSettings(appSettings);
 
     d->commandQueue = new CommandQueue(this);
@@ -65,7 +65,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     connect(d->commandQueue, &CommandQueue::countChanged,
             this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
 
-    connect(d->deviceModel, &BTDeviceModel::deviceMessage,
+    connect(d->deviceModel, &DeviceModel::deviceMessage,
             this, [this](const QString& deviceID, const QString& deviceMessage){
                 GearBase* device = d->deviceModel->getDevice(deviceID);
                 if (device) {
@@ -75,11 +75,11 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
                     Q_EMIT emit message(QString("%1 says:\n%2").arg(deviceID).arg(deviceMessage));
                 }
             });
-    connect(d->deviceModel, &BTDeviceModel::deviceBlockingMessage, this, &BTConnectionManager::blockingMessage);
-    connect(d->deviceModel, &BTDeviceModel::countChanged,
+    connect(d->deviceModel, &DeviceModel::deviceBlockingMessage, this, &BTConnectionManager::blockingMessage);
+    connect(d->deviceModel, &DeviceModel::countChanged,
             this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
-    connect(d->deviceModel, &BTDeviceModel::deviceConnected, this, [this](GearBase* device){ emit deviceConnected(device->deviceID()); });
-    connect(d->deviceModel, &BTDeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
+    connect(d->deviceModel, &DeviceModel::deviceConnected, this, [this](GearBase* device){ emit deviceConnected(device->deviceID()); });
+    connect(d->deviceModel, &DeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
 
     d->commandModel = new CommandModel(this);
     d->commandModel->setDeviceModel(d->deviceModel);
