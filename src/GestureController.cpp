@@ -17,7 +17,7 @@
 
 #include "GestureController.h"
 #include "BTConnectionManager.h"
-#include "BTDeviceCommandModel.h"
+#include "CommandModel.h"
 #include "BTDeviceModel.h"
 #include "GearBase.h"
 #include "GestureDetectorModel.h"
@@ -69,7 +69,7 @@ public:
             qDebug() << "We have a gesture with a command set, send that to our required devices, which are (empty means all):" << gesture->devices();
             BTDeviceModel* deviceModel = qobject_cast<BTDeviceModel*>(connectionManager->deviceModel());
             // First get the command from the core model...
-            BTDeviceCommandModel* commandModel = qobject_cast<BTDeviceCommandModel*>(connectionManager->commandModel());
+            CommandModel * commandModel = qobject_cast<CommandModel *>(connectionManager->commandModel());
             CommandInfo cmd = commandModel->getCommand(gesture->command());
             for (int i = 0 ; i < deviceModel->count() ; ++i) {
                 GearBase* device = deviceModel->getDeviceById(i);

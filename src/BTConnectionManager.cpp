@@ -16,7 +16,7 @@
  */
 
 #include "BTConnectionManager.h"
-#include "BTDeviceCommandModel.h"
+#include "CommandModel.h"
 #include "BTDeviceModel.h"
 #include "gearimplementations/GearEars.h"
 #include "CommandQueue.h"
@@ -40,7 +40,7 @@ public:
     AppSettings* appSettings{nullptr};
     QBluetoothUuid tailStateCharacteristicUuid;
 
-    BTDeviceCommandModel* commandModel{nullptr};
+    CommandModel * commandModel{nullptr};
     BTDeviceModel* deviceModel{nullptr};
     CommandQueue* commandQueue{nullptr};
 
@@ -81,7 +81,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     connect(d->deviceModel, &BTDeviceModel::deviceConnected, this, [this](GearBase* device){ emit deviceConnected(device->deviceID()); });
     connect(d->deviceModel, &BTDeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
 
-    d->commandModel = new BTDeviceCommandModel(this);
+    d->commandModel = new CommandModel(this);
     d->commandModel->setDeviceModel(d->deviceModel);
 
     // Create a discovery agent and connect to its signals

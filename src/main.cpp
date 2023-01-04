@@ -45,7 +45,7 @@
 #include "../3rdparty/kirigami/src/kirigamiplugin.h"
 #include "BTConnectionManager.h"
 #include "BTDeviceModel.h"
-#include "BTDeviceCommandModel.h"
+#include "CommandModel.h"
 #include "FilterProxyModel.h"
 #include "AlarmList.h"
 #include "AppSettings.h"
@@ -305,10 +305,10 @@ int serviceMain(int argc, char *argv[])
         srcNode.enableRemoting(btDeviceModel, "DeviceModel", roles);
 
         qDebug() << "Getting command model";
-        BTDeviceCommandModel* tailCommandModel = qobject_cast<BTDeviceCommandModel*>(btConnectionManager->commandModel());
+        CommandModel * tailCommandModel = qobject_cast<CommandModel *>(btConnectionManager->commandModel());
         qDebug() << "Replicating command model";
         roles.clear();
-        roles << BTDeviceCommandModel::Name << BTDeviceCommandModel::Command << BTDeviceCommandModel::IsRunning << BTDeviceCommandModel::Category << BTDeviceCommandModel::Duration << BTDeviceCommandModel::MinimumCooldown << BTDeviceCommandModel::CommandIndex << BTDeviceCommandModel::DeviceIDs << BTDeviceCommandModel::IsAvailable;
+        roles << CommandModel::Name << CommandModel::Command << CommandModel::IsRunning << CommandModel::Category << CommandModel::Duration << CommandModel::MinimumCooldown << CommandModel::CommandIndex << CommandModel::DeviceIDs << CommandModel::IsAvailable;
         srcNode.enableRemoting(tailCommandModel, "CommandModel", roles);
 
         qDebug() << "Getting command queue";

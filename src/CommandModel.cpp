@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "BTDeviceCommandModel.h"
+#include "CommandModel.h"
 
 #include "BTDeviceModel.h"
 #include "CommandInfo.h"
@@ -23,11 +23,11 @@
 
 #include <QRandomGenerator>
 
-class BTDeviceCommandModel::Private
+class CommandModel::Private
 {
 public:
-    Private(BTDeviceCommandModel* qq) : q(qq) {}
-    BTDeviceCommandModel* q{nullptr};
+    Private(CommandModel * qq) : q(qq) {}
+    CommandModel * q{nullptr};
     BTDeviceModel* deviceModel{nullptr};
     struct Entry {
         Entry(const CommandInfo& command)
@@ -152,7 +152,7 @@ public:
                             }
                         }
                         theEntry->command.isRunning = anyRunning;
-                        ourRoles << BTDeviceCommandModel::IsRunning;
+                        ourRoles << CommandModel::IsRunning;
                     } else if (role == GearCommandModel::IsAvailable) {
                         // we've got something we care about, let's deal with it
                         bool anyAvailable{false};
@@ -165,7 +165,7 @@ public:
                             }
                         }
                         theEntry->command.isAvailable = anyAvailable;
-                        ourRoles << BTDeviceCommandModel::IsAvailable;
+                        ourRoles << CommandModel::IsAvailable;
                     }
                 }
                 q->dataChanged(q->index(entryIdx), q->index(entryIdx), ourRoles);
@@ -197,18 +197,18 @@ public:
     }
 };
 
-BTDeviceCommandModel::BTDeviceCommandModel(QObject* parent)
+CommandModel::CommandModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private(this))
 {
 }
 
-BTDeviceCommandModel::~BTDeviceCommandModel()
+CommandModel::~CommandModel()
 {
     delete d;
 }
 
-QHash<int, QByteArray> BTDeviceCommandModel::roleNames() const
+QHash<int, QByteArray> CommandModel::roleNames() const
 {
     static const QHash<int, QByteArray> roles{
         {Name, "name"},
@@ -224,7 +224,7 @@ QHash<int, QByteArray> BTDeviceCommandModel::roleNames() const
     return roles;
 }
 
-QVariant BTDeviceCommandModel::data(const QModelIndex& index, int role) const
+QVariant CommandModel::data(const QModelIndex& index, int role) const
 {
     QVariant result;
     if (checkIndex(index)) {
@@ -271,7 +271,7 @@ QVariant BTDeviceCommandModel::data(const QModelIndex& index, int role) const
     return result;
 }
 
-int BTDeviceCommandModel::rowCount(const QModelIndex& parent) const
+int CommandModel::rowCount(const QModelIndex& parent) const
 {
     if (parent.isValid()) {
         return 0;
@@ -279,7 +279,7 @@ int BTDeviceCommandModel::rowCount(const QModelIndex& parent) const
     return d->commands.count();
 }
 
-void BTDeviceCommandModel::setDeviceModel(BTDeviceModel* deviceModel)
+void CommandModel::setDeviceModel(BTDeviceModel* deviceModel)
 {
     if (d->deviceModel) {
         d->deviceModel->disconnect(this);
@@ -292,7 +292,7 @@ void BTDeviceCommandModel::setDeviceModel(BTDeviceModel* deviceModel)
     }
 }
 
-CommandInfo BTDeviceCommandModel::getCommand(int index) const
+CommandInfo CommandModel::getCommand(int index) const
 {
     if(index >= 0 && index < d->commands.count()) {
         return d->commands[index]->command;
@@ -300,7 +300,7 @@ CommandInfo BTDeviceCommandModel::getCommand(int index) const
     return CommandInfo{};
 }
 
-CommandInfo BTDeviceCommandModel::getCommand(QString command) const
+CommandInfo CommandModel::getCommand(QString command) const
 {
     CommandInfo cmd;
     // Just in case - this is specifically for TAILHM, which must exist (and
@@ -316,7 +316,7 @@ CommandInfo BTDeviceCommandModel::getCommand(QString command) const
     return cmd;
 }
 
-CommandInfo BTDeviceCommandModel::getRandomCommand(QStringList includedCategories) const
+CommandInfo CommandModel::getRandomCommand(QStringList includedCategories) const
 {
     if(d->commands.count() > 0) {
         CommandInfoList pickFrom;

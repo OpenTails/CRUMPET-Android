@@ -24,9 +24,9 @@ target_sources(digitail
     BTConnectionManager.cpp
     GearCommandModel.cpp
     GearBase.cpp
-    BTDeviceCommandModel.cpp
     BTDeviceModel.cpp
     CommandInfo.cpp
+    CommandModel.cpp
     CommandPersistence.cpp
     CommandQueue.cpp
     FilterProxyModel.cpp

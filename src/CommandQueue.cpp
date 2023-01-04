@@ -17,7 +17,7 @@
 
 #include "CommandQueue.h"
 #include "BTConnectionManager.h"
-#include "BTDeviceCommandModel.h"
+#include "CommandModel.h"
 #include "BTDeviceModel.h"
 
 #include <QTimer>
@@ -203,7 +203,7 @@ void CommandQueue::pushPause(int durationMilliseconds, QStringList devices)
 void CommandQueue::pushCommand(QString tailCommand, QStringList devices)
 {
     qDebug() << Q_FUNC_INFO << tailCommand;
-    const CommandInfo& command = qobject_cast<BTDeviceCommandModel*>(d->connectionManager->commandModel())->getCommand(tailCommand);
+    const CommandInfo& command = qobject_cast<CommandModel *>(d->connectionManager->commandModel())->getCommand(tailCommand);
     qDebug() << "Command to push" << command.command;
     if(!command.isValid()) {
         return;

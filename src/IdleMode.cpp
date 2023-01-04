@@ -20,7 +20,7 @@
 #include "CommandQueue.h"
 #include "CommandInfo.h"
 #include "BTConnectionManager.h"
-#include "BTDeviceCommandModel.h"
+#include "CommandModel.h"
 #include "GearBase.h"
 #include "BTDeviceModel.h"
 
@@ -51,7 +51,7 @@ public:
     void actualPush() {
         if(connectionManager && connectionManager->isConnected() && appSettings && appSettings->idleMode()) {
             CommandQueue* queue = qobject_cast<CommandQueue*>(connectionManager->commandQueue());
-            BTDeviceCommandModel* commands = qobject_cast<BTDeviceCommandModel*>(connectionManager->commandModel());
+            CommandModel * commands = qobject_cast<CommandModel *>(connectionManager->commandModel());
             const QStringList categories = appSettings->idleCategories();
             qDebug() << "Correctly set up, able to push a command to the queue for casual mode";
             if(queue && commands) {

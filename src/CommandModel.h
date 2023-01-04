@@ -15,8 +15,8 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#ifndef BTDEVICECOMMANDMODEL_H
-#define BTDEVICECOMMANDMODEL_H
+#ifndef COMMANDMODEL_H
+#define COMMANDMODEL_H
 
 #include <QAbstractListModel>
 #include "GearCommandModel.h"
@@ -27,12 +27,12 @@ class BTDeviceModel;
  * devices and presents all the available commands only once (duplicates are allowed
  * if they are in different categories).
  */
-class BTDeviceCommandModel : public QAbstractListModel
+class CommandModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit BTDeviceCommandModel(QObject* parent = nullptr);
-    ~BTDeviceCommandModel() override;
+    explicit CommandModel (QObject* parent = nullptr);
+    ~CommandModel() override;
 
     enum Roles {
         Name = Qt::UserRole + 1,
@@ -83,4 +83,4 @@ private:
     Private* d;
 };
 
-#endif//BTDEVICECOMMANDMODEL_H
+#endif//COMMANDMODEL_H
