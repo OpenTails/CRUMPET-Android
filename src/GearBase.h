@@ -110,7 +110,7 @@ public:
 
     Q_INVOKABLE virtual void checkOTA() {};
     Q_INVOKABLE virtual bool hasAvailableOTA() { return false; };
-    Q_INVOKABLE virtual QString otaVersion() { return QString{}; };
+    Q_INVOKABLE virtual QString otaVersion() { return version(); };
     Q_SIGNAL void hasAvailableOTAChanged();
     Q_INVOKABLE virtual void downloadOTAData() {};
     Q_INVOKABLE virtual bool hasOTAData() { return false; }
