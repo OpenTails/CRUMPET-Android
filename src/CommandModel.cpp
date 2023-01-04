@@ -39,6 +39,26 @@ public:
     };
     QVector<Entry*> commands;
 
+    // Update the duration of the given entry's contained command to be whatever is the longest duration for this command in all the entry's devices
+    void updateEntryDurations(Entry *entry) {
+        entry->command.duration = 0;
+        entry->command.minimumCooldown = 0;
+        for (GearBase* device : entry->devices) {
+            const CommandInfoList deviceCommands = device->commandModel->allCommands();
+            for (const CommandInfo &existing : deviceCommands) {
+                if (entry->command.equivalent(existing)) {
+                    if (entry->command.duration < existing.duration) {
+                        entry->command.duration = existing.duration;
+                        entry->command.minimumCooldown = existing.minimumCooldown;
+                    }
+                }
+            }
+        }
+        const int index = commands.indexOf(entry);
+        const QModelIndex modelIndex = q->index(index);
+        q->dataChanged(modelIndex, modelIndex, QVector<int>{CommandModel::Duration, CommandModel::MinimumCooldown});
+    }
+
     void addCommand(const CommandInfo& command, GearBase* device) {
         Entry* entry{nullptr};
         // check if command already exists in some entry
@@ -59,6 +79,7 @@ public:
         if (!entry->devices.contains(device)) {
             entry->devices << device;
         }
+        updateEntryDurations(entry);
     }
 
     void removeCommand(const CommandInfo& command, GearBase* device) {
@@ -82,6 +103,8 @@ public:
                 commands.remove(position);
                 q->endRemoveRows();
                 delete entry;
+            } else {
+                updateEntryDurations(entry);
             }
         }
     }
