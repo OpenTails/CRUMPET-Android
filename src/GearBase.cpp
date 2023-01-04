@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "BTDevice.h"
+#include "GearBase.h"
 
 #include <QCoreApplication>
 #include <QSettings>
@@ -24,7 +24,7 @@
 #include "AppSettings.h"
 #include "CommandPersistence.h"
 
-class BTDevice::Private {
+class GearBase::Private {
 public:
     Private() {}
     ~Private() {}
@@ -45,7 +45,7 @@ public:
     BTDeviceModel* parentModel{nullptr};
 };
 
-BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+GearBase::GearBase(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     : QObject(parent)
     , deviceInfo(info)
     , d(new Private)
@@ -67,7 +67,7 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
 
     QSettings settings;
     d->enabledCommandsFiles = settings.value(QString{"enabledCommandFiles-%1"}.arg(info.address().toString())).toStringList();
-    connect(this, &BTDevice::enabledCommandsFilesChanged, this, [this](){
+    connect(this, &GearBase::enabledCommandsFilesChanged, this, [this](){
         // save command files back to settings
         QSettings settings;
         settings.setValue(QString{"enabledCommandFiles-%1"}.arg(deviceInfo.address().toString()), d->enabledCommandsFiles);
@@ -76,39 +76,39 @@ BTDevice::BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
     emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
 }
 
-BTDevice::~BTDevice()
+GearBase::~GearBase()
 {
     delete d;
 }
 
-bool BTDevice::supportsOTA()
+bool GearBase::supportsOTA()
 {
     return d->supportsOTA;
 }
 
-void BTDevice::setSupportsOTA(bool supportsOTA)
+void GearBase::setSupportsOTA(bool supportsOTA)
 {
     d->supportsOTA = supportsOTA;
     Q_EMIT supportsOTAChanged();
 }
 
-bool BTDevice::checked() const
+bool GearBase::checked() const
 {
     return d->checked;
 }
 
-void BTDevice::setChecked(bool checked)
+void GearBase::setChecked(bool checked)
 {
     d->checked = checked;
     Q_EMIT checkedChanged(d->checked);
 }
 
-QString BTDevice::name() const
+QString GearBase::name() const
 {
     return d->name;
 }
 
-void BTDevice::setName(const QString& name)
+void GearBase::setName(const QString& name)
 {
     if (d->name != name) {
         d->name = name;
@@ -116,12 +116,12 @@ void BTDevice::setName(const QString& name)
     }
 }
 
-int BTDevice::batteryLevelPercent() const
+int GearBase::batteryLevelPercent() const
 {
     return d->batteryLevelPercent;
 }
 
-void BTDevice::setBatteryLevelPercent(int batteryLevelPercent)
+void GearBase::setBatteryLevelPercent(int batteryLevelPercent)
 {
     if (d->batteryLevelPercent != batteryLevelPercent) {
         d->batteryLevelPercent = batteryLevelPercent;
@@ -129,7 +129,7 @@ void BTDevice::setBatteryLevelPercent(int batteryLevelPercent)
     }
 }
 
-QString BTDevice::activeCommandTitles() const
+QString GearBase::activeCommandTitles() const
 {
     QString titles;
     QString separator;
@@ -142,12 +142,12 @@ QString BTDevice::activeCommandTitles() const
     return titles;
 }
 
-QStringList BTDevice::enabledCommandsFiles() const
+QStringList GearBase::enabledCommandsFiles() const
 {
     return d->enabledCommandsFiles;
 }
 
-void BTDevice::setCommandsFileEnabledState(const QString& filename, bool enabled)
+void GearBase::setCommandsFileEnabledState(const QString& filename, bool enabled)
 {
     if (enabled && !d->enabledCommandsFiles.contains(filename)) {
         d->enabledCommandsFiles.append(filename);
@@ -165,7 +165,7 @@ void BTDevice::setCommandsFileEnabledState(const QString& filename, bool enabled
     }
 }
 
-void BTDevice::reloadCommands() {
+void GearBase::reloadCommands() {
     commandModel->clear();
     commandShorthands.clear();
     QVariantMap commandFiles = d->parentModel->appSettings()->commandFiles();
@@ -189,17 +189,17 @@ void BTDevice::reloadCommands() {
     }
 }
 
-QStringList BTDevice::defaultCommandFiles() const
+QStringList GearBase::defaultCommandFiles() const
 {
     return QStringList{QLatin1String{":/commands/digitail-builtin.crumpet"}};
 }
 
-int BTDevice::deviceProgress() const
+int GearBase::deviceProgress() const
 {
     return d->deviceProgress;
 }
 
-void BTDevice::setDeviceProgress(int progress)
+void GearBase::setDeviceProgress(int progress)
 {
     if (d->deviceProgress != progress) {
         d->deviceProgress = progress;
@@ -207,12 +207,12 @@ void BTDevice::setDeviceProgress(int progress)
     }
 }
 
-QString BTDevice::progressDescription() const
+QString GearBase::progressDescription() const
 {
     return d->progressDescription;
 }
 
-void BTDevice::setProgressDescription(const QString& progressDescription)
+void GearBase::setProgressDescription(const QString& progressDescription)
 {
     if (d->progressDescription != progressDescription) {
         d->progressDescription = progressDescription;
@@ -220,12 +220,12 @@ void BTDevice::setProgressDescription(const QString& progressDescription)
     }
 }
 
-bool BTDevice::hasLights() const
+bool GearBase::hasLights() const
 {
     return d->hasLights;
 }
 
-void BTDevice::setHasLights(bool hasLights)
+void GearBase::setHasLights(bool hasLights)
 {
     if (d->hasLights != hasLights) {
         d->hasLights = hasLights;
@@ -233,12 +233,12 @@ void BTDevice::setHasLights(bool hasLights)
     }
 }
 
-bool BTDevice::hasShutdown() const
+bool GearBase::hasShutdown() const
 {
     return d->hasShutdown;
 }
 
-void BTDevice::setHasShutdown(bool hasShutdown)
+void GearBase::setHasShutdown(bool hasShutdown)
 {
     if (d->hasShutdown != hasShutdown) {
         d->hasShutdown = hasShutdown;
@@ -246,12 +246,12 @@ void BTDevice::setHasShutdown(bool hasShutdown)
     }
 }
 
-bool BTDevice::hasNoPhoneMode() const
+bool GearBase::hasNoPhoneMode() const
 {
     return d->hasNoPhoneMode;
 }
 
-void BTDevice::setHasNoPhoneMode(bool hasNoPhoneMode)
+void GearBase::setHasNoPhoneMode(bool hasNoPhoneMode)
 {
     if (d->hasNoPhoneMode != hasNoPhoneMode) {
         d->hasNoPhoneMode = hasNoPhoneMode;
@@ -259,12 +259,12 @@ void BTDevice::setHasNoPhoneMode(bool hasNoPhoneMode)
     }
 }
 
-QVariantList BTDevice::noPhoneModeGroups() const
+QVariantList GearBase::noPhoneModeGroups() const
 {
     return d->noPhoneModeGroups;
 }
 
-void BTDevice::setNoPhoneModeGroups(QVariantList noPhoneModeGroups)
+void GearBase::setNoPhoneModeGroups(QVariantList noPhoneModeGroups)
 {
     if (d->noPhoneModeGroups != noPhoneModeGroups) {
         d->noPhoneModeGroups = noPhoneModeGroups;
@@ -272,12 +272,12 @@ void BTDevice::setNoPhoneModeGroups(QVariantList noPhoneModeGroups)
     }
 }
 
-int BTDevice::chargingState() const
+int GearBase::chargingState() const
 {
     return d->chargingState;
 }
 
-void BTDevice::setChargingState(int chargingState)
+void GearBase::setChargingState(int chargingState)
 {
     if (d->chargingState != chargingState) {
         d->chargingState = chargingState;
@@ -285,12 +285,12 @@ void BTDevice::setChargingState(int chargingState)
     }
 }
 
-QString BTDevice::knownFirmwareMessage() const
+QString GearBase::knownFirmwareMessage() const
 {
     return d->knownFirmwareMessage;
 }
 
-void BTDevice::setKnownFirmwareMessage(const QString &knownFirmwareMessage)
+void GearBase::setKnownFirmwareMessage(const QString &knownFirmwareMessage)
 {
     if (d->knownFirmwareMessage != knownFirmwareMessage) {
         d->knownFirmwareMessage = knownFirmwareMessage;

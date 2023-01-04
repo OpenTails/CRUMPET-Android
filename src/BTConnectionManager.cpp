@@ -18,8 +18,8 @@
 #include "BTConnectionManager.h"
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
-#include "BTDeviceEars.h"
-#include "BTDevice.h"
+#include "GearEars.h"
+#include "GearBase.h"
 #include "TailCommandModel.h"
 #include "CommandQueue.h"
 #include "AppSettings.h"
@@ -69,7 +69,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
 
     connect(d->deviceModel, &BTDeviceModel::deviceMessage,
             this, [this](const QString& deviceID, const QString& deviceMessage){
-                BTDevice* device = d->deviceModel->getDevice(deviceID);
+                GearBase* device = d->deviceModel->getDevice(deviceID);
                 if (device) {
                     Q_EMIT emit message(QString("%1 says:\n%2").arg(device->name()).arg(deviceMessage));
                 }
@@ -80,7 +80,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     connect(d->deviceModel, &BTDeviceModel::deviceBlockingMessage, this, &BTConnectionManager::blockingMessage);
     connect(d->deviceModel, &BTDeviceModel::countChanged,
             this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
-    connect(d->deviceModel, &BTDeviceModel::deviceConnected, this, [this](BTDevice* device){ emit deviceConnected(device->deviceID()); });
+    connect(d->deviceModel, &BTDeviceModel::deviceConnected, this, [this](GearBase* device){ emit deviceConnected(device->deviceID()); });
     connect(d->deviceModel, &BTDeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
 
     d->commandModel = new BTDeviceCommandModel(this);
@@ -159,7 +159,7 @@ bool BTConnectionManager::discoveryRunning() const
 
 void BTConnectionManager::connectToDevice(const QString& deviceID)
 {
-    BTDevice* device;
+    GearBase* device;
     if (deviceID.isEmpty()) {
         device = d->deviceModel->getDevice(d->deviceModel->getDeviceID(0));
     } else {
@@ -182,7 +182,7 @@ void BTConnectionManager::disconnectDevice(const QString& deviceID)
             }
         }
     } else {
-        BTDevice* device = d->deviceModel->getDevice(deviceID);
+        GearBase* device = d->deviceModel->getDevice(deviceID);
         if (device && device->isConnected()) {
             device->disconnectDevice();
             d->commandQueue->clear(device->deviceID());
@@ -274,7 +274,7 @@ QVariantMap BTConnectionManager::getCommand(const QString& command)
 
 void BTConnectionManager::setDeviceName(const QString& deviceID, const QString& deviceName)
 {
-    const BTDevice* device = d->deviceModel->getDevice(deviceID);
+    const GearBase* device = d->deviceModel->getDevice(deviceID);
     if(device) {
         d->appSettings->setDeviceName(deviceID, deviceName);
         d->deviceModel->updateItem(deviceID);
@@ -289,7 +289,7 @@ void BTConnectionManager::clearDeviceNames()
 
 void BTConnectionManager::setDeviceChecked(const QString& deviceID, bool checked)
 {
-    BTDevice* device = d->deviceModel->getDevice(deviceID);
+    GearBase* device = d->deviceModel->getDevice(deviceID);
     if(device) {
         device->setChecked(checked);
     }
@@ -297,15 +297,15 @@ void BTConnectionManager::setDeviceChecked(const QString& deviceID, bool checked
 
 void BTConnectionManager::setDeviceListeningState(const QString& deviceID, int listeningMode)
 {
-    BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(d->deviceModel->getDevice(deviceID));
+    GearEars* ears = qobject_cast<GearEars*>(d->deviceModel->getDevice(deviceID));
     if (ears && listeningMode > -1 && listeningMode < 3) {
-        ears->setListenMode(static_cast<BTDeviceEars::ListenMode>(listeningMode));
+        ears->setListenMode(static_cast<GearEars::ListenMode>(listeningMode));
     }
 }
 
 void BTConnectionManager::setDeviceTiltState(const QString &deviceID, bool tiltState)
 {
-    BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(d->deviceModel->getDevice(deviceID));
+    GearEars* ears = qobject_cast<GearEars*>(d->deviceModel->getDevice(deviceID));
     if (ears) {
         ears->setTiltMode(tiltState);
     }
@@ -314,7 +314,7 @@ void BTConnectionManager::setDeviceTiltState(const QString &deviceID, bool tiltS
 void BTConnectionManager::setDeviceCommandsFileEnabled(const QString& deviceID, const QString& filename, bool enabled)
 {
     qDebug() << Q_FUNC_INFO << deviceID << filename << enabled;
-    BTDevice* device = d->deviceModel->getDevice(deviceID);
+    GearBase* device = d->deviceModel->getDevice(deviceID);
     if (device) {
         device->setCommandsFileEnabledState(filename, enabled);
     }
@@ -322,7 +322,7 @@ void BTConnectionManager::setDeviceCommandsFileEnabled(const QString& deviceID, 
 
 void BTConnectionManager::callDeviceFunction(const QString& deviceID, const QString& functionName)
 {
-    BTDevice* device = d->deviceModel->getDevice(deviceID);
+    GearBase* device = d->deviceModel->getDevice(deviceID);
     if (device) {
         QMetaObject::invokeMethod(device, functionName.toUtf8());
     }

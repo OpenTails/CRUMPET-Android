@@ -18,14 +18,14 @@
 #ifndef BTDEVICEMITAIL_H
 #define BTDEVICEMITAIL_H
 
-#include "BTDevice.h"
+#include "GearBase.h"
 
-class BTDeviceMitail : public BTDevice
+class GearMitail : public GearBase
 {
     Q_OBJECT
 public:
-    explicit BTDeviceMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
-    ~BTDeviceMitail() override;
+    explicit GearMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    ~GearMitail() override;
 
     bool isConnected() const override;
     QString version() const override;

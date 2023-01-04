@@ -19,7 +19,7 @@
 #include "BTConnectionManager.h"
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
-#include "BTDevice.h"
+#include "GearBase.h"
 #include "GestureDetectorModel.h"
 #include "WalkingSensorGestureReconizer.h"
 
@@ -72,7 +72,7 @@ public:
             BTDeviceCommandModel* commandModel = qobject_cast<BTDeviceCommandModel*>(connectionManager->commandModel());
             CommandInfo cmd = commandModel->getCommand(gesture->command());
             for (int i = 0 ; i < deviceModel->count() ; ++i) {
-                BTDevice* device = deviceModel->getDeviceById(i);
+                GearBase* device = deviceModel->getDeviceById(i);
                 qDebug() << device->deviceID() << "of class type" << device->metaObject()->className() << "is connected?" << device->isConnected() << "is the command available?" << device->commandModel->isAvailable(cmd) << "with the command being" << cmd.command << "and is supposed to be a recipient of this command?" << (gesture->devices().count() == 0 || gesture->devices().contains(device->deviceID()));
                 // Now check if the device is connected, the device model says that command is available,
                 // and that it's supposed to be a recipient

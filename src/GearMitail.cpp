@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "BTDeviceMitail.h"
+#include "GearMitail.h"
 
 #include <KLocalizedString>
 
@@ -31,9 +31,9 @@
 
 #include "AppSettings.h"
 
-class BTDeviceMitail::Private {
+class GearMitail::Private {
 public:
-    Private(BTDeviceMitail* qq)
+    Private(GearMitail* qq)
         : q(qq)
     {
         knownFirmwareMessages[QLatin1String{"VER 4.0.3"}] = i18nc("A message displayed to the user when firmware version 4.03 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 4.03 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
@@ -44,7 +44,7 @@ public:
         knownFirmwareMessages[QLatin1String{"VER 3.2.10"}] = i18nc("A message displayed to the user when firmware version 3.2.10 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 3.2.10 firmware  installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
     }
     ~Private() {}
-    BTDeviceMitail* q{nullptr};
+    GearMitail* q{nullptr};
     BTDeviceModel* parentModel{nullptr};
 
     QHash<QString, QString> knownFirmwareMessages;
@@ -352,8 +352,8 @@ public:
     }
 };
 
-BTDeviceMitail::BTDeviceMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
-    : BTDevice(info, parent)
+GearMitail::GearMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+    : GearBase(info, parent)
     , d(new Private(this))
 {
     d->parentModel = parent;
@@ -378,12 +378,12 @@ BTDeviceMitail::BTDeviceMitail(const QBluetoothDeviceInfo& info, BTDeviceModel* 
     d->pingTimer.setSingleShot(false);
 }
 
-BTDeviceMitail::~BTDeviceMitail()
+GearMitail::~GearMitail()
 {
     delete d;
 }
 
-void BTDeviceMitail::connectDevice()
+void GearMitail::connectDevice()
 {
     if(d->btControl) {
         disconnectDevice();
@@ -539,7 +539,7 @@ void BTDeviceMitail::connectDevice()
                     if (d->firmwareProgress > -1) {
                         emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"));
                     } else {
-                        QTimer::singleShot(2000, this, &BTDeviceMitail::connectDevice);
+                        QTimer::singleShot(2000, this, &GearMitail::connectDevice);
                     }
                     break;
                 default:
@@ -581,7 +581,7 @@ void BTDeviceMitail::connectDevice()
     d->btControl->connectToDevice();
 }
 
-void BTDeviceMitail::disconnectDevice()
+void GearMitail::disconnectDevice()
 {
     d->pingTimer.stop();
     if (d->btControl) {
@@ -606,32 +606,32 @@ void BTDeviceMitail::disconnectDevice()
     emit isConnectedChanged(isConnected());
 }
 
-bool BTDeviceMitail::isConnected() const
+bool GearMitail::isConnected() const
 {
     return d->btControl;
 }
 
-QString BTDeviceMitail::version() const
+QString GearMitail::version() const
 {
     return d->version;
 }
 
-int BTDeviceMitail::batteryLevel() const
+int GearMitail::batteryLevel() const
 {
     return d->batteryLevel;
 }
 
-QString BTDeviceMitail::currentCall() const
+QString GearMitail::currentCall() const
 {
     return d->currentCall;
 }
 
-QString BTDeviceMitail::deviceID() const
+QString GearMitail::deviceID() const
 {
     return deviceInfo.address().toString();
 }
 
-void BTDeviceMitail::sendMessage(const QString &message)
+void GearMitail::sendMessage(const QString &message)
 {
     if (d->firmwareProgress == -1) {
         QString actualMessage{message};
@@ -658,12 +658,12 @@ void BTDeviceMitail::sendMessage(const QString &message)
     }
 }
 
-QStringList BTDeviceMitail::defaultCommandFiles() const
+QStringList GearMitail::defaultCommandFiles() const
 {
     return QStringList{QLatin1String{":/commands/mitail-builtin.crumpet"}};
 }
 
-void BTDeviceMitail::checkOTA()
+void GearMitail::checkOTA()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
@@ -681,7 +681,7 @@ void BTDeviceMitail::checkOTA()
     }
 }
 
-bool BTDeviceMitail::hasAvailableOTA()
+bool GearMitail::hasAvailableOTA()
 {
     if (!d->otaVersion.isEmpty() && d->version != d->otaVersion) {
         // this will need thought... comparing the version strings like this will not work
@@ -690,12 +690,12 @@ bool BTDeviceMitail::hasAvailableOTA()
     return false;
 }
 
-QString BTDeviceMitail::otaVersion()
+QString GearMitail::otaVersion()
 {
     return d->otaVersion;
 }
 
-void BTDeviceMitail::downloadOTAData()
+void GearMitail::downloadOTAData()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
@@ -710,7 +710,7 @@ void BTDeviceMitail::downloadOTAData()
     }
 }
 
-void BTDeviceMitail::setOTAData(const QString& md5sum, const QByteArray& firmware)
+void GearMitail::setOTAData(const QString& md5sum, const QByteArray& firmware)
 {
     QString calculatedSum = QString(QCryptographicHash::hash(firmware, QCryptographicHash::Md5).toHex());
     if (md5sum == calculatedSum) {
@@ -724,12 +724,12 @@ void BTDeviceMitail::setOTAData(const QString& md5sum, const QByteArray& firmwar
     Q_EMIT hasOTADataChanged();
 }
 
-bool BTDeviceMitail::hasOTAData()
+bool GearMitail::hasOTAData()
 {
     return d->firmware.length() > 0;
 }
 
-void BTDeviceMitail::startOTA()
+void GearMitail::startOTA()
 {
     setDeviceProgress(0);
     setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));

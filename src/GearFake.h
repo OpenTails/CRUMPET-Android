@@ -18,14 +18,14 @@
 #ifndef BTDEVICEFAKE_H
 #define BTDEVICEFAKE_H
 
-#include "BTDevice.h"
+#include "GearBase.h"
 
-class BTDeviceFake : public BTDevice
+class GearFake : public GearBase
 {
     Q_OBJECT
 public:
-    explicit BTDeviceFake(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
-    ~BTDeviceFake() override;
+    explicit GearFake(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    ~GearFake() override;
 
     bool isConnected() const override;
     QString version() const override;

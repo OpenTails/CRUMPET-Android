@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "BTDeviceEars.h"
+#include "GearEars.h"
 
 #include <KLocalizedString>
 
@@ -33,13 +33,13 @@
 
 static const QStringList knownARevision{"VER 1.0.12", "VER 1.0.13", "VER 1.0.14"};
 static const QStringList knownBRevision{"VER 1.0.13b", "VER 1.0.14b"};
-class BTDeviceEars::Private {
+class GearEars::Private {
 public:
-    Private(BTDeviceEars* qq)
+    Private(GearEars* qq)
         : q(qq)
     {}
     ~Private() {}
-    BTDeviceEars* q{nullptr};
+    GearEars* q{nullptr};
     BTDeviceModel* parentModel{nullptr};
 
     QString version{"(unknown)"};
@@ -458,8 +458,8 @@ public:
     }
 };
 
-BTDeviceEars::BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
-    : BTDevice(info, parent)
+GearEars::GearEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+    : GearBase(info, parent)
     , d(new Private(this))
 {
     d->parentModel = parent;
@@ -483,12 +483,12 @@ BTDeviceEars::BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     }
 }
 
-BTDeviceEars::~BTDeviceEars()
+GearEars::~GearEars()
 {
     delete d;
 }
 
-void BTDeviceEars::connectDevice()
+void GearEars::connectDevice()
 {
     if(d->btControl) {
         disconnectDevice();
@@ -631,7 +631,7 @@ void BTDeviceEars::connectDevice()
     d->btControl->connectToDevice();
 }
 
-void BTDeviceEars::disconnectDevice()
+void GearEars::disconnectDevice()
 {
     d->pingTimer.stop();
     if (d->btControl) {
@@ -656,37 +656,37 @@ void BTDeviceEars::disconnectDevice()
     emit isConnectedChanged(isConnected());
 }
 
-bool BTDeviceEars::isConnected() const
+bool GearEars::isConnected() const
 {
     return d->btControl;
 }
 
-QString BTDeviceEars::version() const
+QString GearEars::version() const
 {
     return d->version;
 }
 
-int BTDeviceEars::batteryLevel() const
+int GearEars::batteryLevel() const
 {
     return d->batteryLevel;
 }
 
-QString BTDeviceEars::currentCall() const
+QString GearEars::currentCall() const
 {
     return d->currentCall;
 }
 
-QString BTDeviceEars::deviceID() const
+QString GearEars::deviceID() const
 {
     return deviceInfo.address().toString();
 }
 
-BTDeviceEars::ListenMode BTDeviceEars::listenMode() const
+GearEars::ListenMode GearEars::listenMode() const
 {
     return d->listenMode;
 }
 
-void BTDeviceEars::setListenMode(const ListenMode& listenMode)
+void GearEars::setListenMode(const ListenMode& listenMode)
 {
     switch(listenMode) {
         case ListenModeFull:
@@ -702,27 +702,27 @@ void BTDeviceEars::setListenMode(const ListenMode& listenMode)
     }
 }
 
-bool BTDeviceEars::micsSwapped() const
+bool GearEars::micsSwapped() const
 {
     return d->micsSwapped;
 }
 
-bool BTDeviceEars::hasTilt() const
+bool GearEars::hasTilt() const
 {
     return d->hasTilt;
 }
 
-bool BTDeviceEars::canBalanceListening() const
+bool GearEars::canBalanceListening() const
 {
     return d->canBalanceListening;
 }
 
-bool BTDeviceEars::tiltEnabled() const
+bool GearEars::tiltEnabled() const
 {
     return d->tiltEnabled;
 }
 
-void BTDeviceEars::setTiltMode(bool tiltState)
+void GearEars::setTiltMode(bool tiltState)
 {
     if (tiltState) {
         sendMessage(QLatin1String{"TILTMODE START"});
@@ -732,7 +732,7 @@ void BTDeviceEars::setTiltMode(bool tiltState)
     }
 }
 
-void BTDeviceEars::sendMessage(const QString &message)
+void GearEars::sendMessage(const QString &message)
 {
     QString actualMessage{message};
     if (commandShorthands.contains(message)) {
@@ -757,7 +757,7 @@ void BTDeviceEars::sendMessage(const QString &message)
     }
 }
 
-QStringList BTDeviceEars::defaultCommandFiles() const
+QStringList GearEars::defaultCommandFiles() const
 {
     if (deviceInfo.name() == QLatin1String{"EarGear"}) {
         return QStringList{QLatin1String{":/commands/eargear-base.crumpet"}};
@@ -768,7 +768,7 @@ QStringList BTDeviceEars::defaultCommandFiles() const
 }
 
 
-void BTDeviceEars::checkOTA()
+void GearEars::checkOTA()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
@@ -803,7 +803,7 @@ void BTDeviceEars::checkOTA()
     }
 }
 
-bool BTDeviceEars::hasAvailableOTA()
+bool GearEars::hasAvailableOTA()
 {
     if (!d->otaVersion.isEmpty() && d->version != d->otaVersion) {
         // this will need thought... comparing the version strings like this will not work
@@ -812,12 +812,12 @@ bool BTDeviceEars::hasAvailableOTA()
     return false;
 }
 
-QString BTDeviceEars::otaVersion()
+QString GearEars::otaVersion()
 {
     return d->otaVersion;
 }
 
-void BTDeviceEars::downloadOTAData()
+void GearEars::downloadOTAData()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
@@ -832,7 +832,7 @@ void BTDeviceEars::downloadOTAData()
     }
 }
 
-void BTDeviceEars::setOTAData(const QString& md5sum, const QByteArray& firmware)
+void GearEars::setOTAData(const QString& md5sum, const QByteArray& firmware)
 {
     QString calculatedSum = QString(QCryptographicHash::hash(firmware, QCryptographicHash::Md5).toHex());
     if (md5sum == calculatedSum) {
@@ -846,12 +846,12 @@ void BTDeviceEars::setOTAData(const QString& md5sum, const QByteArray& firmware)
     Q_EMIT hasOTADataChanged();
 }
 
-bool BTDeviceEars::hasOTAData()
+bool GearEars::hasOTAData()
 {
     return d->firmware.length() > 0;
 }
 
-void BTDeviceEars::startOTA()
+void GearEars::startOTA()
 {
     setDeviceProgress(0);
     setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will either reboot or turn itself off and disconnect from this device. Once it is started back up again, you will be able to connect to it again."));

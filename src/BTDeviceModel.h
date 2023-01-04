@@ -25,7 +25,7 @@
 #include <QTimer>
 
 class AppSettings;
-class BTDevice;
+class GearBase;
 
 class BTDeviceModel : public QAbstractListModel
 {
@@ -92,14 +92,14 @@ public:
      * @param newDevice The new device to show in the model
      */
     Q_SLOT void addDevice(const QBluetoothDeviceInfo& deviceInfo);
-    void addDevice(BTDevice* newDevice);
+    void addDevice(GearBase* newDevice);
     /**
      * Remove a device from the model.
      * The entry will be deleted by this function, and you should not attempt to
      * use the instance afterwards.
      * If the device is not maintained by this model, it will still be deleted!
      */
-    void removeDevice(BTDevice* device);
+    void removeDevice(GearBase* device);
 
     /**
      * Cause the device model to request an update in the UI for the
@@ -111,8 +111,8 @@ public:
     int count();
     Q_SIGNAL void countChanged();
 
-    BTDevice* getDevice(const QString& deviceID) const;
-    BTDevice* getDeviceById(int index) const;
+    GearBase* getDevice(const QString& deviceID) const;
+    GearBase* getDeviceById(int index) const;
     Q_INVOKABLE QString getDeviceID(int deviceIndex) const;
 
     /**
@@ -127,10 +127,10 @@ public:
     Q_SIGNAL void deviceMessage(const QString& deviceID, const QString& message);
     Q_SIGNAL void deviceBlockingMessage(const QString& title, const QString& message);
 
-    Q_SIGNAL void deviceAdded(BTDevice* device);
-    Q_SIGNAL void deviceRemoved(BTDevice* device);
-    Q_SIGNAL void deviceConnected(BTDevice* device);
-    Q_SIGNAL void deviceDisconnected(BTDevice* device);
+    Q_SIGNAL void deviceAdded(GearBase* device);
+    Q_SIGNAL void deviceRemoved(GearBase* device);
+    Q_SIGNAL void deviceConnected(GearBase* device);
+    Q_SIGNAL void deviceDisconnected(GearBase* device);
 private:
     class Private;
     Private* d;

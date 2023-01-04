@@ -21,7 +21,7 @@
 #include "CommandInfo.h"
 #include "BTConnectionManager.h"
 #include "BTDeviceCommandModel.h"
-#include "BTDevice.h"
+#include "GearBase.h"
 #include "BTDeviceModel.h"
 
 #include <QRandomGenerator>
@@ -61,7 +61,7 @@ public:
                         QStringList targetDevices;
                         BTDeviceModel* deviceModel = qobject_cast<BTDeviceModel*>(connectionManager->deviceModel());
                         for (int i = 0 ; i < deviceModel->count() ; ++i) {
-                            BTDevice* device = deviceModel->getDeviceById(i);
+                            GearBase* device = deviceModel->getDeviceById(i);
                             // Now check if the device is connected, the device model says that command is available
                             if (device->isConnected() && device->commandModel->isAvailable(command)) {
                                 targetDevices << device->deviceID();

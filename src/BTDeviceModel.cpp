@@ -17,11 +17,11 @@
 
 #include "BTDeviceModel.h"
 #include "AppSettings.h"
-#include "BTDevice.h"
-#include "BTDeviceTail.h"
-#include "BTDeviceFake.h"
-#include "BTDeviceEars.h"
-#include "BTDeviceMitail.h"
+#include "GearBase.h"
+#include "GearDigitail.h"
+#include "GearFake.h"
+#include "GearEars.h"
+#include "GearMitail.h"
 
 class BTDeviceModel::Private
 {
@@ -33,14 +33,14 @@ public:
     }
     ~Private() {}
     BTDeviceModel* q{nullptr};
-    BTDeviceFake* fakeDevice{nullptr};
+    GearBase* fakeDevice{nullptr};
 
     void readDeviceNames();
 
     AppSettings* appSettings{nullptr};
-    QList<BTDevice*> devices;
+    QList<GearBase*> devices;
 
-    void notifyDeviceDataChanged(BTDevice* device, int role)
+    void notifyDeviceDataChanged(GearBase* device, int role)
     {
         int pos = devices.indexOf(device);
         if(pos > -1) {
@@ -54,7 +54,7 @@ BTDeviceModel::BTDeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private(this))
 {
-    d->fakeDevice = new BTDeviceFake(QBluetoothDeviceInfo(QBluetoothAddress(QString("FA:KE:TA:IL")), QString("FAKE"), 0), this);
+    d->fakeDevice = new GearFake(QBluetoothDeviceInfo(QBluetoothAddress(QString("FA:KE:TA:IL")), QString("FAKE"), 0), this);
 }
 
 BTDeviceModel::~BTDeviceModel()
@@ -70,7 +70,7 @@ void BTDeviceModel::Private::readDeviceNames()
 
     const QVariantMap map = appSettings->deviceNames();
     for (QVariantMap::const_iterator it = map.cbegin(); it != map.cend(); ++it) {
-        for (BTDevice* device : devices) {
+        for (GearBase* device : devices) {
             if (device->deviceID() == it.key()) {
                 device->setName(it.value().toString());
                 break;
@@ -141,7 +141,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
 {
     QVariant value;
     if(index.isValid() && index.row() > -1 && index.row() < d->devices.count()) {
-        BTDevice* device = d->devices.at(index.row());
+        GearBase* device = d->devices.at(index.row());
         switch(role) {
             case Name:
                 value = device->name();
@@ -168,12 +168,12 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
                 value = device->checked();
                 break;
             case HasListening:
-                value = (qobject_cast<BTDeviceEars*>(device) != nullptr);
+                value = (qobject_cast<GearEars*>(device) != nullptr);
                 break;
             case ListeningState:
             {
                 int listeningState = 0;
-                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                GearEars* ears = qobject_cast<GearEars*>(device);
                 if (ears) {
                     listeningState = ears->listenMode();
                 }
@@ -186,7 +186,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
             case MicsSwapped:
             {
                 bool micsSwapped{false};
-                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                GearEars* ears = qobject_cast<GearEars*>(device);
                 if (ears) {
                     micsSwapped = ears->micsSwapped();
                 }
@@ -235,7 +235,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
             case HasTilt:
             {
                 bool hasTilt{false};
-                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                GearEars* ears = qobject_cast<GearEars*>(device);
                 if (ears) {
                     hasTilt = ears->hasTilt();
                 }
@@ -245,7 +245,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
             case CanBalanceListening:
             {
                 bool canBalanceListening{false};
-                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                GearEars* ears = qobject_cast<GearEars*>(device);
                 if (ears) {
                     canBalanceListening = ears->canBalanceListening();
                 }
@@ -255,7 +255,7 @@ QVariant BTDeviceModel::data(const QModelIndex& index, int role) const
             case TiltEnabled:
             {
                 bool tiltEnabled{false};
-                BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(device);
+                GearEars* ears = qobject_cast<GearEars*>(device);
                 if (ears) {
                     tiltEnabled = ears->tiltEnabled();
                 }
@@ -282,7 +282,7 @@ int BTDeviceModel::rowCount(const QModelIndex& parent) const
 
 bool BTDeviceModel::isConnected() const
 {
-    for (BTDevice* device : d->devices) {
+    for (GearBase* device : d->devices) {
         if (device->isConnected()) {
             return true;
         }
@@ -292,15 +292,15 @@ bool BTDeviceModel::isConnected() const
 
 void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
 {
-    BTDevice* newDevice{nullptr};
+    GearBase* newDevice{nullptr};
     if (deviceInfo.name() == QLatin1String{"(!)Tail1"}) {
-        newDevice = new BTDeviceTail(deviceInfo, this);
+        newDevice = new GearDigitail(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"mitail"}) {
-        newDevice = new BTDeviceMitail(deviceInfo, this);
+        newDevice = new GearMitail(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"EarGear"}) {
-        newDevice = new BTDeviceEars(deviceInfo, this);
+        newDevice = new GearEars(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"EG2"}) {
-        newDevice = new BTDeviceEars(deviceInfo, this);
+        newDevice = new GearEars(deviceInfo, this);
     } else {
         qDebug() << "Found an unsupported device" << deviceInfo.name();
     }
@@ -309,7 +309,7 @@ void BTDeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
     }
 }
 
-void BTDeviceModel::addDevice(BTDevice* newDevice)
+void BTDeviceModel::addDevice(GearBase* newDevice)
 {
     // It feels a little dirty to do it this way...
     static const QStringList acceptedDeviceNames{
@@ -320,7 +320,7 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         QLatin1String{"FAKE"}
     };
     if(acceptedDeviceNames.contains(newDevice->deviceInfo.name())) {
-        for(const BTDevice* device : d->devices) {
+        for(const GearBase* device : d->devices) {
             if(device->deviceID() == newDevice->deviceID()) {
                 // Don't add the same device twice. Thanks bt discovery. Thiscovery.
                 newDevice->deleteLater();
@@ -329,96 +329,96 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
         }
 
         // Device type specifics
-        BTDeviceEars* ears = qobject_cast<BTDeviceEars*>(newDevice);
+        GearEars* ears = qobject_cast<GearEars*>(newDevice);
         if (ears) {
-            connect(ears, &BTDeviceEars::listenModeChanged, this, [this, newDevice](){
+            connect(ears, &GearEars::listenModeChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, ListeningState);
             });
-            connect(ears, &BTDeviceEars::micsSwappedChanged, this, [this, newDevice](){
+            connect(ears, &GearEars::micsSwappedChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, MicsSwapped);
             });
-            connect(ears, &BTDeviceEars::hasTiltChanged, this, [this, newDevice](){
+            connect(ears, &GearEars::hasTiltChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, HasTilt);
             });
-            connect(ears, &BTDeviceEars::canBalanceListeningChanged, this, [this, newDevice](){
+            connect(ears, &GearEars::canBalanceListeningChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, CanBalanceListening);
             });
-            connect(ears, &BTDeviceEars::tiltEnabledChanged, this, [this, newDevice](){
+            connect(ears, &GearEars::tiltEnabledChanged, this, [this, newDevice](){
                 d->notifyDeviceDataChanged(newDevice, TiltEnabled);
             });
         }
 
         // General stuff
-        connect(newDevice, &BTDevice::deviceMessage, this, &BTDeviceModel::deviceMessage);
-        connect(newDevice, &BTDevice::deviceBlockingMessage, this, &BTDeviceModel::deviceBlockingMessage);
-        connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](bool isConnected){
+        connect(newDevice, &GearBase::deviceMessage, this, &BTDeviceModel::deviceMessage);
+        connect(newDevice, &GearBase::deviceBlockingMessage, this, &BTDeviceModel::deviceBlockingMessage);
+        connect(newDevice, &GearBase::isConnectedChanged, this, [this, newDevice](bool isConnected){
             if (isConnected) {
                 emit deviceConnected(newDevice);
             } else {
                 emit deviceDisconnected(newDevice);
             }
         });
-        connect(newDevice, &BTDevice::progressDescriptionChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::progressDescriptionChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, ProgressDescription);
         });
-        connect(newDevice, &BTDevice::deviceProgressChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::deviceProgressChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, OperationInProgress);
             d->notifyDeviceDataChanged(newDevice, DeviceProgress);
         });
-        connect(newDevice, &BTDevice::supportsOTAChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::supportsOTAChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, SupportsOTA);
         });
-        connect(newDevice, &BTDevice::hasAvailableOTAChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::hasAvailableOTAChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasAvailableOTA);
             d->notifyDeviceDataChanged(newDevice, OTAVersion);
         });
-        connect(newDevice, &BTDevice::hasOTADataChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::hasOTADataChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasOTAData);
         });
-        connect(newDevice, &BTDevice::batteryLevelChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::batteryLevelChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, BatteryLevel);
         });
-        connect(newDevice, &BTDevice::enabledCommandsFilesChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::enabledCommandsFilesChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, EnabledCommandsFiles);
         });
-        connect(newDevice, &BTDevice::currentCallChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::currentCallChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, CurrentCall);
         });
-        connect(newDevice, &BTDevice::activeCommandTitlesChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::activeCommandTitlesChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, ActiveCommandTitles);
         });
-        connect(newDevice, &BTDevice::versionChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::versionChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, DeviceVersion);
         });
-        connect(newDevice, &BTDevice::isConnectedChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::isConnectedChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, IsConnected);
             emit isConnectedChanged(isConnected());
         });
-        connect(newDevice, &BTDevice::nameChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::nameChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, Name);
         });
-        connect(newDevice, &BTDevice::checkedChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::checkedChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, Checked);
         });
-        connect(newDevice, &BTDevice::hasLightsChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::hasLightsChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasLights);
         });
-        connect(newDevice, &BTDevice::hasShutdownChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::hasShutdownChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasShutdown);
         });
-        connect(newDevice, &BTDevice::hasNoPhoneModeChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::hasNoPhoneModeChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, HasNoPhoneMode);
         });
-        connect(newDevice, &BTDevice::noPhoneModeGroupsChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::noPhoneModeGroupsChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, NoPhoneModeGroups);
         });
-        connect(newDevice, &BTDevice::chargingStateChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::chargingStateChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, ChargingState);
         });
-        connect(newDevice, &BTDevice::batteryLevelPercentChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::batteryLevelPercentChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, BatteryLevelPercent);
         });
-        connect(newDevice, &BTDevice::knownFirmwareMessageChanged, this, [this, newDevice](){
+        connect(newDevice, &GearBase::knownFirmwareMessageChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, KnownFirmwareMessage);
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
@@ -440,7 +440,7 @@ void BTDeviceModel::addDevice(BTDevice* newDevice)
     }
 }
 
-void BTDeviceModel::removeDevice(BTDevice* device)
+void BTDeviceModel::removeDevice(GearBase* device)
 {
     int idx = d->devices.indexOf(device);
     if (idx > -1) {
@@ -461,9 +461,9 @@ int BTDeviceModel::count()
     return d->devices.count();
 }
 
-BTDevice* BTDeviceModel::getDevice(const QString& deviceID) const
+GearBase* BTDeviceModel::getDevice(const QString& deviceID) const
 {
-    for(BTDevice* device : d->devices) {
+    for(GearBase* device : d->devices) {
         if(device->deviceID() == deviceID) {
             return device;
         }
@@ -471,7 +471,7 @@ BTDevice* BTDeviceModel::getDevice(const QString& deviceID) const
     return nullptr;
 }
 
-BTDevice * BTDeviceModel::getDeviceById ( int index ) const
+GearBase * BTDeviceModel::getDeviceById ( int index ) const
 {
     if (index > -1 && index < d->devices.count()) {
         return d->devices[index];
@@ -499,7 +499,7 @@ QString BTDeviceModel::getDeviceID(int deviceIndex) const
 
 void BTDeviceModel::sendMessage(const QString& message, const QStringList& deviceIDs)
 {
-    for (BTDevice* device : d->devices) {
+    for (GearBase* device : d->devices) {
         // If there's no devices requested, send to everybody
         if (deviceIDs.count() == 0 || deviceIDs.contains(device->deviceID())) {
             device->sendMessage(message);

@@ -15,14 +15,14 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "BTDeviceFake.h"
+#include "GearFake.h"
 #include "CommandPersistence.h"
 
 #include <KLocalizedString>
 
 #include <QFile>
 
-class BTDeviceFake::Private {
+class GearFake::Private {
 public:
     Private() {}
     bool isConnected{false};
@@ -35,8 +35,8 @@ public:
     QTimer batteryTimer;
 };
 
-BTDeviceFake::BTDeviceFake(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
-    : BTDevice(info, parent)
+GearFake::GearFake(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+    : GearBase(info, parent)
     , d(new Private)
 {
     d->batteryTimer.setInterval(1000);
@@ -67,37 +67,37 @@ BTDeviceFake::BTDeviceFake(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     });
 }
 
-BTDeviceFake::~BTDeviceFake()
+GearFake::~GearFake()
 {
     delete d;
 }
 
-bool BTDeviceFake::isConnected() const
+bool GearFake::isConnected() const
 {
     return d->isConnected;
 }
 
-int BTDeviceFake::batteryLevel() const
+int GearFake::batteryLevel() const
 {
     return d->batteryLevel;
 }
 
-QString BTDeviceFake::currentCall() const
+QString GearFake::currentCall() const
 {
     return d->currentCall;
 }
 
-QString BTDeviceFake::deviceID() const
+QString GearFake::deviceID() const
 {
     return d->deviceID;
 }
 
-QString BTDeviceFake::version() const
+QString GearFake::version() const
 {
     return d->version;
 }
 
-void BTDeviceFake::connectDevice()
+void GearFake::connectDevice()
 {
     QTimer::singleShot(1000, this, [this](){
         d->isConnected = true;
@@ -108,7 +108,7 @@ void BTDeviceFake::connectDevice()
     });
 }
 
-void BTDeviceFake::disconnectDevice()
+void GearFake::disconnectDevice()
 {
     d->batteryTimer.stop();
     d->batteryLevel = 0;
@@ -119,7 +119,7 @@ void BTDeviceFake::disconnectDevice()
     emit isConnectedChanged(d->isConnected);
 }
 
-void BTDeviceFake::sendMessage(const QString& message)
+void GearFake::sendMessage(const QString& message)
 {
     qDebug() << "Fakery for" << message;
     CommandInfo commandInfo;

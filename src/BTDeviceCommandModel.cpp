@@ -17,10 +17,11 @@
 
 #include "BTDeviceCommandModel.h"
 
-#include "BTDevice.h"
 #include "BTDeviceModel.h"
-#include "TailCommandModel.h"
 #include "CommandInfo.h"
+#include "GearBase.h"
+#include "TailCommandModel.h"
+
 #include <QRandomGenerator>
 
 class BTDeviceCommandModel::Private
@@ -35,11 +36,11 @@ public:
         {}
         ~Entry() { }
         CommandInfo command;
-        QList<BTDevice*> devices;
+        QList<GearBase*> devices;
     };
     QVector<Entry*> commands;
 
-    void addCommand(const CommandInfo& command, BTDevice* device) {
+    void addCommand(const CommandInfo& command, GearBase* device) {
         Entry* entry{nullptr};
         // check if command already exists in some entry
         for (Entry* existing : commands) {
@@ -61,7 +62,7 @@ public:
         }
     }
 
-    void removeCommand(const CommandInfo& command, BTDevice* device) {
+    void removeCommand(const CommandInfo& command, GearBase* device) {
         Entry* entry{nullptr};
         // check if command exists
         for (Entry* existing : commands) {
@@ -86,14 +87,14 @@ public:
         }
     }
 
-    void addDeviceCommands(BTDevice* device) {
+    void addDeviceCommands(GearBase* device) {
         TailCommandModel* deviceCommands = device->commandModel;
         for (const CommandInfo& command : deviceCommands->allCommands()) {
             addCommand(command, device);
         }
     }
 
-    void removeDeviceCommands(BTDevice* device) {
+    void removeDeviceCommands(GearBase* device) {
         q->beginResetModel();
         QMutableVectorIterator<Entry*> it(commands);
         while (it.hasNext()) {
@@ -111,7 +112,7 @@ public:
         q->endResetModel();
     }
 
-    void deviceDataChanged(BTDevice* device, const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles) {
+    void deviceDataChanged(GearBase* device, const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles) {
         TailCommandModel* deviceCommands = device->commandModel;
         int first = topLeft.row();
         int last = bottomRight.row();
@@ -145,7 +146,7 @@ public:
                     if (role == TailCommandModel::IsRunning) {
                         // we've got something we care about, let's deal with it
                         bool anyRunning{false};
-                        for (BTDevice* aDevice : theEntry->devices) {
+                        for (GearBase* aDevice : theEntry->devices) {
                             anyRunning = aDevice->commandModel->isRunning(cmd);
                             if (anyRunning) {
                                 break;
@@ -156,7 +157,7 @@ public:
                     } else if (role == TailCommandModel::IsAvailable) {
                         // we've got something we care about, let's deal with it
                         bool anyAvailable{false};
-                        for (BTDevice* aDevice : theEntry->devices) {
+                        for (GearBase* aDevice : theEntry->devices) {
                             if (aDevice->isConnected()) {
                                 anyAvailable = aDevice->commandModel->isAvailable(cmd);
                                 if (anyAvailable) {
@@ -175,7 +176,7 @@ public:
         }
     }
 
-    void registerDevice(BTDevice* device) {
+    void registerDevice(GearBase* device) {
         TailCommandModel* deviceCommands = device->commandModel;
         QObject::connect(deviceCommands, &TailCommandModel::commandAdded, q, [this, device](const CommandInfo& command){ addCommand(command, device); });
         QObject::connect(deviceCommands, &TailCommandModel::commandRemoved, q, [this, device](const CommandInfo& command){ removeCommand(command, device); });
@@ -183,7 +184,7 @@ public:
         QObject::connect(deviceCommands, &QAbstractListModel::modelReset, q, [this, device](){ removeDeviceCommands(device); addDeviceCommands(device); });
         QObject::connect(deviceCommands, &QAbstractItemModel::dataChanged, q, [this, device](const QModelIndex& topLeft, const QModelIndex& bottomRight, const QVector< int >& roles){ deviceDataChanged(device, topLeft, bottomRight, roles); });
         QObject::connect(device, &QObject::destroyed, q, [this, device](){ removeDeviceCommands(device); });
-        QObject::connect(device, &BTDevice::isConnectedChanged, q, [this, device](){
+        QObject::connect(device, &GearBase::isConnectedChanged, q, [this, device](){
             removeDeviceCommands(device);
             if (device->isConnected()) {
                 addDeviceCommands(device);
@@ -191,7 +192,7 @@ public:
         });
     }
 
-    void unregisterDevice(BTDevice* device) {
+    void unregisterDevice(GearBase* device) {
         device->disconnect(q);
         removeDeviceCommands(device);
     }
@@ -257,7 +258,7 @@ QVariant BTDeviceCommandModel::data(const QModelIndex& index, int role) const
             case DeviceIDs:
             {
                 QStringList deviceIDs;
-                for (BTDevice* device : entry->devices) {
+                for (GearBase* device : entry->devices) {
                     deviceIDs << device->deviceID();
                 }
                 result.setValue(deviceIDs);
@@ -285,8 +286,8 @@ void BTDeviceCommandModel::setDeviceModel(BTDeviceModel* deviceModel)
         d->deviceModel->disconnect(this);
     }
     d->deviceModel = deviceModel;
-    connect(deviceModel, &BTDeviceModel::deviceAdded, this, [this](BTDevice* device){ d->registerDevice(device); });
-    connect(deviceModel, &BTDeviceModel::deviceRemoved, this, [this](BTDevice* device){ d->unregisterDevice(device); });
+    connect(deviceModel, &BTDeviceModel::deviceAdded, this, [this](GearBase* device){ d->registerDevice(device); });
+    connect(deviceModel, &BTDeviceModel::deviceRemoved, this, [this](GearBase* device){ d->unregisterDevice(device); });
     for (int i = 0; i < deviceModel->rowCount() ; ++i) {
         d->registerDevice(deviceModel->getDevice(deviceModel->getDeviceID(i)));
     }

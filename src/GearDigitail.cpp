@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "BTDeviceTail.h"
+#include "GearDigitail.h"
 
 #include <KLocalizedString>
 
@@ -26,13 +26,13 @@
 #include "AppSettings.h"
 #include "CommandPersistence.h"
 
-class BTDeviceTail::Private {
+class GearDigitail::Private {
 public:
-    Private(BTDeviceTail* qq)
+    Private(GearDigitail* qq)
         : q(qq)
     {}
     ~Private() {}
-    BTDeviceTail* q{nullptr};
+    GearDigitail* q{nullptr};
     BTDeviceModel* parentModel{nullptr};
 
     QString version{"(unknown)"};
@@ -206,8 +206,8 @@ public:
     }
 };
 
-BTDeviceTail::BTDeviceTail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
-    : BTDevice(info, parent)
+GearDigitail::GearDigitail(const QBluetoothDeviceInfo& info, BTDeviceModel* parent)
+    : GearBase(info, parent)
     , d(new Private(this))
 {
     d->parentModel = parent;
@@ -224,12 +224,12 @@ BTDeviceTail::BTDeviceTail(const QBluetoothDeviceInfo& info, BTDeviceModel* pare
     d->batteryTimer.setSingleShot(false);
 }
 
-BTDeviceTail::~BTDeviceTail()
+GearDigitail::~GearDigitail()
 {
     delete d;
 }
 
-void BTDeviceTail::connectDevice()
+void GearDigitail::connectDevice()
 {
     if(d->btControl) {
         disconnectDevice();
@@ -307,7 +307,7 @@ void BTDeviceTail::connectDevice()
     d->btControl->connectToDevice();
 }
 
-void BTDeviceTail::disconnectDevice()
+void GearDigitail::disconnectDevice()
 {
     d->batteryTimer.stop();
     d->btControl->deleteLater();
@@ -324,32 +324,32 @@ void BTDeviceTail::disconnectDevice()
     emit isConnectedChanged(isConnected());
 }
 
-bool BTDeviceTail::isConnected() const
+bool GearDigitail::isConnected() const
 {
     return d->btControl;
 }
 
-QString BTDeviceTail::version() const
+QString GearDigitail::version() const
 {
     return d->version;
 }
 
-int BTDeviceTail::batteryLevel() const
+int GearDigitail::batteryLevel() const
 {
     return d->batteryLevel;
 }
 
-QString BTDeviceTail::currentCall() const
+QString GearDigitail::currentCall() const
 {
     return d->currentCall;
 }
 
-QString BTDeviceTail::deviceID() const
+QString GearDigitail::deviceID() const
 {
     return deviceInfo.address().toString();
 }
 
-void BTDeviceTail::sendMessage(const QString &message)
+void GearDigitail::sendMessage(const QString &message)
 {
     // Don't send out another call while we're waiting to hear back... at least for a little bit
     int i = 0;

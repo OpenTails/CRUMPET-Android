@@ -19,7 +19,6 @@
 #include "BTConnectionManager.h"
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
-#include "BTDevice.h"
 
 #include <QTimer>
 

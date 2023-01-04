@@ -26,7 +26,7 @@
 #include "TailCommandModel.h"
 #include "BTDeviceModel.h"
 
-class BTDevice : public QObject
+class GearBase : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool checked READ checked WRITE setChecked NOTIFY checkedChanged)
@@ -52,8 +52,8 @@ class BTDevice : public QObject
     Q_PROPERTY(int chargingState READ chargingState NOTIFY chargingStateChanged)
     Q_PROPERTY(QString knownFirmwareMessage READ knownFirmwareMessage NOTIFY knownFirmwareMessageChanged)
 public:
-    explicit BTDevice(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
-    ~BTDevice() override;
+    explicit GearBase(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    ~GearBase() override;
 
     QBluetoothDeviceInfo deviceInfo;
 

@@ -22,11 +22,11 @@ target_sources(digitail
     PRIVATE
     main.cpp
     BTConnectionManager.cpp
-    BTDevice.cpp
-    BTDeviceEars.cpp
-    BTDeviceFake.cpp
-    BTDeviceMitail.cpp
-    BTDeviceTail.cpp
+    GearBase.cpp
+    GearEars.cpp
+    GearFake.cpp
+    GearMitail.cpp
+    GearDigitail.cpp
     BTDeviceCommandModel.cpp
     BTDeviceModel.cpp
     CommandInfo.cpp

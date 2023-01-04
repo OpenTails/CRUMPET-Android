@@ -18,9 +18,9 @@
 #ifndef BTDEVICEEARS_H
 #define BTDEVICEEARS_H
 
-#include "BTDevice.h"
+#include "GearBase.h"
 
-class BTDeviceEars : public BTDevice
+class GearEars : public GearBase
 {
     Q_OBJECT
     Q_PROPERTY(ListenMode listenMode READ listenMode WRITE setListenMode NOTIFY listenModeChanged)
@@ -29,8 +29,8 @@ class BTDeviceEars : public BTDevice
     Q_PROPERTY(bool canBalanceListening READ canBalanceListening NOTIFY canBalanceListeningChanged)
     Q_PROPERTY(bool tiltEnabled READ tiltEnabled NOTIFY tiltEnabledChanged)
 public:
-    explicit BTDeviceEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
-    ~BTDeviceEars() override;
+    explicit GearEars(const QBluetoothDeviceInfo& info, BTDeviceModel* parent = nullptr);
+    ~GearEars() override;
 
     enum ListenMode {
         ListenModeOff, ///< Microphones off
