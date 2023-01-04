@@ -18,10 +18,10 @@
 #include "BTDeviceModel.h"
 #include "AppSettings.h"
 #include "GearBase.h"
-#include "GearDigitail.h"
-#include "GearFake.h"
-#include "GearEars.h"
-#include "GearMitail.h"
+#include "gearimplementations/GearDigitail.h"
+#include "gearimplementations/GearFake.h"
+#include "gearimplementations/GearEars.h"
+#include "gearimplementations/GearMitail.h"
 
 class BTDeviceModel::Private
 {

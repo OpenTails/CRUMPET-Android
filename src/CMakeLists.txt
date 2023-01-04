@@ -24,10 +24,6 @@ target_sources(digitail
     BTConnectionManager.cpp
     GearCommandModel.cpp
     GearBase.cpp
-    GearEars.cpp
-    GearFake.cpp
-    GearMitail.cpp
-    GearDigitail.cpp
     BTDeviceCommandModel.cpp
     BTDeviceModel.cpp
     CommandInfo.cpp
@@ -43,6 +39,11 @@ target_sources(digitail
     AlarmList.cpp
     PermissionsManager.cpp
     WalkingSensorGestureReconizer.cpp
+
+    gearimplementations/GearEars.cpp
+    gearimplementations/GearFake.cpp
+    gearimplementations/GearMitail.cpp
+    gearimplementations/GearDigitail.cpp
 
     kirigami-icons.qrc
     resources.qrc

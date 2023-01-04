@@ -18,8 +18,7 @@
 #include "BTConnectionManager.h"
 #include "BTDeviceCommandModel.h"
 #include "BTDeviceModel.h"
-#include "GearEars.h"
-#include "GearBase.h"
+#include "gearimplementations/GearEars.h"
 #include "CommandQueue.h"
 #include "AppSettings.h"
 
