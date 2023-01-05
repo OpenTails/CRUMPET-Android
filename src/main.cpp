@@ -81,17 +81,17 @@ int appMain(int argc, char *argv[])
     PermissionsManager* permissionsManager = new PermissionsManager(&app);
     permissionsManager->requestPermissionNow("WRITE_EXTERNAL_STORAGE");
     if(!permissionsManager->hasPermission("WRITE_EXTERNAL_STORAGE")) {
-        qCritical() << "We were not granted the external storage access.";
+        qCritical() << Q_FUNC_INFO << "We were not granted the external storage access.";
         app.quit();
     }
 
 #ifdef Q_OS_ANDROID
-    qDebug() << "Starting service, if it isn't already...";
+    qDebug() << Q_FUNC_INFO << "Starting service, if it isn't already...";
     QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "startTailService",
                                                 "(Landroid/content/Context;)V",
                                                 QtAndroid::androidActivity().object());
-    qDebug() << "Service started, or already launched";
+    qDebug() << Q_FUNC_INFO << "Service started, or already launched";
 #else
     app.setApplicationVersion("Desktop");
 #endif
@@ -101,7 +101,7 @@ int appMain(int argc, char *argv[])
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
     QStringList languages{"cs_CZ", "da_DK", "es_ES", "fr", "ja_JP", "nl_NL", "ru"};
     for (const QString& language : languages) {
-        qDebug() << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
+        qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
     }
 #else
     KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../locale").arg(app.applicationDirPath()));
@@ -110,10 +110,10 @@ int appMain(int argc, char *argv[])
     QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
     QIcon::setThemeName(QStringLiteral("breeze-internal"));
 
-    qInfo() << "Creating engine";
+    qInfo() << Q_FUNC_INFO << "Creating engine";
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&app));
-    qInfo() << "Registering Kirigami types";
+    qInfo() << Q_FUNC_INFO << "Registering Kirigami types";
     KirigamiPlugin::getInstance().registerTypes(&engine);
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
 
@@ -125,15 +125,15 @@ int appMain(int argc, char *argv[])
     }
     engine.rootContext()->setContextProperty(QLatin1String("AppVersion"), app.applicationVersion());
 
-    qInfo() << "Connecting to service...";
+    qInfo() << Q_FUNC_INFO << "Connecting to service...";
     QRemoteObjectNode* repNode = new QRemoteObjectNode(&app);
     repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
 
-    qInfo() << "Connected, attempting to load replicas...";
+    qInfo() << Q_FUNC_INFO << "Connected, attempting to load replicas...";
     QSharedPointer<AppSettingsProxyReplica> settingsReplica(repNode->acquire<AppSettingsProxyReplica>());
     bool res = settingsReplica->waitForSource(500);
     if(!res) {
-        qInfo() << "No service exists yet, so let's start it...";
+        qInfo() << Q_FUNC_INFO << "No service exists yet, so let's start it...";
         QProcess service;
         service.startDetached(app.applicationFilePath(), QStringList() << QStringLiteral("-service"));
         QCoreApplication::processEvents();
@@ -141,7 +141,7 @@ int appMain(int argc, char *argv[])
         settingsReplica.reset(repNode->acquire<AppSettingsProxyReplica>());
         res = settingsReplica->waitForSource(500);
         if (!res) {
-            qCritical() << "Kapow! Replica for Settings failed to surface";
+            qCritical() << Q_FUNC_INFO << "Kapow! Replica for Settings failed to surface";
         }
     }
     engine.rootContext()->setContextProperty(QLatin1String("AppSettings"), settingsReplica.data());
@@ -157,17 +157,17 @@ int appMain(int argc, char *argv[])
 
     QSharedPointer<BTConnectionManagerProxyReplica> btConnectionManagerReplica(repNode->acquire<BTConnectionManagerProxyReplica>());
     res = btConnectionManagerReplica->waitForSource();
-    if(!res) { qCritical() << "Kapow! Replica for btConnectionManagerReplica failed to surface"; }
+    if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for btConnectionManagerReplica failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("BTConnectionManager"), btConnectionManagerReplica.data());
 
     QScopedPointer<CommandQueueProxyReplica> commandQueueReplica(repNode->acquire<CommandQueueProxyReplica>());
     res = commandQueueReplica->waitForSource();
-    if(!res) { qCritical() << "Kapow! Replica for commandQueueReplica failed to surface"; }
+    if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for commandQueueReplica failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("CommandQueue"), commandQueueReplica.data());
 
     QScopedPointer<GestureControllerProxyReplica> gestureControllerReplica(repNode->acquire<GestureControllerProxyReplica>());
     res = gestureControllerReplica->waitForSource();
-    if(!res) { qCritical() << "Kapow! Replica for gestureControllerReplica failed to surface"; }
+    if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for gestureControllerReplica failed to surface"; }
     engine.rootContext()->setContextProperty(QLatin1String("GestureController"), gestureControllerReplica.data());
 
     QScopedPointer<QAbstractItemModelReplica> deviceModelReplica(repNode->acquireModel("DeviceModel"));
@@ -190,7 +190,7 @@ int appMain(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     if (engine.rootObjects().isEmpty()) {
-        qWarning() << "Failed to load the main qml file, exiting";
+        qWarning() << Q_FUNC_INFO << "Failed to load the main qml file, exiting";
         return -1;
     }
 
@@ -248,14 +248,14 @@ int serviceMain(int argc, char *argv[])
     app.setOrganizationName("The Tail Company");
     app.setOrganizationDomain("thetailcompany.com");
     app.setApplicationName("DIGITAiL");
-    qInfo() << "Service starting...";
+    qInfo() << Q_FUNC_INFO << "Service starting...";
 
     KLocalizedString::setApplicationDomain("digitail");
 #if defined(__ANDROID__)
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
     QStringList languages{"cs_CZ", "da_DK", "es_ES", "fr", "ja_JP", "nl_NL", "ru"};
     for (const QString& language : languages) {
-        qDebug() << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
+        qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
     }
 #else
     KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../src/locale").arg(app.applicationDirPath()));
@@ -263,10 +263,10 @@ int serviceMain(int argc, char *argv[])
 
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
 
-    qDebug() << "Creating application settings";
+    qDebug() << Q_FUNC_INFO << "Creating application settings";
     AppSettings* appSettings = new AppSettings(&app);
 
-    qDebug() << "Creating connection manager";
+    qDebug() << Q_FUNC_INFO << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(appSettings, &app);
     appSettings->alarmListImpl()->setCommandQueue(qobject_cast<CommandQueue*>(btConnectionManager->commandQueue()));
 
@@ -285,44 +285,44 @@ int serviceMain(int argc, char *argv[])
 #endif
     });
 
-    qDebug() << "Creating casual mode handler";
+    qDebug() << Q_FUNC_INFO << "Creating casual mode handler";
     IdleMode* idleMode = new IdleMode(&app);
     idleMode->setAppSettings(appSettings);
     idleMode->setConnectionManager(btConnectionManager);
 
     QTimer::singleShot(1, &app, [&srcNode, appSettings, btConnectionManager]() {
-        qDebug() << "Replicating application settings";
+        qDebug() << Q_FUNC_INFO << "Replicating application settings";
         srcNode.enableRemoting(appSettings);
 
-        qDebug() << "Replicating connection manager";
+        qDebug() << Q_FUNC_INFO << "Replicating connection manager";
         srcNode.enableRemoting(btConnectionManager);
 
-        qDebug() << "Getting device model";
+        qDebug() << Q_FUNC_INFO << "Getting device model";
         DeviceModel * deviceModel = qobject_cast<DeviceModel *>(btConnectionManager->deviceModel());
-        qDebug() << "Replicating device model";
+        qDebug() << Q_FUNC_INFO << "Replicating device model";
         QVector<int> roles;
         roles << DeviceModel::Name << DeviceModel::DeviceID << DeviceModel::DeviceVersion << DeviceModel::BatteryLevel << DeviceModel::CurrentCall << DeviceModel::IsConnected << DeviceModel::ActiveCommandTitles << DeviceModel::Checked << DeviceModel::HasListening << DeviceModel::ListeningState << DeviceModel::EnabledCommandsFiles << DeviceModel::MicsSwapped << DeviceModel::SupportsOTA << DeviceModel::HasAvailableOTA << DeviceModel::HasOTAData << DeviceModel::DeviceProgress << DeviceModel::ProgressDescription << DeviceModel::OperationInProgress << DeviceModel::OTAVersion << DeviceModel::HasLights << DeviceModel::HasShutdown << DeviceModel::HasNoPhoneMode << DeviceModel::NoPhoneModeGroups << DeviceModel::ChargingState << DeviceModel::BatteryLevelPercent << DeviceModel::HasTilt << DeviceModel::CanBalanceListening << DeviceModel::TiltEnabled << DeviceModel::KnownFirmwareMessage;
         srcNode.enableRemoting(deviceModel, "DeviceModel", roles);
 
-        qDebug() << "Getting command model";
+        qDebug() << Q_FUNC_INFO << "Getting command model";
         CommandModel * tailCommandModel = qobject_cast<CommandModel *>(btConnectionManager->commandModel());
-        qDebug() << "Replicating command model";
+        qDebug() << Q_FUNC_INFO << "Replicating command model";
         roles.clear();
         roles << CommandModel::Name << CommandModel::Command << CommandModel::IsRunning << CommandModel::Category << CommandModel::Duration << CommandModel::MinimumCooldown << CommandModel::CommandIndex << CommandModel::DeviceIDs << CommandModel::IsAvailable;
         srcNode.enableRemoting(tailCommandModel, "CommandModel", roles);
 
-        qDebug() << "Getting command queue";
+        qDebug() << Q_FUNC_INFO << "Getting command queue";
         CommandQueue* commandQueue = qobject_cast<CommandQueue*>(btConnectionManager->commandQueue());
-        qDebug() << "Replicating command queue";
+        qDebug() << Q_FUNC_INFO << "Replicating command queue";
         srcNode.enableRemoting(commandQueue);
 
-        qDebug() << "Creating gesture controller";
+        qDebug() << Q_FUNC_INFO << "Creating gesture controller";
         GestureController* gestureController = new GestureController(btConnectionManager);
         gestureController->setConnectionManager(btConnectionManager);
-        qDebug() << "Replicating gesture controller";
+        qDebug() << Q_FUNC_INFO << "Replicating gesture controller";
         srcNode.enableRemoting(gestureController);
 
-        qDebug() << "Getting and replicating gesture detector model";
+        qDebug() << Q_FUNC_INFO << "Getting and replicating gesture detector model";
         gestureController->model()->setAppSettings(appSettings);
         roles.clear();
         roles << GestureDetectorModel::NameRole << GestureDetectorModel::IdRole << GestureDetectorModel::SensorIdRole << GestureDetectorModel::SensorNameRole << GestureDetectorModel::SensorEnabledRole << GestureDetectorModel::SensorPinnedRole << GestureDetectorModel::CommandRole << GestureDetectorModel:: DefaultCommandRole << GestureDetectorModel::DevicesModel << GestureDetectorModel::FirstInSensorRole << GestureDetectorModel::VisibleRole;

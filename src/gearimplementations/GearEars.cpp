@@ -164,7 +164,10 @@ public:
                 theValue = theValue.left(theValue.length());
             }
             QStringList stateResult = theValue.split(' ');
-            if (theValue == QLatin1String{"System is busy now"}) {
+            if (theValue == QLatin1String{"EarGear2 started"}) {
+                qDebug() << q->name() << q->deviceID() << "EarGear2 has successfully started up";
+            }
+            else if (theValue == QLatin1String{"System is busy now"}) {
                 // Postpone what we attempted to send a few moments before trying again, as the ears are currently busy
                 // ...except if we're listening, at which point don't try and do this
                 // if (listeningState == ListeningFull || listeningState == ListeningOn) {
@@ -187,7 +190,7 @@ public:
                     // This is really only a bad thing if the user wants to update, so
                     // we can basically ignore it until time comes to attempt to update.
                     hardwareRevision = 3;
-                    qDebug() << q->name() << "Unexpected hardware revision:" << stateResult[1];
+                    qDebug() << q->name() << q->deviceID() << "Unexpected hardware revision:" << stateResult[1];
                 }
             }
             else if (stateResult[0] == QLatin1String{"VER"}) {
@@ -238,13 +241,13 @@ public:
                 qDebug() << q->name() << q->deviceID() << "EarGear detected the connection";
             }
             else if (theValue == QLatin1String{"BEGIN OTA"}) {
-                qDebug() << "Starting firmware update";
+                qDebug() << q->name() << q->deviceID() << "Starting firmware update";
                 if (firmwareProgress == -1) {
                     firmwareProgress = 0;
                 }
             }
             else if (stateResult[0] == QLatin1String("OTA") || firmwareProgress > -1) {
-                qDebug() << "Firmware update is happening...";
+                qDebug() << q->name() << q->deviceID() << "Firmware update is happening...";
             }
             else if (stateResult[0] == QLatin1String{"LISTEN"}) {
                 ListenMode newMode = ListenModeOff;
@@ -267,7 +270,7 @@ public:
                 }
             }
             else if (stateResult[0] == QLatin1String{"TILT"}) {
-                qDebug() << "Not yet handling tilt responses - but, we have been tilted like so:" << stateResult[1];
+                qDebug() << q->name() << q->deviceID() << "Not yet handling tilt responses - but, we have been tilted like so:" << stateResult[1];
             }
             else if (currentCall == QLatin1String{"LISTEN IOS"} && theValue == QLatin1String{"DSSP END"}) {
                 // This is a hack for some firmware versions, which do not report
@@ -363,7 +366,7 @@ public:
                     qDebug() << q->name() << q->deviceID() << "Uploading firmware:" << 1 + (99 * (firmwareProgress / (double)firmware.size())) << "%, or" << firmwareProgress << "of" << firmware.size() << "bytes, and the other end says that so far it has received" << receivedBytes;
                 }
                 else {
-                    qDebug() << "The gear says it has have received" << receivedBytes << "out of" << firmware.size() << "which means it should be rebooting momentarily...";
+                    qDebug() << q->name() << q->deviceID() << "The gear says it has have received" << receivedBytes << "out of" << firmware.size() << "which means it should be rebooting momentarily...";
                 }
             }
         }
@@ -514,7 +517,7 @@ void GearEars::connectDevice()
                 // Main control service
                 d->earsService = d->btControl->createServiceObject(QBluetoothUuid(QLatin1String("{927dee04-ddd4-4582-8e42-69dc9fbfae66}")));
                 if (!d->earsService) {
-                    qWarning() << "Cannot create QLowEnergyService for {927dee04-ddd4-4582-8e42-69dc9fbfae66}";
+                    qWarning() << name() << deviceID() << "Cannot create QLowEnergyService for {927dee04-ddd4-4582-8e42-69dc9fbfae66}";
                     emit deviceMessage(deviceID(), i18nc("Warning message when a fault occurred during a connection attempt", "An error occurred while connecting to your EarGear (the main service object could not be created). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
@@ -528,7 +531,7 @@ void GearEars::connectDevice()
                 // Battery service
                 d->batteryService = d->btControl->createServiceObject(QBluetoothUuid::BatteryService);
                 if (!d->batteryService) {
-                    qWarning() << "Failed to create battery service";
+                    qWarning() << name() << deviceID() << "Failed to create battery service";
                     emit deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on a device", "An error occurred while connecting to your EarGear (the battery service was not available). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
@@ -568,7 +571,7 @@ void GearEars::connectDevice()
                             // Get the descriptor, and turn on notifications
                             QLowEnergyDescriptor batteryDescriptor = d->batteryCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
                             if (!batteryDescriptor.isValid()) {
-                                qDebug() << "This is bad, no battery descriptor...";
+                                qDebug() << name() << deviceID() << "This is bad, no battery descriptor...";
                             }
                             d->batteryService->writeDescriptor(batteryDescriptor, QByteArray::fromHex("0100"));
                             d->batteryService->readCharacteristic(d->batteryCharacteristic);
@@ -795,7 +798,7 @@ void GearEars::checkOTA()
         if (firmwareInfoUrl.isEmpty()) {
             deviceBlockingMessage(name(), i18nc("Message shown in the unlikely case a firmware exists which does not report the expected hardware revision and which also is not known to us", "You have somehow got a firmware version which does not report the hardware revision of your ears, but which also is not known to fail to do so. This is a highly unexpected situation and we would appreciate it if you reported it directly to us at info@thetailcompany.com - thank you!"));
         } else {
-            qDebug() << name() << "Fetching firmware information using url" << firmwareInfoUrl << "for revision" << d->hardwareRevision;
+            qDebug() << name() << deviceID() << "Fetching firmware information using url" << firmwareInfoUrl << "for revision" << d->hardwareRevision;
             QNetworkRequest request(QUrl{firmwareInfoUrl});
             d->networkReply = d->qnam.get(request);
             connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
