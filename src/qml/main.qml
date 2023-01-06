@@ -66,10 +66,10 @@ Kirigami.ApplicationWindow {
         target: PermissionsManager;
         ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
         function onPermissionsChanged() {
-            root.hasScanPermission = PermissionsManager.hasPermission("ACCESS_FINE_LOCATION");
+            root.hasScanPermission = PermissionsManager.hasPermission("BLUETOOTH_SCAN");
         }
     }
-    property bool hasScanPermission: PermissionsManager.hasPermission("ACCESS_FINE_LOCATION");
+    property bool hasScanPermission: PermissionsManager.hasPermission("BLUETOOTH_SCAN");
     onHasScanPermissionChanged: btConnection.checkBluetoothState();
 
     Connections {

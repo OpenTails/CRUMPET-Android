@@ -276,7 +276,7 @@ make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
 cd ..
-make create-apk-digitail ARGS="--android-platform android-30"
+make create-apk-digitail ARGS="--android-platform android-31"
 ```
 
 The above will build for 32bit arm. To build for 64bit arm, use the lines below instead (the cmake line is identical apart from three instances of arm becoming arm64)
@@ -303,7 +303,7 @@ make
 cd src # This ensures we only install the digitail binary and not the Kirigami bits
 make install
 cd ..
-make create-apk-digitail ARGS="--android-platform android-30"
+make create-apk-digitail ARGS="--android-platform android-31"
 ```
 
 Once this final command completes, you should hopefully have an apk in `/home/user/DIGITAiL/build/digitail_build_apk/build/outputs/apk/debug/digitail_build_apk-debug.apk` (or where ever else you created your clone).
@@ -319,5 +319,5 @@ You now have an apk, which you can install to your android device in the usual w
 To also sign the apk for use on the Play store, the following command might be used. Note that you will need the appropriate keystore to hand in an appropriate location, or it will quite entirely fail:
 
 ```
-make create-apk-digitail ARGS="--android-platform android-30 --sign /mnt/projects-dir/DIGITAiL/thetailcompany-release-key.keystore thetailcompany"
+make create-apk-digitail ARGS="--android-platform android-31 --sign /mnt/projects-dir/DIGITAiL/thetailcompany-release-key.keystore thetailcompany"
 ```
