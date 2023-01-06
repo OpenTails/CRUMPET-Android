@@ -1,3 +1,8 @@
+30
+- Adjusted the timings for EarGear 2 and MiTail moves to better match reality
+- Fixed a long-standing crash bug (and a related but recently introduced one that helped us find the former)
+- Temporarily fix the orientation of EarGear 2, until a proper fix can be created
+
 29
 - Hotfix to disallow simultaneously enabling casual mode and gestures (such as the walking detector)
 
