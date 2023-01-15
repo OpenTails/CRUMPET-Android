@@ -65,8 +65,6 @@ Kirigami.OverlaySheet {
         delegate: Kirigami.AbstractListItem {
             height: Kirigami.Units.gridUnit * 6
             hoverEnabled: false
-            //TODO: bug in overlaysheet
-            rightPadding: Kirigami.Units.gridUnit * 1.5
             RowLayout {
                 ColumnLayout {
                     Layout.fillWidth: true

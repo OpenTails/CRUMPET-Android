@@ -61,7 +61,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Android")
 endif()
 
 #kirigamiplugin is the static library built by us
-target_link_libraries(digitail kirigamiplugin Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail KirigamiPlugin Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
 
 # Translations
 #add_custom_target(convert_translations_for_embedding
