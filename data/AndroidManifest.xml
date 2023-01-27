@@ -33,7 +33,7 @@
                 </service>
                 <activity android:name=".SplashActivity"
                           android:label="Crumpet"
-                          android:exported="false"
+                          android:exported="true"
                           android:theme="@android:style/Theme.Light.NoTitleBar" >
                         <intent-filter>
                               <action android:name="android.intent.action.MAIN"/>
