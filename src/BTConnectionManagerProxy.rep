@@ -14,6 +14,7 @@
 //   along with this program; if not, see <https://www.gnu.org/licenses/>
 
 class BTConnectionManagerProxy {
+    PROP(QString bluetoothScanPermissionName READONLY)
     PROP(bool isConnected READONLY)
     PROP(bool discoveryRunning READONLY)
     PROP(int deviceCount READONLY)

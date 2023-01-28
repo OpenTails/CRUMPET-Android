@@ -16,6 +16,7 @@
 #include <QDateTime>
 
 class AppSettingsProxy {
+    PROP(int androidApiLevel READONLY)
     PROP(bool advancedMode READWRITE)
     PROP(bool developerMode READWRITE)
     PROP(bool idleMode READWRITE)

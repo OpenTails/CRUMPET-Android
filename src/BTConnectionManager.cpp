@@ -214,6 +214,14 @@ QObject * BTConnectionManager::commandQueue() const
     return d->commandQueue;
 }
 
+QString BTConnectionManager::bluetoothScanPermissionName() const
+{
+    if (d->appSettings) {
+        return d->appSettings->androidApiLevel() > 30 ? "BLUETOOTH_SCAN" : "ACCESS_FINE_LOCATION";
+    }
+    return {};
+}
+
 bool BTConnectionManager::isConnected() const
 {
     return d->deviceModel->isConnected();

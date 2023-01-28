@@ -55,6 +55,7 @@ public:
     Q_SLOT void stopDiscovery() override;
     bool discoveryRunning() const override;
 
+    QString bluetoothScanPermissionName() const override;
     bool isConnected() const override;
     int deviceCount() const override;
     int commandQueueCount() const override;

@@ -36,10 +36,10 @@ Kirigami.AbstractCard {
         target: PermissionsManager;
         ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
         function onPermissionsChanged() {
-            root.hasScanPermission = PermissionsManager.hasPermission("BLUETOOTH_SCAN");
+            root.hasScanPermission = PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
         }
     }
-    property bool hasScanPermission: PermissionsManager.hasPermission("BLUETOOTH_SCAN");
+    property bool hasScanPermission: PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
     header: Kirigami.Heading {
         text: {
             if (!root.hasScanPermission) {
@@ -115,7 +115,7 @@ Kirigami.AbstractCard {
             visible: (!root.hasScanPermission || deviceFilterProxy.count > 0)
             onClicked: {
                 if (!root.hasScanPermission) {
-                    PermissionsManager.requestPermission("BLUETOOTH_SCAN");
+                    PermissionsManager.requestPermission(BTConnectionManager.bluetoothScanPermissionName);
                 }
                 else if(deviceFilterProxy.count === 1) {
                     // Calling this will stop the discovery immediately and connect to the one tail that we've found

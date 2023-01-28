@@ -28,6 +28,10 @@
 #include <QSettings>
 #include <QTimer>
 
+#ifdef Q_OS_ANDROID
+#include <QtAndroid>
+#endif
+
 class AppSettings::Private
 {
 public:
@@ -133,6 +137,15 @@ AppSettings::AppSettings(QObject* parent)
 AppSettings::~AppSettings()
 {
     delete d;
+}
+
+int AppSettings::androidApiLevel() const
+{
+#ifdef Q_OS_ANDROID
+    return QtAndroid::androidSdkVersion();
+#else
+    return 0;
+#endif
 }
 
 bool AppSettings::advancedMode() const

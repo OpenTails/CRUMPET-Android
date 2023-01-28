@@ -32,6 +32,8 @@ public:
     explicit AppSettings(QObject* parent = nullptr);
     ~AppSettings() override;
 
+    int androidApiLevel() const override;
+
     bool advancedMode() const override;
     void setAdvancedMode(bool newValue) override;
 

@@ -191,7 +191,7 @@ int appMain(int argc, char *argv[])
     }
 
     QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
-        if(permissionsManager->hasPermission(QString("BLUETOOTH_SCAN"))) {
+        if(permissionsManager->hasPermission(btConnectionManagerReplica->bluetoothScanPermissionName())) {
             // Don't launch the discovery immediately, let's give things a change to start up...
             QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
         }

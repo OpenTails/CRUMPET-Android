@@ -53,7 +53,7 @@ public:
                 QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
                     for (const QtAndroid::PermissionResult& perm : resultHash) {
                         if (perm == QtAndroid::PermissionResult::Denied) {
-                            QTimer::singleShot(0, qApp, &QCoreApplication::quit);
+                            qWarning() << "Permission actively denied" << resultHash;
                             return;
                         }
                     }
