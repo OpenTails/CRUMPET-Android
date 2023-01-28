@@ -1,8 +1,5 @@
 set(CMAKE_AUTORCC ON)
-include_directories(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/src)
-include_directories(${Qt5RemoteObjects_INCLUDEDIR})
 include_directories(${CMAKE_BINARY_DIR}/src)
-include(${CMAKE_SOURCE_DIR}/3rdparty/kirigami/KF5Kirigami2Macros.cmake)
 
 # Make sure we can register the types from the static library
 add_definitions(-DKIRIGAMI_BUILD_TYPE_STATIC)
@@ -50,18 +47,21 @@ target_sources(digitail
     )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")
-    set(digitail_EXTRA_LIBS Qt5::AndroidExtras
-    Qt5::Gui
-    #FIXME: we shouldn't have to link to these but otherwise their libs won't be packaged on Android
-    Qt5::QuickControls2
-    Qt5::Svg)
+    set(digitail_EXTRA_LIBS
+        OpenSSL::SSL
+        Qt5::AndroidExtras
+        Qt5::Gui
+        #FIXME: we shouldn't have to link to these but otherwise their libs won't be packaged on Android
+        Qt5::QuickControls2
+        Qt5::Svg
+        KF5::Kirigami2
+        )
 # else ()
 #qstyle-based qqc2 style needs a QApplication
 #     set(digitail_EXTRA_LIBS )
 endif()
 
-#kirigamiplugin is the static library built by us
-target_link_libraries(digitail KirigamiPlugin Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
 
 # Translations
 #add_custom_target(convert_translations_for_embedding
@@ -72,7 +72,6 @@ target_link_libraries(digitail KirigamiPlugin Qt5::Core Qt5::RemoteObjects Qt5::
 
 install(TARGETS digitail ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-include(${KI18n_BINARY_DIR}/cmake/KF5I18nMacros.cmake)
 ki18n_install(po)
 
 # kirigami_package_breeze_icons(ICONS application-menu document-decrypt folder-sync go-next go-previous go-up handle-left handle-right view-list-icons applications-graphics media-record-symbolic)

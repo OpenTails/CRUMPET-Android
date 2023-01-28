@@ -42,7 +42,6 @@
 
 #endif
 
-#include "../3rdparty/kirigami/src/kirigamiplugin.h"
 #include "BTConnectionManager.h"
 #include "DeviceModel.h"
 #include "CommandModel.h"
@@ -64,8 +63,6 @@
 
 #include <klocalizedcontext.h>
 #include <klocalizedstring.h>
-
-Q_IMPORT_PLUGIN(KirigamiPlugin)
 
 int appMain(int argc, char *argv[])
 {
@@ -114,7 +111,6 @@ int appMain(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&app));
     qInfo() << Q_FUNC_INFO << "Registering Kirigami types";
-    KirigamiPlugin::getInstance().registerTypes(&engine);
     qmlRegisterType<FilterProxyModel>("org.thetailcompany.digitail", 1, 0, "FilterProxyModel");
 
     QFile file(QLatin1String(":/gplv3-license-text"));
