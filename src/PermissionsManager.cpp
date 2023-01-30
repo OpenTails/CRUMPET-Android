@@ -51,10 +51,11 @@ public:
             }
             if (!needRequesting.isEmpty()) {
                 QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
-                    for (const QtAndroid::PermissionResult& perm : resultHash) {
-                        if (perm == QtAndroid::PermissionResult::Denied) {
-                            qWarning() << "Permission actively denied";
-                            return;
+                    QHashIterator<QString, QtAndroid::PermissionsResult> permissionsIterator(resultHash);
+                    while (permissionsIterator.hasNext()) {
+                        permissionsIterator.next();
+                        if (permissionsIterator.value() == QtAndroid::PermissionResult::Denied) {
+                            qWarning() << "Permission actively denied for" << permissionsIterator.key();
                         }
                     }
                     emit q->permissionsChanged();
