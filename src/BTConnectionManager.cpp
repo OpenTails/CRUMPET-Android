@@ -115,6 +115,7 @@ void BTConnectionManager::setAppSettings(AppSettings* appSettings)
     if (d->deviceModel) {
         d->deviceModel->setAppSettings(d->appSettings);
     }
+    Q_EMIT bluetoothScanPermissionNameChanged(bluetoothScanPermissionName());
 }
 
 void BTConnectionManager::setLocalBTDeviceState()
