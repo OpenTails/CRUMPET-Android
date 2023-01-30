@@ -50,12 +50,13 @@ public:
                 needRequesting << permission;
             }
             if (!needRequesting.isEmpty()) {
+                qDebug() << Q_FUNC_INFO << "Requesting permissions for" << needRequesting;
                 QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
                     QHashIterator<QString, QtAndroid::PermissionResult> permissionsIterator(resultHash);
                     while (permissionsIterator.hasNext()) {
                         permissionsIterator.next();
                         if (permissionsIterator.value() == QtAndroid::PermissionResult::Denied) {
-                            qWarning() << "Permission actively denied for" << permissionsIterator.key();
+                            qWarning() << Q_FUNC_INFO << "Permission actively denied for" << permissionsIterator.key();
                         }
                     }
                     emit q->permissionsChanged();
@@ -87,6 +88,7 @@ void PermissionsManager::requestPermission(const QString& permission)
 {
     d->permissionsToRequest << QString("android.permission.%1").arg(permission);
     d->requestDelay.start();
+    qDebug() << Q_FUNC_INFO << "Delayed permissions request begun for" << permission;
 }
 
 void PermissionsManager::requestPermissionNow(const QString& permission)
@@ -96,12 +98,13 @@ void PermissionsManager::requestPermissionNow(const QString& permission)
     d->doRequest();
     connect(this, &PermissionsManager::permissionsChanged, &loop, &QEventLoop::quit);
     connect(this, &PermissionsManager::permissionsChanged, &loop, [](){ qDebug() << "Permissions changed, exit event loop"; });
-    qDebug() << "Starting inner event loop for immediate permissions request";
+    qDebug() << Q_FUNC_INFO << "Starting inner event loop for immediate permissions request";
     loop.exec();
 }
 
 bool PermissionsManager::hasPermission(const QString& permission) const
 {
+    qDebug() << Q_FUNC_INFO << "Checking permission for" << permission;
 #ifdef Q_OS_ANDROID
     auto  result = QtAndroid::checkPermission(QString("android.permission.%1").arg(permission));//QString("android.permission.BLUETOOTH_SCAN"));
     if(result == QtAndroid::PermissionResult::Granted) {
