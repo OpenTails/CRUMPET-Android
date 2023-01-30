@@ -51,7 +51,7 @@ public:
             }
             if (!needRequesting.isEmpty()) {
                 QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
-                    QHashIterator<QString, QtAndroid::PermissionsResult> permissionsIterator(resultHash);
+                    QHashIterator<QString, QtAndroid::PermissionResult> permissionsIterator(resultHash);
                     while (permissionsIterator.hasNext()) {
                         permissionsIterator.next();
                         if (permissionsIterator.value() == QtAndroid::PermissionResult::Denied) {
