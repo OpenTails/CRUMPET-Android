@@ -15,6 +15,7 @@
 
 class BTConnectionManagerProxy {
     PROP(QString bluetoothScanPermissionName READONLY)
+    PROP(QString bluetoothConnectPermissionName READONLY)
     PROP(bool isConnected READONLY)
     PROP(bool discoveryRunning READONLY)
     PROP(int deviceCount READONLY)

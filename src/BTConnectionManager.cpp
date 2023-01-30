@@ -24,7 +24,7 @@
 
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothServiceDiscoveryAgent>
-#include <QBluetoothLocalDevice>
+// #include <QBluetoothLocalDevice>
 #include <QCoreApplication>
 #include <QLowEnergyController>
 #include <QTimer>
@@ -53,17 +53,20 @@ public:
 
     QVariantMap command;
 
-    QBluetoothLocalDevice* localDevice{nullptr};
-    int localBTDeviceState{0};
+//     QBluetoothLocalDevice* localDevice{nullptr};
+    int localBTDeviceState{1};
 };
 
 BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* parent)
     : BTConnectionManagerProxySource(parent)
     , d(new Private)
 {
+    qDebug() << Q_FUNC_INFO << "Setting Device Model";
     d->deviceModel = new DeviceModel(this);
+    qDebug() << Q_FUNC_INFO << "Setting app settings";
     setAppSettings(appSettings);
 
+    qDebug() << Q_FUNC_INFO << "Setting Command Queue";
     d->commandQueue = new CommandQueue(this);
 
     connect(d->commandQueue, &CommandQueue::countChanged,
@@ -85,10 +88,12 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     connect(d->deviceModel, &DeviceModel::deviceConnected, this, [this](GearBase* device){ emit deviceConnected(device->deviceID()); });
     connect(d->deviceModel, &DeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
 
+    qDebug() << Q_FUNC_INFO << "Setting Command Model";
     d->commandModel = new CommandModel(this);
     d->commandModel->setDeviceModel(d->deviceModel);
 
     // Create a discovery agent and connect to its signals
+    qDebug() << Q_FUNC_INFO << "Creating device discovery agent";
     d->deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
     connect(d->deviceDiscoveryAgent, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), d->deviceModel, SLOT(addDevice(QBluetoothDeviceInfo)));
 
@@ -98,9 +103,11 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
         emit discoveryRunningChanged(d->discoveryRunning);
     });
 
-    d->localDevice = new QBluetoothLocalDevice(this);
-    connect(d->localDevice, SIGNAL(hostModeStateChanged(QBluetoothLocalDevice::HostMode)), this, SLOT(setLocalBTDeviceState()));
-    setLocalBTDeviceState();
+//     qDebug() << Q_FUNC_INFO << "Creating local bluetooth device";
+//     d->localDevice = new QBluetoothLocalDevice(this);
+//     qDebug() << Q_FUNC_INFO << "Local device created, hooking up";
+//     connect(d->localDevice, SIGNAL(hostModeStateChanged(QBluetoothLocalDevice::HostMode)), this, SLOT(setLocalBTDeviceState()));
+//     setLocalBTDeviceState();
 }
 
 BTConnectionManager::~BTConnectionManager()
@@ -124,13 +131,14 @@ void BTConnectionManager::setAppSettings(AppSettings* appSettings)
 
 void BTConnectionManager::setLocalBTDeviceState()
 {   //0-off, 1-on, 2-no device
+    qDebug() << Q_FUNC_INFO;
     //TODO: use enum?
     int newState = 1;
-    if (!d->localDevice->isValid()) {
-        newState = 2;
-    } else if (d->localDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff) {
-        newState = 0;
-    }
+//     if (!d->localDevice->isValid()) {
+//         newState = 2;
+//     } else if (d->localDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff) {
+//         newState = 0;
+//     }
 
     bool changed = (newState != d->localBTDeviceState);
     d->localBTDeviceState = newState;
@@ -224,7 +232,16 @@ QString BTConnectionManager::bluetoothScanPermissionName() const
 #ifdef Q_OS_ANDROID
     return QtAndroid::androidSdkVersion() > 30 ? "BLUETOOTH_SCAN" : "ACCESS_FINE_LOCATION";
 #else
-    return "NOT_ANDROID_SO_NOT_NEEDED";
+    return "NOT_ANDROID_SO_NO_SCAN_PERMISSION";
+#endif
+}
+
+QString BTConnectionManager::bluetoothConnectPermissionName() const
+{
+#ifdef Q_OS_ANDROID
+    return QtAndroid::androidSdkVersion() > 30 ? "BLUETOOTH_CONNECT" : "";
+#else
+    return "NOT_ANDROID_SO_NO_CONNECT_PERMISSION";
 #endif
 }
 

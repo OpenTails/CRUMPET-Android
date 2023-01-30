@@ -192,8 +192,10 @@ int appMain(int argc, char *argv[])
 
     QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
         if(permissionsManager->hasPermission(btConnectionManagerReplica->bluetoothScanPermissionName())) {
-            // Don't launch the discovery immediately, let's give things a change to start up...
-            QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
+            if (btConnectionManagerReplica->bluetoothConnectPermissionName().isEmpty() || permissionsManager->hasPermission(btConnectionManagerReplica->bluetoothConnectPermissionName())) {
+                // Don't launch the discovery immediately, let's give things a change to start up...
+                QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
+            }
         }
     });
     engine.rootContext()->setContextProperty("PermissionsManager", permissionsManager);
@@ -264,6 +266,8 @@ int serviceMain(int argc, char *argv[])
 
     qDebug() << Q_FUNC_INFO << "Creating connection manager";
     BTConnectionManager* btConnectionManager = new BTConnectionManager(appSettings, &app);
+
+    qDebug() << Q_FUNC_INFO << "Setting command queue on alarm list";
     appSettings->alarmListImpl()->setCommandQueue(qobject_cast<CommandQueue*>(btConnectionManager->commandQueue()));
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {

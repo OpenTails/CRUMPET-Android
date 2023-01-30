@@ -67,9 +67,11 @@ Kirigami.ApplicationWindow {
         ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
         function onPermissionsChanged() {
             root.hasScanPermission = PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
+            root.hasConnectPermission = BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
         }
     }
     property bool hasScanPermission: PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
+    property bool hasConnectPermission: BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
     onHasScanPermissionChanged: btConnection.checkBluetoothState();
 
     Connections {

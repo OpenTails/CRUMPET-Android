@@ -56,6 +56,7 @@ public:
     bool discoveryRunning() const override;
 
     QString bluetoothScanPermissionName() const override;
+    QString bluetoothConnectPermissionName() const override;
     bool isConnected() const override;
     int deviceCount() const override;
     int commandQueueCount() const override;

@@ -63,6 +63,7 @@ public:
                 });
             }
         }
+        permissionsToRequest.clear();
 #else
         hasGranted = true;
 #endif
