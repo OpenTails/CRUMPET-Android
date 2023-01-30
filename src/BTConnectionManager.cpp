@@ -29,6 +29,10 @@
 #include <QLowEnergyController>
 #include <QTimer>
 
+#ifdef Q_OS_ANDROID
+#include <QtAndroid>
+#endif
+
 class BTConnectionManager::Private {
 public:
     Private()
@@ -217,10 +221,11 @@ QObject * BTConnectionManager::commandQueue() const
 
 QString BTConnectionManager::bluetoothScanPermissionName() const
 {
-    if (d->appSettings) {
-        return d->appSettings->androidApiLevel() > 30 ? "BLUETOOTH_SCAN" : "ACCESS_FINE_LOCATION";
-    }
-    return {};
+#ifdef Q_OS_ANDROID
+    return QtAndroid::androidSdkVersion() > 30 ? "BLUETOOTH_SCAN" : "ACCESS_FINE_LOCATION";
+#else
+    return "NOT_ANDROID_SO_NOT_NEEDED";
+#endif
 }
 
 bool BTConnectionManager::isConnected() const
