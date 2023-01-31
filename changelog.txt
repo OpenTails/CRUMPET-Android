@@ -1,3 +1,8 @@
+31:
+- Add support for Android 12's new Bluetooth permissions
+- Rework build system to use Craft, so now kirigami and ki18n are fully updated with each new release
+- Release 30 never hit Play, so on there, this release should be read as including those fixes as well
+
 30
 - Adjusted the timings for EarGear 2 and MiTail moves to better match reality
 - Fixed a long-standing crash bug (and a related but recently introduced one that helped us find the former)
