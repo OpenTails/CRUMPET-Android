@@ -103,6 +103,8 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
         emit discoveryRunningChanged(d->discoveryRunning);
     });
 
+    // FIXME This is disabled for now, because of a crash issue with the version of QtConnectivity we're using on Android 12 and above
+    qWarning() << Q_FUNC_INFO << "Re-add the bluetooth state detection once the QtConnectivity crash issue is fixed";
 //     qDebug() << Q_FUNC_INFO << "Creating local bluetooth device";
 //     d->localDevice = new QBluetoothLocalDevice(this);
 //     qDebug() << Q_FUNC_INFO << "Local device created, hooking up";
