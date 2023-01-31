@@ -92,7 +92,7 @@ Kirigami.AbstractCard {
                 }
             }
             else if (!root.hasConnectPermission) {
-                return i18nc("Message warning for missing connect permissions, for the gear connecting card", "To be able to connect to your gear, we also need you to grant us permission to actually perform that connection. Clicking the button below will show you a dialog that you need to press allow on.");
+                return i18nc("Message warning for missing connect permissions, for the gear connecting card", "To be able to connect to your gear, we also need permission to actually perform that connection. Clicking the button below might show you a dialog that you need to press allow on.");
             }
             else if (BTConnectionManager.discoveryRunning === true) {
                 if (deviceFilterProxy.count === 0) {

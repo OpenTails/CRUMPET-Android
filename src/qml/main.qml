@@ -116,7 +116,7 @@ Kirigami.ApplicationWindow {
         }
 
         function checkBluetoothState() {
-            if (root.hasScanPermission) {
+            if (root.hasScanPermission && root.hasConnectPermission) {
                 if (BTConnectionManager.bluetoothState === 0 ) {
                     showMessageBox(i18nc("Title for the warning for having Bluetooth disabled", "Warning"), i18nc("Message for the warning for having Bluetooth disabled", "Bluetooth is disabled"));
                 } else if (BTConnectionManager.bluetoothState === 2) {
