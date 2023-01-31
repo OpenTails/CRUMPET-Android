@@ -105,16 +105,17 @@ void PermissionsManager::requestPermissionNow(const QString& permission)
 
 bool PermissionsManager::hasPermission(const QString& permission) const
 {
-    qDebug() << Q_FUNC_INFO << "Checking permission for" << permission;
+    bool returnValue{false};
 #ifdef Q_OS_ANDROID
     auto  result = QtAndroid::checkPermission(QString("android.permission.%1").arg(permission));//QString("android.permission.BLUETOOTH_SCAN"));
     if(result == QtAndroid::PermissionResult::Granted) {
-        return true;
+        returnValue = true;
     } else {
-        return false;
+        returnValue = false;
     }
 #else
-    Q_UNUSED(permission)
-    return true;
+    returnValue = true;
 #endif
+    qDebug() << Q_FUNC_INFO << "Permission granted for" << permission << ":" << returnValue;
+    return returnValue;
 }
