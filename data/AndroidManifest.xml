@@ -3,6 +3,7 @@
         <application android:name="org.qtproject.qt5.android.bindings.QtApplication"
                      android:label="Crumpet"
                      android:icon="@mipmap/ic_launcher">
+                     <!-- android:debuggable="true" add this above to make debuggable with android studio -->
                      <!--This only works with API level 25 and above: android:roundIcon="@mipmap/ic_launcher_round"-->
                 <service android:process=":service" android:name=".TailService">
                     <!-- android:process=":service" is needed to force the service to run on a separate process from the Activity -->
@@ -79,6 +80,7 @@
         <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
         <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:maxSdkVersion="30" />
         <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
+        <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" android:usesPermissionFlags="neverForLocation" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
         <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
