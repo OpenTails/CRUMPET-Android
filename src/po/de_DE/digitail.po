@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2022-04-23 16:50+0100\n"
-"PO-Revision-Date: 2023-03-07 21:08+0100\n"
+"PO-Revision-Date: 2023-03-07 21:33+0100\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -750,12 +750,12 @@ msgstr ""
 #: GestureDetectorModel.cpp:240
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr ""
+msgstr "Gerade Schrittzahl erkannt."
 
 #: GestureDetectorModel.cpp:241
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr ""
+msgstr "Ungerade Schrittzahl erkannt."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -1041,6 +1041,12 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
+"Wähle die Option um den No-Phone Modus zu aktivieren und die Verbindung zu"
+" trennen, "
+"damit du die Verbindung zum Telefon beenden kannst. Dieser Modus funktioniert"
+" ähnlich wie der "
+"Gelegenheitsmodus, jedoch ohne Telefon. (Praktisch wenn du dein Telefon nicht"
+" in deinem Kostüm unterbringen kannst)"
 
 #: qml/DisconnectOptions.qml:106
 msgctxt ""
@@ -1050,13 +1056,15 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
+"No-Phone Modus wartet zwischen %1 und %2 Sekunden bevor die nöchste Bewegung"
+" beginnt."
 
 #: qml/DisconnectOptions.qml:126
 msgctxt ""
 "Label for the slider which lets the user pick how long to wait before No "
 "Phone mode is fully activated"
 msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
-msgstr ""
+msgstr "No-Phone Modus wartet %1 Minute(n) bevor die erste Bewegung beginnt."
 
 #: qml/DisconnectOptions.qml:136
 msgctxt ""
@@ -1175,7 +1183,7 @@ msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting a pose for the Gear"
 msgid "Multiple Gestures"
-msgstr ""
+msgstr "Mehrere Gesten"
 
 #: qml/GearGestures.qml:71
 msgctxt ""
@@ -1234,7 +1242,7 @@ msgctxt ""
 "Description for the category for the LED Patterns, on the page for selecting "
 "a move in Casual Mode"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED-Muster"
 
 #: qml/IdleModePage.qml:72
 msgctxt ""
@@ -1326,12 +1334,12 @@ msgstr "Wecker"
 #: qml/main.qml:220
 msgctxt "Button for opening the Move List page, from the landing page"
 msgid "Move Lists"
-msgstr ""
+msgstr "Liste der Bewegungen"
 
 #: qml/main.qml:230
 msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
 msgid "Moves"
-msgstr ""
+msgstr "Bewegungen"
 
 #: qml/main.qml:239
 msgctxt "Button for opening the EarGear Poses page, from the landing page"
@@ -1458,7 +1466,7 @@ msgstr ""
 #: qml/MoveLists.qml:27
 msgctxt "Heading for the page for viewing Move Lists"
 msgid "Move Lists"
-msgstr ""
+msgstr "Liste der Bewegungen"
 
 #: qml/MoveLists.qml:31
 msgctxt ""
@@ -1563,7 +1571,7 @@ msgstr ""
 #: qml/NamePicker.qml:41
 msgctxt "Text header for picking a name"
 msgid "Pick a name"
-msgstr ""
+msgstr "Gib einen Namen ein"
 
 #: qml/NotConnectedCard.qml:46
 msgctxt ""
@@ -1587,7 +1595,7 @@ msgctxt ""
 "Header notifying that gear has been found, for the gear connecting card"
 msgid "One piece of gear available"
 msgid_plural "Multiple pieces of gear available"
-msgstr[0] ""
+msgstr[0] "Ein Gerät verfügbar"
 msgstr[1] ""
 
 #: qml/NotConnectedCard.qml:82
@@ -1723,7 +1731,7 @@ msgctxt ""
 "Description for the category for the LED Patterns, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED-Muster"
 
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
@@ -1819,6 +1827,10 @@ msgid ""
 "Ticking this option will ensure that the app will attempt to reconnect "
 "automatically when the connection is lost."
 msgstr ""
+"Es kann durchaus vorkommen, dass die App die Verbindung zu deinen Geräten"
+" verliert. "
+"Wenn du diese Option aktivierst, versucht sich die App automatisch wieder zu"
+" verbinden."
 
 #: qml/SettingsPage.qml:59
 msgctxt ""
@@ -1888,7 +1900,7 @@ msgctxt ""
 "Checkbox for hiding non-connected gear, on the panel for adding commands to "
 "your gear, on the settings page"
 msgid "Only Show Connected Gear"
-msgstr ""
+msgstr "Nur verbundene Geräte anzeigen"
 
 #: qml/SettingsPage.qml:100
 msgctxt ""
@@ -2103,12 +2115,12 @@ msgstr ""
 #: qml/TailLights.qml:43
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED-Muster"
 
 #: qml/TailMoves.qml:24
 msgctxt "Heading for the Moves page"
 msgid "Moves"
-msgstr ""
+msgstr "Bewegungen"
 
 #: qml/TailMoves.qml:27
 msgctxt "Button for returning the tail to its home position, on the Moves page"
@@ -2208,7 +2220,7 @@ msgstr "Nach Geräten suchen"
 #: qml/WelcomePage.qml:79
 msgctxt "Label for the button for opening the Moves page, on the welcome page"
 msgid "Moves"
-msgstr ""
+msgstr "Bewegungen"
 
 #: qml/WelcomePage.qml:97
 msgctxt ""
@@ -2231,7 +2243,7 @@ msgstr "Wecker"
 msgctxt ""
 "Label for the button for opening the Move List page, on the welcome page"
 msgid "Move List"
-msgstr ""
+msgstr "Liste der Bewegungen"
 
 #: qml/WelcomePage.qml:202
 msgctxt ""
