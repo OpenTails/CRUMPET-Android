@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2022-04-23 16:50+0100\n"
-"PO-Revision-Date: 2023-03-07 16:15+0100\n"
+"PO-Revision-Date: 2023-03-07 16:27+0100\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -395,6 +395,13 @@ msgid ""
 "contact us on info@thetailcompany.com and tell us that you got this error.</"
 "p>"
 msgstr ""
+"<p><b>Update fehlgeschlagen</b></p><p>Wir haben versucht, die Firmware zu"
+" schnell "
+"für dein Gerät zu aktualisieren und mussten abbrechen. Wenn du dies siehst:<"
+"/p><p>Keine Panik! Deinem Gerät ist nichts passiert.</p> "
+"<p>ABER: Wir sind sehr neugierig, wie du das geschafft hast und würden dich"
+" bitten, uns unter info@thetailcompany.com zu kontaktieren und uns zu"
+" erzählen, wie es dazu kam.</p>"
 
 #: BTDeviceMitail.cpp:443
 msgctxt ""
@@ -686,7 +693,7 @@ msgstr ""
 #: qml/AlarmList.qml:32
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr ""
+msgstr "Neuen Alarm hinzufügen"
 
 #: qml/AlarmList.qml:44
 msgctxt ""
@@ -711,7 +718,7 @@ msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr ""
+msgstr "Alarm wurde entfernt"
 
 #: qml/AlarmList.qml:50
 msgctxt ""
@@ -783,26 +790,26 @@ msgstr ""
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
-msgstr ""
+msgstr "Neue Bewegung hinzufügen"
 
 #: qml/BaseCommandListEditor.qml:51
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
-msgstr ""
+msgstr "Pause zur Liste hinzufügen"
 
 #: qml/BaseCommandListEditor.qml:168
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
-msgstr ""
+msgstr "Befehl hinzufügen nach"
 
 #: qml/BaseCommandListEditor.qml:177
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
-msgstr ""
+msgstr "Pause einfügen nach"
 
 #: qml/BaseCommandListEditor.qml:203
 msgctxt ""
@@ -812,13 +819,15 @@ msgid ""
 "<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
 "cooldown: %3 seconds</small>"
 msgstr ""
+"<strong>%1</strong><br/><small>%2 Sekunden</small><br/><small>Zusätzliche "
+"Abklingzeit: %3 Sekunden</small>"
 
 #: qml/BaseCommandListEditor.qml:204
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
-msgstr ""
+msgstr "<strong>%1</strong><br/><small>%2 Sekunden</small>"
 
 #: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
@@ -869,13 +878,13 @@ msgctxt ""
 "A label which describes the slider for the duration of a pause, in the "
 "overlay for picking the duration of a pause, in a command list"
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 Sekunden"
 
 #: qml/CommandPausePicker.qml:63
 msgctxt ""
 "Button for an overlay for picking the duration of a pause in the command list"
 msgid "Add this pause"
-msgstr ""
+msgstr "Diese Pause einfügen"
 
 #: qml/ConnectToTail.qml:69
 msgctxt ""
@@ -1103,7 +1112,7 @@ msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting a pose for the Gear"
 msgid "(no command)"
-msgstr ""
+msgstr "(keine Aktion)"
 
 #: qml/IdleModePage.qml:26
 msgctxt "Title for the page for selecting a move in Casual Mode"
@@ -1221,7 +1230,7 @@ msgstr ""
 #: qml/main.qml:210
 msgctxt "Button for opening the Alarm page, from the landing page"
 msgid "Alarm"
-msgstr ""
+msgstr "Wecker"
 
 #: qml/main.qml:220
 msgctxt "Button for opening the Move List page, from the landing page"
@@ -1268,7 +1277,7 @@ msgstr ""
 #: qml/main.qml:301
 msgctxt "Button for opening the About Us page, from the landing page"
 msgid "About"
-msgstr ""
+msgstr "Über uns"
 
 #: qml/main.qml:321
 msgctxt "Title for the confirmation popup for disconnecting your gear"
@@ -1359,7 +1368,7 @@ msgctxt ""
 "Label for the button for adding a new Move List, on the page for viewing "
 "Move Lists"
 msgid "Add New Move List"
-msgstr ""
+msgstr "Neue Bewegung zur Liste hinzufügen"
 
 #: qml/MoveLists.qml:48
 msgctxt ""
@@ -1504,7 +1513,7 @@ msgid ""
 msgid_plural ""
 "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
 "below."
-msgstr[0] ""
+msgstr[0] "1 Gerät gefunden. Warte einfach oder drücke auf \"Verbinden\"."
 msgstr[1] ""
 
 #: qml/NotConnectedCard.qml:94
@@ -1662,6 +1671,8 @@ msgid ""
 "(this is where the content of the crumpet file goes,\n"
 "because we'll just have that here for now...)"
 msgstr ""
+"(hier sollte das Crumpet-Context file sein, \n"
+"aber das ist noch nicht da...)"
 
 #: qml/SettingsPage.qml:29
 msgctxt "Title for the settings page"
@@ -1991,7 +2002,7 @@ msgstr ""
 #: qml/TimePicker.qml:89
 msgctxt "Label for the AM option on a AM/PM selector of a time picker"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: qml/TimePicker.qml:95
 msgctxt "Label for the PM option on a AM/PM selector of a time picker"
@@ -2061,7 +2072,7 @@ msgstr ""
 #: qml/WelcomePage.qml:140
 msgctxt "Label for the button for opening the Alarms page, on the welcome page"
 msgid "Alarm"
-msgstr ""
+msgstr "Wecker"
 
 #: qml/WelcomePage.qml:155
 msgctxt ""
