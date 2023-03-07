@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2022-04-23 16:50+0100\n"
-"PO-Revision-Date: 2023-03-07 17:01+0100\n"
+"PO-Revision-Date: 2023-03-07 19:29+0100\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -196,13 +196,15 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
+"Fehler bei der Verbindung zu deinem EarGear. Bitte versuche es erneut"
+" (vielleicht näher am Gerät?)"
 
 #: BTDeviceEars.cpp:593
 msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Firmware Update Abgeschlossen"
 
 #: BTDeviceEars.cpp:593
 msgctxt ""
@@ -266,13 +268,13 @@ msgstr "Ruhig und Entspannt"
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Schnell und Aufgeregt"
 
 #: BTDeviceFake.cpp:50 BTDeviceMitail.cpp:367
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustriert und Angespannt"
 
 #: BTDeviceFake.cpp:106
 msgctxt ""
@@ -451,6 +453,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
+"Fehler bei der Verbindung zu deinem MiTail. Bitte versuche es erneut"
+" (vielleicht näher am Gerät?)"
 
 #: BTDeviceMitail.cpp:567
 msgctxt ""
@@ -467,6 +471,9 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Die Firmware wurde erfolgreich heruntergeladen. Jetzt nur noch auf den"
+" Neustart deiner Geräte warten, "
+"bevor wir die Verbindung wieder herstellen versuchen..."
 
 #: BTDeviceMitail.cpp:575
 msgctxt ""
@@ -530,6 +537,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your tail. Please try again (perhaps move it closer?)"
 msgstr ""
+"Fehler bei der Verbindung zu deinem Gerät. Bitte versuche es erneut"
+" (vielleicht näher am Gerät?)"
 
 #: BTDeviceTail.cpp:302
 msgctxt ""
@@ -545,7 +554,7 @@ msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr ""
+msgstr "Kann das Verzeichnis für gespeicherte Befehle nicht erstellen"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
@@ -563,6 +572,10 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
+"Fehler beim Laden der BEfehle. Der Parser beschwert sich über einen Fehler"
+" bei %1: %2\n"
+"Details:\n"
+"%3"
 
 #: CommandPersistence.cpp:174
 msgctxt ""
@@ -746,7 +759,7 @@ msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
-msgstr ""
+msgstr "Wecker-Befehle bearbeiten"
 
 #: qml/AlarmList.qml:89
 msgctxt ""
@@ -785,14 +798,14 @@ msgctxt ""
 "Descriptive text for a popup which allows the user to create a new, named "
 "alarm"
 msgid "Enter a name to use for your new alarm and click Create"
-msgstr ""
+msgstr "Gib deinem neuen Wecker einen Namen und tippe auf 'Erstellen'"
 
 #: qml/AlarmList.qml:143
 msgctxt ""
 "Placeholder text for the text box in which the name of a new alarm must be "
 "written"
 msgid "Enter your alarm name here"
-msgstr ""
+msgstr "Gib den Namen des Weckers hier ein"
 
 #: qml/AlarmList.qml:144
 msgctxt "Text on a button which causes an alarm to be created"
@@ -1143,14 +1156,14 @@ msgctxt ""
 "Description for the category for the Excited Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Schnell und Aufgeregt"
 
 #: qml/IdleModePage.qml:56
 msgctxt ""
 "Description for the category for the Tense Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustriert und Angespannt"
 
 #: qml/IdleModePage.qml:61
 msgctxt ""
@@ -1307,12 +1320,12 @@ msgstr ""
 #: qml/main.qml:386
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your new gear"
-msgstr ""
+msgstr "Gib deinem neuen Gerät einen Namen"
 
 #: qml/main.qml:387
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the name here"
-msgstr ""
+msgstr "Gib den Namen hier ein"
 
 #: qml/main.qml:388
 msgctxt ""
@@ -1403,7 +1416,7 @@ msgctxt ""
 "Label for the button for editing a move list, on the page for viewing Move "
 "Lists"
 msgid "Edit Move List"
-msgstr ""
+msgstr "Bewegungsliste bearbeiten"
 
 #: qml/MoveLists.qml:64
 msgctxt ""
@@ -1445,14 +1458,14 @@ msgctxt ""
 "Description for the prompt for giving a name to a move list, on the page for "
 "viewing Move Lists"
 msgid "Enter a name to use for your new move list and click Create"
-msgstr ""
+msgstr "Gib deiner neuen Bewegungsliste einen Namen und tippe auf 'Erstellen'"
 
 #: qml/MoveLists.qml:94
 msgctxt ""
 "Placeholder text for the textfield for the prompt for giving a name to a "
 "move list, on the page for viewing Move Lists"
 msgid "Enter your move list name here"
-msgstr ""
+msgstr "Gib den Namen deiner Bewegungsliste hier ein"
 
 #: qml/MoveLists.qml:95
 msgctxt ""
@@ -1620,14 +1633,14 @@ msgctxt ""
 "Description for the category for the Excited Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Schnell und Aufgeregt"
 
 #: qml/PickACommandSheet.qml:59 qml/PickACommandSheet.qml:86
 msgctxt ""
 "Description for the category for the Tense Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustriert und Angespannt"
 
 #: qml/PickACommandSheet.qml:64
 msgctxt ""
@@ -1751,7 +1764,7 @@ msgctxt ""
 "Label for the button for clearing gear names, on the panel for changing gear "
 "names, on the settings page"
 msgid "Forget Gear Names"
-msgstr ""
+msgstr "Gerätenamen vergessen"
 
 #: qml/SettingsPage.qml:74
 msgctxt ""
@@ -1947,7 +1960,7 @@ msgstr ""
 msgctxt ""
 "Heading for the panel for the demo modus of the app, on the settings page"
 msgid "Fake Tail"
-msgstr ""
+msgstr "Simulierter Tail"
 
 #: qml/SettingsPage.qml:246
 msgctxt ""
@@ -2018,12 +2031,12 @@ msgstr "Ruhig und Entspannt"
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Moves page"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Schnell und Aufgeregt"
 
 #: qml/TailMoves.qml:52
 msgctxt "Description for the category for the Tense Moveset, on the Moves page"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustriert und Angespannt"
 
 #: qml/TimePicker.qml:58
 msgctxt "Label for the Hours field on a time picker"
