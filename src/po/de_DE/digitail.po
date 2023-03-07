@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2022-04-23 16:50+0100\n"
-"PO-Revision-Date: 2023-03-07 16:27+0100\n"
+"PO-Revision-Date: 2023-03-07 16:39+0100\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -181,6 +181,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
+"Beim Verbinden zu deinem EarGear ist etwas schief gegangen "
+"Stelle bitte sicher, dass dein EarGear eingeschaltet und in Reichreite ist."
 
 #: BTDeviceEars.cpp:569
 msgctxt "Warning that the device disconnected itself"
@@ -383,6 +385,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Beim Verbinden zu deinem MiTail ist etwas schief gegangen "
+"(Fehler: Main Service). Bitte versuche es noch einmal!"
 
 #: BTDeviceMitail.cpp:432
 msgctxt ""
@@ -410,6 +414,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"Beim Verbinden zu deinem MiTail ist etwas schief gegangen "
+"(Fehler: Batterie). Bitte versuche es noch einmal!"
 
 #: BTDeviceMitail.cpp:493
 msgctxt ""
@@ -430,6 +436,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Beim Verbinden zu deinem MiTail ist etwas schief gegangen "
+"Stelle bitte sicher, dass dein MiTail eingeschaltet und in Reichreite ist."
 
 #: BTDeviceMitail.cpp:536
 msgctxt "Warning that the device disconnected itself"
@@ -449,7 +457,7 @@ msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr ""
+msgstr "Versuche die Verbindung wiederherzustellen..."
 
 #: BTDeviceMitail.cpp:572
 msgctxt ""
@@ -498,6 +506,8 @@ msgid ""
 "An error occured while connecting to your tail (the service object could not "
 "be created). If you feel this is in error, please try again!"
 msgstr ""
+"Beim Verbinden zu deinem MiTail ist etwas schief gegangen "
+"(Fehler: Main Service). Bitte versuche es noch einmal!"
 
 #: BTDeviceTail.cpp:276
 msgctxt "Warning that some unknown error happened"
@@ -505,6 +515,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your tail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Beim Verbinden zu deinem MiTail ist etwas schief gegangen "
+"Stelle bitte sicher, dass dein MiTail eingeschaltet und in Reichreite ist."
 
 #: BTDeviceTail.cpp:279
 msgctxt "Warning that the device disconnected itself"
@@ -557,14 +569,14 @@ msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Fehler beim Lesen der Datei %1"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "Fehler beim Schreiben der Datei %1"
 
 #: GestureDetectorModel.cpp:221
 msgctxt "The name of a sensor"
@@ -688,7 +700,7 @@ msgstr ""
 #: qml/AlarmList.qml:28
 msgctxt "Title of the page which lists the alarms the user has set"
 msgid "Alarms"
-msgstr ""
+msgstr "Wecker"
 
 #: qml/AlarmList.qml:32
 msgctxt "Text for a button which will adds a new alarm to the list"
@@ -758,7 +770,7 @@ msgstr ""
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
-msgstr ""
+msgstr "Bist du die sicher, dass du den Wecker '%1' löschen möchtest?"
 
 #: qml/AlarmList.qml:135
 msgctxt ""
@@ -785,7 +797,7 @@ msgstr ""
 #: qml/AlarmList.qml:144
 msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
-msgstr ""
+msgstr "Alarm Erstellen"
 
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
@@ -898,7 +910,7 @@ msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #: qml/DatePicker.qml:239
 msgctxt "Button for selecting the date of today, in a date picker"
@@ -1045,12 +1057,12 @@ msgstr ""
 #: qml/EarPoses.qml:40
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
 msgid "Be Calm"
-msgstr ""
+msgstr "Entspannt"
 
 #: qml/EarPoses.qml:48
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
-msgstr ""
+msgstr "Begeistert"
 
 #: qml/EarPoses.qml:62
 msgctxt ""
@@ -1170,7 +1182,7 @@ msgstr ""
 #: qml/main.qml:98
 msgctxt "Text for the notification upon connecting successfully to a device"
 msgid "Connected successfully!"
-msgstr ""
+msgstr "Verbindung erfolgreich!"
 
 #: qml/main.qml:119
 msgctxt "Title for the warning for having Bluetooth disabled"
@@ -1312,7 +1324,7 @@ msgstr ""
 #: qml/main.qml:429
 msgctxt "Label for your gear that gets shown when attempting to connect to it"
 msgid "Attempting to connect..."
-msgstr ""
+msgstr "Versuche zu verbinden..."
 
 #: qml/MessageBox.qml:48
 msgctxt "Confirmation button for a generic message"
@@ -1357,6 +1369,8 @@ msgctxt ""
 "Move List Editor page"
 msgid "Are you sure that you want to remove this entry from your move list?"
 msgstr ""
+"Bist du dir sicher, dass du den Eintrag von deinem Bewegungsablsauf entfernen"
+" möchtest?"
 
 #: qml/MoveLists.qml:27
 msgctxt "Heading for the page for viewing Move Lists"
@@ -1411,6 +1425,7 @@ msgctxt ""
 "page for viewing Move Lists"
 msgid "Are you sure that you want to remove the Move List '%1'?"
 msgstr ""
+"Bist du dir sicher, dass du '%1' vom Bewegungsablsauf entfernen möchtest?"
 
 #: qml/MoveLists.qml:86
 msgctxt "Description for the page for viewing Move Lists"
@@ -1550,7 +1565,7 @@ msgctxt ""
 "Label for button for connecting to a specific piece of gear, for the gear "
 "connecting card"
 msgid "Connect to %1"
-msgstr ""
+msgstr "Verbinde zu %1"
 
 #: qml/NotConnectedCard.qml:112
 msgctxt ""
@@ -1695,7 +1710,7 @@ msgstr ""
 #: qml/SettingsPage.qml:56
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
 msgid "Automatic Reconnection"
-msgstr ""
+msgstr "Automatische Wiederherstellung der Verbindung"
 
 #: qml/SettingsPage.qml:57
 msgctxt ""
@@ -1738,7 +1753,7 @@ msgctxt ""
 "Header for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
 msgid "Clear the names?"
-msgstr ""
+msgstr "Möchtest du die Namen löschen?"
 
 #: qml/SettingsPage.qml:75
 msgctxt ""
@@ -1846,7 +1861,7 @@ msgctxt ""
 "Label for the button which makes the app go online and check for the newest "
 "firmware available for the specific device"
 msgid "Check For New Firmware"
-msgstr ""
+msgstr "Auf neue Firmware überprüfen"
 
 #: qml/SettingsPage.qml:189
 msgctxt ""
@@ -2038,13 +2053,13 @@ msgstr ""
 #: qml/WelcomePage.qml:31
 msgctxt "Label for the button for connecting gear, on the welcome page"
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #: qml/WelcomePage.qml:59
 msgctxt ""
 "Label for the button for connecting additional gear, on the welcome page"
 msgid "Connect More..."
-msgstr ""
+msgstr "Weitere Geräte verbinden..."
 
 #: qml/WelcomePage.qml:64
 msgctxt ""
