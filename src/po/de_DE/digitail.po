@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2022-04-23 16:50+0100\n"
-"PO-Revision-Date: 2023-03-07 19:29+0100\n"
+"PO-Revision-Date: 2023-03-07 21:08+0100\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -187,7 +187,7 @@ msgstr ""
 #: BTDeviceEars.cpp:569
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr ""
+msgstr "Dein EarGear hat die Verbindung beendet."
 
 #: BTDeviceEars.cpp:572
 msgctxt ""
@@ -216,6 +216,11 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"Die Firmware wurde erfolgreich auf dein Gerät geladen, welches sich danach"
+" ausgeschaltet hat. "
+"Wenn es sich nicht von selbst eingeschaltet und wieder verbunden hat,"
+" schließe diese Nachricht, schalte "
+"dein Gerät selbst ein und stelle die Verbindung wieder her."
 
 #: BTDeviceEars.cpp:598
 msgctxt ""
@@ -225,6 +230,9 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
+"Dein EarGear hat die Verbindung beendet. Entweder wurden sie abgeschaltet"
+" oder "
+"der Akku wurde leer. Vergiss nicht, dein EarGear wieder aufzuladen!"
 
 #: BTDeviceEars.cpp:748 BTDeviceMitail.cpp:670
 msgctxt ""
@@ -247,6 +255,11 @@ msgid ""
 "should simply try again. If it continues to fail, please get in touch with "
 "us and we can try and work something out!"
 msgstr ""
+"Das Firmware-Paket enthält unerwartete Daten. Es könnte sein, dass die "
+"Daten beim Download beschädigt wurden. Versuche es bitte Später nochmals. "
+"Sollte der Fehler weiterhin bestehen, setze dich bitte mit uns in Verbindung"
+" und "
+"wir werden gemeinsam nach einer Lösung suchen."
 
 #: BTDeviceEars.cpp:813
 msgctxt "Message shown during firmware update processes"
@@ -284,6 +297,9 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
+"Dies ist eine Nachricht die dazu da ist, den Benutzer zu informieren, dass"
+" irgendwas "
+"<b>wichtiges</b> mit der Firmware los ist"
 
 #: BTDeviceMitail.cpp:39
 msgctxt ""
@@ -295,6 +311,12 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Dein Schwanz läuft mit Firmware 4.03, welche veraltet ist und einige bekannte "
+"Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware zu"
+" aktualisieren, "
+"die dese Probleme behebt. Um die Firmware zu aktualisieren, gehe in die"
+" Einstellungen "
+"und tippe dort auf Firmware."
 
 #: BTDeviceMitail.cpp:40
 msgctxt ""
@@ -306,6 +328,12 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Dein Schwanz läuft mit Firmware 4.02, welche veraltet ist und einige bekannte "
+"Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware zu"
+" aktualisieren, "
+"die dese Probleme behebt. Um die Firmware zu aktualisieren, gehe in die"
+" Einstellungen "
+"und tippe dort auf Firmware."
 
 #: BTDeviceMitail.cpp:41
 msgctxt ""
@@ -317,6 +345,12 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Dein Schwanz läuft mit Firmware 4.01, welche veraltet ist und einige bekannte "
+"Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware zu"
+" aktualisieren, "
+"die dese Probleme behebt. Um die Firmware zu aktualisieren, gehe in die"
+" Einstellungen "
+"und tippe dort auf Firmware."
 
 #: BTDeviceMitail.cpp:42
 msgctxt ""
@@ -328,6 +362,12 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Dein Schwanz läuft mit Firmware 4.00, welche veraltet ist und einige bekannte "
+"Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware zu"
+" aktualisieren, "
+"die dese Probleme behebt. Um die Firmware zu aktualisieren, gehe in die"
+" Einstellungen "
+"und tippe dort auf Firmware."
 
 #: BTDeviceMitail.cpp:43
 msgctxt ""
@@ -339,6 +379,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Dein Schwanz läuft mit Firmware 3.2.11, welche veraltet ist und einige"
+" bekannte "
+"Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware zu"
+" aktualisieren, "
+"die dese Probleme behebt. Um die Firmware zu aktualisieren, gehe in die"
+" Einstellungen "
+"und tippe dort auf Firmware."
 
 #: BTDeviceMitail.cpp:44
 msgctxt ""
@@ -350,6 +397,13 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Dein Schwanz läuft mit Firmware 3.2.10, welche veraltet ist und einige"
+" bekannte "
+"Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware zu"
+" aktualisieren, "
+"die dese Probleme behebt. Um die Firmware zu aktualisieren, gehe in die"
+" Einstellungen "
+"und tippe dort auf Firmware."
 
 #: BTDeviceMitail.cpp:115
 msgctxt ""
@@ -444,7 +498,7 @@ msgstr ""
 #: BTDeviceMitail.cpp:536
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
-msgstr ""
+msgstr "Dein MiTail hat die Verbindung beendet."
 
 #: BTDeviceMitail.cpp:540
 msgctxt ""
@@ -483,6 +537,8 @@ msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
+"Dein MiTail hat die Verbindung beendet. Entweder wurden er abgeschaltet oder "
+"der Akku wurde leer. Vergiss nicht, deinen MiTail wieder aufzuladen!"
 
 #: BTDeviceMitail.cpp:735
 msgctxt "Message shown during firmware update processes"
@@ -513,7 +569,7 @@ msgid ""
 "An error occured while connecting to your tail (the service object could not "
 "be created). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem MiTail ist etwas schief gegangen "
+"Beim Verbinden zu deinem Schwanz ist etwas schief gegangen "
 "(Fehler: Main Service). Bitte versuche es noch einmal!"
 
 #: BTDeviceTail.cpp:276
@@ -522,13 +578,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your tail, make sure it "
 "is on and close to this device."
 msgstr ""
-"Beim Verbinden zu deinem MiTail ist etwas schief gegangen "
-"Stelle bitte sicher, dass dein MiTail eingeschaltet und in Reichreite ist."
+"Beim Verbinden zu deinem Schwanz ist etwas schief gegangen "
+"Stelle bitte sicher, dass dein Gerät eingeschaltet und in Reichreite ist."
 
 #: BTDeviceTail.cpp:279
 msgctxt "Warning that the device disconnected itself"
 msgid "The tail closed the connection."
-msgstr ""
+msgstr "Der Schwanz hat die Verbindung beendet."
 
 #: BTDeviceTail.cpp:282
 msgctxt ""
@@ -548,6 +604,9 @@ msgid ""
 "The tail closed the connection, either by being turned off or losing power. "
 "Remember to charge your tail!"
 msgstr ""
+"Der Schwanz hat die Verbindung beendet. Entweder wurden das Gerät"
+" abgeschaltet oder "
+"der Akku wurde leer. Vergiss nicht, dein EarGear wieder aufzuladen!"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -562,6 +621,8 @@ msgctxt ""
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
 msgstr ""
+"Es sind keine Befehle in dieser Datei. Das ist möglich, aber durchaus"
+" ungewöhnlich."
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -701,14 +762,14 @@ msgctxt ""
 "A label which describes the hardware revision of the connected gear, when "
 "only one item is connected"
 msgid "The connected gear is version %1"
-msgstr ""
+msgstr "Dein Gerät ist Revision %1"
 
 #: qml/AboutPage.qml:38
 msgctxt ""
 "A label which describes the hardware revision of a piece of connected gear, "
 "when more than one item is connected"
 msgid "The gear named %1 is version %2"
-msgstr ""
+msgstr "Das Gerät mit dem Namen %1 ist Revision %2"
 
 #: qml/AlarmList.qml:28
 msgctxt "Title of the page which lists the alarms the user has set"
@@ -1008,7 +1069,7 @@ msgstr "No-Phone Modus einschalten"
 msgctxt ""
 "Label above the section that lets the user simply disconnect from the gear"
 msgid "Just Disconnect"
-msgstr ""
+msgstr "Nur Verbindung trennen"
 
 #: qml/DisconnectOptions.qml:188
 msgctxt ""
@@ -1058,7 +1119,7 @@ msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
-msgstr ""
+msgstr "Ausgangsposition"
 
 #: qml/EarPoses.qml:37
 msgctxt "Description for the page for selecting a pose for the EarGear"
@@ -1066,6 +1127,9 @@ msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
+"In der folgenden Liste findest du alle für dein Gerät verfügbaren Posen."
+" Tippe eine "
+"Pose an um sie an deine verbundenen Geräte zu senden!"
 
 #: qml/EarPoses.qml:40
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -1082,7 +1146,7 @@ msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
 msgid "Poses"
-msgstr ""
+msgstr "Posen"
 
 #: qml/GearGestures.qml:28
 msgctxt "Title for the page for selecting a pose for the Gear"
@@ -1094,7 +1158,7 @@ msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting a "
 "pose for the Gear"
 msgid "Home Position"
-msgstr ""
+msgstr "Ausgangsposition"
 
 #: qml/GearGestures.qml:47
 msgctxt "Info card for the page for selecting a pose for the Gear"
@@ -1215,7 +1279,7 @@ msgstr "Achtung"
 #: qml/main.qml:121
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
 msgid "No Bluetooth Device"
-msgstr ""
+msgstr "Kein Bluetooth Gerät"
 
 #: qml/main.qml:134
 msgctxt "Title for the popup for having enabled Developer Mode"
@@ -1246,6 +1310,8 @@ msgstr "Gelegenheitsmodus ist ausgeschaltet"
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
+"Vielleicht ist es Zeit für eine Pause? Gib deinen Geräten ein bisschen Zeit"
+" um sich zu erholen!"
 
 #: qml/main.qml:202
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -1307,7 +1373,7 @@ msgstr "Über uns"
 #: qml/main.qml:321
 msgctxt "Title for the confirmation popup for disconnecting your gear"
 msgid "Your gear is currently connected"
-msgstr ""
+msgstr "Dein Gerät ist aktuell verbunden"
 
 #: qml/main.qml:322
 msgctxt "Message for the confirmation popup for disconnecting your gear"
@@ -1316,6 +1382,10 @@ msgid ""
 "\n"
 "Are you sure that you want to disconnect and quit?"
 msgstr ""
+"Du bist mit Geräten verbunden.\n"
+"\n"
+"Bist du dir sicher, dass du die Verbindung trennen und die App beenden"
+" möchtest?\n"
 
 #: qml/main.qml:386
 msgctxt "Description for the prompt for entering a name for your Gear"
@@ -1479,7 +1549,7 @@ msgctxt ""
 "Header for the warning that a name is already in use, for the prompt for "
 "giving a name to a move list, on the page for viewing Move Lists"
 msgid "Name Already Used"
-msgstr ""
+msgstr "Der Name wird bereits verwendet"
 
 #: qml/MoveLists.qml:100
 msgctxt ""
@@ -1499,7 +1569,7 @@ msgstr ""
 msgctxt ""
 "Header warning for missing scan permissions, for the gear connecting card"
 msgid "Let us look for your gear"
-msgstr ""
+msgstr "Lass uns nach deinem Gerät suchen"
 
 #: qml/NotConnectedCard.qml:49
 msgctxt "Header for whilst scanning, for the gear connecting card"
@@ -1510,7 +1580,7 @@ msgstr ""
 msgctxt ""
 "Header warning that no gear has been found, for the gear connecting card"
 msgid "No gear found"
-msgstr ""
+msgstr "Keine Geräte gefunden"
 
 #: qml/NotConnectedCard.qml:56
 msgctxt ""
@@ -1535,7 +1605,7 @@ msgctxt ""
 "Message whilst scanning warning that no gear has been found, for the gear "
 "connecting card"
 msgid "None found yet..."
-msgstr ""
+msgstr "Noch nichts gefunden..."
 
 #: qml/NotConnectedCard.qml:89
 msgctxt ""
@@ -1569,6 +1639,8 @@ msgid_plural ""
 "You are not currently connected to your gear, and we have found %1. Please "
 "push \"Show available gear...\" below to see what is available."
 msgstr[0] ""
+"Du bist derzeit mit keinem Gerät verbunden, aber wir erinnern uns an eines! "
+"Drücke \"Verbinden\" um dich mit dem Gerät zu verbinden."
 msgstr[1] ""
 
 #: qml/NotConnectedCard.qml:108
@@ -1576,7 +1648,7 @@ msgctxt ""
 "Label for button for opening the settings tab to fix missing scan "
 "permissions, for the gear connecting card"
 msgid "Get Location Permission..."
-msgstr ""
+msgstr "Standortgenehmigung einholen..."
 
 #: qml/NotConnectedCard.qml:110
 msgctxt ""
@@ -1597,7 +1669,7 @@ msgctxt ""
 "Label for button which causes the list of available gear to be refreshed, "
 "for the gear connecting card"
 msgid "Look for gear"
-msgstr ""
+msgstr "Nach Geräten suchen"
 
 #: qml/PickACommandSheet.qml:31
 msgctxt ""
@@ -1613,13 +1685,17 @@ msgid ""
 "The list below shows all the moves and light patterns available to your "
 "gear. Tap any of them to pick that command."
 msgstr ""
+"In der folgenden Liste findest du alle für dein Gerät verfügbaren Bewegungen"
+" und Licht-Effekte. "
+"Tippe auf einen Effekt oder Befehl um ihn an deine verbundenen Geräte zu"
+" senden!"
 
 #: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
 msgctxt ""
 "Description for the category for the Ear Gear poses, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Poses"
-msgstr ""
+msgstr "Posen"
 
 #: qml/PickACommandSheet.qml:49 qml/PickACommandSheet.qml:76
 msgctxt ""
@@ -1715,7 +1791,7 @@ msgstr "Einstellungen"
 #: qml/SettingsPage.qml:36
 msgctxt "Header for the instruction panel, on the settings page"
 msgid "Instructions"
-msgstr ""
+msgstr "Anleitungen"
 
 #: qml/SettingsPage.qml:37
 msgctxt "Description for the instruction panel on the settings page"
@@ -1724,6 +1800,11 @@ msgid ""
 "includes instructions on how to wear your tail or ears, along with some nice "
 "graphics showing you how."
 msgstr ""
+"Bitte schau dir die Anleitung an, indem du auf den untenstehenden Link"
+" klickst. In "
+"der Anleitung findest du wichtige Hinweise und leicht verständliche"
+" Graphiken, "
+"wie du mit deinen Geräten am Besten umgehst."
 
 #: qml/SettingsPage.qml:56
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
@@ -1749,7 +1830,7 @@ msgstr ""
 #: qml/SettingsPage.qml:68
 msgctxt "Header for the panel for changing gear names, on the settings page"
 msgid "Gear Names"
-msgstr ""
+msgstr "Gerätenamen"
 
 #: qml/SettingsPage.qml:69
 msgctxt ""
@@ -1758,6 +1839,8 @@ msgid ""
 "If you want to clear the names of any gear you have given a name, click the "
 "button below to make the app forget them all."
 msgstr ""
+"Wenn du die Namen der Geräte löschen möchtest, tippe auf den untenstehenden "
+"Knopf. Damit löscht du alle Namen in der App."
 
 #: qml/SettingsPage.qml:71
 msgctxt ""
@@ -1812,14 +1895,14 @@ msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
-msgstr ""
+msgstr "Kein Gerät zu konfigurieren..."
 
 #: qml/SettingsPage.qml:125
 msgctxt ""
 "Heading for the panel for adjusting microphone levels for the earGear, on "
 "the settings page"
 msgid "EarGear Hearing"
-msgstr ""
+msgstr "Akustik-Einstellungen"
 
 #: qml/SettingsPage.qml:126
 msgctxt ""
@@ -1835,6 +1918,12 @@ msgid ""
 "controller box either on the front or the back of your body, or upside down "
 "so the cable can run more gracefully)."
 msgstr ""
+"Sollte dein EarGear sich als etwas Schwerhörig herausstellen, dann "
+"solltest du dir die Lautstärkeeinstellungen anschauen. Wenn du sie"
+" kalibrierst, "
+"stelle sicher dass du in einem ruhigen Raum bist um ein optimales Ergebnis "
+"zu bekommen. Möglicherweise musst du auch die Position der Controller-Box"
+" ändern."
 
 #: qml/SettingsPage.qml:142
 msgctxt ""
@@ -1862,7 +1951,7 @@ msgctxt ""
 "Heading for the panel for checking for and performing firmware updates for "
 "gear which supports this"
 msgid "Gear Firmware"
-msgstr ""
+msgstr "Geräte-Firmware"
 
 #: qml/SettingsPage.qml:164
 msgctxt ""
@@ -1873,6 +1962,10 @@ msgid ""
 "clicking the \"Check\" button below, and if there is one, you can then click "
 "the button underneath to download and install the update."
 msgstr ""
+"Wenn dein Gerät Firmware-Aktualisierungen unterstützt, kannst du hier "
+"nach neuer Firmware suchen. Mit dem Knopf unterhalb kannst du nach"
+" Aktualisierungen "
+"suchen und diese auch installieren."
 
 #: qml/SettingsPage.qml:180
 msgctxt ""
@@ -1889,6 +1982,7 @@ msgid ""
 "You currently have version %1 installed, and version %2 is available for you "
 "to install"
 msgstr ""
+"Du hast derzeit Version %1 installer. Version %2 ist für dich verfügbar."
 
 #: qml/SettingsPage.qml:195
 msgctxt ""
@@ -1941,12 +2035,12 @@ msgctxt ""
 "firmware (only visible when updated firmware has been downloaded "
 "successfully)"
 msgid "Install"
-msgstr ""
+msgstr "Installieren"
 
 #: qml/SettingsPage.qml:220
 msgctxt "Heading for the panel of the language selector, on the settings page"
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: qml/SettingsPage.qml:221
 msgctxt "Description of the language selection option on the settings page"
@@ -1973,13 +2067,17 @@ msgid ""
 "options exist. Enabling this option will make a fake tail show up on the "
 "welcome page."
 msgstr ""
+"Wenn du gerade diese App geladen hast, weil du zum Beispiel auf einen"
+"DIGITAiL oder EarGear wartest, kannst du - um dir die Zeit zu verkürzen - "
+"einen Schwanz simulieren. So kannst du die Funktionen bereits jetzt schon "
+"erkunden. Damit scheint auch der Simulierte Schwanz in der Übersicht auf."
 
 #: qml/SettingsPage.qml:248
 msgctxt ""
 "Label for the checkbox for showing a fake tail inside the app, on the panel "
 "for the demo modus of the app, on the settings page"
 msgid "Show Fake Tail"
-msgstr ""
+msgstr "Simulierten Tail anzeigen"
 
 #: qml/TailLights.qml:24
 msgctxt "Header for the page for the Glow Tips"
@@ -1998,6 +2096,9 @@ msgid ""
 "The list below shows all the light patterns available to your gear. Tap any "
 "of them to send them off to any of your connected devices!"
 msgstr ""
+"In der folgenden Liste findest du alle für dein Gerät verfügbaren"
+" Licht-Effekte. Tippe auf einen "
+"Effekt um ihn an deine verbundenen Geräte zu senden!"
 
 #: qml/TailLights.qml:43
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2012,7 +2113,7 @@ msgstr ""
 #: qml/TailMoves.qml:27
 msgctxt "Button for returning the tail to its home position, on the Moves page"
 msgid "Home Position"
-msgstr ""
+msgstr "Ausgangsposition"
 
 #: qml/TailMoves.qml:35
 msgctxt "Description for the list of moves, on the Moves page"
@@ -2020,6 +2121,9 @@ msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
+"In der folgenden Liste findest du alle für dein Gerät verfügbaren Bewegungen."
+" Tippe eine "
+"Bewegung an um sie an deine verbundenen Geräte zu senden!"
 
 #: qml/TailMoves.qml:42
 msgctxt ""
@@ -2041,12 +2145,12 @@ msgstr "Frustriert und Angespannt"
 #: qml/TimePicker.qml:58
 msgctxt "Label for the Hours field on a time picker"
 msgid "Hours"
-msgstr ""
+msgstr "Stunden"
 
 #: qml/TimePicker.qml:70
 msgctxt "Label for the Minutes field on a time picker"
 msgid "Minutes"
-msgstr ""
+msgstr "Minuten"
 
 #: qml/TimePicker.qml:89
 msgctxt "Label for the AM option on a AM/PM selector of a time picker"
@@ -2062,7 +2166,7 @@ msgstr "PM"
 msgctxt ""
 "Button for resetting a time field to the current time, on a time picker"
 msgid "Now"
-msgstr ""
+msgstr "Jetzt"
 
 #: qml/TimePicker.qml:121
 msgctxt "Button for cancelling the time entry, on a time picker"
@@ -2099,7 +2203,7 @@ msgstr "Weitere Geräte verbinden..."
 msgctxt ""
 "Label for the button for looking for additional gear, on the welcome page"
 msgid "Look for gear"
-msgstr ""
+msgstr "Nach Geräten suchen"
 
 #: qml/WelcomePage.qml:79
 msgctxt "Label for the button for opening the Moves page, on the welcome page"
@@ -2144,7 +2248,7 @@ msgstr "Einstellungen für den Gelegenheitsmodus"
 #: qml/WelcomePage.qml:263
 msgctxt "Heading for the panel for turning on Listening Mode"
 msgid "Listening Mode"
-msgstr ""
+msgstr "Geräusch-Modus"
 
 #: qml/WelcomePage.qml:282
 msgctxt "Label for the checkbox for turning on Listening Mode"
