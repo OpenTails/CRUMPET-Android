@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2022-04-23 16:50+0100\n"
-"PO-Revision-Date: 2023-03-07 21:33+0100\n"
+"PO-Revision-Date: 2023-03-07 22:40+0100\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -270,6 +270,13 @@ msgid ""
 "disconnect from this device. Once it is started back up again, you will be "
 "able to connect to it again."
 msgstr ""
+"Lade die Firmware auf dein Gerät. Bitte halte die Geräte nahe beisammen und "
+"stelle sicher, dass sowohl dein Smartphone als auch dein Gerät ausreichend"
+" mit "
+"Strom versorgt werden. Sobald der Vorgang abgeschlossen ist, startet dein"
+" Gerät entweder "
+"neu oder schaltet sich aus. Sobald dein Gerät wieder eingeschaltet ist,"
+" kannst du die Verbindung wieder herstellen."
 
 #: BTDeviceFake.cpp:48 BTDeviceMitail.cpp:365
 msgctxt ""
@@ -548,6 +555,13 @@ msgid ""
 "Once completed, your gear will restart and disconnect from this device. Once "
 "rebooted, you will be able to connect to it again."
 msgstr ""
+"Lade die Firmware auf dein Gerät. Bitte halte die Geräte nahe beisammen und "
+"stelle sicher, dass sowohl dein Smartphone als auch dein Gerät ausreichend"
+" mit "
+"Strom versorgt werden (Ladegerät anschließen). "
+"Wenn der Vorgang abgeschlossen ist, wird dein Gerät sich neu starten. Sobald"
+" es wieder "
+"verfügbar ist, kannst du dich wieder mit ihm verbinden."
 
 #: BTDeviceTail.cpp:91
 msgctxt ""
@@ -660,17 +674,17 @@ msgstr "Doppelttippen"
 #: GestureDetectorModel.cpp:222
 msgctxt "The name of a sensor"
 msgid "Hover"
-msgstr ""
+msgstr "Schweben"
 
 #: GestureDetectorModel.cpp:223
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr ""
+msgstr "Fall-Sensor"
 
 #: GestureDetectorModel.cpp:224
 msgctxt "The name of a sensor"
 msgid "Landed"
-msgstr ""
+msgstr "Gelandet"
 
 #: GestureDetectorModel.cpp:225
 msgctxt "The name of a sensor"
@@ -680,72 +694,72 @@ msgstr "Cover-Geste"
 #: GestureDetectorModel.cpp:226
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr ""
+msgstr "Schütteln"
 
 #: GestureDetectorModel.cpp:227
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr ""
+msgstr "Telefon 'auflegen' Geste"
 
 #: GestureDetectorModel.cpp:228
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr ""
+msgstr "Peitsch-Bewegung"
 
 #: GestureDetectorModel.cpp:229
 msgctxt "The name of a sensor"
 msgid "Shake Left"
-msgstr ""
+msgstr "Links schütteln"
 
 #: GestureDetectorModel.cpp:230
 msgctxt "The name of a sensor"
 msgid "Shake Right"
-msgstr ""
+msgstr "Rechts schütteln"
 
 #: GestureDetectorModel.cpp:231
 msgctxt "The name of a sensor"
 msgid "Shake Up"
-msgstr ""
+msgstr "Nach oben schütteln"
 
 #: GestureDetectorModel.cpp:232
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr ""
+msgstr "Nach unten schütteln"
 
 #: GestureDetectorModel.cpp:233
 msgctxt "The name of a sensor"
 msgid "Twist Left"
-msgstr ""
+msgstr "Drehung nach Links"
 
 #: GestureDetectorModel.cpp:234
 msgctxt "The name of a sensor"
 msgid "Twist Right"
-msgstr ""
+msgstr "Drehung nach Rechts"
 
 #: GestureDetectorModel.cpp:235
 msgctxt "The name of a sensor"
 msgid "Pick Up"
-msgstr ""
+msgstr "Aufheben"
 
 #: GestureDetectorModel.cpp:236
 msgctxt "The name of a sensor"
 msgid "Turn Over"
-msgstr ""
+msgstr "Umdrehen"
 
 #: GestureDetectorModel.cpp:237
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr ""
+msgstr "Gehen (Start)"
 
 #: GestureDetectorModel.cpp:238
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr ""
+msgstr "Gehen (beendet)"
 
 #: GestureDetectorModel.cpp:239
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr ""
+msgstr "Schritte erkannt"
 
 #: GestureDetectorModel.cpp:240
 msgctxt "The name of a sensor"
@@ -779,14 +793,14 @@ msgstr "Wecker"
 #: qml/AlarmList.qml:32
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr "Neuen Alarm hinzufügen"
+msgstr "Neuen Wecker hinzufügen"
 
 #: qml/AlarmList.qml:44
 msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
-msgstr ""
+msgstr "Suche dir bitte einen anderen Namen aus"
 
 #: qml/AlarmList.qml:45
 msgctxt ""
@@ -798,13 +812,18 @@ msgid ""
 "\n"
 "Please select another name for the alarm."
 msgstr ""
+"Konnte den Wecker nicht hinzufügen, weil bereits ein Wecker mit dem selben"
+" Namen "
+"existiert.\n"
+"\n"
+"Bitte gib dem Wecker einen anderen Namen."
 
 #: qml/AlarmList.qml:49
 msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr "Alarm wurde entfernt"
+msgstr "Wecker wurde entfernt"
 
 #: qml/AlarmList.qml:50
 msgctxt ""
@@ -814,6 +833,8 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
+"Kann den Wecker mit dem Namen '%1' nicht finden. Vieleicht wurde er von einer "
+"weiteren Instanz dieser App entfernt."
 
 #: qml/AlarmList.qml:80
 msgctxt ""
@@ -827,18 +848,18 @@ msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr ""
+msgstr "Zeit für den Wecker stellen"
 
 #: qml/AlarmList.qml:111
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
-msgstr "Lösche diesen Alarm"
+msgstr "Lösche diesen Wecker"
 
 #: qml/AlarmList.qml:115
 msgctxt ""
 "Title for a message box which allows the user to delete a specific alarm"
 msgid "Remove the Alarm"
-msgstr ""
+msgstr "Wecker löschen"
 
 #: qml/AlarmList.qml:116
 msgctxt ""
@@ -853,6 +874,10 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
+"Stelle hier den Wecker. Wähle ein Datum und eine Uhrzeit für den Wecker und"
+" füge "
+"einen oder mehrere Bewegungen hinzu. Diese werden abgespielt, wenn der Wecker"
+" los geht."
 
 #: qml/AlarmList.qml:142
 msgctxt ""
@@ -871,7 +896,7 @@ msgstr "Gib den Namen des Weckers hier ein"
 #: qml/AlarmList.qml:144
 msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
-msgstr "Alarm Erstellen"
+msgstr "Wecker Erstellen"
 
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
@@ -923,41 +948,49 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
+"Dies ist deine Befehlsliste. Sie kann Bewegungen, Lichtmuster oder Pausen"
+" enthalten. "
+"Tipp: Um einen neuen Befehl unterhalb eines bereits in der Liste vorhandenen"
+" Befehls "
+"hinzuzufügen, klicke auf das Plus-Symbol über dem Zeitstempel für diesen"
+" Eintrag und wähle "
+"eine der Optionen aus dem Menü aus."
 
 #: qml/BaseCommandListEditor.qml:275
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] ""
+msgstr[0] "Gesamtzeit: %1 Sekunden"
 msgstr[1] ""
 
 #: qml/BaseMovesComponent.qml:204
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
-msgstr ""
+msgstr "Wohin senden?"
 
 #: qml/BaseMovesComponent.qml:213
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
 msgstr ""
+"Wähle ein Zielgerät für deinen Befehl aus der untenstehenden Liste aus."
 
 #: qml/BaseMovesComponent.qml:258
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
-msgstr ""
+msgstr "Nur an ausgewählte Geräte senden"
 
 #: qml/BaseMovesComponent.qml:267
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
-msgstr ""
+msgstr "An alle senden"
 
 #: qml/CommandPausePicker.qml:42
 msgctxt ""
 "Heading for an overlay for picking the duration of a pause in the command "
 "list"
 msgid "Pick the duration of your pause"
-msgstr ""
+msgstr "Wähle die Dauer der Pause aus"
 
 #: qml/CommandPausePicker.qml:59
 msgctxt ""
@@ -1009,7 +1042,7 @@ msgstr "Entwickler-Modus"
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr ""
+msgstr "MAX GLASH"
 
 #: qml/DisconnectOptions.qml:34
 msgctxt ""
@@ -1023,14 +1056,14 @@ msgctxt ""
 "Label above the list of options available for disconnecting from a piece of "
 "gear"
 msgid "Please select how you would like to disconnect from %1."
-msgstr ""
+msgstr "Wähle bitte aus, wie du die Verbindung von %1 trennen möchtest."
 
 #: qml/DisconnectOptions.qml:68
 msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Gerät ohne Smartphone benutzen"
 
 #: qml/DisconnectOptions.qml:87
 msgctxt ""
@@ -1087,6 +1120,9 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
+"Mit dieser Option trennst du die Verbindung von deinem Gerät ohne es"
+" auszuschalten. (Praktisch "
+"wenn du es aufladen möchtest)"
 
 #: qml/DisconnectOptions.qml:191
 msgctxt ""
@@ -1109,13 +1145,15 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
+"Wähle diese Option um dein Gerät auszuschalten"
+"(Praktisch, wenn du es wegräumen möchtest)"
 
 #: qml/DisconnectOptions.qml:233
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Shut Down Gear"
-msgstr ""
+msgstr "Geräte ausschalten"
 
 #: qml/EarPoses.qml:26
 msgctxt "Title for the page for selecting a pose for the EarGear"
@@ -1159,7 +1197,7 @@ msgstr "Posen"
 #: qml/GearGestures.qml:28
 msgctxt "Title for the page for selecting a pose for the Gear"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Gestensteuerung"
 
 #: qml/GearGestures.qml:31
 msgctxt ""
@@ -1177,6 +1215,11 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
+"Aktiviere einen der unten aufgelisteten Sensoren, damit deine Geräte auf"
+" Gesten mit deinem "
+"Mobilgerät reagieren können (sofern kein anderer Betriebsmodus etwas"
+" vorgibt). Ein Beispiel wäre, "
+"dass beim Aufheben des Smartphones die Ohren oder der Schwanz wackelt."
 
 #: qml/GearGestures.qml:70
 msgctxt ""
@@ -1196,13 +1239,16 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
+"Du versuchst gerade mehrere Gesten auf einmal auszuführen. Das wird "
+"gelegentlich zu Problemen führen, da Gesten wie 'Schütteln' und 'Gehen' nicht "
+"immer eindeutig sind. Bist du dir sicher, dass du weißt was du da tust?"
 
 #: qml/GearGestures.qml:80
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting a pose for the Gear"
 msgid "Show On Welcome Page"
-msgstr ""
+msgstr "Willkommen-Seite anzeigen"
 
 #: qml/GearGestures.qml:93
 msgctxt ""
@@ -1252,12 +1298,14 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
+"Hier legst du die Pausen zwischen den Bewegungen fest und aus welchen Listen "
+"die Bewegungen ausgewählt werden."
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
 "Label for selecting the range of pauses in between moves in Casual Mode"
 msgid "Range of pause between moves in seconds"
-msgstr ""
+msgstr "Zeitraum zwischen den Bewegungen in Sekunden"
 
 #: qml/main.qml:62
 msgctxt "Title of the application"
@@ -1349,7 +1397,7 @@ msgstr "Position der Ohren"
 #: qml/main.qml:248
 msgctxt "Button for opening the Glow Tips page, from the landing page"
 msgid "Glow Tips"
-msgstr ""
+msgstr "Beleuchtungs-Tipps"
 
 #: qml/main.qml:257
 msgctxt ""
@@ -1361,7 +1409,7 @@ msgstr "Einstellungen für den Gelegenheitsmodus"
 #: qml/main.qml:266
 msgctxt "Button for opening the Gear Gestures page, from the landing page"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Gestensteuerung"
 
 #: qml/main.qml:275
 msgctxt "Button for opening the Developer Mode page, from the landing page"
@@ -1431,14 +1479,14 @@ msgstr "Abbrechen"
 msgctxt ""
 "Label for the button for running a Move List, on the Move List Editor page"
 msgid "Run Move List"
-msgstr ""
+msgstr "Bewegungsliste abspielen"
 
 #: qml/MoveListEditor.qml:35
 msgctxt ""
 "Heading for the confirmation prompt for running a Move List, on the Move "
 "List Editor page"
 msgid "Run this list?"
-msgstr ""
+msgstr "Diese Liste abspielen?"
 
 #: qml/MoveListEditor.qml:36
 msgctxt ""
@@ -1452,7 +1500,7 @@ msgctxt ""
 "Header for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Remove Move List Entry?"
-msgstr ""
+msgstr "Eintrag aus der Liste löschen?"
 
 #: qml/MoveListEditor.qml:52
 msgctxt ""
@@ -1480,7 +1528,7 @@ msgctxt ""
 "Heading for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Run this list?"
-msgstr ""
+msgstr "Diese Liste abspielen?"
 
 #: qml/MoveLists.qml:49
 msgctxt ""
@@ -1508,7 +1556,7 @@ msgctxt ""
 "Heading for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Remove the Move List"
-msgstr ""
+msgstr "Bewegungsliste löschen"
 
 #: qml/MoveLists.qml:69
 msgctxt ""
@@ -1567,6 +1615,9 @@ msgid ""
 "You already have a move list with the name %1. Please pick another name, as "
 "that won't work."
 msgstr ""
+"Du hast bereits eine Bewegungsliste mit dem Namen %1. Bitte wähle einen"
+" anderen Namen, "
+"da du sonst die App verwirrst."
 
 #: qml/NamePicker.qml:41
 msgctxt "Text header for picking a name"
@@ -1582,7 +1633,7 @@ msgstr "Lass uns nach deinem Gerät suchen"
 #: qml/NotConnectedCard.qml:49
 msgctxt "Header for whilst scanning, for the gear connecting card"
 msgid "Searching for gear..."
-msgstr ""
+msgstr "Suche nach Geräten..."
 
 #: qml/NotConnectedCard.qml:53
 msgctxt ""
@@ -1607,6 +1658,11 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
+"Um deine Geräte finden zu können, benötigen wir Zugriff auf deinen Standort. "
+"Wenn du auf die untenstehende Schaltfläche tippst, kommt die entsprechende"
+" Anfrage deines Smartphones. "
+"Diese Berechtigung wird nur für die Verbindung benötigt "
+"(Solltest du Fragen dazu haben, zögere nicht uns zu kontaktieren)."
 
 #: qml/NotConnectedCard.qml:86
 msgctxt ""
@@ -1635,6 +1691,8 @@ msgid ""
 "We were unable to find any gear. Please ensure that yours is nearby and "
 "switched on."
 msgstr ""
+"Es wurde kein Gerät in der Nähe gefunden. Bitte stelle sicher, dass es "
+"in der Nähe und eingeschaltet ist."
 
 #: qml/NotConnectedCard.qml:97
 msgctxt ""
@@ -1670,7 +1728,7 @@ msgctxt ""
 "Label for button for showing a list of available gear, for the gear "
 "connecting card"
 msgid "Show available gear..."
-msgstr ""
+msgstr "Verfügbare Geräte anzeigen..."
 
 #: qml/NotConnectedCard.qml:132
 msgctxt ""
@@ -1683,7 +1741,7 @@ msgstr "Nach Geräten suchen"
 msgctxt ""
 "Heading for the overlay for picking a command, for configuring a move list"
 msgid "Pick a command"
-msgstr ""
+msgstr "Wähle einen Befehl"
 
 #: qml/PickACommandSheet.qml:35
 msgctxt ""
@@ -1736,7 +1794,7 @@ msgstr "LED-Muster"
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
 msgid "Gear Command Sets"
-msgstr ""
+msgstr "Befehlssätze für Geräte"
 
 #: qml/SettingsCrumpetPicker.qml:45
 msgctxt ""
@@ -1746,6 +1804,10 @@ msgid ""
 "add new ones, edit them, and remove them. You cannot edit the built-in "
 "lists, but you can duplicate them and then edit those."
 msgstr ""
+"Dies sind alle verfügbaren Befehle für %1. Du kannst neue Befehle hinzufügen, "
+"Befehle bearbeiten oder löschen. Um fest eingebaute Aktionen zu bearbeiten,"
+" kannst du diese "
+"duplizieren und die Kopie anpassen."
 
 #: qml/SettingsCrumpetPicker.qml:78
 msgctxt ""
@@ -1837,7 +1899,7 @@ msgctxt ""
 "Checkbox for enabling automatic reconnection, on the automatic reconnection "
 "panel in the settings page"
 msgid "Reconnect Automatically"
-msgstr ""
+msgstr "Verbindung automatisch wiederherstellen"
 
 #: qml/SettingsPage.qml:68
 msgctxt "Header for the panel for changing gear names, on the settings page"
@@ -1876,12 +1938,14 @@ msgid ""
 "Please confirm that you do, in fact, want to clear all your saved device "
 "names."
 msgstr ""
+"Bitte bestätige, dass du die Namen deiner gespeicherten Geräte löschen"
+" möchtest."
 
 #: qml/SettingsPage.qml:82
 msgctxt ""
 "Header for the panel for adding commands to your gear, on the settings page"
 msgid "Gear Commands"
-msgstr ""
+msgstr "Gerätebefehle"
 
 #: qml/SettingsPage.qml:83
 msgctxt ""
@@ -1894,6 +1958,12 @@ msgid ""
 "to more easily use this, make sure to give your gear a name, so you can tell "
 "them apart more easily."
 msgstr ""
+"Die App wird zwar mit einer Reihe von Befehlen ausgeliefert, aber das ist"
+" längst nicht alles, "
+"was wir können. Du kannst jederzeit neue Befehle basteln und sie in der App"
+" speichern. Du solltest "
+"jedem Gerät einen eigenen Namen geben um sie bei der Programmierung leichter"
+" unterscheiden zu können."
 
 #: qml/SettingsPage.qml:87
 msgctxt ""
@@ -1942,21 +2012,21 @@ msgctxt ""
 "Label for the button for unswapping left and right, on the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Unswap left and right"
-msgstr ""
+msgstr "Links und Rechts nicht mehr vertauschen"
 
 #: qml/SettingsPage.qml:143
 msgctxt ""
 "Label for the button for swapping left and right, the panel for adjusting "
 "microphone levels for the earGear, on the settings page"
 msgid "Swap left and right"
-msgstr ""
+msgstr "Links und Rechts vertauschen"
 
 #: qml/SettingsPage.qml:150
 msgctxt ""
 "Label for the button for rebalancing microphone levels, the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Rebalance Microphones"
-msgstr ""
+msgstr "Mikrofone kalibrieren"
 
 #: qml/SettingsPage.qml:163
 msgctxt ""
@@ -2061,6 +2131,11 @@ msgid ""
 "that language is not available. However, if you wish to force some language, "
 "you can select it here, and we will use that language instead."
 msgstr ""
+"Normalerweise wird Crumpet die Sprache deines Geräts verwenden - oder"
+" Englisch, "
+"sofern die entsprechende Sprache nicht verfügbar ist. Solltest du die App in"
+" einer bestimmten "
+"Sprache bevorzugen, kannst du sie hier auswählen."
 
 #: qml/SettingsPage.qml:245
 msgctxt ""
@@ -2094,12 +2169,12 @@ msgstr "Simulierten Tail anzeigen"
 #: qml/TailLights.qml:24
 msgctxt "Header for the page for the Glow Tips"
 msgid "Glow Tips"
-msgstr ""
+msgstr "Beleuchtungs-Tipps"
 
 #: qml/TailLights.qml:27
 msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
 msgid "Stop Lights"
-msgstr ""
+msgstr "Licht abschalten"
 
 #: qml/TailLights.qml:36
 msgctxt ""
@@ -2232,7 +2307,7 @@ msgstr "Position der Ohren"
 msgctxt ""
 "Label for the button for opening the Glow Tips page, on the welcome page"
 msgid "Glow Tips"
-msgstr ""
+msgstr "Beleuchtungs-Tipps"
 
 #: qml/WelcomePage.qml:140
 msgctxt "Label for the button for opening the Alarms page, on the welcome page"
@@ -2267,20 +2342,20 @@ msgctxt "Label for the checkbox for turning on Listening Mode"
 msgid ""
 "Turn this on to make your gear react to sounds around it for five minutes at "
 "a time."
-msgstr ""
+msgstr "Schalte die Reaktion auf Geräusche für fünf Minuten ein."
 
 #: qml/WelcomePage.qml:322
 msgctxt "Heading for the panel for turning on Tilt Mode"
 msgid "Tilt Mode"
-msgstr ""
+msgstr "Neigungsmodus"
 
 #: qml/WelcomePage.qml:335
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
-msgstr ""
+msgstr "Aktivieren um dein Gerät auf Neigungen reagieren zu lassen."
 
 #: qml/WelcomePage.qml:376
 msgctxt ""
 "Label for the button for opening the Gear Gestures page, on the welcome page"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Gestensteuerung"
