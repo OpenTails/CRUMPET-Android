@@ -38,6 +38,8 @@
         <file alias="actions/22/window-close.svg">../3rdparty/breeze-icons/icons/actions/22/window-close.svg</file>
         <file alias="actions/32/application-menu.svg">../3rdparty/breeze-icons/icons/actions/32/application-menu.svg</file>
         <file alias="actions/32/settings-configure.svg">../3rdparty/breeze-icons/icons/actions/32/settings-configure.svg</file>
+        <file alias="actions/22/internet-services.svg">../3rdparty/breeze-icons/icons/actions/22/internet-services.svg</file>
+
         <file alias="emblems/16/checkbox-checked.svg">../3rdparty/breeze-icons/icons/emblems/16/installed.svg</file>
         <file alias="emblems/16/checkbox-unchecked.svg">../3rdparty/breeze-icons/icons/emblems/16/noninstalled.svg</file>
 

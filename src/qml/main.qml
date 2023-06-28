@@ -306,6 +306,14 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     switchToPage(aboutPage);
                 }
+            },
+            Kirigami.Action {
+                text: i18nc("Button for opening the TailCo website in a browser, from the landing page", "TheTailCompany.com");
+                checked: false;
+                icon.name: "internet-services";
+                onTriggered: {
+                    Qt.openUrlExternally("https://thetailcompany.com/");
+                }
             }
         ]
     }

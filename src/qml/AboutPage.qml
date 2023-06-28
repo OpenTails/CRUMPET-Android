@@ -56,8 +56,14 @@ Kirigami.AboutPage {
         "otherText" : deviceFilterProxy.count > 0 ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
                     {
-                        "name" : "Dan Leinir Turthra Jensen",
+                        "name" : "Andrew Shoben et al.",
                         // TODO Reenable this when the about page wraps the person delegate properly
+                        //"task" : i18nc("Task description for leinir", "Lead Developer"),
+                        "emailAddress" : "into@thetailcompany.com",
+                        "webAddress" : "https://thetailcompany.com/",
+                    },
+                    {
+                        "name" : "Dan Leinir Turthra Jensen",
                         //"task" : i18nc("Task description for leinir", "Lead Developer"),
                         "emailAddress" : "admin@leinir.dk",
                         "webAddress" : "https://leinir.dk/",
