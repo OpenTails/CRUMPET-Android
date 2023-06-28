@@ -39,7 +39,9 @@ target_sources(digitail
 
     gearimplementations/GearEars.cpp
     gearimplementations/GearFake.cpp
+    gearimplementations/GearFlutterWings.cpp
     gearimplementations/GearMitail.cpp
+    gearimplementations/GearMitailMini.cpp
     gearimplementations/GearDigitail.cpp
 
     kirigami-icons.qrc

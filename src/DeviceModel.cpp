@@ -19,9 +19,11 @@
 #include "AppSettings.h"
 #include "GearBase.h"
 #include "gearimplementations/GearDigitail.h"
-#include "gearimplementations/GearFake.h"
 #include "gearimplementations/GearEars.h"
+#include "gearimplementations/GearFake.h"
+#include "gearimplementations/GearFlutterWings.h"
 #include "gearimplementations/GearMitail.h"
+#include "gearimplementations/GearMitailMini.h"
 
 class DeviceModel::Private
 {
@@ -301,6 +303,10 @@ void DeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
         newDevice = new GearEars(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"EG2"}) {
         newDevice = new GearEars(deviceInfo, this);
+    } else if (deviceInfo.name() == QLatin1String{"FlutterWings"}) {
+        newDevice = new GearFlutterWings(deviceInfo, this);
+    } else if (deviceInfo.name() == QLatin1String{"MitailMini"}) {
+        newDevice = new GearMitailMini(deviceInfo, this);
     } else {
         qDebug() << "Found an unsupported device" << deviceInfo.name();
     }
@@ -316,6 +322,8 @@ void DeviceModel::addDevice(GearBase* newDevice)
         QLatin1String{"EarGear"},
         QLatin1String{"EG2"},
         QLatin1String{"mitail"},
+        QLatin1String{"MitailMini"},
+        QLatin1String{"FlutterWings"},
         QLatin1String{"(!)Tail1"},
         QLatin1String{"FAKE"}
     };

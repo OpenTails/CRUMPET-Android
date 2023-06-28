@@ -1,0 +1,46 @@
+{
+    "Title": "MiTail Mini Built-ins",
+    "Description": "The basic set of commands defined in the MiTail Mini firmware",
+    "Commands": [
+        {
+            "Category": "",
+            "Command": "TAILHM",
+            "Duration": 200,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Tail Home Position"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILFA",
+            "Duration": 16040,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Fast Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILSH",
+            "Duration": 14840,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Short Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILHA",
+            "Duration": 14045,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Happy Wag"
+        },
+        {
+            "Category": "excited",
+            "Command": "TAILER",
+            "Duration": 5270,
+            "Group": 0,
+            "MinimumCooldown": 1000,
+            "Name": "Stand up!"
+        }
+    ]
+}
