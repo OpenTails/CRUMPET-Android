@@ -56,9 +56,9 @@ Kirigami.AboutPage {
         "otherText" : deviceFilterProxy.count > 0 ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
                     {
-                        "name" : "Andrew Shoben et al.",
+                        "name" : "MT at The Tail Company",
                         // TODO Reenable this when the about page wraps the person delegate properly
-                        //"task" : i18nc("Task description for leinir", "Lead Developer"),
+                        //"task" : i18nc("Task description for mt", ""),
                         "emailAddress" : "into@thetailcompany.com",
                         "webAddress" : "https://thetailcompany.com/",
                     },

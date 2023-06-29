@@ -256,7 +256,7 @@ Kirigami.ScrollablePage {
 
         SettingsCard {
             headerText: i18nc("Heading for the panel for the demo modus of the app, on the settings page", "Fake Tail");
-            descriptionText: i18nc("Description for the panel for the demo modus of the app, on the settings page", "If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny DIGITAiL or EarGear, you might want to explore what the app can do. You can click the button below to trick the app into thinking that there is a tail nearby, and let you explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
+            descriptionText: i18nc("Description for the panel for the demo modus of the app, on the settings page", "If you have just downloaded the app, for example in anticipation of the arrival of your brand new, super shiny MiTail or EarGear, you might want to explore what the app can do. You can click the button below to trick the app into thinking that there is a tail nearby, and let you explore what options exist. Enabling this option will make a fake tail show up on the welcome page.");
             footer: QQC2.CheckBox {
                 text: i18nc("Label for the checkbox for showing a fake tail inside the app, on the panel for the demo modus of the app, on the settings page", "Show Fake Tail")
                 Layout.fillWidth: true
