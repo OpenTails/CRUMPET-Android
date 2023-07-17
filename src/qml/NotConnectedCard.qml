@@ -32,23 +32,10 @@ Kirigami.AbstractCard {
         id: deviceFilterProxy;
         sourceModel: DeviceModel;
     }
-    Connections {
-        target: PermissionsManager;
-        ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
-        function onPermissionsChanged() {
-            root.hasScanPermission = PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-            root.hasConnectPermission = BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
-        }
-    }
-    property bool hasScanPermission: PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-    property bool hasConnectPermission: BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
     header: Kirigami.Heading {
         text: {
-            if (!root.hasScanPermission) {
+            if (!PermissionsManager.hasBluetoothPermissions) {
                 return i18nc("Header warning for missing scan permissions, for the gear connecting card", "Let us look for your gear");
-            }
-            else if (!root.hasConnectPermission) {
-                return i18nc("Header warning for missing connection permissions, for the gear connecting card", "Let us connect to your gear");
             }
             else if (BTConnectionManager.discoveryRunning === true) {
                 return i18nc("Header for whilst scanning, for the gear connecting card", "Searching for gear...");
@@ -83,16 +70,13 @@ Kirigami.AbstractCard {
         wrapMode: Text.Wrap;
         horizontalAlignment: Text.AlignHCenter;
         text: {
-            if (!root.hasScanPermission) {
+            if (!PermissionsManager.hasBluetoothPermissions) {
                 if (AppSettings.androidApiLevel > 30) {
                     return i18nc("Message warning for missing scan permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to scan for nearby devices. Clicking the button below will show you a dialog that you need to press allow on.");
                 }
                 else {
                     return i18nc("Message warning for missing location permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to access your location. Clicking the button below will show you a dialog that you need to press allow on. We do not use this information for anything else (feel free to get in touch if you want proof of this).");
                 }
-            }
-            else if (!root.hasConnectPermission) {
-                return i18nc("Message warning for missing connect permissions, for the gear connecting card", "To be able to connect to your gear, we also need permission to actually perform that connection. Clicking the button below might show you a dialog that you need to press allow on.");
             }
             else if (BTConnectionManager.discoveryRunning === true) {
                 if (deviceFilterProxy.count === 0) {
@@ -117,28 +101,23 @@ Kirigami.AbstractCard {
         Button {
             Layout.fillWidth: true; Layout.fillHeight: true;
             text: {
-                if (!root.hasScanPermission) {
+                if (!PermissionsManager.hasBluetoothPermissions) {
                     if (AppSettings.androidApiLevel > 30) {
                         return i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Scan Permission...");
                     }
                     else {
                         return i18nc("Label for button for opening the settings tab to fix missing location permissions, for the gear connecting card", "Get Location Permission...");
                     }
-                } else if (!root.hasConnectPermission) {
-                    return i18nc("Label for button for opening the dialog that grants missing connection permissions, for the gear connecting card", "Get Connection Permission...");
                 } else if (deviceFilterProxy.count === 1) {
                     return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
                 } else {
                     return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
                 }
             }
-            visible: (!root.hasScanPermission || !root.hasConnectPermission || deviceFilterProxy.count > 0)
+            visible: (!PermissionsManager.hasBluetoothPermissions || deviceFilterProxy.count > 0)
             onClicked: {
-                if (!root.hasScanPermission) {
-                    PermissionsManager.requestPermission(BTConnectionManager.bluetoothScanPermissionName);
-                }
-                else if (!root.hasConnectPermission) {
-                    PermissionsManager.requestPermission(BTConnectionManager.bluetoothConnectPermissionName);
+                if (!PermissionsManager.hasBluetoothPermissions) {
+                    PermissionsManager.requestBluetoothPermissions();
                 }
                 else if(deviceFilterProxy.count === 1) {
                     // Calling this will stop the discovery immediately and connect to the one tail that we've found
@@ -151,7 +130,7 @@ Kirigami.AbstractCard {
         }
         Button {
             Layout.fillWidth: true; Layout.fillHeight: true;
-            visible: !BTConnectionManager.discoveryRunning && root.hasScanPermission && root.hasConnectPermission
+            visible: !BTConnectionManager.discoveryRunning && PermissionsManager.hasBluetoothPermissions
             text: i18nc("Label for button which causes the list of available gear to be refreshed, for the gear connecting card", "Look for gear")
             onClicked: {
                 BTConnectionManager.startDiscovery();

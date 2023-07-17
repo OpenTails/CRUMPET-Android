@@ -128,7 +128,6 @@ void BTConnectionManager::setAppSettings(AppSettings* appSettings)
     if (d->deviceModel) {
         d->deviceModel->setAppSettings(d->appSettings);
     }
-    Q_EMIT bluetoothScanPermissionNameChanged(bluetoothScanPermissionName());
 }
 
 void BTConnectionManager::setLocalBTDeviceState()
@@ -227,24 +226,6 @@ QObject* BTConnectionManager::commandModel() const
 QObject * BTConnectionManager::commandQueue() const
 {
     return d->commandQueue;
-}
-
-QString BTConnectionManager::bluetoothScanPermissionName() const
-{
-#ifdef Q_OS_ANDROID
-    return QtAndroid::androidSdkVersion() > 30 ? "BLUETOOTH_SCAN" : "ACCESS_FINE_LOCATION";
-#else
-    return "NOT_ANDROID_SO_NO_SCAN_PERMISSION";
-#endif
-}
-
-QString BTConnectionManager::bluetoothConnectPermissionName() const
-{
-#ifdef Q_OS_ANDROID
-    return QtAndroid::androidSdkVersion() > 30 ? "BLUETOOTH_CONNECT" : "";
-#else
-    return "NOT_ANDROID_SO_NO_CONNECT_PERMISSION";
-#endif
 }
 
 bool BTConnectionManager::isConnected() const

@@ -191,11 +191,9 @@ int appMain(int argc, char *argv[])
     }
 
     QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
-        if(permissionsManager->hasPermission(btConnectionManagerReplica->bluetoothScanPermissionName())) {
-            if (btConnectionManagerReplica->bluetoothConnectPermissionName().isEmpty() || permissionsManager->hasPermission(btConnectionManagerReplica->bluetoothConnectPermissionName())) {
-                // Don't launch the discovery immediately, let's give things a change to start up...
-                QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
-            }
+        if(permissionsManager->hasBluetoothPermissions()) {
+            // Don't launch the discovery immediately, let's give things a change to start up...
+            QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
         }
     });
     engine.rootContext()->setContextProperty("PermissionsManager", permissionsManager);

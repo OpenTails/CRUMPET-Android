@@ -38,38 +38,36 @@ public:
 
     QTimer requestDelay;
     QStringList permissionsToRequest;
+    bool bluetoothPermissionValid{false};
+    bool hasBluetoothPermissions{false};
     void doRequest() {
-        bool hasGranted = false;
 #ifdef Q_OS_ANDROID
         QStringList needRequesting;
         for (const QString& permission : permissionsToRequest) {
             auto  result = QtAndroid::checkPermission(permission);
-            if(result == QtAndroid::PermissionResult::Granted && !hasGranted) {
-                hasGranted = true;
-            } else {
+            if(result != QtAndroid::PermissionResult::Granted) {
                 needRequesting << permission;
             }
-            if (!needRequesting.isEmpty()) {
-                qDebug() << Q_FUNC_INFO << "Requesting permissions for" << needRequesting;
-                QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
-                    QHashIterator<QString, QtAndroid::PermissionResult> permissionsIterator(resultHash);
-                    while (permissionsIterator.hasNext()) {
-                        permissionsIterator.next();
-                        if (permissionsIterator.value() == QtAndroid::PermissionResult::Denied) {
-                            qWarning() << Q_FUNC_INFO << "Permission actively denied for" << permissionsIterator.key();
-                        }
+        }
+        if (!needRequesting.isEmpty()) {
+            qDebug() << Q_FUNC_INFO << "Requesting permissions for" << needRequesting;
+            QtAndroid::requestPermissions(needRequesting, [this](QtAndroid::PermissionResultMap resultHash){
+                QHashIterator<QString, QtAndroid::PermissionResult> permissionsIterator(resultHash);
+                while (permissionsIterator.hasNext()) {
+                    permissionsIterator.next();
+                    if (permissionsIterator.value() == QtAndroid::PermissionResult::Denied) {
+                        qWarning() << Q_FUNC_INFO << "Permission actively denied for" << permissionsIterator.key();
                     }
-                    emit q->permissionsChanged();
-                });
-            }
+                }
+            });
         }
         permissionsToRequest.clear();
-#else
-        hasGranted = true;
 #endif
-        if(hasGranted) {
-            emit q->permissionsChanged();
-        }
+        invalidateKnownPermissions();
+    }
+    void invalidateKnownPermissions() {
+        bluetoothPermissionValid = false;
+        Q_EMIT q->permissionsChanged();
     }
 };
 
@@ -118,4 +116,35 @@ bool PermissionsManager::hasPermission(const QString& permission) const
 #endif
     qDebug() << Q_FUNC_INFO << "Permission granted for" << permission << ":" << returnValue;
     return returnValue;
+}
+
+QStringList bluetoothPermissionNames() {
+#ifdef Q_OS_ANDROID
+    return QtAndroid::androidSdkVersion() > 30 ? QStringList{"BLUETOOTH_SCAN", "BLUETOOTH_CONNECT"} : QStringList{"ACCESS_FINE_LOCATION", "BLUETOOTH", "ACCESS_BACKGROUND_LOCATION"};
+#else
+    return QStringList{"NOT_ANDROID_SO_NO_SCAN_PERMISSION"};
+#endif
+}
+
+bool PermissionsManager::hasBluetoothPermissions() const
+{
+    if (d->bluetoothPermissionValid == false) {
+        const QStringList permissions{bluetoothPermissionNames()};
+        for (const QString& permission : qAsConst(permissions)) {
+            if (hasPermission(permission) == false) {
+                d->hasBluetoothPermissions = false;
+                break;
+            }
+        }
+        d->hasBluetoothPermissions = true;
+        d->bluetoothPermissionValid = true;
+    }
+    return d->hasBluetoothPermissions;
+}
+
+void PermissionsManager::requestBluetoothPermissions()
+{
+    d->permissionsToRequest = bluetoothPermissionNames();
+    d->requestDelay.start();
+    qDebug() << Q_FUNC_INFO << "Delayed permissions request begun for" << bluetoothPermissionNames();
 }

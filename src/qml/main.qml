@@ -66,13 +66,9 @@ Kirigami.ApplicationWindow {
         target: PermissionsManager;
         ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
         function onPermissionsChanged() {
-            root.hasScanPermission = PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-            root.hasConnectPermission = BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
+            btConnection.checkBluetoothState();
         }
     }
-    property bool hasScanPermission: PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-    property bool hasConnectPermission: BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
-    onHasScanPermissionChanged: btConnection.checkBluetoothState();
 
     Connections {
         id: btConnection
@@ -116,7 +112,7 @@ Kirigami.ApplicationWindow {
         }
 
         function checkBluetoothState() {
-            if (root.hasScanPermission && root.hasConnectPermission) {
+            if (PermissionsManager.hasBluetoothPermissions) {
                 if (BTConnectionManager.bluetoothState === 0 ) {
                     showMessageBox(i18nc("Title for the warning for having Bluetooth disabled", "Warning"), i18nc("Message for the warning for having Bluetooth disabled", "Bluetooth is disabled"));
                 } else if (BTConnectionManager.bluetoothState === 2) {
