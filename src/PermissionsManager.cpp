@@ -146,7 +146,7 @@ bool PermissionsManager::hasBluetoothPermissions() const
 void PermissionsManager::requestBluetoothPermissions()
 {
     for (const QString &permission : bluetoothPermissionNames()) {
-        d->permissionsToRequest << QString("android.permissions.%1").arg(permission);
+        d->permissionsToRequest << QString("android.permission.%1").arg(permission);
     }
     d->requestDelay.start();
     qDebug() << Q_FUNC_INFO << "Delayed permissions request begun for" << bluetoothPermissionNames();
