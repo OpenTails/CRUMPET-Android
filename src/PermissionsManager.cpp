@@ -59,6 +59,7 @@ public:
                         qWarning() << Q_FUNC_INFO << "Permission actively denied for" << permissionsIterator.key();
                     }
                 }
+                invalidateKnownPermissions();
             });
         }
         permissionsToRequest.clear();
