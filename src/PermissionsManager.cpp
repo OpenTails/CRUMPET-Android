@@ -129,6 +129,7 @@ QStringList bluetoothPermissionNames() {
 bool PermissionsManager::hasBluetoothPermissions() const
 {
     if (d->bluetoothPermissionValid == false) {
+        d->hasBluetoothPermissions = true;
         const QStringList permissions{bluetoothPermissionNames()};
         for (const QString& permission : qAsConst(permissions)) {
             if (hasPermission(permission) == false) {
@@ -136,7 +137,6 @@ bool PermissionsManager::hasBluetoothPermissions() const
                 break;
             }
         }
-        d->hasBluetoothPermissions = true;
         d->bluetoothPermissionValid = true;
     }
     return d->hasBluetoothPermissions;
