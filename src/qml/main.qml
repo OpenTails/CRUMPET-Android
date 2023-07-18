@@ -73,14 +73,14 @@ Kirigami.ApplicationWindow {
     Connections {
         id: btConnection
         target: BTConnectionManager;
-        onMessage: {
+        function onMessage(message) {
             showPassiveNotification(message, 5000);
         }
-        onBlockingMessage: {
+        function onBlockingMessage(title, message) {
             messageBox.showMessageBox(title, message);
         }
 
-        onDiscoveryRunningChanged: {
+        function onDiscoveryRunningChanged() {
             if (BTConnectionManager.discoveryRunning === false) {
                 console.log("device model count is " + BTConnectionManager.deviceCount + " and sheet is open: " + connectToTail.sheetOpen);
                 if(BTConnectionManager.deviceCount === 1 && connectToTail.sheetOpen === false) {
@@ -91,7 +91,7 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        onIsConnectedChanged: {
+        function onIsConnectedChanged(isConnected) {
             if (isConnected === true) {
                 showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
                 if(root.pageToPush !== null) {
@@ -102,12 +102,12 @@ Kirigami.ApplicationWindow {
             connectingToTail.opacity = 0;
         }
 
-        onDeviceConnected: {
+        function onDeviceConnected(deviceID) {
             console.debug("Connected to new device with ID: " + deviceID);
             namePicker.checkDeviceName(deviceID);
         }
 
-        onBluetoothStateChanged: {
+        function onBluetoothStateChanged() {
             checkBluetoothState();
         }
 
