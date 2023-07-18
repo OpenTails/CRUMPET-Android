@@ -183,13 +183,6 @@ int appMain(int argc, char *argv[])
         return Utilities::getInstance();
     });
 
-    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-
-    if (engine.rootObjects().isEmpty()) {
-        qWarning() << Q_FUNC_INFO << "Failed to load the main qml file, exiting";
-        return -1;
-    }
-
     QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
         if(permissionsManager->hasBluetoothPermissions()) {
             // Don't launch the discovery immediately, let's give things a change to start up...
@@ -197,6 +190,13 @@ int appMain(int argc, char *argv[])
         }
     });
     engine.rootContext()->setContextProperty("PermissionsManager", permissionsManager);
+
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+
+    if (engine.rootObjects().isEmpty()) {
+        qWarning() << Q_FUNC_INFO << "Failed to load the main qml file, exiting";
+        return -1;
+    }
 
     bool settingsReplicaDestroyed{false};
     QObject::connect(settingsReplica.data(), &QObject::destroyed, [&settingsReplicaDestroyed](){ settingsReplicaDestroyed = true; });
