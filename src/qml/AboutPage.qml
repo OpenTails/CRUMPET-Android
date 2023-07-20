@@ -51,7 +51,7 @@ Kirigami.AboutPage {
         "componentName" : "digitail",
         "shortDescription" : "Crumpet, MiTail, DIGITAiL, and EarGear designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
-        "bugAddress" : "info@thetailcompany.com",
+        "bugAddress" : "contact@thetailcompany.com",
         "version" : AppVersion,
         "otherText" : deviceFilterProxy.count > 0 ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
@@ -59,7 +59,7 @@ Kirigami.AboutPage {
                         "name" : "MT at The Tail Company",
                         // TODO Reenable this when the about page wraps the person delegate properly
                         //"task" : i18nc("Task description for mt", ""),
-                        "emailAddress" : "into@thetailcompany.com",
+                        "emailAddress" : "contact@thetailcompany.com",
                         "webAddress" : "https://thetailcompany.com/",
                     },
                     {
