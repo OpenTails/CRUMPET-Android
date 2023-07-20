@@ -28,32 +28,32 @@ Kirigami.ScrollablePage {
     title: i18nc("Header for the welcome page", "Crumpet");
     actions {
         main: Kirigami.Action {
-            text: BTConnectionManager.isConnected ? i18nc("Label for the button for disconnecting gear, on the welcome page", "Disconnect") : i18nc("Label for the button for connecting gear, on the welcome page","Connect");
-            icon.name: BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
+            text: Digitail.BTConnectionManager.isConnected ? i18nc("Label for the button for disconnecting gear, on the welcome page", "Disconnect") : i18nc("Label for the button for connecting gear, on the welcome page","Connect");
+            icon.name: Digitail.BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
             onTriggered: {
-                if(BTConnectionManager.isConnected) {
-                    if(BTConnectionManager.deviceCount === 1) {
+                if(Digitail.BTConnectionManager.isConnected) {
+                    if(Digitail.BTConnectionManager.deviceCount === 1) {
                         disconnectionOptions.disconnectGear(connectedDevicesModel.data(connectedDevicesModel.index(0, 0), 258));
                     }
-                    else if (BTConnectionManager.deviceCount > 1) {
+                    else if (Digitail.BTConnectionManager.deviceCount > 1) {
                         connectToTail.open();
                     }
                 }
                 else {
-                    if(BTConnectionManager.deviceCount === 1) {
-                        BTConnectionManager.stopDiscovery();
+                    if(Digitail.BTConnectionManager.deviceCount === 1) {
+                        Digitail.BTConnectionManager.stopDiscovery();
                     }
-                    else if (BTConnectionManager.deviceCount > 1) {
+                    else if (Digitail.BTConnectionManager.deviceCount > 1) {
                         connectToTail.open();
                     }
                 }
             }
         }
-        left: BTConnectionManager.discoveryRunning ? null : searchForMoreAction
-        right: (BTConnectionManager.isConnected && allDevicesModel.count > 1) ? connectMoreAction : null
+        left: Digitail.BTConnectionManager.discoveryRunning ? null : searchForMoreAction
+        right: (Digitail.BTConnectionManager.isConnected && allDevicesModel.count > 1) ? connectMoreAction : null
     }
     property QtObject allDevicesModel: Digitail.FilterProxyModel {
-        sourceModel: DeviceModel;
+        sourceModel: Digitail.DeviceModel;
     }
     property QtObject connectMoreAction: Kirigami.Action {
         text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");
@@ -63,7 +63,7 @@ Kirigami.ScrollablePage {
     property QtObject searchForMoreAction: Kirigami.Action {
         text: i18nc("Label for the button for looking for additional gear, on the welcome page", "Look for gear");
         icon.name: "view-refresh";
-        onTriggered: BTConnectionManager.startDiscovery();
+        onTriggered: Digitail.BTConnectionManager.startDiscovery();
     }
 
     ColumnLayout {
@@ -187,7 +187,7 @@ Kirigami.ScrollablePage {
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
         Kirigami.AbstractCard {
             visible: opacity > 0;
-            opacity: BTConnectionManager.isConnected ? 1 : 0;
+            opacity: Digitail.BTConnectionManager.isConnected ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             Layout.fillWidth: true;
             header: RowLayout {
@@ -208,8 +208,8 @@ Kirigami.ScrollablePage {
                         Layout.margins: Kirigami.Units.smallSpacing;
                         height: Kirigami.Units.iconSizes.small;
                         width: height;
-                        checked: AppSettings !== null ? AppSettings.idleMode : false;
-                        onClicked: { AppSettings.idleMode = !AppSettings.idleMode; }
+                        checked: Digitail.AppSettings !== null ? Digitail.AppSettings.idleMode : false;
+                        onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
                     }
             }
             Component {
@@ -242,7 +242,7 @@ Kirigami.ScrollablePage {
                 }
             }
             contentItem: Loader {
-                sourceComponent: (AppSettings !== null && AppSettings.idleMode === true) ? idlePauseRangePicker : emptyNothing;
+                sourceComponent: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode === true) ? idlePauseRangePicker : emptyNothing;
             }
         }
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
@@ -265,7 +265,7 @@ Kirigami.ScrollablePage {
                     wrapMode: Text.Wrap;
                     Digitail.FilterProxyModel {
                         id: connectedDevicesModel
-                        sourceModel: DeviceModel;
+                        sourceModel: Digitail.DeviceModel;
                         filterRole: 262; // the isConnected role
                         filterBoolean: true;
                     }
@@ -298,7 +298,7 @@ Kirigami.ScrollablePage {
                             if (model.listeningState == 0) {
                                 newState = 1;
                             }
-                            BTConnectionManager.setDeviceListeningState(model.deviceID, newState);
+                            Digitail.BTConnectionManager.setDeviceListeningState(model.deviceID, newState);
                         }
                     }
                 }
@@ -347,7 +347,7 @@ Kirigami.ScrollablePage {
                         icon: model.tiltEnabled === true ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         label: model.name;
                         onClicked: {
-                            BTConnectionManager.setDeviceTiltState(model.deviceID, !model.tiltEnabled);
+                            Digitail.BTConnectionManager.setDeviceTiltState(model.deviceID, !model.tiltEnabled);
                         }
                     }
                 }
@@ -356,7 +356,7 @@ Kirigami.ScrollablePage {
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
         Kirigami.AbstractCard {
             visible: opacity > 0;
-            opacity: BTConnectionManager.isConnected ? 1 : 0;
+            opacity: Digitail.BTConnectionManager.isConnected ? 1 : 0;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
             Layout.fillWidth: true;
             header: RowLayout {
@@ -378,7 +378,7 @@ Kirigami.ScrollablePage {
                     wrapMode: Text.Wrap;
                     Digitail.FilterProxyModel {
                         id: pinnedSensorsModel;
-                        sourceModel: GestureDetectorModel;
+                        sourceModel: Digitail.GestureDetectorModel;
                         filterRole: 262; // the sensorPinned role
                         filterBoolean: true;
                     }
@@ -413,7 +413,7 @@ Kirigami.ScrollablePage {
                         separatorVisible: false;
                         icon: model.sensorEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         label: model.sensorName;
-                        onClicked: { GestureController.setGestureSensorEnabled(pinnedSensorsModel.sourceIndex(welcomePageSensorsModel.sourceIndex(model.index)), !model.sensorEnabled); }
+                        onClicked: { Digitail.GestureController.setGestureSensorEnabled(pinnedSensorsModel.sourceIndex(welcomePageSensorsModel.sourceIndex(model.index)), !model.sensorEnabled); }
                     }
                 }
             }

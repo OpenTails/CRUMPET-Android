@@ -96,7 +96,7 @@ Kirigami.OverlaySheet {
         }
         Digitail.FilterProxyModel {
             id: connectedDevicesModel
-            sourceModel: DeviceModel;
+            sourceModel: Digitail.DeviceModel;
             filterRole: 262; // the isConnected role
             filterBoolean: true;
         }

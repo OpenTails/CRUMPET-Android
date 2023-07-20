@@ -18,6 +18,7 @@
 
 import QtQuick 2.7
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "tailLights";
@@ -27,7 +28,7 @@ Kirigami.ScrollablePage {
             text: i18nc("Button for stopping the light patterns, on the page for the Glow Tips", "Stop Lights");
             icon.name: "flashlight-off";
             onTriggered: {
-                BTConnectionManager.sendMessage("LEDOFF", []);
+                Digitail.BTConnectionManager.sendMessage("LEDOFF", []);
             }
         }
     }
@@ -35,8 +36,8 @@ Kirigami.ScrollablePage {
         width: parent.width;
         infoText: i18nc("Description for the list of light patterns, on the page for the Glow Tips", "The list below shows all the light patterns available to your gear. Tap any of them to send them off to any of your connected devices!");
         onCommandActivated: {
-            CommandQueue.clear("");
-            CommandQueue.pushCommand(command, destinations);
+            Digitail.CommandQueue.clear("");
+            Digitail.CommandQueue.pushCommand(command, destinations);
         }
         categoriesModel: [
             {

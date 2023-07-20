@@ -21,7 +21,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
 import QtQuick.Layouts 1.11
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     id: root;
@@ -70,9 +70,9 @@ Kirigami.ScrollablePage {
             descriptionText: i18nc("Description for the panel on automatic reconnection, on the settings page", "In certain situations, the app might lose its connection to your gear. Ticking this option will ensure that the app will attempt to reconnect automatically when the connection is lost.");
             footer: QQC2.CheckBox {
                 text: i18nc("Checkbox for enabling automatic reconnection, on the automatic reconnection panel in the settings page", "Reconnect Automatically");
-                checked: AppSettings.autoReconnect;
+                checked: Digitail.AppSettings.autoReconnect;
                 onClicked: {
-                    AppSettings.autoReconnect = !AppSettings.autoReconnect;
+                    Digitail.AppSettings.autoReconnect = !Digitail.AppSettings.autoReconnect;
                 }
             }
         }
@@ -86,7 +86,7 @@ Kirigami.ScrollablePage {
                 onClicked: {
                     showMessageBox(i18nc("Header for the warning prompt for clearing gear names, on the panel for changing gear names, on the settings page", "Clear the names?"),
                         i18nc("Text for the warning prompt for clearing gear names, on the panel for changing gear names, on the settings page", "Please confirm that you do, in fact, want to clear all your saved device names."),
-                        function () { BTConnectionManager.clearDeviceNames(); });
+                        function () { Digitail.BTConnectionManager.clearDeviceNames(); });
                 }
             }
         }
@@ -98,9 +98,9 @@ Kirigami.ScrollablePage {
                 QQC2.CheckBox {
                     id: showOnlyConnectedGear;
                     text: i18nc("Checkbox for hiding non-connected gear, on the panel for adding commands to your gear, on the settings page", "Only Show Connected Gear");
-                    FilterProxyModel {
+                    Digitail.FilterProxyModel {
                         id: onlyConnectedFilterProxy;
-                        sourceModel: DeviceModel;
+                        sourceModel: Digitail.DeviceModel;
                         filterRole: 262; // the isConnected role
                         filterBoolean: true;
                     }
@@ -115,7 +115,7 @@ Kirigami.ScrollablePage {
                 }
                 Repeater {
                     id: gearCommandsRepeater;
-                    model: showOnlyConnectedGear.checked ? onlyConnectedFilterProxy : DeviceModel;
+                    model: showOnlyConnectedGear.checked ? onlyConnectedFilterProxy : Digitail.DeviceModel;
                     delegate: Kirigami.BasicListItem {
                         Layout.fillWidth: true;
                         icon: ":/images/moves.svg";
@@ -140,7 +140,7 @@ Kirigami.ScrollablePage {
             footer: ColumnLayout {
                 Repeater {
                     id: gearCommandsRepeaterEarOptions;
-                    model: FilterProxyModel {
+                    model: Digitail.FilterProxyModel {
                         sourceModel: onlyConnectedFilterProxy;
                         filterRole: 283; // the canBalanceListening role
                         filterBoolean: true;
@@ -156,14 +156,14 @@ Kirigami.ScrollablePage {
                                 i18nc("Label for the button for swapping left and right, the panel for adjusting microphone levels for the earGear, on the settings page", "Swap left and right");
                             Layout.fillWidth: true;
                             onClicked: {
-                                BTConnectionManager.sendMessage("MICSWAP", [model.deviceID]);
+                                Digitail.BTConnectionManager.sendMessage("MICSWAP", [model.deviceID]);
                             }
                         }
                         QQC2.Button {
                             text: i18nc("Label for the button for rebalancing microphone levels, the panel for adjusting microphone levels for the earGear, on the settings page", "Rebalance Microphones");
                             Layout.fillWidth: true;
                             onClicked: {
-                                BTConnectionManager.sendMessage("MICBAL", [model.deviceID]);
+                                Digitail.BTConnectionManager.sendMessage("MICBAL", [model.deviceID]);
                             }
                         }
                     }
@@ -178,7 +178,7 @@ Kirigami.ScrollablePage {
             footer: ColumnLayout {
                 Repeater {
                     id: otaRepearer
-                    model: FilterProxyModel {
+                    model: Digitail.FilterProxyModel {
                         sourceModel: onlyConnectedFilterProxy
                         filterRole: 269; // the supportsOTA role
                         filterBoolean: true;
@@ -192,7 +192,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true;
                             text: i18nc("Label for the button which makes the app go online and check for the newest firmware available for the specific device", "Check For New Firmware");
                             onClicked: {
-                                BTConnectionManager.callDeviceFunction(model.deviceID, "checkOTA");
+                                Digitail.BTConnectionManager.callDeviceFunction(model.deviceID, "checkOTA");
                             }
                         }
                         QQC2.Label {
@@ -207,7 +207,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true;
                             text: i18nc("Label for the button which makes the app download the newest available firmware (only visible when updated firmware has been found)", "Download");
                             onClicked: {
-                                BTConnectionManager.callDeviceFunction(model.deviceID, "downloadOTAData");
+                                Digitail.BTConnectionManager.callDeviceFunction(model.deviceID, "downloadOTAData");
                             }
                         }
                         QQC2.Label {
@@ -221,7 +221,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true;
                             text: i18nc("Label for the button which makes the app install the newest available firmware (only visible when updated firmware has been downloaded successfully)", "Install");
                             onClicked: {
-                                BTConnectionManager.callDeviceFunction(model.deviceID, "startOTA");
+                                Digitail.BTConnectionManager.callDeviceFunction(model.deviceID, "startOTA");
                             }
                         }
                     }
@@ -233,11 +233,11 @@ Kirigami.ScrollablePage {
             headerText: i18nc("Heading for the panel of the language selector, on the settings page", "Language");
             descriptionText: i18nc("Description of the language selection option on the settings page", "Usually, Crumpet will use the language that your device uses, or English if that language is not available. However, if you wish to force some language, you can select it here, and we will use that language instead.");
             footer: QQC2.ComboBox {
-                model: AppSettings.availableLanguages
+                model: Digitail.AppSettings.availableLanguages
                 currentIndex: {
                     var found = 0; // Default language option
                     for (var i = 0; i < count; ++i) {
-                        if (AppSettings.availableLanguages[i].endsWith("(%1)".arg(AppSettings.languageOverride))) {
+                        if (Digitail.AppSettings.availableLanguages[i].endsWith("(%1)".arg(Digitail.AppSettings.languageOverride))) {
                             found = i;
                             break;
                         }
@@ -246,9 +246,9 @@ Kirigami.ScrollablePage {
                 }
                 onActivated: {
                     if (currentIndex == 0) {
-                        AppSettings.languageOverride = "";
+                        Digitail.AppSettings.languageOverride = "";
                     } else {
-                        AppSettings.languageOverride = AppSettings.availableLanguages[currentIndex];
+                        Digitail.AppSettings.languageOverride = Digitail.AppSettings.availableLanguages[currentIndex];
                     }
                 }
             }
@@ -260,10 +260,10 @@ Kirigami.ScrollablePage {
             footer: QQC2.CheckBox {
                 text: i18nc("Label for the checkbox for showing a fake tail inside the app, on the panel for the demo modus of the app, on the settings page", "Show Fake Tail")
                 Layout.fillWidth: true
-                checked: AppSettings.fakeTailMode;
+                checked: Digitail.AppSettings.fakeTailMode;
 
                 onClicked: {
-                    AppSettings.fakeTailMode = !AppSettings.fakeTailMode;
+                    Digitail.AppSettings.fakeTailMode = !Digitail.AppSettings.fakeTailMode;
                 }
             }
         }

@@ -20,6 +20,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
 import QtQuick.Layouts 1.11
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     id: root;
@@ -38,7 +39,7 @@ Kirigami.ScrollablePage {
     }
 
     Connections {
-        target: AppSettings
+        target: Digitail.AppSettings
 
         onAlarmExisted: {
             showMessageBox(i18nc("Title for a message box warning the user an alarm with the chosen name already exists", "Select another name"),
@@ -90,7 +91,7 @@ Kirigami.ScrollablePage {
                     icon.name: "accept_time_event";
 
                     onTriggered: {
-                        AppSettings.setActiveAlarmName(modelData["name"]);
+                        Digitail.AppSettings.setActiveAlarmName(modelData["name"]);
 
                         datePicker.showDatePicker(dateTime, function(date) {
                             var originDate = dateTime;
@@ -100,8 +101,8 @@ Kirigami.ScrollablePage {
                             timePicker.showTimePicker(originDate.getHours(), originDate.getMinutes(), function(hours, minutes) {
                                 date.setHours(hours);
                                 date.setMinutes(minutes);
-                                AppSettings.setAlarmTime(date);
-                                AppSettings.setActiveAlarmName("");
+                                Digitail.AppSettings.setAlarmTime(date);
+                                Digitail.AppSettings.setActiveAlarmName("");
                             });
                         })
                     }
@@ -115,7 +116,7 @@ Kirigami.ScrollablePage {
                         showMessageBox(i18nc("Title for a message box which allows the user to delete a specific alarm", "Remove the Alarm"),
                                        i18nc("Main text for a message box which allows the user to delete a specific alarm", "Are you sure that you want to remove the alarm '%1'?", modelData["name"]),
                                        function () {
-                                           AppSettings.removeAlarm(modelData["name"]);
+                                           Digitail.AppSettings.removeAlarm(modelData["name"]);
                                        });
                     }
                 }
@@ -129,7 +130,7 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
-        model: AppSettings.alarmList;
+        model: Digitail.AppSettings.alarmList;
         delegate: alarmListDelegate;
         header: InfoCard {
             text: i18nc("Descriptive text which explains what the functionality is of the alarm page", "Set an alarm here. Pick a date and time for your alarm, and then add one or more moves you want to perform when you hit that time.");
@@ -144,7 +145,7 @@ Kirigami.ScrollablePage {
         buttonOkText: i18nc("Text on a button which causes an alarm to be created", "Create");
 
         onNamePicked: {
-            AppSettings.addAlarm(name);
+            Digitail.AppSettings.addAlarm(name);
             namePicker.close();
         }
     }

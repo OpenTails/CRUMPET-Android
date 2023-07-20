@@ -140,7 +140,9 @@ int appMain(int argc, char *argv[])
             qCritical() << Q_FUNC_INFO << "Kapow! Replica for Settings failed to surface";
         }
     }
-    engine.rootContext()->setContextProperty(QLatin1String("AppSettings"), settingsReplica.data());
+    qmlRegisterSingletonType<AppSettings>("org.thetailcompany.digitail", 1, 0, "AppSettings", [&settingsReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return settingsReplica.data();
+    });
     auto retranslate = [&settingsReplica](){
         if (settingsReplica->languageOverride().isEmpty()) {
             KLocalizedString::clearLanguages();
@@ -154,26 +156,38 @@ int appMain(int argc, char *argv[])
     QSharedPointer<BTConnectionManagerProxyReplica> btConnectionManagerReplica(repNode->acquire<BTConnectionManagerProxyReplica>());
     res = btConnectionManagerReplica->waitForSource();
     if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for btConnectionManagerReplica failed to surface"; }
-    engine.rootContext()->setContextProperty(QLatin1String("BTConnectionManager"), btConnectionManagerReplica.data());
+    qmlRegisterSingletonType<BTConnectionManager>("org.thetailcompany.digitail", 1, 0, "BTConnectionManager", [&btConnectionManagerReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return btConnectionManagerReplica.data();
+    });
 
-    QScopedPointer<CommandQueueProxyReplica> commandQueueReplica(repNode->acquire<CommandQueueProxyReplica>());
+    QSharedPointer<CommandQueueProxyReplica> commandQueueReplica(repNode->acquire<CommandQueueProxyReplica>());
     res = commandQueueReplica->waitForSource();
     if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for commandQueueReplica failed to surface"; }
-    engine.rootContext()->setContextProperty(QLatin1String("CommandQueue"), commandQueueReplica.data());
+    qmlRegisterSingletonType<CommandQueue>("org.thetailcompany.digitail", 1, 0, "CommandQueue", [&commandQueueReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return commandQueueReplica.data();
+    });
 
-    QScopedPointer<GestureControllerProxyReplica> gestureControllerReplica(repNode->acquire<GestureControllerProxyReplica>());
+    QSharedPointer<GestureControllerProxyReplica> gestureControllerReplica(repNode->acquire<GestureControllerProxyReplica>());
     res = gestureControllerReplica->waitForSource();
     if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for gestureControllerReplica failed to surface"; }
-    engine.rootContext()->setContextProperty(QLatin1String("GestureController"), gestureControllerReplica.data());
+    qmlRegisterSingletonType<GestureController>("org.thetailcompany.digitail", 1, 0, "GestureController", [&gestureControllerReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return gestureControllerReplica.data();
+    });
 
-    QScopedPointer<QAbstractItemModelReplica> deviceModelReplica(repNode->acquireModel("DeviceModel"));
-    engine.rootContext()->setContextProperty(QLatin1String("DeviceModel"), deviceModelReplica.data());
+    QSharedPointer<QAbstractItemModelReplica> deviceModelReplica(repNode->acquireModel("DeviceModel"));
+    qmlRegisterSingletonType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModel", [&deviceModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return deviceModelReplica.data();
+    });
 
-    QScopedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel("CommandModel"));
-    engine.rootContext()->setContextProperty(QLatin1String("CommandModel"), commandModelReplica.data());
+    QSharedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel("CommandModel"));
+    qmlRegisterSingletonType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModel", [&commandModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return commandModelReplica.data();
+    });
 
-    QScopedPointer<QAbstractItemModelReplica> gestureDetectorModel(repNode->acquireModel("GestureDetectorModel"));
-    engine.rootContext()->setContextProperty(QLatin1String("GestureDetectorModel"), gestureDetectorModel.data());
+    QSharedPointer<QAbstractItemModelReplica> gestureDetectorModel(repNode->acquireModel("GestureDetectorModel"));
+    qmlRegisterSingletonType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModel", [&gestureDetectorModel](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return gestureDetectorModel.data();
+    });
 
     Utilities::getInstance()->setConnectionManager(btConnectionManagerReplica.data());
     Utilities::getInstance()->setParent(&app);
@@ -189,7 +203,9 @@ int appMain(int argc, char *argv[])
             QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
         }
     });
-    engine.rootContext()->setContextProperty("PermissionsManager", permissionsManager);
+    qmlRegisterSingletonType<PermissionsManager>("org.thetailcompany.digitail", 1, 0, "PermissionsManager", [=](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        return permissionsManager;
+    });
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 

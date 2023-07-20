@@ -18,6 +18,7 @@
 
 import QtQuick 2.7
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "tailMoves";
@@ -27,15 +28,15 @@ Kirigami.ScrollablePage {
             text: i18nc("Button for returning the tail to its home position, on the Moves page", "Home Position");
             icon.name: "dialog-cancel";
             onTriggered: {
-                BTConnectionManager.sendMessage("TAILHM", []);
+                Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }
         }
     }
     BaseMovesComponent {
         infoText: i18nc("Description for the list of moves, on the Moves page", "The list below shows all the moves available to your gear. Tap any of them to send them off to any of your connected devices!");
         onCommandActivated: {
-            CommandQueue.clear("");
-            CommandQueue.pushCommand(command, destinations);
+            Digitail.CommandQueue.clear("");
+            Digitail.CommandQueue.pushCommand(command, destinations);
         }
         categoriesModel: [
             {

@@ -35,8 +35,8 @@ ColumnLayout {
     RangeSlider {
         id: pauseRangeSlider;
 
-        first.value: AppSettings.idleMinPause;
-        second.value: AppSettings.idleMaxPause;
+        first.value: Digitail.AppSettings.idleMinPause;
+        second.value: Digitail.AppSettings.idleMaxPause;
         from: 15;
         to: 600;
         stepSize: 1.0;
@@ -44,18 +44,18 @@ ColumnLayout {
         Layout.fillWidth: true;
 
         first.onMoved: {
-            AppSettings.idleMinPause = first.value;
+            Digitail.AppSettings.idleMinPause = first.value;
         }
 
         second.onMoved: {
             if (second.value < 20) {
                 second.value = 20;
             }
-            AppSettings.idleMaxPause = second.value;
+            Digitail.AppSettings.idleMaxPause = second.value;
         }
 
         Component.onCompleted: {
-            pauseRangeSlider.setValues(AppSettings.idleMinPause, AppSettings.idleMaxPause);
+            pauseRangeSlider.setValues(Digitail.AppSettings.idleMinPause, Digitail.AppSettings.idleMaxPause);
         }
     }
 

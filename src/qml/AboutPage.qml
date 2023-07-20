@@ -20,12 +20,12 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.AboutPage {
-    FilterProxyModel {
+    Digitail.FilterProxyModel {
         id: deviceFilterProxy;
-        sourceModel: DeviceModel;
+        sourceModel: Digitail.DeviceModel;
         filterRole: 262; // the isConnected role
         filterBoolean: true;
         function handyStringMakerThing() {
@@ -72,7 +72,8 @@ Kirigami.AboutPage {
                     {
                         "name" : "Ildar Gilmanov",
                         //"task" : i18nc("Task description for Ildar", "Qt/QML Developer"),
-                        "emailAddress" : "gil.ildar@gmail.com"
+                        "emailAddress" : "gil.ildar@gmail.com",
+                        "webAddress": ""
                     }
                 ],
         "credits" : [],

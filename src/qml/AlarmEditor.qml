@@ -26,10 +26,10 @@ BaseCommandListEditor {
 
     objectName: "alarmEditor";
     title: alarmName;
-    model: AppSettings.activeAlarm["commands"];
+    model: Digitail.AppSettings.activeAlarm["commands"];
 
     onAlarmNameChanged: {
-        AppSettings.setActiveAlarmName(alarmName);
+        Digitail.AppSettings.setActiveAlarmName(alarmName);
     }
 
     onInsertCommand: {
@@ -37,7 +37,7 @@ BaseCommandListEditor {
             return;
         }
 
-        AppSettings.addAlarmCommand(insertAt, command, destinations);
+        Digitail.AppSettings.addAlarmCommand(insertAt, command, destinations);
     }
 
     onRemoveCommand: {
@@ -45,10 +45,10 @@ BaseCommandListEditor {
             return;
         }
 
-        AppSettings.removeAlarmCommand(index);
+        Digitail.AppSettings.removeAlarmCommand(index);
     }
 
     Component.onCompleted: {
-        AppSettings.setActiveAlarmName(alarmName);
+        Digitail.AppSettings.setActiveAlarmName(alarmName);
     }
 }

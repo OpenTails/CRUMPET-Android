@@ -20,6 +20,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "earPoses";
@@ -29,7 +30,7 @@ Kirigami.ScrollablePage {
             text: i18nc("Button for returning the EarGear to the home position, on the page for selecting a pose for the EarGear", "Home Position");
             icon.name: "go-home";
             onTriggered: {
-                BTConnectionManager.sendMessage("TAILHM", []);
+                Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }
         }
     }
@@ -41,7 +42,7 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
                 onClicked: {
-                    BTConnectionManager.sendMessage("SPEED SLOW", []);
+                    Digitail.BTConnectionManager.sendMessage("SPEED SLOW", []);
                 }
             }
             QQC2.Button {
@@ -49,13 +50,13 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
                 onClicked: {
-                    BTConnectionManager.sendMessage("SPEED FAST", []);
+                    Digitail.BTConnectionManager.sendMessage("SPEED FAST", []);
                 }
             }
         }
         onCommandActivated: {
-            CommandQueue.clear("");
-            CommandQueue.pushCommand(command, destinations);
+            Digitail.CommandQueue.clear("");
+            Digitail.CommandQueue.pushCommand(command, destinations);
         }
         categoriesModel: [
             {
