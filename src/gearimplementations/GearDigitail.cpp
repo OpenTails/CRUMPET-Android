@@ -255,7 +255,7 @@ void GearDigitail::connectDevice()
 
                 if (!service) {
                     qWarning() << "Cannot create QLowEnergyService for {0000ffe0-0000-1000-8000-00805f9b34fb}";
-                    emit deviceMessage(deviceID(), i18nc("Warning message when the main service was not found on the device", "An error occured while connecting to your tail (the service object could not be created). If you feel this is in error, please try again!"));
+                    emit deviceMessage(deviceID(), i18nc("Warning message when the main service was not found on the device", "An error occured while connecting to your DIGITAiL (the service object could not be created). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -273,13 +273,13 @@ void GearDigitail::connectDevice()
 
             switch(error) {
                 case QLowEnergyController::UnknownError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your tail, make sure it is on and close to this device."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your DIGITAiL, make sure it is on and close to this device."));
                     break;
                 case QLowEnergyController::RemoteHostClosedError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The tail closed the connection."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The DIGITAiL closed the connection."));
                     break;
                 case QLowEnergyController::ConnectionError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your tail. Please try again (perhaps move it closer?)"));
+                    emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your DIGITAiL. Please try again (perhaps move it closer?)"));
                     break;
                 default:
                     break;
@@ -299,7 +299,7 @@ void GearDigitail::connectDevice()
 
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The tail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
+        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The DIGITAiL closed the connection, either by being turned off or losing power. Remember to charge your DIGITAiL!"));
         disconnectDevice();
     });
 

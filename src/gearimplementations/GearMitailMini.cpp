@@ -36,7 +36,7 @@ public:
     Private(GearMitailMini* qq)
         : q(qq)
     {
-        knownFirmwareMessages[QLatin1String{"VER 4.0.3"}] = i18nc("A message displayed to the user when firmware version 4.03 is installed on their gear, with a description of why they should upgrade, and how", "Your tail currently has version 4.03 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
+        knownFirmwareMessages[QLatin1String{"VER 4.0.3"}] = i18nc("A message displayed to the user when firmware version 4.03 is installed on their gear, with a description of why they should upgrade, and how", "Your MiTail Mini currently has version 4.03 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
     }
     ~Private() {}
     GearMitailMini* q{nullptr};
@@ -567,7 +567,7 @@ void GearMitailMini::connectDevice()
             setProgressDescription(i18nc("Message shown to the user after firmware upload has completed and the tail is expected to reboot", "Firmware upload complete, waiting for your gear to reboot automatically before attempting to reconnect..."));
         } else {
             qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The MiTail Mini closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
+            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The MiTail Mini closed the connection, either by being turned off or losing power. Remember to charge your gear!"));
         }
         disconnectDevice();
     });
