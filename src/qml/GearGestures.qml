@@ -31,12 +31,12 @@ Kirigami.ScrollablePage {
             text: i18nc("Button for returning Gear to the home position, on the page for selecting a pose for the Gear", "Home Position");
             icon.name: "go-home";
             onTriggered: {
-                BTConnectionManager.sendMessage("TAILHM", []);
+                Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }
         }
     }
     property QtObject enabledGestures: Digitail.FilterProxyModel {
-        sourceModel: GestureDetectorModel;
+        sourceModel: Digitail.GestureDetectorModel;
         filterRole: 261; // the sensorEnabledRole role
         filterBoolean: true;
     }
@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
             text: i18nc("Info card for the page for selecting a pose for the Gear", "Turn on one of the sensors below to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up, or start wagging when it detects that you have taken a step.");
         }
         Repeater {
-            model: GestureDetectorModel;
+            model: Digitail.GestureDetectorModel;
             ColumnLayout {
                 ColumnLayout {
                     visible: model.firstInSensor === undefined ? false : model.firstInSensor;
@@ -69,9 +69,9 @@ Kirigami.ScrollablePage {
                             if(!model.sensorEnabled && enabledGestures.count > 0) {
                                 applicationWindow().showMessageBox(i18nc("Title for the warning for having enabled multiple gestures at the same time, on the page for selecting a pose for the Gear","Multiple Gestures"),
                                     i18nc("Description for the warning for having enabled multiple gestures at the same time, on the page for selecting a pose for the Gear", "You are attempting to turn on more than one gesture at the same time. This will occasionally cause problems, primarily by being confusing to manage (for example, turning on both Walking and Shake is likely to cause both to be detected). If you are sure you want to do this, tap OK, or tap Cancel to not enable this gesture."),
-                                    function() {GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled)});
+                                    function() {Digitail.GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled)});
                             } else {
-                                GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled);
+                                Digitail.GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled);
                             }
                         }
                     }
@@ -79,7 +79,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true;
                         text: i18nc("Description for the checkbox for showing a gesture on the Welcome Page, on the page for selecting a pose for the Gear", "Show On Welcome Page")
                         checked: model.sensorPinned === undefined ? false : model.sensorPinned
-                        onClicked: GestureController.setGestureSensorPinned(model.index, !model.sensorPinned)
+                        onClicked: Digitail.GestureController.setGestureSensorPinned(model.index, !model.sensorPinned)
                     }
                 }
                 RowLayout {
@@ -113,7 +113,7 @@ Kirigami.ScrollablePage {
                         icon.name: "document-revert"
                         visible: model.command === "" && model.defaultCommand !== "";
                         onClicked: {
-                            GestureController.setGestureDetails(model.index, model.defaultCommand, "");
+                            Digitail.GestureController.setGestureDetails(model.index, model.defaultCommand, "");
                         }
                     }
                 }
@@ -127,7 +127,7 @@ Kirigami.ScrollablePage {
         property int gestureIndex;
 
         onCommandPicked: {
-            GestureController.setGestureDetails(pickACommand.gestureIndex, command, destinations);
+            Digitail.GestureController.setGestureDetails(pickACommand.gestureIndex, command, destinations);
             pickACommand.close();
         }
     }

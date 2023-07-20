@@ -38,7 +38,7 @@ Kirigami.OverlaySheet {
         Repeater {
             model: Digitail.FilterProxyModel {
                 id: relevantDeviceModel
-                sourceModel: DeviceModel;
+                sourceModel: Digitail.DeviceModel;
                 filterRole: 258 // The deviceID role
             }
             delegate: ColumnLayout {
@@ -108,8 +108,8 @@ Kirigami.OverlaySheet {
                     RangeSlider {
                         id: pauseRangeSlider;
 
-                        first.value: AppSettings.idleMinPause;
-                        second.value: AppSettings.idleMaxPause;
+                        first.value: Digitail.AppSettings.idleMinPause;
+                        second.value: Digitail.AppSettings.idleMaxPause;
                         from: 15;
                         to: 240;
                         stepSize: 1.0;
@@ -117,7 +117,7 @@ Kirigami.OverlaySheet {
                         Layout.fillWidth: true;
 
                         Component.onCompleted: {
-                            pauseRangeSlider.setValues(AppSettings.idleMinPause, AppSettings.idleMaxPause);
+                            pauseRangeSlider.setValues(Digitail.AppSettings.idleMinPause, Digitail.AppSettings.idleMaxPause);
                         }
                     }
                     Label {
@@ -149,8 +149,8 @@ Kirigami.OverlaySheet {
                             constructedMessage += "T" + Math.floor(pauseRangeSlider.second.value);
                             constructedMessage += "T25" + Math.floor(noPhoneModeDelay.value);
                             console.log("Sending no phone mode message: " + constructedMessage);
-                            BTConnectionManager.sendMessage(constructedMessage, [model.deviceID]);
-                            BTConnectionManager.disconnectDevice(model.deviceID);
+                            Digitail.BTConnectionManager.sendMessage(constructedMessage, [model.deviceID]);
+                            Digitail.BTConnectionManager.disconnectDevice(model.deviceID);
                             root.close();
                         }
                     }
@@ -191,7 +191,7 @@ Kirigami.OverlaySheet {
                         text: i18nc("Label for the button in the disconnection options popup which only disconnects the gear", "Disconnect");
                         Layout.fillWidth: true;
                         onClicked: {
-                            BTConnectionManager.disconnectDevice(model.deviceID);
+                            Digitail.BTConnectionManager.disconnectDevice(model.deviceID);
                             root.close();
                         }
                     }
@@ -233,8 +233,8 @@ Kirigami.OverlaySheet {
                         text: i18nc("Label for the button in the disconnection options popup which only disconnects the gear", "Shut Down Gear");
                         Layout.fillWidth: true;
                         onClicked: {
-                            BTConnectionManager.sendMessage("SHUTDOWN", [model.deviceID]);
-                            BTConnectionManager.disconnectDevice(model.deviceID);
+                            Digitail.BTConnectionManager.sendMessage("SHUTDOWN", [model.deviceID]);
+                            Digitail.BTConnectionManager.disconnectDevice(model.deviceID);
                             root.close();
                         }
                     }

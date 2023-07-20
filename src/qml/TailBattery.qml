@@ -21,7 +21,7 @@ import QtQuick.Layouts 1.11
 import QtQuick.Controls 2.0
 
 import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 ColumnLayout {
     id: batteryLayout
@@ -29,9 +29,9 @@ ColumnLayout {
     visible: batteryRep.count > 0;
     Repeater {
         id: batteryRep;
-        model: FilterProxyModel {
+        model: Digitail.FilterProxyModel {
             id: deviceFilterProxy;
-            sourceModel: DeviceModel;
+            sourceModel: Digitail.DeviceModel;
             filterRole: 262; // the isConnected role
             filterBoolean: true;
         }

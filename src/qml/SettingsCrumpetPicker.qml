@@ -19,7 +19,7 @@ import QtQuick 2.11
 import QtQuick.Controls 2.11 as QQC2
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     id: component;
@@ -28,10 +28,10 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: crumpetList;
-        model: Object.keys(AppSettings.commandFiles);
-        FilterProxyModel {
+        model: Object.keys(Digitail.AppSettings.commandFiles);
+        Digitail.FilterProxyModel {
             id: deviceFilterProxy;
-            sourceModel: DeviceModel;
+            sourceModel: Digitail.DeviceModel;
             filterRole: 258; // the deviceID role
             filterString: component.deviceID;
             property var enabledFiles: [];
@@ -46,7 +46,7 @@ Kirigami.ScrollablePage {
         }
         delegate: Kirigami.SwipeListItem {
             id: listItem;
-            property var commandFile: AppSettings.commandFiles[modelData];
+            property var commandFile: Digitail.AppSettings.commandFiles[modelData];
             property bool isEnabled: deviceFilterProxy.enabledFiles.includes(modelData);
             Layout.fillWidth: true;
             RowLayout {
@@ -70,7 +70,7 @@ Kirigami.ScrollablePage {
                 }
             }
             onClicked: {
-                BTConnectionManager.setDeviceCommandsFileEnabled(component.deviceID, modelData, !listItem.isEnabled);
+                Digitail.BTConnectionManager.setDeviceCommandsFileEnabled(component.deviceID, modelData, !listItem.isEnabled);
             }
             actions: [
                 Kirigami.Action {
@@ -83,7 +83,7 @@ Kirigami.ScrollablePage {
                     icon.name: "edit-duplicate";
                     onTriggered: {
                         var newFileName = "internal-crumpet-" + crumpetList.count;
-                        AppSettings.addCommandFile(newFileName, commandFile.contents);
+                        Digitail.AppSettings.addCommandFile(newFileName, commandFile.contents);
                     }
                 },
                 Kirigami.Action {
@@ -103,7 +103,7 @@ Kirigami.ScrollablePage {
                 title: i18nc("Header for the overlay for editing a Command Set, on the page for configuring Command Sets", "Edit Commands")
 
                 Component.onCompleted: {
-                    contentEditor.text = AppSettings.commandFiles[editorPage.filename].contents;
+                    contentEditor.text = Digitail.AppSettings.commandFiles[editorPage.filename].contents;
                 }
 
                 actions {
@@ -111,7 +111,7 @@ Kirigami.ScrollablePage {
                         text: i18nc("Button for saving a Command Set, on the overlay for editing a Command Set, on the page for configuring Command Sets", "Save");
                         icon.name: "file-save";
                         onTriggered: {
-                            AppSettings.setCommandFileContents(editorPage.filename, contentEditor.text);
+                            Digitail.AppSettings.setCommandFileContents(editorPage.filename, contentEditor.text);
                             if (pageStack.currentItem.objectName === editorPage.objectName) {
                                 pageStack.pop();
                             }

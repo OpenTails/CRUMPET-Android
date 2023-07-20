@@ -27,7 +27,7 @@ BaseCommandListEditor {
 
     objectName: "moveListEditor";
     title: moveListName;
-    model: AppSettings.moveList
+    model: Digitail.AppSettings.moveList
     infoCardFooter: QQC2.Button {
         text: i18nc("Label for the button for running a Move List, on the Move List Editor page", "Run Move List")
         Layout.fillWidth: true
@@ -35,23 +35,23 @@ BaseCommandListEditor {
             showMessageBox(i18nc("Heading for the confirmation prompt for running a Move List, on the Move List Editor page", "Run this list?"),
                 i18nc("Message for the confirmation prompt for running a Move List, on the Move List Editor page", "Do you want to run this list?"),
                 function() {
-                    CommandQueue.pushCommands(AppSettings.moveList, []);
+                    Digitail.CommandQueue.pushCommands(Digitail.AppSettings.moveList, []);
                 });
         }
     }
 
     onMoveListNameChanged: {
-        AppSettings.setActiveMoveList(moveListName);
+        Digitail.AppSettings.setActiveMoveList(moveListName);
     }
 
     onInsertCommand: {
-        AppSettings.addMoveListEntry(insertAt, command, destinations);
+        Digitail.AppSettings.addMoveListEntry(insertAt, command, destinations);
     }
     onRemoveCommand: {
         showMessageBox(i18nc("Header for the confirmation prompt for removing a Move List Entry, on the Move List Editor page", "Remove Move List Entry?"),
                         i18nc("Message for the confirmation prompt for removing a Move List Entry, on the Move List Editor page", "Are you sure that you want to remove this entry from your move list?"),
                         function () {
-                            AppSettings.removeMoveListEntry(index);
+                            Digitail.AppSettings.removeMoveListEntry(index);
                         });
     }
 }

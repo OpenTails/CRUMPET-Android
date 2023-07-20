@@ -20,37 +20,24 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.AbstractCard {
     id: root;
     visible: opacity > 0
-    opacity: (!BTConnectionManager.isConnected || BTConnectionManager.discoveryRunning) ? 1 : 0;
+    opacity: (!Digitail.BTConnectionManager.isConnected || Digitail.BTConnectionManager.discoveryRunning) ? 1 : 0;
     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
     width: parent.width;
-    FilterProxyModel {
+    Digitail.FilterProxyModel {
         id: deviceFilterProxy;
-        sourceModel: DeviceModel;
+        sourceModel: Digitail.DeviceModel;
     }
-    Connections {
-        target: PermissionsManager;
-        ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
-        function onPermissionsChanged() {
-            root.hasScanPermission = PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-            root.hasConnectPermission = BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
-        }
-    }
-    property bool hasScanPermission: PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-    property bool hasConnectPermission: BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
     header: Kirigami.Heading {
         text: {
-            if (!root.hasScanPermission) {
+            if (!Digitail.PermissionsManager.hasBluetoothPermissions) {
                 return i18nc("Header warning for missing scan permissions, for the gear connecting card", "Let us look for your gear");
             }
-            else if (!root.hasConnectPermission) {
-                return i18nc("Header warning for missing connection permissions, for the gear connecting card", "Let us connect to your gear");
-            }
-            else if (BTConnectionManager.discoveryRunning === true) {
+            else if (Digitail.BTConnectionManager.discoveryRunning === true) {
                 return i18nc("Header for whilst scanning, for the gear connecting card", "Searching for gear...");
             }
             else {
@@ -75,7 +62,7 @@ Kirigami.AbstractCard {
             width: height;
             opacity: running;
             Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-            running: BTConnectionManager.discoveryRunning;
+            running: Digitail.BTConnectionManager.discoveryRunning;
         }
     }
     contentItem: Label {
@@ -83,18 +70,15 @@ Kirigami.AbstractCard {
         wrapMode: Text.Wrap;
         horizontalAlignment: Text.AlignHCenter;
         text: {
-            if (!root.hasScanPermission) {
-                if (AppSettings.androidApiLevel > 30) {
+            if (!Digitail.PermissionsManager.hasBluetoothPermissions) {
+                if (Digitail.AppSettings.androidApiLevel > 30) {
                     return i18nc("Message warning for missing scan permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to scan for nearby devices. Clicking the button below will show you a dialog that you need to press allow on.");
                 }
                 else {
                     return i18nc("Message warning for missing location permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to access your location. Clicking the button below will show you a dialog that you need to press allow on. We do not use this information for anything else (feel free to get in touch if you want proof of this).");
                 }
             }
-            else if (!root.hasConnectPermission) {
-                return i18nc("Message warning for missing connect permissions, for the gear connecting card", "To be able to connect to your gear, we also need permission to actually perform that connection. Clicking the button below might show you a dialog that you need to press allow on.");
-            }
-            else if (BTConnectionManager.discoveryRunning === true) {
+            else if (Digitail.BTConnectionManager.discoveryRunning === true) {
                 if (deviceFilterProxy.count === 0) {
                     return i18nc("Message whilst scanning warning that no gear has been found, for the gear connecting card", "None found yet...");
                 }
@@ -117,32 +101,27 @@ Kirigami.AbstractCard {
         Button {
             Layout.fillWidth: true; Layout.fillHeight: true;
             text: {
-                if (!root.hasScanPermission) {
-                    if (AppSettings.androidApiLevel > 30) {
+                if (!Digitail.PermissionsManager.hasBluetoothPermissions) {
+                    if (Digitail.AppSettings.androidApiLevel > 30) {
                         return i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Scan Permission...");
                     }
                     else {
                         return i18nc("Label for button for opening the settings tab to fix missing location permissions, for the gear connecting card", "Get Location Permission...");
                     }
-                } else if (!root.hasConnectPermission) {
-                    return i18nc("Label for button for opening the dialog that grants missing connection permissions, for the gear connecting card", "Get Connection Permission...");
                 } else if (deviceFilterProxy.count === 1) {
                     return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
                 } else {
                     return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
                 }
             }
-            visible: (!root.hasScanPermission || !root.hasConnectPermission || deviceFilterProxy.count > 0)
+            visible: (!Digitail.PermissionsManager.hasBluetoothPermissions || deviceFilterProxy.count > 0)
             onClicked: {
-                if (!root.hasScanPermission) {
-                    PermissionsManager.requestPermission(BTConnectionManager.bluetoothScanPermissionName);
-                }
-                else if (!root.hasConnectPermission) {
-                    PermissionsManager.requestPermission(BTConnectionManager.bluetoothConnectPermissionName);
+                if (!Digitail.PermissionsManager.hasBluetoothPermissions) {
+                    Digitail.PermissionsManager.requestBluetoothPermissions();
                 }
                 else if(deviceFilterProxy.count === 1) {
                     // Calling this will stop the discovery immediately and connect to the one tail that we've found
-                    BTConnectionManager.stopDiscovery();
+                    Digitail.BTConnectionManager.stopDiscovery();
                 }
                 else {
                     connectToTail.open();
@@ -151,10 +130,10 @@ Kirigami.AbstractCard {
         }
         Button {
             Layout.fillWidth: true; Layout.fillHeight: true;
-            visible: !BTConnectionManager.discoveryRunning && root.hasScanPermission && root.hasConnectPermission
+            visible: !Digitail.BTConnectionManager.discoveryRunning && Digitail.PermissionsManager.hasBluetoothPermissions
             text: i18nc("Label for button which causes the list of available gear to be refreshed, for the gear connecting card", "Look for gear")
             onClicked: {
-                BTConnectionManager.startDiscovery();
+                Digitail.BTConnectionManager.startDiscovery();
             }
         }
     }

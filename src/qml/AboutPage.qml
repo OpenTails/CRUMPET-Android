@@ -20,12 +20,12 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.AboutPage {
-    FilterProxyModel {
+    Digitail.FilterProxyModel {
         id: deviceFilterProxy;
-        sourceModel: DeviceModel;
+        sourceModel: Digitail.DeviceModel;
         filterRole: 262; // the isConnected role
         filterBoolean: true;
         function handyStringMakerThing() {
@@ -51,13 +51,19 @@ Kirigami.AboutPage {
         "componentName" : "digitail",
         "shortDescription" : "Crumpet, MiTail, DIGITAiL, and EarGear designed and created by The Tail Company",
         "homepage" : "https://thetailcompany.com/",
-        "bugAddress" : "info@thetailcompany.com",
+        "bugAddress" : "contact@thetailcompany.com",
         "version" : AppVersion,
         "otherText" : deviceFilterProxy.count > 0 ? deviceFilterProxy.handyStringMakerThing() : "",
         "authors" : [
                     {
-                        "name" : "Dan Leinir Turthra Jensen",
+                        "name" : "MT at The Tail Company",
                         // TODO Reenable this when the about page wraps the person delegate properly
+                        //"task" : i18nc("Task description for mt", ""),
+                        "emailAddress" : "contact@thetailcompany.com",
+                        "webAddress" : "https://thetailcompany.com/",
+                    },
+                    {
+                        "name" : "Dan Leinir Turthra Jensen",
                         //"task" : i18nc("Task description for leinir", "Lead Developer"),
                         "emailAddress" : "admin@leinir.dk",
                         "webAddress" : "https://leinir.dk/",
@@ -66,7 +72,8 @@ Kirigami.AboutPage {
                     {
                         "name" : "Ildar Gilmanov",
                         //"task" : i18nc("Task description for Ildar", "Qt/QML Developer"),
-                        "emailAddress" : "gil.ildar@gmail.com"
+                        "emailAddress" : "gil.ildar@gmail.com",
+                        "webAddress": ""
                     }
                 ],
         "credits" : [],

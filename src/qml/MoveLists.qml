@@ -20,6 +20,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     id: root;
@@ -44,11 +45,11 @@ Kirigami.ScrollablePage {
                 text: modelData
             }
             onClicked: {
-                AppSettings.setActiveMoveList(modelData);
+                Digitail.AppSettings.setActiveMoveList(modelData);
                 showMessageBox(i18nc("Heading for the prompt for confirming the action of running a list, on the page for viewing Move Lists", "Run this list?"),
                                i18nc("Message for the prompt for confirming the action of running a list, on the page for viewing Move Lists", "Do you want to run the list %1?", modelData),
                                function() {
-                                   CommandQueue.pushCommands(AppSettings.moveList, []);
+                                   Digitail.CommandQueue.pushCommands(AppSettings.moveList, []);
                                });
             }
             actions: [
@@ -68,7 +69,7 @@ Kirigami.ScrollablePage {
                         showMessageBox(i18nc("Heading for the prompt for confirming the action of deleting a list, on the page for viewing Move Lists", "Remove the Move List"),
                                        i18nc("Message for the prompt for confirming the action of deleting a list, on the page for viewing Move Lists", "Are you sure that you want to remove the Move List '%1'?", modelData),
                                        function () {
-                                           AppSettings.removeMoveList(modelData);
+                                           Digitail.AppSettings.removeMoveList(modelData);
                                        });
                     }
                 }
@@ -81,7 +82,7 @@ Kirigami.ScrollablePage {
     }
     ListView {
         delegate: moveListDelegate;
-        model: AppSettings.moveLists;
+        model: Digitail.AppSettings.moveLists;
         header: InfoCard {
             text: i18nc("Description for the page for viewing Move Lists", "Create lists of moves, glows and pauses to send to your gear. To send a list you have created, tap it and pick OK. To perform actions on the ones you've created, like editing or even removing them entirely, swipe left on the item.");
         }
@@ -95,11 +96,11 @@ Kirigami.ScrollablePage {
         buttonOkText: i18nc("Confirmating button for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Create");
 
         onNamePicked: {
-            if (AppSettings.moveLists.includes(name)) {
+            if (Digitail.AppSettings.moveLists.includes(name)) {
                 showMessageBox(i18nc("Header for the warning that a name is already in use, for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Name Already Used"),
                                i18nc("Description for the warning that a name is already in use, for the prompt for giving a name to a move list, on the page for viewing Move Lists","You already have a move list with the name %1. Please pick another name, as that won't work.", name));
             } else {
-                AppSettings.addMoveList(name);
+                Digitail.AppSettings.addMoveList(name);
                 namePicker.close();
             }
         }

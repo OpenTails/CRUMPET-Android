@@ -20,6 +20,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0 as QQC2
 import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.13 as Kirigami
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.OverlaySheet {
     id: sheet;
@@ -47,9 +48,9 @@ Kirigami.OverlaySheet {
             text: i18nc("Button for the action of connecting to all found devices, in the popup for connecting to devices", "Connect All")
             onClicked: {
                 for(var i = 0; i < deviceList.count; ++i) {
-                    var isConnected = DeviceModel.data(DeviceModel.index(i, 0), 262); // IsConnected
+                    var isConnected = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 262); // IsConnected
                     if (isConnected == false) {
-                        var deviceID = DeviceModel.data(DeviceModel.index(i, 0), 258); // DeviceID
+                        var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 258); // DeviceID
                         sheet.attemptToConnect(deviceID, sheet.pageToPush);
                         sheet.pageToPush = null;
                     }
@@ -61,7 +62,7 @@ Kirigami.OverlaySheet {
     ListView {
         id: deviceList;
         implicitWidth: Kirigami.Units.gridUnit * 30
-        model: DeviceModel;
+        model: Digitail.DeviceModel;
         delegate: Kirigami.AbstractListItem {
             height: Kirigami.Units.gridUnit * 6
             hoverEnabled: false

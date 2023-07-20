@@ -21,7 +21,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 
 import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ApplicationWindow {
     id: root;
@@ -63,39 +63,35 @@ Kirigami.ApplicationWindow {
     pageStack.defaultColumnWidth: root.width;
 
     Connections {
-        target: PermissionsManager;
+        target: Digitail.PermissionsManager;
         ignoreUnknownSignals: true; // PermissionsManager isn't constructed before this card is first initialised, so we need to ignore that or end up with angry debug output
         function onPermissionsChanged() {
-            root.hasScanPermission = PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-            root.hasConnectPermission = BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
+            btConnection.checkBluetoothState();
         }
     }
-    property bool hasScanPermission: PermissionsManager.hasPermission(BTConnectionManager.bluetoothScanPermissionName);
-    property bool hasConnectPermission: BTConnectionManager.bluetoothConnectPermissionName === "" ? true : PermissionsManager.hasPermission(BTConnectionManager.bluetoothConnectPermissionName);
-    onHasScanPermissionChanged: btConnection.checkBluetoothState();
 
     Connections {
         id: btConnection
-        target: BTConnectionManager;
-        onMessage: {
+        target: Digitail.BTConnectionManager;
+        function onMessage(message) {
             showPassiveNotification(message, 5000);
         }
-        onBlockingMessage: {
+        function onBlockingMessage(title, message) {
             messageBox.showMessageBox(title, message);
         }
 
-        onDiscoveryRunningChanged: {
-            if (BTConnectionManager.discoveryRunning === false) {
-                console.log("device model count is " + BTConnectionManager.deviceCount + " and sheet is open: " + connectToTail.sheetOpen);
-                if(BTConnectionManager.deviceCount === 1 && connectToTail.sheetOpen === false) {
+        function onDiscoveryRunningChanged() {
+            if (Digitail.BTConnectionManager.discoveryRunning === false) {
+                console.log("device model count is " + Digitail.BTConnectionManager.deviceCount + " and sheet is open: " + connectToTail.sheetOpen);
+                if(Digitail.BTConnectionManager.deviceCount === 1 && connectToTail.sheetOpen === false) {
                     // only one tail found? Well then, connect to that!
-                    BTConnectionManager.connectToDevice("");
+                    Digitail.BTConnectionManager.connectToDevice("");
                     connectingToTail.opacity = 1;
                 }
             }
         }
 
-        onIsConnectedChanged: {
+        function onIsConnectedChanged(isConnected) {
             if (isConnected === true) {
                 showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
                 if(root.pageToPush !== null) {
@@ -106,20 +102,20 @@ Kirigami.ApplicationWindow {
             connectingToTail.opacity = 0;
         }
 
-        onDeviceConnected: {
+        function onDeviceConnected(deviceID) {
             console.debug("Connected to new device with ID: " + deviceID);
             namePicker.checkDeviceName(deviceID);
         }
 
-        onBluetoothStateChanged: {
+        function onBluetoothStateChanged() {
             checkBluetoothState();
         }
 
         function checkBluetoothState() {
-            if (root.hasScanPermission && root.hasConnectPermission) {
-                if (BTConnectionManager.bluetoothState === 0 ) {
+            if (Digitail.PermissionsManager.hasBluetoothPermissions) {
+                if (Digitail.BTConnectionManager.bluetoothState === 0 ) {
                     showMessageBox(i18nc("Title for the warning for having Bluetooth disabled", "Warning"), i18nc("Message for the warning for having Bluetooth disabled", "Bluetooth is disabled"));
-                } else if (BTConnectionManager.bluetoothState === 2) {
+                } else if (Digitail.BTConnectionManager.bluetoothState === 2) {
                     showMessageBox(i18nc("Title for the warning for not having detected any Bluetooth devices", "Warning"), i18nc("Message for the warning for not having detected any Bluetooth devices", "No Bluetooth Device"));
                 } else {
                     console.log("Bluetooth is enabled");
@@ -129,10 +125,10 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
-        target: AppSettings;
+        target: Digitail.AppSettings;
 
         onDeveloperModeChanged: {
-            if (AppSettings.developerMode) {
+            if (Digitail.AppSettings.developerMode) {
                 showMessageBox(i18nc("Title for the popup for having enabled Developer Mode", "Developer mode"), i18nc("Message for the popup for having enabled Developer Mode", "Developer mode is enabled"));
             } else {
                 showMessageBox(i18nc("Title for the popup for having disabled Developer Mode", "Developer mode"), i18nc("Message for the popup for having disabled Developer Mode", "Developer mode is disabled"));
@@ -169,16 +165,16 @@ Kirigami.ApplicationWindow {
             clicksCount++;
         }
 
-        FilterProxyModel {
+        Digitail.FilterProxyModel {
             id: connectedDevicesModel
             // This is a bit of a hack. Without this, the DeviceModel is set before
             // the replication from the service is completed, which ends up with us
             // just outright having no information to work with. So, workaround.
-            sourceModel: BTConnectionManager.isConnected ? DeviceModel : null;
+            sourceModel: Digitail.BTConnectionManager.isConnected ? Digitail.DeviceModel : null;
             filterRole: 262; // the isConnected role
             filterBoolean: true;
         }
-        FilterProxyModel {
+        Digitail.FilterProxyModel {
             id: hasListeningModel;
             sourceModel: connectedDevicesModel;
             filterRole: 265; // the hasListening role
@@ -192,7 +188,7 @@ Kirigami.ApplicationWindow {
             onTriggered: {
                 if (globalDrawer.clicksCount >= 5) {
                     globalDrawer.close();
-                    AppSettings.developerMode = !AppSettings.developerMode;
+                    Digitail.AppSettings.developerMode = !Digitail.AppSettings.developerMode;
                 } else {
                     globalDrawer.clicksCount = 0;
                 }
@@ -277,7 +273,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Developer Mode page, from the landing page", "Developer Mode");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "developerModePage";
                 icon.name: "code-context";
-                visible: AppSettings !== null ? AppSettings.developerMode : false;
+                visible: Digitail.AppSettings !== null ? Digitail.AppSettings.developerMode : false;
 
                 onTriggered: {
                     if(!checked) {
@@ -306,6 +302,14 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     switchToPage(aboutPage);
                 }
+            },
+            Kirigami.Action {
+                text: i18nc("Button for opening the TailCo website in a browser, from the landing page", "TheTailCompany.com");
+                checked: false;
+                icon.name: "internet-services";
+                onTriggered: {
+                    Qt.openUrlExternally("https://thetailcompany.com/");
+                }
             }
         ]
     }
@@ -314,7 +318,7 @@ Kirigami.ApplicationWindow {
 
         WelcomePage {
             onBackRequested: {
-                if (!BTConnectionManager.isConnected) {
+                if (!Digitail.BTConnectionManager.isConnected) {
                     return;
                 }
 
@@ -323,8 +327,8 @@ Kirigami.ApplicationWindow {
                 showMessageBox(i18nc("Title for the confirmation popup for disconnecting your gear", "Your gear is currently connected"),
                                i18nc("Message for the confirmation popup for disconnecting your gear", "You are currently connected to some of your gear.\n\nAre you sure that you want to disconnect and quit?"),
                                function () {
-                                   if(BTConnectionManager.isConnected) {
-                                       BTConnectionManager.disconnectDevice();
+                                   if(Digitail.BTConnectionManager.isConnected) {
+                                       Digitail.BTConnectionManager.disconnectDevice();
                                    }
 
                                    Qt.quit();
@@ -377,12 +381,12 @@ Kirigami.ApplicationWindow {
         id: namePicker;
 
         function checkDeviceName(deviceID) {
-            if (deviceID && !AppSettings.deviceNames[deviceID]) {
+            if (deviceID && !Digitail.AppSettings.deviceNames[deviceID]) {
                 namePicker.deviceID = deviceID;
-                for(var i = 0; i < BTConnectionManager.deviceCount; ++i) {
-                    var deviceID = DeviceModel.data(DeviceModel.index(i, 0), 258); // DeviceID role
+                for(var i = 0; i < Digitail.BTConnectionManager.deviceCount; ++i) {
+                    var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 258); // DeviceID role
                     if (deviceID == namePicker.deviceID) {
-                        namePicker.previousName = DeviceModel.data(DeviceModel.index(i, 0), 257); // Name role
+                        namePicker.previousName = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 257); // Name role
                         break;
                     }
                 }
@@ -398,7 +402,7 @@ Kirigami.ApplicationWindow {
         buttonOkText: i18nc("Button for confirming the save of your new name, for the prompt for entering a name for your Gear", "Save");
 
         onNamePicked: {
-            BTConnectionManager.setDeviceName(deviceID, name);
+            Digitail.BTConnectionManager.setDeviceName(deviceID, name);
             namePicker.close();
         }
     }
@@ -407,7 +411,7 @@ Kirigami.ApplicationWindow {
         id: connectToTail;
         onAttemptToConnect: {
             root.pageToPush = pageToPush;
-            BTConnectionManager.connectToDevice(deviceID);
+            Digitail.BTConnectionManager.connectToDevice(deviceID);
             connectingToTail.opacity = 1;
         }
     }
@@ -487,8 +491,8 @@ Kirigami.ApplicationWindow {
             Item { Layout.fillWidth: true; Layout.fillHeight: true; }
             Repeater {
                 id: deviceProgressRepeater
-                model: FilterProxyModel {
-                    sourceModel: DeviceModel
+                model: Digitail.FilterProxyModel {
+                    sourceModel: Digitail.DeviceModel
                     filterRole: 274; // the operationInProgress role
                     filterBoolean: true;
                 }

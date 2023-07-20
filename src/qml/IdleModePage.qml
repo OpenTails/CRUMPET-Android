@@ -28,15 +28,15 @@ Kirigami.ScrollablePage {
     Component {
         id: idleCategoryDelegate;
         Kirigami.BasicListItem {
-            icon: AppSettings.idleCategories.indexOf(modelData["category"]) >= 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+            icon: Digitail.AppSettings.idleCategories.indexOf(modelData["category"]) >= 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
             label: modelData["name"];
             onClicked: {
-                var idx = AppSettings.idleCategories.indexOf(modelData["category"]);
+                var idx = Digitail.AppSettings.idleCategories.indexOf(modelData["category"]);
                 if(idx >= 0) {
-                    AppSettings.removeIdleCategory(modelData["category"]);
+                    Digitail.AppSettings.removeIdleCategory(modelData["category"]);
                 }
                 else {
-                    AppSettings.addIdleCategory(modelData["category"]);
+                    Digitail.AppSettings.addIdleCategory(modelData["category"]);
                 }
             }
         }

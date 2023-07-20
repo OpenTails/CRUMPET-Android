@@ -22,7 +22,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0
+import org.thetailcompany.digitail 1.0 as Digitail
 
 Item {
     id: root;
@@ -87,9 +87,9 @@ Item {
                     Layout.maximumHeight: root.commandButtonSize * rowCount
                     rowSpacing: 0
                     columnSpacing: 0
-                    FilterProxyModel {
+                    Digitail.FilterProxyModel {
                         id: filterProxy;
-                        sourceModel: CommandModel;
+                        sourceModel: Digitail.CommandModel;
                         filterRole: 260; // the Category role ID
                         filterString: modelData["category"];
                     }
@@ -183,7 +183,7 @@ Item {
                 }
             }
             Repeater {
-                model: BTConnectionManager.isConnected ? categoriesModel : null;
+                model: Digitail.BTConnectionManager.isConnected ? categoriesModel : null;
                 delegate: categoryDelegate;
             }
         }
@@ -217,9 +217,9 @@ Item {
                     Layout.fillWidth: true;
                 }
                 Repeater {
-                    model: FilterProxyModel {
+                    model: Digitail.FilterProxyModel {
                         id: selectorDeviceModel;
-                        sourceModel: DeviceModel;
+                        sourceModel: Digitail.DeviceModel;
                         filterRole: 262; // the isConnected role
                         filterBoolean: true;
                         property bool hasCheckedIDs: true;
@@ -251,7 +251,7 @@ Item {
                         icon: model.checked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
                         onItemIsCheckedChanged: { selectorDeviceModel.updateHasCheckedIDs(); }
-                        onClicked: { BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
+                        onClicked: { Digitail.BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
                     }
                 }
                 Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }

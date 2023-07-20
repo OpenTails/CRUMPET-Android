@@ -15,7 +15,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-#include "GearMitail.h"
+#include "GearFlutterWings.h"
 
 #include <KLocalizedString>
 
@@ -31,20 +31,14 @@
 
 #include "AppSettings.h"
 
-class GearMitail::Private {
+class GearFlutterWings::Private {
 public:
-    Private(GearMitail* qq)
+    Private(GearFlutterWings* qq)
         : q(qq)
     {
-        knownFirmwareMessages[QLatin1String{"VER 4.0.3"}] = i18nc("A message displayed to the user when firmware version 4.03 is installed on their gear, with a description of why they should upgrade, and how", "Your MiTail currently has version 4.03 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
-        knownFirmwareMessages[QLatin1String{"VER 4.0.2"}] = i18nc("A message displayed to the user when firmware version 4.02 is installed on their gear, with a description of why they should upgrade, and how", "Your MiTail currently has version 4.02 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
-        knownFirmwareMessages[QLatin1String{"VER 4.0.1"}] = i18nc("A message displayed to the user when firmware version 4.01 is installed on their gear, with a description of why they should upgrade, and how", "Your MiTail currently has version 4.01 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
-        knownFirmwareMessages[QLatin1String{"VER 4.0.0"}] = i18nc("A message displayed to the user when firmware version 4.00 is installed on their gear, with a description of why they should upgrade, and how", "Your MiTail currently has version 4.00 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
-        knownFirmwareMessages[QLatin1String{"VER 3.2.11"}] = i18nc("A message displayed to the user when firmware version 3.2.11 is installed on their gear, with a description of why they should upgrade, and how", "Your MiTail currently has version 3.2.11 firmware installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
-        knownFirmwareMessages[QLatin1String{"VER 3.2.10"}] = i18nc("A message displayed to the user when firmware version 3.2.10 is installed on their gear, with a description of why they should upgrade, and how", "Your MiTail currently has version 3.2.10 firmware  installed, which is outdated and has some known issues! We would <b>strongly recommend</b> updating to the newest firmware which fixes them! Head over to Settings and find the Firmware section to perform the update.");
     }
     ~Private() {}
-    GearMitail* q{nullptr};
+    GearFlutterWings* q{nullptr};
     DeviceModel * parentModel{nullptr};
 
     QHash<QString, QString> knownFirmwareMessages;
@@ -111,16 +105,16 @@ public:
 
             deviceCommandWriteCharacteristic = deviceService->characteristic(deviceCommandWriteCharacteristicUuid);
             if (!deviceCommandWriteCharacteristic.isValid()) {
-                qDebug() << q->name() << q->deviceID() << "MiTail command writing characteristic not found, this is bad";
-                q->deviceMessage(q->deviceID(), i18nc("A message when sent when attempting to connect to a device which does not have a specific expected feature", "It looks like this device is not a MiTail (could not find the main device writing characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
+                qDebug() << q->name() << q->deviceID() << "FlutterWings command writing characteristic not found, this is bad";
+                q->deviceMessage(q->deviceID(), i18nc("A message when sent when attempting to connect to a device which does not have a specific expected feature", "It looks like this device is not a FlutterWings (could not find the main device writing characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
                 q->disconnectDevice();
                 break;
             }
 
             deviceCommandReadCharacteristic = deviceService->characteristic(deviceCommandReadCharacteristicUuid);
             if (!deviceCommandReadCharacteristic.isValid()) {
-                qDebug() << q->name() << q->deviceID() << "MiTail command reading characteristic not found, this is bad";
-                q->deviceMessage(q->deviceID(), i18nc("A message when sent when attempting to connect to a device which does not have a specific expected feature", "It looks like this device is not a MiTail (could not find the main device reading characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
+                qDebug() << q->name() << q->deviceID() << "FlutterWings command reading characteristic not found, this is bad";
+                q->deviceMessage(q->deviceID(), i18nc("A message when sent when attempting to connect to a device which does not have a specific expected feature", "It looks like this device is not a FlutterWings (could not find the main device reading characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
                 q->disconnectDevice();
                 break;
             }
@@ -197,8 +191,8 @@ public:
                     qWarning() << q->name() << q->deviceID() << "We got an out-of-order response for a ping";
                 }
             }
-            else if (theValue.startsWith(QLatin1String{"MiTail started"})) {
-                qDebug() << q->name() << q->deviceID() << "MiTail detected the connection";
+            else if (theValue.startsWith(QLatin1String{"FlutterWings started"})) {
+                qDebug() << q->name() << q->deviceID() << "FlutterWings detected the connection";
             }
             else if (stateResult[0] == QLatin1String("OTA") || firmwareProgress > -1) {
                 qDebug() << "Firmware update is happening...";
@@ -352,7 +346,7 @@ public:
     }
 };
 
-GearMitail::GearMitail(const QBluetoothDeviceInfo& info, DeviceModel * parent)
+GearFlutterWings::GearFlutterWings(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     : GearBase(info, parent)
     , d(new Private(this))
 {
@@ -378,12 +372,12 @@ GearMitail::GearMitail(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     d->pingTimer.setSingleShot(false);
 }
 
-GearMitail::~GearMitail()
+GearFlutterWings::~GearFlutterWings()
 {
     delete d;
 }
 
-void GearMitail::connectDevice()
+void GearFlutterWings::connectDevice()
 {
     if(d->btControl) {
         disconnectDevice();
@@ -410,7 +404,7 @@ void GearMitail::connectDevice()
                 d->deviceService = d->btControl->createServiceObject(d->deviceServiceUuid);
                 if (!d->deviceService) {
                     qWarning() << "Cannot create QLowEnergyService for " << d->deviceServiceUuid;
-                    emit deviceMessage(deviceID(), i18nc("Warning message when a fault occurred during a connection attempt", "An error occurred while connecting to your MiTail (the main service object could not be created). If you feel this is in error, please try again!"));
+                    emit deviceMessage(deviceID(), i18nc("Warning message when a fault occurred during a connection attempt", "An error occurred while connecting to your FlutterWings (the main service object could not be created). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -440,7 +434,7 @@ void GearMitail::connectDevice()
                 d->batteryService = d->btControl->createServiceObject(QBluetoothUuid::BatteryService);
                 if (!d->batteryService) {
                     qWarning() << "Failed to create battery service";
-                    emit deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on a device", "An error occurred while connecting to your MiTail (the battery service was not available). If you feel this is in error, please try again!"));
+                    emit deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on a device", "An error occurred while connecting to your FlutterWings (the battery service was not available). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -489,8 +483,8 @@ void GearMitail::connectDevice()
 
                             d->batteryCharacteristic = d->batteryService->characteristic(QBluetoothUuid::BatteryLevel);
                             if (!d->batteryCharacteristic.isValid()) {
-                                qDebug() << name() << deviceID() << "MiTail battery level characteristic not found, this is bad";
-                                deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on the device", "It looks like this device is not a MiTail (could not find the battery level characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
+                                qDebug() << name() << deviceID() << "FlutterWings battery level characteristic not found, this is bad";
+                                deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on the device", "It looks like this device is not a FlutterWings (could not find the battery level characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
                                 disconnectDevice();
                                 break;
                             }
@@ -530,16 +524,16 @@ void GearMitail::connectDevice()
 
             switch(error) {
                 case QLowEnergyController::UnknownError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your MiTail, make sure it is on and close to this device."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your FlutterWings, make sure it is on and close to this device."));
                     break;
                 case QLowEnergyController::RemoteHostClosedError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The MiTail closed the connection."));
+                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The FlutterWings closed the connection."));
                     break;
                 case QLowEnergyController::ConnectionError:
                     if (d->firmwareProgress > -1) {
-                        emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"));
+                        emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your FlutterWings. Please try again (perhaps move it closer?)"));
                     } else {
-                        QTimer::singleShot(2000, this, &GearMitail::connectDevice);
+                        QTimer::singleShot(2000, this, &GearFlutterWings::connectDevice);
                     }
                     break;
                 default:
@@ -572,7 +566,7 @@ void GearMitail::connectDevice()
             setProgressDescription(i18nc("Message shown to the user after firmware upload has completed and the tail is expected to reboot", "Firmware upload complete, waiting for your gear to reboot automatically before attempting to reconnect..."));
         } else {
             qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The MiTail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
+            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The FlutterWings closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
         }
         disconnectDevice();
     });
@@ -581,7 +575,7 @@ void GearMitail::connectDevice()
     d->btControl->connectToDevice();
 }
 
-void GearMitail::disconnectDevice()
+void GearFlutterWings::disconnectDevice()
 {
     d->pingTimer.stop();
     if (d->btControl) {
@@ -606,32 +600,32 @@ void GearMitail::disconnectDevice()
     emit isConnectedChanged(isConnected());
 }
 
-bool GearMitail::isConnected() const
+bool GearFlutterWings::isConnected() const
 {
     return d->btControl;
 }
 
-QString GearMitail::version() const
+QString GearFlutterWings::version() const
 {
     return d->version;
 }
 
-int GearMitail::batteryLevel() const
+int GearFlutterWings::batteryLevel() const
 {
     return d->batteryLevel;
 }
 
-QString GearMitail::currentCall() const
+QString GearFlutterWings::currentCall() const
 {
     return d->currentCall;
 }
 
-QString GearMitail::deviceID() const
+QString GearFlutterWings::deviceID() const
 {
     return deviceInfo.address().toString();
 }
 
-void GearMitail::sendMessage(const QString &message)
+void GearFlutterWings::sendMessage(const QString &message)
 {
     if (d->firmwareProgress == -1) {
         QString actualMessage{message};
@@ -658,12 +652,12 @@ void GearMitail::sendMessage(const QString &message)
     }
 }
 
-QStringList GearMitail::defaultCommandFiles() const
+QStringList GearFlutterWings::defaultCommandFiles() const
 {
     return QStringList{QLatin1String{":/commands/mitail-builtin.crumpet"}};
 }
 
-void GearMitail::checkOTA()
+void GearFlutterWings::checkOTA()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
@@ -681,7 +675,7 @@ void GearMitail::checkOTA()
     }
 }
 
-bool GearMitail::hasAvailableOTA()
+bool GearFlutterWings::hasAvailableOTA()
 {
     if (!d->otaVersion.isEmpty() && d->version != d->otaVersion) {
         // this will need thought... comparing the version strings like this will not work
@@ -690,12 +684,12 @@ bool GearMitail::hasAvailableOTA()
     return false;
 }
 
-QString GearMitail::otaVersion()
+QString GearFlutterWings::otaVersion()
 {
     return d->otaVersion;
 }
 
-void GearMitail::downloadOTAData()
+void GearFlutterWings::downloadOTAData()
 {
     if (d->downloadOperation == Private::NoDownloadOperation) {
         setDeviceProgress(0);
@@ -710,7 +704,7 @@ void GearMitail::downloadOTAData()
     }
 }
 
-void GearMitail::setOTAData(const QString& md5sum, const QByteArray& firmware)
+void GearFlutterWings::setOTAData(const QString& md5sum, const QByteArray& firmware)
 {
     QString calculatedSum = QString(QCryptographicHash::hash(firmware, QCryptographicHash::Md5).toHex());
     if (md5sum == calculatedSum) {
@@ -724,12 +718,12 @@ void GearMitail::setOTAData(const QString& md5sum, const QByteArray& firmware)
     Q_EMIT hasOTADataChanged();
 }
 
-bool GearMitail::hasOTAData()
+bool GearFlutterWings::hasOTAData()
 {
     return d->firmware.length() > 0;
 }
 
-void GearMitail::startOTA()
+void GearFlutterWings::startOTA()
 {
     setDeviceProgress(0);
     setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));

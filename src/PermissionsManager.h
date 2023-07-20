@@ -23,6 +23,7 @@
 class PermissionsManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasBluetoothPermissions READ hasBluetoothPermissions NOTIFY permissionsChanged)
 public:
     explicit PermissionsManager(QObject* parent = 0);
     ~PermissionsManager() override;
@@ -31,6 +32,9 @@ public:
     Q_INVOKABLE void requestPermissionNow(const QString& permission);
     Q_INVOKABLE bool hasPermission(const QString& permission) const;
     Q_SIGNAL void permissionsChanged();
+
+    bool hasBluetoothPermissions() const;
+    Q_INVOKABLE void requestBluetoothPermissions();
 private:
     class Private;
     Private *d;

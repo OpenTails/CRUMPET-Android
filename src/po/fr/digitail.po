@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
-"POT-Creation-Date: 2022-04-23 16:50+0100\n"
+"POT-Creation-Date: 2023-07-20 13:37+0100\n"
 "PO-Revision-Date: 2021-08-04 14:13+0100\n"
 "Last-Translator: Caroline the Husky <mii@miifox.nl>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -16,523 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.04.2\n"
-
-#: BTDeviceEars.cpp:75 BTDeviceMitail.cpp:81 BTDeviceTail.cpp:58
-msgctxt ""
-"Error message shown when automatic reconnection has been attempted too often"
-msgid ""
-"Attempted to reconnect too many times to %1 (%2). To connect to it, please "
-"check that it is on, charged, and near enough."
-msgstr ""
-"Tentative de reconnexion excessives à %1 (%2). Pour vous y connecter, "
-"veuillez vérifier qu'il est allumé, chargé et suffisamment proche."
-
-#: BTDeviceEars.cpp:79 BTDeviceMitail.cpp:85 BTDeviceTail.cpp:62
-msgctxt ""
-"A status message sent when the connection to a device has been lost, and we "
-"are attempting to connect again automatically"
-msgid "Connection lost to %1, attempting to reconnect..."
-msgstr "Connexion perdue avec %1, tentative de reconnexion..."
-
-#: BTDeviceEars.cpp:109
-msgctxt ""
-"A message when sent when attempting to connect to a device which does not "
-"have a specific expected feature"
-msgid ""
-"It looks like this device is not an EarGear controller (could not find the "
-"main ears writing characteristic). If you are certain that it definitely is, "
-"please report this error to The Tail Company."
-msgstr ""
-"Il semble que ce dispositif ne soit pas un appareil EarGear (il n'a pas pu "
-"trouver les caractéristiques principales d'écriture des oreilles). Si vous "
-"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
-"Tail Company."
-
-#: BTDeviceEars.cpp:126
-msgctxt ""
-"A message when sent when attempting to connect to a device which does not "
-"have a specific expected feature"
-msgid ""
-"It looks like this device is not an EarGear controller (could not find the "
-"main ears reading characteristic). If you are certain that it definitely is, "
-"please report this error to The Tail Company."
-msgstr ""
-"Il semble que ce dispositif ne soit pas un appareil EarGear (il n'a pas pu "
-"trouver les caractéristiques principales de lecture des oreilles). Si vous "
-"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
-"Tail Company."
-
-#: BTDeviceEars.cpp:191 BTDeviceMitail.cpp:174
-msgctxt ""
-"Title of the message box shown to the user upon a successful firmware upgrade"
-msgid "Upgrade Successful"
-msgstr ""
-
-#: BTDeviceEars.cpp:191 BTDeviceMitail.cpp:174
-msgctxt ""
-"Message shown to the user when a firmware update completed successfully"
-msgid "Congratulations, your gear has been successfully updated to version %1!"
-msgstr ""
-
-#: BTDeviceEars.cpp:194 BTDeviceMitail.cpp:177
-msgctxt ""
-"Title of the message box shown to the user upon an unsuccessful firmware "
-"upgrade"
-msgid "Update Failed"
-msgstr ""
-
-#: BTDeviceEars.cpp:194 BTDeviceMitail.cpp:177
-msgctxt "Message shown to the user when a firmware update failed"
-msgid ""
-"<p>Sorry, but the upgrade failed. Most often this is due to the transfer "
-"being corrupted during the upload process itself, which is why your gear has "
-"a safe fallback to just go back to your old firmware version upon a failure. "
-"You can try the update again by clicking the Install button gain.</p>"
-msgstr ""
-
-#: BTDeviceEars.cpp:297
-msgctxt ""
-"Informational message for when the microphone balancing operation has "
-"completed"
-msgid "Microphone balancing completed"
-msgstr "Rebalancement des microphones terminé"
-
-#: BTDeviceEars.cpp:412 BTDeviceMitail.cpp:333
-msgctxt ""
-"Message shown to the user when they already have the newest firmware "
-"installed"
-msgid ""
-"You already have the newest version of the firmware installed on your gear, "
-"congratulations!"
-msgstr ""
-
-#: BTDeviceEars.cpp:417 BTDeviceMitail.cpp:338
-msgctxt ""
-"Warning message for when the firmware update information file did not "
-"contain a JSON object"
-msgid ""
-"The file used to determine information about new firmware versions did not "
-"contain the expected format of data. This is likely a temporary error, or a "
-"connection issue. If you run into this problem repeatedly, please get in "
-"touch."
-msgstr ""
-
-#: BTDeviceEars.cpp:421 BTDeviceMitail.cpp:342
-msgctxt "Message for when we are checking the downloaded firmware data"
-msgid "Checking integrity of the downloaded firmware data..."
-msgstr ""
-
-#: BTDeviceEars.cpp:491
-#, fuzzy
-msgctxt "Warning message when a fault occurred during a connection attempt"
-msgid ""
-"An error occurred while connecting to your EarGear (the main service object "
-"could not be created). If you feel this is in error, please try again!"
-msgstr ""
-"Une erreur s'est produite lors de la connexion à votre boîtier EarGear "
-"(l'objet de service principal n'a pas pu être créé). Si vous pensez qu'il "
-"s'agit d'une erreur, veuillez réessayer !"
-
-#: BTDeviceEars.cpp:505
-#, fuzzy
-msgctxt ""
-"Warning message when the battery information is unavailable on a device"
-msgid ""
-"An error occurred while connecting to your EarGear (the battery service was "
-"not available). If you feel this is in error, please try again!"
-msgstr ""
-"Une erreur s'est produite lors de la connexion à votre boîtier EarGear "
-"(l'objet de service de batterie n'est pas disponible). Si vous pensez qu'il "
-"s'agit d'une erreur, veuillez réessayer !"
-
-#: BTDeviceEars.cpp:536
-msgctxt ""
-"Warning message when the battery information is unavailable on the device"
-msgid ""
-"It looks like this device is not an EarGear controller (could not find the "
-"battery level characteristic). If you are certain that it definitely is, "
-"please report this error to The Tail Company."
-msgstr ""
-"Il semble que cet appareil ne soit pas un boîtier EarGear (pas pu trouver la "
-"caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit "
-"bien d'un EarGear, veuillez signaler cette erreur à The Tail Company."
-
-#: BTDeviceEars.cpp:566
-#, fuzzy
-msgctxt "Warning that some unknown error happened"
-msgid ""
-"An error occurred. If you are trying to connect to your ears, make sure the "
-"EarGear is on and close to this device."
-msgstr ""
-"Une erreur s'est produite. Si vous essayez de vous connecter à vos oreilles, "
-"assurez-vous que le boîtier est allumée et proche de cet appareil."
-
-#: BTDeviceEars.cpp:569
-#, fuzzy
-msgctxt "Warning that the device disconnected itself"
-msgid "The EarGear closed the connection."
-msgstr "Le boîtier EarGear a fermé la connexion."
-
-#: BTDeviceEars.cpp:572
-#, fuzzy
-msgctxt ""
-"Warning that some connection failure occurred (usually due to low signal "
-"strength)"
-msgid ""
-"Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
-msgstr ""
-"La connexion à votre boîtier EarGear a échoué. Veuillez réessayer (peut-être "
-"le déplacer plus proche ?)"
-
-#: BTDeviceEars.cpp:593
-msgctxt ""
-"Title for a message box shown after the device disconnects after completing "
-"the firmware update"
-msgid "Firmware Update Completed"
-msgstr ""
-
-#: BTDeviceEars.cpp:593
-msgctxt ""
-"Body of a message box shown after the device disconnects after completing "
-"the firmware update"
-msgid ""
-"The firmware upload has been completed, and your gear has turned itself off. "
-"If it did not turn itself back on again, close this message, turn it on "
-"manually, and then connect to it. If it turned itself back on again, you can "
-"just close this message."
-msgstr ""
-
-#: BTDeviceEars.cpp:598
-#, fuzzy
-msgctxt ""
-"Warning that the device itself disconnected during operation (usually due to "
-"turning off from low power)"
-msgid ""
-"The EarGear closed the connection, either by being turned off or losing "
-"power. Remember to charge your ears!"
-msgstr ""
-"Le boîtier EarGear a fermé la connexion, soit en étant éteint, soit en étant "
-"déchargé. N'oubliez pas de charger vos oreilles !"
-
-#: BTDeviceEars.cpp:748 BTDeviceMitail.cpp:670
-msgctxt ""
-"Message shown alongside a progress bar when downloading update information"
-msgid "Downloading firmware update information"
-msgstr ""
-
-#: BTDeviceEars.cpp:780 BTDeviceMitail.cpp:702
-msgctxt ""
-"Message shown along a progress bar when downloading the firmware payload "
-"itself"
-msgid "Downloading firmware update from The Tail Company's website..."
-msgstr ""
-
-#: BTDeviceEars.cpp:797 BTDeviceMitail.cpp:719
-msgctxt ""
-msgid ""
-"The downloaded firmware update did not contain what we expected. This is "
-"commonly due to a problem with the download itself having failed, and you "
-"should simply try again. If it continues to fail, please get in touch with "
-"us and we can try and work something out!"
-msgstr ""
-
-#: BTDeviceEars.cpp:813
-msgctxt "Message shown during firmware update processes"
-msgid ""
-"Uploading firmware to your gear. Please keep your devices very near each "
-"other, and make sure both have plenty of charge (or plug in a charger now). "
-"Once completed, your gear will either reboot or turn itself off and "
-"disconnect from this device. Once it is started back up again, you will be "
-"able to connect to it again."
-msgstr ""
-
-#: BTDeviceFake.cpp:48 BTDeviceMitail.cpp:365
-#, fuzzy
-msgctxt ""
-"Name of the calm and relaxed group as used for no phone group selection"
-msgid "Calm and Relaxed"
-msgstr "Calme et relaxe"
-
-#: BTDeviceFake.cpp:49 BTDeviceMitail.cpp:366
-#, fuzzy
-msgctxt ""
-"Name of the fast and excited group as used for no phone group selection"
-msgid "Fast and Excited"
-msgstr "Rapide et excitée"
-
-#: BTDeviceFake.cpp:50 BTDeviceMitail.cpp:367
-#, fuzzy
-msgctxt ""
-"Name of the frustrated and tense group as used for no phone group selection"
-msgid "Frustrated and Tense"
-msgstr "Frustrée et tendu"
-
-#: BTDeviceFake.cpp:106
-msgctxt ""
-"An example message to show people what the firmware message will look like "
-"for a real device"
-msgid ""
-"This is a message that's supposed to inform people that there is something "
-"<b>important</b> going on with their firmware"
-msgstr ""
-
-#: BTDeviceMitail.cpp:39
-msgctxt ""
-"A message displayed to the user when firmware version 4.03 is installed on "
-"their gear, with a description of why they should upgrade, and how"
-msgid ""
-"Your tail currently has version 4.03 firmware installed, which is outdated "
-"and has some known issues! We would <b>strongly recommend</b> updating to "
-"the newest firmware which fixes them! Head over to Settings and find the "
-"Firmware section to perform the update."
-msgstr ""
-
-#: BTDeviceMitail.cpp:40
-msgctxt ""
-"A message displayed to the user when firmware version 4.02 is installed on "
-"their gear, with a description of why they should upgrade, and how"
-msgid ""
-"Your tail currently has version 4.02 firmware installed, which is outdated "
-"and has some known issues! We would <b>strongly recommend</b> updating to "
-"the newest firmware which fixes them! Head over to Settings and find the "
-"Firmware section to perform the update."
-msgstr ""
-
-#: BTDeviceMitail.cpp:41
-msgctxt ""
-"A message displayed to the user when firmware version 4.01 is installed on "
-"their gear, with a description of why they should upgrade, and how"
-msgid ""
-"Your tail currently has version 4.01 firmware installed, which is outdated "
-"and has some known issues! We would <b>strongly recommend</b> updating to "
-"the newest firmware which fixes them! Head over to Settings and find the "
-"Firmware section to perform the update."
-msgstr ""
-
-#: BTDeviceMitail.cpp:42
-msgctxt ""
-"A message displayed to the user when firmware version 4.00 is installed on "
-"their gear, with a description of why they should upgrade, and how"
-msgid ""
-"Your tail currently has version 4.00 firmware installed, which is outdated "
-"and has some known issues! We would <b>strongly recommend</b> updating to "
-"the newest firmware which fixes them! Head over to Settings and find the "
-"Firmware section to perform the update."
-msgstr ""
-
-#: BTDeviceMitail.cpp:43
-msgctxt ""
-"A message displayed to the user when firmware version 3.2.11 is installed on "
-"their gear, with a description of why they should upgrade, and how"
-msgid ""
-"Your tail currently has version 3.2.11 firmware installed, which is outdated "
-"and has some known issues! We would <b>strongly recommend</b> updating to "
-"the newest firmware which fixes them! Head over to Settings and find the "
-"Firmware section to perform the update."
-msgstr ""
-
-#: BTDeviceMitail.cpp:44
-msgctxt ""
-"A message displayed to the user when firmware version 3.2.10 is installed on "
-"their gear, with a description of why they should upgrade, and how"
-msgid ""
-"Your tail currently has version 3.2.10 firmware  installed, which is "
-"outdated and has some known issues! We would <b>strongly recommend</b> "
-"updating to the newest firmware which fixes them! Head over to Settings and "
-"find the Firmware section to perform the update."
-msgstr ""
-
-#: BTDeviceMitail.cpp:115
-msgctxt ""
-"A message when sent when attempting to connect to a device which does not "
-"have a specific expected feature"
-msgid ""
-"It looks like this device is not a MiTail (could not find the main device "
-"writing characteristic). If you are certain that it definitely is, please "
-"report this error to The Tail Company."
-msgstr ""
-"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
-"trouver les caractéristiques principales d'écriture de la queue). Si vous "
-"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
-"Tail Company."
-
-#: BTDeviceMitail.cpp:123
-msgctxt ""
-"A message when sent when attempting to connect to a device which does not "
-"have a specific expected feature"
-msgid ""
-"It looks like this device is not a MiTail (could not find the main device "
-"reading characteristic). If you are certain that it definitely is, please "
-"report this error to The Tail Company."
-msgstr ""
-"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
-"trouver les caractéristiques principales de lecture de la queue). Si vous "
-"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
-"Tail Company."
-
-#: BTDeviceMitail.cpp:413
-msgctxt "Warning message when a fault occurred during a connection attempt"
-msgid ""
-"An error occurred while connecting to your MiTail (the main service object "
-"could not be created). If you feel this is in error, please try again!"
-msgstr ""
-"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de "
-"service principal n'a pas pu être créé). Si vous pensez qu'il s'agit d'une "
-"erreur, veuillez réessayer !"
-
-#: BTDeviceMitail.cpp:432
-msgctxt ""
-"Message asking people to tell us when a firmware update failed, and that "
-"this is the error they got"
-msgid ""
-"<p><b>Update Failed!</b></p><p>We have tried to update your firmware too "
-"rapidly for your device, and have had to abort. If you are getting this "
-"error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please "
-"contact us on info@thetailcompany.com and tell us that you got this error.</"
-"p>"
-msgstr ""
-
-#: BTDeviceMitail.cpp:443
-msgctxt ""
-"Warning message when the battery information is unavailable on a device"
-msgid ""
-"An error occurred while connecting to your MiTail (the battery service was "
-"not available). If you feel this is in error, please try again!"
-msgstr ""
-"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de "
-"service de batterie n'est pas disponible). Si vous pensez qu'il s'agit d'une "
-"erreur, veuillez réessayer !"
-
-#: BTDeviceMitail.cpp:493
-msgctxt ""
-"Warning message when the battery information is unavailable on the device"
-msgid ""
-"It looks like this device is not a MiTail (could not find the battery level "
-"characteristic). If you are certain that it definitely is, please report "
-"this error to The Tail Company."
-msgstr ""
-"Il semble que cet appareil ne soit pas un MiTail (pas pu trouver la "
-"caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit "
-"bien d'un MiTail, veuillez signaler cette erreur à The Tail Company."
-
-#: BTDeviceMitail.cpp:533
-msgctxt "Warning that some unknown error happened"
-msgid ""
-"An error occurred. If you are trying to connect to your MiTail, make sure it "
-"is on and close to this device."
-msgstr ""
-"Une erreur s'est produite. Si vous essayez de vous connecter à votre MiTail, "
-"assurez-vous que la queue soit allumée et proche de cet appareil."
-
-#: BTDeviceMitail.cpp:536
-msgctxt "Warning that the device disconnected itself"
-msgid "The MiTail closed the connection."
-msgstr "Le MiTail a fermé la connexion."
-
-#: BTDeviceMitail.cpp:540
-msgctxt ""
-"Warning that some connection failure occurred (usually due to low signal "
-"strength)"
-msgid ""
-"Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
-msgstr ""
-"La connexion à votre MiTail a échoué. Veuillez réessayer (peut-être le "
-"déplacer plus proche ?)"
-
-#: BTDeviceMitail.cpp:567
-#, fuzzy
-msgctxt ""
-"Message shown to the user when a firmware upload has completed and the "
-"device has rebooted itself"
-msgid "Attempting to reconnect to your gear..."
-msgstr "Tentative de connexion..."
-
-#: BTDeviceMitail.cpp:572
-msgctxt ""
-"Message shown to the user after firmware upload has completed and the tail "
-"is expected to reboot"
-msgid ""
-"Firmware upload complete, waiting for your gear to reboot automatically "
-"before attempting to reconnect..."
-msgstr ""
-
-#: BTDeviceMitail.cpp:575
-msgctxt ""
-"Warning that the device itself disconnected during operation (usually due to "
-"turning off from low power)"
-msgid ""
-"The MiTail closed the connection, either by being turned off or losing "
-"power. Remember to charge your tail!"
-msgstr ""
-"Le MiTail a fermé la connexion, soit en étant éteint, soit en étant "
-"déchargé. N'oubliez pas de charger votre queue !"
-
-#: BTDeviceMitail.cpp:735
-msgctxt "Message shown during firmware update processes"
-msgid ""
-"Uploading firmware to your gear. Please keep your devices very near each "
-"other, and make sure both have plenty of charge (or plug in a charger now). "
-"Once completed, your gear will restart and disconnect from this device. Once "
-"rebooted, you will be able to connect to it again."
-msgstr ""
-
-#: BTDeviceTail.cpp:91
-msgctxt ""
-"A message when sent when attempting to connect to a device which does not "
-"have a specific expected feature"
-msgid ""
-"It looks like this device is not a DIGITAiL (could not find the tail "
-"characteristic). If you are certain that it definitely is, please report "
-"this error to The Tail Company."
-msgstr ""
-"Il semble que cet appareil ne soit pas un DIGITAIL (pas pu trouver ses "
-"caractéristiques). Si vous êtes certain qu'il s'agit bien d'un DIGITAIL, "
-"veuillez signaler cette erreur à The Tail Company."
-
-#: BTDeviceTail.cpp:258
-msgctxt "Warning message when the main service was not found on the device"
-msgid ""
-"An error occured while connecting to your tail (the service object could not "
-"be created). If you feel this is in error, please try again!"
-msgstr ""
-"Une erreur s'est produite lors de la connexion à votre queue (l'objet de "
-"service principal n'a pas pu être créé). Si vous pensez qu'il s'agit d'une "
-"erreur, veuillez réessayer !"
-
-#: BTDeviceTail.cpp:276
-msgctxt "Warning that some unknown error happened"
-msgid ""
-"An error occurred. If you are trying to connect to your tail, make sure it "
-"is on and close to this device."
-msgstr ""
-"Une erreur s'est produite. Si vous essayez de vous connecter à votre queue, "
-"assurez-vous que la queue soit allumée et proche de cet appareil."
-
-#: BTDeviceTail.cpp:279
-msgctxt "Warning that the device disconnected itself"
-msgid "The tail closed the connection."
-msgstr "La queue a fermé la connexion."
-
-#: BTDeviceTail.cpp:282
-msgctxt ""
-"Warning that some connection failure occurred (usually due to low signal "
-"strength)"
-msgid ""
-"Failed to connect to your tail. Please try again (perhaps move it closer?)"
-msgstr ""
-"La connexion à votre queue a échoué. Veuillez réessayer (peut-être le "
-"déplacer plus proche ?)"
-
-#: BTDeviceTail.cpp:302
-msgctxt ""
-"Warning that the device itself disconnected during operation (usually due to "
-"turning off from low power)"
-msgid ""
-"The tail closed the connection, either by being turned off or losing power. "
-"Remember to charge your tail!"
-msgstr ""
-"La queue a fermé la connexion, soit en étant éteint, soit en étant déchargé. "
-"N'oubliez pas de charger votre queue !"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -576,110 +59,939 @@ msgctxt ""
 msgid "Could not open the file %1 for writing"
 msgstr "Impossible d'ouvrir le fichier %1 pour l'écriture"
 
-#: GestureDetectorModel.cpp:221
+#: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
+#: gearimplementations/GearFlutterWings.cpp:75
+#: gearimplementations/GearMitail.cpp:81
+#: gearimplementations/GearMitailMini.cpp:76
+msgctxt ""
+"Error message shown when automatic reconnection has been attempted too often"
+msgid ""
+"Attempted to reconnect too many times to %1 (%2). To connect to it, please "
+"check that it is on, charged, and near enough."
+msgstr ""
+"Tentative de reconnexion excessives à %1 (%2). Pour vous y connecter, "
+"veuillez vérifier qu'il est allumé, chargé et suffisamment proche."
+
+#: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
+#: gearimplementations/GearFlutterWings.cpp:79
+#: gearimplementations/GearMitail.cpp:85
+#: gearimplementations/GearMitailMini.cpp:80
+msgctxt ""
+"A status message sent when the connection to a device has been lost, and we "
+"are attempting to connect again automatically"
+msgid "Connection lost to %1, attempting to reconnect..."
+msgstr "Connexion perdue avec %1, tentative de reconnexion..."
+
+#: gearimplementations/GearDigitail.cpp:91
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a DIGITAiL (could not find the tail "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+"Il semble que cet appareil ne soit pas un DIGITAIL (pas pu trouver ses "
+"caractéristiques). Si vous êtes certain qu'il s'agit bien d'un DIGITAIL, "
+"veuillez signaler cette erreur à The Tail Company."
+
+#: gearimplementations/GearDigitail.cpp:258
+#, fuzzy
+msgctxt "Warning message when the main service was not found on the device"
+msgid ""
+"An error occured while connecting to your DIGITAiL (the service object could "
+"not be created). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre queue (l'objet de "
+"service principal n'a pas pu être créé). Si vous pensez qu'il s'agit d'une "
+"erreur, veuillez réessayer !"
+
+#: gearimplementations/GearDigitail.cpp:276
+#, fuzzy
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your DIGITAiL, make sure "
+"it is on and close to this device."
+msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à votre MiTail, "
+"assurez-vous que la queue soit allumée et proche de cet appareil."
+
+#: gearimplementations/GearDigitail.cpp:279
+#, fuzzy
+msgctxt "Warning that the device disconnected itself"
+msgid "The DIGITAiL closed the connection."
+msgstr "Le MiTail a fermé la connexion."
+
+#: gearimplementations/GearDigitail.cpp:282
+#, fuzzy
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your DIGITAiL. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+"La connexion à votre MiTail a échoué. Veuillez réessayer (peut-être le "
+"déplacer plus proche ?)"
+
+#: gearimplementations/GearDigitail.cpp:302
+#, fuzzy
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The DIGITAiL closed the connection, either by being turned off or losing "
+"power. Remember to charge your DIGITAiL!"
+msgstr ""
+"Le MiTail a fermé la connexion, soit en étant éteint, soit en étant "
+"déchargé. N'oubliez pas de charger votre queue !"
+
+#: gearimplementations/GearEars.cpp:112
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil EarGear (il n'a pas pu "
+"trouver les caractéristiques principales d'écriture des oreilles). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearEars.cpp:129
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil EarGear (il n'a pas pu "
+"trouver les caractéristiques principales de lecture des oreilles). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearEars.cpp:221
+#: gearimplementations/GearFlutterWings.cpp:168
+#: gearimplementations/GearMitail.cpp:174
+#: gearimplementations/GearMitailMini.cpp:169
+msgctxt ""
+"Title of the message box shown to the user upon a successful firmware upgrade"
+msgid "Upgrade Successful"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:221
+#: gearimplementations/GearFlutterWings.cpp:168
+#: gearimplementations/GearMitail.cpp:174
+#: gearimplementations/GearMitailMini.cpp:169
+msgctxt ""
+"Message shown to the user when a firmware update completed successfully"
+msgid "Congratulations, your gear has been successfully updated to version %1!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:224
+#: gearimplementations/GearFlutterWings.cpp:171
+#: gearimplementations/GearMitail.cpp:177
+#: gearimplementations/GearMitailMini.cpp:172
+msgctxt ""
+"Title of the message box shown to the user upon an unsuccessful firmware "
+"upgrade"
+msgid "Update Failed"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:224
+#: gearimplementations/GearFlutterWings.cpp:171
+#: gearimplementations/GearMitail.cpp:177
+#: gearimplementations/GearMitailMini.cpp:172
+msgctxt "Message shown to the user when a firmware update failed"
+msgid ""
+"<p>Sorry, but the upgrade failed. Most often this is due to the transfer "
+"being corrupted during the upload process itself, which is why your gear has "
+"a safe fallback to just go back to your old firmware version upon a failure. "
+"You can try the update again by clicking the Install button gain.</p>"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:327
+msgctxt ""
+"Informational message for when the microphone balancing operation has "
+"completed"
+msgid "Microphone balancing completed"
+msgstr "Rebalancement des microphones terminé"
+
+#: gearimplementations/GearEars.cpp:442
+#: gearimplementations/GearFlutterWings.cpp:327
+#: gearimplementations/GearMitail.cpp:333
+#: gearimplementations/GearMitailMini.cpp:328
+msgctxt ""
+"Message shown to the user when they already have the newest firmware "
+"installed"
+msgid ""
+"You already have the newest version of the firmware installed on your gear, "
+"congratulations!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:447
+#: gearimplementations/GearFlutterWings.cpp:332
+#: gearimplementations/GearMitail.cpp:338
+#: gearimplementations/GearMitailMini.cpp:333
+msgctxt ""
+"Warning message for when the firmware update information file did not "
+"contain a JSON object"
+msgid ""
+"The file used to determine information about new firmware versions did not "
+"contain the expected format of data. This is likely a temporary error, or a "
+"connection issue. If you run into this problem repeatedly, please get in "
+"touch."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:451
+#: gearimplementations/GearFlutterWings.cpp:336
+#: gearimplementations/GearMitail.cpp:342
+#: gearimplementations/GearMitailMini.cpp:337
+msgctxt "Message for when we are checking the downloaded firmware data"
+msgid "Checking integrity of the downloaded firmware data..."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:521
+#, fuzzy
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your EarGear (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre boîtier EarGear "
+"(l'objet de service principal n'a pas pu être créé). Si vous pensez qu'il "
+"s'agit d'une erreur, veuillez réessayer !"
+
+#: gearimplementations/GearEars.cpp:535
+#, fuzzy
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your EarGear (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre boîtier EarGear "
+"(l'objet de service de batterie n'est pas disponible). Si vous pensez qu'il "
+"s'agit d'une erreur, veuillez réessayer !"
+
+#: gearimplementations/GearEars.cpp:566
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"battery level characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"Il semble que cet appareil ne soit pas un boîtier EarGear (pas pu trouver la "
+"caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit "
+"bien d'un EarGear, veuillez signaler cette erreur à The Tail Company."
+
+#: gearimplementations/GearEars.cpp:596
+#, fuzzy
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your ears, make sure the "
+"EarGear is on and close to this device."
+msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à vos oreilles, "
+"assurez-vous que le boîtier est allumée et proche de cet appareil."
+
+#: gearimplementations/GearEars.cpp:599
+#, fuzzy
+msgctxt "Warning that the device disconnected itself"
+msgid "The EarGear closed the connection."
+msgstr "Le boîtier EarGear a fermé la connexion."
+
+#: gearimplementations/GearEars.cpp:602
+#, fuzzy
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
+msgstr ""
+"La connexion à votre boîtier EarGear a échoué. Veuillez réessayer (peut-être "
+"le déplacer plus proche ?)"
+
+#: gearimplementations/GearEars.cpp:623
+msgctxt ""
+"Title for a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid "Firmware Update Completed"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:623
+msgctxt ""
+"Body of a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid ""
+"The firmware upload has been completed, and your gear has turned itself off. "
+"If it did not turn itself back on again, close this message, turn it on "
+"manually, and then connect to it. If it turned itself back on again, you can "
+"just close this message."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:628
+#, fuzzy
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The EarGear closed the connection, either by being turned off or losing "
+"power. Remember to charge your ears!"
+msgstr ""
+"Le boîtier EarGear a fermé la connexion, soit en étant éteint, soit en étant "
+"déchargé. N'oubliez pas de charger vos oreilles !"
+
+#: gearimplementations/GearEars.cpp:778
+#: gearimplementations/GearFlutterWings.cpp:664
+#: gearimplementations/GearMitail.cpp:670
+#: gearimplementations/GearMitailMini.cpp:665
+msgctxt ""
+"Message shown alongside a progress bar when downloading update information"
+msgid "Downloading firmware update information"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:795
+msgctxt ""
+"Message shown in case the hardware revision is given by the firmware, but "
+"doesn't match one of our known ones, meaning the app is likely very outdated"
+msgid ""
+"Your gear has reported a hardware revision that we do not know of. This "
+"means that your app is likely to be out of date and needs to be updated."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:799
+msgctxt ""
+"Message shown in the unlikely case a firmware exists which does not report "
+"the expected hardware revision and which also is not known to us"
+msgid ""
+"You have somehow got a firmware version which does not report the hardware "
+"revision of your ears, but which also is not known to fail to do so. This is "
+"a highly unexpected situation and we would appreciate it if you reported it "
+"directly to us at info@thetailcompany.com - thank you!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:827
+#: gearimplementations/GearFlutterWings.cpp:696
+#: gearimplementations/GearMitail.cpp:702
+#: gearimplementations/GearMitailMini.cpp:697
+msgctxt ""
+"Message shown along a progress bar when downloading the firmware payload "
+"itself"
+msgid "Downloading firmware update from The Tail Company's website..."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:844
+#: gearimplementations/GearFlutterWings.cpp:713
+#: gearimplementations/GearMitail.cpp:719
+#: gearimplementations/GearMitailMini.cpp:714
+msgctxt ""
+msgid ""
+"The downloaded firmware update did not contain what we expected. This is "
+"commonly due to a problem with the download itself having failed, and you "
+"should simply try again. If it continues to fail, please get in touch with "
+"us and we can try and work something out!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:860
+msgctxt "Message shown during firmware update processes"
+msgid ""
+"Uploading firmware to your gear. Please keep your devices very near each "
+"other, and make sure both have plenty of charge (or plug in a charger now). "
+"Once completed, your gear will either reboot or turn itself off and "
+"disconnect from this device. Once it is started back up again, you will be "
+"able to connect to it again."
+msgstr ""
+
+#: gearimplementations/GearFake.cpp:48
+#: gearimplementations/GearFlutterWings.cpp:359
+#: gearimplementations/GearMitail.cpp:365
+#: gearimplementations/GearMitailMini.cpp:360
+#, fuzzy
+msgctxt ""
+"Name of the calm and relaxed group as used for no phone group selection"
+msgid "Calm and Relaxed"
+msgstr "Calme et relaxe"
+
+#: gearimplementations/GearFake.cpp:49
+#: gearimplementations/GearFlutterWings.cpp:360
+#: gearimplementations/GearMitail.cpp:366
+#: gearimplementations/GearMitailMini.cpp:361
+#, fuzzy
+msgctxt ""
+"Name of the fast and excited group as used for no phone group selection"
+msgid "Fast and Excited"
+msgstr "Rapide et excitée"
+
+#: gearimplementations/GearFake.cpp:50
+#: gearimplementations/GearFlutterWings.cpp:361
+#: gearimplementations/GearMitail.cpp:367
+#: gearimplementations/GearMitailMini.cpp:362
+#, fuzzy
+msgctxt ""
+"Name of the frustrated and tense group as used for no phone group selection"
+msgid "Frustrated and Tense"
+msgstr "Frustrée et tendu"
+
+#: gearimplementations/GearFake.cpp:106
+msgctxt ""
+"An example message to show people what the firmware message will look like "
+"for a real device"
+msgid ""
+"This is a message that's supposed to inform people that there is something "
+"<b>important</b> going on with their firmware"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:109
+#, fuzzy
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a FlutterWings (could not find the main "
+"device writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
+"trouver les caractéristiques principales d'écriture de la queue). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearFlutterWings.cpp:117
+#, fuzzy
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a FlutterWings (could not find the main "
+"device reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
+"trouver les caractéristiques principales de lecture de la queue). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearFlutterWings.cpp:407
+#, fuzzy
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your FlutterWings (the main service "
+"object could not be created). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre boîtier EarGear "
+"(l'objet de service principal n'a pas pu être créé). Si vous pensez qu'il "
+"s'agit d'une erreur, veuillez réessayer !"
+
+#: gearimplementations/GearFlutterWings.cpp:426
+#: gearimplementations/GearMitail.cpp:432
+#: gearimplementations/GearMitailMini.cpp:427
+msgctxt ""
+"Message asking people to tell us when a firmware update failed, and that "
+"this is the error they got"
+msgid ""
+"<p><b>Update Failed!</b></p><p>We have tried to update your firmware too "
+"rapidly for your device, and have had to abort. If you are getting this "
+"error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please "
+"contact us on info@thetailcompany.com and tell us that you got this error.</"
+"p>"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:437
+#, fuzzy
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your FlutterWings (the battery service "
+"was not available). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre boîtier EarGear "
+"(l'objet de service de batterie n'est pas disponible). Si vous pensez qu'il "
+"s'agit d'une erreur, veuillez réessayer !"
+
+#: gearimplementations/GearFlutterWings.cpp:487
+#, fuzzy
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a FlutterWings (could not find the battery "
+"level characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+"Il semble que cet appareil ne soit pas un MiTail (pas pu trouver la "
+"caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit "
+"bien d'un MiTail, veuillez signaler cette erreur à The Tail Company."
+
+#: gearimplementations/GearFlutterWings.cpp:527
+#, fuzzy
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your FlutterWings, make "
+"sure it is on and close to this device."
+msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à votre queue, "
+"assurez-vous que la queue soit allumée et proche de cet appareil."
+
+#: gearimplementations/GearFlutterWings.cpp:530
+#, fuzzy
+msgctxt "Warning that the device disconnected itself"
+msgid "The FlutterWings closed the connection."
+msgstr "La queue a fermé la connexion."
+
+#: gearimplementations/GearFlutterWings.cpp:534
+#, fuzzy
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your FlutterWings. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+"La connexion à votre queue a échoué. Veuillez réessayer (peut-être le "
+"déplacer plus proche ?)"
+
+#: gearimplementations/GearFlutterWings.cpp:561
+#: gearimplementations/GearMitail.cpp:567
+#: gearimplementations/GearMitailMini.cpp:562
+#, fuzzy
+msgctxt ""
+"Message shown to the user when a firmware upload has completed and the "
+"device has rebooted itself"
+msgid "Attempting to reconnect to your gear..."
+msgstr "Tentative de connexion..."
+
+#: gearimplementations/GearFlutterWings.cpp:566
+#: gearimplementations/GearMitail.cpp:572
+#: gearimplementations/GearMitailMini.cpp:567
+msgctxt ""
+"Message shown to the user after firmware upload has completed and the tail "
+"is expected to reboot"
+msgid ""
+"Firmware upload complete, waiting for your gear to reboot automatically "
+"before attempting to reconnect..."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:569
+#, fuzzy
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The FlutterWings closed the connection, either by being turned off or losing "
+"power. Remember to charge your tail!"
+msgstr ""
+"La queue a fermé la connexion, soit en étant éteint, soit en étant déchargé. "
+"N'oubliez pas de charger votre queue !"
+
+#: gearimplementations/GearFlutterWings.cpp:729
+#: gearimplementations/GearMitail.cpp:735
+#: gearimplementations/GearMitailMini.cpp:730
+msgctxt "Message shown during firmware update processes"
+msgid ""
+"Uploading firmware to your gear. Please keep your devices very near each "
+"other, and make sure both have plenty of charge (or plug in a charger now). "
+"Once completed, your gear will restart and disconnect from this device. Once "
+"rebooted, you will be able to connect to it again."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:39
+msgctxt ""
+"A message displayed to the user when firmware version 4.03 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.03 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:40
+msgctxt ""
+"A message displayed to the user when firmware version 4.02 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.02 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:41
+msgctxt ""
+"A message displayed to the user when firmware version 4.01 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.01 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:42
+msgctxt ""
+"A message displayed to the user when firmware version 4.00 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.00 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:43
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.11 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 3.2.11 firmware installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:44
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.10 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 3.2.10 firmware  installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:115
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"writing characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
+"trouver les caractéristiques principales d'écriture de la queue). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearMitail.cpp:123
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"reading characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
+"trouver les caractéristiques principales de lecture de la queue). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearMitail.cpp:413
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de "
+"service principal n'a pas pu être créé). Si vous pensez qu'il s'agit d'une "
+"erreur, veuillez réessayer !"
+
+#: gearimplementations/GearMitail.cpp:443
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de "
+"service de batterie n'est pas disponible). Si vous pensez qu'il s'agit d'une "
+"erreur, veuillez réessayer !"
+
+#: gearimplementations/GearMitail.cpp:493
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail (could not find the battery level "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+"Il semble que cet appareil ne soit pas un MiTail (pas pu trouver la "
+"caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit "
+"bien d'un MiTail, veuillez signaler cette erreur à The Tail Company."
+
+#: gearimplementations/GearMitail.cpp:533
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail, make sure it "
+"is on and close to this device."
+msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à votre MiTail, "
+"assurez-vous que la queue soit allumée et proche de cet appareil."
+
+#: gearimplementations/GearMitail.cpp:536
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail closed the connection."
+msgstr "Le MiTail a fermé la connexion."
+
+#: gearimplementations/GearMitail.cpp:540
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
+msgstr ""
+"La connexion à votre MiTail a échoué. Veuillez réessayer (peut-être le "
+"déplacer plus proche ?)"
+
+#: gearimplementations/GearMitail.cpp:575
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail closed the connection, either by being turned off or losing "
+"power. Remember to charge your tail!"
+msgstr ""
+"Le MiTail a fermé la connexion, soit en étant éteint, soit en étant "
+"déchargé. N'oubliez pas de charger votre queue !"
+
+#: gearimplementations/GearMitailMini.cpp:39
+msgctxt ""
+"A message displayed to the user when firmware version 4.03 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail Mini currently has version 4.03 firmware installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:110
+#, fuzzy
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail Mini (could not find the main "
+"device writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
+"trouver les caractéristiques principales d'écriture de la queue). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearMitailMini.cpp:118
+#, fuzzy
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail Mini (could not find the main "
+"device reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+"Il semble que ce dispositif ne soit pas un appareil MiTail (il n'a pas pu "
+"trouver les caractéristiques principales de lecture de la queue). Si vous "
+"êtes certain que c'est bien le cas, veuillez signaler cette erreur à The "
+"Tail Company."
+
+#: gearimplementations/GearMitailMini.cpp:408
+#, fuzzy
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail Mini (the main service "
+"object could not be created). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de "
+"service principal n'a pas pu être créé). Si vous pensez qu'il s'agit d'une "
+"erreur, veuillez réessayer !"
+
+#: gearimplementations/GearMitailMini.cpp:438
+#, fuzzy
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail Mini (the battery service "
+"was not available). If you feel this is in error, please try again!"
+msgstr ""
+"Une erreur s'est produite lors de la connexion à votre MiTail (l'objet de "
+"service de batterie n'est pas disponible). Si vous pensez qu'il s'agit d'une "
+"erreur, veuillez réessayer !"
+
+#: gearimplementations/GearMitailMini.cpp:488
+#, fuzzy
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail Mini (could not find the battery "
+"level characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+"Il semble que cet appareil ne soit pas un MiTail (pas pu trouver la "
+"caractéristique du niveau de batterie). Si vous êtes certain qu'il s'agit "
+"bien d'un MiTail, veuillez signaler cette erreur à The Tail Company."
+
+#: gearimplementations/GearMitailMini.cpp:528
+#, fuzzy
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail Mini, make "
+"sure it is on and close to this device."
+msgstr ""
+"Une erreur s'est produite. Si vous essayez de vous connecter à votre MiTail, "
+"assurez-vous que la queue soit allumée et proche de cet appareil."
+
+#: gearimplementations/GearMitailMini.cpp:531
+#, fuzzy
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail Mini closed the connection."
+msgstr "Le MiTail a fermé la connexion."
+
+#: gearimplementations/GearMitailMini.cpp:535
+#, fuzzy
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail Mini. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+"La connexion à votre MiTail a échoué. Veuillez réessayer (peut-être le "
+"déplacer plus proche ?)"
+
+#: gearimplementations/GearMitailMini.cpp:570
+#, fuzzy
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail Mini closed the connection, either by being turned off or losing "
+"power. Remember to charge your gear!"
+msgstr ""
+"Le MiTail a fermé la connexion, soit en étant éteint, soit en étant "
+"déchargé. N'oubliez pas de charger votre queue !"
+
+#: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
 msgid "Double Tap"
 msgstr "Double tape"
 
-#: GestureDetectorModel.cpp:222
+#: GestureDetectorModel.cpp:274
 msgctxt "The name of a sensor"
 msgid "Hover"
 msgstr "Survol"
 
-#: GestureDetectorModel.cpp:223
+#: GestureDetectorModel.cpp:275
 msgctxt "The name of a sensor"
 msgid "Freefall"
 msgstr "Tombe libre"
 
-#: GestureDetectorModel.cpp:224
+#: GestureDetectorModel.cpp:276
 msgctxt "The name of a sensor"
 msgid "Landed"
 msgstr "Atterrissage"
 
-#: GestureDetectorModel.cpp:225
+#: GestureDetectorModel.cpp:277
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
 msgstr "Geste de couverture"
 
-#: GestureDetectorModel.cpp:226
+#: GestureDetectorModel.cpp:278
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
 msgstr "Geste de secousse"
 
-#: GestureDetectorModel.cpp:227
+#: GestureDetectorModel.cpp:279
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
 msgstr "Geste de claquement"
 
-#: GestureDetectorModel.cpp:228
+#: GestureDetectorModel.cpp:280
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
 msgstr "Geste de fouet"
 
-#: GestureDetectorModel.cpp:229
+#: GestureDetectorModel.cpp:281
 msgctxt "The name of a sensor"
 msgid "Shake Left"
 msgstr "Secousse à gauche"
 
-#: GestureDetectorModel.cpp:230
+#: GestureDetectorModel.cpp:282
 msgctxt "The name of a sensor"
 msgid "Shake Right"
 msgstr "Secousse à droite"
 
-#: GestureDetectorModel.cpp:231
+#: GestureDetectorModel.cpp:283
 msgctxt "The name of a sensor"
 msgid "Shake Up"
 msgstr "Secousse vers l'haut"
 
-#: GestureDetectorModel.cpp:232
+#: GestureDetectorModel.cpp:284
 msgctxt "The name of a sensor"
 msgid "Shake Down"
 msgstr "Secousse vers le bas"
 
-#: GestureDetectorModel.cpp:233
+#: GestureDetectorModel.cpp:285
 msgctxt "The name of a sensor"
 msgid "Twist Left"
 msgstr "Tourne à gauche"
 
-#: GestureDetectorModel.cpp:234
+#: GestureDetectorModel.cpp:286
 msgctxt "The name of a sensor"
 msgid "Twist Right"
 msgstr "Tourne à droite"
 
-#: GestureDetectorModel.cpp:235
+#: GestureDetectorModel.cpp:287
 msgctxt "The name of a sensor"
 msgid "Pick Up"
 msgstr "Ramasser"
 
-#: GestureDetectorModel.cpp:236
+#: GestureDetectorModel.cpp:288
 msgctxt "The name of a sensor"
 msgid "Turn Over"
 msgstr "Retournement"
 
-#: GestureDetectorModel.cpp:237
+#: GestureDetectorModel.cpp:289
 msgctxt "The name of a sensor"
 msgid "Walking Started"
 msgstr "Debut de marche"
 
-#: GestureDetectorModel.cpp:238
+#: GestureDetectorModel.cpp:290
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
 msgstr "Fin de marche"
 
-#: GestureDetectorModel.cpp:239
+#: GestureDetectorModel.cpp:291
 msgctxt "The name of a sensor"
 msgid "Step Detected"
 msgstr "Pas détecté"
 
-#: GestureDetectorModel.cpp:240
+#: GestureDetectorModel.cpp:292
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
 msgstr "Pas pair détecté"
 
-#: GestureDetectorModel.cpp:241
+#: GestureDetectorModel.cpp:293
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
 msgstr "Pas impair détecté"
+
+#: GestureDetectorModel.cpp:305
+msgctxt ""
+"A message to inform the user a gesture recogniser has been on for too long "
+"and has been automatically disabled for the safety and health of their gear"
+msgid ""
+"Disabled %1 detection after one hour. All animatronic gear needs a rest "
+"after long periods of use. Read our guide to responsible wagging in Settings "
+"for ways to keep your gear healthy."
+msgstr ""
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -695,24 +1007,24 @@ msgctxt ""
 msgid "The gear named %1 is version %2"
 msgstr "L'appareil nommée %1 est version %2"
 
-#: qml/AlarmList.qml:28
+#: qml/AlarmList.qml:29
 msgctxt "Title of the page which lists the alarms the user has set"
 msgid "Alarms"
 msgstr "Alarmes"
 
-#: qml/AlarmList.qml:32
+#: qml/AlarmList.qml:33
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
 msgstr "Ajouter alarme"
 
-#: qml/AlarmList.qml:44
+#: qml/AlarmList.qml:45
 msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
 msgstr "Veuillez choisir un autre nom"
 
-#: qml/AlarmList.qml:45
+#: qml/AlarmList.qml:46
 msgctxt ""
 "Main text for a message box warning the user an alarm with the chosen name "
 "already exists"
@@ -726,14 +1038,14 @@ msgstr ""
 "\n"
 "Veuillez choisir un autre nom pour l'alarme."
 
-#: qml/AlarmList.qml:49
+#: qml/AlarmList.qml:50
 msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
 msgstr "L'alarme a été supprimée"
 
-#: qml/AlarmList.qml:50
+#: qml/AlarmList.qml:51
 msgctxt ""
 "Main text for a message box informing the user the alarm they attempted to "
 "remove does not exist"
@@ -744,38 +1056,38 @@ msgstr ""
 "Impossible de trouver l'alarme nommée '%1'. Peut-être qu'une autre instance "
 "d'application l'a supprimée."
 
-#: qml/AlarmList.qml:80
+#: qml/AlarmList.qml:81
 msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
 msgstr "Modifier les commandes de l'alarme"
 
-#: qml/AlarmList.qml:89
+#: qml/AlarmList.qml:90
 msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
 msgstr "Programmer l'heure de l'alarme"
 
-#: qml/AlarmList.qml:111
+#: qml/AlarmList.qml:112
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
 msgstr "Supprimer l'alarme"
 
-#: qml/AlarmList.qml:115
+#: qml/AlarmList.qml:116
 msgctxt ""
 "Title for a message box which allows the user to delete a specific alarm"
 msgid "Remove the Alarm"
 msgstr "Supprimer l'alarme"
 
-#: qml/AlarmList.qml:116
+#: qml/AlarmList.qml:117
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'alarme '%1' ?"
 
-#: qml/AlarmList.qml:135
+#: qml/AlarmList.qml:136
 msgctxt ""
 "Descriptive text which explains what the functionality is of the alarm page"
 msgid ""
@@ -786,7 +1098,7 @@ msgstr ""
 "puis ajoutez un ou plusieurs mouvements que vous voulez exécuter à cette "
 "heure-là."
 
-#: qml/AlarmList.qml:142
+#: qml/AlarmList.qml:143
 msgctxt ""
 "Descriptive text for a popup which allows the user to create a new, named "
 "alarm"
@@ -795,14 +1107,14 @@ msgstr ""
 "Saisissez un nom à utiliser pour votre nouvelle alarme puis cliquez sur "
 "Créer."
 
-#: qml/AlarmList.qml:143
+#: qml/AlarmList.qml:144
 msgctxt ""
 "Placeholder text for the text box in which the name of a new alarm must be "
 "written"
 msgid "Enter your alarm name here"
 msgstr "Saisissez le nom de votre alarme ici"
 
-#: qml/AlarmList.qml:144
+#: qml/AlarmList.qml:145
 msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
 msgstr "Créer"
@@ -871,22 +1183,22 @@ msgid_plural "Total duration: %1 seconds"
 msgstr[0] "Durée totale: %1 seconde"
 msgstr[1] "Durée totale: %1 secondes"
 
-#: qml/BaseMovesComponent.qml:204
+#: qml/BaseMovesComponent.qml:207
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
 msgstr "Selectionner destinataire"
 
-#: qml/BaseMovesComponent.qml:213
+#: qml/BaseMovesComponent.qml:216
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
 msgstr "Choisissez dans la liste ci-dessous la destinataire de votre commande."
 
-#: qml/BaseMovesComponent.qml:258
+#: qml/BaseMovesComponent.qml:262
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
 msgstr "Envoyer a l'appareil sélectionné"
 
-#: qml/BaseMovesComponent.qml:267
+#: qml/BaseMovesComponent.qml:271
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
 msgstr "Envoyer a tous les appareils"
@@ -911,14 +1223,22 @@ msgctxt ""
 msgid "Add this pause"
 msgstr "Ajouter cette pause"
 
-#: qml/ConnectToTail.qml:69
+#: qml/ConnectToTail.qml:48
+#, fuzzy
+msgctxt ""
+"Button for the action of connecting to all found devices, in the popup for "
+"connecting to devices"
+msgid "Connect All"
+msgstr "Connecter"
+
+#: qml/ConnectToTail.qml:86
 msgctxt ""
 "Button for the action of disconnecting a device, in the prompt for "
 "connecting a device"
 msgid "Disconnect"
 msgstr "Deconnecter"
 
-#: qml/ConnectToTail.qml:70
+#: qml/ConnectToTail.qml:87
 msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
@@ -1051,19 +1371,19 @@ msgctxt ""
 msgid "Shut Down Gear"
 msgstr ""
 
-#: qml/EarPoses.qml:26
+#: qml/EarPoses.qml:27
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
 msgstr "Poses d'Oreilles"
 
-#: qml/EarPoses.qml:29
+#: qml/EarPoses.qml:30
 msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
 msgstr "Position de Repos"
 
-#: qml/EarPoses.qml:37
+#: qml/EarPoses.qml:38
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
@@ -1073,18 +1393,18 @@ msgstr ""
 "équipement. Touchez l'une d'entre elles pour les envoyer à l'un de vos "
 "appareils connectés !"
 
-#: qml/EarPoses.qml:40
+#: qml/EarPoses.qml:41
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
 msgid "Be Calm"
 msgstr ""
 
-#: qml/EarPoses.qml:48
+#: qml/EarPoses.qml:49
 #, fuzzy
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
 msgstr "Rapide et excitée"
 
-#: qml/EarPoses.qml:62
+#: qml/EarPoses.qml:63
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
@@ -1213,126 +1533,132 @@ msgctxt "Title of the application"
 msgid "Crumpet"
 msgstr "Crumpet"
 
-#: qml/main.qml:98
+#: qml/main.qml:96
 msgctxt "Text for the notification upon connecting successfully to a device"
 msgid "Connected successfully!"
 msgstr "Connexion réussie!"
 
-#: qml/main.qml:119
+#: qml/main.qml:117
 msgctxt "Title for the warning for having Bluetooth disabled"
 msgid "Warning"
 msgstr "Attention!"
 
-#: qml/main.qml:119
+#: qml/main.qml:117
 msgctxt "Message for the warning for having Bluetooth disabled"
 msgid "Bluetooth is disabled"
 msgstr "Votre Bluetooth est désactivé"
 
-#: qml/main.qml:121
+#: qml/main.qml:119
 msgctxt "Title for the warning for not having detected any Bluetooth devices"
 msgid "Warning"
 msgstr "Attention!"
 
-#: qml/main.qml:121
+#: qml/main.qml:119
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
 msgid "No Bluetooth Device"
 msgstr "Aucun dispositif Bluetooth"
 
-#: qml/main.qml:134
+#: qml/main.qml:132
 msgctxt "Title for the popup for having enabled Developer Mode"
 msgid "Developer mode"
 msgstr "Mode developpeur"
 
-#: qml/main.qml:134
+#: qml/main.qml:132
 msgctxt "Message for the popup for having enabled Developer Mode"
 msgid "Developer mode is enabled"
 msgstr "Mode developpeur activé"
 
-#: qml/main.qml:136
+#: qml/main.qml:134
 msgctxt "Title for the popup for having disabled Developer Mode"
 msgid "Developer mode"
 msgstr "Mode developpeur"
 
-#: qml/main.qml:136
+#: qml/main.qml:134
 msgctxt "Message for the popup for having disabled Developer Mode"
 msgid "Developer mode is disabled"
 msgstr "Mode developpeur desactivé"
 
-#: qml/main.qml:141
+#: qml/main.qml:139
 msgctxt "Title for the popup for getting a timeout for Casual Mode"
 msgid "Casual Mode is Off"
 msgstr "Mode Occasionel desactivé"
 
-#: qml/main.qml:141
+#: qml/main.qml:139
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
 "Il est peut-être temps de faire une pause... Laissez votre queue ou vos "
 "oreilles faire une sieste."
 
-#: qml/main.qml:202
+#: qml/main.qml:200
 msgctxt "Button for opening the Crumpet page, from the landing page"
 msgid "Crumpet"
 msgstr "Crumpet"
 
-#: qml/main.qml:210
+#: qml/main.qml:208
 msgctxt "Button for opening the Alarm page, from the landing page"
 msgid "Alarm"
 msgstr "Alarme"
 
-#: qml/main.qml:220
+#: qml/main.qml:218
 msgctxt "Button for opening the Move List page, from the landing page"
 msgid "Move Lists"
 msgstr "Liste de Mouvements"
 
-#: qml/main.qml:230
+#: qml/main.qml:228
 msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
 msgid "Moves"
 msgstr "Mouvements"
 
-#: qml/main.qml:239
+#: qml/main.qml:237
 msgctxt "Button for opening the EarGear Poses page, from the landing page"
 msgid "Ear Poses"
 msgstr "Poses d'Oreilles"
 
-#: qml/main.qml:248
+#: qml/main.qml:246
 msgctxt "Button for opening the Glow Tips page, from the landing page"
 msgid "Glow Tips"
 msgstr "Pointes Lumineuses"
 
-#: qml/main.qml:257
+#: qml/main.qml:255
 msgctxt ""
 "Button for opening the page for setting up the Casual Mode, from the landing "
 "page"
 msgid "Casual Mode Settings"
 msgstr "Paramètres du Mode Occasionel"
 
-#: qml/main.qml:266
+#: qml/main.qml:264
 msgctxt "Button for opening the Gear Gestures page, from the landing page"
 msgid "Gear Gestures"
 msgstr "Gestes"
 
-#: qml/main.qml:275
+#: qml/main.qml:273
 msgctxt "Button for opening the Developer Mode page, from the landing page"
 msgid "Developer Mode"
 msgstr "Mode Developpeur"
 
-#: qml/main.qml:290
+#: qml/main.qml:288
 msgctxt "Button for opening the Settings Page, from the landing page"
 msgid "Settings"
 msgstr "Paramètres"
 
-#: qml/main.qml:301
+#: qml/main.qml:299
 msgctxt "Button for opening the About Us page, from the landing page"
 msgid "About"
 msgstr "À propos de"
 
-#: qml/main.qml:321
+#: qml/main.qml:307
+msgctxt ""
+"Button for opening the TailCo website in a browser, from the landing page"
+msgid "TheTailCompany.com"
+msgstr ""
+
+#: qml/main.qml:327
 msgctxt "Title for the confirmation popup for disconnecting your gear"
 msgid "Your gear is currently connected"
 msgstr "Votre équipement est actuellement connecté"
 
-#: qml/main.qml:322
+#: qml/main.qml:328
 msgctxt "Message for the confirmation popup for disconnecting your gear"
 msgid ""
 "You are currently connected to some of your gear.\n"
@@ -1343,24 +1669,25 @@ msgstr ""
 "\n"
 "Êtes-vous sûr de vouloir vous déconnecter et quitter ?"
 
-#: qml/main.qml:386
+#: qml/main.qml:400
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your new gear"
 msgstr "Entrez un nom à utiliser pour votre nouvel équipement"
 
-#: qml/main.qml:387
+#: qml/main.qml:401
+#, fuzzy
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
-msgid "Enter the name here"
+msgid "Enter the new name for %1 here"
 msgstr "Entrez un nom ici"
 
-#: qml/main.qml:388
+#: qml/main.qml:402
 msgctxt ""
 "Button for confirming the save of your new name, for the prompt for entering "
 "a name for your Gear"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: qml/main.qml:429
+#: qml/main.qml:443
 msgctxt "Label for your gear that gets shown when attempting to connect to it"
 msgid "Attempting to connect..."
 msgstr "Tentative de connexion..."
@@ -1411,61 +1738,61 @@ msgstr ""
 "Est ce que vous êtes sur de vouloir supprimer cet élément de la Liste des "
 "Mouvements ?"
 
-#: qml/MoveLists.qml:27
+#: qml/MoveLists.qml:28
 msgctxt "Heading for the page for viewing Move Lists"
 msgid "Move Lists"
 msgstr "Liste de Mouvements"
 
-#: qml/MoveLists.qml:31
+#: qml/MoveLists.qml:32
 msgctxt ""
 "Label for the button for adding a new Move List, on the page for viewing "
 "Move Lists"
 msgid "Add New Move List"
 msgstr "Ajouter une nouvelle Liste de Mouvements"
 
-#: qml/MoveLists.qml:48
+#: qml/MoveLists.qml:49
 msgctxt ""
 "Heading for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Run this list?"
 msgstr "Exécuter cette Liste?"
 
-#: qml/MoveLists.qml:49
+#: qml/MoveLists.qml:50
 msgctxt ""
 "Message for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Do you want to run the list %1?"
 msgstr "Est ce que vous voulez exécuter la liste %1?"
 
-#: qml/MoveLists.qml:56
+#: qml/MoveLists.qml:57
 msgctxt ""
 "Label for the button for editing a move list, on the page for viewing Move "
 "Lists"
 msgid "Edit Move List"
 msgstr "Modifier cette Liste de Mouvements"
 
-#: qml/MoveLists.qml:64
+#: qml/MoveLists.qml:65
 msgctxt ""
 "Label for the button for deleting a move list, on the page for viewing Move "
 "Lists"
 msgid "Delete this Move List"
 msgstr "Effacer cette Liste de Mouvements"
 
-#: qml/MoveLists.qml:68
+#: qml/MoveLists.qml:69
 msgctxt ""
 "Heading for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Remove the Move List"
 msgstr "Effacer une Liste de Mouvements"
 
-#: qml/MoveLists.qml:69
+#: qml/MoveLists.qml:70
 msgctxt ""
 "Message for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Are you sure that you want to remove the Move List '%1'?"
 msgstr "Êtes-vous sûr de vouloir supprimer la Liste de Mouvements '%1' ?"
 
-#: qml/MoveLists.qml:86
+#: qml/MoveLists.qml:87
 msgctxt "Description for the page for viewing Move Lists"
 msgid ""
 "Create lists of moves, glows and pauses to send to your gear. To send a list "
@@ -1478,7 +1805,7 @@ msgstr ""
 "avez créées, comme les modifier ou même les supprimer entièrement, faites "
 "glisser l'élément vers la gauche."
 
-#: qml/MoveLists.qml:93
+#: qml/MoveLists.qml:94
 msgctxt ""
 "Description for the prompt for giving a name to a move list, on the page for "
 "viewing Move Lists"
@@ -1487,28 +1814,28 @@ msgstr ""
 "Saisissez un nom à utiliser pour votre nouvelle Liste de Mouvements et "
 "cliquez sur Créer."
 
-#: qml/MoveLists.qml:94
+#: qml/MoveLists.qml:95
 msgctxt ""
 "Placeholder text for the textfield for the prompt for giving a name to a "
 "move list, on the page for viewing Move Lists"
 msgid "Enter your move list name here"
 msgstr "Saisissez le nom de votre nouvelle Liste de Mouvements ici."
 
-#: qml/MoveLists.qml:95
+#: qml/MoveLists.qml:96
 msgctxt ""
 "Confirmating button for the prompt for giving a name to a move list, on the "
 "page for viewing Move Lists"
 msgid "Create"
 msgstr "Créer"
 
-#: qml/MoveLists.qml:99
+#: qml/MoveLists.qml:100
 msgctxt ""
 "Header for the warning that a name is already in use, for the prompt for "
 "giving a name to a move list, on the page for viewing Move Lists"
 msgid "Name Already Used"
 msgstr "Veuillez choisir un autre nom"
 
-#: qml/MoveLists.qml:100
+#: qml/MoveLists.qml:101
 msgctxt ""
 "Description for the warning that a name is already in use, for the prompt "
 "for giving a name to a move list, on the page for viewing Move Lists"
@@ -1524,24 +1851,24 @@ msgctxt "Text header for picking a name"
 msgid "Pick a name"
 msgstr "Veuillez saisir un nom"
 
-#: qml/NotConnectedCard.qml:46
+#: qml/NotConnectedCard.qml:38
 msgctxt ""
 "Header warning for missing scan permissions, for the gear connecting card"
 msgid "Let us look for your gear"
 msgstr "Laissez-nous chercher votre matériel"
 
-#: qml/NotConnectedCard.qml:49
+#: qml/NotConnectedCard.qml:41
 msgctxt "Header for whilst scanning, for the gear connecting card"
 msgid "Searching for gear..."
 msgstr "Recherche d'équipement..."
 
-#: qml/NotConnectedCard.qml:53
+#: qml/NotConnectedCard.qml:45
 msgctxt ""
 "Header warning that no gear has been found, for the gear connecting card"
 msgid "No gear found"
 msgstr "Aucun équipement trouvé"
 
-#: qml/NotConnectedCard.qml:56
+#: qml/NotConnectedCard.qml:48
 msgctxt ""
 "Header notifying that gear has been found, for the gear connecting card"
 msgid "One piece of gear available"
@@ -1549,9 +1876,26 @@ msgid_plural "Multiple pieces of gear available"
 msgstr[0] "Une pièce d'équipement disponible"
 msgstr[1] "Plusieurs pièces d'équipement disponibles"
 
-#: qml/NotConnectedCard.qml:82
+#: qml/NotConnectedCard.qml:75
+#, fuzzy
 msgctxt ""
 "Message warning for missing scan permissions, for the gear connecting card"
+msgid ""
+"To be able to find your gear, we need you to grant permission to scan for "
+"nearby devices. Clicking the button below will show you a dialog that you "
+"need to press allow on."
+msgstr ""
+"Pour pouvoir retrouver votre matériel, nous avons besoin que vous pour nous "
+"autoriser à accéder votre emplacement. En cliquant sur le bouton ci-dessous, "
+"vous verrez apparaître une boîte de dialogue sur laquelle vous devez cliquer "
+"pour l'autoriser. Nous n'utilisons pas ces informations à d'autres fins "
+"(n'hésitez pas à nous contacter si vous voulez en avoir la preuve)"
+
+#: qml/NotConnectedCard.qml:78
+#, fuzzy
+msgctxt ""
+"Message warning for missing location permissions, for the gear connecting "
+"card"
 msgid ""
 "To be able to find your gear, we need you to grant permission to access your "
 "location. Clicking the button below will show you a dialog that you need to "
@@ -1564,14 +1908,14 @@ msgstr ""
 "pour l'autoriser. Nous n'utilisons pas ces informations à d'autres fins "
 "(n'hésitez pas à nous contacter si vous voulez en avoir la preuve)"
 
-#: qml/NotConnectedCard.qml:86
+#: qml/NotConnectedCard.qml:83
 msgctxt ""
 "Message whilst scanning warning that no gear has been found, for the gear "
 "connecting card"
 msgid "None found yet..."
 msgstr "Aucun trouvé en ce moment..."
 
-#: qml/NotConnectedCard.qml:89
+#: qml/NotConnectedCard.qml:86
 msgctxt ""
 "Message whilst scanning notifying that gear has been found, for the gear "
 "connecting card"
@@ -1587,7 +1931,7 @@ msgstr[1] ""
 "Trouvé %1 pièces d'équipement jusqu'à présent. Pour les voir, clique sur "
 "\"Afficher le matériel disponible...\". ci-dessous."
 
-#: qml/NotConnectedCard.qml:94
+#: qml/NotConnectedCard.qml:91
 msgctxt ""
 "Message after scanning warning that no gear has been found, for the gear "
 "connecting card"
@@ -1598,7 +1942,7 @@ msgstr ""
 "Nous n'avons pas pu trouver d'équipement. Veuillez vous assurer que le vôtre "
 "est à proximité et allumé."
 
-#: qml/NotConnectedCard.qml:97
+#: qml/NotConnectedCard.qml:94
 msgctxt ""
 "Message after scanning notifying that gear has been found, for the gear "
 "connecting card"
@@ -1616,28 +1960,37 @@ msgstr[1] ""
 "trouvés %1. Veuillez cliquez sur \"Afficher les équipements disponibles...\" "
 "ci-dessous pour voir ce qui est disponible."
 
-#: qml/NotConnectedCard.qml:108
+#: qml/NotConnectedCard.qml:106
+#, fuzzy
 msgctxt ""
 "Label for button for opening the settings tab to fix missing scan "
+"permissions, for the gear connecting card"
+msgid "Get Scan Permission..."
+msgstr "Obtenir les autorisations de Localisation..."
+
+#: qml/NotConnectedCard.qml:109
+#, fuzzy
+msgctxt ""
+"Label for button for opening the settings tab to fix missing location "
 "permissions, for the gear connecting card"
 msgid "Get Location Permission..."
 msgstr "Obtenir les autorisations de Localisation..."
 
-#: qml/NotConnectedCard.qml:110
+#: qml/NotConnectedCard.qml:112
 msgctxt ""
 "Label for button for connecting to a specific piece of gear, for the gear "
 "connecting card"
 msgid "Connect to %1"
 msgstr "Connecter à %1"
 
-#: qml/NotConnectedCard.qml:112
+#: qml/NotConnectedCard.qml:114
 msgctxt ""
 "Label for button for showing a list of available gear, for the gear "
 "connecting card"
 msgid "Show available gear..."
 msgstr "Afficher les équipements disponibles..."
 
-#: qml/NotConnectedCard.qml:132
+#: qml/NotConnectedCard.qml:134
 #, fuzzy
 msgctxt ""
 "Label for button which causes the list of available gear to be refreshed, "
@@ -1781,12 +2134,41 @@ msgstr ""
 "Ceci comprend des instructions sur la façon de porter votre queue ou vos "
 "oreilles, ainsi que quelques jolis graphiques sur le sujet."
 
-#: qml/SettingsPage.qml:56
+#: qml/SettingsPage.qml:43
+msgctxt "Label showing all the items underneath are links to a PDF file"
+msgid "Download PDF:"
+msgstr ""
+
+#: qml/SettingsPage.qml:47
+msgctxt ""
+"Label for downloading the general guide for safe use of the various gear"
+msgid "Responsible Wagging Guide"
+msgstr ""
+
+#: qml/SettingsPage.qml:52
+#, fuzzy
+msgctxt "Label for downloading the instructions for the MiTail"
+msgid "MiTail Instructions"
+msgstr "Manuel"
+
+#: qml/SettingsPage.qml:57
+#, fuzzy
+msgctxt "Label for downloading the instructions for the Digitail"
+msgid "Digitail Instructions"
+msgstr "Manuel"
+
+#: qml/SettingsPage.qml:62
+#, fuzzy
+msgctxt "Label for downloading the instructions for EarGear"
+msgid "EarGear Instructions"
+msgstr "Manuel"
+
+#: qml/SettingsPage.qml:69
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
 msgid "Automatic Reconnection"
 msgstr "Reconnection automatique"
 
-#: qml/SettingsPage.qml:57
+#: qml/SettingsPage.qml:70
 msgctxt ""
 "Description for the panel on automatic reconnection, on the settings page"
 msgid ""
@@ -1798,19 +2180,19 @@ msgstr ""
 "équipement. En cochant cette option, l'application tentera de se reconnecter "
 "automatiquement lorsque la connexion est perdue."
 
-#: qml/SettingsPage.qml:59
+#: qml/SettingsPage.qml:72
 msgctxt ""
 "Checkbox for enabling automatic reconnection, on the automatic reconnection "
 "panel in the settings page"
 msgid "Reconnect Automatically"
 msgstr "Reconnection automatique"
 
-#: qml/SettingsPage.qml:68
+#: qml/SettingsPage.qml:81
 msgctxt "Header for the panel for changing gear names, on the settings page"
 msgid "Gear Names"
 msgstr "Nom des équipements"
 
-#: qml/SettingsPage.qml:69
+#: qml/SettingsPage.qml:82
 msgctxt ""
 "Description for the panel for changing gear names, on the settings page"
 msgid ""
@@ -1821,21 +2203,21 @@ msgstr ""
 "donné un nom, cliquez sur le bouton ci-dessous pour que l'application les "
 "oublie tous."
 
-#: qml/SettingsPage.qml:71
+#: qml/SettingsPage.qml:84
 msgctxt ""
 "Label for the button for clearing gear names, on the panel for changing gear "
 "names, on the settings page"
 msgid "Forget Gear Names"
 msgstr "Oubliez les noms d'équipement"
 
-#: qml/SettingsPage.qml:74
+#: qml/SettingsPage.qml:87
 msgctxt ""
 "Header for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
 msgid "Clear the names?"
 msgstr "Effacer les noms ?"
 
-#: qml/SettingsPage.qml:75
+#: qml/SettingsPage.qml:88
 msgctxt ""
 "Text for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
@@ -1846,13 +2228,13 @@ msgstr ""
 "Confirmez que vous voulez bien effacer *tous* les noms d'appareils "
 "enregistrés."
 
-#: qml/SettingsPage.qml:82
+#: qml/SettingsPage.qml:95
 msgctxt ""
 "Header for the panel for adding commands to your gear, on the settings page"
 msgid "Gear Commands"
 msgstr "Commandes d'équipements"
 
-#: qml/SettingsPage.qml:83
+#: qml/SettingsPage.qml:96
 msgctxt ""
 "Description for the panel for adding commands to your gear, on the settings "
 "page"
@@ -1870,28 +2252,28 @@ msgstr ""
 "assurez-vous de donner un nom à votre équipement, ainsi vous pourrez les "
 "distinguer plus simplements."
 
-#: qml/SettingsPage.qml:87
+#: qml/SettingsPage.qml:100
 msgctxt ""
 "Checkbox for hiding non-connected gear, on the panel for adding commands to "
 "your gear, on the settings page"
 msgid "Only Show Connected Gear"
 msgstr "Afficher uniquement les équipements connectés"
 
-#: qml/SettingsPage.qml:100
+#: qml/SettingsPage.qml:113
 msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
 msgstr "Pas d'équipement à configurer..."
 
-#: qml/SettingsPage.qml:125
+#: qml/SettingsPage.qml:138
 msgctxt ""
 "Heading for the panel for adjusting microphone levels for the earGear, on "
 "the settings page"
 msgid "EarGear Hearing"
 msgstr "L'écoute d'EarGear"
 
-#: qml/SettingsPage.qml:126
+#: qml/SettingsPage.qml:139
 msgctxt ""
 "Description for the panel for adjusting microphone levels for the earGear, "
 "on the settings page"
@@ -1915,28 +2297,28 @@ msgstr ""
 "l'arrière de votre corps, ou à l'envers pour que le câble puisse passer plus "
 "facilement)."
 
-#: qml/SettingsPage.qml:142
+#: qml/SettingsPage.qml:155
 msgctxt ""
 "Label for the button for unswapping left and right, on the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Unswap left and right"
 msgstr "Permutation gauche et droite"
 
-#: qml/SettingsPage.qml:143
+#: qml/SettingsPage.qml:156
 msgctxt ""
 "Label for the button for swapping left and right, the panel for adjusting "
 "microphone levels for the earGear, on the settings page"
 msgid "Swap left and right"
 msgstr "Depermuter gauche et droite"
 
-#: qml/SettingsPage.qml:150
+#: qml/SettingsPage.qml:163
 msgctxt ""
 "Label for the button for rebalancing microphone levels, the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Rebalance Microphones"
 msgstr "Équilibrage EarGear"
 
-#: qml/SettingsPage.qml:163
+#: qml/SettingsPage.qml:176
 #, fuzzy
 msgctxt ""
 "Heading for the panel for checking for and performing firmware updates for "
@@ -1944,7 +2326,7 @@ msgctxt ""
 msgid "Gear Firmware"
 msgstr "Nom des équipements"
 
-#: qml/SettingsPage.qml:164
+#: qml/SettingsPage.qml:177
 msgctxt ""
 "Description for the panel for checking for and perfirming firmware updates "
 "for gear which supports this"
@@ -1954,14 +2336,14 @@ msgid ""
 "the button underneath to download and install the update."
 msgstr ""
 
-#: qml/SettingsPage.qml:180
+#: qml/SettingsPage.qml:193
 msgctxt ""
 "Label for the button which makes the app go online and check for the newest "
 "firmware available for the specific device"
 msgid "Check For New Firmware"
 msgstr ""
 
-#: qml/SettingsPage.qml:189
+#: qml/SettingsPage.qml:202
 msgctxt ""
 "Label displaying the currently installed and available firmware versions "
 "when they are different"
@@ -1970,14 +2352,14 @@ msgid ""
 "to install"
 msgstr ""
 
-#: qml/SettingsPage.qml:195
+#: qml/SettingsPage.qml:208
 msgctxt ""
 "Label for the button which makes the app download the newest available "
 "firmware (only visible when updated firmware has been found)"
 msgid "Download"
 msgstr ""
 
-#: qml/SettingsPage.qml:203
+#: qml/SettingsPage.qml:216
 msgctxt ""
 "Label giving a set of instructions and warnings that users should be aware "
 "of before attempting to install new firmware"
@@ -1999,7 +2381,7 @@ msgid ""
 "in case it doesn't, just click the Connect button on the front page as usual."
 msgstr ""
 
-#: qml/SettingsPage.qml:209
+#: qml/SettingsPage.qml:222
 msgctxt ""
 "Label for the button which makes the app install the newest available "
 "firmware (only visible when updated firmware has been downloaded "
@@ -2007,12 +2389,12 @@ msgctxt ""
 msgid "Install"
 msgstr ""
 
-#: qml/SettingsPage.qml:220
+#: qml/SettingsPage.qml:233
 msgctxt "Heading for the panel of the language selector, on the settings page"
 msgid "Language"
 msgstr ""
 
-#: qml/SettingsPage.qml:221
+#: qml/SettingsPage.qml:234
 msgctxt "Description of the language selection option on the settings page"
 msgid ""
 "Usually, Crumpet will use the language that your device uses, or English if "
@@ -2020,22 +2402,23 @@ msgid ""
 "you can select it here, and we will use that language instead."
 msgstr ""
 
-#: qml/SettingsPage.qml:245
+#: qml/SettingsPage.qml:258
 msgctxt ""
 "Heading for the panel for the demo modus of the app, on the settings page"
 msgid "Fake Tail"
 msgstr "Queue simulée"
 
-#: qml/SettingsPage.qml:246
+#: qml/SettingsPage.qml:259
+#, fuzzy
 msgctxt ""
 "Description for the panel for the demo modus of the app, on the settings page"
 msgid ""
 "If you have just downloaded the app, for example in anticipation of the "
-"arrival of your brand new, super shiny DIGITAiL or EarGear, you might want "
-"to explore what the app can do. You can click the button below to trick the "
-"app into thinking that there is a tail nearby, and let you explore what "
-"options exist. Enabling this option will make a fake tail show up on the "
-"welcome page."
+"arrival of your brand new, super shiny MiTail or EarGear, you might want to "
+"explore what the app can do. You can click the button below to trick the app "
+"into thinking that there is a tail nearby, and let you explore what options "
+"exist. Enabling this option will make a fake tail show up on the welcome "
+"page."
 msgstr ""
 "Si vous venez de télécharger l'application, par exemple en attendant "
 "l'arrivée de votre DIGITAiL ou EarGear tout neuf et super brillant, vous "
@@ -2045,24 +2428,24 @@ msgstr ""
 "En activant cette option, une fausse queue apparaîtra sur votre page de "
 "bienvenue."
 
-#: qml/SettingsPage.qml:248
+#: qml/SettingsPage.qml:261
 msgctxt ""
 "Label for the checkbox for showing a fake tail inside the app, on the panel "
 "for the demo modus of the app, on the settings page"
 msgid "Show Fake Tail"
 msgstr "Affichier une queue simulée"
 
-#: qml/TailLights.qml:24
+#: qml/TailLights.qml:25
 msgctxt "Header for the page for the Glow Tips"
 msgid "Glow Tips"
 msgstr "Pointes Lumineuses"
 
-#: qml/TailLights.qml:27
+#: qml/TailLights.qml:28
 msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
 msgid "Stop Lights"
 msgstr "Arrêtez les motifs lumineux"
 
-#: qml/TailLights.qml:36
+#: qml/TailLights.qml:37
 msgctxt ""
 "Description for the list of light patterns, on the page for the Glow Tips"
 msgid ""
@@ -2073,22 +2456,22 @@ msgstr ""
 "équipement. Touchez l'un d'entre eux pour les envoyer à n'importe lequel de "
 "vos appareils connectés !"
 
-#: qml/TailLights.qml:43
+#: qml/TailLights.qml:44
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
 msgid "LED Patterns"
 msgstr "Motifs Lumineux"
 
-#: qml/TailMoves.qml:24
+#: qml/TailMoves.qml:25
 msgctxt "Heading for the Moves page"
 msgid "Moves"
 msgstr "Mouvements"
 
-#: qml/TailMoves.qml:27
+#: qml/TailMoves.qml:28
 msgctxt "Button for returning the tail to its home position, on the Moves page"
 msgid "Home Position"
 msgstr "Position de Repos"
 
-#: qml/TailMoves.qml:35
+#: qml/TailMoves.qml:36
 msgctxt "Description for the list of moves, on the Moves page"
 msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
@@ -2098,19 +2481,19 @@ msgstr ""
 "équipement. Touchez l'un d'entre eux pour les envoyer à n'importe lequel de "
 "vos appareils connectés !"
 
-#: qml/TailMoves.qml:42
+#: qml/TailMoves.qml:43
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Moves page"
 msgid "Calm and Relaxed"
 msgstr "Calme et relaxe"
 
-#: qml/TailMoves.qml:47
+#: qml/TailMoves.qml:48
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Moves page"
 msgid "Fast and Excited"
 msgstr "Rapide et excitée"
 
-#: qml/TailMoves.qml:52
+#: qml/TailMoves.qml:53
 msgctxt "Description for the category for the Tense Moveset, on the Moves page"
 msgid "Frustrated and Tense"
 msgstr "Frustrée et tendu"
