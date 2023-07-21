@@ -434,7 +434,17 @@ Kirigami.ApplicationWindow {
             enabled: connectingToTail.opacity > 0;
             onClicked: {}
         }
+        Kirigami.AbstractCard {
+            anchors {
+                top: connectingLabel.top
+                left: connectingLabel.left
+                right: connectingLabel.right
+                bottom: connectingSpinner.bottom;
+                margins: -Kirigami.Units.largeSpacing;
+            }
+        }
         Label {
+            id: connectingLabel
             anchors {
                 bottom: parent.verticalCenter;
                 bottomMargin: Kirigami.Units.smallMargin;
@@ -443,6 +453,7 @@ Kirigami.ApplicationWindow {
             text: i18nc("Label for your gear that gets shown when attempting to connect to it", "Attempting to connect...");
         }
         BusyIndicator {
+            id: connectingSpinner
             anchors {
                 top: parent.verticalCenter;
                 topMargin: Kirigami.Units.smallMargin;
