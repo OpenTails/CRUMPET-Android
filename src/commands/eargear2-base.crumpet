@@ -100,19 +100,19 @@
         },
         {
             "Category": "eargearposes",
-            "Command": "FLICK LEFT",
-            "Duration": 2000,
-            "Group": 0,
-            "MinimumCooldown": 500,
-            "Name": "Flick Right"
-        },
-        {
-            "Category": "eargearposes",
             "Command": "FLICK RIGHT",
             "Duration": 2000,
             "Group": 0,
             "MinimumCooldown": 500,
             "Name": "Flick Left"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "FLICK LEFT",
+            "Duration": 2000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Flick Right"
         },
         {
             "Category": "eargearposes",
@@ -132,14 +132,6 @@
         },
         {
             "Category": "eargearposes",
-            "Command": "LEFT LISTEN",
-            "Duration": 2000,
-            "Group": 0,
-            "MinimumCooldown": 500,
-            "Name": "Right Listen"
-        },
-        {
-            "Category": "eargearposes",
             "Command": "RIGHT LISTEN",
             "Duration": 2000,
             "Group": 0,
@@ -148,11 +140,11 @@
         },
         {
             "Category": "eargearposes",
-            "Command": "DOUBLE LEFT",
-            "Duration": 1000,
+            "Command": "LEFT LISTEN",
+            "Duration": 2000,
             "Group": 0,
             "MinimumCooldown": 500,
-            "Name": "Double Right"
+            "Name": "Right Listen"
         },
         {
             "Category": "eargearposes",
@@ -161,6 +153,14 @@
             "Group": 0,
             "MinimumCooldown": 500,
             "Name": "Double Left"
+        },
+        {
+            "Category": "eargearposes",
+            "Command": "DOUBLE LEFT",
+            "Duration": 1000,
+            "Group": 0,
+            "MinimumCooldown": 500,
+            "Name": "Double Right"
         }
     ],
     "Shorthands": [
