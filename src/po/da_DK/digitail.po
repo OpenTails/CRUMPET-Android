@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-23 14:15+0000\n"
+"PO-Revision-Date: 2023-07-24 10:59+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: Danish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/da/>\n"
@@ -185,7 +185,7 @@ msgctxt ""
 msgid "Congratulations, your gear has been successfully updated to version %1!"
 msgstr ""
 "Tillykke! Opgraderingen af dit udstyr til version %1 blev gennemført med "
-"success."
+"success!"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -233,7 +233,7 @@ msgid ""
 "congratulations!"
 msgstr ""
 "Tillykke! Du har allerede den nyeste version af firmwaren isntalleret på dit "
-"udstyr."
+"udstyr!"
 
 #: gearimplementations/GearEars.cpp:447
 #: gearimplementations/GearFlutterWings.cpp:332
@@ -1757,7 +1757,7 @@ msgctxt ""
 "Header for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Remove Move List Entry?"
-msgstr "Fjern Bevægelsesliste"
+msgstr "Fjern Bevægelsesliste?"
 
 #: qml/MoveListEditor.qml:52
 msgctxt ""
@@ -2152,7 +2152,7 @@ msgstr ""
 #: qml/SettingsPage.qml:43
 msgctxt "Label showing all the items underneath are links to a PDF file"
 msgid "Download PDF:"
-msgstr "Download PDF"
+msgstr "Download PDF:"
 
 #: qml/SettingsPage.qml:47
 msgctxt ""
