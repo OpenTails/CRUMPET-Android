@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-23 15:24+0000\n"
+"PO-Revision-Date: 2023-07-24 10:59+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: Czech <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/cs/>\n"
@@ -368,6 +368,8 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Tvoje zařízení nebylo rozpoznáno. Tvoje verze této aplikace je pravděpodobně "
+"zastaralá a potřebuje update."
 
 #: gearimplementations/GearEars.cpp:799
 msgctxt ""
@@ -379,6 +381,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"Z nějakého důvodu mají tvé uši firmware který nenahlašuje verzi hardwaru, a "
+"nejedná se o verzi kde je toto známý bug. Toto je velmi vzácná a nečekaná "
+"situace, byli bychom rádi kdyby jsi nás kontaktoval na info@"
+"thetailcompany.com - děkujeme!"
 
 #: gearimplementations/GearEars.cpp:827
 #: gearimplementations/GearFlutterWings.cpp:696
