@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2021-08-04 14:13+0100\n"
-"Last-Translator: Caroline the Husky <mii@miifox.nl>\n"
-"Language-Team: English <kde-i18n-doc@kde.org>\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2023-07-23 15:24+0000\n"
+"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Language-Team: French <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -40,9 +41,9 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
-"Impossible de charger vos commandes, en raison d'une erreur d'analyse à %1 : "
+"Impossible de charger vos commandes, en raison d'une erreur d'analyse à %1 : "
 "%2\n"
-"Code conduisant à l'erreur:\n"
+"Code conduisant à l'erreur :\n"
 "%3"
 
 #: CommandPersistence.cpp:174
@@ -1152,7 +1153,7 @@ msgid ""
 "cooldown: %3 seconds</small>"
 msgstr ""
 "<strong>%1</strong><br/><small>%2 secondes</small><br/><small>Temps de "
-"refroidissement supplémentaire: %3 secondes</small>"
+"refroidissement supplémentaire : %3 secondes</small>"
 
 #: qml/BaseCommandListEditor.qml:204
 msgctxt ""
@@ -1180,8 +1181,8 @@ msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] "Durée totale: %1 seconde"
-msgstr[1] "Durée totale: %1 secondes"
+msgstr[0] "Durée totale : %1 seconde"
+msgstr[1] "Durée totale : %1 secondes"
 
 #: qml/BaseMovesComponent.qml:207
 msgctxt "Header for the overlay for selecting the destination for a command"
@@ -1536,12 +1537,12 @@ msgstr "Crumpet"
 #: qml/main.qml:96
 msgctxt "Text for the notification upon connecting successfully to a device"
 msgid "Connected successfully!"
-msgstr "Connexion réussie!"
+msgstr "Connexion réussie !"
 
 #: qml/main.qml:117
 msgctxt "Title for the warning for having Bluetooth disabled"
 msgid "Warning"
-msgstr "Attention!"
+msgstr "Attention !"
 
 #: qml/main.qml:117
 msgctxt "Message for the warning for having Bluetooth disabled"
@@ -1551,7 +1552,7 @@ msgstr "Votre Bluetooth est désactivé"
 #: qml/main.qml:119
 msgctxt "Title for the warning for not having detected any Bluetooth devices"
 msgid "Warning"
-msgstr "Attention!"
+msgstr "Attention"
 
 #: qml/main.qml:119
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
@@ -1755,14 +1756,14 @@ msgctxt ""
 "Heading for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Run this list?"
-msgstr "Exécuter cette Liste?"
+msgstr "Exécuter cette Liste ?"
 
 #: qml/MoveLists.qml:50
 msgctxt ""
 "Message for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Do you want to run the list %1?"
-msgstr "Est ce que vous voulez exécuter la liste %1?"
+msgstr "Est ce que vous voulez exécuter la liste %1 ?"
 
 #: qml/MoveLists.qml:57
 msgctxt ""
