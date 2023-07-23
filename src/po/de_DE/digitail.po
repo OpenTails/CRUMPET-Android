@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-03-07 22:40+0100\n"
+"PO-Revision-Date: 2023-07-23 14:15+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
-"Language-Team: German\n"
+"Language-Team: German <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -42,7 +43,7 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
-"Fehler beim Laden der BEfehle. Der Parser beschwert sich über einen Fehler "
+"Fehler beim Laden der Befehle. Der Parser beschwert sich über einen Fehler "
 "bei %1: %2\n"
 "Details:\n"
 "%3"
@@ -100,33 +101,29 @@ msgstr ""
 "Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:258
-#, fuzzy
 msgctxt "Warning message when the main service was not found on the device"
 msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem Schwanz ist etwas schief gegangen (Fehler: Main "
-"Service). Bitte versuche es noch einmal!"
+"Beim Verbinden zu deinem MiTail ist etwas schief gegangen (Fehler: Service "
+"Object konnte nicht erstellt werden). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearDigitail.cpp:276
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"Beim Verbinden zu deinem MiTail ist etwas schief gegangen Stelle bitte "
-"sicher, dass dein MiTail eingeschaltet und in Reichreite ist."
+"Beim Verbinden zu deinem DIGITAiL ist etwas schief gegangen Stelle bitte "
+"sicher, dass dein DIGITAiL eingeschaltet und in Reichreite ist."
 
 #: gearimplementations/GearDigitail.cpp:279
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr "Dein MiTail hat die Verbindung beendet."
+msgstr "Der DIGITAiL hat die Verbindung getrennt."
 
 #: gearimplementations/GearDigitail.cpp:282
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -134,11 +131,10 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Fehler bei der Verbindung zu deinem MiTail. Bitte versuche es erneut "
-"(vielleicht näher am Gerät?)"
+"Fehler bei der Verbindung zu deinem DIGITAiL . Bitte versuche es erneut ("
+"vielleicht näher am Gerät?)"
 
 #: gearimplementations/GearDigitail.cpp:302
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -146,8 +142,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
-"Dein MiTail hat die Verbindung beendet. Entweder wurden er abgeschaltet oder "
-"der Akku wurde leer. Vergiss nicht, deinen MiTail wieder aufzuladen!"
+"Dein DIGITAiL hat die Verbindung beendet. Entweder wurden er abgeschaltet "
+"oder der Akku wurde leer. Vergiss nicht, deinen DIGITAiL wieder aufzuladen!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -173,7 +169,7 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Es sieht so aus, als ob es sich bei diesem Gerät um keinen EarGear "
-"Controller  handelt (Keine entsprechenden Lese-Funktionen gefunden). Wenn du "
+"Controller handelt (Keine entsprechenden Lese-Funktionen gefunden). Wenn du "
 "dir sicher bist, dass es sich trotzdem um EarGear handelt, melde diesen "
 "Fehler bitte an die Tail Company."
 
@@ -205,7 +201,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr "Update fehlgeschlagen."
+msgstr "Update fehlgeschlagen"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -229,7 +225,7 @@ msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr "Mikrofonabgleich abgeschlossen."
+msgstr "Mikrofonabgleich abgeschlossen"
 
 #: gearimplementations/GearEars.cpp:442
 #: gearimplementations/GearFlutterWings.cpp:327
@@ -243,7 +239,7 @@ msgid ""
 "congratulations!"
 msgstr ""
 "Herzlichen Glückwunsch, dein Gerät verfügt bereits über die neueste Firmware-"
-"Version."
+"Version!"
 
 #: gearimplementations/GearEars.cpp:447
 #: gearimplementations/GearFlutterWings.cpp:332
@@ -258,10 +254,10 @@ msgid ""
 "connection issue. If you run into this problem repeatedly, please get in "
 "touch."
 msgstr ""
-"Die Datei, die die Informationen über die neue Firmware-Version liefert, "
+"Die Datei, die Informationen über die neue Firmware-Version liefert, "
 "enthielt nicht die entsprechenden Informationen. Wahrscheinlich hatten wir "
 "nur ein Verbindungsproblem. Versuche es bitte später nochmals und wenn der "
-"Fehler immer noch auftritt, melde dich bitte bei uns."
+"Fehler immernoch auftritt, melde dich bitte bei uns."
 
 #: gearimplementations/GearEars.cpp:451
 #: gearimplementations/GearFlutterWings.cpp:336
@@ -299,9 +295,9 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Es sieht so aus, als ob es sich bei diesem Gerät um keinen EarGear "
-"Controller  handelt (Keine entsprechenden Batterie-Funktionen gefunden). "
-"Wenn du dir sicher bist, dass es sich trotzdem um EarGear handelt, melde "
-"diesen Fehler bitte an die Tail Company."
+"Controller handelt (Keine entsprechenden Batterie-Funktionen gefunden). Wenn "
+"du dir sicher bist, dass es sich trotzdem um EarGear handelt, melde diesen "
+"Fehler bitte an die Tail Company."
 
 #: gearimplementations/GearEars.cpp:596
 msgctxt "Warning that some unknown error happened"
@@ -377,6 +373,8 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Dein Gerät hat eine unbekannte Hardware-Revision gemeldet. Das heißt, deine "
+"App ist möglicherweise veraltet und sollte aktualisiert werden."
 
 #: gearimplementations/GearEars.cpp:799
 msgctxt ""
@@ -388,6 +386,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"Du hast irgendwie eine Firmware, welche die Hardware-Revision deiner Ohren "
+"nicht preis gibt - ein Fehler der so nicht auftreten dürfte. Dies ist eine "
+"sehr unerwartete Situation und wir würden dich bitten uns von diesem Fehler "
+"unter info@thetailcompany.com zu berichten - danke!"
 
 #: gearimplementations/GearEars.cpp:827
 #: gearimplementations/GearFlutterWings.cpp:696
@@ -413,7 +415,7 @@ msgstr ""
 "Das Firmware-Paket enthält unerwartete Daten. Es könnte sein, dass die Daten "
 "beim Download beschädigt wurden. Versuche es bitte Später nochmals. Sollte "
 "der Fehler weiterhin bestehen, setze dich bitte mit uns in Verbindung und "
-"wir werden gemeinsam nach einer Lösung suchen."
+"wir werden gemeinsam nach einer Lösung suchen!"
 
 #: gearimplementations/GearEars.cpp:860
 msgctxt "Message shown during firmware update processes"
@@ -469,7 +471,6 @@ msgstr ""
 "irgendwas <b>wichtiges</b> mit der Firmware los ist"
 
 #: gearimplementations/GearFlutterWings.cpp:109
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -478,13 +479,12 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail Controller "
-"handelt (Keine entsprechenden Schreib-Funktionen gefunden). Wenn du dir "
-"sicher bist, dass es sich trotzdem um einen MiTail handelt, melde diesen "
-"Fehler bitte an die Tail Company."
+"Es sieht so aus, als ob es sich bei diesem Gerät um keinen FlutterWings "
+"Controller handelt (Keine entsprechenden Schreib-Funktionen gefunden). Wenn "
+"du dir sicher bist, dass es sich trotzdem um FlutterWings handelt, melde "
+"diesen Fehler bitte an die Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:117
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -493,20 +493,19 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail handelt "
-"(Keine entsprechenden Lese-Funktionen gefunden). Wenn du dir sicher bist, "
-"dass es sich trotzdem um einen MiTail handelt, melde diesen Fehler bitte an "
-"die Tail Company."
+"Es sieht so aus, als ob es sich bei diesem Gerät um keinen FlutterWings "
+"Controller handelt (Keine entsprechenden Lese-Funktionen gefunden). Wenn du "
+"dir sicher bist, dass es sich trotzdem um FlutterWings handelt, melde diesen "
+"Fehler bitte an die Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:407
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem EarGear ist etwas schief gegangen (Fehler: Main "
-"Service). Bitte versuche es noch einmal!"
+"Beim Verbinden zu deinen FlutterWings ist etwas schief gegangen (Fehler: "
+"Main Service). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearFlutterWings.cpp:426
 #: gearimplementations/GearMitail.cpp:432
@@ -529,18 +528,16 @@ msgstr ""
 "es dazu kam.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:437
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem EarGear ist etwas schief gegangen (Fehler: "
+"Beim Verbinden zu deinen FlutterWings ist etwas schief gegangen (Fehler: "
 "Batterie). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearFlutterWings.cpp:487
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -548,29 +545,26 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail handelt "
-"(Keine entsprechende Batterie gefunden). Wenn du dir sicher bist, dass es "
-"sich trotzdem um einen MiTail handelt, melde diesen Fehler bitte an die Tail "
-"Company."
+"Es sieht so aus, als ob es sich bei diesem Gerät um keine FlutterWings "
+"handelt (Keine entsprechende Batterie gefunden). Wenn du dir sicher bist, "
+"dass es sich trotzdem um FlutterWings handelt, melde diesen Fehler bitte an "
+"die Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:527
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
-"Beim Verbinden zu deinem Schwanz ist etwas schief gegangen Stelle bitte "
-"sicher, dass dein Gerät eingeschaltet und in Reichreite ist."
+"Beim Verbinden zu deinen FlutterWings ist etwas schief gegangen Stelle bitte "
+"sicher, dass deine FlutterWings eingeschaltet und in Reichreite sind."
 
 #: gearimplementations/GearFlutterWings.cpp:530
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr "Der Schwanz hat die Verbindung beendet."
+msgstr "Die FlutterWings haben die Verbindung getrennt."
 
 #: gearimplementations/GearFlutterWings.cpp:534
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -578,8 +572,8 @@ msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Fehler bei der Verbindung zu deinem Gerät. Bitte versuche es erneut "
-"(vielleicht näher am Gerät?)"
+"Fehler bei der Verbindung zu deinen FlutterWings. Bitte versuche es erneut ("
+"vielleicht näher am Gerät?)"
 
 #: gearimplementations/GearFlutterWings.cpp:561
 #: gearimplementations/GearMitail.cpp:567
@@ -605,7 +599,6 @@ msgstr ""
 "versuchen..."
 
 #: gearimplementations/GearFlutterWings.cpp:569
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -613,9 +606,9 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
-"Der Schwanz hat die Verbindung beendet. Entweder wurden das Gerät "
-"abgeschaltet oder der Akku wurde leer. Vergiss nicht, dein EarGear wieder "
-"aufzuladen!"
+"Deine FlutterWings haben die Verbindung beendet. Entweder wurden sie "
+"abgeschaltet oder der Akku wurde leer. Vergiss nicht, deine FlutterWings "
+"wieder aufzuladen!"
 
 #: gearimplementations/GearFlutterWings.cpp:729
 #: gearimplementations/GearMitail.cpp:735
@@ -634,7 +627,6 @@ msgstr ""
 "verfügbar ist, kannst du dich wieder mit ihm verbinden."
 
 #: gearimplementations/GearMitail.cpp:39
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.03 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -644,13 +636,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Dein Schwanz läuft mit Firmware 4.03, welche veraltet ist und einige "
-"bekannte Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware "
-"zu aktualisieren, die dese Probleme behebt. Um die Firmware zu "
-"aktualisieren, gehe in die Einstellungen und tippe dort auf Firmware."
+"Dein MiTail läuft derzeit mit der Firmware Version 4.03, welche inzwischen "
+"schon veraltet ist und einige Fehler enthält. Wir <b>empfehlen "
+"nachdrücklichst</b> die neueste Firmware einzuspielen um diese Probleme zu "
+"beheben. Geh zu den Einstellungen und suche die Firmware-Sektion um das "
+"Update einzuspielen."
 
 #: gearimplementations/GearMitail.cpp:40
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.02 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -660,13 +652,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Dein Schwanz läuft mit Firmware 4.02, welche veraltet ist und einige "
-"bekannte Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware "
-"zu aktualisieren, die dese Probleme behebt. Um die Firmware zu "
-"aktualisieren, gehe in die Einstellungen und tippe dort auf Firmware."
+"Dein MiTail läuft derzeit mit der Firmware Version 4.02, welche inzwischen "
+"schon veraltet ist und einige Fehler enthält. Wir <b>empfehlen "
+"nachdrücklichst</b> die neueste Firmware einzuspielen um diese Probleme zu "
+"beheben. Geh zu den Einstellungen und suche die Firmware-Sektion um das "
+"Update einzuspielen."
 
 #: gearimplementations/GearMitail.cpp:41
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.01 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -676,13 +668,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Dein Schwanz läuft mit Firmware 4.01, welche veraltet ist und einige "
-"bekannte Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware "
-"zu aktualisieren, die dese Probleme behebt. Um die Firmware zu "
-"aktualisieren, gehe in die Einstellungen und tippe dort auf Firmware."
+"Dein MiTail läuft derzeit mit der Firmware Version 4.01, welche inzwischen "
+"schon veraltet ist und einige Fehler enthält. Wir <b>empfehlen "
+"nachdrücklichst</b> die neueste Firmware einzuspielen um diese Probleme zu "
+"beheben. Geh zu den Einstellungen und suche die Firmware-Sektion um das "
+"Update einzuspielen."
 
 #: gearimplementations/GearMitail.cpp:42
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.00 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -692,13 +684,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Dein Schwanz läuft mit Firmware 4.00, welche veraltet ist und einige "
-"bekannte Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware "
-"zu aktualisieren, die dese Probleme behebt. Um die Firmware zu "
-"aktualisieren, gehe in die Einstellungen und tippe dort auf Firmware."
+"Dein MiTail läuft derzeit mit der Firmware Version 4.00, welche inzwischen "
+"schon veraltet ist und einige Fehler enthält. Wir <b>empfehlen "
+"nachdrücklichst</b> die neueste Firmware einzuspielen um diese Probleme zu "
+"beheben. Geh zu den Einstellungen und suche die Firmware-Sektion um das "
+"Update einzuspielen."
 
 #: gearimplementations/GearMitail.cpp:43
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.11 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -708,13 +700,13 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"Dein Schwanz läuft mit Firmware 3.2.11, welche veraltet ist und einige "
-"bekannte Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware "
-"zu aktualisieren, die dese Probleme behebt. Um die Firmware zu "
-"aktualisieren, gehe in die Einstellungen und tippe dort auf Firmware."
+"Dein MiTail läuft derzeit mit der Firmware Version 3.2.11, welche inzwischen "
+"schon veraltet ist und einige Fehler enthält. Wir <b>empfehlen "
+"nachdrücklichst</b> die neueste Firmware einzuspielen um diese Probleme zu "
+"beheben. Geh zu den Einstellungen und suche die Firmware-Sektion um das "
+"Update einzuspielen."
 
 #: gearimplementations/GearMitail.cpp:44
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.10 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -724,10 +716,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"Dein Schwanz läuft mit Firmware 3.2.10, welche veraltet ist und einige "
-"bekannte Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware "
-"zu aktualisieren, die dese Probleme behebt. Um die Firmware zu "
-"aktualisieren, gehe in die Einstellungen und tippe dort auf Firmware."
+"Dein MiTail läuft derzeit mit der Firmware Version 3.2.10, welche inzwischen "
+"schon veraltet ist und einige Fehler enthält. Wir <b>empfehlen "
+"nachdrücklichst</b> die neueste Firmware einzuspielen um diese Probleme zu "
+"beheben. Geh zu den Einstellungen und suche die Firmware-Sektion um das "
+"Update einzuspielen."
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -825,7 +818,6 @@ msgstr ""
 "der Akku wurde leer. Vergiss nicht, deinen MiTail wieder aufzuladen!"
 
 #: gearimplementations/GearMitailMini.cpp:39
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.03 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -835,13 +827,13 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"Dein Schwanz läuft mit Firmware 4.03, welche veraltet ist und einige "
-"bekannte Fehler beinhaltet. Wir schlagen <b>dringend</b> vor, die Firemware "
-"zu aktualisieren, die dese Probleme behebt. Um die Firmware zu "
-"aktualisieren, gehe in die Einstellungen und tippe dort auf Firmware."
+"Dein MiTail Mini läuft derzeit mit der Firmware Version 4.03, welche "
+"inzwischen schon veraltet ist und einige Fehler enthält. Wir <b>empfehlen "
+"nachdrücklichst</b> die neueste Firmware einzuspielen um diese Probleme zu "
+"beheben. Geh zu den Einstellungen und suche die Firmware-Sektion um das "
+"Update einzuspielen."
 
 #: gearimplementations/GearMitailMini.cpp:110
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -850,13 +842,12 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail Controller "
+"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail Mini "
 "handelt (Keine entsprechenden Schreib-Funktionen gefunden). Wenn du dir "
-"sicher bist, dass es sich trotzdem um einen MiTail handelt, melde diesen "
-"Fehler bitte an die Tail Company."
+"sicher bist, dass es sich trotzdem um einen MiTail Mini handelt, melde "
+"diesen Fehler bitte an die Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:118
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -865,34 +856,31 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail handelt "
-"(Keine entsprechenden Lese-Funktionen gefunden). Wenn du dir sicher bist, "
-"dass es sich trotzdem um einen MiTail handelt, melde diesen Fehler bitte an "
-"die Tail Company."
+"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail Mini "
+"handelt (Keine entsprechenden Lese-Funktionen gefunden). Wenn du dir sicher "
+"bist, dass es sich trotzdem um einen MiTail Mini handelt, melde diesen "
+"Fehler bitte an die Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:408
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem MiTail ist etwas schief gegangen (Fehler: Main "
+"Beim Verbinden zu deinem MiTail Mini ist etwas schief gegangen (Fehler: Main "
 "Service). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearMitailMini.cpp:438
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem MiTail ist etwas schief gegangen (Fehler: "
+"Beim Verbinden zu deinem MiTail Mini ist etwas schief gegangen (Fehler: "
 "Batterie). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearMitailMini.cpp:488
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -900,29 +888,26 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail handelt "
-"(Keine entsprechende Batterie gefunden). Wenn du dir sicher bist, dass es "
-"sich trotzdem um einen MiTail handelt, melde diesen Fehler bitte an die Tail "
-"Company."
+"Es sieht so aus, als ob es sich bei diesem Gerät um keinen MiTail Mini "
+"handelt (Keine entsprechende Batterie gefunden). Wenn du dir sicher bist, "
+"dass es sich trotzdem um einen MiTail Mini handelt, melde diesen Fehler "
+"bitte an die Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:528
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
-"Beim Verbinden zu deinem MiTail ist etwas schief gegangen Stelle bitte "
+"Beim Verbinden zu deinem MiTail Mini ist etwas schief gegangen Stelle bitte "
 "sicher, dass dein MiTail eingeschaltet und in Reichreite ist."
 
 #: gearimplementations/GearMitailMini.cpp:531
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr "Dein MiTail hat die Verbindung beendet."
+msgstr "Dein MiTail Mini hat die Verbindung beendet."
 
 #: gearimplementations/GearMitailMini.cpp:535
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -930,11 +915,10 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Fehler bei der Verbindung zu deinem MiTail. Bitte versuche es erneut "
-"(vielleicht näher am Gerät?)"
+"Fehler bei der Verbindung zu deinem MiTail Mini. Bitte versuche es erneut ("
+"vielleicht näher am Gerät?)"
 
 #: gearimplementations/GearMitailMini.cpp:570
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -942,8 +926,9 @@ msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
-"Dein MiTail hat die Verbindung beendet. Entweder wurden er abgeschaltet oder "
-"der Akku wurde leer. Vergiss nicht, deinen MiTail wieder aufzuladen!"
+"Dein MiTail Mini hat die Verbindung beendet. Entweder wurden er abgeschaltet "
+"oder der Akku wurde leer. Vergiss nicht, deinen MiTail Mini wieder "
+"aufzuladen!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
@@ -1043,12 +1028,12 @@ msgstr "Schritte erkannt"
 #: GestureDetectorModel.cpp:292
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr "Gerade Schrittzahl erkannt."
+msgstr "Gerade Schrittzahl erkannt"
 
 #: GestureDetectorModel.cpp:293
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr "Ungerade Schrittzahl erkannt."
+msgstr "Ungerade Schrittzahl erkannt"
 
 #: GestureDetectorModel.cpp:305
 msgctxt ""
@@ -1059,6 +1044,9 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Deaktiviere %1 nach einer Stunde. Deine Geräte brauchen eine kleine Pause "
+"nach einer so langen Zeit in Betrieb. Für mehr Informationen, schlage bitte "
+"in unserer Anleitung \"Verantwortungsvolles Wedeln\" nach."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -1245,8 +1233,8 @@ msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] "Gesamtzeit: %1 Sekunden"
-msgstr[1] ""
+msgstr[0] "Dauer: 1% Sekunde"
+msgstr[1] "Dauer: %1 Sekunden"
 
 #: qml/BaseMovesComponent.qml:207
 msgctxt "Header for the overlay for selecting the destination for a command"
@@ -1290,12 +1278,11 @@ msgid "Add this pause"
 msgstr "Diese Pause einfügen"
 
 #: qml/ConnectToTail.qml:48
-#, fuzzy
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr "Verbinden"
+msgstr "Alle verbinden"
 
 #: qml/ConnectToTail.qml:86
 msgctxt ""
@@ -1329,7 +1316,7 @@ msgstr "OK"
 #: qml/DeveloperModePage.qml:27
 msgctxt "Header for the Developer Mode page"
 msgid "Developer Mode"
-msgstr "Entwickler-Modus"
+msgstr "Entwickler Modus"
 
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
@@ -1411,7 +1398,7 @@ msgid ""
 "if you want to charge it)."
 msgstr ""
 "Mit dieser Option trennst du die Verbindung von deinem Gerät ohne es "
-"auszuschalten. (Praktisch wenn du es aufladen möchtest)"
+"auszuschalten (Praktisch wenn du es aufladen möchtest)."
 
 #: qml/DisconnectOptions.qml:191
 msgctxt ""
@@ -1528,7 +1515,9 @@ msgid ""
 msgstr ""
 "Du versuchst gerade mehrere Gesten auf einmal auszuführen. Das wird "
 "gelegentlich zu Problemen führen, da Gesten wie 'Schütteln' und 'Gehen' "
-"nicht immer eindeutig sind. Bist du dir sicher, dass du weißt was du da tust?"
+"nicht immer eindeutig sind. Wenn du dir sicher bist und du weisst was du "
+"tust, tippe auf OK - oder tippe auf Abbrechen um diese Geste nicht zu "
+"aktivieren."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
@@ -1627,7 +1616,7 @@ msgstr "Kein Bluetooth Gerät"
 #: qml/main.qml:132
 msgctxt "Title for the popup for having enabled Developer Mode"
 msgid "Developer mode"
-msgstr "Entwickler-Modus"
+msgstr "Entwickler Modus"
 
 #: qml/main.qml:132
 msgctxt "Message for the popup for having enabled Developer Mode"
@@ -1637,7 +1626,7 @@ msgstr "Entwickler-Modus ist eingeschaltet"
 #: qml/main.qml:134
 msgctxt "Title for the popup for having disabled Developer Mode"
 msgid "Developer mode"
-msgstr "Entwickler-Modus"
+msgstr "Entwickler Modus"
 
 #: qml/main.qml:134
 msgctxt "Message for the popup for having disabled Developer Mode"
@@ -1654,7 +1643,7 @@ msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
 "Vielleicht ist es Zeit für eine Pause? Gib deinen Geräten ein bisschen Zeit "
-"um sich zu erholen!"
+"um sich zu erholen."
 
 #: qml/main.qml:200
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -1701,7 +1690,7 @@ msgstr "Gestensteuerung"
 #: qml/main.qml:273
 msgctxt "Button for opening the Developer Mode page, from the landing page"
 msgid "Developer Mode"
-msgstr "Entwickler-Modus"
+msgstr "Entwickler Modus"
 
 #: qml/main.qml:288
 msgctxt "Button for opening the Settings Page, from the landing page"
@@ -1717,7 +1706,7 @@ msgstr "Über uns"
 msgctxt ""
 "Button for opening the TailCo website in a browser, from the landing page"
 msgid "TheTailCompany.com"
-msgstr ""
+msgstr "TheTailCompany.com"
 
 #: qml/main.qml:327
 msgctxt "Title for the confirmation popup for disconnecting your gear"
@@ -1734,7 +1723,7 @@ msgstr ""
 "Du bist mit Geräten verbunden.\n"
 "\n"
 "Bist du dir sicher, dass du die Verbindung trennen und die App beenden "
-"möchtest?\n"
+"möchtest?"
 
 #: qml/main.qml:400
 msgctxt "Description for the prompt for entering a name for your Gear"
@@ -1742,10 +1731,9 @@ msgid "Enter a name to use for your new gear"
 msgstr "Gib deinem neuen Gerät einen Namen"
 
 #: qml/main.qml:401
-#, fuzzy
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the new name for %1 here"
-msgstr "Gib den Namen hier ein"
+msgstr "Gib einen neuen Namen für %1 ein"
 
 #: qml/main.qml:402
 msgctxt ""
@@ -1829,7 +1817,7 @@ msgctxt ""
 "Message for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Do you want to run the list %1?"
-msgstr "Möchtest du den B"
+msgstr "Möchtest du die Bewegungsliste %1 ausführen?"
 
 #: qml/MoveLists.qml:57
 msgctxt ""
@@ -1938,11 +1926,10 @@ msgctxt ""
 "Header notifying that gear has been found, for the gear connecting card"
 msgid "One piece of gear available"
 msgid_plural "Multiple pieces of gear available"
-msgstr[0] "Ein Gerät verfügbar"
-msgstr[1] ""
+msgstr[0] "Ein Gerät gefunden"
+msgstr[1] "Es wurden mehrere Geräte gefunden"
 
 #: qml/NotConnectedCard.qml:75
-#, fuzzy
 msgctxt ""
 "Message warning for missing scan permissions, for the gear connecting card"
 msgid ""
@@ -1950,13 +1937,11 @@ msgid ""
 "nearby devices. Clicking the button below will show you a dialog that you "
 "need to press allow on."
 msgstr ""
-"Um deine Geräte finden zu können, benötigen wir Zugriff auf deinen Standort. "
-"Wenn du auf die untenstehende Schaltfläche tippst, kommt die entsprechende "
-"Anfrage deines Smartphones. Diese Berechtigung wird nur für die Verbindung "
-"benötigt (Solltest du Fragen dazu haben, zögere nicht uns zu kontaktieren)."
+"Um deine Geräte zu finden benötigen wir die Berechtigung um Geräte in deiner "
+"Umgebung zu finden. Tippe auf den Button unterhalb um eine Abfrage für diese "
+"Berechtigungen zu erhalten. Tippe dort auf \"Erlauben\"."
 
 #: qml/NotConnectedCard.qml:78
-#, fuzzy
 msgctxt ""
 "Message warning for missing location permissions, for the gear connecting "
 "card"
@@ -1966,10 +1951,11 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
-"Um deine Geräte finden zu können, benötigen wir Zugriff auf deinen Standort. "
-"Wenn du auf die untenstehende Schaltfläche tippst, kommt die entsprechende "
-"Anfrage deines Smartphones. Diese Berechtigung wird nur für die Verbindung "
-"benötigt (Solltest du Fragen dazu haben, zögere nicht uns zu kontaktieren)."
+"Um deine Geräte zu finden benötigen wir die Berechtigung für die "
+"Ortsbestimmung. Tippe auf den Button unterhalb um eine Abfrage für diese "
+"Berechtigungen zu erhalten. Tippe dort auf \"Erlauben\". Wir verwenden diese "
+"Freigabe nicht um dir nachzuspionieren (Wenn du daran zweifelst, wende dich "
+"bitte an unseren Support, wo wir dir die Sache erklären)."
 
 #: qml/NotConnectedCard.qml:83
 msgctxt ""
@@ -1987,8 +1973,11 @@ msgid ""
 msgid_plural ""
 "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
 "below."
-msgstr[0] "1 Gerät gefunden. Warte einfach oder drücke auf \"Verbinden\"."
+msgstr[0] ""
+"1 Gerät gefunden. Warte einfach oder drücke \"Verbinden\" um es zu steuern."
 msgstr[1] ""
+"Wir haben %1 Geräte gefunden. Um sie anzuzeigen, tippe auf \"Verfügbare "
+"Geräte anzeigen...\"."
 
 #: qml/NotConnectedCard.qml:91
 msgctxt ""
@@ -2012,25 +2001,26 @@ msgid_plural ""
 "You are not currently connected to your gear, and we have found %1. Please "
 "push \"Show available gear...\" below to see what is available."
 msgstr[0] ""
-"Du bist derzeit mit keinem Gerät verbunden, aber wir erinnern uns an eines! "
-"Drücke \"Verbinden\" um dich mit dem Gerät zu verbinden."
+"Du bist derzeit nicht mit einem Gerät verbunden, aber wir kennen eines. "
+"Tippe auf \"Verbinden\" um eine Verbindung zu diesem Gerät herzustellen."
 msgstr[1] ""
+"Du bist im moment nicht mit deinen Geräten verbunden und wir haben %1 Geräte "
+"gefunden. Tippe auf \"Verfügbare Geräte anzeigen\" um zu sehen, was wir "
+"gefunden haben."
 
 #: qml/NotConnectedCard.qml:106
-#, fuzzy
 msgctxt ""
 "Label for button for opening the settings tab to fix missing scan "
 "permissions, for the gear connecting card"
 msgid "Get Scan Permission..."
-msgstr "Standortgenehmigung einholen..."
+msgstr "Gerätesuche erlauben..."
 
 #: qml/NotConnectedCard.qml:109
-#, fuzzy
 msgctxt ""
 "Label for button for opening the settings tab to fix missing location "
 "permissions, for the gear connecting card"
 msgid "Get Location Permission..."
-msgstr "Standortgenehmigung einholen..."
+msgstr "Ortsbestimmung erlauben..."
 
 #: qml/NotConnectedCard.qml:112
 msgctxt ""
@@ -2069,7 +2059,7 @@ msgid ""
 msgstr ""
 "In der folgenden Liste findest du alle für dein Gerät verfügbaren Bewegungen "
 "und Licht-Effekte. Tippe auf einen Effekt oder Befehl um ihn an deine "
-"verbundenen Geräte zu senden!"
+"verbundenen Geräte zu senden."
 
 #: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
 msgctxt ""
@@ -2189,34 +2179,30 @@ msgstr ""
 "verständliche Graphiken, wie du mit deinen Geräten am Besten umgehst."
 
 #: qml/SettingsPage.qml:43
-#, fuzzy
 msgctxt "Label showing all the items underneath are links to a PDF file"
 msgid "Download PDF:"
-msgstr "Herunterladen"
+msgstr "PDF Herunterladen:"
 
 #: qml/SettingsPage.qml:47
 msgctxt ""
 "Label for downloading the general guide for safe use of the various gear"
 msgid "Responsible Wagging Guide"
-msgstr ""
+msgstr "Verantwortungsvolles Wedeln"
 
 #: qml/SettingsPage.qml:52
-#, fuzzy
 msgctxt "Label for downloading the instructions for the MiTail"
 msgid "MiTail Instructions"
-msgstr "Anleitungen"
+msgstr "MiTail Anleitung"
 
 #: qml/SettingsPage.qml:57
-#, fuzzy
 msgctxt "Label for downloading the instructions for the Digitail"
 msgid "Digitail Instructions"
-msgstr "Anleitungen"
+msgstr "DIGITAiL Anleitung"
 
 #: qml/SettingsPage.qml:62
-#, fuzzy
 msgctxt "Label for downloading the instructions for EarGear"
 msgid "EarGear Instructions"
-msgstr "Anleitungen"
+msgstr "EarGear Anleitung"
 
 #: qml/SettingsPage.qml:69
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
@@ -2401,7 +2387,7 @@ msgid ""
 "You currently have version %1 installed, and version %2 is available for you "
 "to install"
 msgstr ""
-"Du hast derzeit Version %1 installer. Version %2 ist für dich verfügbar."
+"Du hast derzeit Version %1 installert. Version %2 ist für dich verfügbar"
 
 #: qml/SettingsPage.qml:208
 msgctxt ""
@@ -2478,7 +2464,6 @@ msgid "Fake Tail"
 msgstr "Simulierter Tail"
 
 #: qml/SettingsPage.qml:259
-#, fuzzy
 msgctxt ""
 "Description for the panel for the demo modus of the app, on the settings page"
 msgid ""
@@ -2489,10 +2474,11 @@ msgid ""
 "exist. Enabling this option will make a fake tail show up on the welcome "
 "page."
 msgstr ""
-"Wenn du gerade diese App geladen hast, weil du zum Beispiel auf "
-"einenDIGITAiL oder EarGear wartest, kannst du - um dir die Zeit zu verkürzen "
-"- einen Schwanz simulieren. So kannst du die Funktionen bereits jetzt schon "
-"erkunden. Damit scheint auch der Simulierte Schwanz in der Übersicht auf."
+"Wenn du gerade die App heruntergeladen hast, weil du zB auf deinen neuen, "
+"super tollen, komplett coolen MiTail oder dein EarGear wartest, kannst du "
+"dir die Wartezeit damit verkürzen, indem du dich in der App umschaust. Du "
+"kannst mit dem untenstehenden Button einen MiTail simulieren, mit dem du dir "
+"die Einstellungsmöglichkeiten anschauen kannst."
 
 #: qml/SettingsPage.qml:261
 msgctxt ""
