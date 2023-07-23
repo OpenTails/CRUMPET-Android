@@ -1,0 +1,2352 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
+"POT-Creation-Date: 2023-07-20 14:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: CommandPersistence.cpp:57
+msgctxt ""
+"Error message for when we could not create the path that command files are "
+"stored in"
+msgid "Failed to create the directory for the stored commands"
+msgstr ""
+
+#: CommandPersistence.cpp:117
+msgctxt ""
+"Error message for when there are no commands found in a command file "
+"(possible, but uncommon, so not a critical error)"
+msgid "There are no commands in this file. This is possible, but not common."
+msgstr ""
+
+#: CommandPersistence.cpp:123
+msgctxt ""
+"Error message when command file loading failed entirely caused by a parsing "
+"error, with details"
+msgid ""
+"Failed to load your commands, due to a parsing error at %1: %2\n"
+"Code leading up to the error:\n"
+"%3"
+msgstr ""
+
+#: CommandPersistence.cpp:174
+msgctxt ""
+"Error message when attempting to load commands and the file could not be "
+"accessed for reading purposes"
+msgid "Could not open the file %1 for reading"
+msgstr ""
+
+#: CommandPersistence.cpp:194
+msgctxt ""
+"Error message when attempting to save commands and the file could not be "
+"accessed for writing purposes"
+msgid "Could not open the file %1 for writing"
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
+#: gearimplementations/GearFlutterWings.cpp:75
+#: gearimplementations/GearMitail.cpp:81
+#: gearimplementations/GearMitailMini.cpp:76
+msgctxt ""
+"Error message shown when automatic reconnection has been attempted too often"
+msgid ""
+"Attempted to reconnect too many times to %1 (%2). To connect to it, please "
+"check that it is on, charged, and near enough."
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
+#: gearimplementations/GearFlutterWings.cpp:79
+#: gearimplementations/GearMitail.cpp:85
+#: gearimplementations/GearMitailMini.cpp:80
+msgctxt ""
+"A status message sent when the connection to a device has been lost, and we "
+"are attempting to connect again automatically"
+msgid "Connection lost to %1, attempting to reconnect..."
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:91
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a DIGITAiL (could not find the tail "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:258
+msgctxt "Warning message when the main service was not found on the device"
+msgid ""
+"An error occured while connecting to your DIGITAiL (the service object could "
+"not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:276
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your DIGITAiL, make sure "
+"it is on and close to this device."
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:279
+msgctxt "Warning that the device disconnected itself"
+msgid "The DIGITAiL closed the connection."
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:282
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your DIGITAiL. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+
+#: gearimplementations/GearDigitail.cpp:302
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The DIGITAiL closed the connection, either by being turned off or losing "
+"power. Remember to charge your DIGITAiL!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:112
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:129
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"main ears reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:221
+#: gearimplementations/GearFlutterWings.cpp:168
+#: gearimplementations/GearMitail.cpp:174
+#: gearimplementations/GearMitailMini.cpp:169
+msgctxt ""
+"Title of the message box shown to the user upon a successful firmware upgrade"
+msgid "Upgrade Successful"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:221
+#: gearimplementations/GearFlutterWings.cpp:168
+#: gearimplementations/GearMitail.cpp:174
+#: gearimplementations/GearMitailMini.cpp:169
+msgctxt ""
+"Message shown to the user when a firmware update completed successfully"
+msgid "Congratulations, your gear has been successfully updated to version %1!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:224
+#: gearimplementations/GearFlutterWings.cpp:171
+#: gearimplementations/GearMitail.cpp:177
+#: gearimplementations/GearMitailMini.cpp:172
+msgctxt ""
+"Title of the message box shown to the user upon an unsuccessful firmware "
+"upgrade"
+msgid "Update Failed"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:224
+#: gearimplementations/GearFlutterWings.cpp:171
+#: gearimplementations/GearMitail.cpp:177
+#: gearimplementations/GearMitailMini.cpp:172
+msgctxt "Message shown to the user when a firmware update failed"
+msgid ""
+"<p>Sorry, but the upgrade failed. Most often this is due to the transfer "
+"being corrupted during the upload process itself, which is why your gear has "
+"a safe fallback to just go back to your old firmware version upon a failure. "
+"You can try the update again by clicking the Install button gain.</p>"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:327
+msgctxt ""
+"Informational message for when the microphone balancing operation has "
+"completed"
+msgid "Microphone balancing completed"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:442
+#: gearimplementations/GearFlutterWings.cpp:327
+#: gearimplementations/GearMitail.cpp:333
+#: gearimplementations/GearMitailMini.cpp:328
+msgctxt ""
+"Message shown to the user when they already have the newest firmware "
+"installed"
+msgid ""
+"You already have the newest version of the firmware installed on your gear, "
+"congratulations!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:447
+#: gearimplementations/GearFlutterWings.cpp:332
+#: gearimplementations/GearMitail.cpp:338
+#: gearimplementations/GearMitailMini.cpp:333
+msgctxt ""
+"Warning message for when the firmware update information file did not "
+"contain a JSON object"
+msgid ""
+"The file used to determine information about new firmware versions did not "
+"contain the expected format of data. This is likely a temporary error, or a "
+"connection issue. If you run into this problem repeatedly, please get in "
+"touch."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:451
+#: gearimplementations/GearFlutterWings.cpp:336
+#: gearimplementations/GearMitail.cpp:342
+#: gearimplementations/GearMitailMini.cpp:337
+msgctxt "Message for when we are checking the downloaded firmware data"
+msgid "Checking integrity of the downloaded firmware data..."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:521
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your EarGear (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:535
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your EarGear (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:566
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not an EarGear controller (could not find the "
+"battery level characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:596
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your ears, make sure the "
+"EarGear is on and close to this device."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:599
+msgctxt "Warning that the device disconnected itself"
+msgid "The EarGear closed the connection."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:602
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:623
+msgctxt ""
+"Title for a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid "Firmware Update Completed"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:623
+msgctxt ""
+"Body of a message box shown after the device disconnects after completing "
+"the firmware update"
+msgid ""
+"The firmware upload has been completed, and your gear has turned itself off. "
+"If it did not turn itself back on again, close this message, turn it on "
+"manually, and then connect to it. If it turned itself back on again, you can "
+"just close this message."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:628
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The EarGear closed the connection, either by being turned off or losing "
+"power. Remember to charge your ears!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:778
+#: gearimplementations/GearFlutterWings.cpp:664
+#: gearimplementations/GearMitail.cpp:670
+#: gearimplementations/GearMitailMini.cpp:665
+msgctxt ""
+"Message shown alongside a progress bar when downloading update information"
+msgid "Downloading firmware update information"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:795
+msgctxt ""
+"Message shown in case the hardware revision is given by the firmware, but "
+"doesn't match one of our known ones, meaning the app is likely very outdated"
+msgid ""
+"Your gear has reported a hardware revision that we do not know of. This "
+"means that your app is likely to be out of date and needs to be updated."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:799
+msgctxt ""
+"Message shown in the unlikely case a firmware exists which does not report "
+"the expected hardware revision and which also is not known to us"
+msgid ""
+"You have somehow got a firmware version which does not report the hardware "
+"revision of your ears, but which also is not known to fail to do so. This is "
+"a highly unexpected situation and we would appreciate it if you reported it "
+"directly to us at info@thetailcompany.com - thank you!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:827
+#: gearimplementations/GearFlutterWings.cpp:696
+#: gearimplementations/GearMitail.cpp:702
+#: gearimplementations/GearMitailMini.cpp:697
+msgctxt ""
+"Message shown along a progress bar when downloading the firmware payload "
+"itself"
+msgid "Downloading firmware update from The Tail Company's website..."
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:844
+#: gearimplementations/GearFlutterWings.cpp:713
+#: gearimplementations/GearMitail.cpp:719
+#: gearimplementations/GearMitailMini.cpp:714
+msgctxt ""
+msgid ""
+"The downloaded firmware update did not contain what we expected. This is "
+"commonly due to a problem with the download itself having failed, and you "
+"should simply try again. If it continues to fail, please get in touch with "
+"us and we can try and work something out!"
+msgstr ""
+
+#: gearimplementations/GearEars.cpp:860
+msgctxt "Message shown during firmware update processes"
+msgid ""
+"Uploading firmware to your gear. Please keep your devices very near each "
+"other, and make sure both have plenty of charge (or plug in a charger now). "
+"Once completed, your gear will either reboot or turn itself off and "
+"disconnect from this device. Once it is started back up again, you will be "
+"able to connect to it again."
+msgstr ""
+
+#: gearimplementations/GearFake.cpp:48
+#: gearimplementations/GearFlutterWings.cpp:359
+#: gearimplementations/GearMitail.cpp:365
+#: gearimplementations/GearMitailMini.cpp:360
+msgctxt ""
+"Name of the calm and relaxed group as used for no phone group selection"
+msgid "Calm and Relaxed"
+msgstr ""
+
+#: gearimplementations/GearFake.cpp:49
+#: gearimplementations/GearFlutterWings.cpp:360
+#: gearimplementations/GearMitail.cpp:366
+#: gearimplementations/GearMitailMini.cpp:361
+msgctxt ""
+"Name of the fast and excited group as used for no phone group selection"
+msgid "Fast and Excited"
+msgstr ""
+
+#: gearimplementations/GearFake.cpp:50
+#: gearimplementations/GearFlutterWings.cpp:361
+#: gearimplementations/GearMitail.cpp:367
+#: gearimplementations/GearMitailMini.cpp:362
+msgctxt ""
+"Name of the frustrated and tense group as used for no phone group selection"
+msgid "Frustrated and Tense"
+msgstr ""
+
+#: gearimplementations/GearFake.cpp:106
+msgctxt ""
+"An example message to show people what the firmware message will look like "
+"for a real device"
+msgid ""
+"This is a message that's supposed to inform people that there is something "
+"<b>important</b> going on with their firmware"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:109
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a FlutterWings (could not find the main "
+"device writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:117
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a FlutterWings (could not find the main "
+"device reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:407
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your FlutterWings (the main service "
+"object could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:426
+#: gearimplementations/GearMitail.cpp:432
+#: gearimplementations/GearMitailMini.cpp:427
+msgctxt ""
+"Message asking people to tell us when a firmware update failed, and that "
+"this is the error they got"
+msgid ""
+"<p><b>Update Failed!</b></p><p>We have tried to update your firmware too "
+"rapidly for your device, and have had to abort. If you are getting this "
+"error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please "
+"contact us on info@thetailcompany.com and tell us that you got this error.</"
+"p>"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:437
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your FlutterWings (the battery service "
+"was not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:487
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a FlutterWings (could not find the battery "
+"level characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:527
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your FlutterWings, make "
+"sure it is on and close to this device."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:530
+msgctxt "Warning that the device disconnected itself"
+msgid "The FlutterWings closed the connection."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:534
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your FlutterWings. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:561
+#: gearimplementations/GearMitail.cpp:567
+#: gearimplementations/GearMitailMini.cpp:562
+msgctxt ""
+"Message shown to the user when a firmware upload has completed and the "
+"device has rebooted itself"
+msgid "Attempting to reconnect to your gear..."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:566
+#: gearimplementations/GearMitail.cpp:572
+#: gearimplementations/GearMitailMini.cpp:567
+msgctxt ""
+"Message shown to the user after firmware upload has completed and the tail "
+"is expected to reboot"
+msgid ""
+"Firmware upload complete, waiting for your gear to reboot automatically "
+"before attempting to reconnect..."
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:569
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The FlutterWings closed the connection, either by being turned off or losing "
+"power. Remember to charge your tail!"
+msgstr ""
+
+#: gearimplementations/GearFlutterWings.cpp:729
+#: gearimplementations/GearMitail.cpp:735
+#: gearimplementations/GearMitailMini.cpp:730
+msgctxt "Message shown during firmware update processes"
+msgid ""
+"Uploading firmware to your gear. Please keep your devices very near each "
+"other, and make sure both have plenty of charge (or plug in a charger now). "
+"Once completed, your gear will restart and disconnect from this device. Once "
+"rebooted, you will be able to connect to it again."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:39
+msgctxt ""
+"A message displayed to the user when firmware version 4.03 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.03 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:40
+msgctxt ""
+"A message displayed to the user when firmware version 4.02 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.02 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:41
+msgctxt ""
+"A message displayed to the user when firmware version 4.01 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.01 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:42
+msgctxt ""
+"A message displayed to the user when firmware version 4.00 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 4.00 firmware installed, which is outdated "
+"and has some known issues! We would <b>strongly recommend</b> updating to "
+"the newest firmware which fixes them! Head over to Settings and find the "
+"Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:43
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.11 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 3.2.11 firmware installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:44
+msgctxt ""
+"A message displayed to the user when firmware version 3.2.10 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail currently has version 3.2.10 firmware  installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:115
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"writing characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:123
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail (could not find the main device "
+"reading characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:413
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail (the main service object "
+"could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:443
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail (the battery service was "
+"not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:493
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail (could not find the battery level "
+"characteristic). If you are certain that it definitely is, please report "
+"this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:533
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail, make sure it "
+"is on and close to this device."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:536
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail closed the connection."
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:540
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
+msgstr ""
+
+#: gearimplementations/GearMitail.cpp:575
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail closed the connection, either by being turned off or losing "
+"power. Remember to charge your tail!"
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:39
+msgctxt ""
+"A message displayed to the user when firmware version 4.03 is installed on "
+"their gear, with a description of why they should upgrade, and how"
+msgid ""
+"Your MiTail Mini currently has version 4.03 firmware installed, which is "
+"outdated and has some known issues! We would <b>strongly recommend</b> "
+"updating to the newest firmware which fixes them! Head over to Settings and "
+"find the Firmware section to perform the update."
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:110
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail Mini (could not find the main "
+"device writing characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:118
+msgctxt ""
+"A message when sent when attempting to connect to a device which does not "
+"have a specific expected feature"
+msgid ""
+"It looks like this device is not a MiTail Mini (could not find the main "
+"device reading characteristic). If you are certain that it definitely is, "
+"please report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:408
+msgctxt "Warning message when a fault occurred during a connection attempt"
+msgid ""
+"An error occurred while connecting to your MiTail Mini (the main service "
+"object could not be created). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:438
+msgctxt ""
+"Warning message when the battery information is unavailable on a device"
+msgid ""
+"An error occurred while connecting to your MiTail Mini (the battery service "
+"was not available). If you feel this is in error, please try again!"
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:488
+msgctxt ""
+"Warning message when the battery information is unavailable on the device"
+msgid ""
+"It looks like this device is not a MiTail Mini (could not find the battery "
+"level characteristic). If you are certain that it definitely is, please "
+"report this error to The Tail Company."
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:528
+msgctxt "Warning that some unknown error happened"
+msgid ""
+"An error occurred. If you are trying to connect to your MiTail Mini, make "
+"sure it is on and close to this device."
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:531
+msgctxt "Warning that the device disconnected itself"
+msgid "The MiTail Mini closed the connection."
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:535
+msgctxt ""
+"Warning that some connection failure occurred (usually due to low signal "
+"strength)"
+msgid ""
+"Failed to connect to your MiTail Mini. Please try again (perhaps move it "
+"closer?)"
+msgstr ""
+
+#: gearimplementations/GearMitailMini.cpp:570
+msgctxt ""
+"Warning that the device itself disconnected during operation (usually due to "
+"turning off from low power)"
+msgid ""
+"The MiTail Mini closed the connection, either by being turned off or losing "
+"power. Remember to charge your gear!"
+msgstr ""
+
+#: GestureDetectorModel.cpp:273
+msgctxt "The name of a sensor"
+msgid "Double Tap"
+msgstr ""
+
+#: GestureDetectorModel.cpp:274
+msgctxt "The name of a sensor"
+msgid "Hover"
+msgstr ""
+
+#: GestureDetectorModel.cpp:275
+msgctxt "The name of a sensor"
+msgid "Freefall"
+msgstr ""
+
+#: GestureDetectorModel.cpp:276
+msgctxt "The name of a sensor"
+msgid "Landed"
+msgstr ""
+
+#: GestureDetectorModel.cpp:277
+msgctxt "The name of a sensor"
+msgid "Cover Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:278
+msgctxt "The name of a sensor"
+msgid "Shake Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:279
+msgctxt "The name of a sensor"
+msgid "Slam Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:280
+msgctxt "The name of a sensor"
+msgid "Whip Gesture"
+msgstr ""
+
+#: GestureDetectorModel.cpp:281
+msgctxt "The name of a sensor"
+msgid "Shake Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:282
+msgctxt "The name of a sensor"
+msgid "Shake Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:283
+msgctxt "The name of a sensor"
+msgid "Shake Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:284
+msgctxt "The name of a sensor"
+msgid "Shake Down"
+msgstr ""
+
+#: GestureDetectorModel.cpp:285
+msgctxt "The name of a sensor"
+msgid "Twist Left"
+msgstr ""
+
+#: GestureDetectorModel.cpp:286
+msgctxt "The name of a sensor"
+msgid "Twist Right"
+msgstr ""
+
+#: GestureDetectorModel.cpp:287
+msgctxt "The name of a sensor"
+msgid "Pick Up"
+msgstr ""
+
+#: GestureDetectorModel.cpp:288
+msgctxt "The name of a sensor"
+msgid "Turn Over"
+msgstr ""
+
+#: GestureDetectorModel.cpp:289
+msgctxt "The name of a sensor"
+msgid "Walking Started"
+msgstr ""
+
+#: GestureDetectorModel.cpp:290
+msgctxt "The name of a sensor"
+msgid "Walking Stopped"
+msgstr ""
+
+#: GestureDetectorModel.cpp:291
+msgctxt "The name of a sensor"
+msgid "Step Detected"
+msgstr ""
+
+#: GestureDetectorModel.cpp:292
+msgctxt "The name of a sensor"
+msgid "Even-numbered Step Detected"
+msgstr ""
+
+#: GestureDetectorModel.cpp:293
+msgctxt "The name of a sensor"
+msgid "Odd-numbered Step Detected"
+msgstr ""
+
+#: GestureDetectorModel.cpp:305
+msgctxt ""
+"A message to inform the user a gesture recogniser has been on for too long "
+"and has been automatically disabled for the safety and health of their gear"
+msgid ""
+"Disabled %1 detection after one hour. All animatronic gear needs a rest "
+"after long periods of use. Read our guide to responsible wagging in Settings "
+"for ways to keep your gear healthy."
+msgstr ""
+
+#: qml/AboutPage.qml:33
+msgctxt ""
+"A label which describes the hardware revision of the connected gear, when "
+"only one item is connected"
+msgid "The connected gear is version %1"
+msgstr ""
+
+#: qml/AboutPage.qml:38
+msgctxt ""
+"A label which describes the hardware revision of a piece of connected gear, "
+"when more than one item is connected"
+msgid "The gear named %1 is version %2"
+msgstr ""
+
+#: qml/AlarmList.qml:29
+msgctxt "Title of the page which lists the alarms the user has set"
+msgid "Alarms"
+msgstr ""
+
+#: qml/AlarmList.qml:33
+msgctxt "Text for a button which will adds a new alarm to the list"
+msgid "Add New Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:45
+msgctxt ""
+"Title for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid "Select another name"
+msgstr ""
+
+#: qml/AlarmList.qml:46
+msgctxt ""
+"Main text for a message box warning the user an alarm with the chosen name "
+"already exists"
+msgid ""
+"Unable to add the alarm because we already have an alarm with the same "
+"name.\n"
+"\n"
+"Please select another name for the alarm."
+msgstr ""
+
+#: qml/AlarmList.qml:50
+msgctxt ""
+"Title for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid "Alarm was removed"
+msgstr ""
+
+#: qml/AlarmList.qml:51
+msgctxt ""
+"Main text for a message box informing the user the alarm they attempted to "
+"remove does not exist"
+msgid ""
+"Unable to find an alarm with the name '%1'. Maybe another application "
+"instance has removed it."
+msgstr ""
+
+#: qml/AlarmList.qml:81
+msgctxt ""
+"Text for an action which allows the user to pick what command the alarm will "
+"cause to be sent"
+msgid "Edit Alarm Commands"
+msgstr ""
+
+#: qml/AlarmList.qml:90
+msgctxt ""
+"Text for an action which allows the user to pick what time the alarm should "
+"fire"
+msgid "Set Time To Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:112
+msgctxt "Text for an action which allows the user to delete an alarm"
+msgid "Delete this Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:116
+msgctxt ""
+"Title for a message box which allows the user to delete a specific alarm"
+msgid "Remove the Alarm"
+msgstr ""
+
+#: qml/AlarmList.qml:117
+msgctxt ""
+"Main text for a message box which allows the user to delete a specific alarm"
+msgid "Are you sure that you want to remove the alarm '%1'?"
+msgstr ""
+
+#: qml/AlarmList.qml:136
+msgctxt ""
+"Descriptive text which explains what the functionality is of the alarm page"
+msgid ""
+"Set an alarm here. Pick a date and time for your alarm, and then add one or "
+"more moves you want to perform when you hit that time."
+msgstr ""
+
+#: qml/AlarmList.qml:143
+msgctxt ""
+"Descriptive text for a popup which allows the user to create a new, named "
+"alarm"
+msgid "Enter a name to use for your new alarm and click Create"
+msgstr ""
+
+#: qml/AlarmList.qml:144
+msgctxt ""
+"Placeholder text for the text box in which the name of a new alarm must be "
+"written"
+msgid "Enter your alarm name here"
+msgstr ""
+
+#: qml/AlarmList.qml:145
+msgctxt "Text on a button which causes an alarm to be created"
+msgid "Create"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:42
+msgctxt "Label for the button for adding a move to the Move List"
+msgid "Add Move To List"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:51
+msgctxt "Label for the button for adding a pause to the Move List"
+msgid "Add Pause To List"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:168
+msgctxt ""
+"Label for the button for adding a command after the selected element of a "
+"move list"
+msgid "Add command after"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:177
+msgctxt ""
+"Label for the button for adding a pause after the selected element of a move "
+"list"
+msgid "Add pause after"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:203
+msgctxt ""
+"Label for the cooldown period when it is larger than 0, on the Command List "
+"editor"
+msgid ""
+"<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
+"cooldown: %3 seconds</small>"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:204
+msgctxt ""
+"Label for the cooldown period when it is equal to 0, on the Command List "
+"editor"
+msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:224
+msgctxt "Description for the Command List Editor"
+msgid ""
+"This is your list of commands. It can include both moves, glows, and pauses. "
+"Tip: To add a new command underneath one you have in the list already, click "
+"the plus icon above the cumulative timestamp for that entry and pick one of "
+"the options in the menu."
+msgstr ""
+
+#: qml/BaseCommandListEditor.qml:275
+msgctxt ""
+"Label for the cumulative duration of a Command on the Command List Editor"
+msgid "Total duration: %1 second"
+msgid_plural "Total duration: %1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/BaseMovesComponent.qml:207
+msgctxt "Header for the overlay for selecting the destination for a command"
+msgid "Send where?"
+msgstr ""
+
+#: qml/BaseMovesComponent.qml:216
+msgctxt "Text for the overlay for selecting the destination for a command"
+msgid "Pick from the list below where you want to send the command."
+msgstr ""
+
+#: qml/BaseMovesComponent.qml:262
+msgctxt "Action for sending a command to the selected devices in a list"
+msgid "Send To Selected"
+msgstr ""
+
+#: qml/BaseMovesComponent.qml:271
+msgctxt "Action for sending a command to all devices in a list"
+msgid "Send To All"
+msgstr ""
+
+#: qml/CommandPausePicker.qml:42
+msgctxt ""
+"Heading for an overlay for picking the duration of a pause in the command "
+"list"
+msgid "Pick the duration of your pause"
+msgstr ""
+
+#: qml/CommandPausePicker.qml:59
+msgctxt ""
+"A label which describes the slider for the duration of a pause, in the "
+"overlay for picking the duration of a pause, in a command list"
+msgid "%1 seconds"
+msgstr ""
+
+#: qml/CommandPausePicker.qml:63
+msgctxt ""
+"Button for an overlay for picking the duration of a pause in the command list"
+msgid "Add this pause"
+msgstr ""
+
+#: qml/ConnectToTail.qml:48
+msgctxt ""
+"Button for the action of connecting to all found devices, in the popup for "
+"connecting to devices"
+msgid "Connect All"
+msgstr ""
+
+#: qml/ConnectToTail.qml:86
+msgctxt ""
+"Button for the action of disconnecting a device, in the prompt for "
+"connecting a device"
+msgid "Disconnect"
+msgstr ""
+
+#: qml/ConnectToTail.qml:87
+msgctxt ""
+"Button for the action of connecting a device, in the prompt for connecting a "
+"device"
+msgid "Connect"
+msgstr ""
+
+#: qml/DatePicker.qml:239
+msgctxt "Button for selecting the date of today, in a date picker"
+msgid "Today"
+msgstr ""
+
+#: qml/DatePicker.qml:246
+msgctxt "Button for cancelling the selection of a date, in a date picker"
+msgid "Cancel"
+msgstr ""
+
+#: qml/DatePicker.qml:253
+msgctxt "Button for confirming the selection of a date, in a date picker"
+msgid "OK"
+msgstr ""
+
+#: qml/DeveloperModePage.qml:27
+msgctxt "Header for the Developer Mode page"
+msgid "Developer Mode"
+msgstr ""
+
+#: qml/DeveloperModePage.qml:34
+msgctxt "Button with a sound effect for the Developer Mode Page"
+msgid "MAX GLASH"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:34
+msgctxt ""
+"Heading for the overlay for picking options when disconnecting from a piece "
+"of gear"
+msgid "Disconnect?"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:53
+msgctxt ""
+"Label above the list of options available for disconnecting from a piece of "
+"gear"
+msgid "Please select how you would like to disconnect from %1."
+msgstr ""
+
+#: qml/DisconnectOptions.qml:68
+msgctxt ""
+"Label above the section that lets you set up the gear for use without a "
+"phone and then disconnect"
+msgid "Use Gear Without Your Phone"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:87
+msgctxt ""
+"Label above the list of options available for disconnecting from a piece of "
+"gear"
+msgid ""
+"Pick this option to set up No Phone Mode and disconnect, so you can leave "
+"the phone off. This works like a basic Casual Mode, but without the phone to "
+"operate it. (Handy if you're costuming and have nowhere to stow your phone)"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:106
+msgctxt ""
+"Label for the slider which lets the user pick how long to wait between No "
+"Phone mode picks its commands"
+msgid ""
+"No Phone Mode will wait between %1 and %2 seconds before picking its next "
+"move."
+msgstr ""
+
+#: qml/DisconnectOptions.qml:126
+msgctxt ""
+"Label for the slider which lets the user pick how long to wait before No "
+"Phone mode is fully activated"
+msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
+msgstr ""
+
+#: qml/DisconnectOptions.qml:136
+msgctxt ""
+"Label for the button in the disconnection options popup which puts the gear "
+"into autonomous, or no phone, mode"
+msgid "Engage No Phone Mode"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:170
+msgctxt ""
+"Label above the section that lets the user simply disconnect from the gear"
+msgid "Just Disconnect"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:188
+msgctxt ""
+"Label above the list of options available for disconnecting from a piece of "
+"gear"
+msgid ""
+"Pick this option to disconnect from the gear without turning it off (handy "
+"if you want to charge it)."
+msgstr ""
+
+#: qml/DisconnectOptions.qml:191
+msgctxt ""
+"Label for the button in the disconnection options popup which only "
+"disconnects the gear"
+msgid "Disconnect"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:212
+msgctxt ""
+"Header label for the section which lets you tell the gear to shut down "
+"before disconnecting"
+msgid "Disconnect and Shut Down"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:230
+msgctxt ""
+"Label above the list of options available for shutting down the piece of gear"
+msgid ""
+"Pick this option to turn off the gear rather than simply disconnecting "
+"(handy if you're putting it away immediately)"
+msgstr ""
+
+#: qml/DisconnectOptions.qml:233
+msgctxt ""
+"Label for the button in the disconnection options popup which only "
+"disconnects the gear"
+msgid "Shut Down Gear"
+msgstr ""
+
+#: qml/EarPoses.qml:27
+msgctxt "Title for the page for selecting a pose for the EarGear"
+msgid "Ear Poses"
+msgstr ""
+
+#: qml/EarPoses.qml:30
+msgctxt ""
+"Button for returning the EarGear to the home position, on the page for "
+"selecting a pose for the EarGear"
+msgid "Home Position"
+msgstr ""
+
+#: qml/EarPoses.qml:38
+msgctxt "Description for the page for selecting a pose for the EarGear"
+msgid ""
+"The list below shows all the poses available to your gear. Tap any of them "
+"to send them off to any of your connected devices!"
+msgstr ""
+
+#: qml/EarPoses.qml:41
+msgctxt "Label for the button for setting EarGear moves to run more slowly"
+msgid "Be Calm"
+msgstr ""
+
+#: qml/EarPoses.qml:49
+msgctxt "Label for the button for setting EarGear moves to run faster"
+msgid "Be Excited"
+msgstr ""
+
+#: qml/EarPoses.qml:63
+msgctxt ""
+"Heading for the list of poses, on the page for selecting a pose for the "
+"EarGear"
+msgid "Poses"
+msgstr ""
+
+#: qml/GearGestures.qml:28
+msgctxt "Title for the page for selecting a pose for the Gear"
+msgid "Gear Gestures"
+msgstr ""
+
+#: qml/GearGestures.qml:31
+msgctxt ""
+"Button for returning Gear to the home position, on the page for selecting a "
+"pose for the Gear"
+msgid "Home Position"
+msgstr ""
+
+#: qml/GearGestures.qml:47
+msgctxt "Info card for the page for selecting a pose for the Gear"
+msgid ""
+"Turn on one of the sensors below to make your gear react to gestures "
+"performed on this device, if there is nothing else going on (that is, no "
+"current commands, and an empty command queue). For example, make your ears "
+"perk up when the device recognises that is has been picked up, or start "
+"wagging when it detects that you have taken a step."
+msgstr ""
+
+#: qml/GearGestures.qml:70
+msgctxt ""
+"Title for the warning for having enabled multiple gestures at the same time, "
+"on the page for selecting a pose for the Gear"
+msgid "Multiple Gestures"
+msgstr ""
+
+#: qml/GearGestures.qml:71
+msgctxt ""
+"Description for the warning for having enabled multiple gestures at the same "
+"time, on the page for selecting a pose for the Gear"
+msgid ""
+"You are attempting to turn on more than one gesture at the same time. This "
+"will occasionally cause problems, primarily by being confusing to manage "
+"(for example, turning on both Walking and Shake is likely to cause both to "
+"be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
+"not enable this gesture."
+msgstr ""
+
+#: qml/GearGestures.qml:80
+msgctxt ""
+"Description for the checkbox for showing a gesture on the Welcome Page, on "
+"the page for selecting a pose for the Gear"
+msgid "Show On Welcome Page"
+msgstr ""
+
+#: qml/GearGestures.qml:93
+msgctxt ""
+"Default text for the button for picking a command, for when no command has "
+"been selected, on the page for selecting a pose for the Gear"
+msgid "(no command)"
+msgstr ""
+
+#: qml/IdleModePage.qml:26
+msgctxt "Title for the page for selecting a move in Casual Mode"
+msgid "Casual Mode Categories"
+msgstr ""
+
+#: qml/IdleModePage.qml:46
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Calm and Relaxed"
+msgstr ""
+
+#: qml/IdleModePage.qml:51
+msgctxt ""
+"Description for the category for the Excited Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Fast and Excited"
+msgstr ""
+
+#: qml/IdleModePage.qml:56
+msgctxt ""
+"Description for the category for the Tense Moveset, on the page for "
+"selecting a move in Casual Mode"
+msgid "Frustrated and Tense"
+msgstr ""
+
+#: qml/IdleModePage.qml:61
+msgctxt ""
+"Description for the category for the LED Patterns, on the page for selecting "
+"a move in Casual Mode"
+msgid "LED Patterns"
+msgstr ""
+
+#: qml/IdleModePage.qml:72
+msgctxt ""
+"Infocard for selecting the pauses in between moves, on the page for "
+"selecting a move in Casual Mode"
+msgid ""
+"This is where you set the pauses in between moves, as well as the families "
+"of moves that can be called upon."
+msgstr ""
+
+#: qml/IdlePauseRangePicker.qml:30
+msgctxt ""
+"Label for selecting the range of pauses in between moves in Casual Mode"
+msgid "Range of pause between moves in seconds"
+msgstr ""
+
+#: qml/main.qml:62
+msgctxt "Title of the application"
+msgid "Crumpet"
+msgstr ""
+
+#: qml/main.qml:96
+msgctxt "Text for the notification upon connecting successfully to a device"
+msgid "Connected successfully!"
+msgstr ""
+
+#: qml/main.qml:117
+msgctxt "Title for the warning for having Bluetooth disabled"
+msgid "Warning"
+msgstr ""
+
+#: qml/main.qml:117
+msgctxt "Message for the warning for having Bluetooth disabled"
+msgid "Bluetooth is disabled"
+msgstr ""
+
+#: qml/main.qml:119
+msgctxt "Title for the warning for not having detected any Bluetooth devices"
+msgid "Warning"
+msgstr ""
+
+#: qml/main.qml:119
+msgctxt "Message for the warning for not having detected any Bluetooth devices"
+msgid "No Bluetooth Device"
+msgstr ""
+
+#: qml/main.qml:132
+msgctxt "Title for the popup for having enabled Developer Mode"
+msgid "Developer mode"
+msgstr ""
+
+#: qml/main.qml:132
+msgctxt "Message for the popup for having enabled Developer Mode"
+msgid "Developer mode is enabled"
+msgstr ""
+
+#: qml/main.qml:134
+msgctxt "Title for the popup for having disabled Developer Mode"
+msgid "Developer mode"
+msgstr ""
+
+#: qml/main.qml:134
+msgctxt "Message for the popup for having disabled Developer Mode"
+msgid "Developer mode is disabled"
+msgstr ""
+
+#: qml/main.qml:139
+msgctxt "Title for the popup for getting a timeout for Casual Mode"
+msgid "Casual Mode is Off"
+msgstr ""
+
+#: qml/main.qml:139
+msgctxt "Message for the popup for getting a timeout for Casual Mode"
+msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
+msgstr ""
+
+#: qml/main.qml:200
+msgctxt "Button for opening the Crumpet page, from the landing page"
+msgid "Crumpet"
+msgstr ""
+
+#: qml/main.qml:208
+msgctxt "Button for opening the Alarm page, from the landing page"
+msgid "Alarm"
+msgstr ""
+
+#: qml/main.qml:218
+msgctxt "Button for opening the Move List page, from the landing page"
+msgid "Move Lists"
+msgstr ""
+
+#: qml/main.qml:228
+msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
+msgid "Moves"
+msgstr ""
+
+#: qml/main.qml:237
+msgctxt "Button for opening the EarGear Poses page, from the landing page"
+msgid "Ear Poses"
+msgstr ""
+
+#: qml/main.qml:246
+msgctxt "Button for opening the Glow Tips page, from the landing page"
+msgid "Glow Tips"
+msgstr ""
+
+#: qml/main.qml:255
+msgctxt ""
+"Button for opening the page for setting up the Casual Mode, from the landing "
+"page"
+msgid "Casual Mode Settings"
+msgstr ""
+
+#: qml/main.qml:264
+msgctxt "Button for opening the Gear Gestures page, from the landing page"
+msgid "Gear Gestures"
+msgstr ""
+
+#: qml/main.qml:273
+msgctxt "Button for opening the Developer Mode page, from the landing page"
+msgid "Developer Mode"
+msgstr ""
+
+#: qml/main.qml:288
+msgctxt "Button for opening the Settings Page, from the landing page"
+msgid "Settings"
+msgstr ""
+
+#: qml/main.qml:299
+msgctxt "Button for opening the About Us page, from the landing page"
+msgid "About"
+msgstr ""
+
+#: qml/main.qml:307
+msgctxt ""
+"Button for opening the TailCo website in a browser, from the landing page"
+msgid "TheTailCompany.com"
+msgstr ""
+
+#: qml/main.qml:327
+msgctxt "Title for the confirmation popup for disconnecting your gear"
+msgid "Your gear is currently connected"
+msgstr ""
+
+#: qml/main.qml:328
+msgctxt "Message for the confirmation popup for disconnecting your gear"
+msgid ""
+"You are currently connected to some of your gear.\n"
+"\n"
+"Are you sure that you want to disconnect and quit?"
+msgstr ""
+
+#: qml/main.qml:400
+msgctxt "Description for the prompt for entering a name for your Gear"
+msgid "Enter a name to use for your new gear"
+msgstr ""
+
+#: qml/main.qml:401
+msgctxt "Placeholder text for the prompt for entering a name for your Gear"
+msgid "Enter the new name for %1 here"
+msgstr ""
+
+#: qml/main.qml:402
+msgctxt ""
+"Button for confirming the save of your new name, for the prompt for entering "
+"a name for your Gear"
+msgid "Save"
+msgstr ""
+
+#: qml/main.qml:443
+msgctxt "Label for your gear that gets shown when attempting to connect to it"
+msgid "Attempting to connect..."
+msgstr ""
+
+#: qml/MessageBox.qml:48
+msgctxt "Confirmation button for a generic message"
+msgid "Ok"
+msgstr ""
+
+#: qml/MessageBox.qml:67
+msgctxt "Cancel button for a generic message"
+msgid "Cancel"
+msgstr ""
+
+#: qml/MoveListEditor.qml:32
+msgctxt ""
+"Label for the button for running a Move List, on the Move List Editor page"
+msgid "Run Move List"
+msgstr ""
+
+#: qml/MoveListEditor.qml:35
+msgctxt ""
+"Heading for the confirmation prompt for running a Move List, on the Move "
+"List Editor page"
+msgid "Run this list?"
+msgstr ""
+
+#: qml/MoveListEditor.qml:36
+msgctxt ""
+"Message for the confirmation prompt for running a Move List, on the Move "
+"List Editor page"
+msgid "Do you want to run this list?"
+msgstr ""
+
+#: qml/MoveListEditor.qml:51
+msgctxt ""
+"Header for the confirmation prompt for removing a Move List Entry, on the "
+"Move List Editor page"
+msgid "Remove Move List Entry?"
+msgstr ""
+
+#: qml/MoveListEditor.qml:52
+msgctxt ""
+"Message for the confirmation prompt for removing a Move List Entry, on the "
+"Move List Editor page"
+msgid "Are you sure that you want to remove this entry from your move list?"
+msgstr ""
+
+#: qml/MoveLists.qml:28
+msgctxt "Heading for the page for viewing Move Lists"
+msgid "Move Lists"
+msgstr ""
+
+#: qml/MoveLists.qml:32
+msgctxt ""
+"Label for the button for adding a new Move List, on the page for viewing "
+"Move Lists"
+msgid "Add New Move List"
+msgstr ""
+
+#: qml/MoveLists.qml:49
+msgctxt ""
+"Heading for the prompt for confirming the action of running a list, on the "
+"page for viewing Move Lists"
+msgid "Run this list?"
+msgstr ""
+
+#: qml/MoveLists.qml:50
+msgctxt ""
+"Message for the prompt for confirming the action of running a list, on the "
+"page for viewing Move Lists"
+msgid "Do you want to run the list %1?"
+msgstr ""
+
+#: qml/MoveLists.qml:57
+msgctxt ""
+"Label for the button for editing a move list, on the page for viewing Move "
+"Lists"
+msgid "Edit Move List"
+msgstr ""
+
+#: qml/MoveLists.qml:65
+msgctxt ""
+"Label for the button for deleting a move list, on the page for viewing Move "
+"Lists"
+msgid "Delete this Move List"
+msgstr ""
+
+#: qml/MoveLists.qml:69
+msgctxt ""
+"Heading for the prompt for confirming the action of deleting a list, on the "
+"page for viewing Move Lists"
+msgid "Remove the Move List"
+msgstr ""
+
+#: qml/MoveLists.qml:70
+msgctxt ""
+"Message for the prompt for confirming the action of deleting a list, on the "
+"page for viewing Move Lists"
+msgid "Are you sure that you want to remove the Move List '%1'?"
+msgstr ""
+
+#: qml/MoveLists.qml:87
+msgctxt "Description for the page for viewing Move Lists"
+msgid ""
+"Create lists of moves, glows and pauses to send to your gear. To send a list "
+"you have created, tap it and pick OK. To perform actions on the ones you've "
+"created, like editing or even removing them entirely, swipe left on the item."
+msgstr ""
+
+#: qml/MoveLists.qml:94
+msgctxt ""
+"Description for the prompt for giving a name to a move list, on the page for "
+"viewing Move Lists"
+msgid "Enter a name to use for your new move list and click Create"
+msgstr ""
+
+#: qml/MoveLists.qml:95
+msgctxt ""
+"Placeholder text for the textfield for the prompt for giving a name to a "
+"move list, on the page for viewing Move Lists"
+msgid "Enter your move list name here"
+msgstr ""
+
+#: qml/MoveLists.qml:96
+msgctxt ""
+"Confirmating button for the prompt for giving a name to a move list, on the "
+"page for viewing Move Lists"
+msgid "Create"
+msgstr ""
+
+#: qml/MoveLists.qml:100
+msgctxt ""
+"Header for the warning that a name is already in use, for the prompt for "
+"giving a name to a move list, on the page for viewing Move Lists"
+msgid "Name Already Used"
+msgstr ""
+
+#: qml/MoveLists.qml:101
+msgctxt ""
+"Description for the warning that a name is already in use, for the prompt "
+"for giving a name to a move list, on the page for viewing Move Lists"
+msgid ""
+"You already have a move list with the name %1. Please pick another name, as "
+"that won't work."
+msgstr ""
+
+#: qml/NamePicker.qml:41
+msgctxt "Text header for picking a name"
+msgid "Pick a name"
+msgstr ""
+
+#: qml/NotConnectedCard.qml:38
+msgctxt ""
+"Header warning for missing scan permissions, for the gear connecting card"
+msgid "Let us look for your gear"
+msgstr ""
+
+#: qml/NotConnectedCard.qml:41
+msgctxt "Header for whilst scanning, for the gear connecting card"
+msgid "Searching for gear..."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:45
+msgctxt ""
+"Header warning that no gear has been found, for the gear connecting card"
+msgid "No gear found"
+msgstr ""
+
+#: qml/NotConnectedCard.qml:48
+msgctxt ""
+"Header notifying that gear has been found, for the gear connecting card"
+msgid "One piece of gear available"
+msgid_plural "Multiple pieces of gear available"
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/NotConnectedCard.qml:75
+msgctxt ""
+"Message warning for missing scan permissions, for the gear connecting card"
+msgid ""
+"To be able to find your gear, we need you to grant permission to scan for "
+"nearby devices. Clicking the button below will show you a dialog that you "
+"need to press allow on."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:78
+msgctxt ""
+"Message warning for missing location permissions, for the gear connecting "
+"card"
+msgid ""
+"To be able to find your gear, we need you to grant permission to access your "
+"location. Clicking the button below will show you a dialog that you need to "
+"press allow on. We do not use this information for anything else (feel free "
+"to get in touch if you want proof of this)."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:83
+msgctxt ""
+"Message whilst scanning warning that no gear has been found, for the gear "
+"connecting card"
+msgid "None found yet..."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:86
+msgctxt ""
+"Message whilst scanning notifying that gear has been found, for the gear "
+"connecting card"
+msgid ""
+"1 piece of gear found. Simply wait, or push \"Connect\" below to control it."
+msgid_plural ""
+"Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
+"below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/NotConnectedCard.qml:91
+msgctxt ""
+"Message after scanning warning that no gear has been found, for the gear "
+"connecting card"
+msgid ""
+"We were unable to find any gear. Please ensure that yours is nearby and "
+"switched on."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:94
+msgctxt ""
+"Message after scanning notifying that gear has been found, for the gear "
+"connecting card"
+msgid ""
+"You are not currently connected to your gear, but we know of one. Push "
+"\"Connect\" to connect to it."
+msgid_plural ""
+"You are not currently connected to your gear, and we have found %1. Please "
+"push \"Show available gear...\" below to see what is available."
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/NotConnectedCard.qml:106
+msgctxt ""
+"Label for button for opening the settings tab to fix missing scan "
+"permissions, for the gear connecting card"
+msgid "Get Scan Permission..."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:109
+msgctxt ""
+"Label for button for opening the settings tab to fix missing location "
+"permissions, for the gear connecting card"
+msgid "Get Location Permission..."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:112
+msgctxt ""
+"Label for button for connecting to a specific piece of gear, for the gear "
+"connecting card"
+msgid "Connect to %1"
+msgstr ""
+
+#: qml/NotConnectedCard.qml:114
+msgctxt ""
+"Label for button for showing a list of available gear, for the gear "
+"connecting card"
+msgid "Show available gear..."
+msgstr ""
+
+#: qml/NotConnectedCard.qml:134
+msgctxt ""
+"Label for button which causes the list of available gear to be refreshed, "
+"for the gear connecting card"
+msgid "Look for gear"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:31
+msgctxt ""
+"Heading for the overlay for picking a command, for configuring a move list"
+msgid "Pick a command"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:35
+msgctxt ""
+"Description for the overlay for picking a command, for configuring a move "
+"list"
+msgid ""
+"The list below shows all the moves and light patterns available to your "
+"gear. Tap any of them to pick that command."
+msgstr ""
+
+#: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
+msgctxt ""
+"Description for the category for the Ear Gear poses, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Poses"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:49 qml/PickACommandSheet.qml:76
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Calm and Relaxed"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:54 qml/PickACommandSheet.qml:81
+msgctxt ""
+"Description for the category for the Excited Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Fast and Excited"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:59 qml/PickACommandSheet.qml:86
+msgctxt ""
+"Description for the category for the Tense Moveset, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "Frustrated and Tense"
+msgstr ""
+
+#: qml/PickACommandSheet.qml:64
+msgctxt ""
+"Description for the category for the LED Patterns, on the overlay for "
+"picking a command, for configuring a move list"
+msgid "LED Patterns"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:26
+msgctxt "Heading for the page for configuring command Sets"
+msgid "Gear Command Sets"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:45
+msgctxt ""
+"Description for the page for configuring Command Sets, for a specific gear"
+msgid ""
+"This is all the command sets you have available to enable for %1. You can "
+"add new ones, edit them, and remove them. You cannot edit the built-in "
+"lists, but you can duplicate them and then edit those."
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:78
+msgctxt ""
+"Button for deleting a Command Set, on the page for configuring Command Sets"
+msgid "Delete"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:82
+msgctxt ""
+"Button for duplicating a Command Set, on the page for configuring Command "
+"Sets"
+msgid "Duplicate"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:91
+msgctxt ""
+"Button for editing a Command Set, on the page for configuring Command Sets"
+msgid "Edit Commands"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:103
+msgctxt ""
+"Header for the overlay for editing a Command Set, on the page for "
+"configuring Command Sets"
+msgid "Edit Commands"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:111
+msgctxt ""
+"Button for saving a Command Set, on the overlay for editing a Command Set, "
+"on the page for configuring Command Sets"
+msgid "Save"
+msgstr ""
+
+#: qml/SettingsCrumpetPicker.qml:125
+msgctxt ""
+"Placeholder text for the overlay for editing a Command Set, on the page for "
+"configuring Command Sets"
+msgid ""
+"(this is where the content of the crumpet file goes,\n"
+"because we'll just have that here for now...)"
+msgstr ""
+
+#: qml/SettingsPage.qml:29
+msgctxt "Title for the settings page"
+msgid "Settings"
+msgstr ""
+
+#: qml/SettingsPage.qml:36
+msgctxt "Header for the instruction panel, on the settings page"
+msgid "Instructions"
+msgstr ""
+
+#: qml/SettingsPage.qml:37
+msgctxt "Description for the instruction panel on the settings page"
+msgid ""
+"Please download and read the instructions by clicking the link below. This "
+"includes instructions on how to wear your tail or ears, along with some nice "
+"graphics showing you how."
+msgstr ""
+
+#: qml/SettingsPage.qml:43
+msgctxt "Label showing all the items underneath are links to a PDF file"
+msgid "Download PDF:"
+msgstr ""
+
+#: qml/SettingsPage.qml:47
+msgctxt ""
+"Label for downloading the general guide for safe use of the various gear"
+msgid "Responsible Wagging Guide"
+msgstr ""
+
+#: qml/SettingsPage.qml:52
+msgctxt "Label for downloading the instructions for the MiTail"
+msgid "MiTail Instructions"
+msgstr ""
+
+#: qml/SettingsPage.qml:57
+msgctxt "Label for downloading the instructions for the Digitail"
+msgid "Digitail Instructions"
+msgstr ""
+
+#: qml/SettingsPage.qml:62
+msgctxt "Label for downloading the instructions for EarGear"
+msgid "EarGear Instructions"
+msgstr ""
+
+#: qml/SettingsPage.qml:69
+msgctxt "Header for the panel on automatic reconnection, on the settings page"
+msgid "Automatic Reconnection"
+msgstr ""
+
+#: qml/SettingsPage.qml:70
+msgctxt ""
+"Description for the panel on automatic reconnection, on the settings page"
+msgid ""
+"In certain situations, the app might lose its connection to your gear. "
+"Ticking this option will ensure that the app will attempt to reconnect "
+"automatically when the connection is lost."
+msgstr ""
+
+#: qml/SettingsPage.qml:72
+msgctxt ""
+"Checkbox for enabling automatic reconnection, on the automatic reconnection "
+"panel in the settings page"
+msgid "Reconnect Automatically"
+msgstr ""
+
+#: qml/SettingsPage.qml:81
+msgctxt "Header for the panel for changing gear names, on the settings page"
+msgid "Gear Names"
+msgstr ""
+
+#: qml/SettingsPage.qml:82
+msgctxt ""
+"Description for the panel for changing gear names, on the settings page"
+msgid ""
+"If you want to clear the names of any gear you have given a name, click the "
+"button below to make the app forget them all."
+msgstr ""
+
+#: qml/SettingsPage.qml:84
+msgctxt ""
+"Label for the button for clearing gear names, on the panel for changing gear "
+"names, on the settings page"
+msgid "Forget Gear Names"
+msgstr ""
+
+#: qml/SettingsPage.qml:87
+msgctxt ""
+"Header for the warning prompt for clearing gear names, on the panel for "
+"changing gear names, on the settings page"
+msgid "Clear the names?"
+msgstr ""
+
+#: qml/SettingsPage.qml:88
+msgctxt ""
+"Text for the warning prompt for clearing gear names, on the panel for "
+"changing gear names, on the settings page"
+msgid ""
+"Please confirm that you do, in fact, want to clear all your saved device "
+"names."
+msgstr ""
+
+#: qml/SettingsPage.qml:95
+msgctxt ""
+"Header for the panel for adding commands to your gear, on the settings page"
+msgid "Gear Commands"
+msgstr ""
+
+#: qml/SettingsPage.qml:96
+msgctxt ""
+"Description for the panel for adding commands to your gear, on the settings "
+"page"
+msgid ""
+"While the app ships with a number of command sets out of the box, this is "
+"not all that your gear can do. You can modify what is sent to your gear, and "
+"we'll remember for each of them which commands you want to use. To be able "
+"to more easily use this, make sure to give your gear a name, so you can tell "
+"them apart more easily."
+msgstr ""
+
+#: qml/SettingsPage.qml:100
+msgctxt ""
+"Checkbox for hiding non-connected gear, on the panel for adding commands to "
+"your gear, on the settings page"
+msgid "Only Show Connected Gear"
+msgstr ""
+
+#: qml/SettingsPage.qml:113
+msgctxt ""
+"Warning for the list of configurable gear being empty, on the panel for "
+"adding commands to your gear, on the settings page"
+msgid "No gear to configure..."
+msgstr ""
+
+#: qml/SettingsPage.qml:138
+msgctxt ""
+"Heading for the panel for adjusting microphone levels for the earGear, on "
+"the settings page"
+msgid "EarGear Hearing"
+msgstr ""
+
+#: qml/SettingsPage.qml:139
+msgctxt ""
+"Description for the panel for adjusting microphone levels for the earGear, "
+"on the settings page"
+msgid ""
+"If your EarGear is acting a bit like it isn't hearing right, it might need "
+"to have its balance checked. To make sure it works the best, you will want "
+"to be in a quiet room before you tap the balance button below (pause your "
+"music, close the door to your bedroom, etc). This value is stored in the "
+"box, so you shouldn't generally need to do it more than once. You might also "
+"need to swap the direction around (for example, you might want to put your "
+"controller box either on the front or the back of your body, or upside down "
+"so the cable can run more gracefully)."
+msgstr ""
+
+#: qml/SettingsPage.qml:155
+msgctxt ""
+"Label for the button for unswapping left and right, on the panel for "
+"adjusting microphone levels for the earGear, on the settings page"
+msgid "Unswap left and right"
+msgstr ""
+
+#: qml/SettingsPage.qml:156
+msgctxt ""
+"Label for the button for swapping left and right, the panel for adjusting "
+"microphone levels for the earGear, on the settings page"
+msgid "Swap left and right"
+msgstr ""
+
+#: qml/SettingsPage.qml:163
+msgctxt ""
+"Label for the button for rebalancing microphone levels, the panel for "
+"adjusting microphone levels for the earGear, on the settings page"
+msgid "Rebalance Microphones"
+msgstr ""
+
+#: qml/SettingsPage.qml:176
+msgctxt ""
+"Heading for the panel for checking for and performing firmware updates for "
+"gear which supports this"
+msgid "Gear Firmware"
+msgstr ""
+
+#: qml/SettingsPage.qml:177
+msgctxt ""
+"Description for the panel for checking for and perfirming firmware updates "
+"for gear which supports this"
+msgid ""
+"If your gear supports firmware updates, you can check for new ones by "
+"clicking the \"Check\" button below, and if there is one, you can then click "
+"the button underneath to download and install the update."
+msgstr ""
+
+#: qml/SettingsPage.qml:193
+msgctxt ""
+"Label for the button which makes the app go online and check for the newest "
+"firmware available for the specific device"
+msgid "Check For New Firmware"
+msgstr ""
+
+#: qml/SettingsPage.qml:202
+msgctxt ""
+"Label displaying the currently installed and available firmware versions "
+"when they are different"
+msgid ""
+"You currently have version %1 installed, and version %2 is available for you "
+"to install"
+msgstr ""
+
+#: qml/SettingsPage.qml:208
+msgctxt ""
+"Label for the button which makes the app download the newest available "
+"firmware (only visible when updated firmware has been found)"
+msgid "Download"
+msgstr ""
+
+#: qml/SettingsPage.qml:216
+msgctxt ""
+"Label giving a set of instructions and warnings that users should be aware "
+"of before attempting to install new firmware"
+msgid ""
+"Before updating your gear from %1 to %2, please make sure you do the "
+"following:\n"
+"\n"
+"- Connect your gear to the USB charger and make sure it is charging. Keep it "
+"connected to the power while you update the firmware.\n"
+"\n"
+"- Also make sure your phone has more than 50% charge before you begin the "
+"update process.\n"
+"\n"
+"Upgrading your gear takes around 3 minutes. You must not switch off the gear "
+"or the phone while its working!\n"
+"\n"
+"Once the new firmware is beamed to your gear, it will disconnect from the "
+"app and reboot. This is quite normal! It should automatically reconnect, but "
+"in case it doesn't, just click the Connect button on the front page as usual."
+msgstr ""
+
+#: qml/SettingsPage.qml:222
+msgctxt ""
+"Label for the button which makes the app install the newest available "
+"firmware (only visible when updated firmware has been downloaded "
+"successfully)"
+msgid "Install"
+msgstr ""
+
+#: qml/SettingsPage.qml:233
+msgctxt "Heading for the panel of the language selector, on the settings page"
+msgid "Language"
+msgstr ""
+
+#: qml/SettingsPage.qml:234
+msgctxt "Description of the language selection option on the settings page"
+msgid ""
+"Usually, Crumpet will use the language that your device uses, or English if "
+"that language is not available. However, if you wish to force some language, "
+"you can select it here, and we will use that language instead."
+msgstr ""
+
+#: qml/SettingsPage.qml:258
+msgctxt ""
+"Heading for the panel for the demo modus of the app, on the settings page"
+msgid "Fake Tail"
+msgstr ""
+
+#: qml/SettingsPage.qml:259
+msgctxt ""
+"Description for the panel for the demo modus of the app, on the settings page"
+msgid ""
+"If you have just downloaded the app, for example in anticipation of the "
+"arrival of your brand new, super shiny MiTail or EarGear, you might want to "
+"explore what the app can do. You can click the button below to trick the app "
+"into thinking that there is a tail nearby, and let you explore what options "
+"exist. Enabling this option will make a fake tail show up on the welcome "
+"page."
+msgstr ""
+
+#: qml/SettingsPage.qml:261
+msgctxt ""
+"Label for the checkbox for showing a fake tail inside the app, on the panel "
+"for the demo modus of the app, on the settings page"
+msgid "Show Fake Tail"
+msgstr ""
+
+#: qml/TailLights.qml:25
+msgctxt "Header for the page for the Glow Tips"
+msgid "Glow Tips"
+msgstr ""
+
+#: qml/TailLights.qml:28
+msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
+msgid "Stop Lights"
+msgstr ""
+
+#: qml/TailLights.qml:37
+msgctxt ""
+"Description for the list of light patterns, on the page for the Glow Tips"
+msgid ""
+"The list below shows all the light patterns available to your gear. Tap any "
+"of them to send them off to any of your connected devices!"
+msgstr ""
+
+#: qml/TailLights.qml:44
+msgctxt "List element for the light patterns, on the page for the Glow Tips"
+msgid "LED Patterns"
+msgstr ""
+
+#: qml/TailMoves.qml:25
+msgctxt "Heading for the Moves page"
+msgid "Moves"
+msgstr ""
+
+#: qml/TailMoves.qml:28
+msgctxt "Button for returning the tail to its home position, on the Moves page"
+msgid "Home Position"
+msgstr ""
+
+#: qml/TailMoves.qml:36
+msgctxt "Description for the list of moves, on the Moves page"
+msgid ""
+"The list below shows all the moves available to your gear. Tap any of them "
+"to send them off to any of your connected devices!"
+msgstr ""
+
+#: qml/TailMoves.qml:43
+msgctxt ""
+"Description for the category for the Relaxed Moveset, on the Moves page"
+msgid "Calm and Relaxed"
+msgstr ""
+
+#: qml/TailMoves.qml:48
+msgctxt ""
+"Description for the category for the Excited Moveset, on the Moves page"
+msgid "Fast and Excited"
+msgstr ""
+
+#: qml/TailMoves.qml:53
+msgctxt "Description for the category for the Tense Moveset, on the Moves page"
+msgid "Frustrated and Tense"
+msgstr ""
+
+#: qml/TimePicker.qml:58
+msgctxt "Label for the Hours field on a time picker"
+msgid "Hours"
+msgstr ""
+
+#: qml/TimePicker.qml:70
+msgctxt "Label for the Minutes field on a time picker"
+msgid "Minutes"
+msgstr ""
+
+#: qml/TimePicker.qml:89
+msgctxt "Label for the AM option on a AM/PM selector of a time picker"
+msgid "AM"
+msgstr ""
+
+#: qml/TimePicker.qml:95
+msgctxt "Label for the PM option on a AM/PM selector of a time picker"
+msgid "PM"
+msgstr ""
+
+#: qml/TimePicker.qml:107
+msgctxt ""
+"Button for resetting a time field to the current time, on a time picker"
+msgid "Now"
+msgstr ""
+
+#: qml/TimePicker.qml:121
+msgctxt "Button for cancelling the time entry, on a time picker"
+msgid "Cancel"
+msgstr ""
+
+#: qml/TimePicker.qml:129
+msgctxt "Button for confirming the time entry, on a time picker"
+msgid "OK"
+msgstr ""
+
+#: qml/WelcomePage.qml:28
+msgctxt "Header for the welcome page"
+msgid "Crumpet"
+msgstr ""
+
+#: qml/WelcomePage.qml:31
+msgctxt "Label for the button for disconnecting gear, on the welcome page"
+msgid "Disconnect"
+msgstr ""
+
+#: qml/WelcomePage.qml:31
+msgctxt "Label for the button for connecting gear, on the welcome page"
+msgid "Connect"
+msgstr ""
+
+#: qml/WelcomePage.qml:59
+msgctxt ""
+"Label for the button for connecting additional gear, on the welcome page"
+msgid "Connect More..."
+msgstr ""
+
+#: qml/WelcomePage.qml:64
+msgctxt ""
+"Label for the button for looking for additional gear, on the welcome page"
+msgid "Look for gear"
+msgstr ""
+
+#: qml/WelcomePage.qml:79
+msgctxt "Label for the button for opening the Moves page, on the welcome page"
+msgid "Moves"
+msgstr ""
+
+#: qml/WelcomePage.qml:97
+msgctxt ""
+"Label for the button for opening the Ear Poses page, on the welcome page"
+msgid "Ear Poses"
+msgstr ""
+
+#: qml/WelcomePage.qml:115
+msgctxt ""
+"Label for the button for opening the Glow Tips page, on the welcome page"
+msgid "Glow Tips"
+msgstr ""
+
+#: qml/WelcomePage.qml:140
+msgctxt "Label for the button for opening the Alarms page, on the welcome page"
+msgid "Alarm"
+msgstr ""
+
+#: qml/WelcomePage.qml:155
+msgctxt ""
+"Label for the button for opening the Move List page, on the welcome page"
+msgid "Move List"
+msgstr ""
+
+#: qml/WelcomePage.qml:202
+msgctxt ""
+"Label for the button for opening the Casual Mode page, on the welcome page"
+msgid "Casual Mode"
+msgstr ""
+
+#: qml/WelcomePage.qml:218
+msgctxt ""
+"Label for the button for configuring the Casual Mode, on the welcome page"
+msgid "Casual Mode Settings"
+msgstr ""
+
+#: qml/WelcomePage.qml:263
+msgctxt "Heading for the panel for turning on Listening Mode"
+msgid "Listening Mode"
+msgstr ""
+
+#: qml/WelcomePage.qml:282
+msgctxt "Label for the checkbox for turning on Listening Mode"
+msgid ""
+"Turn this on to make your gear react to sounds around it for five minutes at "
+"a time."
+msgstr ""
+
+#: qml/WelcomePage.qml:322
+msgctxt "Heading for the panel for turning on Tilt Mode"
+msgid "Tilt Mode"
+msgstr ""
+
+#: qml/WelcomePage.qml:335
+msgctxt "Label for the checkbox for turning on Tilt Mode"
+msgid "Turn this on to make your gear react to tilting movements."
+msgstr ""
+
+#: qml/WelcomePage.qml:376
+msgctxt ""
+"Label for the button for opening the Gear Gestures page, on the welcome page"
+msgid "Gear Gestures"
+msgstr ""
