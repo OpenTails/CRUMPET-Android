@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2022-05-20 17:44+0200\n"
-"Last-Translator: Kuba <stegoceras@seznam.cz>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-07-23 14:15+0000\n"
+"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Language-Team: Czech <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/cs/>\n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -105,14 +106,13 @@ msgstr ""
 "vytvořen). Pokud se tak nemělo stát, zkuste to znovu!"
 
 #: gearimplementations/GearDigitail.cpp:276
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je "
-"box  zapnut a v blízkosti tohoto zařízení."
+"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je box "
+"zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearDigitail.cpp:279
 #, fuzzy
@@ -231,7 +231,7 @@ msgctxt ""
 msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
-msgstr "Tvoje zařízení má již nainstalovanou nejnovější verzi firmwaru. "
+msgstr "Tvoje zařízení má již nainstalovanou nejnovější verzi firmwaru."
 
 #: gearimplementations/GearEars.cpp:447
 #: gearimplementations/GearFlutterWings.cpp:332
@@ -403,7 +403,7 @@ msgid ""
 msgstr ""
 "Stažený update firmwaru neobsahuje co by měl. Obvykle se tohle stane kvůli "
 "problému se stahováním. Zkus to znovu, a pokud se situace bude opakovat, "
-"kontaktuj nás a my se pokusíme najít řešení! "
+"kontaktuj nás a my se pokusíme najít řešení!"
 
 #: gearimplementations/GearEars.cpp:860
 #, fuzzy
@@ -772,8 +772,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
-"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je "
-"box  zapnut a v blízkosti tohoto zařízení."
+"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je box "
+"zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearMitail.cpp:536
 msgctxt "Warning that the device disconnected itself"
@@ -879,14 +879,13 @@ msgstr ""
 "chybu The Tail company."
 
 #: gearimplementations/GearMitailMini.cpp:528
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
-"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je "
-"box  zapnut a v blízkosti tohoto zařízení."
+"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je box "
+"zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearMitailMini.cpp:531
 #, fuzzy
@@ -2280,7 +2279,7 @@ msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
-msgstr "Nenalezeno žádné zařízení pro konfiguraci... "
+msgstr "Nenalezeno žádné zařízení pro konfiguraci..."
 
 #: qml/SettingsPage.qml:138
 msgctxt ""
