@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-23 14:15+0000\n"
+"PO-Revision-Date: 2023-07-23 15:24+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de/>\n"
@@ -1316,7 +1316,7 @@ msgstr "OK"
 #: qml/DeveloperModePage.qml:27
 msgctxt "Header for the Developer Mode page"
 msgid "Developer Mode"
-msgstr "Entwickler Modus"
+msgstr "Entwickler-Modus"
 
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
@@ -1616,7 +1616,7 @@ msgstr "Kein Bluetooth Gerät"
 #: qml/main.qml:132
 msgctxt "Title for the popup for having enabled Developer Mode"
 msgid "Developer mode"
-msgstr "Entwickler Modus"
+msgstr "Entwickler-Modus"
 
 #: qml/main.qml:132
 msgctxt "Message for the popup for having enabled Developer Mode"
@@ -1626,7 +1626,7 @@ msgstr "Entwickler-Modus ist eingeschaltet"
 #: qml/main.qml:134
 msgctxt "Title for the popup for having disabled Developer Mode"
 msgid "Developer mode"
-msgstr "Entwickler Modus"
+msgstr "Entwickler-Modus"
 
 #: qml/main.qml:134
 msgctxt "Message for the popup for having disabled Developer Mode"
@@ -1690,7 +1690,7 @@ msgstr "Gestensteuerung"
 #: qml/main.qml:273
 msgctxt "Button for opening the Developer Mode page, from the landing page"
 msgid "Developer Mode"
-msgstr "Entwickler Modus"
+msgstr "Entwickler-Modus"
 
 #: qml/main.qml:288
 msgctxt "Button for opening the Settings Page, from the landing page"
