@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-23 14:15+0000\n"
+"PO-Revision-Date: 2023-07-23 15:24+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: Czech <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/cs/>\n"
@@ -231,7 +231,7 @@ msgctxt ""
 msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
-msgstr "Tvoje zařízení má již nainstalovanou nejnovější verzi firmwaru."
+msgstr "Tvoje zařízení má již nainstalovanou nejnovější verzi firmwaru!"
 
 #: gearimplementations/GearEars.cpp:447
 #: gearimplementations/GearFlutterWings.cpp:332
@@ -1082,7 +1082,7 @@ msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr "Upozornění bylo odstraněno."
+msgstr "Upozornění bylo odstraněno"
 
 #: qml/AlarmList.qml:51
 msgctxt ""
@@ -1304,12 +1304,11 @@ msgid "MAX GLASH"
 msgstr "MAX GLASH"
 
 #: qml/DisconnectOptions.qml:34
-#, fuzzy
 msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr "Odpojit"
+msgstr "Odpojit?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
@@ -1378,7 +1377,7 @@ msgid ""
 "if you want to charge it)."
 msgstr ""
 "Zvol tuto možnost pro odpojení bez vypnutí zařízení (vhodné pokud chceš "
-"zařízení nabít)"
+"zařízení nabít)."
 
 #: qml/DisconnectOptions.qml:191
 #, fuzzy
@@ -1623,7 +1622,7 @@ msgstr "Casual mód vypnut"
 #: qml/main.qml:139
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
-msgstr "Možná je čas na pauzu... Nech svůj ocas nebo uši odpočinout"
+msgstr "Možná je čas na pauzu... Nech svůj ocas nebo uši odpočinout."
 
 #: qml/main.qml:200
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -1952,9 +1951,9 @@ msgid_plural ""
 "below."
 msgstr[0] "1 zařízení nalezeno. Počkej, nebo zvol \"Připojit\" pro ovládání."
 msgstr[1] ""
-"Nalezeno %1 zařízení. Pro zobrazení, zvol \"Zobrazit dostupné zařízení...\""
+"Nalezeno %1 zařízení. Pro zobrazení, zvol \"Zobrazit dostupné zařízení...\"."
 msgstr[2] ""
-"Nalezeno %1 zařízení. Pro zobrazení, zvol \"Zobrazit dostupné zařízení...\""
+"Nalezeno %1 zařízení. Pro zobrazení, zvol \"Zobrazit dostupné zařízení...\"."
 
 #: qml/NotConnectedCard.qml:91
 msgctxt ""
@@ -1981,10 +1980,10 @@ msgstr[0] ""
 "\"Připojit\" pro připojení."
 msgstr[1] ""
 "Momentálně nejsi připojen k žádnému zařízení, ale %1 jsou dostupná. Pro "
-"zobrazení možných připojení zvol \"Zobrazit dostupné zařízení...\""
+"zobrazení možných připojení zvol \"Zobrazit dostupné zařízení...\"."
 msgstr[2] ""
 "Momentálně nejsi připojen k žádnému zařízení, ale %1 jsou dostupná. Pro "
-"zobrazení možných připojení zvol \"Zobrazit dostupné zařízení...\""
+"zobrazení možných připojení zvol \"Zobrazit dostupné zařízení...\"."
 
 #: qml/NotConnectedCard.qml:106
 #, fuzzy
@@ -2156,10 +2155,9 @@ msgstr ""
 "instrukce jak nosit ocas a uši, včetně ilustračních obrázků."
 
 #: qml/SettingsPage.qml:43
-#, fuzzy
 msgctxt "Label showing all the items underneath are links to a PDF file"
 msgid "Download PDF:"
-msgstr "Stáhnout"
+msgstr "Stáhnout PDF:"
 
 #: qml/SettingsPage.qml:47
 msgctxt ""
