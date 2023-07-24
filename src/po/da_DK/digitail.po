@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
 "PO-Revision-Date: 2023-07-24 10:59+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Last-Translator: Dan <admin@leinir.dk>\n"
 "Language-Team: Danish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/da/>\n"
 "Language: da_DK\n"
@@ -92,9 +92,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
-"Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens primære "
-"skrivekarakteristik). Hvis du er sikker på det er, tag kontakt til The Tail "
-"Company med denne fejl."
+"Det ser ud som om dette ikke er en DIGITAiL (kunne ikke finde enhedens "
+"primære skrivekarakteristik). Hvis du er sikker på det er, tag kontakt til "
+"The Tail Company med denne fejl."
 
 #: gearimplementations/GearDigitail.cpp:258
 msgctxt "Warning message when the main service was not found on the device"
@@ -463,7 +463,7 @@ msgid ""
 "<b>important</b> going on with their firmware"
 msgstr ""
 "Dette er en besked, hvis eksistensgrundlag er at informere folk om, at der "
-"et noget <b>vigtigt</b> de skal være informeret om vedrørende deres firmware."
+"et noget <b>vigtigt</b> de skal være informeret om vedrørende deres firmware"
 
 #: gearimplementations/GearFlutterWings.cpp:109
 msgctxt ""
@@ -1065,7 +1065,8 @@ msgid ""
 "\n"
 "Please select another name for the alarm."
 msgstr ""
-"Kunne ikke tilføje alarmen, da der allerede findes en alarm med dette navn. "
+"Kunne ikke tilføje alarmen, da der allerede findes en alarm med dette navn.\n"
+"\n"
 "Vælg venligst et andet navn til denne alarm."
 
 #: qml/AlarmList.qml:50
@@ -1372,7 +1373,7 @@ msgid ""
 "if you want to charge it)."
 msgstr ""
 "Vælg denne mulighed hvis du bare vil frakoble udstyret. (Godt, hvis du vil "
-"oplade det)"
+"oplade det)."
 
 #: qml/DisconnectOptions.qml:191
 msgctxt ""
@@ -1512,7 +1513,7 @@ msgstr "(ingen kommando)"
 #: qml/IdleModePage.qml:26
 msgctxt "Title for the page for selecting a move in Casual Mode"
 msgid "Casual Mode Categories"
-msgstr "Afslapningstilstand"
+msgstr "Afslapningstilstandskategorier"
 
 #: qml/IdleModePage.qml:46
 msgctxt ""
@@ -1618,7 +1619,7 @@ msgstr "Afslapningstilstand Afbrudt"
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
-"Det kan godt være, det er til til at slappe lidt af. Afslapningstilstand er "
+"Det kan godt være, det er tid til at slappe lidt af. Afslapningstilstand er "
 "for dig, men dit udstyr arbejder stadig på højtryk, så det er en god ide at "
 "lade det have en lille lur en gang i mellem."
 
@@ -1697,8 +1698,9 @@ msgid ""
 "\n"
 "Are you sure that you want to disconnect and quit?"
 msgstr ""
-"Du er stadig koblet til noget af dit udstyr.Er du sikker på, at du vil koble "
-"fra og lukke Crumpet ned?"
+"Du er stadig koblet til noget af dit udstyr.\n"
+"\n"
+"Er du sikker på, at du vil koble fra og lukke Crumpet ned?"
 
 #: qml/main.qml:400
 msgctxt "Description for the prompt for entering a name for your Gear"
@@ -1790,7 +1792,7 @@ msgctxt ""
 "Message for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Do you want to run the list %1?"
-msgstr "Vil du køre denne liste?"
+msgstr "Vil du køre listen %1?"
 
 #: qml/MoveLists.qml:57
 msgctxt ""
@@ -1837,7 +1839,7 @@ msgctxt ""
 "Description for the prompt for giving a name to a move list, on the page for "
 "viewing Move Lists"
 msgid "Enter a name to use for your new move list and click Create"
-msgstr "Indtast et navn du vil bruge til til nye liste og klik Skab."
+msgstr "Indtast et navn du vil bruge til din nye liste og klik Skab"
 
 #: qml/MoveLists.qml:95
 msgctxt ""
@@ -1950,7 +1952,7 @@ msgstr[0] ""
 "at kontrollere det."
 msgstr[1] ""
 "Fandt %1 stykker udstyr ind til viddere. Klik på \"Se tilgængeligt udstyr..."
-"\" nedenunder for at se dem"
+"\" nedenunder for at se dem."
 
 #: qml/NotConnectedCard.qml:91
 msgctxt ""
@@ -2272,7 +2274,7 @@ msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
-msgstr "Intet udstyr at indstille"
+msgstr "Intet udstyr at indstille..."
 
 #: qml/SettingsPage.qml:138
 msgctxt ""
@@ -2303,7 +2305,7 @@ msgstr ""
 "set ikke have brug for at gøre det mere end en gang. Det er muligt du har "
 "brug for at bytte rundt på retningen (for eksempel, hvis du flytter "
 "kontrolboksen enten forpå eller bagpå din krop, eller på hovedet, så kablet "
-"kan blive ført mere yndefuldt)"
+"kan blive ført mere yndefuldt)."
 
 #: qml/SettingsPage.qml:155
 msgctxt ""
@@ -2362,7 +2364,7 @@ msgid ""
 "to install"
 msgstr ""
 "Dit udstyr har version %1 installeret, og version %2 er tilgængeligt for "
-"installation."
+"installation"
 
 #: qml/SettingsPage.qml:208
 msgctxt ""
@@ -2614,7 +2616,7 @@ msgstr "Alarm"
 msgctxt ""
 "Label for the button for opening the Move List page, on the welcome page"
 msgid "Move List"
-msgstr "Bevægelseslister"
+msgstr "Bevægelsesliste"
 
 #: qml/WelcomePage.qml:202
 msgctxt ""
