@@ -8,28 +8,30 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-07-24 10:59+0000\n"
+"Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
+"Language-Team: Italian <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr ""
+msgstr "Non si riesce a creare la directory per i comandi impiegati"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
 "Error message for when there are no commands found in a command file "
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
-msgstr ""
+msgstr "Non ci sono comandi in questo file. Questo è possibile, ma non comune.."
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -40,20 +42,23 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
+"Non si riescono a caricare i tuoi comandi, a causa di un errore al %1: %2\n"
+"Il codice porta all'errore \n"
+"%3"
 
 #: CommandPersistence.cpp:174
 msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Non è possibile aprire il file %1 per la lettura"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "Non è stato possibile aprire il file %1 per la scrittura"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -65,6 +70,8 @@ msgid ""
 "Attempted to reconnect too many times to %1 (%2). To connect to it, please "
 "check that it is on, charged, and near enough."
 msgstr ""
+"Hai tentato di riconnetterti troppe vole a %1 (%2), Per connetterti, per "
+"favore che sia acceso, carico e abbastanza vicino."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -74,7 +81,7 @@ msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr ""
+msgstr "Connessione persa a %1, tentativo di riconnessione..."
 
 #: gearimplementations/GearDigitail.cpp:91
 msgctxt ""
@@ -85,6 +92,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Sembra che questo dispositivo non sia un DIGITAiL (non è stato possibile "
+"trovare il tratto tail). Se sei certo che lo sia, per favore segnala questo "
+"errore a The Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:258
 msgctxt "Warning message when the main service was not found on the device"
@@ -92,6 +102,9 @@ msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
+"E' stato riscontrato un errore mentre ti connettevi al tuo DIGITAiL (il "
+"service object potrebbe non essere stato creato). Se pensi che questo possa "
+"essere un errore, per favore prova di nuovo!"
 
 #: gearimplementations/GearDigitail.cpp:276
 msgctxt "Warning that some unknown error happened"
@@ -99,11 +112,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
+"E' stato riscontrato un errore. Se stai cercando di connetterti al tuo "
+"DIGITAiL, assicurati che siano accese e vicine al dispositivo."
 
 #: gearimplementations/GearDigitail.cpp:279
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr ""
+msgstr "DIGITAiL ha chiuso la connessione."
 
 #: gearimplementations/GearDigitail.cpp:282
 msgctxt ""
@@ -113,6 +128,8 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Non è stato possibile connettersi alla tua DIGITAiL. Per favore prova di "
+"nuovo (eventualmente avvicinati)"
 
 #: gearimplementations/GearDigitail.cpp:302
 msgctxt ""
@@ -122,6 +139,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
+"DIGITAiL ha chiuso la connessione, perchè è stato spento ha finito la "
+"carica. Ricordati di caricare il tuo DIGITAiL!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -132,6 +151,9 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Sembra che questo dispositivo non sia un controller EarGear (non è stato "
+"possibile trovare i tratti principali di scrittura delle ears). Se sei certo "
+"che lo sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearEars.cpp:129
 msgctxt ""
@@ -142,6 +164,9 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Sembra che questo dispositivo non sia un controller EarGear (non è stato "
+"possibile trovarne i tratti di lettura principali). Se sei sicuro che lo "
+"sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearEars.cpp:221
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -150,7 +175,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr ""
+msgstr "Upgrade effettuato con successo"
 
 #: gearimplementations/GearEars.cpp:221
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -160,6 +185,8 @@ msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
 msgstr ""
+"Congraturalazioni, il tuo dispositivo è stato aggiornato con successo alla "
+"versione %1!"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -169,7 +196,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr ""
+msgstr "Aggiornamento fallito"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -182,13 +209,18 @@ msgid ""
 "a safe fallback to just go back to your old firmware version upon a failure. "
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
+"<p>Spiacent, ma l'aggiornamento no ha avuto successo. Di solito èsuccede "
+"eprchè il trasferimeto è stato corrotto durante il processo, ecco perchè il "
+"tuo dispositibo ha la possibilità di tornare alla ultima versione che hai "
+"aggiornato. Puoi provare nuovamente ad aggiornarlo cliccanto il bottone "
+"Istalla qui.</p>"
 
 #: gearimplementations/GearEars.cpp:327
 msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr ""
+msgstr "Bilanciamento del microfono completato"
 
 #: gearimplementations/GearEars.cpp:442
 #: gearimplementations/GearFlutterWings.cpp:327
@@ -201,6 +233,8 @@ msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
 msgstr ""
+"Hai già la versione più aggiornata del firmware istallata sul tuo "
+"dispositivo, congratulazioni!"
 
 #: gearimplementations/GearEars.cpp:447
 #: gearimplementations/GearFlutterWings.cpp:332
@@ -215,6 +249,10 @@ msgid ""
 "connection issue. If you run into this problem repeatedly, please get in "
 "touch."
 msgstr ""
+"Il file utilizzato per determinare informazioni riguardo le nuove versioni "
+"del firmware non conteneva il formato atteso di dati. Questo è probabimente "
+"un errore temporaneo, oppure un problema legato alla connessione. Se il "
+"problema ti si presenta ancora, per favore faccelo sapere."
 
 #: gearimplementations/GearEars.cpp:451
 #: gearimplementations/GearFlutterWings.cpp:336
