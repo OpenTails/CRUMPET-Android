@@ -43,7 +43,7 @@ Kirigami.AboutPage {
         }
     }
     objectName: "aboutPage";
-    getInvolvedUrl: "https://github.com/MasterTailer/CRUMPET"
+    getInvolvedUrl: "https://github.com/OpenTails/CRUMPET-Android"
     aboutData: {
         "displayName" : "Crumpet",
         "productName" : "digitail/controller",
