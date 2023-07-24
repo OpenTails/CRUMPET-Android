@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-24 10:59+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"PO-Revision-Date: 2023-07-25 13:29+0000\n"
+"Last-Translator: Jakub Janousek <stegoceras@seznam.cz>\n"
 "Language-Team: Czech <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/cs/>\n"
 "Language: cs_CZ\n"
@@ -115,10 +115,9 @@ msgstr ""
 "zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearDigitail.cpp:279
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr "MiTail ukončil připojení."
+msgstr "DIGITAIL ukončil připojení."
 
 #: gearimplementations/GearDigitail.cpp:282
 #, fuzzy
