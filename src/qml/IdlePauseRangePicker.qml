@@ -46,12 +46,25 @@ ColumnLayout {
         first.onMoved: {
             Digitail.AppSettings.idleMinPause = first.value;
         }
-
         second.onMoved: {
             if (second.value < 20) {
                 second.value = 20;
             }
             Digitail.AppSettings.idleMaxPause = second.value;
+        }
+
+        function handlePressed() {
+            if (first.pressed || second.pressed) {
+                applicationWindow().pageStack.interactive = false;
+            } else {
+                applicationWindow().pageStack.interactive = true;
+            }
+        }
+        first.onPressedChanged: {
+            handlePressed();
+        }
+        second.onPressedChanged: {
+            handlePressed();
         }
 
         Component.onCompleted: {
