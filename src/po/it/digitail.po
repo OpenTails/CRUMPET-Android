@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-24 10:59+0000\n"
+"PO-Revision-Date: 2023-07-24 11:00+0000\n"
 "Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
@@ -260,7 +260,7 @@ msgstr ""
 #: gearimplementations/GearMitailMini.cpp:337
 msgctxt "Message for when we are checking the downloaded firmware data"
 msgid "Checking integrity of the downloaded firmware data..."
-msgstr ""
+msgstr "Controllo dell'integrità dei dati del firmware scaricato..."
 
 #: gearimplementations/GearEars.cpp:521
 msgctxt "Warning message when a fault occurred during a connection attempt"
