@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-25 13:29+0000\n"
+"PO-Revision-Date: 2023-07-26 10:21+0000\n"
 "Last-Translator: Immovable <izventelays@gmail.com>\n"
 "Language-Team: Russian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ru/>\n"
@@ -108,23 +108,20 @@ msgstr ""
 "службы). Если вы считаете, что это ошибка, попробуйте еще раз!"
 
 #: gearimplementations/GearDigitail.cpp:276
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"Произошла ошибка. Если вы пытаетесь подключиться к своему MiTail, убедитесь, "
-"что он включен и находится рядом с этим устройством."
+"Произошла ошибка. Если вы пытаетесь подключиться к своему DIGITAiL, "
+"убедитесь, что он включен и находится рядом с этим устройством."
 
 #: gearimplementations/GearDigitail.cpp:279
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr "MiTail прервал соединение."
+msgstr "DIGITAiL прервал соединение."
 
 #: gearimplementations/GearDigitail.cpp:282
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -132,11 +129,10 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Не удалось подключиться к MiTail. Пожалуйста, попробуйте еще раз (может "
-"быть, переместить его поближе?)"
+"Не удалось подключиться к DIGITAiL. Пожалуйста, попробуйте еще раз ("
+"достаточно ли он близко?)"
 
 #: gearimplementations/GearDigitail.cpp:302
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -144,8 +140,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
-"MiTail прервал соединение из-за отключения, либо потери питания. Не забудьте "
-"зарядить свой хвост!"
+"DIGITAiL прервал соединение из-за отключения, либо потери питания. Не "
+"забудьте зарядить свой хвост!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -236,6 +232,7 @@ msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
 msgstr ""
+"На вашем устройстве уже установлена новейшая версия прошивки, поздравляем!"
 
 #: gearimplementations/GearEars.cpp:447
 #: gearimplementations/GearFlutterWings.cpp:332
@@ -250,6 +247,10 @@ msgid ""
 "connection issue. If you run into this problem repeatedly, please get in "
 "touch."
 msgstr ""
+"Файл, используемый для определения информации о новых версиях прошивки, не "
+"содержал ожидаемого формата данных. Вероятно, это временная ошибка или "
+"проблема с подключением. Если вы сталкиваетесь с этой проблемой "
+"неоднократно, пожалуйста, свяжитесь с нами."
 
 #: gearimplementations/GearEars.cpp:451
 #: gearimplementations/GearFlutterWings.cpp:336
@@ -257,28 +258,25 @@ msgstr ""
 #: gearimplementations/GearMitailMini.cpp:337
 msgctxt "Message for when we are checking the downloaded firmware data"
 msgid "Checking integrity of the downloaded firmware data..."
-msgstr ""
+msgstr "Проверка целостности загруженных данных прошивки..."
 
 #: gearimplementations/GearEars.cpp:521
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your EarGear (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему блоку EarGear(не удалось создать "
-"объект службы). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще "
-"раз!"
+"Произошла ошибка при подключении к вашему EarGear(не удалось создать объект "
+"службы). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще раз!"
 
 #: gearimplementations/GearEars.cpp:535
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему блоку EarGear (служба батареи была "
+"Произошла ошибка при подключении к вашему EarGear (служба батареи была "
 "недоступна). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще "
 "раз!"
 
@@ -290,43 +288,40 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, это устройство не EarGear (не удалось найти показатель уровня заряда "
+"Похоже, это не устройство EarGear (не удалось найти показатель уровня заряда "
 "батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите об этой "
 "ошибке в The Tail Company."
 
 #: gearimplementations/GearEars.cpp:596
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
-"Произошла ошибка. Если вы пытаетесь подключиться к своим ушам, убедитесь, "
-"что блок включен и находится рядом с этим устройством."
+"Произошла ошибка. Если вы пытаетесь подключиться к своим ушкам, убедитесь, "
+"что EarGear включен и находится рядом с этим устройством."
 
 #: gearimplementations/GearEars.cpp:599
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr "Блок EarGear прервал соединение."
+msgstr "EarGear прервал соединение."
 
 #: gearimplementations/GearEars.cpp:602
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
-"Не удалось подключиться к блоку EarGear. Пожалуйста, попробуйте еще раз "
-"(может быть, переместить его поближе?)"
+"Не удалось подключиться к вашему EarGear. Пожалуйста, попробуйте еще раз ("
+"может подвинуть поближе?)"
 
 #: gearimplementations/GearEars.cpp:623
 msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Обновление прошивки завершено"
 
 #: gearimplementations/GearEars.cpp:623
 msgctxt ""
@@ -338,9 +333,11 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"Загрузка прошивки завершена, устройство выключилось. Если оно не включится, "
+"закройте это сообщение, и включите его вручную, а затем подключитесь к нему. "
+"Если оно включилось, вы можете просто закрыть это сообщение."
 
 #: gearimplementations/GearEars.cpp:628
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -348,8 +345,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
-"Блок EarGear прервал соединение из-за отключения, либо потери питания. Не "
-"забудьте зарядить уши!"
+"EarGear прервал соединение из-за отключения, либо потери питания. Не "
+"забудьте зарядить ваши уши!"
 
 #: gearimplementations/GearEars.cpp:778
 #: gearimplementations/GearFlutterWings.cpp:664
@@ -358,7 +355,7 @@ msgstr ""
 msgctxt ""
 "Message shown alongside a progress bar when downloading update information"
 msgid "Downloading firmware update information"
-msgstr ""
+msgstr "Загрузка информации об обновлении прошивки"
 
 #: gearimplementations/GearEars.cpp:795
 msgctxt ""
@@ -368,6 +365,9 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Ваше устройство сообщило об обновлении аппаратного обеспечения, о котором мы "
+"не знаем. Это означает, что ваше приложение, вероятно, устарело и нуждается "
+"в обновлении."
 
 #: gearimplementations/GearEars.cpp:799
 msgctxt ""
@@ -379,6 +379,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"Вы каким-то образом получили версию прошивки, которая не сообщает об "
+"аппаратной версии ваших ушей, но обязана это делать. Это очень неожиданная "
+"ситуация, и мы были бы признательны, если бы вы сообщили об этом напрямую "
+"нам по адресу info@thetailcompany.com - спасибо!"
 
 #: gearimplementations/GearEars.cpp:827
 #: gearimplementations/GearFlutterWings.cpp:696
@@ -388,7 +392,7 @@ msgctxt ""
 "Message shown along a progress bar when downloading the firmware payload "
 "itself"
 msgid "Downloading firmware update from The Tail Company's website..."
-msgstr ""
+msgstr "Загрузка обновления прошивки с сайта The Tail Company..."
 
 #: gearimplementations/GearEars.cpp:844
 #: gearimplementations/GearFlutterWings.cpp:713
@@ -401,6 +405,10 @@ msgid ""
 "should simply try again. If it continues to fail, please get in touch with "
 "us and we can try and work something out!"
 msgstr ""
+"Загруженное обновление прошивки не содержало того, что мы ожидали. Обычно "
+"это происходит из-за сбоя самой загрузки, и вам следует просто повторить "
+"попытку. Если оно по-прежнему не работает, пожалуйста, свяжитесь с нами, и "
+"мы попытемся что-нибудь придумать!"
 
 #: gearimplementations/GearEars.cpp:860
 msgctxt "Message shown during firmware update processes"
@@ -411,12 +419,16 @@ msgid ""
 "disconnect from this device. Once it is started back up again, you will be "
 "able to connect to it again."
 msgstr ""
+"Загрузка прошивки на ваше снаряжение. Пожалуйста, держите свои устройства "
+"как можно ближе друг к другу и убедитесь, что оба они достаточно заряжены ("
+"или подключите зарядное устройство сейчас). После завершения ваше устройство "
+"либо перезагрузится, либо выключится и отключится от этого устройства. Как "
+"только оно снова запустится, вы сможете снова подключиться к нему."
 
 #: gearimplementations/GearFake.cpp:48
 #: gearimplementations/GearFlutterWings.cpp:359
 #: gearimplementations/GearMitail.cpp:365
 #: gearimplementations/GearMitailMini.cpp:360
-#, fuzzy
 msgctxt ""
 "Name of the calm and relaxed group as used for no phone group selection"
 msgid "Calm and Relaxed"
@@ -426,21 +438,19 @@ msgstr "Спокойный и Расслабленный"
 #: gearimplementations/GearFlutterWings.cpp:360
 #: gearimplementations/GearMitail.cpp:366
 #: gearimplementations/GearMitailMini.cpp:361
-#, fuzzy
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
-msgstr "Быстрый и Возбужденный"
+msgstr "Быстрый и Возбуждённый"
 
 #: gearimplementations/GearFake.cpp:50
 #: gearimplementations/GearFlutterWings.cpp:361
 #: gearimplementations/GearMitail.cpp:367
 #: gearimplementations/GearMitailMini.cpp:362
-#, fuzzy
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr "Разочарованный и Напряженный"
+msgstr "Разочарованный и Напряжённый"
 
 #: gearimplementations/GearFake.cpp:106
 msgctxt ""
@@ -450,6 +460,8 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
+"Это сообщение должно информировать людей о том, что с их прошивкой "
+"происходит что-то <b>важное</b>"
 
 #: gearimplementations/GearFlutterWings.cpp:109
 msgctxt ""
@@ -478,13 +490,12 @@ msgstr ""
 "этой ошибке в The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:407
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему блоку EarGear(не удалось создать "
+"Произошла ошибка при подключении к вашим FlutterWings (не удалось создать "
 "объект службы). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще "
 "раз!"
 
@@ -501,21 +512,24 @@ msgid ""
 "contact us on info@thetailcompany.com and tell us that you got this error.</"
 "p>"
 msgstr ""
+"<p><b>Ошибка обновления!</b></p><p>Мы попытались обновить прошивку слишком "
+"быстро для вашего устройства, и нам пришлось прервать ее. Если вы получили "
+"эту ошибку:</p><p>Во-первых, не волнуйтесь, ваше снаряжение в "
+"безопасности.</p><p>Во-вторых, свяжитесь с нами по адресу info@"
+"thetailcompany.com и сообщите нам, что вы получили эту ошибку.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:437
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему блоку EarGear (служба батареи была "
+"Произошла ошибка при подключении к вашим FlutterWings (служба батареи была "
 "недоступна). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще "
 "раз!"
 
 #: gearimplementations/GearFlutterWings.cpp:487
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -523,28 +537,25 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Похоже, это устройство не MiTail (не удалось найти показатель уровня заряда "
-"батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите об этой "
-"ошибке в The Tail Company."
+"Похоже, это устройство не FlutterWings (не удалось найти показатель уровня "
+"заряда батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите "
+"об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:527
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
-"Произошла ошибка. Если вы пытаетесь подключиться к своему хвосту, убедитесь, "
-"что он включен и находится рядом с этим устройством."
+"Произошла ошибка. Если вы пытаетесь подключиться к вашим FlutterWings, "
+"убедитесь, что они включены и находятся рядом с этим устройством."
 
 #: gearimplementations/GearFlutterWings.cpp:530
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr "Хвост прервал соединение."
+msgstr "FlutterWings прервал соединение."
 
 #: gearimplementations/GearFlutterWings.cpp:534
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -552,18 +563,17 @@ msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Не удалось подключиться к вашему хвосту. Пожалуйста, попробуйте еще раз "
-"(может быть, переместить его поближе?)"
+"Не удалось подключиться к вашим FlutterWings. Пожалуйста, попробуйте еще раз "
+"(достаточно ли они близко?)"
 
 #: gearimplementations/GearFlutterWings.cpp:561
 #: gearimplementations/GearMitail.cpp:567
 #: gearimplementations/GearMitailMini.cpp:562
-#, fuzzy
 msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr "Попытка подключения..."
+msgstr "Повторная попытка подключения к вашему снаряжению..."
 
 #: gearimplementations/GearFlutterWings.cpp:566
 #: gearimplementations/GearMitail.cpp:572
@@ -575,9 +585,10 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Загрузка прошивки завершена, дождитесь автоматической перезагрузки "
+"устройства, прежде чем пытаться снова подключиться..."
 
 #: gearimplementations/GearFlutterWings.cpp:569
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -585,8 +596,8 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
-"Хвост прервал соединение из-за отключения, либо потери питания. Не забудьте "
-"зарядить свой хвост!"
+"FlutterWings прервал соединение из-за отключения, либо потери питания. Не "
+"забудьте зарядить свои крылья!"
 
 #: gearimplementations/GearFlutterWings.cpp:729
 #: gearimplementations/GearMitail.cpp:735
@@ -598,6 +609,11 @@ msgid ""
 "Once completed, your gear will restart and disconnect from this device. Once "
 "rebooted, you will be able to connect to it again."
 msgstr ""
+"Загрузка прошивки на ваше снаряжение. Пожалуйста, держите свои устройства "
+"как можно ближе друг к другу и убедитесь, что они оба достаточно заряжены ("
+"или подключите зарядное устройство сейчас). После завершения ваше снаряжение "
+"перезапустится и отключится от этого устройства. После перезагрузки вы снова "
+"сможете подключиться к нему."
 
 #: gearimplementations/GearMitail.cpp:39
 msgctxt ""
@@ -609,6 +625,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"В настоящее время на вашем MiTail установлена прошивка версии 4.03, которая "
+"устарела и имеет некоторые известные проблемы! Мы <b>настоятельно "
+"рекомендуем</b> обновить прошивку до последней версии, в которой они "
+"исправлены! Перейдите в «Настройки» и найдите раздел «Прошивка», чтобы "
+"выполнить обновление."
 
 #: gearimplementations/GearMitail.cpp:40
 msgctxt ""
@@ -620,6 +641,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"В настоящее время на вашем MiTail установлена прошивка версии 4.02, которая "
+"устарела и имеет некоторые известные проблемы! Мы <b>настоятельно "
+"рекомендуем</b> обновить прошивку до последней версии, в которой они "
+"исправлены! Перейдите в «Настройки» и найдите раздел «Прошивка», чтобы "
+"выполнить обновление."
 
 #: gearimplementations/GearMitail.cpp:41
 msgctxt ""
@@ -631,6 +657,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"В настоящее время на вашем MiTail установлена прошивка версии 4.01, которая "
+"устарела и имеет некоторые известные проблемы! Мы <b>настоятельно "
+"рекомендуем</b> обновить прошивку до последней версии, в которой они "
+"исправлены! Перейдите в «Настройки» и найдите раздел «Прошивка», чтобы "
+"выполнить обновление."
 
 #: gearimplementations/GearMitail.cpp:42
 msgctxt ""
@@ -642,6 +673,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"В настоящее время на вашем MiTail установлена прошивка версии 4.00, которая "
+"устарела и имеет некоторые известные проблемы! Мы <b>настоятельно "
+"рекомендуем</b> обновить прошивку до последней версии, в которой они "
+"исправлены! Перейдите в «Настройки» и найдите раздел «Прошивка», чтобы "
+"выполнить обновление."
 
 #: gearimplementations/GearMitail.cpp:43
 msgctxt ""
@@ -653,6 +689,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"В настоящее время на вашем MiTail установлена прошивка версии 3.2.11, "
+"которая устарела и имеет некоторые известные проблемы! Мы <b>настоятельно "
+"рекомендуем</b> обновить прошивку до последней версии, в которой они "
+"исправлены! Перейдите в «Настройки» и найдите раздел «Прошивка», чтобы "
+"выполнить обновление."
 
 #: gearimplementations/GearMitail.cpp:44
 msgctxt ""
@@ -664,6 +705,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"В настоящее время на вашем MiTail установлена прошивка версии 3.2.10, "
+"которая устарела и имеет некоторые известные проблемы! Мы <b>настоятельно "
+"рекомендуем</b> обновить прошивку до последней версии, в которой они "
+"исправлены! Перейдите в «Настройки» и найдите раздел «Прошивка», чтобы "
+"выполнить обновление."
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -768,6 +814,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"В настоящее время на вашем MiTail Mini установлена прошивка версии 4.03, "
+"которая устарела и имеет некоторые известные проблемы! Мы <b>настоятельно "
+"рекомендуем</b> обновить прошивку до последней версии, в которой они "
+"исправлены! Перейдите в «Настройки» и найдите раздел «Прошивка», чтобы "
+"выполнить обновление."
 
 #: gearimplementations/GearMitailMini.cpp:110
 msgctxt ""
@@ -796,29 +847,27 @@ msgstr ""
 "этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:408
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему MiTail (не удалось создать объект "
-"службы). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще раз!"
+"Произошла ошибка при подключении к вашему MiTail Mini (не удалось создать "
+"объект службы). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще "
+"раз!"
 
 #: gearimplementations/GearMitailMini.cpp:438
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему MiTail (служба батареи была "
+"Произошла ошибка при подключении к вашему MiTail Mini (служба батареи была "
 "недоступна). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще "
 "раз!"
 
 #: gearimplementations/GearMitailMini.cpp:488
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -826,28 +875,25 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Похоже, это устройство не MiTail (не удалось найти показатель уровня заряда "
-"батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите об этой "
-"ошибке в The Tail Company."
+"Похоже, это устройство не MiTail Mini (не удалось найти показатель уровня "
+"заряда батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите "
+"об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:528
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
-"Произошла ошибка. Если вы пытаетесь подключиться к своему MiTail, убедитесь, "
-"что он включен и находится рядом с этим устройством."
+"Произошла ошибка. Если вы пытаетесь подключиться к своему MiTail Mini, "
+"убедитесь, что он включен и находится рядом с этим устройством."
 
 #: gearimplementations/GearMitailMini.cpp:531
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr "MiTail прервал соединение."
+msgstr "MiTail Mini прервал соединение."
 
 #: gearimplementations/GearMitailMini.cpp:535
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -855,11 +901,10 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Не удалось подключиться к MiTail. Пожалуйста, попробуйте еще раз (может "
-"быть, переместить его поближе?)"
+"Не удалось подключиться к MiTail Mini. Пожалуйста, попробуйте еще раз ("
+"достаточно ли он близко?)"
 
 #: gearimplementations/GearMitailMini.cpp:570
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -867,8 +912,8 @@ msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
-"MiTail прервал соединение из-за отключения, либо потери питания. Не забудьте "
-"зарядить свой хвост!"
+"MiTail Mini прервал соединение из-за отключения, либо потери питания. Не "
+"забудьте зарядить свой хвост!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
@@ -984,6 +1029,10 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Отключение сервоприводов %1 через час. Любое аниматронное снаряжение "
+"нуждается в отдыхе после длительного использования. Прочтите наше "
+"руководство по надлежащему использованию в настройках, чтобы узнать, как "
+"сохранить свое снаряжение в исправном состоянии."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -1216,12 +1265,11 @@ msgid "Add this pause"
 msgstr "Добавьте эту паузу"
 
 #: qml/ConnectToTail.qml:48
-#, fuzzy
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr "Подключить"
+msgstr "Подключить всё"
 
 #: qml/ConnectToTail.qml:86
 msgctxt ""
@@ -1274,14 +1322,14 @@ msgctxt ""
 "Label above the list of options available for disconnecting from a piece of "
 "gear"
 msgid "Please select how you would like to disconnect from %1."
-msgstr ""
+msgstr "Выберите способ отключения от %1."
 
 #: qml/DisconnectOptions.qml:68
 msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Использовать снаряжение без телефона"
 
 #: qml/DisconnectOptions.qml:87
 msgctxt ""
@@ -1292,6 +1340,10 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
+"Выберите этот параметр, если хотите настроить режим «Без телефона» и "
+"отключиться, оставив телефон выключенным. Это работает как обычный "
+"повседневный режим, но без использования телефона. (Удобно, если вы "
+"надеваете костюм и вам некуда положить телефон)"
 
 #: qml/DisconnectOptions.qml:106
 msgctxt ""
