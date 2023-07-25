@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
 "PO-Revision-Date: 2023-07-26 10:21+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Last-Translator: WölFi <wolfi@wolfi.es>\n"
 "Language-Team: Spanish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/es/>\n"
 "Language: es_ES\n"
@@ -105,23 +105,20 @@ msgstr ""
 "no ha sido creado). Si piensas que se trata de un error, intentalo de nuevo!"
 
 #: gearimplementations/GearDigitail.cpp:276
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"Ha ocurrido un error. Si estas intentando conectar a tu MiTail, asegurate de "
-"que se encuentra encendido y lo cerca de este dispositivo."
+"Ha ocurrido un error. Si estás intentando conectar a tu MiTail, asegúrate de "
+"que se encuentra encendido y cerca de este dispositivo."
 
 #: gearimplementations/GearDigitail.cpp:279
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr "El MiTail ha cerrado la conexión."
+msgstr "El DIGITAiL ha terminado la conexión."
 
 #: gearimplementations/GearDigitail.cpp:282
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -129,11 +126,10 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Se ha fallado al conectar a tu MiTail. Por favor intentalo de nuevo (¿quizás "
-"se encuentra demasiado lejos?)"
+"Ha habido un problema al conectar con tu DIGITAiL. Por favor inténtalo de "
+"nuevo (¿Has probado a acercarlo?)"
 
 #: gearimplementations/GearDigitail.cpp:302
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -141,8 +137,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
-"El MiTail ha cerrado la conexión, puede que se haya quedado sin energía o ha "
-"sido apagado. ¡No olvides cargar tu cola!"
+"El DIGITAiL ha terminado la conexión, puede que se haya quedado sin batería "
+"o ha sido apagado. ¡No olvides cargar tu cola!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -297,20 +293,18 @@ msgstr ""
 "correcto, por favor, reporta este error a \"The Tail Company\"."
 
 #: gearimplementations/GearEars.cpp:596
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
-"Ha ocurrido un error. Si estás intentando conectarte a tus orejas, asegurate "
-"de que la caja esta encendida y te encuentras lo suficientemente cerca."
+"Ha ocurrido un error. Si estás intentando conectarte a tus orejas, asegúrate "
+"de que el EarGear esta encendido y se encuentra cerca de este dispositivo."
 
 #: gearimplementations/GearEars.cpp:599
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr "La caja de tus EarGear ha cerrado la conexión."
+msgstr "EarGear ha terminado la conexión."
 
 #: gearimplementations/GearEars.cpp:602
 msgctxt ""
@@ -327,7 +321,7 @@ msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Se ha completado la actualización del Firmware"
 
 #: gearimplementations/GearEars.cpp:623
 msgctxt ""
@@ -339,9 +333,12 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"Se ha terminado de subir el firmware y se ha apagado el dispositivo "
+"automáticamente. Si no se enciende solo, cierra este mensaje, enciendelo "
+"manualmente y conéctate a este. Si se ha encendido solo automáticamente, "
+"puedes cerrar este mensaje."
 
 #: gearimplementations/GearEars.cpp:628
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -349,8 +346,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
-"La caja EarGear ha cerrado la conexión, quizás se ha apagado o se ha quedado "
-"sin energía. ¡No te olvides de cargar tus orejas!"
+"Tu EarGear ha cerrado la conexión, quizás se ha apagado o se ha quedado sin "
+"batería. ¡No te olvides de cargar tus orejas!"
 
 #: gearimplementations/GearEars.cpp:778
 #: gearimplementations/GearFlutterWings.cpp:664
@@ -369,6 +366,9 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Tu dispositivo ha reportado una versión de hardware desconocida. Esto "
+"probablemente significa que la aplicación está desactualizada y necesita ser "
+"actualizada."
 
 #: gearimplementations/GearEars.cpp:799
 msgctxt ""
@@ -380,6 +380,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"De alguna forma tienes una versión del firmware que no reporta la revisión "
+"del hardware de tus orejas, y se espera que nos la reporte. Esto es una "
+"situación completamente inesperada y apreciaríamos que nos los reportes "
+"directamente a info@thetailcompany.com. ¡Muchas gracias!"
 
 #: gearimplementations/GearEars.cpp:827
 #: gearimplementations/GearFlutterWings.cpp:696
