@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-24 10:59+0000\n"
+"PO-Revision-Date: 2023-07-26 10:21+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: Spanish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/es/>\n"
@@ -70,7 +70,7 @@ msgid ""
 "check that it is on, charged, and near enough."
 msgstr ""
 "Se ha intentado reconectar demasiadas veces a %1 (%2). Asegurate de que "
-"tiene carga, se encuentra encendido y está lo suficientemente cerca"
+"tiene carga, se encuentra encendido y está lo suficientemente cerca."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -96,14 +96,13 @@ msgstr ""
 "favor, ponte en contacto con \"The Tail Company\"."
 
 #: gearimplementations/GearDigitail.cpp:258
-#, fuzzy
 msgctxt "Warning message when the main service was not found on the device"
 msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Ha ocurrido un error mientras conectabamos a tu cola (el objeto del servicio "
-"no ha sido creado). Si piensas que se trata de un error, intentalo de nuevo."
+"no ha sido creado). Si piensas que se trata de un error, intentalo de nuevo!"
 
 #: gearimplementations/GearDigitail.cpp:276
 #, fuzzy
@@ -180,7 +179,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr "Se ha actualizado correctamente."
+msgstr "Se ha actualizado correctamente"
 
 #: gearimplementations/GearEars.cpp:221
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -190,7 +189,7 @@ msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
 msgstr ""
-"¡Enhorabuena! Tu equipo ha sido actualizado correctamente a la versión %1."
+"¡Enhorabuena! Tu equipo ha sido actualizado correctamente a la versión %1!"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -224,7 +223,7 @@ msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr "Balanceo del micrófono completado."
+msgstr "Balanceo del micrófono completado"
 
 #: gearimplementations/GearEars.cpp:442
 #: gearimplementations/GearFlutterWings.cpp:327
@@ -265,7 +264,6 @@ msgid "Checking integrity of the downloaded firmware data..."
 msgstr "Comprobando la integridad de los datos del firmware..."
 
 #: gearimplementations/GearEars.cpp:521
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your EarGear (the main service object "
@@ -273,10 +271,9 @@ msgid ""
 msgstr ""
 "Ha ocurrido un error conectando con la caja de tu EarGear (el objeto del "
 "servicio no ha podido ser creado). Si piensas que se trat de un error "
-"intentalo de nuevo."
+"intentalo de nuevo!"
 
 #: gearimplementations/GearEars.cpp:535
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
@@ -285,7 +282,7 @@ msgid ""
 msgstr ""
 "Ha ocurrido un error conectando a tu caja de EarGear (el servicio de batería "
 "no se encuentra disponible). Si piensas que se trata de un error intentalo "
-"de nuevo."
+"de nuevo!"
 
 #: gearimplementations/GearEars.cpp:566
 msgctxt ""
@@ -316,7 +313,6 @@ msgid "The EarGear closed the connection."
 msgstr "La caja de tus EarGear ha cerrado la conexión."
 
 #: gearimplementations/GearEars.cpp:602
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -324,7 +320,7 @@ msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
 "No se ha podido conectar a la caja de tus EarGear. Por favor, asegurate de "
-"que estas lo suficientemente cerca e intentalo de nuevo."
+"que estas lo suficientemente cerca e intentalo de nuevo"
 
 #: gearimplementations/GearEars.cpp:623
 msgctxt ""
@@ -363,7 +359,7 @@ msgstr ""
 msgctxt ""
 "Message shown alongside a progress bar when downloading update information"
 msgid "Downloading firmware update information"
-msgstr "Descargando información de actualizaciones de firmware."
+msgstr "Descargando información de actualizaciones de firmware"
 
 #: gearimplementations/GearEars.cpp:795
 msgctxt ""
@@ -410,7 +406,7 @@ msgstr ""
 "La descarga de la actualización de firmware no contenía lo que esperábamos. "
 "Esto ocurre normalmente debido a algún problema de red, y simplemente debes "
 "intentar la descarga de nuevo. Si continua fallando, por favor, ponte en "
-"contacto con nosotros e intentaremos averiguar que está ocurriendo."
+"contacto con nosotros e intentaremos averiguar que está ocurriendo!"
 
 #: gearimplementations/GearEars.cpp:860
 #, fuzzy
@@ -492,15 +488,14 @@ msgstr ""
 "correcto, por favor, reporta el error a \"The Tail Company\"."
 
 #: gearimplementations/GearFlutterWings.cpp:407
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Ha ocurrido un error conectando con la caja de tu EarGear (el objeto del "
-"servicio no ha podido ser creado). Si piensas que se trat de un error "
-"intentalo de nuevo."
+"Ha ocurrido un error conectando con la caja de tu FlutterWings (el objeto "
+"del servicio no ha podido ser creado). Si piensas que se trat de un error "
+"intentalo de nuevo!"
 
 #: gearimplementations/GearFlutterWings.cpp:426
 #: gearimplementations/GearMitail.cpp:432
@@ -523,16 +518,15 @@ msgstr ""
 "encontrado este error.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:437
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Ha ocurrido un error conectando a tu caja de EarGear (el servicio de batería "
-"no se encuentra disponible). Si piensas que se trata de un error intentalo "
-"de nuevo."
+"Ha ocurrido un error conectando a tu caja de FlutterWings (el servicio de "
+"batería no se encuentra disponible). Si piensas que se trata de un error "
+"intentalo de nuevo!"
 
 #: gearimplementations/GearFlutterWings.cpp:487
 #, fuzzy
@@ -724,7 +718,7 @@ msgid ""
 msgstr ""
 "Ha ocurrido un error conectando con tu MiTail (el objeto del servicio no ha "
 "podido ser creado). Si piensas que se trata de un error, intentalo de nuevo, "
-"por favor."
+"por favor!"
 
 #: gearimplementations/GearMitail.cpp:443
 msgctxt ""
@@ -735,7 +729,7 @@ msgid ""
 msgstr ""
 "Ha ocurrido un error conectando a tu MiTail (el servicio de batería no se "
 "encuentra disponible). Si crees que se trata de un error intentalo de nuevo, "
-"por favor."
+"por favor!"
 
 #: gearimplementations/GearMitail.cpp:493
 msgctxt ""
@@ -824,27 +818,25 @@ msgstr ""
 "correcto, por favor, reporta el error a \"The Tail Company\"."
 
 #: gearimplementations/GearMitailMini.cpp:408
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Ha ocurrido un error conectando con tu MiTail (el objeto del servicio no ha "
-"podido ser creado). Si piensas que se trata de un error, intentalo de nuevo, "
-"por favor."
+"Ha ocurrido un error conectando con tu MiTail Mini (el objeto del servicio "
+"no ha podido ser creado). Si piensas que se trata de un error, intentalo de "
+"nuevo, por favor!"
 
 #: gearimplementations/GearMitailMini.cpp:438
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Ha ocurrido un error conectando a tu MiTail (el servicio de batería no se "
-"encuentra disponible). Si crees que se trata de un error intentalo de nuevo, "
-"por favor."
+"Ha ocurrido un error conectando a tu MiTail Mini (el servicio de batería no "
+"se encuentra disponible). Si crees que se trata de un error intentalo de "
+"nuevo, por favor!"
 
 #: gearimplementations/GearMitailMini.cpp:488
 #, fuzzy
@@ -1290,12 +1282,11 @@ msgid "MAX GLASH"
 msgstr "MAXIMO GLASH"
 
 #: qml/DisconnectOptions.qml:34
-#, fuzzy
 msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr "Desconectar"
+msgstr "Desconectar?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
@@ -1323,7 +1314,7 @@ msgstr ""
 "Elige esta opción para configurar modo sin teléfono y desconectar, así "
 "podrásdejar el teléfono apagado. Esto funciona como el modo casual normal, "
 "pero sin que necesites el teléfono para controlarlo. (Útil si estás "
-"disfrazado y no tienes donde llevar el teléfono)."
+"disfrazado y no tienes donde llevar el teléfono)"
 
 #: qml/DisconnectOptions.qml:106
 msgctxt ""
@@ -1880,7 +1871,7 @@ msgstr "Elige un nombre"
 msgctxt ""
 "Header warning for missing scan permissions, for the gear connecting card"
 msgid "Let us look for your gear"
-msgstr "Por favor, permitenos buscar tu equipamiento."
+msgstr "Por favor, permitenos buscar tu equipamiento"
 
 #: qml/NotConnectedCard.qml:41
 msgctxt "Header for whilst scanning, for the gear connecting card"
@@ -1954,7 +1945,7 @@ msgstr[0] ""
 "a continuación para controlarlo."
 msgstr[1] ""
 "Se han encontrado %1 piezas de equipamiento hasta ahora. Para verlas pulsa "
-"\"Mostrar equipamiento disponible...\" a continuación"
+"\"Mostrar equipamiento disponible...\" a continuación."
 
 #: qml/NotConnectedCard.qml:91
 msgctxt ""
@@ -2160,10 +2151,9 @@ msgstr ""
 "algunos gráficos que muestran como hacerlo."
 
 #: qml/SettingsPage.qml:43
-#, fuzzy
 msgctxt "Label showing all the items underneath are links to a PDF file"
 msgid "Download PDF:"
-msgstr "Descargar"
+msgstr "Descargar PDF:"
 
 #: qml/SettingsPage.qml:47
 msgctxt ""
@@ -2377,7 +2367,7 @@ msgid ""
 "to install"
 msgstr ""
 "Actualmente tienes la versión %1 instalada, la versión %2 está disponible "
-"para que la instales."
+"para que la instales"
 
 #: qml/SettingsPage.qml:208
 msgctxt ""
@@ -2496,7 +2486,7 @@ msgid ""
 msgstr ""
 "La siguiente lista muestra todos los patrones luminosos disponibles para tu "
 "equipo. Toca cualquiera de ellos para enviarlos a tus dispositivos "
-"conectados."
+"conectados!"
 
 #: qml/TailLights.qml:44
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2520,7 +2510,7 @@ msgid ""
 "to send them off to any of your connected devices!"
 msgstr ""
 "La siguiente lista muestra todos los movimientos disponibles para tu equipo. "
-"Toca cualquiera de ellos para enviarlo a tus dispositivos conectados."
+"Toca cualquiera de ellos para enviarlo a tus dispositivos conectados!"
 
 #: qml/TailMoves.qml:43
 msgctxt ""
