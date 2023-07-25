@@ -7,23 +7,24 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2021-09-05 01:09+0300\n"
-"Last-Translator: Immovable <izventelays@gmail.com>\n"
-"Language-Team: Russian <>\n"
-"Language: ru_RU\n"
+"PO-Revision-Date: 2023-07-25 13:29+0000\n"
+"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Language-Team: Russian <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 21.08.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr "Не удалось создать каталог для сохраненных команд."
+msgstr "Не удалось создать каталог для сохраненных команд"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
@@ -51,14 +52,14 @@ msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr "Не удалось открыть файл %1 для чтения."
+msgstr "Не удалось открыть файл %1 для чтения"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr "Не удалось открыть файл %1 для записи."
+msgstr "Не удалось открыть файл %1 для записи"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -98,14 +99,13 @@ msgstr ""
 "этой ошибке в The Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:258
-#, fuzzy
 msgctxt "Warning message when the main service was not found on the device"
 msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Произошла ошибка при подключении к вашему хвосту (не удалось создать объект "
-"службы).  Если вы считаете, что это ошибка, попробуйте еще раз."
+"службы). Если вы считаете, что это ошибка, попробуйте еще раз!"
 
 #: gearimplementations/GearDigitail.cpp:276
 #, fuzzy
@@ -218,7 +218,7 @@ msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr "Балансировка микрофона завершена."
+msgstr "Балансировка микрофона завершена"
 
 #: gearimplementations/GearEars.cpp:442
 #: gearimplementations/GearFlutterWings.cpp:327
@@ -447,7 +447,6 @@ msgid ""
 msgstr ""
 
 #: gearimplementations/GearFlutterWings.cpp:109
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -458,10 +457,9 @@ msgid ""
 msgstr ""
 "Похоже, что это устройство не MiTail (не удалось найти параметры записи на "
 "устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в  The Tail Company."
+"этой ошибке в The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:117
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -472,7 +470,7 @@ msgid ""
 msgstr ""
 "Похоже, что это устройство не MiTail (не удалось найти параметры чтения на "
 "устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в  The Tail Company."
+"этой ошибке в The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:407
 #, fuzzy
@@ -673,7 +671,7 @@ msgid ""
 msgstr ""
 "Похоже, что это устройство не MiTail (не удалось найти параметры записи на "
 "устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в  The Tail Company."
+"этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:123
 msgctxt ""
@@ -686,7 +684,7 @@ msgid ""
 msgstr ""
 "Похоже, что это устройство не MiTail (не удалось найти параметры чтения на "
 "устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в  The Tail Company."
+"этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:413
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -767,7 +765,6 @@ msgid ""
 msgstr ""
 
 #: gearimplementations/GearMitailMini.cpp:110
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -778,10 +775,9 @@ msgid ""
 msgstr ""
 "Похоже, что это устройство не MiTail (не удалось найти параметры записи на "
 "устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в  The Tail Company."
+"этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:118
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -792,7 +788,7 @@ msgid ""
 msgstr ""
 "Похоже, что это устройство не MiTail (не удалось найти параметры чтения на "
 "устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в  The Tail Company."
+"этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:408
 #, fuzzy
@@ -1206,7 +1202,7 @@ msgctxt ""
 "A label which describes the slider for the duration of a pause, in the "
 "overlay for picking the duration of a pause, in a command list"
 msgid "%1 seconds"
-msgstr "%1 сек."
+msgstr "%1 сек"
 
 #: qml/CommandPausePicker.qml:63
 msgctxt ""
@@ -1262,12 +1258,11 @@ msgid "MAX GLASH"
 msgstr "MAX GLASH"
 
 #: qml/DisconnectOptions.qml:34
-#, fuzzy
 msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr "Отключить"
+msgstr "Отключить?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
@@ -1525,7 +1520,7 @@ msgstr "Crumpet"
 #: qml/main.qml:96
 msgctxt "Text for the notification upon connecting successfully to a device"
 msgid "Connected successfully!"
-msgstr "Подключение установлено."
+msgstr "Подключение установлено!"
 
 #: qml/main.qml:117
 msgctxt "Title for the warning for having Bluetooth disabled"
