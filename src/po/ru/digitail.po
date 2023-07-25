@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
 "PO-Revision-Date: 2023-07-25 13:29+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Last-Translator: Immovable <izventelays@gmail.com>\n"
 "Language-Team: Russian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ru/>\n"
 "Language: ru\n"
@@ -180,7 +180,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr ""
+msgstr "Обновление завершено"
 
 #: gearimplementations/GearEars.cpp:221
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -189,7 +189,7 @@ msgstr ""
 msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
-msgstr ""
+msgstr "Поздравляем, ваше устройство успешно обновлено до версии %1!"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -199,7 +199,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr ""
+msgstr "Ошибка обновления"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -212,6 +212,11 @@ msgid ""
 "a safe fallback to just go back to your old firmware version upon a failure. "
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
+"<p>Извините, обновление не удалось. Чаще всего это происходит из-за того, "
+"что передача была прервана во время самого процесса загрузки, однако у "
+"вашего оборудования есть безопасный запасной вариант, позволяющий просто "
+"вернуться к старой версии прошивки в случае сбоя. Вы можете повторить "
+"попытку обновления, нажав кнопку «Установить».</p>"
 
 #: gearimplementations/GearEars.cpp:327
 msgctxt ""
