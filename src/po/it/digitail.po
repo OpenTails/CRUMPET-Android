@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-24 11:48+0000\n"
+"PO-Revision-Date: 2023-07-26 12:28+0000\n"
 "Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
@@ -307,7 +307,7 @@ msgstr ""
 #: gearimplementations/GearEars.cpp:599
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr ""
+msgstr "EarGear ha chiuso la connessione."
 
 #: gearimplementations/GearEars.cpp:602
 msgctxt ""
@@ -316,13 +316,15 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
+"Non è stato possibile connettere il tuo EarGear. Per favore prova d nuovo ("
+"magari avvicinandoti?)"
 
 #: gearimplementations/GearEars.cpp:623
 msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Update del Firmware completato"
 
 #: gearimplementations/GearEars.cpp:623
 msgctxt ""
@@ -334,6 +336,9 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"L'upload del firmware è stato completato, e il tuo dispositivo si è spento. "
+"Se non si è acceso di nuovo, chiudi questo messaggio, accendolo manualmente "
+"e connettiti. se si è riacceso di nuovo, puoi chiudere questo messaggio."
 
 #: gearimplementations/GearEars.cpp:628
 msgctxt ""
