@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-26 12:28+0000\n"
+"PO-Revision-Date: 2023-07-26 14:22+0000\n"
 "Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
@@ -348,6 +348,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
+"EarGear ha chiuso la connessione, si è spento o ha poca carica. Ricordati di "
+"caricare il tuo dispositivo!"
 
 #: gearimplementations/GearEars.cpp:778
 #: gearimplementations/GearFlutterWings.cpp:664
@@ -356,7 +358,7 @@ msgstr ""
 msgctxt ""
 "Message shown alongside a progress bar when downloading update information"
 msgid "Downloading firmware update information"
-msgstr ""
+msgstr "Stiamo scaricando le informazioni per l'update del firmware"
 
 #: gearimplementations/GearEars.cpp:795
 msgctxt ""
@@ -366,6 +368,9 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Il tuo dispositivo ha segnalato una revisione dell'hardware che non "
+"riconosciamo. Questo significa che la tua app sta per diventare obsoleta e "
+"ha bisogno di essere aggiornata."
 
 #: gearimplementations/GearEars.cpp:799
 msgctxt ""
@@ -377,6 +382,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"Per qualche motivo hai una versione del firmware che non corrisponde alla "
+"revisione dell'hardware del tuo dispositivo, e che non ci è stato segnalato. "
+"Questa è una situazione inaspettata e ti chiediamo di segnalarlo "
+"direttamente a info@thetailcompany.com - grazie!"
 
 #: gearimplementations/GearEars.cpp:827
 #: gearimplementations/GearFlutterWings.cpp:696
@@ -387,6 +396,8 @@ msgctxt ""
 "itself"
 msgid "Downloading firmware update from The Tail Company's website..."
 msgstr ""
+"Stiamo scaricando l'aggiornamento del firmware dal sito di The Tail "
+"Company..."
 
 #: gearimplementations/GearEars.cpp:844
 #: gearimplementations/GearFlutterWings.cpp:713
@@ -399,6 +410,11 @@ msgid ""
 "should simply try again. If it continues to fail, please get in touch with "
 "us and we can try and work something out!"
 msgstr ""
+"L'aggiornamento del firmware che hai scaricato non contiene ciò che ci "
+"aspettavamo. Normalmente questo è dovuto a problemi riscontrati durante il "
+"download, in questo caso puoi semplicente provare di nuovo. Se il download "
+"continua a fallire, per favore contattaci e possiamo risolvere insieme il "
+"problema!"
 
 #: gearimplementations/GearEars.cpp:860
 msgctxt "Message shown during firmware update processes"
@@ -409,6 +425,11 @@ msgid ""
 "disconnect from this device. Once it is started back up again, you will be "
 "able to connect to it again."
 msgstr ""
+"Stiamo scaricando il firmware per il tuo dispositivo. Per favore tieni i "
+"dispositivi vicini tra loro, e assicurati che siano completamente carichi (o "
+"approfittane per caricarli). Una volta completato, il tuo dispositivo si "
+"riavvierà o si spegnerà disconnettendosi. Una volta che lo riaccenti, potrai "
+"riconnetterti."
 
 #: gearimplementations/GearFake.cpp:48
 #: gearimplementations/GearFlutterWings.cpp:359
@@ -417,7 +438,7 @@ msgstr ""
 msgctxt ""
 "Name of the calm and relaxed group as used for no phone group selection"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Calmo e Rilassato"
 
 #: gearimplementations/GearFake.cpp:49
 #: gearimplementations/GearFlutterWings.cpp:360
@@ -426,7 +447,7 @@ msgstr ""
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Veloce ed Eccitato"
 
 #: gearimplementations/GearFake.cpp:50
 #: gearimplementations/GearFlutterWings.cpp:361
@@ -435,7 +456,7 @@ msgstr ""
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustrato e Nervoso"
 
 #: gearimplementations/GearFake.cpp:106
 msgctxt ""
@@ -445,6 +466,8 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
+"Questo è un messagio per informarti che c'è sta accadendo qualcosa di "
+"<b>importante</b> con il tuo firmware"
 
 #: gearimplementations/GearFlutterWings.cpp:109
 msgctxt ""
