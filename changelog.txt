@@ -1,3 +1,12 @@
+32:
+- The development is now done as OpenTails
+- New translations done using Weblate
+- Do some code cleanup, prepare for Qt6
+- Fix some problems with permission requests
+- Fix interaction issue with the casual mode duration picking slider
+- Fix up some visual issues (like a missing background when connecting)
+- Add preliminary support for some future bits
+
 31:
 - Add support for Android 12's new Bluetooth permissions
 - Rework build system to use Craft, so now kirigami and ki18n are fully updated with each new release
