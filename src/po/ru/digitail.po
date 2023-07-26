@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-26 10:21+0000\n"
+"PO-Revision-Date: 2023-07-26 12:28+0000\n"
 "Last-Translator: Immovable <izventelays@gmail.com>\n"
 "Language-Team: Russian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ru/>\n"
@@ -1353,6 +1353,8 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
+"Режим «Без телефона» будет ожидать от %1 до %2 секунд, прежде чем выбрать "
+"следующее движение."
 
 #: qml/DisconnectOptions.qml:126
 msgctxt ""
@@ -1360,20 +1362,21 @@ msgctxt ""
 "Phone mode is fully activated"
 msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
 msgstr ""
+"Режим «Без телефона» будет ожидать %1 мин, прежде чем сделать первое "
+"движение."
 
 #: qml/DisconnectOptions.qml:136
 msgctxt ""
 "Label for the button in the disconnection options popup which puts the gear "
 "into autonomous, or no phone, mode"
 msgid "Engage No Phone Mode"
-msgstr ""
+msgstr "Включите режим «Без телефона»"
 
 #: qml/DisconnectOptions.qml:170
-#, fuzzy
 msgctxt ""
 "Label above the section that lets the user simply disconnect from the gear"
 msgid "Just Disconnect"
-msgstr "Отключить"
+msgstr "Просто отключить"
 
 #: qml/DisconnectOptions.qml:188
 msgctxt ""
@@ -1383,21 +1386,22 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
+"Выберите этот вариант, чтобы отключиться от устройства, не выключая его ("
+"удобно, если вы хотите его зарядить)."
 
 #: qml/DisconnectOptions.qml:191
-#, fuzzy
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Disconnect"
-msgstr "Отключить"
+msgstr "Отключиться"
 
 #: qml/DisconnectOptions.qml:212
 msgctxt ""
 "Header label for the section which lets you tell the gear to shut down "
 "before disconnecting"
 msgid "Disconnect and Shut Down"
-msgstr ""
+msgstr "Отключиться и Выключить"
 
 #: qml/DisconnectOptions.qml:230
 msgctxt ""
@@ -1406,18 +1410,20 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
+"Выберите этот вариант, чтобы выключить устройство, а не просто отключиться "
+"от него (удобно, если вы сразу его убираете)"
 
 #: qml/DisconnectOptions.qml:233
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Shut Down Gear"
-msgstr ""
+msgstr "Выключить снаряжение"
 
 #: qml/EarPoses.qml:27
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr "Позиции для ушей"
+msgstr "Положения ушей"
 
 #: qml/EarPoses.qml:30
 msgctxt ""
@@ -1432,27 +1438,25 @@ msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
-"В списке ниже показаны все позиции, доступные для вашего снаряжения. "
-"Коснитесь любого из них, чтобы отправить их на любое из подключенных "
-"устройств!"
+"В списке ниже показаны все положения, доступные для вашего снаряжения. "
+"Коснитесь любого из них, чтобы отправить его на подключенное устройство!"
 
 #: qml/EarPoses.qml:41
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
 msgid "Be Calm"
-msgstr ""
+msgstr "Успокоить"
 
 #: qml/EarPoses.qml:49
-#, fuzzy
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
-msgstr "Быстрый и Возбужденный"
+msgstr "Возбуждённый"
 
 #: qml/EarPoses.qml:63
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
 msgid "Poses"
-msgstr "Позиции"
+msgstr "Положения"
 
 #: qml/GearGestures.qml:28
 msgctxt "Title for the page for selecting a pose for the Gear"
@@ -1477,9 +1481,9 @@ msgid ""
 msgstr ""
 "Включите один из датчиков ниже, чтобы ваше снаряжение реагировало на жесты, "
 "выполняемые на этом устройстве, если больше ничего не происходит (то есть "
-"нет текущих команд и пустая очередь команд). Например, заставьте свои уши "
-"напрячься, когда устройство распознает, что оно поднято, или начните вилять, "
-"когда оно обнаружит, что вы сделали шаг."
+"нет текущих команд и пустая очередь команд). Например, навострить уши, когда "
+"устройство распознает, что его подняли, или начать вилять, когда оно "
+"обнаружит, что вы сделали шаг."
 
 #: qml/GearGestures.qml:70
 msgctxt ""
@@ -1692,7 +1696,7 @@ msgstr "О нас"
 msgctxt ""
 "Button for opening the TailCo website in a browser, from the landing page"
 msgid "TheTailCompany.com"
-msgstr ""
+msgstr "TheTailCompany.com"
 
 #: qml/main.qml:327
 msgctxt "Title for the confirmation popup for disconnecting your gear"
@@ -1716,10 +1720,9 @@ msgid "Enter a name to use for your new gear"
 msgstr "Введите имя, которое будет использоваться для вашего нового снаряжения"
 
 #: qml/main.qml:401
-#, fuzzy
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the new name for %1 here"
-msgstr "Введите имя здесь"
+msgstr "Введите новое имя для %1 здесь"
 
 #: qml/main.qml:402
 msgctxt ""
@@ -1917,7 +1920,6 @@ msgstr[1] "Доступно несколько устройств"
 msgstr[2] "Доступно несколько устройств"
 
 #: qml/NotConnectedCard.qml:75
-#, fuzzy
 msgctxt ""
 "Message warning for missing scan permissions, for the gear connecting card"
 msgid ""
@@ -1925,14 +1927,11 @@ msgid ""
 "nearby devices. Clicking the button below will show you a dialog that you "
 "need to press allow on."
 msgstr ""
-"Чтобы найти ваше снаряжение, нам нужно, чтобы вы предоставили разрешение на "
-"доступ к вашему местоположению. Нажав на кнопку ниже, вы увидите диалоговое "
-"окно, в котором вам нужно нажать \"Разрешить\". Мы не используем эту "
-"информацию ни для чего другого (не стесняйтесь обращаться, если вам нужны "
-"доказательства этого)."
+"Чтобы иметь возможность найти свое снаряжение, нам нужно, чтобы вы "
+"предоставили разрешение на сканирование ближайших устройств. Нажав кнопку "
+"ниже, вы увидите диалоговое окно, в котором вам нужно нажать «Разрешить»."
 
 #: qml/NotConnectedCard.qml:78
-#, fuzzy
 msgctxt ""
 "Message warning for missing location permissions, for the gear connecting "
 "card"
