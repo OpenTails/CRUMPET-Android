@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-23 14:15+0000\n"
+"PO-Revision-Date: 2023-07-26 14:22+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -72,7 +72,7 @@ msgid ""
 "check that it is on, charged, and near enough."
 msgstr ""
 "Teveel pogingen gedaan om te verbinden met %1 (%2). Om te verbinden, zorg "
-"ervoor dat de Gear aanstaat, opgeladen is, en in de buurt is van je apparaat"
+"ervoor dat de Gear aanstaat, opgeladen is, en in de buurt is van je apparaat."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -95,7 +95,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen DIGITAIL is (kan het apparaat niet "
 "aanspreken). Als je zeker bent met het juiste apparaat te verbinden, neem "
-"dan contact op met The Tail Company"
+"dan contact op met The Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:258
 #, fuzzy
@@ -159,7 +159,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen EarGear controller is (kan het "
 "apparaat niet aanspreken). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearEars.cpp:129
 msgctxt ""
@@ -172,7 +172,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen EarGear controller is (kan het "
 "apparaat niet uitlezen). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearEars.cpp:221
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -219,7 +219,7 @@ msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr "Microfoons met success uitgebalanceerd."
+msgstr "Microfoons met success uitgebalanceerd"
 
 #: gearimplementations/GearEars.cpp:442
 #: gearimplementations/GearFlutterWings.cpp:327
@@ -288,7 +288,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen EarGear controller is (kan de "
 "batterij level parameter niet uitlezen). Als je zeker bent met het juiste "
-"apparaat te verbinden, neem dan contact op met The Tail Company"
+"apparaat te verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearEars.cpp:596
 #, fuzzy
@@ -448,7 +448,6 @@ msgid ""
 msgstr ""
 
 #: gearimplementations/GearFlutterWings.cpp:109
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -459,10 +458,9 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
 "aanspreken). Als je zeker bent met het juiste apparaat te verbinden, neem "
-"dan contact op met The Tail Company"
+"dan contact op met The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:117
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -473,7 +471,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
 "uitlezen). Als je zeker bent met het juiste apparaat te verbinden, neem dan "
-"contact op met The Tail Company"
+"contact op met The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:407
 #, fuzzy
@@ -513,7 +511,6 @@ msgstr ""
 "opnieuw!"
 
 #: gearimplementations/GearFlutterWings.cpp:487
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -523,7 +520,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan de batterij level "
 "parameter niet uitlezen). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:527
 #, fuzzy
@@ -674,7 +671,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
 "aanspreken). Als je zeker bent met het juiste apparaat te verbinden, neem "
-"dan contact op met The Tail Company"
+"dan contact op met The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:123
 msgctxt ""
@@ -687,7 +684,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
 "uitlezen). Als je zeker bent met het juiste apparaat te verbinden, neem dan "
-"contact op met The Tail Company"
+"contact op met The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:413
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -720,7 +717,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan de batterij level "
 "parameter niet uitlezen). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:533
 msgctxt "Warning that some unknown error happened"
@@ -769,7 +766,6 @@ msgid ""
 msgstr ""
 
 #: gearimplementations/GearMitailMini.cpp:110
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -780,10 +776,9 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
 "aanspreken). Als je zeker bent met het juiste apparaat te verbinden, neem "
-"dan contact op met The Tail Company"
+"dan contact op met The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:118
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -794,7 +789,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan het apparaat niet "
 "uitlezen). Als je zeker bent met het juiste apparaat te verbinden, neem dan "
-"contact op met The Tail Company"
+"contact op met The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:408
 #, fuzzy
@@ -820,7 +815,6 @@ msgstr ""
 "opnieuw!"
 
 #: gearimplementations/GearMitailMini.cpp:488
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -830,7 +824,7 @@ msgid ""
 msgstr ""
 "Het lijkt erop alsof het apparaat geen MiTail is (kan de batterij level "
 "parameter niet uitlezen). Als je zeker bent met het juiste apparaat te "
-"verbinden, neem dan contact op met The Tail Company"
+"verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:528
 #, fuzzy
@@ -1019,6 +1013,7 @@ msgid "Select another name"
 msgstr "Kies een andere naam"
 
 #: qml/AlarmList.qml:46
+#, fuzzy
 msgctxt ""
 "Main text for a message box warning the user an alarm with the chosen name "
 "already exists"
@@ -1027,7 +1022,7 @@ msgid ""
 "name.\n"
 "\n"
 "Please select another name for the alarm."
-msgstr "Deze naam is al in gebruik"
+msgstr "Deze naam is al in gebruik."
 
 #: qml/AlarmList.qml:50
 msgctxt ""
@@ -1045,7 +1040,7 @@ msgid ""
 "instance has removed it."
 msgstr ""
 "Kan het alarm '%1' niet vinden. Is die misschien door een ander "
-"programmainstantie verwijderd?"
+"programmainstantie verwijderd."
 
 #: qml/AlarmList.qml:81
 msgctxt ""
@@ -1158,9 +1153,9 @@ msgid ""
 "the options in the menu."
 msgstr ""
 "Dit is de lijst met opdrachten. Hier zitten bewegingen, lichtpatronen en "
-"pauses bij.\n"
-"Tip: Om een nieuwe opdracht toe te voegen in de lijst, klik op de plus knop "
-"boven de tijdstempel voor die opdracht en kies er een uit het menu."
+"pauses bij. Tip: Om een nieuwe opdracht toe te voegen in de lijst, klik op "
+"de plus knop boven de tijdstempel voor die opdracht en kies er een uit het "
+"menu."
 
 #: qml/BaseCommandListEditor.qml:275
 msgctxt ""
@@ -1178,7 +1173,7 @@ msgstr "Naar welk apparaat versturen?"
 #: qml/BaseMovesComponent.qml:216
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr "Kies hier waar je de opdracht naar wil verzenden"
+msgstr "Kies hier waar je de opdracht naar wil verzenden."
 
 #: qml/BaseMovesComponent.qml:262
 msgctxt "Action for sending a command to the selected devices in a list"
@@ -1258,12 +1253,11 @@ msgid "MAX GLASH"
 msgstr "Geef Caroline een aai ^^"
 
 #: qml/DisconnectOptions.qml:34
-#, fuzzy
 msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr "Verbinding verbreken"
+msgstr "Verbinding verbreken?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
@@ -1410,6 +1404,7 @@ msgid "Home Position"
 msgstr "Rustpositie"
 
 #: qml/GearGestures.qml:47
+#, fuzzy
 msgctxt "Info card for the page for selecting a pose for the Gear"
 msgid ""
 "Turn on one of the sensors below to make your gear react to gestures "
@@ -1418,10 +1413,10 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"Zet een van de sensors aan om je Gear te laten reageren op zijn omgeving "
-"(mits die zich in ruststand bevind). Als voorbeeld: Laat je oren opfloppen "
+"Zet een van de sensors aan om je Gear te laten reageren op zijn omgeving ("
+"mits die zich in ruststand bevind). Als voorbeeld: Laat je oren opfloppen "
 "wanneer je je telefoon oppakt, of begin met je staart te wapperen wanneer je "
-"begint te lopen?"
+"begint te lopen."
 
 #: qml/GearGestures.qml:70
 msgctxt ""
@@ -1522,7 +1517,7 @@ msgstr "Verbonden!"
 #: qml/main.qml:117
 msgctxt "Title for the warning for having Bluetooth disabled"
 msgid "Warning"
-msgstr "Opgelet!"
+msgstr "Opgelet"
 
 #: qml/main.qml:117
 msgctxt "Message for the warning for having Bluetooth disabled"
@@ -1532,12 +1527,12 @@ msgstr "Je Bluetooth staat uit"
 #: qml/main.qml:119
 msgctxt "Title for the warning for not having detected any Bluetooth devices"
 msgid "Warning"
-msgstr "Opgelet!"
+msgstr "Opgelet"
 
 #: qml/main.qml:119
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
 msgid "No Bluetooth Device"
-msgstr "Geen Bluetooth apparaat gevonden."
+msgstr "Geen Bluetooth apparaat gevonden"
 
 #: qml/main.qml:132
 msgctxt "Title for the popup for having enabled Developer Mode"
@@ -1569,7 +1564,7 @@ msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
 "Misschien tijd om een rustpause te geven aan je staart en oren... voordat je "
-"oren in de fik vliegen!"
+"oren in de fik vliegen."
 
 #: qml/main.qml:200
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -1841,18 +1836,17 @@ msgstr "Zoeken naar Gear..."
 msgctxt ""
 "Header warning that no gear has been found, for the gear connecting card"
 msgid "No gear found"
-msgstr "Geen Gear gevonden."
+msgstr "Geen Gear gevonden"
 
 #: qml/NotConnectedCard.qml:48
 msgctxt ""
 "Header notifying that gear has been found, for the gear connecting card"
 msgid "One piece of gear available"
 msgid_plural "Multiple pieces of gear available"
-msgstr[0] "Een Gear gevonden!"
-msgstr[1] "Meerdere Gears gevonden!"
+msgstr[0] "Een Gear gevonden"
+msgstr[1] "Meerdere Gears gevonden"
 
 #: qml/NotConnectedCard.qml:75
-#, fuzzy
 msgctxt ""
 "Message warning for missing scan permissions, for the gear connecting card"
 msgid ""
@@ -1863,10 +1857,9 @@ msgstr ""
 "Om met je Gear te kunnen verbinden hebben we toestemming nodig voor het "
 "uitlezen van je locatie. Druk op de onderstaande knop om deze toestemming "
 "uit te geven. Wij gebruiken deze info nergens anders voor... als je meer "
-"informatie wil, neem dan contact met ons op"
+"informatie wil, neem dan contact met ons op."
 
 #: qml/NotConnectedCard.qml:78
-#, fuzzy
 msgctxt ""
 "Message warning for missing location permissions, for the gear connecting "
 "card"
@@ -1879,7 +1872,7 @@ msgstr ""
 "Om met je Gear te kunnen verbinden hebben we toestemming nodig voor het "
 "uitlezen van je locatie. Druk op de onderstaande knop om deze toestemming "
 "uit te geven. Wij gebruiken deze info nergens anders voor... als je meer "
-"informatie wil, neem dan contact met ons op"
+"informatie wil, neem dan contact met ons op."
 
 #: qml/NotConnectedCard.qml:83
 msgctxt ""
@@ -1899,9 +1892,8 @@ msgid_plural ""
 "below."
 msgstr[0] ""
 "Een Gear gevonden. Wacht een ogenblik, of druk op \"Verbinden\" om "
-"verbinding aan te leggen"
-msgstr[1] ""
-"%1 stuks Gear gevonden. Om deze te zien, druk op de onderstaande knop..."
+"verbinding aan te leggen."
+msgstr[1] "%1 stuks Gear gevonden. Om deze te zien, druk op de onderstaande knop."
 
 #: qml/NotConnectedCard.qml:91
 msgctxt ""
@@ -1984,7 +1976,7 @@ msgid ""
 "gear. Tap any of them to pick that command."
 msgstr ""
 "Hier staan alle bewegingen en lichtpatronen voor je Gear. Druk op een "
-"hiervan om dat naar je apparatuur te verzenden!"
+"hiervan om dat naar je apparatuur te verzenden."
 
 #: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
 msgctxt ""
@@ -2184,6 +2176,7 @@ msgid "Clear the names?"
 msgstr "Alle namen leegmaken?"
 
 #: qml/SettingsPage.qml:88
+#, fuzzy
 msgctxt ""
 "Text for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
@@ -2226,7 +2219,7 @@ msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
-msgstr "Geen Gear te configureren"
+msgstr "Geen Gear te configureren..."
 
 #: qml/SettingsPage.qml:138
 msgctxt ""
@@ -2568,7 +2561,7 @@ msgctxt "Label for the checkbox for turning on Listening Mode"
 msgid ""
 "Turn this on to make your gear react to sounds around it for five minutes at "
 "a time."
-msgstr "Zet dit aan om je gear op geluiden te laten reageren (max: 5 minuten)"
+msgstr "Zet dit aan om je gear op geluiden te laten reageren (max: 5 minuten)."
 
 #: qml/WelcomePage.qml:322
 #, fuzzy
@@ -2577,10 +2570,9 @@ msgid "Tilt Mode"
 msgstr "Luistermodus"
 
 #: qml/WelcomePage.qml:335
-#, fuzzy
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
-msgstr "Zet dit aan om je gear op geluiden te laten reageren (max: 5 minuten)"
+msgstr "Zet dit aan om je gear op geluiden te laten reageren (max: 5 minuten)."
 
 #: qml/WelcomePage.qml:376
 msgctxt ""
