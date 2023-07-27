@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-26 15:20+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"PO-Revision-Date: 2023-07-29 07:59+0000\n"
+"Last-Translator: Immovable <izventelays@gmail.com>\n"
 "Language-Team: Russian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ru/>\n"
 "Language: ru\n"
@@ -85,6 +85,7 @@ msgid "Connection lost to %1, attempting to reconnect..."
 msgstr "Потеря соединения с %1, попытка повторного подключения..."
 
 #: gearimplementations/GearDigitail.cpp:91
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -93,9 +94,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не DIGITAiL (не удалось найти параметры на "
-"устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в The Tail Company."
+"Похоже, что это устройство не DIGITAiL (не удалось обнаружить характеристику "
+"хвоста). Если вы уверены, что это именно оно, пожалуйста, сообщите об этой "
+"ошибке в The Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:258
 msgctxt "Warning message when the main service was not found on the device"
@@ -103,8 +104,8 @@ msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему хвосту (не удалось создать объект "
-"службы). Если вы считаете, что это ошибка, попробуйте еще раз!"
+"Произошла ошибка при подключении к вашему DIGITAiL (не удалось создать "
+"объект службы). Если вы считаете, что это ошибка, попробуйте еще раз!"
 
 #: gearimplementations/GearDigitail.cpp:276
 msgctxt "Warning that some unknown error happened"
@@ -128,7 +129,7 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Не удалось подключиться к DIGITAiL. Пожалуйста, попробуйте еще раз ("
+"Не удалось подключиться к вашему DIGITAiL. Пожалуйста, попробуйте еще раз ("
 "достаточно ли он близко?)"
 
 #: gearimplementations/GearDigitail.cpp:302
@@ -140,9 +141,10 @@ msgid ""
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
 "DIGITAiL прервал соединение из-за отключения, либо потери питания. Не "
-"забудьте зарядить свой хвост!"
+"забудьте зарядить свой хвостик!"
 
 #: gearimplementations/GearEars.cpp:112
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -151,11 +153,12 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не EarGear (не удалось найти параметры записи на "
-"устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в The Tail Company."
+"Похоже, что это устройство не является контроллером EarGear (не удалось "
+"обнаружить основную характеристику записи ушей). Если вы уверены, что это "
+"именно оно, пожалуйста, сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearEars.cpp:129
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -164,9 +167,9 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не EarGear (не удалось найти параметры чтения на "
-"устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в The Tail Company."
+"Похоже, это устройство не является контроллером EarGear (не удалось "
+"обнаружить основную характеристику чтения ушей). Если вы уверены, что это "
+"именно оно, пожалуйста, сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearEars.cpp:221
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -184,7 +187,7 @@ msgstr "Обновление завершено"
 msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
-msgstr "Поздравляем, ваше устройство успешно обновлено до версии %1!"
+msgstr "Поздравляем, ваше снаряжение успешно обновлено до версии %1!"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -209,7 +212,7 @@ msgid ""
 msgstr ""
 "<p>Извините, обновление не удалось. Чаще всего это происходит из-за того, "
 "что передача была прервана во время самого процесса загрузки, однако у "
-"вашего оборудования есть безопасный запасной вариант, позволяющий просто "
+"вашего снаряжения есть безопасный запасной вариант, позволяющий просто "
 "вернуться к старой версии прошивки в случае сбоя. Вы можете повторить "
 "попытку обновления, нажав кнопку «Установить».</p>"
 
@@ -231,7 +234,7 @@ msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
 msgstr ""
-"На вашем устройстве уже установлена новейшая версия прошивки, поздравляем!"
+"На вашем снаряжении уже установлена новейшая версия прошивки, поздравляем!"
 
 #: gearimplementations/GearEars.cpp:447
 #: gearimplementations/GearFlutterWings.cpp:332
@@ -265,7 +268,7 @@ msgid ""
 "An error occurred while connecting to your EarGear (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему EarGear(не удалось создать объект "
+"Произошла ошибка при подключении к вашим EarGear(не удалось создать объект "
 "службы). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще раз!"
 
 #: gearimplementations/GearEars.cpp:535
@@ -275,11 +278,12 @@ msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Произошла ошибка при подключении к вашему EarGear (служба батареи была "
+"Произошла ошибка при подключении к вашим EarGear (служба батареи была "
 "недоступна). Если вы считаете, что это ошибка, пожалуйста, попробуйте еще "
 "раз!"
 
 #: gearimplementations/GearEars.cpp:566
+#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -287,9 +291,9 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, это не устройство EarGear (не удалось найти показатель уровня заряда "
-"батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите об этой "
-"ошибке в The Tail Company."
+"Похоже, это устройство не является контроллером EarGear (не удалось "
+"обнаружить характеристику уровня заряда батареи). Если вы уверены, что это "
+"именно оно, пожалуйста, сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearEars.cpp:596
 msgctxt "Warning that some unknown error happened"
@@ -298,12 +302,12 @@ msgid ""
 "EarGear is on and close to this device."
 msgstr ""
 "Произошла ошибка. Если вы пытаетесь подключиться к своим ушкам, убедитесь, "
-"что EarGear включен и находится рядом с этим устройством."
+"что EarGear включены и находятся рядом с этим устройством."
 
 #: gearimplementations/GearEars.cpp:599
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr "EarGear прервал соединение."
+msgstr "EarGear прервали соединение."
 
 #: gearimplementations/GearEars.cpp:602
 msgctxt ""
@@ -312,8 +316,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
-"Не удалось подключиться к вашему EarGear. Пожалуйста, попробуйте еще раз ("
-"может подвинуть поближе?)"
+"Не удалось подключиться к вашим EarGear. Пожалуйста, попробуйте еще раз ("
+"достаточно ли они близко?)"
 
 #: gearimplementations/GearEars.cpp:623
 msgctxt ""
@@ -332,7 +336,7 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
-"Загрузка прошивки завершена, устройство выключилось. Если оно не включится, "
+"Загрузка прошивки завершена, снаряжение выключилось. Если оно не включится, "
 "закройте это сообщение, и включите его вручную, а затем подключитесь к нему. "
 "Если оно включилось, вы можете просто закрыть это сообщение."
 
@@ -344,8 +348,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
-"EarGear прервал соединение из-за отключения, либо потери питания. Не "
-"забудьте зарядить ваши уши!"
+"EarGear прервали соединение из-за отключения, либо потери питания. Не "
+"забудьте зарядить ваши ушки!"
 
 #: gearimplementations/GearEars.cpp:778
 #: gearimplementations/GearFlutterWings.cpp:664
@@ -364,9 +368,9 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
-"Ваше устройство сообщило об обновлении аппаратного обеспечения, о котором мы "
-"не знаем. Это означает, что ваше приложение, вероятно, устарело и нуждается "
-"в обновлении."
+"Ваше снаряжение сообщило об обновлении аппаратной версии, о которой мы не "
+"знаем. Это означает, что ваше приложение, вероятно, устарело и нуждается в "
+"обновлении."
 
 #: gearimplementations/GearEars.cpp:799
 msgctxt ""
@@ -420,7 +424,7 @@ msgid ""
 msgstr ""
 "Загрузка прошивки на ваше снаряжение. Пожалуйста, держите свои устройства "
 "как можно ближе друг к другу и убедитесь, что оба они достаточно заряжены ("
-"или подключите зарядное устройство сейчас). После завершения ваше устройство "
+"или подключите зарядное устройство сейчас). После завершения ваше снаряжение "
 "либо перезагрузится, либо выключится и отключится от этого устройства. Как "
 "только оно снова запустится, вы сможете снова подключиться к нему."
 
@@ -463,6 +467,7 @@ msgstr ""
 "происходит что-то <b>важное</b>"
 
 #: gearimplementations/GearFlutterWings.cpp:109
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -471,11 +476,12 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не FlutterWings (не удалось найти параметры "
-"записи на устройстве). Если вы уверены, что это именно оно, пожалуйста, "
-"сообщите об этой ошибке в The Tail Company."
+"Похоже, что это устройство не FlutterWings (не удалось обнаружить основную "
+"характеристику записи устройства). Если вы уверены, что это именно оно, "
+"пожалуйста, сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:117
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -484,9 +490,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не FlutterWings (не удалось найти параметры "
-"чтения на устройстве). Если вы уверены, что это именно оно, пожалуйста, "
-"сообщите об этой ошибке в The Tail Company."
+"Похоже, что это устройство не FlutterWings (не удалось обнаружить основную "
+"характеристику чтения устройства). Если вы уверены, что это именно оно, "
+"пожалуйста, сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:407
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -529,6 +535,7 @@ msgstr ""
 "раз!"
 
 #: gearimplementations/GearFlutterWings.cpp:487
+#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -536,9 +543,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Похоже, это устройство не FlutterWings (не удалось найти показатель уровня "
-"заряда батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите "
-"об этой ошибке в The Tail Company."
+"Похоже, это устройство не FlutterWings (не удалось обнаружить характеристику "
+"уровня заряда батареи). Если вы уверены, что это именно оно, пожалуйста, "
+"сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:527
 msgctxt "Warning that some unknown error happened"
@@ -552,7 +559,7 @@ msgstr ""
 #: gearimplementations/GearFlutterWings.cpp:530
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr "FlutterWings прервал соединение."
+msgstr "FlutterWings прервали соединение."
 
 #: gearimplementations/GearFlutterWings.cpp:534
 msgctxt ""
@@ -585,7 +592,7 @@ msgid ""
 "before attempting to reconnect..."
 msgstr ""
 "Загрузка прошивки завершена, дождитесь автоматической перезагрузки "
-"устройства, прежде чем пытаться снова подключиться..."
+"снаряжения, прежде чем пытаться снова подключиться..."
 
 #: gearimplementations/GearFlutterWings.cpp:569
 msgctxt ""
@@ -595,7 +602,7 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
-"FlutterWings прервал соединение из-за отключения, либо потери питания. Не "
+"FlutterWings прервали соединение из-за отключения, либо потери питания. Не "
 "забудьте зарядить свои крылья!"
 
 #: gearimplementations/GearFlutterWings.cpp:729
@@ -711,6 +718,7 @@ msgstr ""
 "выполнить обновление."
 
 #: gearimplementations/GearMitail.cpp:115
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -719,11 +727,12 @@ msgid ""
 "writing characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не MiTail (не удалось найти параметры записи на "
-"устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в The Tail Company."
+"Похоже, что это устройство не MiTail (не удалось обнаружить характеристику "
+"записи устройства). Если вы уверены, что это именно оно, пожалуйста, "
+"сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:123
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -732,9 +741,9 @@ msgid ""
 "reading characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не MiTail (не удалось найти параметры чтения на "
-"устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в The Tail Company."
+"Похоже, что это устройство не MiTail (не удалось обнаружить характеристику "
+"чтения устройства). Если вы уверены, что это именно оно, пожалуйста, "
+"сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:413
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -757,6 +766,7 @@ msgstr ""
 "раз!"
 
 #: gearimplementations/GearMitail.cpp:493
+#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -764,9 +774,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
-"Похоже, это устройство не MiTail (не удалось найти показатель уровня заряда "
-"батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите об этой "
-"ошибке в The Tail Company."
+"Похоже, это устройство не MiTail (не удалось обнаружить характеристику "
+"уровня заряда батареи). Если вы уверены, что это именно оно, пожалуйста, "
+"сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:533
 msgctxt "Warning that some unknown error happened"
@@ -801,7 +811,7 @@ msgid ""
 "power. Remember to charge your tail!"
 msgstr ""
 "MiTail прервал соединение из-за отключения, либо потери питания. Не забудьте "
-"зарядить свой хвост!"
+"зарядить свой хвостик!"
 
 #: gearimplementations/GearMitailMini.cpp:39
 msgctxt ""
@@ -820,6 +830,7 @@ msgstr ""
 "выполнить обновление."
 
 #: gearimplementations/GearMitailMini.cpp:110
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -828,11 +839,12 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не MiTail Mini (не удалось найти параметры записи "
-"на устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в The Tail Company."
+"Похоже, что это устройство не MiTail Mini (не удалось обнаружить "
+"характеристику записи устройства). Если вы уверены, что это именно оно, "
+"пожалуйста, сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:118
+#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -841,9 +853,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Похоже, что это устройство не MiTail Mini (не удалось найти параметры чтения "
-"на устройстве). Если вы уверены, что это именно оно, пожалуйста, сообщите об "
-"этой ошибке в The Tail Company."
+"Похоже, что это устройство не MiTail Mini (не удалось обнаружить "
+"характеристику чтения устройства). Если вы уверены, что это именно оно, "
+"пожалуйста, сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:408
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -867,6 +879,7 @@ msgstr ""
 "раз!"
 
 #: gearimplementations/GearMitailMini.cpp:488
+#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -874,9 +887,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Похоже, это устройство не MiTail Mini (не удалось найти показатель уровня "
-"заряда батареи). Если вы уверены, что это именно оно, пожалуйста, сообщите "
-"об этой ошибке в The Tail Company."
+"Похоже, это устройство не MiTail Mini (не удалось обнаружить характеристику "
+"уровня заряда батареи). Если вы уверены, что это именно оно, пожалуйста, "
+"сообщите об этой ошибке в The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:528
 msgctxt "Warning that some unknown error happened"
@@ -912,7 +925,7 @@ msgid ""
 "power. Remember to charge your gear!"
 msgstr ""
 "MiTail Mini прервал соединение из-за отключения, либо потери питания. Не "
-"забудьте зарядить свой хвост!"
+"забудьте зарядить свой хвостик!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
@@ -1038,7 +1051,7 @@ msgctxt ""
 "A label which describes the hardware revision of the connected gear, when "
 "only one item is connected"
 msgid "The connected gear is version %1"
-msgstr "Подключенное снаряжение имеет версию %1"
+msgstr "Подключённое снаряжение имеет версию %1"
 
 #: qml/AboutPage.qml:38
 msgctxt ""
@@ -1314,7 +1327,7 @@ msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr "Отключить?"
+msgstr "Отключиться?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
@@ -1352,7 +1365,7 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
-"Режим «Без телефона» будет ожидать от %1 до %2 секунд, прежде чем выбрать "
+"Режим «Без телефона» будет ожидать от %1 до %2 сек, прежде чем выполнить "
 "следующее движение."
 
 #: qml/DisconnectOptions.qml:126
@@ -1361,7 +1374,7 @@ msgctxt ""
 "Phone mode is fully activated"
 msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
 msgstr ""
-"Режим «Без телефона» будет ожидать %1 мин, прежде чем сделать первое "
+"Режим «Без телефона» будет ожидать %1 мин, прежде чем выполнить первое "
 "движение."
 
 #: qml/DisconnectOptions.qml:136
@@ -1375,7 +1388,7 @@ msgstr "Включите режим «Без телефона»"
 msgctxt ""
 "Label above the section that lets the user simply disconnect from the gear"
 msgid "Just Disconnect"
-msgstr "Просто отключить"
+msgstr "Просто Отключиться"
 
 #: qml/DisconnectOptions.qml:188
 msgctxt ""
@@ -1385,7 +1398,7 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
-"Выберите этот вариант, чтобы отключиться от устройства, не выключая его ("
+"Выберите этот вариант, чтобы отключиться от снаряжения, не выключая его ("
 "удобно, если вы хотите его зарядить)."
 
 #: qml/DisconnectOptions.qml:191
@@ -1409,7 +1422,7 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
-"Выберите этот вариант, чтобы выключить устройство, а не просто отключиться "
+"Выберите этот вариант, чтобы выключить снаряжение, а не просто отключиться "
 "от него (удобно, если вы сразу его убираете)"
 
 #: qml/DisconnectOptions.qml:233
@@ -1417,28 +1430,30 @@ msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Shut Down Gear"
-msgstr "Выключить снаряжение"
+msgstr "Выключить Снаряжение"
 
 #: qml/EarPoses.qml:27
+#, fuzzy
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr "Положения ушей"
+msgstr "Позы Ушей"
 
 #: qml/EarPoses.qml:30
 msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
-msgstr "Исходное положение"
+msgstr "Исходное Положение"
 
 #: qml/EarPoses.qml:38
+#, fuzzy
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices!"
 msgstr ""
-"В списке ниже показаны все положения, доступные для вашего снаряжения. "
-"Коснитесь любого из них, чтобы отправить его на подключенное устройство!"
+"В списке ниже показаны все позы, доступные для вашего снаряжения. Коснитесь "
+"любого из них, чтобы отправить на конкретные подключенные устройства!"
 
 #: qml/EarPoses.qml:41
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -1448,16 +1463,18 @@ msgstr "Успокоить"
 #: qml/EarPoses.qml:49
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
-msgstr "Возбуждённый"
+msgstr "Возбудить"
 
 #: qml/EarPoses.qml:63
+#, fuzzy
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
 msgid "Poses"
-msgstr "Положения"
+msgstr "Позы"
 
 #: qml/GearGestures.qml:28
+#, fuzzy
 msgctxt "Title for the page for selecting a pose for the Gear"
 msgid "Gear Gestures"
 msgstr "Жесты Снаряжения"
@@ -1467,9 +1484,10 @@ msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting a "
 "pose for the Gear"
 msgid "Home Position"
-msgstr "Исходное положение"
+msgstr "Исходное Положение"
 
 #: qml/GearGestures.qml:47
+#, fuzzy
 msgctxt "Info card for the page for selecting a pose for the Gear"
 msgid ""
 "Turn on one of the sensors below to make your gear react to gestures "
@@ -1480,11 +1498,12 @@ msgid ""
 msgstr ""
 "Включите один из датчиков ниже, чтобы ваше снаряжение реагировало на жесты, "
 "выполняемые на этом устройстве, если больше ничего не происходит (то есть "
-"нет текущих команд и пустая очередь команд). Например, навострить уши, когда "
-"устройство распознает, что его подняли, или начать вилять, когда оно "
+"нет текущих команд и пустая очередь команд). Например, навострить ушки, "
+"когда устройство распознает, что его подняли, или начать вилять, когда оно "
 "обнаружит, что вы сделали шаг."
 
 #: qml/GearGestures.qml:70
+#, fuzzy
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting a pose for the Gear"
@@ -1504,23 +1523,23 @@ msgid ""
 msgstr ""
 "Вы пытаетесь включить более одного жеста одновременно. Иногда это может "
 "вызывать проблемы, в первую очередь из-за путаницы в управлении (например, "
-"включение как ходьбы, так и встряхивания, скорее всего, приведет к "
-"обнаружению обоих). Если вы уверены, что хотите это сделать, нажмите ОК или "
-"нажмите Отмена, чтобы не включать этот жест."
+"включение функции «Ходьба» и «Встряхивание» может привести к обнаружению "
+"обоих). Если вы уверены, что хотите это сделать, нажмите ОК или нажмите "
+"Отмена, чтобы не включать этот жест."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting a pose for the Gear"
 msgid "Show On Welcome Page"
-msgstr "Показать на странице приветствия"
+msgstr "Показывать на начальной странице"
 
 #: qml/GearGestures.qml:93
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting a pose for the Gear"
 msgid "(no command)"
-msgstr "(нет команды)"
+msgstr "(нет команд)"
 
 #: qml/IdleModePage.qml:26
 msgctxt "Title for the page for selecting a move in Casual Mode"
@@ -1631,7 +1650,7 @@ msgstr "Повседневный Режим выключен"
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
-"Может быть, пришло время отдохнуть... Позвольте вашему хвосту или ушам "
+"Может быть, пришло время отдохнуть... Позвольте вашему хвостику или ушкам "
 "немного вздремнуть."
 
 #: qml/main.qml:200
@@ -1655,14 +1674,15 @@ msgid "Moves"
 msgstr "Движения"
 
 #: qml/main.qml:237
+#, fuzzy
 msgctxt "Button for opening the EarGear Poses page, from the landing page"
 msgid "Ear Poses"
-msgstr "Позиции ушей"
+msgstr "Позы Ушей"
 
 #: qml/main.qml:246
 msgctxt "Button for opening the Glow Tips page, from the landing page"
 msgid "Glow Tips"
-msgstr "Светящиеся Наконечники"
+msgstr "Подсветка"
 
 #: qml/main.qml:255
 msgctxt ""
@@ -1672,6 +1692,7 @@ msgid "Casual Mode Settings"
 msgstr "Настройки Повседневного Режима"
 
 #: qml/main.qml:264
+#, fuzzy
 msgctxt "Button for opening the Gear Gestures page, from the landing page"
 msgid "Gear Gestures"
 msgstr "Жесты Снаряжения"
@@ -1700,7 +1721,7 @@ msgstr "TheTailCompany.com"
 #: qml/main.qml:327
 msgctxt "Title for the confirmation popup for disconnecting your gear"
 msgid "Your gear is currently connected"
-msgstr "Ваше снаряжение в настоящее время подключено"
+msgstr "В данный момент ваше снаряжение подключено"
 
 #: qml/main.qml:328
 msgctxt "Message for the confirmation popup for disconnecting your gear"
@@ -1709,8 +1730,8 @@ msgid ""
 "\n"
 "Are you sure that you want to disconnect and quit?"
 msgstr ""
-"В настоящее время вы подключены к некоторым своим устройствам.\n"
-" \n"
+"На данный момент вы подключены к своему снаряжению.\n"
+"\n"
 "Вы уверены, что хотите отключиться и выйти?"
 
 #: qml/main.qml:400
@@ -1840,9 +1861,9 @@ msgid ""
 "you have created, tap it and pick OK. To perform actions on the ones you've "
 "created, like editing or even removing them entirely, swipe left on the item."
 msgstr ""
-"Создавайте списки движегий, пауз и подсветок для отправки на ваше "
+"Создавайте списки движений, пауз и подсветок для отправки на ваше "
 "снаряжение. Чтобы отправить созданный вами список, коснитесь его и выберите "
-"\"ОК\". Чтобы выполнить действия с созданными вами элементами, например, "
+"\"ОК\". Чтобы выполнить действие с созданными вами элементами, например, "
 "отредактировать или даже полностью удалить их, проведите пальцем влево по "
 "элементу."
 
@@ -1901,7 +1922,7 @@ msgstr "Давайте поищем ваше снаряжение"
 #: qml/NotConnectedCard.qml:41
 msgctxt "Header for whilst scanning, for the gear connecting card"
 msgid "Searching for gear..."
-msgstr "Ищем устройство..."
+msgstr "Ищем снаряжение..."
 
 #: qml/NotConnectedCard.qml:45
 msgctxt ""
@@ -1914,9 +1935,9 @@ msgctxt ""
 "Header notifying that gear has been found, for the gear connecting card"
 msgid "One piece of gear available"
 msgid_plural "Multiple pieces of gear available"
-msgstr[0] "Доступна одно снаряжение"
-msgstr[1] "Доступно несколько устройств"
-msgstr[2] "Доступно несколько устройств"
+msgstr[0] "Доступно одно снаряжение"
+msgstr[1] "Доступно несколько снаряжений"
+msgstr[2] "Доступно несколько снаряжений"
 
 #: qml/NotConnectedCard.qml:75
 msgctxt ""
@@ -1981,7 +2002,7 @@ msgid ""
 "switched on."
 msgstr ""
 "Мы не смогли найти никакого снаряжения. Пожалуйста, убедитесь, что ваш "
-"телефон находится поблизости и включен."
+"телефон находится поблизости и включён."
 
 #: qml/NotConnectedCard.qml:94
 msgctxt ""
@@ -2038,7 +2059,7 @@ msgctxt ""
 "Label for button which causes the list of available gear to be refreshed, "
 "for the gear connecting card"
 msgid "Look for gear"
-msgstr "Искать снаряжение"
+msgstr "Искать Снаряжение"
 
 #: qml/PickACommandSheet.qml:31
 msgctxt ""
@@ -2055,14 +2076,15 @@ msgid ""
 "gear. Tap any of them to pick that command."
 msgstr ""
 "В приведенном ниже списке показаны все движения и световые узоры, доступные "
-"для вашего устройства. Нажмите на любой из них, чтобы выбрать эту команду."
+"для вашего снаряжения. Нажмите на любой из них, чтобы выбрать эту команду."
 
 #: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
+#, fuzzy
 msgctxt ""
 "Description for the category for the Ear Gear poses, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Poses"
-msgstr "Позиции"
+msgstr "Позы"
 
 #: qml/PickACommandSheet.qml:49 qml/PickACommandSheet.qml:76
 msgctxt ""
@@ -2095,7 +2117,7 @@ msgstr "LED Узоры"
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
 msgid "Gear Command Sets"
-msgstr "Набор команд устройства"
+msgstr "Набор команд снаряжения"
 
 #: qml/SettingsCrumpetPicker.qml:45
 msgctxt ""
@@ -2105,10 +2127,9 @@ msgid ""
 "add new ones, edit them, and remove them. You cannot edit the built-in "
 "lists, but you can duplicate them and then edit those."
 msgstr ""
-"Это все доступные наборы команд, которые можно включить для %1. Вы "
-"можететдобавлять новые, редактировать и удалять их. Вы не можете "
-"редактировать встроенные списки, но вы можете дублировать их, а затем "
-"редактировать."
+"Это все доступные наборы команд, которые можно включить для %1. Вы можете "
+"добавлять новые, редактировать и удалять их. Вы не можете редактировать "
+"встроенные списки, но вы можете дублировать их, а затем редактировать."
 
 #: qml/SettingsCrumpetPicker.qml:78
 msgctxt ""
@@ -2144,6 +2165,7 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: qml/SettingsCrumpetPicker.qml:125
+#, fuzzy
 msgctxt ""
 "Placeholder text for the overlay for editing a Command Set, on the page for "
 "configuring Command Sets"
@@ -2172,8 +2194,8 @@ msgid ""
 "graphics showing you how."
 msgstr ""
 "Пожалуйста, скачайте и прочитайте руководство, перейдя по ссылке ниже. Оно "
-"включает в себя инструкции о том, как носить хвост или уши, а также "
-"несколько приятных графических изображений, показывающих, как это делается."
+"включает в себя инструкции о том, как носить ваши ушки и хвостик, а также "
+"несколько приятных иллюстраций, показывающих, как это делается."
 
 #: qml/SettingsPage.qml:43
 msgctxt "Label showing all the items underneath are links to a PDF file"
@@ -2223,12 +2245,12 @@ msgctxt ""
 "Checkbox for enabling automatic reconnection, on the automatic reconnection "
 "panel in the settings page"
 msgid "Reconnect Automatically"
-msgstr "Подключаться автоматически"
+msgstr "Переподключаться автоматически"
 
 #: qml/SettingsPage.qml:81
 msgctxt "Header for the panel for changing gear names, on the settings page"
 msgid "Gear Names"
-msgstr "Имя снаряжения"
+msgstr "Снаряжение"
 
 #: qml/SettingsPage.qml:82
 msgctxt ""
@@ -2237,22 +2259,22 @@ msgid ""
 "If you want to clear the names of any gear you have given a name, click the "
 "button below to make the app forget them all."
 msgstr ""
-"Если вы хотите очистить названия любого снаряжения, которому вы дали имя, "
-"нажмите кнопку ниже, чтобы приложение забыло их все."
+"Если вы хотите удалить всё снаряжение, которому вы дали имя, нажмите кнопку "
+"ниже, чтобы приложение забыло их все."
 
 #: qml/SettingsPage.qml:84
 msgctxt ""
 "Label for the button for clearing gear names, on the panel for changing gear "
 "names, on the settings page"
 msgid "Forget Gear Names"
-msgstr "Забыть имя снаряжения"
+msgstr "Забыть названия снаряжений"
 
 #: qml/SettingsPage.qml:87
 msgctxt ""
 "Header for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
 msgid "Clear the names?"
-msgstr "Очистить имя?"
+msgstr "Удалить снаряжения?"
 
 #: qml/SettingsPage.qml:88
 msgctxt ""
@@ -2262,14 +2284,14 @@ msgid ""
 "Please confirm that you do, in fact, want to clear all your saved device "
 "names."
 msgstr ""
-"Пожалуйста, подтвердите, что вы действительно хотите очистить все "
-"сохраненные имена устройств."
+"Пожалуйста, подтвердите, что вы действительно хотите удалить всё сохраненное "
+"снаряжение."
 
 #: qml/SettingsPage.qml:95
 msgctxt ""
 "Header for the panel for adding commands to your gear, on the settings page"
 msgid "Gear Commands"
-msgstr "Команды снаряжения"
+msgstr "Команды Снаряжения"
 
 #: qml/SettingsPage.qml:96
 msgctxt ""
@@ -2282,12 +2304,12 @@ msgid ""
 "to more easily use this, make sure to give your gear a name, so you can tell "
 "them apart more easily."
 msgstr ""
-"Хотя приложение поставляется с несколькими наборами команд из коробки, это "
-"не все, что может сделать ваше снаряжение. Вы можете изменить то, что "
-"отправляется в ваше снаряжение, и мы запомним для каждого из них, какие "
-"команды вы хотите использовать. Чтобы вам было легче использовать это, "
-"обязательно дайте своему устройству имя, чтобы вам было легче отличать их "
-"друг от друга."
+"Хоть приложение и поставляется с несколькими наборами команд из коробки, но "
+"это не всё, что может сделать ваше снаряжение. Вы можете изменить то, что "
+"отправляется в ваше снаряжение, и мы запомним, какие команды вы хотите "
+"использовать, для каждого из них. Чтобы вам было удобнее использовать их, "
+"обязательно дайте своему снаряжению имя, вам будет легче отличать их друг от "
+"друга."
 
 #: qml/SettingsPage.qml:100
 msgctxt ""
@@ -2308,7 +2330,7 @@ msgctxt ""
 "Heading for the panel for adjusting microphone levels for the earGear, on "
 "the settings page"
 msgid "EarGear Hearing"
-msgstr "EarGear прослушивание"
+msgstr "Прослушивание EarGear"
 
 #: qml/SettingsPage.qml:139
 msgctxt ""
@@ -2324,28 +2346,29 @@ msgid ""
 "controller box either on the front or the back of your body, or upside down "
 "so the cable can run more gracefully)."
 msgstr ""
-"Если ваш наушник ведет себя немного так, как будто он плохо слышит, "
-"возможно, потребуется проверить его баланс. Чтобы убедиться, что он работает "
-"наилучшим образом, вам захочется побыть в тихой комнате, прежде чем нажать "
-"кнопку баланса ниже (приостановить музыку, закрыть дверь в спальню и т.д.). "
-"Это значение хранится в поле, поэтому обычно вам не нужно делать это более "
-"одного раза. Вам также может потребоваться поменять направление (например, "
-"вы можете разместить блок контроллера либо спереди, либо сзади, либо вверх "
-"ногами, чтобы кабель мог работать более изящно)."
+"Если ваши EarGear ведут себя так, как будто они плохо слышат, возможно, "
+"необходимо провести их балансировку. Чтобы убедиться, что это произойдёт "
+"наилучшим образом, вы должны находиться в тихой комнате, прежде чем нажать "
+"кнопку балансировки ниже (приостановите воспроизведение музыки, закройте "
+"дверь в спальню и т.д.). Это значение хранится в контроллере, поэтому вам "
+"обычно не нужно делать это более одного раза. Вам также может понадобиться "
+"поменять их ориентацию (будет уместно поместить блок контроллера спереди или "
+"сзади вашего тела или перевернуть его, чтобы кабель мог проходить более "
+"изящно)."
 
 #: qml/SettingsPage.qml:155
 msgctxt ""
 "Label for the button for unswapping left and right, on the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Unswap left and right"
-msgstr "Отменить обмен лево и право"
+msgstr "Вернуть на место левый и правый"
 
 #: qml/SettingsPage.qml:156
 msgctxt ""
 "Label for the button for swapping left and right, the panel for adjusting "
 "microphone levels for the earGear, on the settings page"
 msgid "Swap left and right"
-msgstr "Поменяйтесь местами влево и вправо"
+msgstr "Поменять местами левый и правый"
 
 #: qml/SettingsPage.qml:163
 msgctxt ""
@@ -2359,7 +2382,7 @@ msgctxt ""
 "Heading for the panel for checking for and performing firmware updates for "
 "gear which supports this"
 msgid "Gear Firmware"
-msgstr "Прошивка снаряжения"
+msgstr "Прошивка Снаряжения"
 
 #: qml/SettingsPage.qml:177
 msgctxt ""
@@ -2370,8 +2393,8 @@ msgid ""
 "clicking the \"Check\" button below, and if there is one, you can then click "
 "the button underneath to download and install the update."
 msgstr ""
-"Если ваше устройство поддерживает обновления прошивки, вы можете проверить "
-"наличие новых, нажав кнопку «Проверить» ниже, и если оно есть, вы можете "
+"Если ваше снаряжение поддерживает обновление прошивки, вы можете проверить "
+"наличие новой, нажав кнопку «Проверить» ниже. И если таковая имеется, можете "
 "нажать кнопку внизу, чтобы загрузить и установить обновление."
 
 #: qml/SettingsPage.qml:193
@@ -2423,7 +2446,7 @@ msgstr ""
 "Прежде чем обновить свое снаряжение с %1 до %2, убедитесь, что вы сделали "
 "следующее:\n"
 "\n"
-"- Подключить свое снаряжение к зарядному устройству USB и убедитесь, что оно "
+"- Подключить ваше снаряжение к зарядному USB устройству и убедиться, что оно "
 "заряжается. Держите его подключенным к источнику питания, пока вы обновляете "
 "прошивку.\n"
 "\n"
@@ -2481,7 +2504,7 @@ msgid ""
 "page."
 msgstr ""
 "Если вы только что загрузили приложение, например, в предвкушении появления "
-"вашего нового суперослепительного MiTail или EarGear, возможно, вам "
+"вашего нового супер-ослепительного MiTail или EarGear, возможно, вам "
 "захочется узнать, на что оно способно. Вы можете нажать кнопку ниже, чтобы "
 "обмануть приложение, заставив его думать, что поблизости есть хвост, и "
 "позволить вам изучить существующие функции. При включении этой опции "
@@ -2497,7 +2520,7 @@ msgstr "Показать Поддельный Хвост"
 #: qml/TailLights.qml:25
 msgctxt "Header for the page for the Glow Tips"
 msgid "Glow Tips"
-msgstr "Светящиеся Наконечники"
+msgstr "Подсветка"
 
 #: qml/TailLights.qml:28
 msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
@@ -2512,8 +2535,8 @@ msgid ""
 "of them to send them off to any of your connected devices!"
 msgstr ""
 "В приведенном ниже списке показаны все световые узоры, доступные для вашего "
-"снаряжения. Коснитесь любого из них, чтобы отправить их на любое из "
-"подключенных устройств!"
+"снаряжения. Коснитесь любого из них, чтобы отправить на конкретные "
+"подключенные устройства!"
 
 #: qml/TailLights.qml:44
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2528,7 +2551,7 @@ msgstr "Движения"
 #: qml/TailMoves.qml:28
 msgctxt "Button for returning the tail to its home position, on the Moves page"
 msgid "Home Position"
-msgstr "Исходное положение"
+msgstr "Исходное Положение"
 
 #: qml/TailMoves.qml:36
 msgctxt "Description for the list of moves, on the Moves page"
@@ -2537,8 +2560,8 @@ msgid ""
 "to send them off to any of your connected devices!"
 msgstr ""
 "В приведенном ниже списке показаны все движения, доступные для вашего "
-"снаряжения. Коснитесь любого из них, чтобы отправить их на любое из "
-"подключенных устройств!"
+"снаряжения. Коснитесь любого из них, чтобы отправить на конкретные "
+"подключенные устройства!"
 
 #: qml/TailMoves.qml:43
 msgctxt ""
@@ -2550,12 +2573,12 @@ msgstr "Спокойный и Расслабленный"
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Moves page"
 msgid "Fast and Excited"
-msgstr "Быстрый и Возбужденный"
+msgstr "Быстрый и Возбуждённый"
 
 #: qml/TailMoves.qml:53
 msgctxt "Description for the category for the Tense Moveset, on the Moves page"
 msgid "Frustrated and Tense"
-msgstr "Разочарованный и Напряженный"
+msgstr "Разочарованный и Напряжённый"
 
 #: qml/TimePicker.qml:58
 msgctxt "Label for the Hours field on a time picker"
@@ -2601,18 +2624,18 @@ msgstr "Crumpet"
 #: qml/WelcomePage.qml:31
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
 msgid "Disconnect"
-msgstr "Отключить"
+msgstr "Отключиться"
 
 #: qml/WelcomePage.qml:31
 msgctxt "Label for the button for connecting gear, on the welcome page"
 msgid "Connect"
-msgstr "Подключить"
+msgstr "Подключиться"
 
 #: qml/WelcomePage.qml:59
 msgctxt ""
 "Label for the button for connecting additional gear, on the welcome page"
 msgid "Connect More..."
-msgstr "Подключить другое..."
+msgstr "Подключить ещё..."
 
 #: qml/WelcomePage.qml:64
 msgctxt ""
@@ -2626,16 +2649,17 @@ msgid "Moves"
 msgstr "Движения"
 
 #: qml/WelcomePage.qml:97
+#, fuzzy
 msgctxt ""
 "Label for the button for opening the Ear Poses page, on the welcome page"
 msgid "Ear Poses"
-msgstr "Поизции Ушей"
+msgstr "Позы Ушей"
 
 #: qml/WelcomePage.qml:115
 msgctxt ""
 "Label for the button for opening the Glow Tips page, on the welcome page"
 msgid "Glow Tips"
-msgstr "Светящиеся Наконечники"
+msgstr "Подсветка"
 
 #: qml/WelcomePage.qml:140
 msgctxt "Label for the button for opening the Alarms page, on the welcome page"
@@ -2671,8 +2695,8 @@ msgid ""
 "Turn this on to make your gear react to sounds around it for five minutes at "
 "a time."
 msgstr ""
-"Включите эту функцию, чтобы ваше устройство реагировало на окружающие звуки "
-"в течение пяти минут за раз."
+"Включите эту функцию, чтобы ваше снаряжение реагировало на окружающие звуки "
+"в течение пяти минут."
 
 #: qml/WelcomePage.qml:322
 msgctxt "Heading for the panel for turning on Tilt Mode"
@@ -2682,7 +2706,7 @@ msgstr "Наклонный Режим"
 #: qml/WelcomePage.qml:335
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
-msgstr "Включите это, чтобы ваше снаряжение реагировало на движение."
+msgstr "Включите эту функцию, чтобы ваше снаряжение реагировало на движения."
 
 #: qml/WelcomePage.qml:376
 msgctxt ""
