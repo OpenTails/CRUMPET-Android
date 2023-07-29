@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-26 15:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-07-30 20:59+0000\n"
+"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: French <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/fr/>\n"
 "Language: fr\n"
@@ -1105,8 +1105,7 @@ msgctxt ""
 "alarm"
 msgid "Enter a name to use for your new alarm and click Create"
 msgstr ""
-"Saisissez un nom à utiliser pour votre nouvelle alarme puis cliquez sur "
-"Créer."
+"Saisissez un nom à utiliser pour votre nouvelle alarme puis cliquez sur Créer"
 
 #: qml/AlarmList.qml:144
 msgctxt ""
@@ -1272,12 +1271,11 @@ msgid "MAX GLASH"
 msgstr "Calin a Caroline ^^"
 
 #: qml/DisconnectOptions.qml:34
-#, fuzzy
 msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr "Deconnecter"
+msgstr "Deconnecter ?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
@@ -1463,7 +1461,7 @@ msgstr ""
 "confondre des gestes (par exemple, si vous activez à la fois la marche et le "
 "secouage, les deux gestes seront probablement détectés simultanément). Si "
 "vous êtes sûr de vouloir le faire, appuyez sur Confirmer, sinon veuillez "
-"appuyer sur Annuler"
+"appuyer sur Annuler."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
@@ -1521,7 +1519,7 @@ msgid ""
 "of moves that can be called upon."
 msgstr ""
 "C'est ici que vous définissez les pauses entre les mouvements, ainsi que les "
-"familles de mouvements auxquels on peut faire appel"
+"familles de mouvements auxquels on peut faire appel."
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
@@ -1542,7 +1540,7 @@ msgstr "Connexion réussie !"
 #: qml/main.qml:117
 msgctxt "Title for the warning for having Bluetooth disabled"
 msgid "Warning"
-msgstr "Attention !"
+msgstr "Attention"
 
 #: qml/main.qml:117
 msgctxt "Message for the warning for having Bluetooth disabled"
@@ -1813,14 +1811,14 @@ msgctxt ""
 msgid "Enter a name to use for your new move list and click Create"
 msgstr ""
 "Saisissez un nom à utiliser pour votre nouvelle Liste de Mouvements et "
-"cliquez sur Créer."
+"cliquez sur Créer"
 
 #: qml/MoveLists.qml:95
 msgctxt ""
 "Placeholder text for the textfield for the prompt for giving a name to a "
 "move list, on the page for viewing Move Lists"
 msgid "Enter your move list name here"
-msgstr "Saisissez le nom de votre nouvelle Liste de Mouvements ici."
+msgstr "Saisissez le nom de votre nouvelle Liste de Mouvements ici"
 
 #: qml/MoveLists.qml:96
 msgctxt ""
@@ -1878,7 +1876,6 @@ msgstr[0] "Une pièce d'équipement disponible"
 msgstr[1] "Plusieurs pièces d'équipement disponibles"
 
 #: qml/NotConnectedCard.qml:75
-#, fuzzy
 msgctxt ""
 "Message warning for missing scan permissions, for the gear connecting card"
 msgid ""
@@ -1890,10 +1887,9 @@ msgstr ""
 "autoriser à accéder votre emplacement. En cliquant sur le bouton ci-dessous, "
 "vous verrez apparaître une boîte de dialogue sur laquelle vous devez cliquer "
 "pour l'autoriser. Nous n'utilisons pas ces informations à d'autres fins ("
-"n'hésitez pas à nous contacter si vous voulez en avoir la preuve)"
+"n'hésitez pas à nous contacter si vous voulez en avoir la preuve)."
 
 #: qml/NotConnectedCard.qml:78
-#, fuzzy
 msgctxt ""
 "Message warning for missing location permissions, for the gear connecting "
 "card"
@@ -1907,7 +1903,7 @@ msgstr ""
 "autoriser à accéder votre emplacement. En cliquant sur le bouton ci-dessous, "
 "vous verrez apparaître une boîte de dialogue sur laquelle vous devez cliquer "
 "pour l'autoriser. Nous n'utilisons pas ces informations à d'autres fins ("
-"n'hésitez pas à nous contacter si vous voulez en avoir la preuve)"
+"n'hésitez pas à nous contacter si vous voulez en avoir la preuve)."
 
 #: qml/NotConnectedCard.qml:83
 msgctxt ""
