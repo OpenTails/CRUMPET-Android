@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-30 20:59+0000\n"
+"PO-Revision-Date: 2023-08-01 15:59+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: Spanish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/es/>\n"
@@ -464,7 +464,6 @@ msgid ""
 msgstr ""
 
 #: gearimplementations/GearFlutterWings.cpp:109
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -473,12 +472,11 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Parece que el dispositivo no es un MiTail (no se han podido encontrar "
+"Parece que el dispositivo no es un FlutterWings (no se han podido encontrar "
 "características de escritura). Si estas seguro de que es el dispositivo "
 "correcto, por favor, reporta el error a \"The Tail Company\"."
 
 #: gearimplementations/GearFlutterWings.cpp:117
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -487,7 +485,7 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Parece que el dispositivo no es un MiTail (no se han podido encontrar "
+"Parece que el dispositivo no es un FlutterWings (no se han podido encontrar "
 "características de escritura). Si estas seguro de que es el dispositivo "
 "correcto, por favor, reporta el error a \"The Tail Company\"."
 
@@ -807,7 +805,6 @@ msgstr ""
 "correcto, por favor, reporta el error a \"The Tail Company\"."
 
 #: gearimplementations/GearMitailMini.cpp:118
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -816,7 +813,7 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Parece que el dispositivo no es un MiTail (no se han podido encontrar "
+"Parece que el dispositivo no es un MiTail Mini (no se han podido encontrar "
 "características de escritura). Si estas seguro de que es el dispositivo "
 "correcto, por favor, reporta el error a \"The Tail Company\"."
 
@@ -842,7 +839,6 @@ msgstr ""
 "nuevo, por favor!"
 
 #: gearimplementations/GearMitailMini.cpp:488
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -850,7 +846,7 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Parece que este dispositivo no es un MiTail (no se han encontrado las "
+"Parece que este dispositivo no es un MiTail Mini(no se han encontrado las "
 "características de nivel de batería). Si estás seguro que se trata de un "
 "error, por favor, ponte en contacto con \"The Tail Company\"."
 
