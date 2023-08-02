@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-08-01 15:59+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"PO-Revision-Date: 2023-08-03 16:59+0000\n"
+"Last-Translator: Jakub Janousek <stegoceras@seznam.cz>\n"
 "Language-Team: Czech <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/cs/>\n"
 "Language: cs_CZ\n"
@@ -96,13 +96,12 @@ msgstr ""
 "zděl tuto chybu The Tail company."
 
 #: gearimplementations/GearDigitail.cpp:258
-#, fuzzy
 msgctxt "Warning message when the main service was not found on the device"
 msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Nastala chyba při připojování k tvému ocasu (servisní objekt nemohl být "
+"Nastala chyba při připojování k tvému DIGITAILu (servisní objekt nemohl být "
 "vytvořen). Pokud se tak nemělo stát, zkuste to znovu!"
 
 #: gearimplementations/GearDigitail.cpp:276
@@ -111,8 +110,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je box "
-"zapnut a v blízkosti tohoto zařízení."
+"Nastala chyba. Pokud se snažíš připojit ke svému DIGITAIL, ujisti se že je "
+"box zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearDigitail.cpp:279
 msgctxt "Warning that the device disconnected itself"
@@ -120,7 +119,6 @@ msgid "The DIGITAiL closed the connection."
 msgstr "DIGITAIL ukončil připojení."
 
 #: gearimplementations/GearDigitail.cpp:282
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -128,11 +126,10 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Nepodařilo se připojit ke tvému MiTail. Prosím zkus to znovu (možná ho "
+"Nepodařilo se připojit ke tvému DIGITAiLu. Prosím zkus to znovu (možná ho "
 "přibliž?)"
 
 #: gearimplementations/GearDigitail.cpp:302
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -140,7 +137,7 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
-"MiTail ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít "
+"DIGITAiL ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít "
 "svůj ocas!"
 
 #: gearimplementations/GearEars.cpp:112
@@ -258,24 +255,22 @@ msgid "Checking integrity of the downloaded firmware data..."
 msgstr "Kontrola integrity stažených dat firmwaru..."
 
 #: gearimplementations/GearEars.cpp:521
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your EarGear (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Nastala chyba při připojování k EarGear boxu (hlavní servisní objekt nemohl "
-"být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
+"Nastala chyba při připojování k EarGearu (hlavní servisní objekt nemohl být "
+"vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: gearimplementations/GearEars.cpp:535
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Nastala chyba při připojování k EarGear boxu (připojení k ovládání baterie "
+"Nastala chyba při připojování k EarGearu (připojení k ovládání baterie "
 "nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: gearimplementations/GearEars.cpp:566
@@ -291,30 +286,27 @@ msgstr ""
 "tuto chybu The Tail company."
 
 #: gearimplementations/GearEars.cpp:596
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
-"Nastala chyba. Pokud se snažíš připojit ke svým uším, ujisti se že je box "
-"zapnut a v blízkosti tohoto zařízení."
+"Nastala chyba. Pokud se snažíš připojit ke svým uším, ujisti se že je "
+"EarGear zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearEars.cpp:599
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr "EarGear box ukončil připojení."
+msgstr "EarGear ukončil připojení."
 
 #: gearimplementations/GearEars.cpp:602
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
-"Nepodařilo se připojit ke tvému EarGear boxu. Prosím zkus to znovu (možná ho "
+"Nepodařilo se připojit ke tvému EarGearu. Prosím zkus to znovu (možná ho "
 "přibliž?)"
 
 #: gearimplementations/GearEars.cpp:623
@@ -339,7 +331,6 @@ msgstr ""
 "zařízení zapnulo samo, stačí pouze zavřít tuto zprávu."
 
 #: gearimplementations/GearEars.cpp:628
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -347,8 +338,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
-"EarGear box ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň "
-"nabít své uši!"
+"EarGear ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít "
+"své uši!"
 
 #: gearimplementations/GearEars.cpp:778
 #: gearimplementations/GearFlutterWings.cpp:664
@@ -411,7 +402,6 @@ msgstr ""
 "kontaktuj nás a my se pokusíme najít řešení!"
 
 #: gearimplementations/GearEars.cpp:860
-#, fuzzy
 msgctxt "Message shown during firmware update processes"
 msgid ""
 "Uploading firmware to your gear. Please keep your devices very near each "
@@ -422,38 +412,35 @@ msgid ""
 msgstr ""
 "Nahrávání firmwaru do tvého zařízení. Prosím nech mobil a zařízení blízko u "
 "sebe, a ujisti se že jsou dostatečně nabitá (případně je připoj k nabíječce)"
-". Jakmile update skončí, tvoje zařízení se restartuje a odpojí. Po restartu "
+". Jakmile update skončí, tvoje zařízení se rebootuje a odpojí. Po zapnutí se "
 "bude možné opět připojit."
 
 #: gearimplementations/GearFake.cpp:48
 #: gearimplementations/GearFlutterWings.cpp:359
 #: gearimplementations/GearMitail.cpp:365
 #: gearimplementations/GearMitailMini.cpp:360
-#, fuzzy
 msgctxt ""
 "Name of the calm and relaxed group as used for no phone group selection"
 msgid "Calm and Relaxed"
-msgstr "Klidný a uvolněný"
+msgstr "Klidný a Uvolněný"
 
 #: gearimplementations/GearFake.cpp:49
 #: gearimplementations/GearFlutterWings.cpp:360
 #: gearimplementations/GearMitail.cpp:366
 #: gearimplementations/GearMitailMini.cpp:361
-#, fuzzy
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
-msgstr "Rychlý a nadšený"
+msgstr "Rychlý a Nadšený"
 
 #: gearimplementations/GearFake.cpp:50
 #: gearimplementations/GearFlutterWings.cpp:361
 #: gearimplementations/GearMitail.cpp:367
 #: gearimplementations/GearMitailMini.cpp:362
-#, fuzzy
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr "Frustrovaný a napjatý"
+msgstr "Frustrovaný a Napjatý"
 
 #: gearimplementations/GearFake.cpp:106
 msgctxt ""
@@ -493,13 +480,12 @@ msgstr ""
 "zařízení, zděl tuto chybu The Tail company."
 
 #: gearimplementations/GearFlutterWings.cpp:407
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Nastala chyba při připojování k EarGear boxu (hlavní servisní objekt nemohl "
+"Nastala chyba při připojování k Flutterwings (hlavní servisní objekt nemohl "
 "být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: gearimplementations/GearFlutterWings.cpp:426
@@ -521,18 +507,16 @@ msgstr ""
 "info@thetailcompany.com a informuj nás o této chybě.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:437
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Nastala chyba při připojování k EarGear boxu (připojení k ovládání baterie "
+"Nastala chyba při připojování k FlutterWings (připojení k ovládání baterie "
 "nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: gearimplementations/GearFlutterWings.cpp:487
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -540,28 +524,25 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Vypadá to že toto zařízení není MiTail (nebylo možné nalézt informace o "
-"stavu baterie). Pokud si jsi jist že se jedná o správné zařízení, zděl tuto "
-"chybu The Tail company."
+"Vypadá to že toto zařízení není FlutterWings (nebylo možné nalézt informace "
+"o stavu baterie). Pokud si jsi jist že se jedná o správné zařízení, zděl "
+"tuto chybu The Tail company."
 
 #: gearimplementations/GearFlutterWings.cpp:527
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
-"Nastala chyba. Pokud se snažíš připojit ke svému ocasu, ujisti se že je "
-"zapnut a v blízkosti tohoto zařízení."
+"Nastala chyba. Pokud se snažíš připojit ke svým křídlům, ujisti se že jsou "
+"zapnuté a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearFlutterWings.cpp:530
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr "Ocas ukončil připojení."
+msgstr "FlutterWings ukončily připojení."
 
 #: gearimplementations/GearFlutterWings.cpp:534
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -569,18 +550,17 @@ msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Nepodařilo se připojit k tvému ocasu. Prosím zkus to znovu (možná ho "
+"Nepodařilo se připojit k tvým FlutterWings. Prosím zkus to znovu (možná je "
 "přibliž?)"
 
 #: gearimplementations/GearFlutterWings.cpp:561
 #: gearimplementations/GearMitail.cpp:567
 #: gearimplementations/GearMitailMini.cpp:562
-#, fuzzy
 msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr "Zkouším se připojit..."
+msgstr "Zkouším se připojit k tvému zařízení..."
 
 #: gearimplementations/GearFlutterWings.cpp:566
 #: gearimplementations/GearMitail.cpp:572
@@ -596,7 +576,6 @@ msgstr ""
 "pokusem o připojení..."
 
 #: gearimplementations/GearFlutterWings.cpp:569
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -604,8 +583,8 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
-"Ocas ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít svůj "
-"ocas!"
+"FlutterWings ukončily připojení, buď kvůli vypnutí nebo vybití. Nezapomeň "
+"nabít svá křídla!"
 
 #: gearimplementations/GearFlutterWings.cpp:729
 #: gearimplementations/GearMitail.cpp:735
@@ -623,7 +602,6 @@ msgstr ""
 "bude možné opět připojit."
 
 #: gearimplementations/GearMitail.cpp:39
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.03 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -633,12 +611,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Tvůj ocas má momentálně firmware verze 4.03, který je zastaralý a má již "
-"známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
+"Tvůj MiTail má momentálně firmware verze 4.03, který je zastaralý a má již "
+"známé chyby! <b>silně</b> doporučujeme updatovat na nejnovější verzi pro "
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: gearimplementations/GearMitail.cpp:40
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.02 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -648,12 +625,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Tvůj ocas má momentálně firmware verze 4.02, který je zastaralý a má již "
+"Tvůj MiTail má momentálně firmware verze 4.02, který je zastaralý a má již "
 "známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: gearimplementations/GearMitail.cpp:41
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.01 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -663,12 +639,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Tvůj ocas má momentálně firmware verze 4.01, který je zastaralý a má již "
+"Tvůj MiTail má momentálně firmware verze 4.01, který je zastaralý a má již "
 "známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: gearimplementations/GearMitail.cpp:42
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.00 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -678,12 +653,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Tvůj ocas má momentálně firmware verze 4.00, který je zastaralý a má již "
+"Tvůj MiTail má momentálně firmware verze 4.00, který je zastaralý a má již "
 "známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: gearimplementations/GearMitail.cpp:43
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.11 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -693,12 +667,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"Tvůj ocas má momentálně firmware verze 3.2.11, který je zastaralý a má již "
+"Tvůj MiTail má momentálně firmware verze 3.2.11, který je zastaralý a má již "
 "známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: gearimplementations/GearMitail.cpp:44
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.10 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -708,7 +681,7 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"Tvůj ocas má momentálně firmware verze 3.2.10, který je zastaralý a má již "
+"Tvůj MiTail má momentálně firmware verze 3.2.10, který je zastaralý a má již "
 "známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
@@ -775,7 +748,7 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
-"Nastala chyba. Pokud se snažíš připojit ke svému MiTail, ujisti se že je box "
+"Nastala chyba. Pokud se snažíš připojit ke svému MiTailu, ujisti se že je "
 "zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearMitail.cpp:536
@@ -805,7 +778,6 @@ msgstr ""
 "svůj ocas!"
 
 #: gearimplementations/GearMitailMini.cpp:39
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.03 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -815,12 +787,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"Tvůj ocas má momentálně firmware verze 4.03, který je zastaralý a má již "
-"známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
+"Tvůj MiTail Mini má momentálně firmware verze 4.03, který je zastaralý a má "
+"již známé chyby! <b>Silně</b> doporučujeme updatovat na nejnovější verzi pro "
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: gearimplementations/GearMitailMini.cpp:110
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -829,9 +800,9 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Vypadá to že toto zařízení není MiTail (nebylo možné nalézt hlavní zápisové "
-"charakteristiky zařízení). Pokud si jsi jist že se jedná o správné zařízení, "
-"zděl tuto chybu The Tail company."
+"Vypadá to že toto zařízení není MiTail Mini (nebylo možné nalézt hlavní "
+"zápisové charakteristiky zařízení). Pokud si jsi jist že se jedná o správné "
+"zařízení, zděl tuto chybu The Tail company."
 
 #: gearimplementations/GearMitailMini.cpp:118
 msgctxt ""
@@ -847,25 +818,23 @@ msgstr ""
 "zařízení, zděl tuto chybu The Tail company."
 
 #: gearimplementations/GearMitailMini.cpp:408
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Nastala chyba při připojování k tvému MiTail (hlavní servisní objekt nemohl "
-"být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
+"Nastala chyba při připojování k tvému MiTail Mini (hlavní servisní objekt "
+"nemohl být vytvořen). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: gearimplementations/GearMitailMini.cpp:438
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Nastala chyba při připojování k tvému MiTail (připojení k ovládání baterie "
-"nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
+"Nastala chyba při připojování k tvému MiTail Mini (připojení k ovládání "
+"baterie nebylo možné). Pokud se tak nemělo stát, zkus to znovu!"
 
 #: gearimplementations/GearMitailMini.cpp:488
 msgctxt ""
@@ -889,13 +858,11 @@ msgstr ""
 "je box zapnut a v blízkosti tohoto zařízení."
 
 #: gearimplementations/GearMitailMini.cpp:531
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr "MiTail ukončil připojení."
+msgstr "MiTail Mini ukončil připojení."
 
 #: gearimplementations/GearMitailMini.cpp:535
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -903,11 +870,10 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Nepodařilo se připojit ke tvému MiTail. Prosím zkus to znovu (možná ho "
+"Nepodařilo se připojit ke tvému MiTail Mini. Prosím zkus to znovu (možná ho "
 "přibliž?)"
 
 #: gearimplementations/GearMitailMini.cpp:570
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -915,8 +881,8 @@ msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
-"MiTail ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň nabít "
-"svůj ocas!"
+"MiTail Mini ukončil připojení, buď kvůli vypnutí nebo vybití. Nezapomeň "
+"nabít svůj ocas!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
@@ -1032,6 +998,9 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Detektor %1 byl vypnut po hodině používání. Veškeré animatronické zařízení "
+"potřebuje odpočinek po dlouhém používání. V naší příručce na bezpečné vrtění "
+"v Nastavení najdeš způsoby jak udržet tvé zařízení zdravé."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -1258,12 +1227,11 @@ msgid "Add this pause"
 msgstr "Přidej pauzu"
 
 #: qml/ConnectToTail.qml:48
-#, fuzzy
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr "Připojit"
+msgstr "Připojit vše"
 
 #: qml/ConnectToTail.qml:86
 msgctxt ""
@@ -1363,11 +1331,10 @@ msgid "Engage No Phone Mode"
 msgstr "Zapnout bezmobilní mód"
 
 #: qml/DisconnectOptions.qml:170
-#, fuzzy
 msgctxt ""
 "Label above the section that lets the user simply disconnect from the gear"
 msgid "Just Disconnect"
-msgstr "Odpojit"
+msgstr "Pouze odpojit"
 
 #: qml/DisconnectOptions.qml:188
 msgctxt ""
@@ -1381,7 +1348,6 @@ msgstr ""
 "zařízení nabít)."
 
 #: qml/DisconnectOptions.qml:191
-#, fuzzy
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
@@ -1439,10 +1405,9 @@ msgid "Be Calm"
 msgstr "Uklidnit"
 
 #: qml/EarPoses.qml:49
-#, fuzzy
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
-msgstr "Rychlý a nadšený"
+msgstr "Buď nadšený"
 
 #: qml/EarPoses.qml:63
 msgctxt ""
@@ -1710,10 +1675,9 @@ msgid "Enter a name to use for your new gear"
 msgstr "Zvol jméno pro svoje nové zařízení"
 
 #: qml/main.qml:401
-#, fuzzy
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the new name for %1 here"
-msgstr "Zadej jméno zde"
+msgstr "Zde zadej jméno pro %1"
 
 #: qml/main.qml:402
 msgctxt ""
@@ -1905,7 +1869,6 @@ msgstr[1] "Několik zařízení dostupných"
 msgstr[2] "Několik zařízení dostupných"
 
 #: qml/NotConnectedCard.qml:75
-#, fuzzy
 msgctxt ""
 "Message warning for missing scan permissions, for the gear connecting card"
 msgid ""
@@ -1915,11 +1878,9 @@ msgid ""
 msgstr ""
 "Potřebujeme, abys nám povolil sledování tvé lokace, abychom našli tvé "
 "vybavení. Kliknutím na tlačítko pod touto zprávou vyvolej okno pro udělení "
-"povolení. Tyto informace nevyužíváme žádným jiným způsobem (můžeš nás "
-"kontaktovat, pokud to chceš dokázat)."
+"povolení."
 
 #: qml/NotConnectedCard.qml:78
-#, fuzzy
 msgctxt ""
 "Message warning for missing location permissions, for the gear connecting "
 "card"
@@ -1929,7 +1890,7 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
-"Potřebujeme, abys nám povolil sledování tvé lokace, abychom našli tvé "
+"Potřebujeme abys nám povolil sledování tvé lokace, abychom našli tvé "
 "vybavení. Kliknutím na tlačítko pod touto zprávou vyvolej okno pro udělení "
 "povolení. Tyto informace nevyužíváme žádným jiným způsobem (můžeš nás "
 "kontaktovat, pokud to chceš dokázat)."
@@ -1987,15 +1948,13 @@ msgstr[2] ""
 "zobrazení možných připojení zvol \"Zobrazit dostupné zařízení...\"."
 
 #: qml/NotConnectedCard.qml:106
-#, fuzzy
 msgctxt ""
 "Label for button for opening the settings tab to fix missing scan "
 "permissions, for the gear connecting card"
 msgid "Get Scan Permission..."
-msgstr "Udělit povolení pro lokaci..."
+msgstr "Udělit povolení pro Skenování..."
 
 #: qml/NotConnectedCard.qml:109
-#, fuzzy
 msgctxt ""
 "Label for button for opening the settings tab to fix missing location "
 "permissions, for the gear connecting card"
@@ -2017,7 +1976,6 @@ msgid "Show available gear..."
 msgstr "Zobrazit dostupná zařízení..."
 
 #: qml/NotConnectedCard.qml:134
-#, fuzzy
 msgctxt ""
 "Label for button which causes the list of available gear to be refreshed, "
 "for the gear connecting card"
@@ -2133,7 +2091,9 @@ msgctxt ""
 msgid ""
 "(this is where the content of the crumpet file goes,\n"
 "because we'll just have that here for now...)"
-msgstr "(dočasný text, počkej až přidáme tuto funkci)"
+msgstr ""
+"(Sem přijde obsah crumpet souboru,\n"
+"protože to budeme mít prozatím tady...)"
 
 #: qml/SettingsPage.qml:29
 msgctxt "Title for the settings page"
@@ -2167,22 +2127,19 @@ msgid "Responsible Wagging Guide"
 msgstr "Responsible Wagging Guide"
 
 #: qml/SettingsPage.qml:52
-#, fuzzy
 msgctxt "Label for downloading the instructions for the MiTail"
 msgid "MiTail Instructions"
-msgstr "Instrukce"
+msgstr "Instrukce pro MiTail"
 
 #: qml/SettingsPage.qml:57
-#, fuzzy
 msgctxt "Label for downloading the instructions for the Digitail"
 msgid "Digitail Instructions"
-msgstr "Instrukce"
+msgstr "Instrukce pro Digitail"
 
 #: qml/SettingsPage.qml:62
-#, fuzzy
 msgctxt "Label for downloading the instructions for EarGear"
 msgid "EarGear Instructions"
-msgstr "Instrukce"
+msgstr "Instrukce pro EarGear"
 
 #: qml/SettingsPage.qml:69
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
@@ -2329,12 +2286,11 @@ msgid "Rebalance Microphones"
 msgstr "Rebalancovat mikrofon"
 
 #: qml/SettingsPage.qml:176
-#, fuzzy
 msgctxt ""
 "Heading for the panel for checking for and performing firmware updates for "
 "gear which supports this"
 msgid "Gear Firmware"
-msgstr "Jména zařízení"
+msgstr "Firmware zařízení"
 
 #: qml/SettingsPage.qml:177
 msgctxt ""
@@ -2437,7 +2393,6 @@ msgid "Fake Tail"
 msgstr "Falešný ocas"
 
 #: qml/SettingsPage.qml:259
-#, fuzzy
 msgctxt ""
 "Description for the panel for the demo modus of the app, on the settings page"
 msgid ""
@@ -2449,7 +2404,7 @@ msgid ""
 "page."
 msgstr ""
 "Pokud jsi aplikaci právě stáhl, například pokud čekáš na dodávku zbrusu "
-"nového DIGITAiLu nebo EarGearu, asi chceš zjistit, co všechno bude umět. "
+"nového MiTailu nebo EarGearu, asi chceš zjistit, co všechno bude umět. "
 "Tlačítkem dole můžeš nasimulovat připojení ocasu a vyzkoušet si možnosti. Po "
 "zapnutí této volby se na uvítací stránce objeví \"falešný ocas\"."
 
@@ -2579,7 +2534,6 @@ msgid "Connect More..."
 msgstr "Připojit více..."
 
 #: qml/WelcomePage.qml:64
-#, fuzzy
 msgctxt ""
 "Label for the button for looking for additional gear, on the welcome page"
 msgid "Look for gear"
@@ -2639,17 +2593,16 @@ msgstr ""
 "Zapni tuto funkci, aby tvé zařízení reagovalo na zvuk po dobu pěti minut."
 
 #: qml/WelcomePage.qml:322
-#, fuzzy
 msgctxt "Heading for the panel for turning on Tilt Mode"
 msgid "Tilt Mode"
-msgstr "Mód odposlechu"
+msgstr "Mód noklonění"
 
 #: qml/WelcomePage.qml:335
-#, fuzzy
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
 msgstr ""
-"Zapni tuto funkci, aby tvé zařízení reagovalo na zvuk po dobu pěti minut."
+"Zapni tuto funkci, aby tvé zařízení reagovalo na naklánění po dobu pěti "
+"minut."
 
 #: qml/WelcomePage.qml:376
 msgctxt ""
