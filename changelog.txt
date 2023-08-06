@@ -1,3 +1,7 @@
+33:
+- A permissions fix for old Android versions
+- Translations are now updated automatically
+
 32:
 - The development is now done as OpenTails
 - New translations done using Weblate
