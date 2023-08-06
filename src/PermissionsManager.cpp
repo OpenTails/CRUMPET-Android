@@ -121,7 +121,7 @@ bool PermissionsManager::hasPermission(const QString& permission) const
 
 QStringList bluetoothPermissionNames() {
 #ifdef Q_OS_ANDROID
-    return QtAndroid::androidSdkVersion() > 30 ? QStringList{"BLUETOOTH_SCAN", "BLUETOOTH_CONNECT"} : QStringList{"ACCESS_FINE_LOCATION", "BLUETOOTH", "ACCESS_BACKGROUND_LOCATION"};
+    return QtAndroid::androidSdkVersion() > 30 ? QStringList{"BLUETOOTH_SCAN", "BLUETOOTH_CONNECT"} : QStringList{"ACCESS_FINE_LOCATION", "BLUETOOTH"};
 #else
     return QStringList{"NOT_ANDROID_SO_NO_SCAN_PERMISSION"};
 #endif
