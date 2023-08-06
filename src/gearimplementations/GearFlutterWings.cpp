@@ -502,7 +502,7 @@ void GearFlutterWings::connectDevice()
 
                             d->deviceChargingReadCharacteristic = d->batteryService->characteristic(d->deviceChargingReadCharacteristicUuid);
                             if (!d->deviceChargingReadCharacteristic.isValid()) {
-                                qDebug() << name() << deviceID() << "Couldn't get the charging state characteristic - this is fine for old tails, so not getting angry about this";
+                                qDebug() << name() << deviceID() << "Couldn't get the charging state characteristic - this is fine for old equipment, so not getting angry about this";
                             }
                             batteryDescriptor = d->deviceChargingReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
                             if (d->deviceChargingReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
@@ -567,10 +567,10 @@ void GearFlutterWings::connectDevice()
                 }
             });
             setDeviceProgress(0);
-            setProgressDescription(i18nc("Message shown to the user after firmware upload has completed and the tail is expected to reboot", "Firmware upload complete, waiting for your gear to reboot automatically before attempting to reconnect..."));
+            setProgressDescription(i18nc("Message shown to the user after firmware upload has completed and the FlutterWings are expected to reboot", "Firmware upload complete, waiting for your gear to reboot automatically before attempting to reconnect..."));
         } else {
             qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The FlutterWings closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
+            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The FlutterWings closed the connection, either by being turned off or losing power. Remember to charge your gear!"));
         }
         disconnectDevice();
     });
