@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
 "PO-Revision-Date: 2023-08-09 10:15+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
 "Language: it\n"
@@ -495,6 +495,9 @@ msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"E' stato riscontrato un errore durante la connessione delle tue FlutterWings "
+"(non è stato possibile creare il main service object). Se pensi che sia un "
+"errore per favore prova di nuovo!"
 
 #: gearimplementations/GearFlutterWings.cpp:426
 #: gearimplementations/GearMitail.cpp:432
@@ -509,6 +512,11 @@ msgid ""
 "contact us on info@thetailcompany.com and tell us that you got this error.</"
 "p>"
 msgstr ""
+"<p><b>Aggiornamento Fallito!</b></p><p>Abbiamo provato ad aggiornare il tuo "
+"firmware troppo rapidamente per il tuo dispositivo, e l'operazione è "
+"saltata. Se stai ricevendo questo messaggio di errore:</p><p>Intanto, non "
+"preoccuparti, il tuo dispositivo è al sicuro.</p><p>Poi, per favore "
+"contattaci a info@thetailcompany.com e segnalaci questo errore</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:437
 msgctxt ""
@@ -517,6 +525,9 @@ msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"E' stato riscontrato un errore mentre ti connettevi con le tue FlutterWings ("
+"la batteria non era disponibile). Se pensi che questo sia un errore, per "
+"favore prova di nuovo!"
 
 #: gearimplementations/GearFlutterWings.cpp:487
 msgctxt ""
@@ -526,6 +537,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Sembra che il tuo dispositivo non sia un FlutterWings (non è stato possibile "
+"rilevare il livello della batteria). Se sei certo che lo sia, per favore "
+"segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:527
 msgctxt "Warning that some unknown error happened"
@@ -533,11 +547,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
+"E' stato riscontrato un errore. Se stai cercando di connetterti alle tue "
+"FlutterWings, assicurati che siano accese e nei pressi di questo dispositivo."
 
 #: gearimplementations/GearFlutterWings.cpp:530
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr ""
+msgstr "FlutterWings ha interrotto la connessione."
 
 #: gearimplementations/GearFlutterWings.cpp:534
 msgctxt ""
@@ -547,6 +563,8 @@ msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Non è stato possibile connettere le tue FlutterWings. Per favore prova di "
+"nuovo (prova ad avvicinarti)."
 
 #: gearimplementations/GearFlutterWings.cpp:561
 #: gearimplementations/GearMitail.cpp:567
@@ -555,7 +573,7 @@ msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr ""
+msgstr "Nuovo tentativo di connessione al tuo dispositivo..."
 
 #: gearimplementations/GearFlutterWings.cpp:566
 #: gearimplementations/GearMitail.cpp:572
@@ -567,6 +585,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Upload del firmware completato, siamo in attesa che il tuo dispositivo si "
+"riavvii automaticamente prima di riconnettersi..."
 
 #: gearimplementations/GearFlutterWings.cpp:569
 msgctxt ""
@@ -576,6 +596,8 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
+"FlutterWings ha interrotto la connessione, perchè si è spento o ha perso "
+"potenza. Ricordati di caricare la tua coda!"
 
 #: gearimplementations/GearFlutterWings.cpp:729
 #: gearimplementations/GearMitail.cpp:735
@@ -587,6 +609,11 @@ msgid ""
 "Once completed, your gear will restart and disconnect from this device. Once "
 "rebooted, you will be able to connect to it again."
 msgstr ""
+"Stiamo caricando il firmware del tuo dispositivo. Per favore tieni entrambi "
+"i dispositivi vicini, e assicurati che siano al massimo della carica "
+"entrambi (oppure mettili in carica ora). Una volta copletato, si riavvierà e "
+"si disconnetterà da questo dispositivo. Una volta riavviato sarai in grado "
+"di connetterti di nuovo."
 
 #: gearimplementations/GearMitail.cpp:39
 msgctxt ""
@@ -598,6 +625,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Il tuo MiTail al momento utilizza il firmware nella versione 4.03, che è "
+"scaduta e riscontra dei problemi!  <b>Raccomandiamo fortemente</b> un "
+"upgrade all'ultima versione per sistemarli! Vai su Impostazioni e cerca la "
+"sezione Firmware per accedere all'update."
 
 #: gearimplementations/GearMitail.cpp:40
 msgctxt ""
