@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-08-10 10:33+0000\n"
+"PO-Revision-Date: 2023-08-11 17:10+0000\n"
 "Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
@@ -1185,7 +1185,7 @@ msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
-msgstr ""
+msgstr "<strong>%1</strong><br/><small>%2 secondi</small>"
 
 #: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
@@ -1195,95 +1195,98 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
+"Questo è il tuo elenco di comandi. Può includere movimenti, bagliori e "
+"pause. Consiglio: per aggiungere un nuovo comando che hai già nella lista, "
+"clucca l'icona + sotto la tendina e scegli una delle opzioni del menu."
 
 #: qml/BaseCommandListEditor.qml:275
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Durata totale: %1 secondo"
+msgstr[1] "Durata totale: %1 secondi"
 
 #: qml/BaseMovesComponent.qml:207
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
-msgstr ""
+msgstr "Mandare dove?"
 
 #: qml/BaseMovesComponent.qml:216
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr ""
+msgstr "Scegli dalla lista qui sotto dove vuoi inviare il comando."
 
 #: qml/BaseMovesComponent.qml:262
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
-msgstr ""
+msgstr "Invia a selezionato"
 
 #: qml/BaseMovesComponent.qml:271
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
-msgstr ""
+msgstr "Invia a tutti"
 
 #: qml/CommandPausePicker.qml:42
 msgctxt ""
 "Heading for an overlay for picking the duration of a pause in the command "
 "list"
 msgid "Pick the duration of your pause"
-msgstr ""
+msgstr "Scegli la durata della tua pausa"
 
 #: qml/CommandPausePicker.qml:59
 msgctxt ""
 "A label which describes the slider for the duration of a pause, in the "
 "overlay for picking the duration of a pause, in a command list"
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 secondi"
 
 #: qml/CommandPausePicker.qml:63
 msgctxt ""
 "Button for an overlay for picking the duration of a pause in the command list"
 msgid "Add this pause"
-msgstr ""
+msgstr "Aggiungi questa pausa"
 
 #: qml/ConnectToTail.qml:48
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr ""
+msgstr "Connetti Tutti"
 
 #: qml/ConnectToTail.qml:86
 msgctxt ""
 "Button for the action of disconnecting a device, in the prompt for "
 "connecting a device"
 msgid "Disconnect"
-msgstr ""
+msgstr "Disconnetti"
 
 #: qml/ConnectToTail.qml:87
 msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
 msgid "Connect"
-msgstr ""
+msgstr "Connetti"
 
 #: qml/DatePicker.qml:239
 msgctxt "Button for selecting the date of today, in a date picker"
 msgid "Today"
-msgstr ""
+msgstr "Oggi"
 
 #: qml/DatePicker.qml:246
 msgctxt "Button for cancelling the selection of a date, in a date picker"
 msgid "Cancel"
-msgstr ""
+msgstr "Cancella"
 
 #: qml/DatePicker.qml:253
 msgctxt "Button for confirming the selection of a date, in a date picker"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: qml/DeveloperModePage.qml:27
 msgctxt "Header for the Developer Mode page"
 msgid "Developer Mode"
-msgstr ""
+msgstr "Modalità Sviluppatore"
 
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
@@ -1295,21 +1298,21 @@ msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr ""
+msgstr "Diconnettere?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
 "Label above the list of options available for disconnecting from a piece of "
 "gear"
 msgid "Please select how you would like to disconnect from %1."
-msgstr ""
+msgstr "Per favore selezione come vorresti disconnetterti da %1."
 
 #: qml/DisconnectOptions.qml:68
 msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Utilizza il Dispositivo Senza il Tuo Telefono"
 
 #: qml/DisconnectOptions.qml:87
 msgctxt ""
@@ -1464,53 +1467,58 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
+"Stai tentando di effettuare più di un movimento allo stesso tempo. Questo a "
+"volte crea problemi, principalmente di confusione (per esempio, accendoneod "
+"sia la modalità Cammina che Scuoti, facendole riconoscere entrambe). Se sei "
+"sicuro che vuoi ciò clicca su OK, oppure clicca su Cancella per disabilitare "
+"questi movimementi."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting a pose for the Gear"
 msgid "Show On Welcome Page"
-msgstr ""
+msgstr "Mostra la Pagina di Benvenuto"
 
 #: qml/GearGestures.qml:93
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting a pose for the Gear"
 msgid "(no command)"
-msgstr ""
+msgstr "(nessun comando)"
 
 #: qml/IdleModePage.qml:26
 msgctxt "Title for the page for selecting a move in Casual Mode"
 msgid "Casual Mode Categories"
-msgstr ""
+msgstr "Categorie per Modalità Casuale"
 
 #: qml/IdleModePage.qml:46
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Calmo e Rilassato"
 
 #: qml/IdleModePage.qml:51
 msgctxt ""
 "Description for the category for the Excited Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Veloce ed Eccitato"
 
 #: qml/IdleModePage.qml:56
 msgctxt ""
 "Description for the category for the Tense Moveset, on the page for "
 "selecting a move in Casual Mode"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustrato e Nervoso"
 
 #: qml/IdleModePage.qml:61
 msgctxt ""
 "Description for the category for the LED Patterns, on the page for selecting "
 "a move in Casual Mode"
 msgid "LED Patterns"
-msgstr ""
+msgstr "Schema LED"
 
 #: qml/IdleModePage.qml:72
 msgctxt ""
@@ -1520,12 +1528,14 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
+"Qui è dove imposti le pause tra i movimenti, così come i gruppi di movimento "
+"che possono essere attivati insieme."
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
 "Label for selecting the range of pauses in between moves in Casual Mode"
 msgid "Range of pause between moves in seconds"
-msgstr ""
+msgstr "Periodo di pausa tra i movimenti in secondi"
 
 #: qml/main.qml:62
 msgctxt "Title of the application"
@@ -1535,57 +1545,59 @@ msgstr ""
 #: qml/main.qml:96
 msgctxt "Text for the notification upon connecting successfully to a device"
 msgid "Connected successfully!"
-msgstr ""
+msgstr "Connesso con successo!"
 
 #: qml/main.qml:117
 msgctxt "Title for the warning for having Bluetooth disabled"
 msgid "Warning"
-msgstr ""
+msgstr "Avviso"
 
 #: qml/main.qml:117
 msgctxt "Message for the warning for having Bluetooth disabled"
 msgid "Bluetooth is disabled"
-msgstr ""
+msgstr "Bluetooth disconnesso"
 
 #: qml/main.qml:119
 msgctxt "Title for the warning for not having detected any Bluetooth devices"
 msgid "Warning"
-msgstr ""
+msgstr "Avviso"
 
 #: qml/main.qml:119
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
 msgid "No Bluetooth Device"
-msgstr ""
+msgstr "Nessun Dispositivo Bluetooh"
 
 #: qml/main.qml:132
 msgctxt "Title for the popup for having enabled Developer Mode"
 msgid "Developer mode"
-msgstr ""
+msgstr "Modalità Sviluppatore"
 
 #: qml/main.qml:132
 msgctxt "Message for the popup for having enabled Developer Mode"
 msgid "Developer mode is enabled"
-msgstr ""
+msgstr "Modalitò Sviluppatore disabilitata"
 
 #: qml/main.qml:134
 msgctxt "Title for the popup for having disabled Developer Mode"
 msgid "Developer mode"
-msgstr ""
+msgstr "Modalità Sviluppatore"
 
 #: qml/main.qml:134
 msgctxt "Message for the popup for having disabled Developer Mode"
 msgid "Developer mode is disabled"
-msgstr ""
+msgstr "Modalità Sviluppatore è stata disabilitata"
 
 #: qml/main.qml:139
 msgctxt "Title for the popup for getting a timeout for Casual Mode"
 msgid "Casual Mode is Off"
-msgstr ""
+msgstr "Mofalità Casuale è Spenta"
 
 #: qml/main.qml:139
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
 msgstr ""
+"Forse è il momento di riposare... Lascia che la tua codina o le orecchie "
+"facciano un pisolino."
 
 #: qml/main.qml:200
 msgctxt "Button for opening the Crumpet page, from the landing page"
@@ -1595,22 +1607,22 @@ msgstr ""
 #: qml/main.qml:208
 msgctxt "Button for opening the Alarm page, from the landing page"
 msgid "Alarm"
-msgstr ""
+msgstr "Sveglia"
 
 #: qml/main.qml:218
 msgctxt "Button for opening the Move List page, from the landing page"
 msgid "Move Lists"
-msgstr ""
+msgstr "Elenco di Movimenti"
 
 #: qml/main.qml:228
 msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
 msgid "Moves"
-msgstr ""
+msgstr "Movimenti"
 
 #: qml/main.qml:237
 msgctxt "Button for opening the EarGear Poses page, from the landing page"
 msgid "Ear Poses"
-msgstr ""
+msgstr "Posizioni delle Orecchie"
 
 #: qml/main.qml:246
 msgctxt "Button for opening the Glow Tips page, from the landing page"
@@ -1622,38 +1634,38 @@ msgctxt ""
 "Button for opening the page for setting up the Casual Mode, from the landing "
 "page"
 msgid "Casual Mode Settings"
-msgstr ""
+msgstr "Impostazioni per Modalità Casuale"
 
 #: qml/main.qml:264
 msgctxt "Button for opening the Gear Gestures page, from the landing page"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Mosse del Dispositivo"
 
 #: qml/main.qml:273
 msgctxt "Button for opening the Developer Mode page, from the landing page"
 msgid "Developer Mode"
-msgstr ""
+msgstr "Modalità Sviluppatore"
 
 #: qml/main.qml:288
 msgctxt "Button for opening the Settings Page, from the landing page"
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: qml/main.qml:299
 msgctxt "Button for opening the About Us page, from the landing page"
 msgid "About"
-msgstr ""
+msgstr "Info"
 
 #: qml/main.qml:307
 msgctxt ""
 "Button for opening the TailCo website in a browser, from the landing page"
 msgid "TheTailCompany.com"
-msgstr ""
+msgstr "TheTailCompany.com"
 
 #: qml/main.qml:327
 msgctxt "Title for the confirmation popup for disconnecting your gear"
 msgid "Your gear is currently connected"
-msgstr ""
+msgstr "Il tuo dispositivo è connesso al momento"
 
 #: qml/main.qml:328
 msgctxt "Message for the confirmation popup for disconnecting your gear"
@@ -1662,58 +1674,61 @@ msgid ""
 "\n"
 "Are you sure that you want to disconnect and quit?"
 msgstr ""
+"Al momento sei connesso con uno dei tuoi dispositivi.\n"
+"\n"
+"Sei sicuro che vuoi disconnetterti e lasciare?"
 
 #: qml/main.qml:400
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your new gear"
-msgstr ""
+msgstr "Inserisci un nome per il tuo nuovo dispositivo"
 
 #: qml/main.qml:401
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the new name for %1 here"
-msgstr ""
+msgstr "Inserisci un nuovo nome per %1 qui"
 
 #: qml/main.qml:402
 msgctxt ""
 "Button for confirming the save of your new name, for the prompt for entering "
 "a name for your Gear"
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: qml/main.qml:443
 msgctxt "Label for your gear that gets shown when attempting to connect to it"
 msgid "Attempting to connect..."
-msgstr ""
+msgstr "tentativo di connessione..."
 
 #: qml/MessageBox.qml:48
 msgctxt "Confirmation button for a generic message"
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: qml/MessageBox.qml:67
 msgctxt "Cancel button for a generic message"
 msgid "Cancel"
-msgstr ""
+msgstr "Elimina"
 
 #: qml/MoveListEditor.qml:32
 msgctxt ""
 "Label for the button for running a Move List, on the Move List Editor page"
 msgid "Run Move List"
-msgstr ""
+msgstr "Attiva la Lista Movimenti"
 
 #: qml/MoveListEditor.qml:35
 msgctxt ""
 "Heading for the confirmation prompt for running a Move List, on the Move "
 "List Editor page"
 msgid "Run this list?"
-msgstr ""
+msgstr "Attivi questa lista?"
 
 #: qml/MoveListEditor.qml:36
 msgctxt ""
 "Message for the confirmation prompt for running a Move List, on the Move "
 "List Editor page"
 msgid "Do you want to run this list?"
-msgstr ""
+msgstr "Vuoi attivare questa lista?"
 
 #: qml/MoveListEditor.qml:51
 msgctxt ""
