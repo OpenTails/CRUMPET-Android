@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
 "PO-Revision-Date: 2023-08-10 10:33+0000\n"
-"Last-Translator: Ökami the Wolf <mastroreg@gmail.com>\n"
+"Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
 "Language: it\n"
@@ -911,11 +911,13 @@ msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
+"MiTail Mini ha interrotto la connessione, perchè è stato spento o non ha "
+"abbastanza batteria. Ricordati di caricare la tua codina!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr ""
+msgstr "Doppio Tap"
 
 #: GestureDetectorModel.cpp:274
 msgctxt "The name of a sensor"
