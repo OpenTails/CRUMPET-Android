@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
 "PO-Revision-Date: 2023-08-10 10:11+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
 "Language: it\n"
@@ -478,6 +478,9 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Sembra che il tuo dispositivo non sia un FlutterWings (non è stato possibile "
+"trovare le caratteristiche di writing del main device). Se sei certo che lo "
+"sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:117
 msgctxt ""
@@ -488,6 +491,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Sembra che il tuo dispositivo non sia un FlutterWings (non è stato possibile "
+"le caratteristiche di lettura del main device). Se sei certo che lo sia, per "
+"favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:407
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -640,6 +646,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"La tua MiTail ha istallata la versiobne 4.02 del firmware, che è obsoleta ed "
+"ha riportato alcuni problemi! Ti <b>raccomandiamo caldamente</b> di caricare "
+"l'ultima versione del firmware che sistema tutti i problemi! Vai su "
+"Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
 
 #: gearimplementations/GearMitail.cpp:41
 msgctxt ""
@@ -651,6 +661,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"La tua MiTail ha istallata la versiobne 4.01 del firmware, che è obsoleta ed "
+"ha riportato alcuni problemi! Ti <b>raccomandiamo caldamente</b> di caricare "
+"l'ultima versione del firmware che sistema tutti i problemi! Vai su "
+"Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
 
 #: gearimplementations/GearMitail.cpp:42
 msgctxt ""
@@ -662,6 +676,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"La tua MiTail ha istallata la versiobne 4.00 del firmware, che è obsoleta ed "
+"ha riportato alcuni problemi! Ti <b>raccomandiamo caldamente</b> di caricare "
+"l'ultima versione del firmware che sistema tutti i problemi! Vai su "
+"Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
 
 #: gearimplementations/GearMitail.cpp:43
 msgctxt ""
@@ -673,6 +691,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"La tua MiTail ha istallata la versiobne 3.2.11 del firmware, che è obsoleta "
+"ed ha riportato alcuni problemi! Ti <b>raccomandiamo caldamente</b> di "
+"caricare l'ultima versione del firmware che sistema tutti i problemi! Vai su "
+"Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
 
 #: gearimplementations/GearMitail.cpp:44
 msgctxt ""
@@ -684,6 +706,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"La tua MiTail ha istallata la versiobne 3.2.10 del firmware, che è obsoleta "
+"ed ha riportato alcuni problemi! Ti <b>raccomandiamo caldamente</b> di "
+"caricare l'ultima versione del firmware che sistema tutti i problemi! Vai su "
+"Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -694,6 +720,9 @@ msgid ""
 "writing characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Sembra che il dispositivo non sia un MiTail (non è stato possibile trovare "
+"le caratteristiche principali di scrittura del dispositivo). Se sei certo "
+"che lo sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:123
 msgctxt ""
@@ -704,6 +733,9 @@ msgid ""
 "reading characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Sembra che il dispositivo non sia un MiTail (non è stato possibile trovare "
+"le caratteristiche principali dilettura del dispositivo principale). Se sei "
+"certo che lo sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:413
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -711,6 +743,9 @@ msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"E' stato riscontrato un errore mentre collegavi il tuo MiTail (non è stato "
+"possibile creare il main service object). Se pensi che sia un errore, per "
+"favore riprova!"
 
 #: gearimplementations/GearMitail.cpp:443
 msgctxt ""
@@ -719,6 +754,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"E' stato riscontrato un errore mentre collegavi il tuo MiTail la batteria "
+"non era sufficiente). Se pensi che sia un errore, per favore riprova!"
 
 #: gearimplementations/GearMitail.cpp:493
 msgctxt ""
@@ -728,6 +765,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Sembra che il tuo dispositvo non sia un MiTail (non è stato possibile "
+"trovare il livello della batteria). Se sei certo che lo sia, per favore "
+"segnalalo a The Tail Company."
 
 #: gearimplementations/GearMitail.cpp:533
 msgctxt "Warning that some unknown error happened"
@@ -735,11 +775,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
+"E0 stato riscontrato un errore. Se stai provando a connettere la tua MiTail, "
+"assicurati che tu sia vicino a questo dispositivo."
 
 #: gearimplementations/GearMitail.cpp:536
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
-msgstr ""
+msgstr "MiTail ha interrotto la connessione."
 
 #: gearimplementations/GearMitail.cpp:540
 msgctxt ""
@@ -748,6 +790,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
+"Non è stato possibile connettere il tuo MiTail. Per favore prova di nuovo ("
+"magari avvicinandolo)."
 
 #: gearimplementations/GearMitail.cpp:575
 msgctxt ""
@@ -757,6 +801,8 @@ msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
+"MiTail ha interrotto la connessione, perchè è stato spento o non ha "
+"abbastanza batteria. Ricordati di caricare la tua codina!"
 
 #: gearimplementations/GearMitailMini.cpp:39
 msgctxt ""
@@ -768,6 +814,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"La tua MiTail ha istallata la versiobne 4,03 del firmware, che è obsoleta ed "
+"ha riportato alcuni problemi! Ti <b>raccomandiamo caldamente</b> di caricare "
+"l'ultima versione del firmware che sistema tutti i problemi! Vai su "
+"Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
 
 #: gearimplementations/GearMitailMini.cpp:110
 msgctxt ""
@@ -778,6 +828,9 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Sembra che il dispositivo non sia un MiTail Mini (non è stato possibile "
+"trovare le caratteristiche principali di scrittura del dispositivo). Se sei "
+"certo che lo sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:118
 msgctxt ""
@@ -788,6 +841,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Sembra che il dispositivo non sia un MiTail Mini (non è stato possibile "
+"trovare le caratteristiche principali di lettura del dispositivo). Se sei "
+"certo che lo sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:408
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -795,6 +851,9 @@ msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"E' stato riscontrato un errore mentre collegavi il tuo MiTail Mini (non è "
+"stato possibile creare il main service object). Se pensi che sia un errore, "
+"per favore riprova!"
 
 #: gearimplementations/GearMitailMini.cpp:438
 msgctxt ""
@@ -803,6 +862,9 @@ msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"E' stato riscontrato un errore mentre collegavi il tuo MiTail Mini (la "
+"batteria non era disponibile). Se pensi che sia un errore, per favore "
+"riprova!"
 
 #: gearimplementations/GearMitailMini.cpp:488
 msgctxt ""
@@ -812,6 +874,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Sembra che il tuo dispositvo non sia un MiTail Mini (non è stato possibile "
+"trovare il livello della batteria). Se sei certo che lo sia, per favore "
+"segnalalo a The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:528
 msgctxt "Warning that some unknown error happened"
@@ -819,11 +884,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
+"E' stato riscontrato un errore. Se stai provando a connetterti al tuo MiTail "
+"Mini, assicurati che sia acceso e vicino a questo dispositivo."
 
 #: gearimplementations/GearMitailMini.cpp:531
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr ""
+msgstr "MiTail ha chiuso la connessione."
 
 #: gearimplementations/GearMitailMini.cpp:535
 msgctxt ""
@@ -833,6 +900,8 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Non è stato possibile connettersi al tuo MiTail Mini. Per favore prova di "
+"nuovo (forse avvicinandoti di più?)"
 
 #: gearimplementations/GearMitailMini.cpp:570
 msgctxt ""
@@ -901,42 +970,42 @@ msgstr ""
 #: GestureDetectorModel.cpp:284
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr ""
+msgstr "Scuoti"
 
 #: GestureDetectorModel.cpp:285
 msgctxt "The name of a sensor"
 msgid "Twist Left"
-msgstr ""
+msgstr "Giralo a Sinistra"
 
 #: GestureDetectorModel.cpp:286
 msgctxt "The name of a sensor"
 msgid "Twist Right"
-msgstr ""
+msgstr "Giralo a Destra"
 
 #: GestureDetectorModel.cpp:287
 msgctxt "The name of a sensor"
 msgid "Pick Up"
-msgstr ""
+msgstr "Prendilo"
 
 #: GestureDetectorModel.cpp:288
 msgctxt "The name of a sensor"
 msgid "Turn Over"
-msgstr ""
+msgstr "Giralo"
 
 #: GestureDetectorModel.cpp:289
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr ""
+msgstr "Passeggiata cominciata"
 
 #: GestureDetectorModel.cpp:290
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr ""
+msgstr "Passeggiata conclusa"
 
 #: GestureDetectorModel.cpp:291
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr ""
+msgstr "Scala rilevata"
 
 #: GestureDetectorModel.cpp:292
 msgctxt "The name of a sensor"
@@ -1005,7 +1074,7 @@ msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr ""
+msgstr "Sveglia disattivata"
 
 #: qml/AlarmList.qml:51
 msgctxt ""
@@ -1015,37 +1084,39 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
+"Non è stato possibile trovare una sveglia con il nomw '%1'. Forse una "
+"applicazione differente l'ha rimossa."
 
 #: qml/AlarmList.qml:81
 msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
-msgstr ""
+msgstr "Eestisci i comandi della Sveglia"
 
 #: qml/AlarmList.qml:90
 msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr ""
+msgstr "Imposta l'orario per la Sveglia"
 
 #: qml/AlarmList.qml:112
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
-msgstr ""
+msgstr "Cancella questa Sveglia"
 
 #: qml/AlarmList.qml:116
 msgctxt ""
 "Title for a message box which allows the user to delete a specific alarm"
 msgid "Remove the Alarm"
-msgstr ""
+msgstr "Rimuovi la Sveglia"
 
 #: qml/AlarmList.qml:117
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
-msgstr ""
+msgstr "Sei sicuro che vuoi rimuovere la Sveglia '%1'?"
 
 #: qml/AlarmList.qml:136
 msgctxt ""
