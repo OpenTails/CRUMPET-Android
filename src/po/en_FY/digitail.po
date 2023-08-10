@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-07-26 15:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2023-08-11 17:10+0000\n"
+"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: English (Furry) <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/en_FY/>\n"
 "Language: en_FY\n"
@@ -152,7 +152,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr ""
+msgstr "Upgrade UwU"
 
 #: gearimplementations/GearEars.cpp:221
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -171,7 +171,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr ""
+msgstr "Nu! Update Oopsied"
 
 #: gearimplementations/GearEars.cpp:224
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -224,7 +224,7 @@ msgstr ""
 #: gearimplementations/GearMitailMini.cpp:337
 msgctxt "Message for when we are checking the downloaded firmware data"
 msgid "Checking integrity of the downloaded firmware data..."
-msgstr ""
+msgstr "Sniffing downloaded life force..."
 
 #: gearimplementations/GearEars.cpp:521
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -869,12 +869,12 @@ msgstr ""
 #: qml/AlarmList.qml:29
 msgctxt "Title of the page which lists the alarms the user has set"
 msgid "Alarms"
-msgstr ""
+msgstr "Awoos"
 
 #: qml/AlarmList.qml:33
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr ""
+msgstr "Add New Awoo"
 
 #: qml/AlarmList.qml:45
 msgctxt ""
@@ -899,7 +899,7 @@ msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr ""
+msgstr "Awoo was yeeted"
 
 #: qml/AlarmList.qml:51
 msgctxt ""
@@ -908,38 +908,38 @@ msgctxt ""
 msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
-msgstr ""
+msgstr "Awoo '%1' not sniffed. Maybe yeeted by otter instance of brain."
 
 #: qml/AlarmList.qml:81
 msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
-msgstr ""
+msgstr "Edit Awoo Commands"
 
 #: qml/AlarmList.qml:90
 msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr ""
+msgstr "Set Time To Awoo"
 
 #: qml/AlarmList.qml:112
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
-msgstr ""
+msgstr "Yeet this Awoo"
 
 #: qml/AlarmList.qml:116
 msgctxt ""
 "Title for a message box which allows the user to delete a specific alarm"
 msgid "Remove the Alarm"
-msgstr ""
+msgstr "Yeet the Awoo"
 
 #: qml/AlarmList.qml:117
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
-msgstr ""
+msgstr "UwU to yeet Awoo '%1'?"
 
 #: qml/AlarmList.qml:136
 msgctxt ""
@@ -1130,7 +1130,7 @@ msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Yeet Phone, keep wagging"
 
 #: qml/DisconnectOptions.qml:87
 msgctxt ""
@@ -1163,7 +1163,7 @@ msgctxt ""
 "Label for the button in the disconnection options popup which puts the gear "
 "into autonomous, or no phone, mode"
 msgid "Engage No Phone Mode"
-msgstr ""
+msgstr "Yeet-Phone-Mode"
 
 #: qml/DisconnectOptions.qml:170
 msgctxt ""
@@ -1351,7 +1351,7 @@ msgstr ""
 #: qml/main.qml:62
 msgctxt "Title of the application"
 msgid "Crumpet"
-msgstr ""
+msgstr "Cwumpet"
 
 #: qml/main.qml:96
 msgctxt "Text for the notification upon connecting successfully to a device"
@@ -1411,22 +1411,22 @@ msgstr ""
 #: qml/main.qml:200
 msgctxt "Button for opening the Crumpet page, from the landing page"
 msgid "Crumpet"
-msgstr ""
+msgstr "Cwumpet"
 
 #: qml/main.qml:208
 msgctxt "Button for opening the Alarm page, from the landing page"
 msgid "Alarm"
-msgstr ""
+msgstr "Awoo"
 
 #: qml/main.qml:218
 msgctxt "Button for opening the Move List page, from the landing page"
 msgid "Move Lists"
-msgstr ""
+msgstr "Wag Lists"
 
 #: qml/main.qml:228
 msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
 msgid "Moves"
-msgstr ""
+msgstr "Wags"
 
 #: qml/main.qml:237
 msgctxt "Button for opening the EarGear Poses page, from the landing page"
@@ -1553,56 +1553,56 @@ msgstr ""
 #: qml/MoveLists.qml:28
 msgctxt "Heading for the page for viewing Move Lists"
 msgid "Move Lists"
-msgstr ""
+msgstr "Wag Lists"
 
 #: qml/MoveLists.qml:32
 msgctxt ""
 "Label for the button for adding a new Move List, on the page for viewing "
 "Move Lists"
 msgid "Add New Move List"
-msgstr ""
+msgstr "Add New Wag List"
 
 #: qml/MoveLists.qml:49
 msgctxt ""
 "Heading for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Run this list?"
-msgstr ""
+msgstr "Run wags?"
 
 #: qml/MoveLists.qml:50
 msgctxt ""
 "Message for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Do you want to run the list %1?"
-msgstr ""
+msgstr "Wag %1?"
 
 #: qml/MoveLists.qml:57
 msgctxt ""
 "Label for the button for editing a move list, on the page for viewing Move "
 "Lists"
 msgid "Edit Move List"
-msgstr ""
+msgstr "Edit Wags"
 
 #: qml/MoveLists.qml:65
 msgctxt ""
 "Label for the button for deleting a move list, on the page for viewing Move "
 "Lists"
 msgid "Delete this Move List"
-msgstr ""
+msgstr "Yeet dis Wag List"
 
 #: qml/MoveLists.qml:69
 msgctxt ""
 "Heading for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Remove the Move List"
-msgstr ""
+msgstr "Yeet Wag List"
 
 #: qml/MoveLists.qml:70
 msgctxt ""
 "Message for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Are you sure that you want to remove the Move List '%1'?"
-msgstr ""
+msgstr "UwU yeet Wag List '%1'?"
 
 #: qml/MoveLists.qml:87
 msgctxt "Description for the page for viewing Move Lists"
@@ -1884,7 +1884,7 @@ msgstr ""
 #: qml/SettingsPage.qml:29
 msgctxt "Title for the settings page"
 msgid "Settings"
-msgstr ""
+msgstr "Shiny knobs"
 
 #: qml/SettingsPage.qml:36
 msgctxt "Header for the instruction panel, on the settings page"
@@ -2191,7 +2191,7 @@ msgstr ""
 #: qml/TailMoves.qml:25
 msgctxt "Heading for the Moves page"
 msgid "Moves"
-msgstr ""
+msgstr "Wags"
 
 #: qml/TailMoves.qml:28
 msgctxt "Button for returning the tail to its home position, on the Moves page"
@@ -2305,7 +2305,7 @@ msgstr ""
 #: qml/WelcomePage.qml:140
 msgctxt "Label for the button for opening the Alarms page, on the welcome page"
 msgid "Alarm"
-msgstr ""
+msgstr "Awoo"
 
 #: qml/WelcomePage.qml:155
 msgctxt ""
