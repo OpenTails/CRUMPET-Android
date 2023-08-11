@@ -8,21 +8,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-08-11 17:10+0000\n"
+"Last-Translator: Andrew Shoben <studio@thetailcompany.com>\n"
+"Language-Team: English (Pirate) <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/en@pirate/>\n"
 "Language: en@pirate\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr ""
+msgstr "Tis no directory-creatin to be had, lad"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
@@ -30,6 +32,7 @@ msgctxt ""
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
 msgstr ""
+"There be no commands in this here file. Itll not be seen in a blue moon."
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -40,20 +43,23 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
+"My hearties, your command tis no good, parler needed at %1: %2\n"
+"Words that passed by before being marooned:\n"
+"%3"
 
 #: CommandPersistence.cpp:174
 msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Cant be plundering that file %1"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "Cant be plundering that file %1 for writing"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -65,6 +71,8 @@ msgid ""
 "Attempted to reconnect too many times to %1 (%2). To connect to it, please "
 "check that it is on, charged, and near enough."
 msgstr ""
+"Avast ye, we tried and failed, to connect to %1 (%2). Are ye three sheets to "
+"wind, sonny?"
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -74,7 +82,7 @@ msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr ""
+msgstr "Tis the plank for %1, though Ill give ye a second go"
 
 #: gearimplementations/GearDigitail.cpp:91
 msgctxt ""
@@ -85,6 +93,8 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Hang the jib, this be no DIGITAiL! If you think Im a biscuit eater, parler "
+"with Master Pirates at The Tail Company"
 
 #: gearimplementations/GearDigitail.cpp:258
 msgctxt "Warning message when the main service was not found on the device"
@@ -92,18 +102,20 @@ msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Some hornswaggle Ill bet, your DIGITAiL service is on the grog. If Im wrong, "
+"have at it again!"
 
 #: gearimplementations/GearDigitail.cpp:276
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
-msgstr ""
+msgstr "Mutiny! Your tail needs to be closer than the Jolly Roger"
 
 #: gearimplementations/GearDigitail.cpp:279
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr ""
+msgstr "Thar she blows! Connection closed."
 
 #: gearimplementations/GearDigitail.cpp:282
 msgctxt ""
@@ -113,6 +125,8 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Tis a tail that you seek? Youll need it to be closer than the Jolly Roger on "
+"the Mainstay"
 
 #: gearimplementations/GearDigitail.cpp:302
 msgctxt ""
@@ -121,7 +135,7 @@ msgctxt ""
 msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
-msgstr ""
+msgstr "Your tail wants no more of ye. Power it, you seadog!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
