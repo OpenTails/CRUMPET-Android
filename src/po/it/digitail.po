@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
-"PO-Revision-Date: 2023-08-11 17:10+0000\n"
+"PO-Revision-Date: 2023-08-12 17:19+0000\n"
 "Last-Translator: Ökami the Wolf <mastroreg@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
@@ -1028,37 +1028,42 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Rilevamento %1 disattivato dopo un'ora.\n"
+"Tutti gli attrezzi animatronic hanno bisogno di riposo dopo un lungo periodo "
+"di utilizzo.\n"
+"Leggi la nostra guida allo scodinzolio responsabile nelle nostre "
+"impostazioni per sapere come mantenere in salute la tua attrezzatura."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
 "A label which describes the hardware revision of the connected gear, when "
 "only one item is connected"
 msgid "The connected gear is version %1"
-msgstr ""
+msgstr "L'ingranaggio è collegato alla versione %1"
 
 #: qml/AboutPage.qml:38
 msgctxt ""
 "A label which describes the hardware revision of a piece of connected gear, "
 "when more than one item is connected"
 msgid "The gear named %1 is version %2"
-msgstr ""
+msgstr "L'ingranaggio denominato %1 e la versione %2"
 
 #: qml/AlarmList.qml:29
 msgctxt "Title of the page which lists the alarms the user has set"
 msgid "Alarms"
-msgstr ""
+msgstr "Allarme"
 
 #: qml/AlarmList.qml:33
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr ""
+msgstr "Aggiungi nuova allarme"
 
 #: qml/AlarmList.qml:45
 msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
-msgstr ""
+msgstr "Seleziona un altro nome"
 
 #: qml/AlarmList.qml:46
 msgctxt ""
@@ -1070,6 +1075,9 @@ msgid ""
 "\n"
 "Please select another name for the alarm."
 msgstr ""
+"Impossibile aggiungere la sveglia perché abbiamo già una sveglia con lo "
+"stesso nome.\n"
+"Seleziona un altro nome per la sveglia."
 
 #: qml/AlarmList.qml:50
 msgctxt ""
@@ -1127,6 +1135,8 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
+"Imposta una sveglia qui. Scegli una data e un'ora per la sveglia, quindi "
+"aggiungi una o più mosse che desideri eseguire quando raggiungi quell'ora."
 
 #: qml/AlarmList.qml:143
 msgctxt ""
@@ -1134,28 +1144,29 @@ msgctxt ""
 "alarm"
 msgid "Enter a name to use for your new alarm and click Create"
 msgstr ""
+"Immettere un nome da utilizzare per il nuovo allarme e fare clic su Crea"
 
 #: qml/AlarmList.qml:144
 msgctxt ""
 "Placeholder text for the text box in which the name of a new alarm must be "
 "written"
 msgid "Enter your alarm name here"
-msgstr ""
+msgstr "Inserisci qui il nome della tua sveglia"
 
 #: qml/AlarmList.qml:145
 msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
-msgstr ""
+msgstr "Creare"
 
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
-msgstr ""
+msgstr "Aggiungi Sposta in elenco"
 
 #: qml/BaseCommandListEditor.qml:51
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
-msgstr ""
+msgstr "Aggiungi pausa all'elenco"
 
 #: qml/BaseCommandListEditor.qml:168
 msgctxt ""
@@ -1185,7 +1196,7 @@ msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
-msgstr "<strong>%1</strong><br/><small>%2 secondi</small>"
+msgstr "<forte>%1</forte><br/>piccolo>%2 secondi</piccolo>"
 
 #: qml/BaseCommandListEditor.qml:224
 msgctxt "Description for the Command List Editor"
@@ -1197,7 +1208,7 @@ msgid ""
 msgstr ""
 "Questo è il tuo elenco di comandi. Può includere movimenti, bagliori e "
 "pause. Consiglio: per aggiungere un nuovo comando che hai già nella lista, "
-"clucca l'icona + sotto la tendina e scegli una delle opzioni del menu."
+"clicca l'icona + sotto la tendina e scegli una delle opzioni del menu."
 
 #: qml/BaseCommandListEditor.qml:275
 msgctxt ""
@@ -1298,7 +1309,7 @@ msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr "Diconnettere?"
+msgstr "Disconnettere?"
 
 #: qml/DisconnectOptions.qml:53
 msgctxt ""
@@ -1468,10 +1479,10 @@ msgid ""
 "not enable this gesture."
 msgstr ""
 "Stai tentando di effettuare più di un movimento allo stesso tempo. Questo a "
-"volte crea problemi, principalmente di confusione (per esempio, accendoneod "
+"volte crea problemi, principalmente di confusione (per esempio, accendendo "
 "sia la modalità Cammina che Scuoti, facendole riconoscere entrambe). Se sei "
 "sicuro che vuoi ciò clicca su OK, oppure clicca su Cancella per disabilitare "
-"questi movimementi."
+"questi movimenti."
 
 #: qml/GearGestures.qml:80
 msgctxt ""
@@ -1565,7 +1576,7 @@ msgstr "Avviso"
 #: qml/main.qml:119
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
 msgid "No Bluetooth Device"
-msgstr "Nessun Dispositivo Bluetooh"
+msgstr "Nessun Dispositivo Bluetooth"
 
 #: qml/main.qml:132
 msgctxt "Title for the popup for having enabled Developer Mode"
@@ -1575,7 +1586,7 @@ msgstr "Modalità Sviluppatore"
 #: qml/main.qml:132
 msgctxt "Message for the popup for having enabled Developer Mode"
 msgid "Developer mode is enabled"
-msgstr "Modalitò Sviluppatore disabilitata"
+msgstr "Modalità Sviluppatore disabilitata"
 
 #: qml/main.qml:134
 msgctxt "Title for the popup for having disabled Developer Mode"
@@ -1590,7 +1601,7 @@ msgstr "Modalità Sviluppatore è stata disabilitata"
 #: qml/main.qml:139
 msgctxt "Title for the popup for getting a timeout for Casual Mode"
 msgid "Casual Mode is Off"
-msgstr "Mofalità Casuale è Spenta"
+msgstr "Modalità Casuale è Spenta"
 
 #: qml/main.qml:139
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
