@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2023-07-20 14:30+0100\n"
 "PO-Revision-Date: 2023-08-11 17:10+0000\n"
-"Last-Translator: Proudence Baelish <Proudence@gmail.com>\n"
+"Last-Translator: Ökami the Wolf <mastroreg@gmail.com>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
 "Language: it\n"
@@ -912,7 +912,7 @@ msgid ""
 "power. Remember to charge your gear!"
 msgstr ""
 "MiTail Mini ha interrotto la connessione, perchè è stato spento o non ha "
-"abbastanza batteria. Ricordati di caricare la tua codina!"
+"abbastanza batteria. Ricordati di caricare la tua coda!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
@@ -922,57 +922,57 @@ msgstr "Doppio Tap"
 #: GestureDetectorModel.cpp:274
 msgctxt "The name of a sensor"
 msgid "Hover"
-msgstr ""
+msgstr "Librarsi"
 
 #: GestureDetectorModel.cpp:275
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr ""
+msgstr "Caduta libera"
 
 #: GestureDetectorModel.cpp:276
 msgctxt "The name of a sensor"
 msgid "Landed"
-msgstr ""
+msgstr "Atterrata"
 
 #: GestureDetectorModel.cpp:277
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
-msgstr ""
+msgstr "Gesto di copertura"
 
 #: GestureDetectorModel.cpp:278
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr ""
+msgstr "Gesto di scuotere"
 
 #: GestureDetectorModel.cpp:279
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr ""
+msgstr "Colpo di gesto"
 
 #: GestureDetectorModel.cpp:280
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr ""
+msgstr "Colpo di frusta"
 
 #: GestureDetectorModel.cpp:281
 msgctxt "The name of a sensor"
 msgid "Shake Left"
-msgstr ""
+msgstr "Scuoti a sinistra"
 
 #: GestureDetectorModel.cpp:282
 msgctxt "The name of a sensor"
 msgid "Shake Right"
-msgstr ""
+msgstr "Scuoti a destra"
 
 #: GestureDetectorModel.cpp:283
 msgctxt "The name of a sensor"
 msgid "Shake Up"
-msgstr ""
+msgstr "Scuoti in su"
 
 #: GestureDetectorModel.cpp:284
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr "Scuoti"
+msgstr "Scuoti in giù"
 
 #: GestureDetectorModel.cpp:285
 msgctxt "The name of a sensor"
@@ -1012,12 +1012,12 @@ msgstr "Scala rilevata"
 #: GestureDetectorModel.cpp:292
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr ""
+msgstr "Numero pari passo rilevato"
 
 #: GestureDetectorModel.cpp:293
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr ""
+msgstr "Rilevati passi numero dispari"
 
 #: GestureDetectorModel.cpp:305
 msgctxt ""
@@ -1086,7 +1086,7 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
-"Non è stato possibile trovare una sveglia con il nomw '%1'. Forse una "
+"Non è stato possibile trovare una sveglia con il nome '%1'. Forse una "
 "applicazione differente l'ha rimossa."
 
 #: qml/AlarmList.qml:81
@@ -1094,7 +1094,7 @@ msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
-msgstr "Eestisci i comandi della Sveglia"
+msgstr "Gestisci i comandi della Sveglia"
 
 #: qml/AlarmList.qml:90
 msgctxt ""
