@@ -303,7 +303,7 @@ void DeviceModel::addDevice(const QBluetoothDeviceInfo& deviceInfo)
         newDevice = new GearEars(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"EG2"}) {
         newDevice = new GearEars(deviceInfo, this);
-    } else if (deviceInfo.name() == QLatin1String{"FlutterWings"}) {
+    } else if (deviceInfo.name() == QLatin1String{"flutter"}) {
         newDevice = new GearFlutterWings(deviceInfo, this);
     } else if (deviceInfo.name() == QLatin1String{"MitailMini"}) {
         newDevice = new GearMitailMini(deviceInfo, this);
@@ -323,7 +323,7 @@ void DeviceModel::addDevice(GearBase* newDevice)
         QLatin1String{"EG2"},
         QLatin1String{"mitail"},
         QLatin1String{"MitailMini"},
-        QLatin1String{"FlutterWings"},
+        QLatin1String{"flutter"},
         QLatin1String{"(!)Tail1"},
         QLatin1String{"FAKE"}
     };

@@ -355,6 +355,7 @@ GearFlutterWings::GearFlutterWings(const QBluetoothDeviceInfo& info, DeviceModel
     setHasLights(true); // Just in case someone has an old firmware loaded
     setHasShutdown(true);
     setHasNoPhoneMode(true);
+    setName("FlutterWings");
     setNoPhoneModeGroups({
         i18nc("Name of the calm and relaxed group as used for no phone group selection", "Calm and Relaxed"),
         i18nc("Name of the fast and excited group as used for no phone group selection", "Fast and Excited"),
