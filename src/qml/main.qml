@@ -422,6 +422,7 @@ Kirigami.ApplicationWindow {
     Item {
         id: connectingToTail;
         anchors.fill: parent;
+        visible: opacity > 0
         opacity: 0;
         Behavior on opacity { PropertyAnimation { duration: 250; } }
         Rectangle {
