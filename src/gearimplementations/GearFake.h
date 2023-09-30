@@ -38,6 +38,7 @@ public:
     QString deviceID() const override;
 
     void sendMessage(const QString &message) override;
+    QStringList defaultCommandFiles() const override;
 private:
     class Private;
     Private* d;
