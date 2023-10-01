@@ -16,7 +16,7 @@
             "Duration": 16040,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Fast Wag"
+            "Name": "One"
         },
         {
             "Category": "excited",
@@ -24,7 +24,7 @@
             "Duration": 14840,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Short Wag"
+            "Name": "Two"
         },
         {
             "Category": "excited",
@@ -32,7 +32,7 @@
             "Duration": 14045,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Happy Wag"
+            "Name": "Three"
         },
         {
             "Category": "excited",
@@ -40,7 +40,7 @@
             "Duration": 5270,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Stand up!"
+            "Name": "Four"
         }
     ]
 }

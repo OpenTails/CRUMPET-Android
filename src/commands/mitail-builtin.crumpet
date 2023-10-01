@@ -40,7 +40,7 @@
             "Duration": 16040,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Fast Wag"
+            "Name": "One"
         },
         {
             "Category": "excited",
@@ -48,7 +48,7 @@
             "Duration": 14840,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Short Wag"
+            "Name": "Two"
         },
         {
             "Category": "excited",
@@ -56,7 +56,7 @@
             "Duration": 14045,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Happy Wag"
+            "Name": "Three"
         },
         {
             "Category": "excited",
@@ -64,7 +64,7 @@
             "Duration": 5270,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Stand up!"
+            "Name": "Four"
         },
         {
             "Category": "tense",
@@ -72,7 +72,7 @@
             "Duration": 8045,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Tremble 1"
+            "Name": "One"
         },
         {
             "Category": "tense",
@@ -80,7 +80,7 @@
             "Duration": 11645,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Tremble 2"
+            "Name": "Two"
         },
         {
             "Category": "tense",
@@ -88,7 +88,7 @@
             "Duration": 11640,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Tremble Erect"
+            "Name": "Three"
         },
         {
             "Category": "tense",
@@ -96,7 +96,7 @@
             "Duration": 12040,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "High Wag"
+            "Name": "Four"
         },
         {
             "Category": "lights",
