@@ -422,10 +422,12 @@ void GearFlutterWings::connectDevice()
                             setDeviceProgress(-1);
                             setProgressDescription("");
                         });
-                        setDeviceProgress(0);
-                        setProgressDescription(i18nc("Message asking people to tell us when a firmware update failed, and that this is the error they got", "<p><b>Update Failed!</b></p><p>We have tried to update your firmware too rapidly for your device, and have had to abort. If you are getting this error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please contact us on info@thetailcompany.com and tell us that you got this error.</p>"));
-                        d->firmwareProgress = -1;
-                        d->firmwareChunk.clear();
+                        if (d->firmwareProgress < d->firmware.size()) {
+                            setDeviceProgress(0);
+                            setProgressDescription(i18nc("Message asking people to tell us when a firmware update failed, and that this is the error they got", "<p><b>Update Failed!</b></p><p>We have tried to update your firmware too rapidly for your device, and have had to abort. If you are getting this error:</p><p>Firstly, don't worry, your gear is safe.</p><p>Secondly, please contact us on info@thetailcompany.com and tell us that you got this error.</p>"));
+                            d->firmwareProgress = -1;
+                            d->firmwareChunk.clear();
+                        }
                     }
                 });
                 d->deviceService->discoverDetails();
