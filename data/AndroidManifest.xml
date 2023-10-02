@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="33" package="org.thetailcompany.digitail" android:installLocation="auto" android:versionCode="61">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="34" package="org.thetailcompany.digitail" android:installLocation="auto" android:versionCode="62">
         <application android:name="org.qtproject.qt5.android.bindings.QtApplication"
                      android:label="Crumpet"
                      android:icon="@mipmap/ic_launcher">

@@ -1,3 +1,9 @@
+34:
+- All the moves now have number-names (ears don't wag, so it looked kind of weird)
+- Fix an interaction-blocking issue
+- Fix a firmware update warning issue
+- Updated translations (if you find problems and want to help, get in touch!)
+
 33:
 - A permissions fix for old Android versions
 - Translations are now updated automatically
