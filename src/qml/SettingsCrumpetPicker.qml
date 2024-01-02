@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.SwipeListItem {
             id: listItem;
             property var commandFile: Digitail.AppSettings.commandFiles[modelData];
-            property bool isEnabled: deviceFilterProxy.enabledFiles.includes(modelData);
+            property bool isEnabled: deviceFilterProxy.enabledFiles ? deviceFilterProxy.enabledFiles.includes(modelData) : false;
             Layout.fillWidth: true;
             RowLayout {
                 Layout.fillWidth: true;
@@ -77,6 +77,13 @@ Kirigami.ScrollablePage {
                     visible: commandFile.isEditable;
                     text: i18nc("Button for deleting a Command Set, on the page for configuring Command Sets", "Delete");
                     icon.name: "list-remove";
+                    onTriggered: {
+                        showMessageBox(i18nc("Header for the confirmation prompt for removing a command set, on the Gear Command Sets page", "Remove Command Set?"),
+                            i18nc("Message for the confirmation prompt for removing a command set, on the Gear Command Sets page", "Are you sure that you want to remove this command set? Note this cannot be undone."),
+                            function () {
+                                Digitail.AppSettings.removeCommandFile(modelData);
+                            });
+                    }
                 },
                 Kirigami.Action {
                     text: i18nc("Button for duplicating a Command Set, on the page for configuring Command Sets", "Duplicate");

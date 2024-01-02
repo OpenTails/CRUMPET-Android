@@ -571,6 +571,10 @@ void AppSettings::removeCommandFile(const QString& filename)
     QVariantMap fileMap = d->commandFiles[filename].toMap();
     if (fileMap[QLatin1String{"isEditable"}].toBool()) {
         d->commandFiles.remove(filename);
+        QFile theFile{filename};
+        if (theFile.exists()) {
+            theFile.remove();
+        }
         emit commandFilesChanged(d->commandFiles);
     }
 }
