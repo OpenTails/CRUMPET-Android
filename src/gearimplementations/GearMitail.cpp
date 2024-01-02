@@ -49,7 +49,7 @@ public:
 
     QHash<QString, QString> knownFirmwareMessages;
     QString version{"(unknown)"};
-    int batteryLevel{0};
+    int batteryLevel{-1};
 
     QString currentCall;
     QString currentSubCall;
@@ -607,7 +607,7 @@ void GearMitail::disconnectDevice()
 //     emit commandModelChanged();
 //     commandQueue->clear(); // FIXME Clear commands for this device only
 //     emit commandQueueChanged();
-    d->batteryLevel = 0;
+    d->batteryLevel = -1;
     emit batteryLevelChanged(0);
     emit isConnectedChanged(isConnected());
 }

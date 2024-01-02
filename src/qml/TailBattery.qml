@@ -39,7 +39,7 @@ ColumnLayout {
             RowLayout {
                 id: batteryDelegate
                 Layout.fillWidth: true
-                property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : 0
+                property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : -1
                 property int batteryLevelPercent: model.batteryLevelPercent !== undefined ? model.batteryLevelPercent : 0
                 property int chargingState: model.chargingState !== undefined ? model.chargingState : 0
                 Label {
@@ -63,6 +63,7 @@ ColumnLayout {
                     property string chargingString: batteryDelegate.chargingState > 0 ? "-charging.svg" : ".svg";
                     source: {
                         switch(batteryDelegate.batteryLevel) {
+                            case -1:
                             case 0:
                                 return "qrc:/icons/breeze-internal/status/22/battery-000" + chargingString
                                 break;
@@ -82,12 +83,21 @@ ColumnLayout {
                                 break;
                         }
                     }
+                    Image {
+                        anchors {
+                            fill: parent
+                            margins: Kirigami.Units.largeSpacing
+                        }
+                        visible: batteryDelegate.batteryLevel == -1
+                        source: "qrc:/icons/breeze-internal/actions/16/paint-unknown.svg"
+                    }
                 }
                 Label {
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
                     Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
                     Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
                     verticalAlignment: Text.AlignVCenter
+                    opacity: batteryDelegate.batteryLevel > -1
                     text: batteryDelegate.batteryLevelPercent + "%";
                 }
             }

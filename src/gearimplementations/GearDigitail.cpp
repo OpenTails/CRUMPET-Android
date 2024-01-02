@@ -37,7 +37,7 @@ public:
 
     QString version{"(unknown)"};
     QString currentCall;
-    int batteryLevel{0};
+    int batteryLevel{-1};
 
     QLowEnergyController* btControl{nullptr};
     QLowEnergyService* tailService{nullptr};
@@ -319,7 +319,7 @@ void GearDigitail::disconnectDevice()
 //     emit commandModelChanged();
 //     commandQueue->clear(); // FIXME Clear commands for this device only
 //     emit commandQueueChanged();
-    d->batteryLevel = 0;
+    d->batteryLevel = -1;
     emit batteryLevelChanged(0);
     emit isConnectedChanged(isConnected());
 }

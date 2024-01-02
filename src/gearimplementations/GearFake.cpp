@@ -26,7 +26,7 @@ class GearFake::Private {
 public:
     Private() {}
     bool isConnected{false};
-    int batteryLevel{0};
+    int batteryLevel{-1};
     bool isCharging{false};
     QString currentCall;
     QString deviceID{"FA:KE:TA:IL"};
@@ -58,7 +58,7 @@ GearFake::GearFake(const QBluetoothDeviceInfo& info, DeviceModel * parent)
                 d->isCharging = true;
                 setChargingState(1);
             }
-            d->batteryLevel = 0;
+            d->batteryLevel = -1;
         } else {
             d->batteryLevel++;
         }
@@ -111,7 +111,7 @@ void GearFake::connectDevice()
 void GearFake::disconnectDevice()
 {
     d->batteryTimer.stop();
-    d->batteryLevel = 0;
+    d->batteryLevel = -1;
     emit batteryLevelChanged(d->batteryLevel);
     commandModel->clear();
     commandShorthands.clear();
