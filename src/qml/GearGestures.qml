@@ -103,7 +103,7 @@ Kirigami.ScrollablePage {
                         icon.name: "edit-clear"
                         visible: model.command !== "";
                         onClicked: {
-                            GestureController.setGestureDetails(model.index, "", "");
+                            Digitail.GestureController.setGestureDetails(model.index, "", "");
                         }
                     }
                     ToolButton {
