@@ -54,7 +54,7 @@ public:
     QVariantMap command;
 
 //     QBluetoothLocalDevice* localDevice{nullptr};
-    int localBTDeviceState{1};
+    int localBTDeviceState{0};
 };
 
 BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* parent)
@@ -134,11 +134,11 @@ void BTConnectionManager::setLocalBTDeviceState()
 {   //0-off, 1-on, 2-no device
     qDebug() << Q_FUNC_INFO;
     //TODO: use enum?
-    int newState = 1;
+    int newState = 0;
 //     if (!d->localDevice->isValid()) {
-//         newState = 2;
+//         newState = -2;
 //     } else if (d->localDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff) {
-//         newState = 0;
+//         newState = -1;
 //     }
 
     bool changed = (newState != d->localBTDeviceState);
