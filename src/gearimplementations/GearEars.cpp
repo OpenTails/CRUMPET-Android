@@ -270,7 +270,22 @@ public:
                 }
             }
             else if (stateResult[0] == QLatin1String{"TILT"}) {
-                qDebug() << q->name() << q->deviceID() << "Not yet handling tilt responses - but, we have been tilted like so:" << stateResult[1];
+                static const QString tiltLeft{"LEFT"};
+                static const QString rightTilt{"RIGHT"};
+                static const QString forwardTilt{"FORWARD"};
+                static const QString backwardTilt{"BACKWARD"};
+                static const QString neutralTilt{"NEUTRAL"};
+                if (stateResult[1] == tiltLeft) {
+                    Q_EMIT q->gearSensorEvent(GearBase::TiltLeftEvent);
+                } else if (stateResult[1] == rightTilt) {
+                    Q_EMIT q->gearSensorEvent(GearBase::TiltRightEvent);
+                } else if (stateResult[1] == forwardTilt) {
+                    Q_EMIT q->gearSensorEvent(GearBase::TiltForwardEvent);
+                } else if (stateResult[1] == backwardTilt) {
+                    Q_EMIT q->gearSensorEvent(GearBase::TiltBackwardEvent);
+                } else if (stateResult[1] == neutralTilt) {
+                    Q_EMIT q->gearSensorEvent(GearBase::TiltNeutralEvent);
+                }
             }
             else if (currentCall == QLatin1String{"LISTEN IOS"} && theValue == QLatin1String{"DSSP END"}) {
                 // This is a hack for some firmware versions, which do not report
