@@ -70,6 +70,12 @@ Kirigami.ScrollablePage {
 
         header: InfoCard {
             text: i18nc("Infocard for selecting the pauses in between moves, on the page for selecting a move in Casual Mode", "This is where you set the pauses in between moves, as well as the families of moves that can be called upon.");
+            footer: Kirigami.BasicListItem {
+                text: i18nc("Label for the button for enabling the Casual Mode, on the welcome page", "Enable Casual Mode");
+                separatorVisible: false;
+                icon: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
+            }
         }
         footer: Kirigami.AbstractCard {
             contentItem: IdlePauseRangePicker {

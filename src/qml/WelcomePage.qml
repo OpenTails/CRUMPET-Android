@@ -197,41 +197,48 @@ Kirigami.ScrollablePage {
                         width: Kirigami.Units.iconSizes.small;
                         height: width;
                         source: ":/images/casualmode.svg"
+                        TapHandler {
+                            onTapped: {
+                                switchToPage(idleModePage);
+                            }
+                        }
                     }
                     Kirigami.Heading {
                         text: i18nc("Label for the button for opening the Casual Mode page, on the welcome page", "Casual Mode");
                         Layout.fillWidth: true;
                         wrapMode: Text.Wrap;
+                        TapHandler {
+                            onTapped: {
+                                switchToPage(idleModePage);
+                            }
+                        }
                     }
-                    CheckBox {
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                        Layout.margins: Kirigami.Units.smallSpacing;
-                        height: Kirigami.Units.iconSizes.small;
-                        width: height;
-                        checked: Digitail.AppSettings !== null ? Digitail.AppSettings.idleMode : false;
-                        onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
+                    ToolButton {
+                        onClicked: {
+                            switchToPage(idleModePage);
+                        }
+                        icon.name: "go-next";
                     }
             }
             Component {
                 id: casualModeSettingsListItem
                 Kirigami.BasicListItem {
-                        text: i18nc("Label for the button for configuring the Casual Mode, on the welcome page", "Casual Mode Settings");
-                        Layout.fillWidth: true;
-                        separatorVisible: false;
-                        icon: "settings-configure";
-                        onClicked: switchToPage(idleModePage);
-                    }
+                    text: i18nc("Label for the button for enabling the Casual Mode, on the welcome page", "Enable Casual Mode");
+                    Layout.fillWidth: true;
+                    separatorVisible: false;
+                    icon: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
+                }
             }
             Component {
                 id: idlePauseRangePicker;
-
                 ColumnLayout {
                     Layout.fillWidth: true;
-                    IdlePauseRangePicker {
-                    }
                     Loader {
                         Layout.fillWidth: true;
                         sourceComponent: casualModeSettingsListItem
+                    }
+                    IdlePauseRangePicker {
                     }
                 }
             }
