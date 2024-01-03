@@ -332,6 +332,15 @@ void BTConnectionManager::setDeviceCommandsFileEnabled(const QString& deviceID, 
     }
 }
 
+void BTConnectionManager::setDeviceGestureEventCommand(const QString& deviceID, const int& gestureEvent, const QStringList& targetDeviceIDs, const QString& command)
+{
+    qDebug() << Q_FUNC_INFO << deviceID << gestureEvent << "aka" << static_cast<GearBase::GearSensorEvent>(gestureEvent) << targetDeviceIDs << command;
+    GearBase *device = d->deviceModel->getDevice(deviceID);
+    if (device) {
+        device->setGearSensorCommand(static_cast<GearBase::GearSensorEvent>(gestureEvent), targetDeviceIDs, command);
+    }
+}
+
 void BTConnectionManager::callDeviceFunction(const QString& deviceID, const QString& functionName)
 {
     GearBase* device = d->deviceModel->getDevice(deviceID);

@@ -103,6 +103,15 @@ public Q_SLOTS:
     void setDeviceCommandsFileEnabled(const QString& deviceID, const QString& filename, bool enabled) override;
 
     /**
+     * Set the command to send when a given gesture event is detected on a piece of gear
+     * @param deviceID The ID of the device the event should be registered on
+     * @param gestureEvent The ID of the event in question (values are GearBase::GearSensorEvent entries)
+     * @param targetDeviceIDs A list of device IDs for gear to send the command to (empty means all connected gear)
+     * @param command The command to send to the selected devices (send an empty string to not send any commands)
+     */
+    void setDeviceGestureEventCommand(const QString& deviceID, const int &gestureEvent, const QStringList &targetDeviceIDs, const QString &command) override;
+
+    /**
      * Use this to call a function with the given name on the device matching the given device ID
      * @param deviceID The ID of the device you wish to call a function on
      * @param functionName The string name of the function you wish to call (must be known by the metaobject system)

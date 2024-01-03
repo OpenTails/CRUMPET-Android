@@ -40,6 +40,7 @@ class BTConnectionManagerProxy {
     SLOT(QVariantMap getCommand(const QString& command))
 
     SLOT(void setDeviceCommandsFileEnabled(const QString& deviceID, const QString& filename, bool enabled))
+    SLOT(void setDeviceGestureEventCommand(const QString& deviceID, const int &gestureEvent, const QStringList &targetDeviceIDs, const QString &command))
 
     SIGNAL(messageReceived(const QString &sender, const QString &message))
     SIGNAL(message(const QString& message))
