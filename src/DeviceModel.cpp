@@ -25,6 +25,8 @@
 #include "gearimplementations/GearMitail.h"
 #include "gearimplementations/GearMitailMini.h"
 
+#include <KLocalizedString>
+
 class DeviceModel::Private
 {
 public:
@@ -135,6 +137,10 @@ QHash< int, QByteArray > DeviceModel::roleNames() const
         {CanBalanceListening, "canBalanceListening"},
         {TiltEnabled, "tiltEnabled"},
         {KnownFirmwareMessage, "knownFirmwareMessage"},
+        {GestureEventValues, "gestureEventValues"},
+        {GestureEventTitles, "gestureEventTitles"},
+        {GestureEventCommands, "gestureEventCommands"},
+        {GestureEventDevices, "gestureEventDevices"},
     };
     return roles;
 }
@@ -267,6 +273,62 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
             case KnownFirmwareMessage:
                 value = device->knownFirmwareMessage();
                 break;
+            case GestureEventValues: {
+                static QVariantList gestureValues;
+                if (gestureValues.length() == 0) {
+                    static const QMetaEnum gearSensorEventEnum = GearBase::staticMetaObject.enumerator(GearBase::staticMetaObject.indexOfEnumerator("GearSensorEvent"));
+                    for (int enumKey = 0; enumKey < gearSensorEventEnum.keyCount(); ++enumKey) {
+                        GearBase::GearSensorEvent eventKey = static_cast<GearBase::GearSensorEvent>(gearSensorEventEnum.value(enumKey));
+                        gestureValues << eventKey;
+                    }
+                }
+                value.setValue(gestureValues);
+                break; }
+            case GestureEventTitles: {
+                static QStringList gestureTitles;
+                if (gestureTitles.length() == 0) {
+                    static const QMetaEnum gearSensorEventEnum = GearBase::staticMetaObject.enumerator(GearBase::staticMetaObject.indexOfEnumerator("GearSensorEvent"));
+                    static const QHash<GearBase::GearSensorEvent, QString> gearSensorEventTranslations{
+                        {GearBase::GearSensorEvent::TiltLeftEvent, i18nc("Name for an event where the gear has been detected as having been tilted to the left", "Tilt Left")},
+                        {GearBase::GearSensorEvent::TiltRightEvent, i18nc("Name for an event where the gear has been detected as having been tilted to the right", "Tilt Right")},
+                        {GearBase::GearSensorEvent::TiltForwardEvent, i18nc("Name for an event where the gear has been detected as having been tilted forward", "Tilt Forward")},
+                        {GearBase::GearSensorEvent::TiltBackwardEvent, i18nc("Name for an event where the gear has been detected as having been tilted backward", "Tilt Backward")},
+                        {GearBase::GearSensorEvent::TiltNeutralEvent, i18nc("Name for an event where the gear has been returned to an upright position from having been tilted", "Return to Upright")},
+                        {GearBase::GearSensorEvent::SoundNeutralEvent, i18nc("Name for an event where the sound levels have been detected as returning to ambient after detecting a sound on one or the other side", "Low Ambient Sound")},
+                        {GearBase::GearSensorEvent::SoundLeftQuietEvent, i18nc("Name for an event where a small, but detectable amount of sound has been detected on the left hand side of the gear", "Quiet Sound on the Left")},
+                        {GearBase::GearSensorEvent::SoundLeftLoudEvent, i18nc("Name for an event where a large amount of sound has been detected on the left hand side of the gear", "Loud Sound on the Left")},
+                        {GearBase::GearSensorEvent::SoundRightQuietEvent, i18nc("Name for an event where a small, but detectable amount of sound has been detected on the right hand side of the gear", "Quiet Sound on the Right")},
+                        {GearBase::GearSensorEvent::SoundRightLoudEvent, i18nc("Name for an event where a large amount of sound has been detected on the right hand side of the gear", "Loud Sound on the Right")},
+                    };
+                    for (int enumKey = 0; enumKey < gearSensorEventEnum.keyCount(); ++enumKey) {
+                        GearBase::GearSensorEvent eventKey = static_cast<GearBase::GearSensorEvent>(gearSensorEventEnum.value(enumKey));
+                        if (gearSensorEventTranslations.contains(eventKey)) {
+                            gestureTitles << gearSensorEventTranslations[eventKey];
+                        } else {
+                            gestureTitles << gearSensorEventEnum.key(enumKey);
+                        }
+                    }
+                }
+                value = gestureTitles;
+                break; }
+            case GestureEventCommands: {
+                static const QMetaEnum gearSensorEventEnum = GearBase::staticMetaObject.enumerator(GearBase::staticMetaObject.indexOfEnumerator("GearSensorEvent"));
+                QStringList devices;
+                for (int enumKey = 0; enumKey < gearSensorEventEnum.keyCount(); ++enumKey) {
+                    GearBase::GearSensorEvent eventKey = static_cast<GearBase::GearSensorEvent>(gearSensorEventEnum.value(enumKey));
+                    devices << device->gearSensorCommand(eventKey);
+                }
+                value = devices;
+                break; }
+            case GestureEventDevices: {
+                static const QMetaEnum gearSensorEventEnum = GearBase::staticMetaObject.enumerator(GearBase::staticMetaObject.indexOfEnumerator("GearSensorEvent"));
+                QStringList devices;
+                for (int enumKey = 0; enumKey < gearSensorEventEnum.keyCount(); ++enumKey) {
+                    GearBase::GearSensorEvent eventKey = static_cast<GearBase::GearSensorEvent>(gearSensorEventEnum.value(enumKey));
+                    devices << device->gearSensorTargetDevices(eventKey);
+                }
+                value = devices;
+                break; }
             default:
                 break;
         }
@@ -428,6 +490,12 @@ void DeviceModel::addDevice(GearBase* newDevice)
         });
         connect(newDevice, &GearBase::knownFirmwareMessageChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, KnownFirmwareMessage);
+        });
+        connect(newDevice, &GearBase::gearSensorCommandDetailsChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, GestureEventValues);
+            d->notifyDeviceDataChanged(newDevice, GestureEventTitles);
+            d->notifyDeviceDataChanged(newDevice, GestureEventCommands);
+            d->notifyDeviceDataChanged(newDevice, GestureEventDevices);
         });
         connect(newDevice, &QObject::destroyed, this, [this, newDevice](){
             int index = d->devices.indexOf(newDevice);

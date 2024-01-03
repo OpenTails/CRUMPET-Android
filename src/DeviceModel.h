@@ -68,6 +68,10 @@ public:
         CanBalanceListening,     // 283 - boolean value for whether the device is able to be re-balanced
         TiltEnabled,             // 284 - boolean value for whether the device currently has tilt mode enabled
         KnownFirmwareMessage,    // 285 - a string which, if not empty, contains a description of the current firmware version, and why the device should be updated
+        GestureEventValues,      // 286 - a list of integers corresponding to GearBase::GearGestureEvent values
+        GestureEventTitles,      // 287 - a list of strings with human-readable names for GearBase::GearGestureEvent values
+        GestureEventCommands,    // 288 - a string with the command set for the GearBase::GearGestureEvent with the equivalent index in GestureEventIndices
+        GestureEventDevices,     // 289 - a list of strings with the target devices set for the GearBase::GearGestureEvent with the equivalent index in GestureEventIndices
     };
 
     AppSettings* appSettings() const;
