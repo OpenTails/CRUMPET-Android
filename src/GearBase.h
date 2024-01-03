@@ -142,6 +142,8 @@ public:
     Q_ENUM(GearSensorEvent)
     Q_SIGNAL void gearSensorEvent(const GearSensorEvent &event);
     void setGearSensorCommand(const GearSensorEvent &event, const QStringList& targetDeviceIDs, const QString &command);
+    QString gearSensorCommand(const GearSensorEvent &event) const;
+    QStringList gearSensorTargetDevices(const GearSensorEvent &event);
     Q_SIGNAL void gearSensorCommandDetailsChanged();
 
     bool hasLights() const;

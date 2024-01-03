@@ -131,6 +131,7 @@ void GearBase::Private::save()
     settings.beginGroup("Gear");
     QHashIterator<GearSensorEvent, GearSensorEventDetails> detailsIterator{gearSensorEvents};
     while(detailsIterator.hasNext()) {
+        detailsIterator.next();
         const GearSensorEventDetails &details = detailsIterator.value();
         const QString commandKey = QString("%1/%2/command").arg(q->deviceID()).arg(detailsIterator.key());
         const QString devicesKey = QString("%1/%2/devices").arg(q->deviceID()).arg(detailsIterator.key());
@@ -296,8 +297,26 @@ void GearBase::setProgressDescription(const QString& progressDescription)
 
 void GearBase::setGearSensorCommand(const GearSensorEvent& event, const QStringList& targetDeviceIDs, const QString& command)
 {
-    d->gearSensorEvents[event] = GearSensorEventDetails{targetDeviceIDs, command};
+    d->gearSensorEvents[event].command = command;
+    d->gearSensorEvents[event].targetDeviceIDs = targetDeviceIDs;
+    Q_EMIT gearSensorCommandDetailsChanged();
     d->save();
+}
+
+QString GearBase::gearSensorCommand(const GearSensorEvent& event) const
+{
+    if (d->gearSensorEvents.contains(event)) {
+        return d->gearSensorEvents[event].command;
+    }
+    return QString{};
+}
+
+QStringList GearBase::gearSensorTargetDevices(const GearSensorEvent& event)
+{
+    if (d->gearSensorEvents.contains(event)) {
+        return d->gearSensorEvents[event].targetDeviceIDs;
+    }
+    return QStringList{};
 }
 
 bool GearBase::hasLights() const
