@@ -126,6 +126,24 @@ public:
     Q_SIGNAL void progressDescriptionChanged();
     void setProgressDescription(const QString &progressDescription);
 
+    enum GearSensorEvent {
+        UnknownEvent = 0,
+        TiltLeftEvent = 10,
+        TiltRightEvent = 11,
+        TiltForwardEvent = 12,
+        TiltBackwardEvent = 13,
+        TiltNeutralEvent = 14,
+        SoundNeutralEvent = 20,
+        SoundLeftQuietEvent = 21,
+        SoundLeftLoudEvent = 22,
+        SoundRightQuietEvent = 23,
+        SoundRightLoudEvent = 24,
+    };
+    Q_ENUM(GearSensorEvent)
+    Q_SIGNAL void gearSensorEvent(GearSensorEvent event);
+    void setGearSensorCommand(const GearSensorEvent &event, const QStringList& targetDeviceIDs, const QString &command);
+    Q_SIGNAL void gearSensorCommandDetailsChanged();
+
     bool hasLights() const;
     void setHasLights(bool hasLights);
     Q_SIGNAL void hasLightsChanged();

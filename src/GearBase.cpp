@@ -24,11 +24,27 @@
 #include "AppSettings.h"
 #include "CommandPersistence.h"
 
+struct GearSensorEventDetails {
+public:
+    GearSensorEventDetails() {}
+    GearSensorEventDetails(const QStringList &targetDeviceIDs, const QString &command)
+        : targetDeviceIDs(targetDeviceIDs)
+        , command(command)
+    {}
+    QStringList targetDeviceIDs;
+    QString command;
+};
+
 class GearBase::Private {
 public:
-    Private() {}
+    Private(GearBase *q)
+        : q(q)
+    {}
     ~Private() {}
+    void load();
+    void save();
 
+    GearBase *q{nullptr};
     int batteryLevelPercent{100};
     bool supportsOTA{false};
     bool checked{true};
@@ -43,12 +59,13 @@ public:
     QString progressDescription;
     QStringList enabledCommandsFiles;
     DeviceModel * parentModel{nullptr};
+    QHash<GearBase::GearSensorEvent, GearSensorEventDetails> gearSensorEvents;
 };
 
 GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     : QObject(parent)
     , deviceInfo(info)
-    , d(new Private)
+    , d(new Private(this))
 {
     d->name = info.name();
     // Set the digitail name to something more friendly than (!)Tail1
@@ -69,20 +86,63 @@ GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     connect(timer, &QTimer::timeout, this, [this](){ Q_EMIT activeCommandTitlesChanged(activeCommandTitles()); });
     connect(commandModel, &QAbstractItemModel::dataChanged, this, [timer](const QModelIndex& /*topLeft*/, const QModelIndex& /*bottomRight*/, const QVector< int >& /*roles*/){ timer->start(); });
 
-    QSettings settings;
-    d->enabledCommandsFiles = settings.value(QString{"enabledCommandFiles-%1"}.arg(info.address().toString())).toStringList();
-    connect(this, &GearBase::enabledCommandsFilesChanged, this, [this](){
-        // save command files back to settings
-        QSettings settings;
-        settings.setValue(QString{"enabledCommandFiles-%1"}.arg(deviceInfo.address().toString()), d->enabledCommandsFiles);
-        settings.sync();
-    });
-    emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
+    d->load();
+    connect(this, &GearBase::enabledCommandsFilesChanged, this, [this](){ d->save(); });
 }
 
 GearBase::~GearBase()
 {
     delete d;
+}
+
+void GearBase::Private::load()
+{
+    QSettings settings;
+    const QString commandFilesKey = QString("%1/enabledCommandFiles");
+    QStringList oldList = settings.value(QString{"enabledCommandFiles-%1"}.arg(q->deviceID())).toStringList();
+    if (oldList.isEmpty() == false) {
+        settings.remove(QString{"enabledCommandFiles-%1"}.arg(q->deviceID()));
+        settings.beginGroup("Gear");
+        settings.setValue(commandFilesKey, oldList);
+        settings.endGroup();
+        settings.sync();
+    }
+    settings.beginGroup("Gear");
+    enabledCommandsFiles = settings.value(commandFilesKey).toStringList();
+    Q_EMIT q->enabledCommandsFilesChanged(enabledCommandsFiles);
+    gearSensorEvents.clear();
+    QMetaEnum gearSensorEventEnum = GearBase::staticMetaObject.enumerator(GearBase::staticMetaObject.indexOfEnumerator("GearSensorEvent"));
+    for (int enumKey = 0; enumKey < gearSensorEventEnum.keyCount(); ++enumKey) {
+        GearSensorEvent eventKey = static_cast<GearSensorEvent>(gearSensorEventEnum.value(enumKey));
+        const QString detailsCommand = settings.value(QString("%1/%2/command").arg(q->deviceID()).arg(eventKey)).toString();
+        const QStringList detailsDevices = settings.value(QString("%1/%2/devices").arg(q->deviceID()).arg(eventKey)).toStringList();
+        gearSensorEvents[eventKey] = GearSensorEventDetails{detailsDevices, detailsCommand};
+    }
+    Q_EMIT q->gearSensorCommandDetailsChanged();
+    settings.endGroup();
+}
+
+void GearBase::Private::save()
+{
+    QSettings settings;
+    settings.setValue(QString{"enabledCommandFiles-%1"}.arg(q->deviceID()), enabledCommandsFiles);
+    settings.beginGroup("Gear");
+    QHashIterator<GearSensorEvent, GearSensorEventDetails> detailsIterator{gearSensorEvents};
+    while(detailsIterator.hasNext()) {
+        const GearSensorEventDetails &details = detailsIterator.value();
+        const QString commandKey = QString("%1/%2/command").arg(q->deviceID()).arg(detailsIterator.key());
+        const QString devicesKey = QString("%1/%2/devices").arg(q->deviceID()).arg(detailsIterator.key());
+        if (details.command == "") {
+            settings.remove(commandKey);
+            settings.remove(devicesKey);
+        } else {
+            settings.setValue(commandKey, details.command);
+            settings.setValue(devicesKey, details.targetDeviceIDs);
+        }
+    }
+    settings.endGroup();
+    settings.sync();
+
 }
 
 bool GearBase::supportsOTA()
@@ -222,6 +282,12 @@ void GearBase::setProgressDescription(const QString& progressDescription)
         d->progressDescription = progressDescription;
         Q_EMIT progressDescriptionChanged();
     }
+}
+
+void GearBase::setGearSensorCommand(const GearSensorEvent& event, const QStringList& targetDeviceIDs, const QString& command)
+{
+    d->gearSensorEvents[event] = GearSensorEventDetails{targetDeviceIDs, command};
+    d->save();
 }
 
 bool GearBase::hasLights() const
