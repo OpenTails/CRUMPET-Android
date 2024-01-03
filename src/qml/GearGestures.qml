@@ -25,10 +25,10 @@ import org.thetailcompany.digitail 1.0 as Digitail
 Kirigami.ScrollablePage {
     id: component;
     objectName: "gearGestures";
-    title: i18nc("Title for the page for selecting a pose for the Gear", "Gear Gestures");
+    title: i18nc("Title for the page for selecting what should happen when the controlling device/phone detects a gesture", "Gear Gestures");
     actions {
         main: Kirigami.Action {
-            text: i18nc("Button for returning Gear to the home position, on the page for selecting a pose for the Gear", "Home Position");
+            text: i18nc("Button for returning Gear to the home position, on the page for selecting what should happen when the controlling device/phone detects a gesture", "Home Position");
             icon.name: "go-home";
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("TAILHM", []);
@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
     ColumnLayout {
         width: component.width - Kirigami.Units.largeSpacing * 4
         InfoCard {
-            text: i18nc("Info card for the page for selecting a pose for the Gear", "Turn on one of the sensors below to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up, or start wagging when it detects that you have taken a step.");
+            text: i18nc("Info card for the page for selecting what should happen when the controlling device/phone detects a gesture", "Turn on one of the sensors below to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up, or start wagging when it detects that you have taken a step.");
         }
         Repeater {
             model: Digitail.GestureDetectorModel;
@@ -67,8 +67,8 @@ Kirigami.ScrollablePage {
                         label: model.sensorName === undefined ? "" : model.sensorName;
                         onClicked: {
                             if(!model.sensorEnabled && enabledGestures.count > 0) {
-                                applicationWindow().showMessageBox(i18nc("Title for the warning for having enabled multiple gestures at the same time, on the page for selecting a pose for the Gear","Multiple Gestures"),
-                                    i18nc("Description for the warning for having enabled multiple gestures at the same time, on the page for selecting a pose for the Gear", "You are attempting to turn on more than one gesture at the same time. This will occasionally cause problems, primarily by being confusing to manage (for example, turning on both Walking and Shake is likely to cause both to be detected). If you are sure you want to do this, tap OK, or tap Cancel to not enable this gesture."),
+                                applicationWindow().showMessageBox(i18nc("Title for the warning for having enabled multiple gestures at the same time, on the page for selecting what should happen when the controlling device/phone detects a gesture","Multiple Gestures"),
+                                    i18nc("Description for the warning for having enabled multiple gestures at the same time, on the page for selecting what should happen when the controlling device/phone detects a gesture", "You are attempting to turn on more than one gesture at the same time. This will occasionally cause problems, primarily by being confusing to manage (for example, turning on both Walking and Shake is likely to cause both to be detected). If you are sure you want to do this, tap OK, or tap Cancel to not enable this gesture."),
                                     function() {Digitail.GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled)});
                             } else {
                                 Digitail.GestureController.setGestureSensorEnabled(model.index, !model.sensorEnabled);
@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
                     }
                     CheckBox {
                         Layout.fillWidth: true;
-                        text: i18nc("Description for the checkbox for showing a gesture on the Welcome Page, on the page for selecting a pose for the Gear", "Show On Welcome Page")
+                        text: i18nc("Description for the checkbox for showing a gesture on the Welcome Page, on the page for selecting what should happen when the controlling device/phone detects a gesture", "Show On Welcome Page")
                         checked: model.sensorPinned === undefined ? false : model.sensorPinned
                         onClicked: Digitail.GestureController.setGestureSensorPinned(model.index, !model.sensorPinned)
                     }
@@ -90,7 +90,7 @@ Kirigami.ScrollablePage {
                         text: model.name === undefined ? "" : model.name;
                     }
                     Button {
-                        text: model.command === "" ? i18nc("Default text for the button for picking a command, for when no command has been selected, on the page for selecting a pose for the Gear", "(no command)"): model.command;
+                        text: model.command === "" ? i18nc("Default text for the button for picking a command, for when no command has been selected, on the page for selecting what should happen when the controlling device/phone detects a gesture", "(no command)"): model.command;
                         onClicked: {
                             pickACommand.gestureIndex = model.index;
                             pickACommand.pickCommand();
