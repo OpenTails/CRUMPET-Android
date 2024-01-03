@@ -23,7 +23,7 @@ import org.thetailcompany.digitail 1.0 as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "idleMode";
-    title: i18nc("Title for the page for selecting a move in Casual Mode", "Casual Mode Categories");
+    title: i18nc("Title for the Casual Mode settings page", "Casual Mode Categories");
 
     Component {
         id: idleCategoryDelegate;
@@ -43,22 +43,22 @@ Kirigami.ScrollablePage {
     }
     property var availableCategories: [
         {
-            name: i18nc("Description for the category for the Relaxed Moveset, on the page for selecting a move in Casual Mode", "Calm and Relaxed"),
+            name: i18nc("Description for the category for the Relaxed Moveset, on the Casual Mode settings page", "Calm and Relaxed"),
             category: "relaxed",
             color: "#1cdc9a",
         },
         {
-            name: i18nc("Description for the category for the Excited Moveset, on the page for selecting a move in Casual Mode", "Fast and Excited"),
+            name: i18nc("Description for the category for the Excited Moveset, on the Casual Mode settings page", "Fast and Excited"),
             category: "excited",
             color: "#c9ce3b",
         },
         {
-            name: i18nc("Description for the category for the Tense Moveset, on the page for selecting a move in Casual Mode", "Frustrated and Tense"),
+            name: i18nc("Description for the category for the Tense Moveset, on the Casual Mode settings page", "Frustrated and Tense"),
             category: "tense",
             color: "#f67400",
         },
         {
-            name: i18nc("Description for the category for the LED Patterns, on the page for selecting a move in Casual Mode", "LED Patterns"),
+            name: i18nc("Description for the category for the LED Patterns, on the Casual Mode settings page", "LED Patterns"),
             category: "lights",
             color: "#93cee9",
         }
@@ -69,9 +69,9 @@ Kirigami.ScrollablePage {
         delegate: idleCategoryDelegate;
 
         header: InfoCard {
-            text: i18nc("Infocard for selecting the pauses in between moves, on the page for selecting a move in Casual Mode", "This is where you set the pauses in between moves, as well as the families of moves that can be called upon.");
+            text: i18nc("Infocard for selecting the pauses in between moves, on the Casual Mode settings page", "This is where you set the pauses in between moves, as well as the families of moves that can be called upon.");
             footer: Kirigami.BasicListItem {
-                text: i18nc("Label for the button for enabling the Casual Mode, on the welcome page", "Enable Casual Mode");
+                text: i18nc("Label for the button for enabling the Casual Mode, on the Casual Mode settings page", "Enable Casual Mode");
                 separatorVisible: false;
                 icon: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                 onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
@@ -88,4 +88,3 @@ Kirigami.ScrollablePage {
         }
     }
 }
-
