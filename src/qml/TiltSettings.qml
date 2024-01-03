@@ -16,7 +16,7 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.11
+import QtQuick 2.14
 import QtQuick.Controls 2.11
 import QtQuick.Layouts 1.11
 import org.kde.kirigami 2.13 as Kirigami
@@ -39,7 +39,7 @@ Kirigami.ScrollablePage {
     ColumnLayout {
         width: component.width - Kirigami.Units.largeSpacing * 4
         InfoCard {
-            text: i18nc("Info card for the page for selecting what should happen when a piece of gear detects a tilting motion", "Turn on one of the sensors below to make your gear react to gestures performed on this device, if there is nothing else going on (that is, no current commands, and an empty command queue). For example, make your ears perk up when the device recognises that is has been picked up, or start wagging when it detects that you have taken a step.");
+            text: i18nc("Info card for the page for selecting what should happen when a piece of gear detects a tilting motion", "Turn on tilting detection by ticking the box beside the name of the gear you want to detect them on. To decide what to do when a particular kind of tilting is detected, pick the moves and what bits of gear you want to send that move to if you have more than one (otherwise we'll just send it to itself).");
         }
         Repeater {
             model: Digitail.FilterProxyModel {
@@ -47,62 +47,76 @@ Kirigami.ScrollablePage {
                 filterRole: 282; // the hasTilt role
                 filterBoolean: true;
             }
-            delegate: SettingsCard {
+            delegate: ColumnLayout {
                 id: deviceCard
-                headerText: model.name
                 property string deviceID: model.deviceID
                 property var gestureEventValues: model.gestureEventValues
                 property var gestureEventTitles: model.gestureEventTitles
                 property var gestureEventCommands: model.gestureEventCommands
                 property var gestureEventDevices: model.gestureEventDevices
-                contentItem: ColumnLayout {
-                    Repeater {
-                        model: deviceCard.gestureEventValues
-                        delegate: RowLayout {
-                            id: gestureDelegate;
+                Layout.fillWidth: true
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.minimumHeight: 1
+                    Layout.maximumHeight: 1
+                    color: Kirigami.Theme.textColor
+                    visible: index > 0
+                }
+                Kirigami.BasicListItem {
+                    Layout.fillWidth: true
+                    label: model.name
+                    icon: model.tiltEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    separatorVisible: false;
+                    bold: true
+                    onClicked: {
+                        Digitail.BTConnectionManager.setDeviceTiltState(model.deviceID, !model.tiltEnabled);
+                    }
+                    PickACommandSheet {
+                        id: pickACommand;
+
+                        property string deviceID;
+                        property int gestureId;
+
+                        onCommandPicked: {
+                            Digitail.BTConnectionManager.setDeviceGestureEventCommand(pickACommand.deviceID, pickACommand.gestureId, destinations, command);
+                            pickACommand.close();
+                        }
+                    }
+                }
+                Repeater {
+                    model: deviceCard.gestureEventValues
+                    delegate: RowLayout {
+                        id: gestureDelegate;
+                        Layout.fillWidth: true;
+                        property int gestureId: modelData
+                        property string command: deviceCard.gestureEventCommands != undefined ? deviceCard.gestureEventCommands[model.index] : ""
+                        // Device gestures in the 10s are tilt ones, so show only those
+                        visible: 9 < gestureId && gestureId < 20
+                        Text {
                             Layout.fillWidth: true;
-                            property int gestureId: modelData
-                            property string command: deviceCard.gestureEventCommands != undefined ? deviceCard.gestureEventCommands[model.index] : ""
-                            // Device gestures in the 10s are tilt ones, so show only those
-                            visible: 9 < gestureId && gestureId < 20
-                            Text {
-                                Layout.fillWidth: true;
-                                text: deviceCard.gestureEventTitles != undefined ? deviceCard.gestureEventTitles[model.index] : ""
+                            text: deviceCard.gestureEventTitles != undefined ? deviceCard.gestureEventTitles[model.index] : ""
+                        }
+                        Button {
+                            text: gestureDelegate.command === "" ? i18nc("Default text for the button for picking a command, for when no command has been selected, on the page for selecting what should happen when a piece of gear detects a tilting motion", "(no command)"): gestureDelegate.command;
+                            onClicked: {
+                                pickACommand.deviceID = deviceCard.deviceID
+                                pickACommand.gestureId = gestureDelegate.gestureId;
+                                pickACommand.pickCommand();
                             }
-                            Button {
-                                text: gestureDelegate.command === "" ? i18nc("Default text for the button for picking a command, for when no command has been selected, on the page for selecting what should happen when a piece of gear detects a tilting motion", "(no command)"): gestureDelegate.command;
-                                onClicked: {
-                                    pickACommand.deviceID = deviceCard.deviceID
-                                    pickACommand.gestureId = gestureDelegate.gestureId;
-                                    pickACommand.pickCommand();
-                                }
-                            }
-                            ToolButton {
-                                Layout.alignment: Qt.AlignVCenter
-                                height: parent.height - Kirigami.Units.smallSpacing * 2;
-                                width: height;
-                                icon.name: "edit-clear"
-                                visible: gestureDelegate.command !== "";
-                                onClicked: {
-                                    Digitail.BTConnectionManager.setDeviceGestureEventCommand(deviceCard.deviceID, gestureDelegate.gestureId, "", "");
-                                }
+                        }
+                        ToolButton {
+                            Layout.alignment: Qt.AlignVCenter
+                            height: parent.height - Kirigami.Units.smallSpacing * 2;
+                            width: height;
+                            icon.name: "edit-clear"
+                            visible: gestureDelegate.command !== "";
+                            onClicked: {
+                                Digitail.BTConnectionManager.setDeviceGestureEventCommand(deviceCard.deviceID, gestureDelegate.gestureId, "", "");
                             }
                         }
                     }
                 }
             }
-        }
-    }
-
-    PickACommandSheet {
-        id: pickACommand;
-
-        property string deviceID;
-        property int gestureId;
-
-        onCommandPicked: {
-            Digitail.BTConnectionManager.setDeviceGestureEventCommand(pickACommand.deviceID, pickACommand.gestureId, destinations, command);
-            pickACommand.close();
         }
     }
 }

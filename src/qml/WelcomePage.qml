@@ -333,6 +333,12 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
+                ToolButton {
+                    onClicked: {
+                        switchToPage(tiltSettings);
+                    }
+                    icon.name: "go-next";
+                }
             }
             contentItem: Column {
                 id: tiltingColumn;
