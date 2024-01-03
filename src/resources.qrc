@@ -36,6 +36,7 @@
         <file>qml/EarPoses.qml</file>
         <file>qml/GearGestures.qml</file>
         <file>qml/DisconnectOptions.qml</file>
+        <file>qml/TiltSettings.qml</file>
         <file>audio/Sparkle-sound-effect.mp3</file>
         <file>commands/digitail-builtin.crumpet</file>
         <file>commands/mitail-builtin.crumpet</file>

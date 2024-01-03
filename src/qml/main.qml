@@ -365,6 +365,10 @@ Kirigami.ApplicationWindow {
         IdleModePage {}
     }
     Component {
+        id: tiltSettings;
+        TiltSettings {}
+    }
+    Component {
         id: settingsPage;
         SettingsPage {}
     }

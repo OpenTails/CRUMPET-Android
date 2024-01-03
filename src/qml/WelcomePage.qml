@@ -317,11 +317,21 @@ Kirigami.ScrollablePage {
                     width: Kirigami.Units.iconSizes.small;
                     height: width;
                     source: ":/images/tiltmode.svg"
+                    TapHandler {
+                        onTapped: {
+                            switchToPage(tiltSettings);
+                        }
+                    }
                 }
                 Kirigami.Heading {
                     text: i18nc("Heading for the panel for turning on Tilt Mode", "Tilt Mode");
                     Layout.fillWidth: true;
                     wrapMode: Text.Wrap;
+                    TapHandler {
+                        onTapped: {
+                            switchToPage(tiltSettings);
+                        }
+                    }
                 }
             }
             contentItem: Column {
