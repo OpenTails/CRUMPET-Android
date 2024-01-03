@@ -140,7 +140,7 @@ public:
         SoundRightLoudEvent = 24,
     };
     Q_ENUM(GearSensorEvent)
-    Q_SIGNAL void gearSensorEvent(GearSensorEvent event);
+    Q_SIGNAL void gearSensorEvent(const GearSensorEvent &event);
     void setGearSensorCommand(const GearSensorEvent &event, const QStringList& targetDeviceIDs, const QString &command);
     Q_SIGNAL void gearSensorCommandDetailsChanged();
 

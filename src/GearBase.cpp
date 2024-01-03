@@ -43,6 +43,7 @@ public:
     ~Private() {}
     void load();
     void save();
+    void handleGearSensorEvent(const GearSensorEvent &event);
 
     GearBase *q{nullptr};
     int batteryLevelPercent{100};
@@ -88,6 +89,7 @@ GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
 
     d->load();
     connect(this, &GearBase::enabledCommandsFilesChanged, this, [this](){ d->save(); });
+    connect(this, &GearBase::gearSensorEvent, this, [this](const GearSensorEvent &event){ d->handleGearSensorEvent(event); });
 }
 
 GearBase::~GearBase()
@@ -143,6 +145,14 @@ void GearBase::Private::save()
     settings.endGroup();
     settings.sync();
 
+}
+
+void GearBase::Private::handleGearSensorEvent(const GearSensorEvent& event)
+{
+    if (gearSensorEvents.contains(event)) {
+        const GearSensorEventDetails &details = gearSensorEvents[event];
+        parentModel->sendMessage(details.command, details.targetDeviceIDs);
+    }
 }
 
 bool GearBase::supportsOTA()
