@@ -344,11 +344,6 @@ QString GearDigitail::currentCall() const
     return d->currentCall;
 }
 
-QString GearDigitail::deviceID() const
-{
-    return deviceInfo.address().toString();
-}
-
 void GearDigitail::sendMessage(const QString &message)
 {
     // Don't send out another call while we're waiting to hear back... at least for a little bit

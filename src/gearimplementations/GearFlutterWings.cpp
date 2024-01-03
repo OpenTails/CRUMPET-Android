@@ -626,11 +626,6 @@ QString GearFlutterWings::currentCall() const
     return d->currentCall;
 }
 
-QString GearFlutterWings::deviceID() const
-{
-    return deviceInfo.address().toString();
-}
-
 void GearFlutterWings::sendMessage(const QString &message)
 {
     if (d->firmwareProgress == -1) {

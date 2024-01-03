@@ -625,11 +625,6 @@ QString GearMitailMini::currentCall() const
     return d->currentCall;
 }
 
-QString GearMitailMini::deviceID() const
-{
-    return deviceInfo.address().toString();
-}
-
 void GearMitailMini::sendMessage(const QString &message)
 {
     if (d->firmwareProgress == -1) {

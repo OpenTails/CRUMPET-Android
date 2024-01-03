@@ -683,11 +683,6 @@ QString GearEars::currentCall() const
     return d->currentCall;
 }
 
-QString GearEars::deviceID() const
-{
-    return deviceInfo.address().toString();
-}
-
 GearEars::ListenMode GearEars::listenMode() const
 {
     return d->listenMode;

@@ -47,7 +47,6 @@ public:
     void connectDevice() override;
     void disconnectDevice() override;
 
-    QString deviceID() const override;
     QStringList defaultCommandFiles() const override;
 
     ListenMode listenMode() const;
