@@ -32,15 +32,21 @@ Kirigami.ScrollablePage {
         Digitail.FilterProxyModel {
             id: deviceFilterProxy;
             sourceModel: Digitail.DeviceModel;
-            filterRole: 258; // the deviceID role
+            filterRole: Digitail.DeviceModelTypes.DeviceID;
             filterString: component.deviceID;
             property var enabledFiles: [];
             property string deviceName: "unknown";
-            onDataChanged: {
-                enabledFiles = data(index(0, 0), 267);
-                deviceName = data(index(0, 0), 257);
+            function updateData() {
+                enabledFiles = data(index(0, 0), Digitail.DeviceModelTypes.EnabledCommandsFiles);
+                deviceName = data(index(0, 0), Digitail.DeviceModelTypes.Name);
             }
+            onDataChanged: updateData()
         }
+        Connections {
+            target: component
+            onDeviceIDChanged: deviceFilterProxy.updateData();
+        }
+        Component.onCompleted: deviceFilterProxy.updateData();
         header: InfoCard {
             text: i18nc("Description for the page for configuring Command Sets, for a specific gear", "This is all the command sets you have available to enable for %1. You can add new ones, edit them, and remove them. You cannot edit the built-in lists, but you can duplicate them and then edit those.", deviceFilterProxy.deviceName);
         }
