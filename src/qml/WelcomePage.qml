@@ -131,7 +131,7 @@ Kirigami.ScrollablePage {
                     Digitail.FilterProxyModel {
                         id: connectedWithLightsModel;
                         sourceModel: connectedDevicesModel;
-                        filterRole: 276; // the hasLights role
+                        filterRole: Digitail.DeviceModelTypes.HasLights;
                         filterBoolean: true;
                     }
                 }
@@ -273,7 +273,7 @@ Kirigami.ScrollablePage {
                     Digitail.FilterProxyModel {
                         id: connectedDevicesModel
                         sourceModel: Digitail.DeviceModel;
-                        filterRole: 262; // the isConnected role
+                        filterRole: Digitail.DeviceModelTypes.IsConnected;
                         filterBoolean: true;
                     }
                 }
@@ -292,7 +292,7 @@ Kirigami.ScrollablePage {
                     id: hasListeningDevicesRepeater;
                     model: Digitail.FilterProxyModel {
                         sourceModel: connectedDevicesModel;
-                        filterRole: 265; // the hasListening role
+                        filterRole: Digitail.DeviceModelTypes.HasListening;
                         filterBoolean: true;
                     }
                     Kirigami.BasicListItem {
@@ -361,7 +361,7 @@ Kirigami.ScrollablePage {
                     id: hasTiltDevicesRepeater;
                     model: Digitail.FilterProxyModel {
                         sourceModel: connectedDevicesModel;
-                        filterRole: 282; // the hasTilt role
+                        filterRole: Digitail.DeviceModelTypes.HasTilt;
                         filterBoolean: true;
                     }
                     Kirigami.BasicListItem {
@@ -402,7 +402,7 @@ Kirigami.ScrollablePage {
                     Digitail.FilterProxyModel {
                         id: pinnedSensorsModel;
                         sourceModel: Digitail.GestureDetectorModel;
-                        filterRole: 262; // the sensorPinned role
+                        filterRole: Digitail.GestureDetectorModelTypes.SensorPinnedRole;
                         filterBoolean: true;
                     }
                     TapHandler {
@@ -427,7 +427,7 @@ Kirigami.ScrollablePage {
                     model: Digitail.FilterProxyModel {
                         id: welcomePageSensorsModel
                         sourceModel: pinnedSensorsModel
-                        filterRole: 266; // the firstInSensor role
+                        filterRole: Digitail.GestureDetectorModel.FirstInSensorRole;
                         filterBoolean: true;
                     }
                     Kirigami.BasicListItem {
