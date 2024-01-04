@@ -299,6 +299,7 @@ public:
                     listenMode = ListenModeFull;
                     emit q->listenModeChanged();
                 }
+                q->deviceMessage(q->deviceID(), QString("Noise difference levels: %1").arg(stateResult.last()));
                 qDebug() << q->name() << q->deviceID() << "Updated noise difference level:" << stateResult.last();
             }
             else if (stateResult.last() == QLatin1String{"BEGIN"}) {
