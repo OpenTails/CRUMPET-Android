@@ -325,6 +325,7 @@ Kirigami.ScrollablePage {
                     height: width;
                     source: ":/images/tiltmode.svg"
                     TapHandler {
+                        enabled: Digitail.AppSettings.developerMode
                         onTapped: {
                             switchToPage(tiltSettings);
                         }
@@ -335,12 +336,14 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true;
                     wrapMode: Text.Wrap;
                     TapHandler {
+                        enabled: Digitail.AppSettings.developerMode
                         onTapped: {
                             switchToPage(tiltSettings);
                         }
                     }
                 }
                 ToolButton {
+                    visible: Digitail.AppSettings.developerMode
                     onClicked: {
                         switchToPage(tiltSettings);
                     }
