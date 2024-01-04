@@ -145,6 +145,10 @@ public:
     QString gearSensorCommand(const GearSensorEvent &event) const;
     QStringList gearSensorTargetDevices(const GearSensorEvent &event);
     Q_SIGNAL void gearSensorCommandDetailsChanged();
+    virtual QVariantList supportedTiltEvents() { return QVariantList{}; };
+    Q_SIGNAL void supportedTiltEventsChanged();
+    virtual QVariantList supportedSoundEvents() { return QVariantList{}; };
+    Q_SIGNAL void supportedSoundEventsChanged();
 
     bool hasLights() const;
     void setHasLights(bool hasLights);

@@ -66,6 +66,8 @@ public:
     Q_SIGNAL void tiltEnabledChanged();
     void setTiltMode(bool tiltState);
 
+    QVariantList supportedTiltEvents() override;
+
     void sendMessage(const QString &message) override;
 
     Q_INVOKABLE void checkOTA() override;

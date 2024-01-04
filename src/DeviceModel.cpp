@@ -141,6 +141,8 @@ QHash< int, QByteArray > DeviceModel::roleNames() const
         {GestureEventTitles, "gestureEventTitles"},
         {GestureEventCommands, "gestureEventCommands"},
         {GestureEventDevices, "gestureEventDevices"},
+        {SupportedTiltEvents, "supportedTiltEvents"},
+        {SupportedSoundEvents, "supportedSoundEvents"},
     };
     return roles;
 }
@@ -329,6 +331,12 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                 }
                 value = devices;
                 break; }
+            case SupportedTiltEvents:
+                value = device->supportedTiltEvents();
+                break;
+            case SupportedSoundEvents:
+                value = device->supportedSoundEvents();
+                break;
             default:
                 break;
         }
@@ -505,6 +513,12 @@ void DeviceModel::addDevice(GearBase* newDevice)
                 d->devices.removeAll(newDevice);
                 endRemoveRows();
             }
+        });
+        connect(newDevice, &GearBase::supportedTiltEventsChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, SupportedTiltEvents);
+        });
+        connect(newDevice, &GearBase::supportedSoundEventsChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, SupportedSoundEvents);
         });
 
         beginInsertRows(QModelIndex(), 0, 0);

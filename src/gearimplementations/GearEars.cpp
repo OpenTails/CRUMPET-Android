@@ -197,6 +197,7 @@ public:
                 q->reloadCommands();
                 version = newValue;
                 emit q->versionChanged(newValue);
+                emit q->supportedTiltEventsChanged();
                 q->setListenMode(listenMode);
                 if (q->deviceInfo.name() == QLatin1String{"EarGear"}) {
                     q->setHasShutdown(false);
@@ -747,6 +748,17 @@ void GearEars::setTiltMode(bool tiltState)
     else {
         sendMessage(QLatin1String{"ENDTILTMODE"});
     }
+}
+
+QVariantList GearEars::supportedTiltEvents()
+{
+    static const QStringList knownLimitedRevision{"VER 1.0.12", "VER 1.0.13", "VER 1.0.14", "VER 1.0.15", "VER 1.0.16", "VER 1.0.13b", "VER 1.0.14b", "VER 1.0.15", "VER 1.0.16"};
+    static const QVariantList limitedSupportedEvents{GearBase::TiltLeftEvent, GearBase::TiltRightEvent};
+    static const QVariantList fullSupportedEvents{GearBase::TiltLeftEvent, GearBase::TiltRightEvent, GearBase::TiltForwardEvent, GearBase::TiltBackwardEvent, GearBase::TiltNeutralEvent};
+    if (knownLimitedRevision.contains(d->version)) {
+        return limitedSupportedEvents;
+    }
+    return fullSupportedEvents;
 }
 
 void GearEars::sendMessage(const QString &message)
