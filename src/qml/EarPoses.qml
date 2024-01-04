@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
         }
     }
     BaseMovesComponent {
-        infoText: i18nc("Description for the page for selecting a pose for the EarGear", "The list below shows all the poses available to your gear. Tap any of them to send them off to any of your connected devices!");
+        infoText: i18nc("Description for the page for selecting a pose for the EarGear", "The list below shows all the poses available to your gear. Tap any of them to send them off to any of your connected devices! If you have more than one connected, the little coloured dots show which you can send that pose to.");
         infoFooter: RowLayout {
             QQC2.Button {
                 text: i18nc("Label for the button for setting EarGear moves to run more slowly", "Be Calm")
