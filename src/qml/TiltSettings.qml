@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
         Repeater {
             model: Digitail.FilterProxyModel {
                 sourceModel: connectedDevicesModel;
-                filterRole: 282; // the hasTilt role
+                filterRole: Digitail.DeviceModelTypes.HasTilt;
                 filterBoolean: true;
             }
             delegate: ColumnLayout {
@@ -54,6 +54,7 @@ Kirigami.ScrollablePage {
                 property var gestureEventTitles: model.gestureEventTitles
                 property var gestureEventCommands: model.gestureEventCommands
                 property var gestureEventDevices: model.gestureEventDevices
+                property var supportedTiltEvents: model.supportedTiltEvents
                 Layout.fillWidth: true
                 Rectangle {
                     Layout.fillWidth: true
@@ -90,8 +91,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true;
                         property int gestureId: modelData
                         property string command: deviceCard.gestureEventCommands != undefined ? deviceCard.gestureEventCommands[model.index] : ""
-                        // Device gestures in the 10s are tilt ones, so show only those
-                        visible: 9 < gestureId && gestureId < 20
+                        visible: deviceCard.supportedTiltEvents != undefined ? deviceCard.supportedTiltEvents.includes(gestureId) : false
                         Text {
                             Layout.fillWidth: true;
                             text: deviceCard.gestureEventTitles != undefined ? deviceCard.gestureEventTitles[model.index] : ""
