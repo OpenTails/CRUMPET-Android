@@ -240,6 +240,8 @@ public:
             }
             else if (theValue == QLatin1String{"EarGear started"}) {
                 qDebug() << q->name() << q->deviceID() << "EarGear detected the connection";
+            } else if (theValue == QLatin1String{"POWER OFF"}) {
+                q->disconnectDevice();
             }
             else if (theValue == QLatin1String{"BEGIN OTA"}) {
                 qDebug() << q->name() << q->deviceID() << "Starting firmware update";
