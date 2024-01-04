@@ -133,9 +133,9 @@ public:
         TiltForwardEvent = 12,
         TiltBackwardEvent = 13,
         TiltNeutralEvent = 14,
-        SoundNeutralEvent = 20,
+        SoundLeftLoudEvent = 20,
         SoundLeftQuietEvent = 21,
-        SoundLeftLoudEvent = 22,
+        SoundNeutralEvent = 22,
         SoundRightQuietEvent = 23,
         SoundRightLoudEvent = 24,
     };

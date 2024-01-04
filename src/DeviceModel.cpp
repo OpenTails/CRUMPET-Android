@@ -296,9 +296,9 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                         {GearBase::GearSensorEvent::TiltForwardEvent, i18nc("Name for an event where the gear has been detected as having been tilted forward", "Tilt Forward")},
                         {GearBase::GearSensorEvent::TiltBackwardEvent, i18nc("Name for an event where the gear has been detected as having been tilted backward", "Tilt Backward")},
                         {GearBase::GearSensorEvent::TiltNeutralEvent, i18nc("Name for an event where the gear has been returned to an upright position from having been tilted", "Return to Upright")},
-                        {GearBase::GearSensorEvent::SoundNeutralEvent, i18nc("Name for an event where the sound levels have been detected as returning to ambient after detecting a sound on one or the other side", "Low Ambient Sound")},
-                        {GearBase::GearSensorEvent::SoundLeftQuietEvent, i18nc("Name for an event where a small, but detectable amount of sound has been detected on the left hand side of the gear", "Quiet Sound on the Left")},
                         {GearBase::GearSensorEvent::SoundLeftLoudEvent, i18nc("Name for an event where a large amount of sound has been detected on the left hand side of the gear", "Loud Sound on the Left")},
+                        {GearBase::GearSensorEvent::SoundLeftQuietEvent, i18nc("Name for an event where a small, but detectable amount of sound has been detected on the left hand side of the gear", "Quiet Sound on the Left")},
+                        {GearBase::GearSensorEvent::SoundNeutralEvent, i18nc("Name for an event where the sound levels have been detected as returning to ambient after detecting a sound on one or the other side", "Ambient Sound Levels")},
                         {GearBase::GearSensorEvent::SoundRightQuietEvent, i18nc("Name for an event where a small, but detectable amount of sound has been detected on the right hand side of the gear", "Quiet Sound on the Right")},
                         {GearBase::GearSensorEvent::SoundRightLoudEvent, i18nc("Name for an event where a large amount of sound has been detected on the right hand side of the gear", "Loud Sound on the Right")},
                     };
