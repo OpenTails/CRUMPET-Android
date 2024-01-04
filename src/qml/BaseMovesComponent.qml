@@ -130,6 +130,7 @@ Item {
                                             top: parent.verticalCenter
                                             topMargin: (parent.paintedHeight / 2) + Kirigami.Units.smallSpacing
                                         }
+                                        spacing: Kirigami.Units.smallSpacing
                                         Repeater {
                                             model: selectorDeviceModel
                                             delegate: Rectangle {
