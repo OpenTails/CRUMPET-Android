@@ -16,9 +16,9 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
+import QtQuick 2.14
 import QtQuick.Layouts 1.11
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.4
 
 import org.kde.kirigami 2.13 as Kirigami
 import org.thetailcompany.digitail 1.0 as Digitail
@@ -46,6 +46,11 @@ ColumnLayout {
                     Layout.fillHeight: true
                     verticalAlignment: Text.AlignVCenter
                     text: typeof model.name !== "undefined" ? model.name : ""
+                    TapHandler {
+                        onTapped: {
+                            namePicker.checkDeviceName(model.deviceID, true);
+                        }
+                    }
                 }
                 Label {
                     Layout.fillWidth: true

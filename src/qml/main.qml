@@ -388,8 +388,8 @@ Kirigami.ApplicationWindow {
     NamePicker {
         id: namePicker;
 
-        function checkDeviceName(deviceID) {
-            if (deviceID && !Digitail.AppSettings.deviceNames[deviceID]) {
+        function checkDeviceName(deviceID, forcePicking = false) {
+            if (deviceID && (forcePicking || Digitail.AppSettings.deviceNames.includes(deviceID) === false)) {
                 namePicker.deviceID = deviceID;
                 for(var i = 0; i < Digitail.BTConnectionManager.deviceCount; ++i) {
                     var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.DeviceID);
@@ -405,7 +405,7 @@ Kirigami.ApplicationWindow {
         property string deviceID: "0";
         property string previousName: ""
 
-        description: i18nc("Description for the prompt for entering a name for your Gear", "Enter a name to use for your new gear");
+        description: i18nc("Description for the prompt for entering a name for your Gear", "Enter a name to use for your gear");
         placeholderText: i18nc("Placeholder text for the prompt for entering a name for your Gear", "Enter the new name for %1 here", namePicker.previousName === "" ? "(unnamed)" : namePicker.previousName);
         buttonOkText: i18nc("Button for confirming the save of your new name, for the prompt for entering a name for your Gear", "Save");
 

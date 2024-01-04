@@ -79,7 +79,7 @@ Kirigami.ScrollablePage {
 
         SettingsCard {
             headerText: i18nc("Header for the panel for changing gear names, on the settings page", "Gear Names");
-            descriptionText: i18nc("Description for the panel for changing gear names, on the settings page", "If you want to clear the names of any gear you have given a name, click the button below to make the app forget them all.");
+            descriptionText: i18nc("Description for the panel for changing gear names, on the settings page", "If you want to clear the names of any gear you have given a name, click the button below to make the app forget them all. If you just want to rename a piece of gear, you can do that by tapping on the gear's name in the list over on the home page.");
             footer: QQC2.Button {
                 text: i18nc("Label for the button for clearing gear names, on the panel for changing gear names, on the settings page", "Forget Gear Names")
                 Layout.fillWidth: true
