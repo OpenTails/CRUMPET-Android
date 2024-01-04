@@ -70,13 +70,11 @@ Item {
                     left: parent.left;
                     right: parent.right;
                 }
-                Kirigami.Heading {
+                Item {
                     id: categoryHeading
                     Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.largeSpacing
-                    text: modelData["name"]
-                    level: 2
-                    wrapMode: Text.Wrap;
+                    Layout.minimumHeight: Kirigami.Units.smallSpacing
+                    Layout.margins: Kirigami.Units.smallSpacing
                 }
                 GridLayout {
                     id: commandGrid;
@@ -96,6 +94,8 @@ Item {
                     Component {
                         id: commandDelegate
                         Item {
+                            id: commandDelegateItem
+                            property var deviceIDs: model.deviceIDs ? model.deviceIDs : [];
                             Layout.fillWidth: true
                             Layout.minimumHeight: root.commandButtonSize
                             Layout.maximumHeight: root.commandButtonSize
@@ -123,13 +123,30 @@ Item {
                                     verticalAlignment: Text.AlignVCenter;
                                     text: model.name ? model.name : "";
                                     Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                    Row {
+                                        visible: selectorDeviceModel.count > 1
+                                        anchors {
+                                            horizontalCenter: parent.horizontalCenter
+                                            top: parent.verticalCenter
+                                            topMargin: (parent.paintedHeight / 2) + Kirigami.Units.smallSpacing
+                                        }
+                                        Repeater {
+                                            model: selectorDeviceModel
+                                            delegate: Rectangle {
+                                                visible: commandDelegateItem.deviceIDs.includes(model.deviceID)
+                                                height: Kirigami.Units.largeSpacing
+                                                width: Kirigami.Units.largeSpacing
+                                                radius: height / 2
+                                                color: model.color !== undefined ? model.color : "transparent"
+                                            }
+                                        }
+                                    }
                                 }
                                 MouseArea {
                                     anchors.fill: parent;
                                     // this is An Hack (for some reason the model replication is lossy on first attempt, but we shall live)
                                     property string command: model.command ? model.command : "";
-                                    property var deviceIDs: model.deviceIDs ? model.deviceIDs : [];
-                                    onClicked: { sendCommandToSelector.selectDestination(command, deviceIDs); }
+                                    onClicked: { sendCommandToSelector.selectDestination(command, commandDelegateItem.deviceIDs); }
                                     enabled: root.ignoreAvailability || (typeof model.isAvailable !== "undefined" ? model.isAvailable : false);
                                 }
                                 BusyIndicator {
