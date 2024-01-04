@@ -341,9 +341,9 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case Color: {
                 int colorCode = qHash(device->deviceInfo.address().toString()) % 0x1000000;
-                int red = 128 + (double(colorCode >> 16) * 128 / 256);
-                int green = 128 + (double((colorCode >> 8) & 0xff) * 128 / 256);
-                int blue = 128 + (double(colorCode & 0xff) * 128 / 256);
+                int red = 64 + (double(colorCode >> 16) * 128 / 256);
+                int green = 64 + (double((colorCode >> 8) & 0xff) * 128 / 256);
+                int blue = 64 + (double(colorCode & 0xff) * 128 / 256);
                 value = QColor::fromRgb(red, green, blue);
                 break; }
             default:
