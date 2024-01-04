@@ -389,7 +389,7 @@ Kirigami.ApplicationWindow {
         id: namePicker;
 
         function checkDeviceName(deviceID, forcePicking = false) {
-            if (deviceID && (forcePicking || Digitail.AppSettings.deviceNames.includes(deviceID) === false)) {
+            if (deviceID && (forcePicking || Object.keys(Digitail.AppSettings.deviceNames).includes(deviceID) === false)) {
                 namePicker.deviceID = deviceID;
                 for(var i = 0; i < Digitail.BTConnectionManager.deviceCount; ++i) {
                     var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.DeviceID);
