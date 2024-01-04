@@ -265,6 +265,12 @@ Kirigami.ScrollablePage {
                     width: Kirigami.Units.iconSizes.small;
                     height: width;
                     source: ":/images/listeningmode.svg"
+                    TapHandler {
+                        enabled: Digitail.AppSettings.developerMode
+                        onTapped: {
+                            switchToPage(listenSettings);
+                        }
+                    }
                 }
                 Kirigami.Heading {
                     text: i18nc("Heading for the panel for turning on Listening Mode", "Listening Mode");
@@ -276,6 +282,19 @@ Kirigami.ScrollablePage {
                         filterRole: Digitail.DeviceModelTypes.IsConnected;
                         filterBoolean: true;
                     }
+                    TapHandler {
+                        enabled: Digitail.AppSettings.developerMode
+                        onTapped: {
+                            switchToPage(listenSettings);
+                        }
+                    }
+                }
+                ToolButton {
+                    visible: Digitail.AppSettings.developerMode
+                    onClicked: {
+                        switchToPage(listenSettings);
+                    }
+                    icon.name: "go-next";
                 }
             }
             contentItem: Column {
@@ -304,6 +323,13 @@ Kirigami.ScrollablePage {
                             var newState = 0;
                             if (model.listeningState == 0) {
                                 newState = 1;
+                                for (let commandIndex = 0; commandIndex < model.gestureEventCommands.length; ++commandIndex) {
+                                    if (model.supportedSoundEvents.includes(model.gestureEventValues[commandIndex]) && model.gestureEventCommands[commandIndex].length > 0) {
+                                        // If any of the device's supported sound events have a command set, turn on full listening mode, otherwise just turn on standard
+                                        newState = 2;
+                                        break;
+                                    }
+                                }
                             }
                             Digitail.BTConnectionManager.setDeviceListeningState(model.deviceID, newState);
                         }
