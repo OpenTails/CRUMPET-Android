@@ -11,36 +11,36 @@
             "Name": "Tail Home Position"
         },
         {
-            "Category": "excited",
-            "Command": "TAILFA",
-            "Duration": 16040,
+            "Category": "relaxed",
+            "Command": "TAILS1",
+            "Duration": 11150,
             "Group": 0,
             "MinimumCooldown": 1000,
             "Name": "One"
         },
         {
-            "Category": "excited",
-            "Command": "TAILSH",
-            "Duration": 14840,
+            "Category": "relaxed",
+            "Command": "TAILS2",
+            "Duration": 7245,
             "Group": 0,
             "MinimumCooldown": 1000,
             "Name": "Two"
         },
         {
-            "Category": "excited",
-            "Command": "TAILHA",
-            "Duration": 14045,
+            "Category": "relaxed",
+            "Command": "TAILS3",
+            "Duration": 8840,
             "Group": 0,
             "MinimumCooldown": 1000,
             "Name": "Three"
         },
         {
             "Category": "excited",
-            "Command": "TAILER",
-            "Duration": 5270,
+            "Command": "TAILFA",
+            "Duration": 16040,
             "Group": 0,
             "MinimumCooldown": 1000,
-            "Name": "Four"
+            "Name": "One"
         }
     ]
 }
