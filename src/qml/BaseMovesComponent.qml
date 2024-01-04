@@ -90,7 +90,7 @@ Item {
                     Digitail.FilterProxyModel {
                         id: filterProxy;
                         sourceModel: Digitail.CommandModel;
-                        filterRole: 260; // the Category role ID
+                        filterRole: Digitail.CommandModelTypes.Category;
                         filterString: modelData["category"];
                     }
                     Component {
@@ -220,13 +220,13 @@ Item {
                     model: Digitail.FilterProxyModel {
                         id: selectorDeviceModel;
                         sourceModel: Digitail.DeviceModel;
-                        filterRole: 262; // the isConnected role
+                        filterRole: Digitail.DeviceModelTypes.IsConnected;
                         filterBoolean: true;
                         property bool hasCheckedIDs: true;
                         function updateHasCheckedIDs() {
                             var hasChecked = false;
                             for (var i = 0; i < count; ++i) {
-                                if(data(index(i, 0), 264) == true) { // if checked
+                                if(data(index(i, 0), Digitail.DeviceModelTypes.Checked) == true) { // if checked
                                     hasChecked = true;
                                     break;
                                 }
@@ -236,8 +236,8 @@ Item {
                         function checkedIDs() {
                             var theIDs = new Array();
                             for (var i = 0; i < count; ++i) {
-                                if(data(index(i, 0), 264) == true && sendCommandToSelector.deviceIDs.includes(data(index(i, 0), 258))) { // if checked and also in the device id list
-                                    theIDs.push(data(index(i, 0), 258)); // add the device ID
+                                if(data(index(i, 0), Digitail.DeviceModelTypes.Checked) == true && sendCommandToSelector.deviceIDs.includes(data(index(i, 0), Digitail.DeviceModelTypes.DeviceID))) { // if checked and also in the device id list
+                                    theIDs.push(data(index(i, 0), Digitail.DeviceModelTypes.DeviceID)); // add the device ID
                                 }
                             }
                             return theIDs;

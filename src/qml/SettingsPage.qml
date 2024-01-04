@@ -101,7 +101,7 @@ Kirigami.ScrollablePage {
                     Digitail.FilterProxyModel {
                         id: onlyConnectedFilterProxy;
                         sourceModel: Digitail.DeviceModel;
-                        filterRole: 262; // the isConnected role
+                        filterRole: Digitail.DeviceModelTypes.IsConnected;
                         filterBoolean: true;
                     }
                 }
@@ -142,7 +142,7 @@ Kirigami.ScrollablePage {
                     id: gearCommandsRepeaterEarOptions;
                     model: Digitail.FilterProxyModel {
                         sourceModel: onlyConnectedFilterProxy;
-                        filterRole: 283; // the canBalanceListening role
+                        filterRole: Digitail.DeviceModelTypes.CanBalanceListening;
                         filterBoolean: true;
                     }
                     delegate: ColumnLayout {
@@ -180,7 +180,7 @@ Kirigami.ScrollablePage {
                     id: otaRepearer
                     model: Digitail.FilterProxyModel {
                         sourceModel: onlyConnectedFilterProxy
-                        filterRole: 269; // the supportsOTA role
+                        filterRole: Digitail.DeviceModelTypes.SupportsOTA;
                         filterBoolean: true;
                     }
                     delegate: ColumnLayout {

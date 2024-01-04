@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
             onTriggered: {
                 if(Digitail.BTConnectionManager.isConnected) {
                     if(Digitail.BTConnectionManager.deviceCount === 1) {
-                        disconnectionOptions.disconnectGear(connectedDevicesModel.data(connectedDevicesModel.index(0, 0), 258));
+                        disconnectionOptions.disconnectGear(connectedDevicesModel.data(connectedDevicesModel.index(0, 0), Digitail.DeviceModelTypes.DeviceID));
                     }
                     else if (Digitail.BTConnectionManager.deviceCount > 1) {
                         connectToTail.open();

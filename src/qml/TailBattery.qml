@@ -32,7 +32,7 @@ ColumnLayout {
         model: Digitail.FilterProxyModel {
             id: deviceFilterProxy;
             sourceModel: Digitail.DeviceModel;
-            filterRole: 262; // the isConnected role
+            filterRole: Digitail.DeviceModelTypes.IsConnected;
             filterBoolean: true;
         }
         ColumnLayout {

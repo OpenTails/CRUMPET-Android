@@ -91,13 +91,13 @@ Kirigami.OverlaySheet {
         Digitail.FilterProxyModel {
             id: connectedWithLightsModel;
             sourceModel: connectedDevicesModel;
-            filterRole: 276; // the hasLights role
+            filterRole: Digitail.DeviceModelTypes.HasLights;
             filterBoolean: true;
         }
         Digitail.FilterProxyModel {
             id: connectedDevicesModel
             sourceModel: Digitail.DeviceModel;
-            filterRole: 262; // the isConnected role
+            filterRole: Digitail.DeviceModelTypes.IsConnected;
             filterBoolean: true;
         }
     }

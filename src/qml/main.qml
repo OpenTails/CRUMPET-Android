@@ -171,13 +171,13 @@ Kirigami.ApplicationWindow {
             // the replication from the service is completed, which ends up with us
             // just outright having no information to work with. So, workaround.
             sourceModel: Digitail.BTConnectionManager.isConnected ? Digitail.DeviceModel : null;
-            filterRole: 262; // the isConnected role
+            filterRole: Digitail.DeviceModelTypes.IsConnected;
             filterBoolean: true;
         }
         Digitail.FilterProxyModel {
             id: hasListeningModel;
             sourceModel: connectedDevicesModel;
-            filterRole: 265; // the hasListening role
+            filterRole: Digitail.DeviceModelTypes.HasListening;
             filterBoolean: true;
         }
 
@@ -388,9 +388,9 @@ Kirigami.ApplicationWindow {
             if (deviceID && !Digitail.AppSettings.deviceNames[deviceID]) {
                 namePicker.deviceID = deviceID;
                 for(var i = 0; i < Digitail.BTConnectionManager.deviceCount; ++i) {
-                    var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 258); // DeviceID role
+                    var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.DeviceID);
                     if (deviceID == namePicker.deviceID) {
-                        namePicker.previousName = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 257); // Name role
+                        namePicker.previousName = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.Name);
                         break;
                     }
                 }
@@ -509,7 +509,7 @@ Kirigami.ApplicationWindow {
                 id: deviceProgressRepeater
                 model: Digitail.FilterProxyModel {
                     sourceModel: Digitail.DeviceModel
-                    filterRole: 274; // the operationInProgress role
+                    filterRole: Digitail.DeviceModelTypes.OperationInProgress;
                     filterBoolean: true;
                 }
                 delegate: Kirigami.AbstractCard {

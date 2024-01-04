@@ -48,9 +48,9 @@ Kirigami.OverlaySheet {
             text: i18nc("Button for the action of connecting to all found devices, in the popup for connecting to devices", "Connect All")
             onClicked: {
                 for(var i = 0; i < deviceList.count; ++i) {
-                    var isConnected = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 262); // IsConnected
+                    var isConnected = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.IsConnected);
                     if (isConnected == false) {
-                        var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), 258); // DeviceID
+                        var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.DeviceID);
                         sheet.attemptToConnect(deviceID, sheet.pageToPush);
                         sheet.pageToPush = null;
                     }

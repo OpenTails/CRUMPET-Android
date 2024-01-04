@@ -39,7 +39,7 @@ Kirigami.OverlaySheet {
             model: Digitail.FilterProxyModel {
                 id: relevantDeviceModel
                 sourceModel: Digitail.DeviceModel;
-                filterRole: 258 // The deviceID role
+                filterRole: Digitail.DeviceModelTypes.DeviceID;
             }
             delegate: ColumnLayout {
                 id: disconnectOptionsDelegate

@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
     }
     property QtObject enabledGestures: Digitail.FilterProxyModel {
         sourceModel: Digitail.GestureDetectorModel;
-        filterRole: 261; // the sensorEnabledRole role
+        filterRole: Digitail.GestureDetectorModelTypes.SensorEnabledRole;
         filterBoolean: true;
     }
 

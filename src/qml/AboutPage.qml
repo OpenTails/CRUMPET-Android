@@ -26,16 +26,16 @@ Kirigami.AboutPage {
     Digitail.FilterProxyModel {
         id: deviceFilterProxy;
         sourceModel: Digitail.DeviceModel;
-        filterRole: 262; // the isConnected role
+        filterRole: Digitail.DeviceModelTypes.IsConnected;
         filterBoolean: true;
         function handyStringMakerThing() {
             if (count === 1) {
-                return i18nc("A label which describes the hardware revision of the connected gear, when only one item is connected", "The connected gear is version %1", data(index(0, 0), 259))
+                return i18nc("A label which describes the hardware revision of the connected gear, when only one item is connected", "The connected gear is version %1", data(index(0, 0), Digitail.DeviceModelTypes.DeviceVersion))
             } else {
                 var constructedString = "";
                 var newLine = "";
                 for (var i = 0; i < count; ++i) {
-                    constructedString += newLine + i18nc("A label which describes the hardware revision of a piece of connected gear, when more than one item is connected", "The gear named %1 is version %2", data(index(i, 0), 257), data(index(i, 0), 259));
+                    constructedString += newLine + i18nc("A label which describes the hardware revision of a piece of connected gear, when more than one item is connected", "The gear named %1 is version %2", data(index(i, 0), Digitail.DeviceModelTypes.Name), data(index(i, 0), Digitail.DeviceModelTypes.DeviceVersion));
                     newLine = "\n";
                 }
                 return constructedString;

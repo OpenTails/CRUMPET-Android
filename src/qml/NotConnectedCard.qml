@@ -109,7 +109,7 @@ Kirigami.AbstractCard {
                         return i18nc("Label for button for opening the settings tab to fix missing location permissions, for the gear connecting card", "Get Location Permission...");
                     }
                 } else if (deviceFilterProxy.count === 1) {
-                    return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), 257)) // this is the name role
+                    return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), Digitail.DeviceModelTypes.Name))
                 } else {
                     return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
                 }
