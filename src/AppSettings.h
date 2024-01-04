@@ -46,6 +46,9 @@ public:
     bool autoReconnect() const override;
     void setAutoReconnect(bool newValue) override;
 
+    bool alwaysSendToAll() const override;
+    void setAlwaysSendToAll(bool alwaysSendToAll) override;
+
     QStringList idleCategories() const override;
     void setIdleCategories(QStringList newCategories) override;
     void addIdleCategory(const QString& category) override;

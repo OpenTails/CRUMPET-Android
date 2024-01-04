@@ -21,6 +21,7 @@ class AppSettingsProxy {
     PROP(bool developerMode READWRITE)
     PROP(bool idleMode READWRITE)
     PROP(bool autoReconnect READWRITE)
+    PROP(bool alwaysSendToAll READWRITE)
     PROP(QStringList idleCategories)
     SLOT(void addIdleCategory(const QString& category))
     SLOT(void removeIdleCategory(const QString& category))

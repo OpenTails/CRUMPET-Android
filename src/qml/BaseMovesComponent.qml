@@ -214,6 +214,8 @@ Item {
             if (sendCommandToSelector.deviceIDs.length === 1) {
                 // If there's only one device, simply assume that's what to send the command to
                 root.commandActivated(sendCommandToSelector.command, sendCommandToSelector.deviceIDs[0]);
+            } else if (Digitail.AppSettings.alwaysSendToAll) {
+                root.commandActivated(sendCommandToSelector.command, sendCommandToSelector.deviceIDs);
             } else {
                 sendCommandToSelector.open();
             }
@@ -265,6 +267,7 @@ Item {
                         id: deviceListItem;
                         Layout.fillWidth: true;
                         visible: sendCommandToSelector.deviceIDs.includes(model.deviceID)
+                        enabled: Digitail.AppSettings.alwaysSendToAll === false
                         text: model.name ? model.name : "";
                         icon: model.checked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
@@ -272,13 +275,19 @@ Item {
                         onClicked: { Digitail.BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
                     }
                 }
+                Kirigami.BasicListItem {
+                    Layout.fillWidth: true;
+                    text: i18nc("Label for the checkbox which allows the user to remember the send to all devices option when selecting a command", "Always Send To All")
+                    icon: Digitail.AppSettings.alwaysSendToAll ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    onClicked: { Digitail.AppSettings.alwaysSendToAll = !Digitail.AppSettings.alwaysSendToAll; }
+                }
                 Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                 RowLayout {
                     Layout.fillWidth: true;
                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                     Button {
                         text: i18nc("Action for sending a command to the selected devices in a list", "Send To Selected");
-                        enabled: selectorDeviceModel.hasCheckedIDs;
+                        enabled: selectorDeviceModel.hasCheckedIDs && Digitail.AppSettings.alwaysSendToAll === false;
                         onClicked: {
                             root.commandActivated(sendCommandToSelector.command, selectorDeviceModel.checkedIDs());
                             sendCommandToSelector.close();

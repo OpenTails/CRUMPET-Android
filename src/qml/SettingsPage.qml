@@ -78,6 +78,18 @@ Kirigami.ScrollablePage {
         }
 
         SettingsCard {
+            headerText: i18nc("Header for the panel for whether or not to always send to all connected devices, on the settings page", "Send To All");
+            descriptionText: i18nc("Description for the panel for whether or not to always send to all connected devices, on the settings page", "When picking something to send to your gear, and you have more than one connected at the same time, you might want to always send to all of your gear, or not. Check the box here to make that choice, or to undo the choice made in the dialogue itself.");
+            footer: QQC2.CheckBox {
+                text: i18nc("Checkbox for the option to always send any selected command to all connected devices, on the panel for whether or not to always send to all connected devices in the settings page", "Always Send To All");
+                checked: Digitail.AppSettings.alwaysSendToAll;
+                onClicked: {
+                    Digitail.AppSettings.alwaysSendToAll = !Digitail.AppSettings.alwaysSendToAll;
+                }
+            }
+        }
+
+        SettingsCard {
             headerText: i18nc("Header for the panel for changing gear names, on the settings page", "Gear Names");
             descriptionText: i18nc("Description for the panel for changing gear names, on the settings page", "If you want to clear the names of any gear you have given a name, click the button below to make the app forget them all. If you just want to rename a piece of gear, you can do that by tapping on the gear's name in the list over on the home page.");
             footer: QQC2.Button {

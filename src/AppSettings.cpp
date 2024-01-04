@@ -45,6 +45,7 @@ public:
     bool developerMode = false;
     bool idleMode = false;
     bool autoReconnect = true;
+    bool alwaysSendToAll = false;
     QStringList idleCategories;
     int idleMinPause = 15;
     int idleMaxPause = 60;
@@ -71,6 +72,7 @@ AppSettings::AppSettings(QObject* parent)
     d->developerMode = settings.value("developerMode", d->developerMode).toBool();
     d->idleMode = settings.value("idleMode", d->idleMode).toBool();
     d->autoReconnect = settings.value("autoReconnect", d->autoReconnect).toBool();
+    d->alwaysSendToAll = settings.value("alwaysSendToAll", d->alwaysSendToAll).toBool();
     d->idleCategories = settings.value("idleCategories", d->idleCategories).toStringList();
     d->idleMinPause = settings.value("idleMinPause", d->idleMinPause).toInt();
     d->idleMaxPause = settings.value("idleMaxPause", d->idleMaxPause).toInt();
@@ -225,6 +227,21 @@ void AppSettings::setAutoReconnect(bool newValue)
         QSettings settings;
         settings.setValue("autoReconnect", d->autoReconnect);
         emit autoReconnectChanged(newValue);
+    }
+}
+
+bool AppSettings::alwaysSendToAll() const
+{
+    return d->alwaysSendToAll;
+}
+
+void AppSettings::setAlwaysSendToAll(bool alwaysSendToAll)
+{
+    if (alwaysSendToAll != d->alwaysSendToAll) {
+        d->alwaysSendToAll = alwaysSendToAll;
+        QSettings settings;
+        settings.setValue("alwaysSendToAll", d->alwaysSendToAll);
+        emit alwaysSendToAllChanged(alwaysSendToAll);
     }
 }
 
