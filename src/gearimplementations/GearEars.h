@@ -67,6 +67,7 @@ public:
     void setTiltMode(bool tiltState);
 
     QVariantList supportedTiltEvents() override;
+    QVariantList supportedSoundEvents() override;
 
     void sendMessage(const QString &message) override;
 

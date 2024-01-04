@@ -761,6 +761,13 @@ QVariantList GearEars::supportedTiltEvents()
     return fullSupportedEvents;
 }
 
+QVariantList GearEars::supportedSoundEvents()
+{
+    static const QVariantList fullSupportedEvents{GearBase::SoundLeftQuietEvent, GearBase::SoundLeftLoudEvent, GearBase::SoundRightQuietEvent, GearBase::SoundRightLoudEvent, GearBase::SoundNeutralEvent};
+    return fullSupportedEvents;
+}
+
+
 void GearEars::sendMessage(const QString &message)
 {
     QString actualMessage{message};
