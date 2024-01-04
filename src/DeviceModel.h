@@ -74,6 +74,7 @@ public:
         GestureEventDevices,     // 289 - a list of strings with the target devices set for the GearBase::GearGestureEvent with the equivalent index in GestureEventIndices
         SupportedTiltEvents,     // 290 - the list of supported Tilt related events (a list of GearBase::GearGestureEvent values)
         SupportedSoundEvents,    // 291 - the list of supported Sound related events (a list of GearBase::GearGestureEvent values)
+        Color,                   // 292 - a colour value to match the device's ID
     };
     Q_ENUM(Roles)
 

@@ -26,6 +26,7 @@
 #include "gearimplementations/GearMitailMini.h"
 
 #include <KLocalizedString>
+#include <QColor>
 
 class DeviceModel::Private
 {
@@ -143,6 +144,7 @@ QHash< int, QByteArray > DeviceModel::roleNames() const
         {GestureEventDevices, "gestureEventDevices"},
         {SupportedTiltEvents, "supportedTiltEvents"},
         {SupportedSoundEvents, "supportedSoundEvents"},
+        {Color, "color"},
     };
     return roles;
 }
@@ -337,6 +339,13 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
             case SupportedSoundEvents:
                 value = device->supportedSoundEvents();
                 break;
+            case Color: {
+                int colorCode = qHash(device->deviceInfo.address().toString()) % 0x1000000;
+                int red = 128 + (double(colorCode >> 16) * 128 / 256);
+                int green = 128 + (double((colorCode >> 8) & 0xff) * 128 / 256);
+                int blue = 128 + (double(colorCode & 0xff) * 128 / 256);
+                value = QColor::fromRgb(red, green, blue);
+                break; }
             default:
                 break;
         }
