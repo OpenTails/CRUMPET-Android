@@ -72,7 +72,10 @@ public:
         GestureEventTitles,      // 287 - a list of strings with human-readable names for GearBase::GearGestureEvent values
         GestureEventCommands,    // 288 - a string with the command set for the GearBase::GearGestureEvent with the equivalent index in GestureEventIndices
         GestureEventDevices,     // 289 - a list of strings with the target devices set for the GearBase::GearGestureEvent with the equivalent index in GestureEventIndices
+        SupportedTiltEvents,     // 290 - the list of supported Tilt related events (a list of GearBase::GearGestureEvent values)
+        SupportedSoundEvents,    // 291 - the list of supported Sound related events (a list of GearBase::GearGestureEvent values)
     };
+    Q_ENUM(Roles)
 
     AppSettings* appSettings() const;
     void setAppSettings(AppSettings* appSettings);

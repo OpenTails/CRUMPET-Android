@@ -178,16 +178,19 @@ int appMain(int argc, char *argv[])
     qmlRegisterSingletonType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModel", [&deviceModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
         return deviceModelReplica.data();
     });
+    qmlRegisterUncreatableType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModelTypes", "Not createable, use the replicated object named DeviceModel");
 
     QSharedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel("CommandModel"));
     qmlRegisterSingletonType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModel", [&commandModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
         return commandModelReplica.data();
     });
+    qmlRegisterUncreatableType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModelTypes", "Not createable, use the replicated object named CommandModel");
 
     QSharedPointer<QAbstractItemModelReplica> gestureDetectorModel(repNode->acquireModel("GestureDetectorModel"));
     qmlRegisterSingletonType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModel", [&gestureDetectorModel](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
         return gestureDetectorModel.data();
     });
+    qmlRegisterUncreatableType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModelTypes", "Not createable, use the replicated object named GestureDetectorModel");
 
     Utilities::getInstance()->setConnectionManager(btConnectionManagerReplica.data());
     Utilities::getInstance()->setParent(&app);
@@ -315,14 +318,20 @@ int serviceMain(int argc, char *argv[])
         DeviceModel * deviceModel = qobject_cast<DeviceModel *>(btConnectionManager->deviceModel());
         qDebug() << Q_FUNC_INFO << "Replicating device model";
         QVector<int> roles;
-        roles << DeviceModel::Name << DeviceModel::DeviceID << DeviceModel::DeviceVersion << DeviceModel::BatteryLevel << DeviceModel::CurrentCall << DeviceModel::IsConnected << DeviceModel::ActiveCommandTitles << DeviceModel::Checked << DeviceModel::HasListening << DeviceModel::ListeningState << DeviceModel::EnabledCommandsFiles << DeviceModel::MicsSwapped << DeviceModel::SupportsOTA << DeviceModel::HasAvailableOTA << DeviceModel::HasOTAData << DeviceModel::DeviceProgress << DeviceModel::ProgressDescription << DeviceModel::OperationInProgress << DeviceModel::OTAVersion << DeviceModel::HasLights << DeviceModel::HasShutdown << DeviceModel::HasNoPhoneMode << DeviceModel::NoPhoneModeGroups << DeviceModel::ChargingState << DeviceModel::BatteryLevelPercent << DeviceModel::HasTilt << DeviceModel::CanBalanceListening << DeviceModel::TiltEnabled << DeviceModel::KnownFirmwareMessage << DeviceModel::GestureEventValues << DeviceModel::GestureEventTitles << DeviceModel::GestureEventCommands << DeviceModel::GestureEventDevices;
+        static const QMetaEnum deviceModelRolesEnum = DeviceModel::staticMetaObject.enumerator(DeviceModel::staticMetaObject.indexOfEnumerator("Roles"));
+        for (int enumKey = 0; enumKey < deviceModelRolesEnum.keyCount(); ++enumKey) {
+            roles << deviceModelRolesEnum.value(enumKey);
+        }
         srcNode.enableRemoting(deviceModel, "DeviceModel", roles);
 
         qDebug() << Q_FUNC_INFO << "Getting command model";
         CommandModel * tailCommandModel = qobject_cast<CommandModel *>(btConnectionManager->commandModel());
         qDebug() << Q_FUNC_INFO << "Replicating command model";
         roles.clear();
-        roles << CommandModel::Name << CommandModel::Command << CommandModel::IsRunning << CommandModel::Category << CommandModel::Duration << CommandModel::MinimumCooldown << CommandModel::CommandIndex << CommandModel::DeviceIDs << CommandModel::IsAvailable;
+        static const QMetaEnum tailCommandModelRolesEnum = CommandModel::staticMetaObject.enumerator(CommandModel::staticMetaObject.indexOfEnumerator("Roles"));
+        for (int enumKey = 0; enumKey < tailCommandModelRolesEnum.keyCount(); ++enumKey) {
+            roles << tailCommandModelRolesEnum.value(enumKey);
+        }
         srcNode.enableRemoting(tailCommandModel, "CommandModel", roles);
 
         qDebug() << Q_FUNC_INFO << "Getting command queue";
@@ -339,7 +348,10 @@ int serviceMain(int argc, char *argv[])
         qDebug() << Q_FUNC_INFO << "Getting and replicating gesture detector model";
         gestureController->model()->setAppSettings(appSettings);
         roles.clear();
-        roles << GestureDetectorModel::NameRole << GestureDetectorModel::IdRole << GestureDetectorModel::SensorIdRole << GestureDetectorModel::SensorNameRole << GestureDetectorModel::SensorEnabledRole << GestureDetectorModel::SensorPinnedRole << GestureDetectorModel::CommandRole << GestureDetectorModel:: DefaultCommandRole << GestureDetectorModel::DevicesModel << GestureDetectorModel::FirstInSensorRole << GestureDetectorModel::VisibleRole;
+        static const QMetaEnum gestureDetectorModelRolesEnum = GestureDetectorModel::staticMetaObject.enumerator(GestureDetectorModel::staticMetaObject.indexOfEnumerator("Roles"));
+        for (int enumKey = 0; enumKey < gestureDetectorModelRolesEnum.keyCount(); ++enumKey) {
+            roles << gestureDetectorModelRolesEnum.value(enumKey);
+        }
         srcNode.enableRemoting(gestureController->model(), "GestureDetectorModel", roles);
     });
 

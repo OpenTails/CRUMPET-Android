@@ -45,6 +45,7 @@ public:
         DeviceIDs,
         IsAvailable
     };
+    Q_ENUM(Roles)
 
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;

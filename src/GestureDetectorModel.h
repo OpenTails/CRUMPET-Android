@@ -42,6 +42,7 @@ public:
         FirstInSensorRole, ///< True if the row has a different sensor ID to the previous row
         VisibleRole, ///< Whether or not this should be shown
     };
+    Q_ENUM(Roles)
 
     QHash< int, QByteArray > roleNames() const override;
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
