@@ -82,27 +82,26 @@ Kirigami.ApplicationWindow {
 
         function onDiscoveryRunningChanged() {
             if (Digitail.BTConnectionManager.discoveryRunning === false) {
-                console.log("device model count is " + Digitail.BTConnectionManager.deviceCount + " and sheet is open: " + connectToTail.sheetOpen);
                 if(Digitail.BTConnectionManager.deviceCount === 1 && connectToTail.sheetOpen === false) {
-                    // only one tail found? Well then, connect to that!
+                    // only one bit of gear found? Well then, connect to that!
                     Digitail.BTConnectionManager.connectToDevice("");
-                    connectingToTail.opacity = 1;
+                    connectingToTail.connectingDevices += 1;
                 }
             }
         }
 
         function onIsConnectedChanged(isConnected) {
             if (isConnected === true) {
-                showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
                 if(root.pageToPush !== null) {
                     switchToPage(root.pageToPush);
                     root.pageToPush = null;
                 }
             }
-            connectingToTail.opacity = 0;
         }
 
         function onDeviceConnected(deviceID) {
+            connectingToTail.connectingDevices -= 1;
+            showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
             console.debug("Connected to new device with ID: " + deviceID);
             namePicker.checkDeviceName(deviceID);
         }
@@ -420,7 +419,7 @@ Kirigami.ApplicationWindow {
         onAttemptToConnect: {
             root.pageToPush = pageToPush;
             Digitail.BTConnectionManager.connectToDevice(deviceID);
-            connectingToTail.opacity = 1;
+            connectingToTail.connectingDevices += 1;
         }
     }
     DisconnectOptions {
@@ -431,8 +430,9 @@ Kirigami.ApplicationWindow {
         id: connectingToTail;
         anchors.fill: parent;
         visible: opacity > 0
-        opacity: 0;
+        opacity: connectingDevices > 0 ? 1 : 0;
         Behavior on opacity { PropertyAnimation { duration: 250; } }
+        property int connectingDevices: 0
         Rectangle {
             color: "black";
             opacity: 0.2;
@@ -459,7 +459,8 @@ Kirigami.ApplicationWindow {
                 bottomMargin: Kirigami.Units.smallMargin;
                 horizontalCenter: parent.horizontalCenter;
             }
-            text: i18nc("Label for your gear that gets shown when attempting to connect to it", "Attempting to connect...");
+            visible: connectingToTail.connectingDevices > 0 // Just a small thing, otherwise we'll momentarily see 0, which is a bit ugly
+            text: i18ncp("Label for your gear that gets shown when attempting to connect to it", "Attempting to connect...", "Attempting to connect to %1 bits of gear...", connectingToTail.connectingDevices);
         }
         BusyIndicator {
             id: connectingSpinner
