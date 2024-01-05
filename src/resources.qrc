@@ -53,5 +53,9 @@
         <file>images/movelist.svg</file>
         <file>images/moves.svg</file>
         <file>images/tiltmode.svg</file>
+        <file>images/tail.svg</file>
+        <file>images/eargear.svg</file>
+        <file>images/flutter.svg</file>
+        <file>images/mitailmini.svg</file>
     </qresource>
 </RCC>
