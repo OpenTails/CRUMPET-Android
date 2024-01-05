@@ -75,6 +75,8 @@ public:
         SupportedTiltEvents,     // 290 - the list of supported Tilt related events (a list of GearBase::GearGestureEvent values)
         SupportedSoundEvents,    // 291 - the list of supported Sound related events (a list of GearBase::GearGestureEvent values)
         Color,                   // 292 - a colour value to match the device's ID
+        DeviceType,              // 293 - A string name of the device's type (e.g. DiGITAIL, MiTail, EarGear, EarGear 2, MiTail Mini, FlutterWings
+        DeviceIcon,              // 294 - A string containing the icon name for the device type
     };
     Q_ENUM(Roles)
 

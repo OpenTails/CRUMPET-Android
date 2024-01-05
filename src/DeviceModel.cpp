@@ -145,6 +145,8 @@ QHash< int, QByteArray > DeviceModel::roleNames() const
         {SupportedTiltEvents, "supportedTiltEvents"},
         {SupportedSoundEvents, "supportedSoundEvents"},
         {Color, "color"},
+        {DeviceType, "deviceType"},
+        {DeviceIcon, "deviceIcon"},
     };
     return roles;
 }
@@ -341,6 +343,40 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case Color:
                 value = device->color();
+                break;
+            case DeviceType:
+                if (device->inherits("GearDigitail")) {
+                    value = QString{"DiGITAIL"};
+                } else if (device->inherits("GearMitail")) {
+                    value = QString{"MiTail"};
+                } else if (device->inherits("GearEars")) {
+                    value = QString{"EarGear"};
+                } else if (device->inherits("GearFlutterWings")) {
+                    value = QString{"FlutterWings"};
+                } else if (device->inherits("GearMitailMini")) {
+                    value = QString{"MiTail Mini"};
+                } else if (device->inherits("GearFake")) {
+                    value = QString{"Fake Tail"};
+                } else {
+                    value = QString{"Unknown"};
+                }
+                break;
+            case DeviceIcon:
+                if (device->inherits("GearDigitail")) {
+                    value = QString{":/images/tail.svg"};
+                } else if (device->inherits("GearMitail")) {
+                    value = QString{":/images/tail.svg"};
+                } else if (device->inherits("GearEars")) {
+                    value = QString{":/images/eargear.svg"};
+                } else if (device->inherits("GearFlutterWings")) {
+                    value = QString{":/images/flutter.svg"};
+                } else if (device->inherits("GearMitailMini")) {
+                    value = QString{":/images/mitailmini.svg"};
+                } else if (device->inherits("GearFake")) {
+                    value = QString{":/images/tail.svg"};
+                } else {
+                    value = QString{":/images/logo.svg"};
+                }
                 break;
             default:
                 break;
