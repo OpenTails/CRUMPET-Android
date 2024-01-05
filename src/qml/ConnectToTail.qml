@@ -83,6 +83,16 @@ Kirigami.OverlaySheet {
             height: Kirigami.Units.gridUnit * 6
             hoverEnabled: false
             RowLayout {
+                Kirigami.Icon {
+                    source: model.deviceIcon
+                    Layout.fillHeight: true
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.medium
+                    Layout.minimumWidth: height
+                    Layout.maximumWidth: height
+                    Layout.alignment: Qt.AlignVCenter
+                    isMask: true
+                    color: model.color !== undefined ? model.color : "transparent"
+                }
                 ColumnLayout {
                     Layout.fillWidth: true
                     Layout.minimumWidth: 0

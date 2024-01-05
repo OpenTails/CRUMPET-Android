@@ -130,14 +130,14 @@ Item {
                                             top: parent.verticalCenter
                                             topMargin: (parent.paintedHeight / 2) + Kirigami.Units.smallSpacing
                                         }
-                                        spacing: Kirigami.Units.smallSpacing
                                         Repeater {
                                             model: selectorDeviceModel
-                                            delegate: Rectangle {
+                                            delegate: Kirigami.Icon {
+                                                source: model.deviceIcon
                                                 visible: commandDelegateItem.deviceIDs.includes(model.deviceID)
                                                 height: Kirigami.Units.largeSpacing
                                                 width: Kirigami.Units.largeSpacing
-                                                radius: height / 2
+                                                isMask: true
                                                 color: model.color !== undefined ? model.color : "transparent"
                                             }
                                         }
@@ -273,6 +273,17 @@ Item {
                         property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
                         onItemIsCheckedChanged: { selectorDeviceModel.updateHasCheckedIDs(); }
                         onClicked: { Digitail.BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
+                        Kirigami.Icon {
+                            source: model.deviceIcon
+                            visible: commandDelegateItem.deviceIDs.includes(model.deviceID)
+                            Layout.fillHeight: true
+                            Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium
+                            Layout.minimumWidth: height
+                            Layout.maximumWidth: height
+                            Layout.alignment: Qt.AlignVCenter
+                            isMask: true
+                            color: model.color !== undefined ? model.color : "transparent"
+                        }
                     }
                 }
                 Kirigami.BasicListItem {

@@ -42,14 +42,14 @@ ColumnLayout {
                 property int batteryLevel: model.batteryLevel !== undefined ? model.batteryLevel : -1
                 property int batteryLevelPercent: model.batteryLevelPercent !== undefined ? model.batteryLevelPercent : 0
                 property int chargingState: model.chargingState !== undefined ? model.chargingState : 0
-                Rectangle {
-                    visible: deviceFilterProxy.count > 1
+                Kirigami.Icon {
+                    source: model.deviceIcon
                     Layout.fillHeight: true
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.small
                     Layout.minimumWidth: height
                     Layout.maximumWidth: height
-                    Layout.margins: Kirigami.Units.largeSpacing
                     Layout.alignment: Qt.AlignVCenter
-                    radius: height / 2
+                    isMask: true
                     color: model.color !== undefined ? model.color : "transparent"
                     TapHandler {
                         onTapped: {
