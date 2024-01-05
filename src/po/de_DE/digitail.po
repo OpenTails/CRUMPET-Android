@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-01-05 16:42+0000\n"
-"PO-Revision-Date: 2023-10-28 15:11+0000\n"
+"PO-Revision-Date: 2024-01-05 20:05+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
-"Language-Team: German <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/de/>\n"
+"Language-Team: German <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1.1\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -90,49 +90,49 @@ msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "Nach hinten kippen"
 
 #: DeviceModel.cpp:302
 msgctxt ""
 "Name for an event where the gear has been returned to an upright position "
 "from having been tilted"
 msgid "Return to Upright"
-msgstr ""
+msgstr "Rückkehr zur aufrechten Position"
 
 #: DeviceModel.cpp:303
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr ""
+msgstr "Lautes Geräusch von Links"
 
 #: DeviceModel.cpp:304
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr ""
+msgstr "Leises Geräusch von Links"
 
 #: DeviceModel.cpp:305
 msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "Hintergrundgeräuschlevel"
 
 #: DeviceModel.cpp:306
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr ""
+msgstr "Leises Geräusch von Rechts"
 
 #: DeviceModel.cpp:307
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr ""
+msgstr "Lautes Geräusch von Rechts"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -1748,6 +1748,13 @@ msgid ""
 "to if you have more than one (otherwise we'll just send it to itself). If "
 "you don't select any, the gear will just pick something to do on its own."
 msgstr ""
+"Aktiviere die Geräuscherkennung, damit deine Geräte für jeweils fünf Minuten "
+"auf Geräusche hören. Wenn du das Kästchen neben dem Namen des Geräts "
+"anklickst, wird dieses Gerät auf Geräusche reagieren. Du kannst auch "
+"einzelne Aktionen deiner Geräte festlegen - was bei welchem Geräuschpegel "
+"bzw -Richtung passiert - und das über mehrere Geräte hinweg (sofern du diese "
+"hast). Wählst du nichts aus, wird das Gerät nur selbst aktiv werden und "
+"zufällige Bewegungen abspielen."
 
 #: qml/ListenSettings.qml:111
 #, fuzzy
@@ -1772,6 +1779,8 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"Erfolgreich verbunden!\n"
+"Um ein Gerät umzubenennen, tippe auf dessen Namen"
 
 #: qml/main.qml:112
 msgctxt "Text for the notification upon connecting successfully to a device"
@@ -2454,6 +2463,9 @@ msgid ""
 "gear, or not. Check the box here to make that choice, or to undo the choice "
 "made in the dialogue itself."
 msgstr ""
+"Wenn du einen Bewegung an ein Gerät sendest und du mehrere Geräte verbunden "
+"hast, möchtest du vielleicht an alle Geräte senden - oder auch nicht. Hier "
+"kannst du 'An alle senden' als Standard setzen."
 
 #: qml/SettingsPage.qml:84
 #, fuzzy
@@ -2820,6 +2832,12 @@ msgid ""
 "that move to if you have more than one (otherwise we'll just send it to "
 "itself)."
 msgstr ""
+"Aktiviere die Kipperkennung, indem du das Kästchen neben dem Namen des "
+"Zahnrads anklickst, an dem du Neigungen erkennen möchtest. Um zu "
+"entscheiden, was zu tun ist, wenn eine bestimmte Art des Kippens erkannt "
+"wird, wähle die Bewegungen und die Geräte aus, an die du diese Bewegung "
+"senden möchtest, falls du mehr als ein Gerät hast (andernfalls senden wir "
+"sie einfach an uns selbst)."
 
 #: qml/TiltSettings.qml:100
 #, fuzzy
