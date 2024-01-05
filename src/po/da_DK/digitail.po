@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-01-05 16:42+0000\n"
-"PO-Revision-Date: 2023-07-26 15:20+0000\n"
+"PO-Revision-Date: 2024-01-05 20:05+0000\n"
 "Last-Translator: Dan <admin@leinir.dk>\n"
-"Language-Team: Danish <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/da/>\n"
+"Language-Team: Danish <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/da/>\n"
 "Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18.2\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -61,77 +61,74 @@ msgid "Could not open the file %1 for writing"
 msgstr "Kunne ikke åbne filen %1 for skrivning"
 
 #: DeviceModel.cpp:298
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr "Drej Til Venstre"
+msgstr "Hæld Til Venstre"
 
 #: DeviceModel.cpp:299
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr "Drej Til Højre"
+msgstr "Hæld Til Højre"
 
 #: DeviceModel.cpp:300
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr "Vippereaktioner"
+msgstr "Hældereaktioner"
 
 #: DeviceModel.cpp:301
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "Hæld Bagud"
 
 #: DeviceModel.cpp:302
 msgctxt ""
 "Name for an event where the gear has been returned to an upright position "
 "from having been tilted"
 msgid "Return to Upright"
-msgstr ""
+msgstr "Tilbage til Opret"
 
 #: DeviceModel.cpp:303
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr ""
+msgstr "Høj Lyd til Venstre"
 
 #: DeviceModel.cpp:304
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr ""
+msgstr "Stille Lyd til Venstre"
 
 #: DeviceModel.cpp:305
 msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "Alment Lydniveau"
 
 #: DeviceModel.cpp:306
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr ""
+msgstr "Stille Lyd til Højre"
 
 #: DeviceModel.cpp:307
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr ""
+msgstr "Høj Lyd til Højre"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -651,7 +648,6 @@ msgid "Attempting to reconnect to your gear..."
 msgstr "Forsøger at genforbinde..."
 
 #: gearimplementations/GearFlutterWings.cpp:572
-#, fuzzy
 msgctxt ""
 "Message shown to the user after firmware upload has completed and the "
 "FlutterWings are expected to reboot"
@@ -663,7 +659,6 @@ msgstr ""
 "før vi forøger at genforbinde..."
 
 #: gearimplementations/GearFlutterWings.cpp:575
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -765,7 +760,6 @@ msgstr ""
 "Indstillinger og find Firmware afdelingen for at installere opdateringen."
 
 #: gearimplementations/GearMitail.cpp:44
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.10 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -1307,12 +1301,11 @@ msgid "Pick from the list below where you want to send the command."
 msgstr "Vælg hvor du vil sende kommandoen til fra listen nedenunder."
 
 #: qml/BaseMovesComponent.qml:299
-#, fuzzy
 msgctxt ""
 "Label for the checkbox which allows the user to remember the send to all "
 "devices option when selecting a command"
 msgid "Always Send To All"
-msgstr "Send Til Alle"
+msgstr "Send Altid Til Alle"
 
 #: qml/BaseMovesComponent.qml:308
 msgctxt "Action for sending a command to the selected devices in a list"
@@ -1345,12 +1338,11 @@ msgid "Add this pause"
 msgstr "Tilføj denne pause"
 
 #: qml/ConnectToTail.qml:48
-#, fuzzy
 msgctxt ""
 "Button for the action of disconnecting from all currently connected devices, "
 "in the popup for connecting to devices"
 msgid "Disconnect All"
-msgstr "Frakobl"
+msgstr "Frakobl Alle"
 
 #: qml/ConnectToTail.qml:63
 msgctxt ""
@@ -1406,15 +1398,14 @@ msgid "Disconnect?"
 msgstr "Kobl fra?"
 
 #: qml/DisconnectOptions.qml:43
-#, fuzzy
 msgctxt ""
 "Label above the list of options available for disconnecting from a piece of "
 "gear"
 msgid "Please select how you would like to disconnect from %2."
 msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
-msgstr[0] "Vælg hvordan du vil koble fra %1."
-msgstr[1] "Vælg hvordan du vil koble fra %1."
+msgstr[0] "Vælg hvordan du vil koble fra %2."
+msgstr[1] "Vælg hvordan du vil koble fra %1 stykker udstyr."
 
 #: qml/DisconnectOptions.qml:58
 msgctxt ""
@@ -1525,7 +1516,6 @@ msgid "Home Position"
 msgstr "Hjemmeposition"
 
 #: qml/EarPoses.qml:38
-#, fuzzy
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
@@ -1533,7 +1523,9 @@ msgid ""
 "connected, the little coloured dots show which you can send that pose to."
 msgstr ""
 "Listen nedenfor viser alle positionerne din enhed har tilgængelig. Tryk på "
-"dem for at sende den til en eller flere af dine forbundede enhedet!"
+"dem for at sende den til en eller flere af dine forbundede enhedet! Hvis du "
+"har mere end et forbundet, viser de små farvede prikker, hvilke du kan sende "
+"den position til."
 
 #: qml/EarPoses.qml:41
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -1553,7 +1545,6 @@ msgid "Poses"
 msgstr "Positioner"
 
 #: qml/GearGestures.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1561,7 +1552,6 @@ msgid "Gear Gestures"
 msgstr "Udstyrsreaktioner"
 
 #: qml/GearGestures.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when the controlling device/phone detects a gesture"
@@ -1569,7 +1559,6 @@ msgid "Home Position"
 msgstr "Hjemmeposition"
 
 #: qml/GearGestures.qml:47
-#, fuzzy
 msgctxt ""
 "Info card for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1588,7 +1577,6 @@ msgstr ""
 "logre når den opdager du har taget et skridt."
 
 #: qml/GearGestures.qml:70
-#, fuzzy
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting what should happen when the controlling device/"
@@ -1597,7 +1585,6 @@ msgid "Multiple Gestures"
 msgstr "Flere Bevægelser"
 
 #: qml/GearGestures.qml:71
-#, fuzzy
 msgctxt ""
 "Description for the warning for having enabled multiple gestures at the same "
 "time, on the page for selecting what should happen when the controlling "
@@ -1616,7 +1603,6 @@ msgstr ""
 "at tænde for denne bevægese."
 
 #: qml/GearGestures.qml:80
-#, fuzzy
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting what should happen when the controlling device/phone "
@@ -1625,7 +1611,6 @@ msgid "Show On Welcome Page"
 msgstr "Vis På Velkomstsiden"
 
 #: qml/GearGestures.qml:93
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when the "
@@ -1634,13 +1619,11 @@ msgid "(no command)"
 msgstr "(ingen kommando)"
 
 #: qml/IdleModePage.qml:26
-#, fuzzy
 msgctxt "Title for the Casual Mode settings page"
 msgid "Casual Mode Categories"
 msgstr "Afslapningstilstandskategorier"
 
 #: qml/IdleModePage.qml:46
-#, fuzzy
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Casual Mode "
 "settings page"
@@ -1648,7 +1631,6 @@ msgid "Calm and Relaxed"
 msgstr "Rolig og Afslappet"
 
 #: qml/IdleModePage.qml:51
-#, fuzzy
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Casual Mode "
 "settings page"
@@ -1656,7 +1638,6 @@ msgid "Fast and Excited"
 msgstr "Hurtig og Begejstret"
 
 #: qml/IdleModePage.qml:56
-#, fuzzy
 msgctxt ""
 "Description for the category for the Tense Moveset, on the Casual Mode "
 "settings page"
@@ -1664,7 +1645,6 @@ msgid "Frustrated and Tense"
 msgstr "Frustreret og Spændt"
 
 #: qml/IdleModePage.qml:61
-#, fuzzy
 msgctxt ""
 "Description for the category for the LED Patterns, on the Casual Mode "
 "settings page"
@@ -1672,7 +1652,6 @@ msgid "LED Patterns"
 msgstr "LED-mønstre"
 
 #: qml/IdleModePage.qml:72
-#, fuzzy
 msgctxt ""
 "Infocard for selecting the pauses in between moves, on the Casual Mode "
 "settings page"
@@ -1684,12 +1663,11 @@ msgstr ""
 "bevægelser der kan blive valgt fra."
 
 #: qml/IdleModePage.qml:74
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the Casual Mode "
 "settings page"
 msgid "Enable Casual Mode"
-msgstr "Afslapningstilstand"
+msgstr "Aktiver Afslapningstilstand"
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
@@ -1698,15 +1676,13 @@ msgid "Range of pause between moves in seconds"
 msgstr "Rækkevidde af pauser mellem bevægelser i sekunder"
 
 #: qml/ListenSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a sound based event"
 msgid "Listening Settings"
-msgstr "Lyttereaktioner"
+msgstr "Lyttereaktioner Instillinger"
 
 #: qml/ListenSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a sound based event"
@@ -1725,9 +1701,15 @@ msgid ""
 "to if you have more than one (otherwise we'll just send it to itself). If "
 "you don't select any, the gear will just pick something to do on its own."
 msgstr ""
+"Tænd høretildstand for at få dit udstyr til at reagere til lyde i cirka fem "
+"minutter af ganged ved at klikke på kassen ved siden af navnet på det stykke "
+"udstyr du vil have til at lytte efter lyde. For at definere, hvad der skal "
+"ske, når et bestemt lydniveau bliver hørt, kan du vælge bevægelser og hvilke "
+"stykker udstyr du vil sende den bevægelse til, hvis du har flere end et "
+"tilkoblet (ellers sender vi dem bare til det eneste). Hvis du ikke vælger "
+"nogen, vil udstyret selv vælge, hvad der skal ske."
 
 #: qml/ListenSettings.qml:111
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
@@ -1749,6 +1731,8 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"Forbindelse lykkedes! \n"
+"Giv dit udstyr et nyt navn ved at trykke på der gamle"
 
 #: qml/main.qml:112
 msgctxt "Text for the notification upon connecting successfully to a device"
@@ -1888,7 +1872,6 @@ msgstr ""
 "Er du sikker på, at du vil koble fra og lukke Crumpet ned?"
 
 #: qml/main.qml:416
-#, fuzzy
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your gear"
 msgstr "Indtast et navn som vi kan kalde dit udstyr"
@@ -1906,12 +1889,11 @@ msgid "Save"
 msgstr "Gem"
 
 #: qml/main.qml:480
-#, fuzzy
 msgctxt "Label for your gear that gets shown when attempting to connect to it"
 msgid "Attempting to connect..."
 msgid_plural "Attempting to connect to %1 bits of gear..."
 msgstr[0] "Forsøger at forbinde..."
-msgstr[1] "Forsøger at forbinde..."
+msgstr[1] "Forsøger at forbinde til %1 stykker udstyr..."
 
 #: qml/MessageBox.qml:48
 msgctxt "Confirmation button for a generic message"
@@ -2282,22 +2264,22 @@ msgid "Delete"
 msgstr "Slet"
 
 #: qml/SettingsCrumpetPicker.qml:87
-#, fuzzy
 msgctxt ""
 "Header for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid "Remove Command Set?"
-msgstr "Udstyrskommandosamlinger"
+msgstr "Fjern Udstyrskommandosamling?"
 
 #: qml/SettingsCrumpetPicker.qml:88
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
-msgstr "Er du sikker på, at du vil fjerne bevægelseslisten '%1'?"
+msgstr ""
+"Er du sikker på, at du vil fjerne udstyrskommandosamling '%1'? Bemærk dette "
+"ikke kan fortrydes."
 
 #: qml/SettingsCrumpetPicker.qml:95
 msgctxt ""
@@ -2409,7 +2391,6 @@ msgid "Reconnect Automatically"
 msgstr "Genforbind Automatisk"
 
 #: qml/SettingsPage.qml:81
-#, fuzzy
 msgctxt ""
 "Header for the panel for whether or not to always send to all connected "
 "devices, on the settings page"
@@ -2426,15 +2407,18 @@ msgid ""
 "gear, or not. Check the box here to make that choice, or to undo the choice "
 "made in the dialogue itself."
 msgstr ""
+"Når du vælger noget at sende til dir udstyr, og du har mere end et forbundet "
+"samtidigt, kan det være, du altid vil sende alle kommandoer til alt "
+"forbundet udstyr, eller måske ikke. Sæt en afkrydsning i kassen herunder for "
+"at lave det valg, eller for at ændre det valg, du gjorde i dialogboksen."
 
 #: qml/SettingsPage.qml:84
-#, fuzzy
 msgctxt ""
 "Checkbox for the option to always send any selected command to all connected "
 "devices, on the panel for whether or not to always send to all connected "
 "devices in the settings page"
 msgid "Always Send To All"
-msgstr "Send Til Alle"
+msgstr "Send Altid Til Alle"
 
 #: qml/SettingsPage.qml:93
 msgctxt "Header for the panel for changing gear names, on the settings page"
@@ -2442,7 +2426,6 @@ msgid "Gear Names"
 msgstr "Udstyrsnavne"
 
 #: qml/SettingsPage.qml:94
-#, fuzzy
 msgctxt ""
 "Description for the panel for changing gear names, on the settings page"
 msgid ""
@@ -2452,7 +2435,9 @@ msgid ""
 "over on the home page."
 msgstr ""
 "Hvis du vil fjerne de navne, du har givet dit udstyr, kan du trykke på "
-"knappen nedenfor for at glemme dem allesammen."
+"knappen nedenfor for at glemme dem allesammen. Hvis du bare vil ændre et at "
+"dine stykker udstyrs navn, så kan du gøre det ved at trykke på navnet i "
+"listen på forsiden."
 
 #: qml/SettingsPage.qml:96
 msgctxt ""
@@ -2715,7 +2700,6 @@ msgid "Stop Lights"
 msgstr "Stop Lys"
 
 #: qml/TailLights.qml:37
-#, fuzzy
 msgctxt ""
 "Description for the list of light patterns, on the page for the Glow Tips"
 msgid ""
@@ -2725,7 +2709,9 @@ msgid ""
 "light pattern to."
 msgstr ""
 "Listen nedenfor viser alle de lys-mønstre dit udstyr har tilgængeligt. Tryk "
-"på dem for at sende dem til en eller flere af dine enheder!"
+"på dem for at sende dem til en eller flere af dine enheder! Hvis du har mere "
+"end et forbundet, viser de små farvede prikker, hvilke du kan sende det "
+"lydmønster til."
 
 #: qml/TailLights.qml:44
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2743,7 +2729,6 @@ msgid "Home Position"
 msgstr "Hjemmeposition"
 
 #: qml/TailMoves.qml:36
-#, fuzzy
 msgctxt "Description for the list of moves, on the Moves page"
 msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
@@ -2751,7 +2736,9 @@ msgid ""
 "connected, the little coloured dots show which you can send that move to."
 msgstr ""
 "Listen nedenfor viser alle de bevægelser der er tilgængelige for dit udstyr. "
-"Tryk på dem for at sende dem til en eller flere af dine enheder!"
+"Tryk på dem for at sende dem til en eller flere af dine enheder! Hvis du har "
+"mere end et forbundet, viser de små farvede prikker, hvilke du kan sende den "
+"bevægelse til."
 
 #: qml/TailMoves.qml:43
 msgctxt ""
@@ -2771,15 +2758,13 @@ msgid "Frustrated and Tense"
 msgstr "Frustreret og Spændt"
 
 #: qml/TiltSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a tilting motion"
 msgid "Tilt Settings"
-msgstr "Indstillinger"
+msgstr "Hældeindstillinger"
 
 #: qml/TiltSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a tilting motion"
@@ -2797,9 +2782,13 @@ msgid ""
 "that move to if you have more than one (otherwise we'll just send it to "
 "itself)."
 msgstr ""
+"Tænd hældningsdetektering ved at afkrydse kassen ved siden af der udstyr, du "
+"vil detektere dem med. For at vælge, hvad der skal ske, når en bestemt type "
+"hæld bliver detekteret, kan du vælge bevægelser, og hvilke stykker udstyr "
+"den bevægelse skal sendes til, hvis du har mere end et tilkoblet (ellers "
+"sender vi den bare til udstyret selv)."
 
 #: qml/TiltSettings.qml:100
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
@@ -2905,11 +2894,10 @@ msgid "Casual Mode"
 msgstr "Afslapningstilstand"
 
 #: qml/WelcomePage.qml:226
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the welcome page"
 msgid "Enable Casual Mode"
-msgstr "Afslapningstilstand"
+msgstr "Aktiver Afslapningstilstand"
 
 #: qml/WelcomePage.qml:276
 msgctxt "Heading for the panel for turning on Listening Mode"
