@@ -71,13 +71,15 @@ GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     , d(new Private(this))
 {
     d->name = info.name();
-    // Set the digitail name to something more friendly than (!)Tail1
+    // Set the various device names to actually match the product name, instead of the bluetooth ID
     if (d->name == "(!)Tail1") {
         d->name = "DIGITAiL";
-    // Set the eargear version 2 name to something a bit nicer as well
     } else if (d->name == "EG2") {
         d->name = "EarGear 2";
-    // Also set the FlutterWings name to actually match the product name, instead of the bluetooth ID
+    } else if (d->name == "mitail") {
+        d->name = "MiTail";
+    } else if (d->name == "minitail") {
+        d->name = "MiTail Mini";
     } else if (d->name == "flutter") {
         d->name = "FlutterWings";
     }
