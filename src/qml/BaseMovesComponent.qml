@@ -102,6 +102,7 @@ Item {
                             opacity: model.isAvailable || model.isRunning ? 1 : 0.5;
                             Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; } }
                             Rectangle {
+                                id: commandButtonBackground
                                 anchors {
                                     horizontalCenter: parent.horizontalCenter
                                     margins: Kirigami.Units.smallSpacing;
@@ -125,6 +126,7 @@ Item {
                                     Kirigami.Theme.colorSet: Kirigami.Theme.Button
                                     Row {
                                         visible: selectorDeviceModel.count > 1
+                                        spacing: 1
                                         anchors {
                                             horizontalCenter: parent.horizontalCenter
                                             top: parent.verticalCenter
@@ -132,13 +134,20 @@ Item {
                                         }
                                         Repeater {
                                             model: selectorDeviceModel
-                                            delegate: Kirigami.Icon {
-                                                source: model.deviceIcon
+                                            delegate: Rectangle {
                                                 visible: commandDelegateItem.deviceIDs.includes(model.deviceID)
-                                                height: Kirigami.Units.largeSpacing
-                                                width: Kirigami.Units.largeSpacing
-                                                isMask: true
-                                                color: model.color !== undefined ? model.color : "transparent"
+                                                height: Kirigami.Units.largeSpacing * 1.5
+                                                width: Kirigami.Units.largeSpacing * 1.5
+                                                radius: height / 2
+                                                color: model.color !== undefined ? model.color : "black"
+                                                Kirigami.Icon {
+                                                    anchors {
+                                                        fill: parent
+                                                    }
+                                                    source: model.deviceIcon
+                                                    isMask: true
+                                                    color: commandButtonBackground.color
+                                                }
                                             }
                                         }
                                     }
@@ -275,7 +284,6 @@ Item {
                         onClicked: { Digitail.BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
                         Kirigami.Icon {
                             source: model.deviceIcon
-                            visible: commandDelegateItem.deviceIDs.includes(model.deviceID)
                             Layout.fillHeight: true
                             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium
                             Layout.minimumWidth: height
