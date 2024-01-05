@@ -100,10 +100,19 @@ Kirigami.ApplicationWindow {
         }
 
         function onDeviceConnected(deviceID) {
-            connectingToTail.connectingDevices -= 1;
-            showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
             console.debug("Connected to new device with ID: " + deviceID);
-            namePicker.checkDeviceName(deviceID);
+            // Only pop up the name picker if we're connecting to a single device, otherwise show a little
+            // message after having connected the last thing to say what people can do to rename things,
+            // without getting in the way too much
+            if (connectingToTail.connectingMultipleDevices) {
+                if (connectingToTail.connectingDevices === 1) {
+                    showPassiveNotification(i18nc("Text for the notification upon successfully connecting to the final device, after connecting to multiple devices simultaneously, informing the user that it has happened, and how they can rename the devices", "Connected successfully!\nRename gear by tapping their name"), 2000);
+                }
+            } else {
+                showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
+                namePicker.checkDeviceName(deviceID);
+            }
+            connectingToTail.connectingDevices -= 1;
         }
 
         function onBluetoothStateChanged() {
@@ -433,6 +442,14 @@ Kirigami.ApplicationWindow {
         opacity: connectingDevices > 0 ? 1 : 0;
         Behavior on opacity { PropertyAnimation { duration: 250; } }
         property int connectingDevices: 0
+        property bool connectingMultipleDevices: false
+        onConnectingDevicesChanged: {
+            if (connectingDevices > 1) {
+                connectingMultipleDevices = true;
+            } else if (connectingDevices === 0) {
+                connectingMultipleDevices = false;
+            }
+        }
         Rectangle {
             color: "black";
             opacity: 0.2;
