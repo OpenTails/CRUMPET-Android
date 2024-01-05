@@ -365,7 +365,7 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                 if (device->inherits("GearDigitail")) {
                     value = QString{":/images/tail.svg"};
                 } else if (device->inherits("GearMitail")) {
-                    value = QString{":/images/tail.svg"};
+                    value = QString{":/images/taildevice.svg"};
                 } else if (device->inherits("GearEars")) {
                     value = QString{":/images/eargear.svg"};
                 } else if (device->inherits("GearFlutterWings")) {
@@ -373,7 +373,7 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                 } else if (device->inherits("GearMitailMini")) {
                     value = QString{":/images/mitailmini.svg"};
                 } else if (device->inherits("GearFake")) {
-                    value = QString{":/images/tail.svg"};
+                    value = QString{":/images/taildevice.svg"};
                 } else {
                     value = QString{":/images/logo.svg"};
                 }
