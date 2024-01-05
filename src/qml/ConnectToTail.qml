@@ -45,7 +45,23 @@ Kirigami.OverlaySheet {
         implicitWidth: Kirigami.Units.gridUnit * 30
         QQC2.Button {
             Layout.fillWidth: true
+            text: i18nc("Button for the action of disconnecting from all currently connected devices, in the popup for connecting to devices", "Disconnect All")
+            Digitail.FilterProxyModel {
+                id: connectedDevices
+                sourceModel: Digitail.DeviceModel;
+                filterRole: Digitail.DeviceModelTypes.IsConnected;
+                filterBoolean: true;
+            }
+            enabled: connectedDevices.count > 0
+            onClicked: {
+                disconnectionOptions.disconnectGear("");
+                sheet.close();
+            }
+        }
+        QQC2.Button {
+            Layout.fillWidth: true
             text: i18nc("Button for the action of connecting to all found devices, in the popup for connecting to devices", "Connect All")
+            enabled: connectedDevices.count < deviceList.count
             onClicked: {
                 for(var i = 0; i < deviceList.count; ++i) {
                     var isConnected = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.IsConnected);
