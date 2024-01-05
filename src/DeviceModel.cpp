@@ -339,13 +339,9 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
             case SupportedSoundEvents:
                 value = device->supportedSoundEvents();
                 break;
-            case Color: {
-                int colorCode = qHash(device->deviceInfo.address().toString()) % 0x1000000;
-                int red = 64 + (double(colorCode >> 16) * 128 / 256);
-                int green = 64 + (double((colorCode >> 8) & 0xff) * 128 / 256);
-                int blue = 64 + (double(colorCode & 0xff) * 128 / 256);
-                value = QColor::fromRgb(red, green, blue);
-                break; }
+            case Color:
+                value = device->color();
+                break;
             default:
                 break;
         }
@@ -414,6 +410,24 @@ void DeviceModel::addDevice(GearBase* newDevice)
                 return;
             }
         }
+
+        static QList<QColor> colors;
+        static int currentColor{0};
+        if (colors.isEmpty()) {
+            colors = QList<QColor>{
+                QColor("#4874bf"),
+                QColor("#ab3434"),
+                QColor("#fba257"),
+                QColor("#0e367c"),
+                QColor("#f44242"),
+            };
+        } else {
+            ++currentColor;
+            if (currentColor == colors.count()) {
+                currentColor = 0;
+            }
+        }
+        newDevice->setColor(colors[currentColor]);
 
         // Device type specifics
         GearEars* ears = qobject_cast<GearEars*>(newDevice);

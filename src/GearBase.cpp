@@ -18,6 +18,7 @@
 #include "GearBase.h"
 
 #include <QCoreApplication>
+#include <QColor>
 #include <QSettings>
 #include <QTimer>
 
@@ -47,6 +48,7 @@ public:
 
     GearBase *q{nullptr};
     int batteryLevelPercent{100};
+    QColor color;
     bool supportsOTA{false};
     bool checked{true};
     bool hasLights{false};
@@ -154,6 +156,16 @@ void GearBase::Private::handleGearSensorEvent(const GearSensorEvent& event)
         const GearSensorEventDetails &details = gearSensorEvents[event];
         parentModel->sendMessage(details.command, details.targetDeviceIDs);
     }
+}
+
+QColor GearBase::color() const
+{
+    return d->color;
+}
+
+void GearBase::setColor(const QColor& color)
+{
+    d->color = color;
 }
 
 bool GearBase::supportsOTA()

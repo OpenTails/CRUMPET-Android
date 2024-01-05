@@ -60,6 +60,9 @@ public:
     GearCommandModel* commandModel{new GearCommandModel(this)};
     QMap<QString, QString> commandShorthands;
 
+    QColor color() const;
+    void setColor(const QColor &color);
+
     bool supportsOTA();
     void setSupportsOTA(bool supportsOTA);
     Q_SIGNAL void supportsOTAChanged();
