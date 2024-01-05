@@ -3,13 +3,10 @@
   <defs>
     <style>
       .cls-1 {
-        fill: none;
-        stroke: #000;
-        stroke-miterlimit: 10;
-        stroke-width: 6px;
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 48px;
       }
     </style>
   </defs>
-  <path class="cls-1" d="m11.87,70.29c6.88-15.53,13.77-31.05,20.65-46.58,1.19,16.59,3.82,33.07,7.86,49.2"/>
-  <path class="cls-1" d="m64.14,80.19c-2.67-16.77-5.34-33.54-8.01-50.32,10.02,13.27,21.2,25.67,33.37,37.01"/>
+  <text class="cls-1" transform="translate(22.36 64.16)"><tspan x="0" y="0">EG</tspan></text>
 </svg>

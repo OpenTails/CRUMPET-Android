@@ -3,12 +3,14 @@
   <defs>
     <style>
       .cls-1 {
-        fill: none;
-        stroke: #000;
-        stroke-miterlimit: 10;
-        stroke-width: 6px;
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 48px;
       }
     </style>
   </defs>
-  <path class="cls-1" d="m93.74,16.23c-5.87-3.19-13.45-2.96-19.12.58-4.4,2.75-7.47,7.16-10.11,11.62-3.77,6.37-6.91,13.08-10.37,19.62-3.3,6.23-6.88,12.31-10.74,18.21-2.62,4-5.41,7.96-9.12,10.97-2.38,1.93-5.26,3.47-8.32,3.42-3.85-.06-7.18-2.58-10.05-5.14-2.21-1.97-4.45-4.26-4.95-7.18"/>
+  <text class="cls-2" transform="translate(17.45 64.16)"><tspan class="cls-1" x="0" y="0">M</tspan><tspan x="38.11" y="0">T</tspan></text>
 </svg>
