@@ -415,11 +415,15 @@ void DeviceModel::addDevice(GearBase* newDevice)
         static int currentColor{0};
         if (colors.isEmpty()) {
             colors = QList<QColor>{
-                QColor("#4874bf"),
-                QColor("#ab3434"),
-                QColor("#fba257"),
-                QColor("#0e367c"),
-                QColor("#f44242"),
+                QColor("#ff6a33"),
+                QColor("#8b0cf4"),
+                QColor("#45bd32"),
+                QColor("#f8f71d"),
+                QColor("#ff0673"),
+                QColor("#92ffff"),
+                QColor("#f80000"),
+                QColor("#a18b2a"),
+                QColor("#2e2efb"),
             };
         } else {
             ++currentColor;
