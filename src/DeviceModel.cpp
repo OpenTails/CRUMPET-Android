@@ -543,6 +543,9 @@ void DeviceModel::addDevice(GearBase* newDevice)
         connect(newDevice, &GearBase::supportedSoundEventsChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, SupportedSoundEvents);
         });
+        connect(newDevice, &GearBase::colorChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, Color);
+        });
 
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);

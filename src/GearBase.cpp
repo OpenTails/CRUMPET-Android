@@ -165,7 +165,10 @@ QColor GearBase::color() const
 
 void GearBase::setColor(const QColor& color)
 {
-    d->color = color;
+    if (d->color != color) {
+        d->color = color;
+        Q_EMIT colorChanged();
+    }
 }
 
 bool GearBase::supportsOTA()

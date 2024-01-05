@@ -62,6 +62,7 @@ public:
 
     QColor color() const;
     void setColor(const QColor &color);
+    Q_SIGNAL void colorChanged();
 
     bool supportsOTA();
     void setSupportsOTA(bool supportsOTA);
