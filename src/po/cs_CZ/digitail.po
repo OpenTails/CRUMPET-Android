@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-01-05 16:42+0000\n"
-"PO-Revision-Date: 2023-08-03 16:59+0000\n"
+"PO-Revision-Date: 2024-01-07 12:12+0000\n"
 "Last-Translator: Jakub Janousek <stegoceras@seznam.cz>\n"
-"Language-Team: Czech <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/cs/>\n"
+"Language-Team: Czech <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/cs/>\n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18.2\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -60,77 +60,74 @@ msgid "Could not open the file %1 for writing"
 msgstr "Nebylo možné otevřít soubor %1 pro zápis"
 
 #: DeviceModel.cpp:298
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr "Otočení vlevo"
+msgstr "Naklonit vlevo"
 
 #: DeviceModel.cpp:299
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr "Otočení vpravo"
+msgstr "Naklonit vpravo"
 
 #: DeviceModel.cpp:300
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr "Mód noklonění"
+msgstr "Naklonit dopředu"
 
 #: DeviceModel.cpp:301
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "naklonit dozadu"
 
 #: DeviceModel.cpp:302
 msgctxt ""
 "Name for an event where the gear has been returned to an upright position "
 "from having been tilted"
 msgid "Return to Upright"
-msgstr ""
+msgstr "Vrátit do normální polohy"
 
 #: DeviceModel.cpp:303
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr ""
+msgstr "Hlasité zvuky nalevo"
 
 #: DeviceModel.cpp:304
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr ""
+msgstr "tiché zvuky nalevo"
 
 #: DeviceModel.cpp:305
 msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "normální úroveň zvuku"
 
 #: DeviceModel.cpp:306
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr ""
+msgstr "tiché zvuky napravo"
 
 #: DeviceModel.cpp:307
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr ""
+msgstr "hlasité zvuky napravo"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -636,7 +633,6 @@ msgid "Attempting to reconnect to your gear..."
 msgstr "Zkouším se připojit k tvému zařízení..."
 
 #: gearimplementations/GearFlutterWings.cpp:572
-#, fuzzy
 msgctxt ""
 "Message shown to the user after firmware upload has completed and the "
 "FlutterWings are expected to reboot"
@@ -648,7 +644,6 @@ msgstr ""
 "pokusem o připojení..."
 
 #: gearimplementations/GearFlutterWings.cpp:575
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -745,7 +740,6 @@ msgstr ""
 "jejich opravení. Přejdi do Nastavení a v sekci Firmware spusť update."
 
 #: gearimplementations/GearMitail.cpp:44
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.10 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -993,22 +987,22 @@ msgstr "přistání"
 #: GestureDetectorModel.cpp:277
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
-msgstr "Akce přikrytí"
+msgstr "Gesto přikrytí"
 
 #: GestureDetectorModel.cpp:278
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr "Akce zatřesení"
+msgstr "Gesto zatřesení"
 
 #: GestureDetectorModel.cpp:279
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr "Akce bouchnutí"
+msgstr "Gesto bouchnutí"
 
 #: GestureDetectorModel.cpp:280
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr "Akce švihnutí"
+msgstr "Gesto švihnutí"
 
 #: GestureDetectorModel.cpp:281
 msgctxt "The name of a sensor"
@@ -1283,12 +1277,11 @@ msgid "Pick from the list below where you want to send the command."
 msgstr "Vyber z následujícího seznamu, kam chceš zaslat tento příkaz."
 
 #: qml/BaseMovesComponent.qml:299
-#, fuzzy
 msgctxt ""
 "Label for the checkbox which allows the user to remember the send to all "
 "devices option when selecting a command"
 msgid "Always Send To All"
-msgstr "Zaslat do všech"
+msgstr "Vždy odeslat do všech"
 
 #: qml/BaseMovesComponent.qml:308
 msgctxt "Action for sending a command to the selected devices in a list"
@@ -1321,12 +1314,11 @@ msgid "Add this pause"
 msgstr "Přidej pauzu"
 
 #: qml/ConnectToTail.qml:48
-#, fuzzy
 msgctxt ""
 "Button for the action of disconnecting from all currently connected devices, "
 "in the popup for connecting to devices"
 msgid "Disconnect All"
-msgstr "Odpojit"
+msgstr "Odpojit vše"
 
 #: qml/ConnectToTail.qml:63
 msgctxt ""
@@ -1382,16 +1374,15 @@ msgid "Disconnect?"
 msgstr "Odpojit?"
 
 #: qml/DisconnectOptions.qml:43
-#, fuzzy
 msgctxt ""
 "Label above the list of options available for disconnecting from a piece of "
 "gear"
 msgid "Please select how you would like to disconnect from %2."
 msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
-msgstr[0] "Zvol způsob odpojení od %1."
-msgstr[1] "Zvol způsob odpojení od %1."
-msgstr[2] "Zvol způsob odpojení od %1."
+msgstr[0] "Zvol způsob odpojení od %2."
+msgstr[1] "Zvol způsob odpojení od %1 zařízení."
+msgstr[2] "Zvol způsob odpojení od %1 zařízení."
 
 #: qml/DisconnectOptions.qml:58
 msgctxt ""
@@ -1498,7 +1489,6 @@ msgid "Home Position"
 msgstr "Základní pozice"
 
 #: qml/EarPoses.qml:38
-#, fuzzy
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
@@ -1506,7 +1496,8 @@ msgid ""
 "connected, the little coloured dots show which you can send that pose to."
 msgstr ""
 "Tento seznam ukazuje všechny pózy, které může tvoje zařízení vykonat. Zvol "
-"kteroukoli, aby ji provedlo tvé zařízení!"
+"kteroukoli, aby ji provedlo tvé zařízení! pokud máš připojeno více než jedno "
+"zařízení, mylé zbarvené tečky označují do kterých zařízení můžeš pózu poslat."
 
 #: qml/EarPoses.qml:41
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -1526,15 +1517,13 @@ msgid "Poses"
 msgstr "Pózy"
 
 #: qml/GearGestures.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
 msgid "Gear Gestures"
-msgstr "Akce zařízení"
+msgstr "Gesto zařízení"
 
 #: qml/GearGestures.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when the controlling device/phone detects a gesture"
@@ -1542,7 +1531,6 @@ msgid "Home Position"
 msgstr "Základní pozice"
 
 #: qml/GearGestures.qml:47
-#, fuzzy
 msgctxt ""
 "Info card for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1553,23 +1541,21 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"Zapni jeden z následujících senzorů, aby tvoje zařízení reagovalo na akce s "
-"tímto mobilním zařízením, když neprobíhá jiná aktivita (to znamená žádný "
+"Zapni jeden z následujících senzorů, aby tvoje zařízení reagovalo na gesta s "
+"tímto mobilním zařízením pokud neprobíhá jiná aktivita (to znamená žádný "
 "momentální příkaz a prázdná příkazová fronta). Například uši se můžou "
-"zvednout, když zvedneš toto zařízení, nebo se můžou začít hýbat když uděláš "
+"zvednout když zvedneš toto zařízení, nebo se můžou začít hýbat když uděláš "
 "krok."
 
 #: qml/GearGestures.qml:70
-#, fuzzy
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting what should happen when the controlling device/"
 "phone detects a gesture"
 msgid "Multiple Gestures"
-msgstr "Příliš mnoho akcí"
+msgstr "Několik gest"
 
 #: qml/GearGestures.qml:71
-#, fuzzy
 msgctxt ""
 "Description for the warning for having enabled multiple gestures at the same "
 "time, on the page for selecting what should happen when the controlling "
@@ -1581,13 +1567,12 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
-"Pokoušíš se zapnout více akcí najednou. To může někdy způsobit problémy s "
+"Pokoušíš se zapnout více gest najednou. To může někdy způsobit problémy s "
 "ovládáním (například pokud zapneš Chůzi a Zatřesení naráz, budou se "
 "pravděpodobně detekovat společně). Pokud opravdu chceš toto udělat, klikni "
 "na OK, nebo zruš aktivaci."
 
 #: qml/GearGestures.qml:80
-#, fuzzy
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting what should happen when the controlling device/phone "
@@ -1596,7 +1581,6 @@ msgid "Show On Welcome Page"
 msgstr "Zobraz na uvítací stránce"
 
 #: qml/GearGestures.qml:93
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when the "
@@ -1605,13 +1589,11 @@ msgid "(no command)"
 msgstr "(žádný příkaz)"
 
 #: qml/IdleModePage.qml:26
-#, fuzzy
 msgctxt "Title for the Casual Mode settings page"
 msgid "Casual Mode Categories"
 msgstr "Kategorie casual módu"
 
 #: qml/IdleModePage.qml:46
-#, fuzzy
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Casual Mode "
 "settings page"
@@ -1619,7 +1601,6 @@ msgid "Calm and Relaxed"
 msgstr "Klidný a Uvolněný"
 
 #: qml/IdleModePage.qml:51
-#, fuzzy
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Casual Mode "
 "settings page"
@@ -1627,7 +1608,6 @@ msgid "Fast and Excited"
 msgstr "Rychlý a Nadšený"
 
 #: qml/IdleModePage.qml:56
-#, fuzzy
 msgctxt ""
 "Description for the category for the Tense Moveset, on the Casual Mode "
 "settings page"
@@ -1635,7 +1615,6 @@ msgid "Frustrated and Tense"
 msgstr "Frustrovaný a Napjatý"
 
 #: qml/IdleModePage.qml:61
-#, fuzzy
 msgctxt ""
 "Description for the category for the LED Patterns, on the Casual Mode "
 "settings page"
@@ -1643,7 +1622,6 @@ msgid "LED Patterns"
 msgstr "LED vzory"
 
 #: qml/IdleModePage.qml:72
-#, fuzzy
 msgctxt ""
 "Infocard for selecting the pauses in between moves, on the Casual Mode "
 "settings page"
@@ -1651,16 +1629,14 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
-"Zde si můžeš nastavit pauzy mezi pohyby nebo sadami pohybů, které si zde "
-"můžeš zobrazit."
+"Zde si můžeš nastavit pauzy mezi pohyby a sady pohybů pro rychlý přístup."
 
 #: qml/IdleModePage.qml:74
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the Casual Mode "
 "settings page"
 msgid "Enable Casual Mode"
-msgstr "Casual mód"
+msgstr "Zapnout Casual mód"
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
@@ -1669,15 +1645,13 @@ msgid "Range of pause between moves in seconds"
 msgstr "Prodleva mezi pohyby v sekundách"
 
 #: qml/ListenSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a sound based event"
 msgid "Listening Settings"
-msgstr "Mód odposlechu"
+msgstr "Nastavení odposlechu"
 
 #: qml/ListenSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a sound based event"
@@ -1696,9 +1670,13 @@ msgid ""
 "to if you have more than one (otherwise we'll just send it to itself). If "
 "you don't select any, the gear will just pick something to do on its own."
 msgstr ""
+"Zapnutím detekce zvuku způsobíš že tvé zařízení, které zvolíš zaškrtnutím "
+"políčka vedle jména, bude po dobu pěti minut poslouchat okolní zvuky. Pro "
+"zvolení co se má dít při davé úrovni hluku vyber gesto a které zařízení má "
+"dané gesto provést (pokud je připojeno pouze jedno, informace se odešle "
+"automaticky). Pokud nezvolíš žádná gesta, zařízení si nějaké vybere náhodně."
 
 #: qml/ListenSettings.qml:111
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
@@ -1720,6 +1698,8 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"Připojení úspěšné!\n"
+"Jméno zařízení změníš poklepáním na jméno"
 
 #: qml/main.qml:112
 msgctxt "Text for the notification upon connecting successfully to a device"
@@ -1816,7 +1796,7 @@ msgstr "Nastavení casual módu"
 #: qml/main.qml:272
 msgctxt "Button for opening the Gear Gestures page, from the landing page"
 msgid "Gear Gestures"
-msgstr "Akce zařízení"
+msgstr "Gesta zařízení"
 
 #: qml/main.qml:281
 msgctxt "Button for opening the Developer Mode page, from the landing page"
@@ -1856,10 +1836,9 @@ msgstr ""
 "Jsi si jist že se chceš odpojit?"
 
 #: qml/main.qml:416
-#, fuzzy
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your gear"
-msgstr "Zvol jméno pro svoje nové zařízení"
+msgstr "Zvol jméno pro svoje zařízení"
 
 #: qml/main.qml:417
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
@@ -1874,13 +1853,12 @@ msgid "Save"
 msgstr "Uložit"
 
 #: qml/main.qml:480
-#, fuzzy
 msgctxt "Label for your gear that gets shown when attempting to connect to it"
 msgid "Attempting to connect..."
 msgid_plural "Attempting to connect to %1 bits of gear..."
 msgstr[0] "Zkouším se připojit..."
-msgstr[1] "Zkouším se připojit..."
-msgstr[2] "Zkouším se připojit..."
+msgstr[1] "Zkouším se připojit k %1 zařízením..."
+msgstr[2] "Zkouším se připojit k %1 zařízením..."
 
 #: qml/MessageBox.qml:48
 msgctxt "Confirmation button for a generic message"
@@ -2249,22 +2227,20 @@ msgid "Delete"
 msgstr "Smazat"
 
 #: qml/SettingsCrumpetPicker.qml:87
-#, fuzzy
 msgctxt ""
 "Header for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid "Remove Command Set?"
-msgstr "Sady příkazů pro vybavení"
+msgstr "Odstranit sadu příkazů?"
 
 #: qml/SettingsCrumpetPicker.qml:88
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
-msgstr "Opravdu chceš odstranit seznam pohybů '%1'?"
+msgstr "Opravdu chceš odstranit tento seznam pohybů? Tuto akci nelze vrátit."
 
 #: qml/SettingsCrumpetPicker.qml:95
 msgctxt ""
@@ -2375,12 +2351,11 @@ msgid "Reconnect Automatically"
 msgstr "Znovupřipojení automaticky"
 
 #: qml/SettingsPage.qml:81
-#, fuzzy
 msgctxt ""
 "Header for the panel for whether or not to always send to all connected "
 "devices, on the settings page"
 msgid "Send To All"
-msgstr "Zaslat do všech"
+msgstr "Zaslat všem"
 
 #: qml/SettingsPage.qml:82
 msgctxt ""
@@ -2392,15 +2367,17 @@ msgid ""
 "gear, or not. Check the box here to make that choice, or to undo the choice "
 "made in the dialogue itself."
 msgstr ""
+"Pokud máš více zařízení a chceš odeslat instrukce, lze je odeslat do všech "
+"nebo pouze do vybraných. Zakliknutím tohoto políčka lze toto změnit, nebo "
+"upravit rozhodnutí z dialogového okna."
 
 #: qml/SettingsPage.qml:84
-#, fuzzy
 msgctxt ""
 "Checkbox for the option to always send any selected command to all connected "
 "devices, on the panel for whether or not to always send to all connected "
 "devices in the settings page"
 msgid "Always Send To All"
-msgstr "Zaslat do všech"
+msgstr "Vždy zaslat všem"
 
 #: qml/SettingsPage.qml:93
 msgctxt "Header for the panel for changing gear names, on the settings page"
@@ -2408,7 +2385,6 @@ msgid "Gear Names"
 msgstr "Jména zařízení"
 
 #: qml/SettingsPage.qml:94
-#, fuzzy
 msgctxt ""
 "Description for the panel for changing gear names, on the settings page"
 msgid ""
@@ -2417,7 +2393,9 @@ msgid ""
 "piece of gear, you can do that by tapping on the gear's name in the list "
 "over on the home page."
 msgstr ""
-"Pokud chceš smazat všechna jména zařízení naráz, stiskni tlačítko níže."
+"Pokud chceš smazat všechna jména zařízení naráz, stiskni tlačítko níže. "
+"Pokud chceš pouze přejmenovat jedno zařízení, ťukni na jeho jméno v listu na "
+"domovské stránce."
 
 #: qml/SettingsPage.qml:96
 msgctxt ""
@@ -2667,7 +2645,6 @@ msgid "Stop Lights"
 msgstr "Vypnout světla"
 
 #: qml/TailLights.qml:37
-#, fuzzy
 msgctxt ""
 "Description for the list of light patterns, on the page for the Glow Tips"
 msgid ""
@@ -2677,7 +2654,9 @@ msgid ""
 "light pattern to."
 msgstr ""
 "Tento seznam ukazuje všechny světelné pózy, které může tvoje zařízení "
-"vykonat. Zvol kteroukoli, aby ji provedlo tvé zařízení!"
+"vykonat. Zvol kteroukoli, aby ji provedlo tvé zařízení! Pokud máš připojené "
+"více než jedno, barevnými tečkami můžeš zvolit do kterého barevný vzor "
+"poslat."
 
 #: qml/TailLights.qml:44
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2695,7 +2674,6 @@ msgid "Home Position"
 msgstr "Základní pozice"
 
 #: qml/TailMoves.qml:36
-#, fuzzy
 msgctxt "Description for the list of moves, on the Moves page"
 msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
@@ -2703,7 +2681,8 @@ msgid ""
 "connected, the little coloured dots show which you can send that move to."
 msgstr ""
 "Tento seznam ukazuje všechny pohyby, které může tvoje zařízení vykonat. Zvol "
-"kteroukoli, aby ji provedlo tvé zařízení!"
+"kteroukoli, aby ji provedlo tvé zařízení! Pokud máš připojené více než "
+"jedno, barevnými tečkami můžeš zvolit do kterého pohyb poslat."
 
 #: qml/TailMoves.qml:43
 msgctxt ""
@@ -2723,15 +2702,13 @@ msgid "Frustrated and Tense"
 msgstr "Frustrovaný a napjatý"
 
 #: qml/TiltSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a tilting motion"
 msgid "Tilt Settings"
-msgstr "Nastavení"
+msgstr "Nastavení naklonění"
 
 #: qml/TiltSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a tilting motion"
@@ -2749,9 +2726,12 @@ msgid ""
 "that move to if you have more than one (otherwise we'll just send it to "
 "itself)."
 msgstr ""
+"Zapni detekci náklonu zaškrtnutím políčka vedle jména zařízení které je má "
+"detekovat. Pro zvolení co se při konkrétním naklonění dít zvol pohyby a "
+"které zařízení se má pohnout (pokud máš připojeno pouze jedno, instrukce "
+"dostane samo)."
 
 #: qml/TiltSettings.qml:100
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
@@ -2857,11 +2837,10 @@ msgid "Casual Mode"
 msgstr "Casual mód"
 
 #: qml/WelcomePage.qml:226
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the welcome page"
 msgid "Enable Casual Mode"
-msgstr "Casual mód"
+msgstr "Povolit casual mód"
 
 #: qml/WelcomePage.qml:276
 msgctxt "Heading for the panel for turning on Listening Mode"
@@ -2892,7 +2871,7 @@ msgstr ""
 msgctxt ""
 "Label for the button for opening the Gear Gestures page, on the welcome page"
 msgid "Gear Gestures"
-msgstr "Akce zařízení"
+msgstr "Gesta zařízení"
 
 #~ msgctxt ""
 #~ "Button for returning Gear to the home position, on the page for selecting "
