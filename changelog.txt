@@ -1,3 +1,15 @@
+35:
+- Gear now has colours and icons!
+- Many multi-gear improvements:
+  - Small, coloured dots on all commands to show what gear they can be sent to
+  - Disconnect all (to match connect all)
+  - Connect all to new gear naming popup is more graceful now
+  - Send To All can be remembered now
+- Change gear name by tapping the name
+- A couple of experimental bits in Developer Mode
+- Don't warn about missing bluetooth
+- Various minor bits of UI polishing
+
 34:
 - All the moves now have number-names (ears don't wag, so it looked kind of weird)
 - Fix an interaction-blocking issue
