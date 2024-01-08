@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-01-05 16:42+0000\n"
-"PO-Revision-Date: 2023-08-14 20:32+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
-"Language-Team: Italian <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/it/>\n"
+"PO-Revision-Date: 2024-01-09 13:12+0000\n"
+"Last-Translator: Galaxy <galaxydragon9@yahoo.it>\n"
+"Language-Team: Italian <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18.2\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -61,7 +61,6 @@ msgid "Could not open the file %1 for writing"
 msgstr "Non è stato possibile aprire il file %1 per la scrittura"
 
 #: DeviceModel.cpp:298
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
@@ -69,48 +68,46 @@ msgid "Tilt Left"
 msgstr "Giralo a Sinistra"
 
 #: DeviceModel.cpp:299
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr "Giralo a Destra"
+msgstr "Gira a Destra"
 
 #: DeviceModel.cpp:300
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr "Modalità Tilt"
+msgstr "Gira in avanti"
 
 #: DeviceModel.cpp:301
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "Giralo All’Indietro"
 
 #: DeviceModel.cpp:302
 msgctxt ""
 "Name for an event where the gear has been returned to an upright position "
 "from having been tilted"
 msgid "Return to Upright"
-msgstr ""
+msgstr "Ritorna Diritto"
 
 #: DeviceModel.cpp:303
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr ""
+msgstr "Alto livello di rumore a sinistra"
 
 #: DeviceModel.cpp:304
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr ""
+msgstr "Basso livello di rumore a sinistra"
 
 #: DeviceModel.cpp:305
 msgctxt ""
@@ -124,14 +121,14 @@ msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr ""
+msgstr "Basso livello di rumore a destra"
 
 #: DeviceModel.cpp:307
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr ""
+msgstr "Alto livello di rumore a destra"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -144,7 +141,7 @@ msgid ""
 "check that it is on, charged, and near enough."
 msgstr ""
 "Hai tentato di riconnetterti troppe vole a %1 (%2), Per connetterti, per "
-"favore che sia acceso, carico e abbastanza vicino."
+"favore controlla che sia acceso, carico e abbastanza vicino."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -655,7 +652,6 @@ msgid "Attempting to reconnect to your gear..."
 msgstr "Nuovo tentativo di connessione al tuo dispositivo..."
 
 #: gearimplementations/GearFlutterWings.cpp:572
-#, fuzzy
 msgctxt ""
 "Message shown to the user after firmware upload has completed and the "
 "FlutterWings are expected to reboot"
@@ -667,7 +663,6 @@ msgstr ""
 "riavvii automaticamente prima di riconnettersi..."
 
 #: gearimplementations/GearFlutterWings.cpp:575
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -676,7 +671,7 @@ msgid ""
 "power. Remember to charge your gear!"
 msgstr ""
 "FlutterWings ha interrotto la connessione, perchè si è spento o ha perso "
-"potenza. Ricordati di caricare la tua coda!"
+"potenza. Ricordati di caricare il tuo dispositivo!"
 
 #: gearimplementations/GearFlutterWings.cpp:730
 #: gearimplementations/GearMitail.cpp:736
@@ -770,7 +765,6 @@ msgstr ""
 "Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
 
 #: gearimplementations/GearMitail.cpp:44
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.10 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -780,10 +774,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"La tua MiTail ha istallata la versione 3.2.10 del firmware, che è obsoleta "
+"La tua MiTail ha installata la versione 3.2.10 del firmware, che è obsoleta "
 "ed ha riportato alcuni problemi! Ti <b>raccomandiamo caldamente</b> di "
-"caricare l'ultima versione del firmware che sistema tutti i problemi! Vai su "
-"Impostazioni e cerca la sezione Firmware per accedere all'aggiornamento."
+"aggiornare all'ultima versione del firmware che risolve tutti i problemi! "
+"Vai su Impostazioni e cerca la sezione Firmware per accedere "
+"all'aggiornamento."
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -1355,12 +1350,11 @@ msgid "Add this pause"
 msgstr "Aggiungi questa pausa"
 
 #: qml/ConnectToTail.qml:48
-#, fuzzy
 msgctxt ""
 "Button for the action of disconnecting from all currently connected devices, "
 "in the popup for connecting to devices"
 msgid "Disconnect All"
-msgstr "Disconnetti"
+msgstr "Disconnetti a tutti"
 
 #: qml/ConnectToTail.qml:63
 msgctxt ""
@@ -1535,7 +1529,6 @@ msgid "Home Position"
 msgstr "Posizione iniziale"
 
 #: qml/EarPoses.qml:38
-#, fuzzy
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
@@ -1544,7 +1537,8 @@ msgid ""
 msgstr ""
 "L'elenco seguente mostra tutte le pose disponibili per la tua attrezzatura. "
 "Tocca uno di essi per inviarli a uno qualsiasi dei tuoi dispositivi "
-"collegati!"
+"collegati! Se ne hai più di uno connesso, i puntini colorati mostrano a "
+"quale dispositivo mandare la posa."
 
 #: qml/EarPoses.qml:41
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -1564,15 +1558,13 @@ msgid "Poses"
 msgstr "Pose"
 
 #: qml/GearGestures.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
 msgid "Gear Gestures"
-msgstr "Gesti del meccanismo"
+msgstr "Gesti del dispositivo"
 
 #: qml/GearGestures.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when the controlling device/phone detects a gesture"
@@ -1751,6 +1743,7 @@ msgid "Crumpet"
 msgstr "Focaccina"
 
 #: qml/main.qml:109
+#, fuzzy
 msgctxt ""
 "Text for the notification upon successfully connecting to the final device, "
 "after connecting to multiple devices simultaneously, informing the user that "
@@ -1759,6 +1752,8 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"Connessione Riuscita!\n"
+"Rinomina il dispositivo cliccandone il nome."
 
 #: qml/main.qml:112
 msgctxt "Text for the notification upon connecting successfully to a device"
