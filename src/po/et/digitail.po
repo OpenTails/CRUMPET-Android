@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-01-05 16:42+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-15 21:13+0000\n"
+"Last-Translator: Daniel Maks <51930020a@gmail.com>\n"
+"Language-Team: Estonian <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3.1\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -46,42 +48,42 @@ msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Ei saa avada fail 1% lugemiseks"
 
 #: CommandPersistence.cpp:194
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "Ei saa avada fail 1% kirjutamiseks"
 
 #: DeviceModel.cpp:298
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr ""
+msgstr "Kallutus vasakule"
 
 #: DeviceModel.cpp:299
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr ""
+msgstr "Kallutus paremale"
 
 #: DeviceModel.cpp:300
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr ""
+msgstr "Kalutus ette"
 
 #: DeviceModel.cpp:301
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "Kallutus taga"
 
 #: DeviceModel.cpp:302
 msgctxt ""
@@ -144,7 +146,7 @@ msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr ""
+msgstr "Ühendus 1% on kadunud, proovin ühendada."
 
 #: gearimplementations/GearDigitail.cpp:91
 msgctxt ""
@@ -220,7 +222,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr ""
+msgstr "Uuendus on õnnestanud"
 
 #: gearimplementations/GearEars.cpp:222
 #: gearimplementations/GearFlutterWings.cpp:168
@@ -239,7 +241,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr ""
+msgstr "Uuendus on ebaõnnestanud"
 
 #: gearimplementations/GearEars.cpp:225
 #: gearimplementations/GearFlutterWings.cpp:171
@@ -2462,12 +2464,12 @@ msgstr ""
 #: qml/TimePicker.qml:58
 msgctxt "Label for the Hours field on a time picker"
 msgid "Hours"
-msgstr ""
+msgstr "Tunnid"
 
 #: qml/TimePicker.qml:70
 msgctxt "Label for the Minutes field on a time picker"
 msgid "Minutes"
-msgstr ""
+msgstr "Minutid"
 
 #: qml/TimePicker.qml:89
 msgctxt "Label for the AM option on a AM/PM selector of a time picker"
@@ -2493,7 +2495,7 @@ msgstr ""
 #: qml/TimePicker.qml:129
 msgctxt "Button for confirming the time entry, on a time picker"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: qml/WelcomePage.qml:28
 msgctxt "Header for the welcome page"
@@ -2503,18 +2505,18 @@ msgstr ""
 #: qml/WelcomePage.qml:31
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
 msgid "Disconnect"
-msgstr ""
+msgstr "Katkesta ühendust"
 
 #: qml/WelcomePage.qml:31
 msgctxt "Label for the button for connecting gear, on the welcome page"
 msgid "Connect"
-msgstr ""
+msgstr "Ühendada"
 
 #: qml/WelcomePage.qml:59
 msgctxt ""
 "Label for the button for connecting additional gear, on the welcome page"
 msgid "Connect More..."
-msgstr ""
+msgstr "Ühendada rohkem..."
 
 #: qml/WelcomePage.qml:64
 msgctxt ""
@@ -2525,13 +2527,13 @@ msgstr ""
 #: qml/WelcomePage.qml:79
 msgctxt "Label for the button for opening the Moves page, on the welcome page"
 msgid "Moves"
-msgstr ""
+msgstr "Liigutused"
 
 #: qml/WelcomePage.qml:97
 msgctxt ""
 "Label for the button for opening the Ear Poses page, on the welcome page"
 msgid "Ear Poses"
-msgstr ""
+msgstr "Kõrvade poosid"
 
 #: qml/WelcomePage.qml:115
 msgctxt ""
