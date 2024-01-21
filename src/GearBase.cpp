@@ -19,6 +19,8 @@
 
 #include <QCoreApplication>
 #include <QColor>
+#include <QCryptographicHash>
+#include <QFile>
 #include <QSettings>
 #include <QTimer>
 
@@ -284,6 +286,24 @@ void GearBase::reloadCommands() {
 QStringList GearBase::defaultCommandFiles() const
 {
     return QStringList{QLatin1String{":/commands/digitail-builtin.crumpet"}};
+}
+
+void GearBase::loadFirmwareFile(const QString& filename)
+{
+    QFile dataFile(QUrl(filename).toLocalFile());
+    if (dataFile.exists()) {
+        if (dataFile.open(QFile::ReadOnly)) {
+            QByteArray firmwareData = dataFile.readAll();
+            dataFile.close();
+            QString calculatedSum = QString(QCryptographicHash::hash(firmwareData, QCryptographicHash::Md5).toHex());
+            setOtaVersion(manuallyLoadedOtaVersion());
+            setOTAData(calculatedSum, firmwareData);
+        } else {
+            qDebug() << Q_FUNC_INFO << "Failed to open the firmware file for loading:" << dataFile.errorString();
+        }
+    } else {
+        qDebug() << Q_FUNC_INFO << "Firmware file" << filename << "does not exist on disk";
+    }
 }
 
 int GearBase::deviceProgress() const

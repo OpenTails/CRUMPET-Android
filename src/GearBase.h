@@ -114,9 +114,16 @@ public:
 
     Q_INVOKABLE virtual void checkOTA() {};
     Q_INVOKABLE virtual bool hasAvailableOTA() { return false; };
+    Q_INVOKABLE virtual void setOtaVersion(const QString &version) { Q_UNUSED(version); }
     Q_INVOKABLE virtual QString otaVersion() { return version(); };
+    const QString manuallyLoadedOtaVersion() { return QLatin1String{"Manually Picked"}; };
     Q_SIGNAL void hasAvailableOTAChanged();
     Q_INVOKABLE virtual void downloadOTAData() {};
+    // As an alternative to downloading the OTA data from a remote server, this can be used to
+    // implement a method for explicitly setting the data (whose md5sum will them be
+    // trusted implicitly). This trust means access to the functionality should be
+    // limited to developer-only.
+    Q_INVOKABLE virtual void loadFirmwareFile(const QString &filename);
     Q_INVOKABLE virtual bool hasOTAData() { return false; }
     Q_SIGNAL void hasOTADataChanged();
     Q_INVOKABLE virtual void setOTAData(const QString &md5sum, const QByteArray &firmware) { Q_UNUSED(md5sum); Q_UNUSED(firmware); };
