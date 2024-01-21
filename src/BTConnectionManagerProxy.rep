@@ -34,6 +34,7 @@ class BTConnectionManagerProxy {
 
     // Use this to call a function on a specific device without digging too deeply (for example, call the checkOTA function)
     SLOT(void callDeviceFunction(const QString& deviceID, const QString& functionName))
+    SLOT(void callDeviceFunctionWithParameter(const QString& deviceID, const QString& functionName, const QVariant &parameter))
 
     // Designed to fill up a map with information, based on the command found in the QVariantMap key "command"'s value
     PROP(QVariantMap command)

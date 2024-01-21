@@ -342,8 +342,18 @@ void BTConnectionManager::setDeviceGestureEventCommand(const QString& deviceID, 
 
 void BTConnectionManager::callDeviceFunction(const QString& deviceID, const QString& functionName)
 {
+    // This is basically a workaround for not being able to automatically overload slots in a replication file
+    callDeviceFunctionWithParameter(deviceID, functionName, QVariant());
+}
+
+void BTConnectionManager::callDeviceFunctionWithParameter(const QString& deviceID, const QString& functionName, const QVariant &parameter)
+{
     GearBase* device = d->deviceModel->getDevice(deviceID);
     if (device) {
-        QMetaObject::invokeMethod(device, functionName.toUtf8());
+        QGenericArgument argument;
+        if (parameter.isValid()) {
+            argument = QGenericArgument(parameter.typeName(), parameter.data());
+        }
+        QMetaObject::invokeMethod(device, functionName.toUtf8(), argument);
     }
 }

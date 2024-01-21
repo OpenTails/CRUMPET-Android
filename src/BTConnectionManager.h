@@ -117,6 +117,13 @@ public Q_SLOTS:
      * @param functionName The string name of the function you wish to call (must be known by the metaobject system)
      */
     void callDeviceFunction ( const QString& deviceID, const QString& functionName ) override;
+    /**
+     * Use this to call a function with the given name on the device matching the given device ID
+     * @param deviceID The ID of the device you wish to call a function on
+     * @param functionName The string name of the function you wish to call (must be known by the metaobject system)
+     * @param parameter The parameter you wish to pass along
+     */
+    void callDeviceFunctionWithParameter ( const QString& deviceID, const QString& functionName, const QVariant &parameter ) override;
 Q_SIGNALS:
     void connected(const QString &name);
     void disconnected();
