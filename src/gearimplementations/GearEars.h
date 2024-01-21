@@ -73,6 +73,7 @@ public:
 
     Q_INVOKABLE void checkOTA() override;
     bool hasAvailableOTA() override;
+    void setOtaVersion(const QString & version) override;
     QString otaVersion() override;
     Q_INVOKABLE void downloadOTAData() override;
     Q_INVOKABLE void setOTAData ( const QString& md5sum, const QByteArray& firmware ) override;

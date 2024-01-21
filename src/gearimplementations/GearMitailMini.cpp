@@ -164,7 +164,10 @@ public:
                 q->setKnownFirmwareMessage(knownFirmwareMessages.value(version, QLatin1String{}));
                 pingTimer.start();
                 if (firmwareProgress > -1) {
-                    if (otaVersion == newValue) {
+                    if (otaVersion == q->manuallyLoadedOtaVersion()) {
+                        // We have no idea whether the update succeeded, tell the user they need to check themselves
+                        q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a firmware update with an unknown outcome", "Reboot Completed"), i18nc("Message shown to the user after a reboot following a manual firmware upload", "The reboot following the firmware upload has completed and we have connected back to the device. The gear now reports %1, and we hope that is what you expected.", version));
+                    } else if (otaVersion == newValue) {
                         // successful update get!
                         q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a successful firmware upgrade", "Upgrade Successful"), i18nc("Message shown to the user when a firmware update completed successfully", "Congratulations, your gear has been successfully updated to version %1!", version));
                     } else {
@@ -682,6 +685,12 @@ bool GearMitailMini::hasAvailableOTA()
         return true;
     }
     return false;
+}
+
+void GearMitailMini::setOtaVersion(const QString& version)
+{
+    d->otaVersion = version;
+    Q_EMIT hasAvailableOTAChanged();
 }
 
 QString GearMitailMini::otaVersion()
