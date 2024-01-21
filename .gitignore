@@ -44,3 +44,7 @@ CMakeLists.txt.user*
 
 build/*
 export/*
+
+# A small variety if things that don't want to go into our repository
+*.apk
+*.idsig
