@@ -20,6 +20,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.4 as QQC2
 import org.kde.kirigami 2.13 as Kirigami
+import QtQuick.Dialogs 1.2 as QtDialogs
 import QtQuick.Layouts 1.11
 import org.thetailcompany.digitail 1.0 as Digitail
 
@@ -220,6 +221,24 @@ Kirigami.ScrollablePage {
                             text: i18nc("Label for the button which makes the app download the newest available firmware (only visible when updated firmware has been found)", "Download");
                             onClicked: {
                                 Digitail.BTConnectionManager.callDeviceFunction(model.deviceID, "downloadOTAData");
+                            }
+                        }
+                        QQC2.Button {
+                            visible: Digitail.AppSettings.developerMode === true && model.hasOTAData === false
+                            Layout.fillWidth: true;
+                            text: i18nc("Label for a button which allows the user to pick a file to load the firmware from (this is only available in developer mode)", "Load From File");
+                            onClicked: {
+                                firmwareFilePicker.open();
+                            }
+                            QtDialogs.FileDialog {
+                                id: firmwareFilePicker
+                                title: i18nc("Title for a dialog which allows the user to pick a file to load as firmware (this is only available in developer mode)", "Pick Firmware File")
+                                nameFilters: ["Firmware Files (*.bin)", "All Files (*)"]
+                                selectedNameFilter: "Firmware Files (*.bin)"
+                                folder: shortcuts.documents
+                                onAccepted: {
+                                    Digitail.BTConnectionManager.callDeviceFunctionWithParameter(model.deviceID, "loadFirmwareFile", fileUrl.toString());
+                                }
                             }
                         }
                         QQC2.Label {
