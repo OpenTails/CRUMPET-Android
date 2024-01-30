@@ -672,7 +672,7 @@ void GearMitailMini::checkOTA()
         Q_EMIT hasAvailableOTAChanged();
         Q_EMIT hasOTADataChanged();
         d->downloadOperation = Private::DownloadingOTAInformation;
-        QNetworkRequest request(QUrl("https://thetailcompany.com/fw/mitail"));
+        QNetworkRequest request(QUrl("https://thetailcompany.com/fw/mini"));
         d->networkReply = d->qnam.get(request);
         connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
     }
