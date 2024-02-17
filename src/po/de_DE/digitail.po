@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-01-05 16:42+0000\n"
-"PO-Revision-Date: 2024-01-05 20:05+0000\n"
+"PO-Revision-Date: 2024-02-18 22:13+0000\n"
 "Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: German <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.4\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -1938,12 +1938,11 @@ msgid "Save"
 msgstr "Speichern"
 
 #: qml/main.qml:480
-#, fuzzy
 msgctxt "Label for your gear that gets shown when attempting to connect to it"
 msgid "Attempting to connect..."
 msgid_plural "Attempting to connect to %1 bits of gear..."
 msgstr[0] "Versuche zu verbinden..."
-msgstr[1] "Versuche zu verbinden..."
+msgstr[1] "Versuche zu %1 zu verbinden..."
 
 #: qml/MessageBox.qml:48
 msgctxt "Confirmation button for a generic message"
@@ -2318,15 +2317,13 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: qml/SettingsCrumpetPicker.qml:87
-#, fuzzy
 msgctxt ""
 "Header for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid "Remove Command Set?"
-msgstr "Befehlssätze für Geräte"
+msgstr "Befehlssätze für Gerät entfernen?"
 
 #: qml/SettingsCrumpetPicker.qml:88
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
@@ -2334,7 +2331,8 @@ msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
 msgstr ""
-"Bist du dir sicher, dass du '%1' vom Bewegungsablsauf entfernen möchtest?"
+"Bist du dir sicher, dass du '%1' vom Bewegungsablsauf entfernen möchtest? "
+"Dies kann nicht rückgängig gemacht werden."
 
 #: qml/SettingsCrumpetPicker.qml:95
 msgctxt ""
