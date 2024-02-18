@@ -40,7 +40,7 @@ Utilities::~Utilities()
 void Utilities::getCommand(QString command)
 {
     QVariantMap map;
-    map.insert("command", command);
+    map.insert(QLatin1String{"command"}, command);
     d->connectionManagerProxy->pushCommand(map);
 }
 

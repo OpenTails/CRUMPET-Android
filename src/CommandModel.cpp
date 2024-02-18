@@ -22,6 +22,7 @@
 #include "GearBase.h"
 
 #include <QRandomGenerator>
+#include <QMutableVectorIterator>
 
 class CommandModel::Private
 {
@@ -275,7 +276,7 @@ QVariant CommandModel::data(const QModelIndex& index, int role) const
                 result.setValue(index.row());
                 break;
             case IsAvailable:
-                result.setValue<bool>(entry->command.isAvailable);
+                result.setValue(entry->command.isAvailable);
                 break;
             case DeviceIDs:
             {
@@ -287,7 +288,7 @@ QVariant CommandModel::data(const QModelIndex& index, int role) const
                 break;
             }
             default:
-                result.setValue(QString{"Unknown role"});
+                result.setValue(QString::fromUtf8("Unknown role"));
                 break;
         }
     }

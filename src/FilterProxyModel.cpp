@@ -33,7 +33,7 @@ FilterProxyModel::FilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
     , d(new Private)
 {
-    connect(&d->updateTimer, &QTimer::timeout, this, [this](){ QTimer::singleShot(1, this, [this](){ emit countChanged(); }); } );
+    connect(&d->updateTimer, &QTimer::timeout, this, [this](){ QTimer::singleShot(1, this, [this](){ Q_EMIT countChanged(); }); } );
     connect(this, &QAbstractItemModel::rowsInserted, this, [this](){ d->updateTimer.start(); });
     connect(this, &QAbstractItemModel::rowsRemoved, this, [this](){ d->updateTimer.start(); });
     connect(this, &QAbstractItemModel::dataChanged, this, [this](){ d->updateTimer.start(); });
@@ -50,18 +50,18 @@ void FilterProxyModel::setFilterString(const QString &string)
 {
     this->setFilterFixedString(string);
     this->setFilterCaseSensitivity(Qt::CaseInsensitive);
-    emit filterStringChanged();
+    Q_EMIT filterStringChanged();
 }
 
 QString FilterProxyModel::filterString() const
 {
-    return filterRegExp().pattern();
+    return filterRegularExpression().pattern();
 }
 
 void FilterProxyModel::setFilterBoolean(const bool& value)
 {
     d->filterBoolean = value;
-    emit filterBooleanChanged();
+    Q_EMIT filterBooleanChanged();
 }
 
 bool FilterProxyModel::filterBoolean() const
@@ -75,7 +75,7 @@ bool FilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &source
     if (d->filterBoolean) {
         return sourceModel()->data(index, filterRole()).toBool();
     } else {
-        return sourceModel()->data(index, filterRole()).toString().contains(filterRegExp());
+        return sourceModel()->data(index, filterRole()).toString().contains(filterRegularExpression());
     }
 }
 

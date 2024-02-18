@@ -17,12 +17,12 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4 as QQC2
-import org.kde.kirigami 2.13 as Kirigami
-import QtQuick.Dialogs 1.2 as QtDialogs
-import QtQuick.Layouts 1.11
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import QtQuick.Dialogs as QtDialogs
+import QtQuick.Layouts
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     id: root;
@@ -118,22 +118,20 @@ Kirigami.ScrollablePage {
                         filterBoolean: true;
                     }
                 }
-                Kirigami.BasicListItem {
+                BasicListItem {
                     visible: gearCommandsRepeater.count === 0;
                     Layout.fillWidth: true;
-                    icon: ":/images/moves.svg";
-                    separatorVisible: false;
-                    label: i18nc("Warning for the list of configurable gear being empty, on the panel for adding commands to your gear, on the settings page", "No gear to configure...");
+                    icon.source: "qrc:/images/moves.svg";
+                    text: i18nc("Warning for the list of configurable gear being empty, on the panel for adding commands to your gear, on the settings page", "No gear to configure...");
                     enabled: false;
                 }
                 Repeater {
                     id: gearCommandsRepeater;
                     model: showOnlyConnectedGear.checked ? onlyConnectedFilterProxy : Digitail.DeviceModel;
-                    delegate: Kirigami.BasicListItem {
+                    delegate: BasicListItem {
                         Layout.fillWidth: true;
-                        icon: ":/images/moves.svg";
-                        separatorVisible: false;
-                        label: model.name;
+                        icon.source: "qrc:/images/moves.svg";
+                        text: model.name;
                         onClicked: {
                             pageStack.push(gearCommandsPage, { deviceID: model.deviceID });
                         }
@@ -234,8 +232,8 @@ Kirigami.ScrollablePage {
                                 id: firmwareFilePicker
                                 title: i18nc("Title for a dialog which allows the user to pick a file to load as firmware (this is only available in developer mode)", "Pick Firmware File")
                                 nameFilters: ["Firmware Files (*.bin)", "All Files (*)"]
-                                selectedNameFilter: "Firmware Files (*.bin)"
-                                folder: shortcuts.documents
+                                selectedNameFilter.index: 0
+                                currentFolder: shortcuts.documents
                                 onAccepted: {
                                     Digitail.BTConnectionManager.callDeviceFunctionWithParameter(model.deviceID, "loadFirmwareFile", fileUrl.toString());
                                 }

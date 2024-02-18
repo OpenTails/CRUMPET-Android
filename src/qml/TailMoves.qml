@@ -16,22 +16,22 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "tailMoves";
     title: i18nc("Heading for the Moves page", "Moves");
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18nc("Button for returning the tail to its home position, on the Moves page", "Home Position");
             icon.name: "dialog-cancel";
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }
         }
-    }
+    ]
     BaseMovesComponent {
         infoText: i18nc("Description for the list of moves, on the Moves page", "The list below shows all the moves available to your gear. Tap any of them to send them off to any of your connected devices! If you have more than one connected, the little coloured dots show which you can send that move to.");
         onCommandActivated: {

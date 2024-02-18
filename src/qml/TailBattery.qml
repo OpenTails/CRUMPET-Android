@@ -16,12 +16,12 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.11
-import QtQuick.Controls 2.4
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
 
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 ColumnLayout {
     id: batteryLayout

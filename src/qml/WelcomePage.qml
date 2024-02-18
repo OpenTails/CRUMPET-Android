@@ -13,21 +13,21 @@
  *   GNU Library General Public License for more details
  *
  *   You should have received a copy of the GNU Library General Public License
- *   along with this program; if not, see <https://www.gnu.org/licenses/>
+ *   along with this program; if not, see <httpsqrc://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.14
-import QtQuick.Controls 2.11
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     id: root;
     objectName: "welcomePage";
     title: i18nc("Header for the welcome page", "Crumpet");
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: Digitail.BTConnectionManager.isConnected ? i18nc("Label for the button for disconnecting gear, on the welcome page", "Disconnect") : i18nc("Label for the button for connecting gear, on the welcome page","Connect");
             icon.name: Digitail.BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
             onTriggered: {
@@ -48,22 +48,26 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
+        },
+        Kirigami.Action {
+            text: i18nc("Label for the button for looking for additional gear, on the welcome page", "Look for gear");
+            icon.name: "view-refresh";
+            onTriggered: {
+                Digitail.BTConnectionManager.startDiscovery();
+            }
+            visible: Digitail.BTConnectionManager.discoveryRunning === false
+        },
+        Kirigami.Action {
+            text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");
+            icon.name: "list-add";
+            onTriggered: {
+                connectToTail.open();
+            }
+            visible: Digitail.BTConnectionManager.isConnected && allDevicesModel.count > 1
         }
-        left: Digitail.BTConnectionManager.discoveryRunning ? null : searchForMoreAction
-        right: (Digitail.BTConnectionManager.isConnected && allDevicesModel.count > 1) ? connectMoreAction : null
-    }
+    ]
     property QtObject allDevicesModel: Digitail.FilterProxyModel {
         sourceModel: Digitail.DeviceModel;
-    }
-    property QtObject connectMoreAction: Kirigami.Action {
-        text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");
-        icon.name: "list-add";
-        onTriggered: connectToTail.open();
-    }
-    property QtObject searchForMoreAction: Kirigami.Action {
-        text: i18nc("Label for the button for looking for additional gear, on the welcome page", "Look for gear");
-        icon.name: "view-refresh";
-        onTriggered: Digitail.BTConnectionManager.startDiscovery();
     }
 
     ColumnLayout {
@@ -75,57 +79,67 @@ Kirigami.ScrollablePage {
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
         Kirigami.AbstractCard {
             contentItem: ColumnLayout {
-                Kirigami.BasicListItem {
+                BasicListItem {
+                    Layout.fillWidth: true
                     text: i18nc("Label for the button for opening the Moves page, on the welcome page", "Moves");
                     visible: opacity > 0;
                     opacity: connectedDevicesModel.count > 0 ? 1 : 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                    icon: ":/images/moves.svg";
-                    separatorVisible: false;
+                    icon.source: "qrc:/images/moves.svg";
                     onClicked: {
                         switchToPage(tailMoves);
                     }
                     Kirigami.Icon {
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                        Layout.margins: Kirigami.Units.smallSpacing;
-                        width: Kirigami.Units.iconSizes.small;
-                        height: width;
+                        anchors {
+                            top: parent.top
+                            right: parent.right
+                            bottom: parent.bottom
+                            margins: Kirigami.Units.largeSpacing;
+                        }
+                        width: height
                         source: "go-next";
                     }
                 }
-                Kirigami.BasicListItem {
+                BasicListItem {
+                    Layout.fillWidth: true
                     text: i18nc("Label for the button for opening the Ear Poses page, on the welcome page", "Ear Poses");
                     visible: opacity > 0;
                     opacity: hasListeningDevicesRepeater.count > 0 ? 1 : 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                    icon: ":/images/earposes.svg";
-                    separatorVisible: false;
+                    icon.source: "qrc:/images/earposes.svg";
                     onClicked: {
                         switchToPage(earPoses);
                     }
                     Kirigami.Icon {
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                        Layout.margins: Kirigami.Units.smallSpacing;
+                        anchors {
+                            top: parent.top
+                            right: parent.right
+                            bottom: parent.bottom
+                            margins: Kirigami.Units.largeSpacing;
+                        }
                         width: Kirigami.Units.iconSizes.small;
                         height: width;
                         source: "go-next";
                     }
                 }
-                Kirigami.BasicListItem {
+                BasicListItem {
+                    Layout.fillWidth: true
                     text: i18nc("Label for the button for opening the Glow Tips page, on the welcome page", "Glow Tips");
                     visible: opacity > 0;
                     opacity: connectedWithLightsModel.count > 0;
                     Behavior on opacity { PropertyAnimation { duration: Kirigami.Units.shortDuration; } }
-                    icon: ":/images/glowtip.svg";
-                    separatorVisible: false;
+                    icon.source: "qrc:/images/glowtip.svg";
                     onClicked: {
                         switchToPage(tailLights);
                     }
                     Kirigami.Icon {
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                        Layout.margins: Kirigami.Units.smallSpacing;
-                        width: Kirigami.Units.iconSizes.small;
-                        height: width;
+                        anchors {
+                            top: parent.top
+                            right: parent.right
+                            bottom: parent.bottom
+                            margins: Kirigami.Units.largeSpacing;
+                        }
+                        width: height
                         source: "go-next";
                     }
                     Digitail.FilterProxyModel {
@@ -136,41 +150,47 @@ Kirigami.ScrollablePage {
                     }
                 }
                 Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; visible: connectedDevicesModel.count > 0; }
-                Kirigami.BasicListItem {
+                BasicListItem {
+                    Layout.fillWidth: true
                     text: i18nc("Label for the button for opening the Alarms page, on the welcome page", "Alarm");
-                    icon: ":/images/alarm.svg";
-                    separatorVisible: false;
+                    icon.source: "qrc:/images/alarm.svg";
                     onClicked: {
                         switchToPage(alarmList);
                     }
                     Kirigami.Icon {
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                        Layout.margins: Kirigami.Units.smallSpacing;
-                        width: Kirigami.Units.iconSizes.small;
-                        height: width;
+                        anchors {
+                            top: parent.top
+                            right: parent.right
+                            bottom: parent.bottom
+                            margins: Kirigami.Units.largeSpacing;
+                        }
+                        width: height
                         source: "go-next";
                     }
                 }
-                Kirigami.BasicListItem {
+                BasicListItem {
+                    Layout.fillWidth: true
                     text: i18nc("Label for the button for opening the Move List page, on the welcome page", "Move List");
-                    icon: ":/images/movelist.svg";
-                    separatorVisible: false;
+                    icon.source: "qrc:/images/movelist.svg";
                     onClicked: {
                         switchToPage(moveLists);
                     }
                     Kirigami.Icon {
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-                        Layout.margins: Kirigami.Units.smallSpacing;
-                        width: Kirigami.Units.iconSizes.small;
-                        height: width;
+                        anchors {
+                            top: parent.top
+                            right: parent.right
+                            bottom: parent.bottom
+                            margins: Kirigami.Units.largeSpacing;
+                        }
+                        width: height
                         source: "go-next";
                     }
                 }
 //                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-//                     Kirigami.BasicListItem {
+//                     BasicListItem {
+//                         Layout.fillWidth: true
 //                         text: i18nc("Label for the button for opening the Poses page, on the welcome page", "Poses");
-//                         icon: ":/images/tail.svg";
-//                         separatorVisible: false;
+//                         icon.source: "qrc:/images/tail.svg";
 //                         onClicked: {
 //                             showPassiveNotification(i18nc("Warning for the missing functionality of the Poses page", "Sorry, nothing yet..."), 1500);
 //                         }
@@ -194,9 +214,9 @@ Kirigami.ScrollablePage {
                     Kirigami.Icon {
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
                         Layout.margins: Kirigami.Units.smallSpacing;
-                        width: Kirigami.Units.iconSizes.small;
+                        width: Kirigami.Units.iconSizes.medium;
                         height: width;
-                        source: ":/images/casualmode.svg"
+                        source: "qrc:/images/casualmode.svg"
                         TapHandler {
                             onTapped: {
                                 switchToPage(idleModePage);
@@ -222,11 +242,10 @@ Kirigami.ScrollablePage {
             }
             Component {
                 id: casualModeSettingsListItem
-                Kirigami.BasicListItem {
+                BasicListItem {
+                    Layout.fillWidth: true
                     text: i18nc("Label for the button for enabling the Casual Mode, on the welcome page", "Enable Casual Mode");
-                    Layout.fillWidth: true;
-                    separatorVisible: false;
-                    icon: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    icon.source: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
                     onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
                 }
             }
@@ -262,9 +281,9 @@ Kirigami.ScrollablePage {
                 Kirigami.Icon {
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft;
                     Layout.margins: Kirigami.Units.smallSpacing;
-                    width: Kirigami.Units.iconSizes.small;
+                    width: Kirigami.Units.iconSizes.medium;
                     height: width;
-                    source: ":/images/listeningmode.svg"
+                    source: "qrc:/images/listeningmode.svg"
                     TapHandler {
                         enabled: Digitail.AppSettings.developerMode
                         onTapped: {
@@ -314,11 +333,10 @@ Kirigami.ScrollablePage {
                         filterRole: Digitail.DeviceModelTypes.HasListening;
                         filterBoolean: true;
                     }
-                    Kirigami.BasicListItem {
+                    BasicListItem {
                         width: listeningColumn.width;
-                        separatorVisible: false;
-                        icon: model.listeningState > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                        label: model.name;
+                        icon.source: model.listeningState > 0 ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        text: model.name;
                         onClicked: {
                             var newState = 0;
                             if (model.listeningState == 0) {
@@ -349,7 +367,7 @@ Kirigami.ScrollablePage {
                     Layout.margins: Kirigami.Units.smallSpacing;
                     width: Kirigami.Units.iconSizes.small;
                     height: width;
-                    source: ":/images/tiltmode.svg"
+                    source: "qrc:/images/tiltmode.svg"
                     TapHandler {
                         enabled: Digitail.AppSettings.developerMode
                         onTapped: {
@@ -393,11 +411,10 @@ Kirigami.ScrollablePage {
                         filterRole: Digitail.DeviceModelTypes.HasTilt;
                         filterBoolean: true;
                     }
-                    Kirigami.BasicListItem {
+                    BasicListItem {
                         width: tiltingColumn.width;
-                        separatorVisible: false;
-                        icon: model.tiltEnabled === true ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                        label: model.name;
+                        icon.source: model.tiltEnabled === true ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        text: model.name;
                         onClicked: {
                             Digitail.BTConnectionManager.setDeviceTiltState(model.deviceID, !model.tiltEnabled);
                         }
@@ -417,7 +434,7 @@ Kirigami.ScrollablePage {
                     Layout.margins: Kirigami.Units.smallSpacing;
                     width: Kirigami.Units.iconSizes.small;
                     height: width;
-                    source: ":/images/movelist.svg"
+                    source: "qrc:/images/movelist.svg"
                     TapHandler {
                         onTapped: {
                             switchToPage(gearGestures);
@@ -459,12 +476,11 @@ Kirigami.ScrollablePage {
                         filterRole: Digitail.GestureDetectorModel.FirstInSensorRole;
                         filterBoolean: true;
                     }
-                    Kirigami.BasicListItem {
+                    BasicListItem {
                         visible: model.firstInSensor;
                         width: gesturesColumn.width;
-                        separatorVisible: false;
-                        icon: model.sensorEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                        label: model.sensorName;
+                        icon.source: model.sensorEnabled > 0 ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        text: model.sensorName;
                         onClicked: { Digitail.GestureController.setGestureSensorEnabled(pinnedSensorsModel.sourceIndex(welcomePageSensorsModel.sourceIndex(model.index)), !model.sensorEnabled); }
                     }
                 }

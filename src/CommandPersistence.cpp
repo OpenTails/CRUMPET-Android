@@ -45,7 +45,7 @@ public:
     void reportError(const QString& message) {
         error = message;
         qWarning() << message;
-        emit q->error(message);
+        Q_EMIT q->error(message);
     }
     QString error;
 
@@ -58,7 +58,7 @@ public:
                 return QString{};
             }
         }
-        return QString{"%1/%2.crumpet"}.arg(path).arg(filename);
+        return QString::fromUtf8("%1/%2.crumpet").arg(path).arg(filename);
     }
 };
 
@@ -86,7 +86,7 @@ bool CommandPersistence::deserialize(const QString& json)
         QJsonArray commands = obj.value(QLatin1String{"Commands"}).toArray();
         CommandInfoList commandsList;
         if ((keepgoing = (commands.count() > 0))) {
-            for (const QJsonValue& val : qAsConst(commands)) {
+            for (const QJsonValue& val : std::as_const(commands)) {
                 QJsonObject commandObject{val.toObject()};
                 CommandInfo info;
                 info.name = commandObject.value(QLatin1String{"Name"}).toString();
@@ -102,7 +102,7 @@ bool CommandPersistence::deserialize(const QString& json)
             CommandShorthandList shorthandList;
             // We don't require the shorthand element, just ignore it if it's missing
             if (shorthands.count() > 0) {
-                for (const QJsonValue& val : qAsConst(shorthands)) {
+                for (const QJsonValue& val : std::as_const(shorthands)) {
                     QJsonObject shorthandObject{val.toObject()};
                     CommandShorthand shorthand;
                     shorthand.command = shorthandObject.value(QLatin1String{"Command"}).toString();
@@ -141,8 +141,10 @@ QString CommandPersistence::serialized() const
     QJsonArray shorthands;
     for (const CommandShorthand& shorthand : d->shorthands) {
         QJsonObject shorthandObject;
-        shorthandObject["Command"] = shorthand.command;
-        shorthandObject["Expansion"] = QJsonArray::fromStringList(shorthand.expansion);
+        static const QLatin1String commandKey{"Command"};
+        static const QLatin1String expansionKey{"Expansion"};
+        shorthandObject[commandKey] = shorthand.command;
+        shorthandObject[expansionKey] = QJsonArray::fromStringList(shorthand.expansion);
         shorthands.append(shorthandObject);
     }
     QJsonObject obj;
@@ -154,7 +156,7 @@ QString CommandPersistence::serialized() const
     }
     QJsonDocument doc;
     doc.setObject(obj);
-    return doc.toJson();
+    return QString::fromUtf8(doc.toJson());
 }
 
 bool CommandPersistence::read()
@@ -166,7 +168,7 @@ bool CommandPersistence::read()
         QFile file(pathName);
         keepgoing = file.open(QIODevice::ReadOnly);
         if (keepgoing) {
-            QByteArray data = file.readAll();
+            const QString data = QString::fromUtf8(file.readAll());
             file.close();
             keepgoing = deserialize(data);
         }
@@ -211,7 +213,7 @@ void CommandPersistence::setFilename(const QString& filename)
 {
     if (d->filename != filename) {
         d->filename = filename;
-        emit filenameChanged();
+        Q_EMIT filenameChanged();
     }
 }
 
@@ -223,7 +225,7 @@ CommandInfoList CommandPersistence::commands() const
 void CommandPersistence::setCommands(const CommandInfoList& commands)
 {
     d->commands = commands;
-    emit commandsChanged();
+    Q_EMIT commandsChanged();
 }
 
 QString CommandPersistence::title() const
@@ -235,7 +237,7 @@ void CommandPersistence::setTitle(const QString& title)
 {
     if (d->title != title) {
         d->title = title;
-        emit titleChanged();
+        Q_EMIT titleChanged();
     }
 }
 
@@ -248,7 +250,7 @@ void CommandPersistence::setDescription(const QString& description)
 {
     if (d->description != description) {
         d->description = description;
-        emit descriptionChanged();
+        Q_EMIT descriptionChanged();
     }
 }
 
@@ -260,5 +262,5 @@ CommandShorthandList CommandPersistence::shorthands() const
 void CommandPersistence::setShorthands(const CommandShorthandList& shorthands)
 {
     d->shorthands = shorthands;
-    emit shorthandsChanged();
+    Q_EMIT shorthandsChanged();
 }

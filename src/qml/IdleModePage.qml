@@ -16,10 +16,10 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "idleMode";
@@ -27,9 +27,9 @@ Kirigami.ScrollablePage {
 
     Component {
         id: idleCategoryDelegate;
-        Kirigami.BasicListItem {
-            icon: Digitail.AppSettings.idleCategories.indexOf(modelData["category"]) >= 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-            label: modelData["name"];
+        BasicListItem {
+            icon.source: Digitail.AppSettings.idleCategories.indexOf(modelData["category"]) >= 0 ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+            text: modelData["name"];
             onClicked: {
                 var idx = Digitail.AppSettings.idleCategories.indexOf(modelData["category"]);
                 if(idx >= 0) {
@@ -70,10 +70,9 @@ Kirigami.ScrollablePage {
 
         header: InfoCard {
             text: i18nc("Infocard for selecting the pauses in between moves, on the Casual Mode settings page", "This is where you set the pauses in between moves, as well as the families of moves that can be called upon.");
-            footer: Kirigami.BasicListItem {
+            footer: BasicListItem {
                 text: i18nc("Label for the button for enabling the Casual Mode, on the Casual Mode settings page", "Enable Casual Mode");
-                separatorVisible: false;
-                icon: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                icon.source: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
                 onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
             }
         }

@@ -16,12 +16,12 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.3
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ApplicationWindow {
     id: root;
@@ -82,7 +82,7 @@ Kirigami.ApplicationWindow {
 
         function onDiscoveryRunningChanged() {
             if (Digitail.BTConnectionManager.discoveryRunning === false) {
-                if(Digitail.BTConnectionManager.deviceCount === 1 && connectToTail.sheetOpen === false) {
+                if(Digitail.BTConnectionManager.deviceCount === 1 && connectToTail.opened === false) {
                     // only one bit of gear found? Well then, connect to that!
                     Digitail.BTConnectionManager.connectToDevice("");
                     connectingToTail.connectingDevices += 1;
@@ -135,7 +135,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: Digitail.AppSettings;
 
-        onDeveloperModeChanged: {
+        function onDeveloperModeChanged() {
             if (Digitail.AppSettings.developerMode) {
                 showMessageBox(i18nc("Title for the popup for having enabled Developer Mode", "Developer mode"), i18nc("Message for the popup for having enabled Developer Mode", "Developer mode is enabled"));
             } else {
@@ -143,7 +143,7 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        onIdleModeTimeout: {
+        function onIdleModeTimeout() {
             showMessageBox(i18nc("Title for the popup for getting a timeout for Casual Mode", "Casual Mode is Off"), i18nc("Message for the popup for getting a timeout for Casual Mode", "Maybe its time for a rest... Let your tail or ears have a power-nap."));
         }
     }
@@ -158,20 +158,20 @@ Kirigami.ApplicationWindow {
 
         property int clicksCount: 0
 
-        bannerVisible: true;
-        bannerImageSource: "qrc:/images/banner_image.png";
+        // bannerVisible: true;
+        // bannerImageSource: "qrc:/images/banner_image.png";
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
         // Simply replacing the rectangle means we end up removing the handles and whatnot, so that's not cool
 //         Component.onCompleted: { background.color = "#3daee9"; }
 
-        onBannerClicked: {
-            if (!clicksTimer.running) {
-                clicksCount = 0;
-                clicksTimer.start();
-            }
-
-            clicksCount++;
-        }
+        // onBannerClicked: {
+        //     if (!clicksTimer.running) {
+        //         clicksCount = 0;
+        //         clicksTimer.start();
+        //     }
+        // 
+        //     clicksCount++;
+        // }
 
         Digitail.FilterProxyModel {
             id: connectedDevicesModel
@@ -215,7 +215,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18nc("Button for opening the Alarm page, from the landing page", "Alarm");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor");
-                icon.name: ":/images/alarm.svg";
+                icon.name: "qrc:/images/alarm.svg";
                 onTriggered: {
                     if(!checked) {
                         switchToPage(alarmList);
@@ -225,7 +225,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18nc("Button for opening the Move List page, from the landing page", "Move Lists");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor");
-                icon.name: ":/images/movelist.svg";
+                icon.name: "qrc:/images/movelist.svg";
                 onTriggered: {
                     if(!checked) {
                         switchToPage(moveLists);
@@ -235,7 +235,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18nc("Button for opening the Tail Gear Moves page, from the landing page", "Moves");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailMoves";
-                icon.name: ":/images/moves.svg";
+                icon.name: "qrc:/images/moves.svg";
                 visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(tailMoves);
@@ -244,7 +244,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18nc("Button for opening the EarGear Poses page, from the landing page", "Ear Poses");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "earPoses";
-                icon.name: ":/images/earposes.svg";
+                icon.name: "qrc:/images/earposes.svg";
                 visible: hasListeningModel.count > 0;
                 onTriggered: {
                     switchToPage(earPoses);
@@ -253,7 +253,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18nc("Button for opening the Glow Tips page, from the landing page", "Glow Tips");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailLights";
-                icon.name: ":/images/glowtip.svg";
+                icon.name: "qrc:/images/glowtip.svg";
                 visible: connectedDevicesModel.count > hasListeningModel.count;
                 onTriggered: {
                     switchToPage(tailLights);
@@ -262,7 +262,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18nc("Button for opening the page for setting up the Casual Mode, from the landing page", "Casual Mode Settings");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
-                icon.name: ":/images/casualmode.svg";
+                icon.name: "qrc:/images/casualmode.svg";
                 visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(idleModePage);
@@ -271,7 +271,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18nc("Button for opening the Gear Gestures page, from the landing page", "Gear Gestures");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "gearGestures";
-                icon.name: ":/images/movelist.svg";
+                icon.name: "qrc:/images/movelist.svg";
                 visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(gearGestures);

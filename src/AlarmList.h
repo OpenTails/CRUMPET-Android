@@ -86,9 +86,9 @@ public:
     QVariantMap getAlarmVariantMap(const QString& alarmName);
 
     void setCommandQueue(CommandQueue* commandQueue);
-public slots:
+public Q_SLOTS:
 
-signals:
+Q_SIGNALS:
     void listChanged();
 
     /// If alarm with the same name exists we emit alarmExisted() signal

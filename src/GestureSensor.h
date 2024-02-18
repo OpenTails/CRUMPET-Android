@@ -1,5 +1,5 @@
 /*
- *   Copyright 2019 Dan Leinir Turthra Jensen <admin@leinir.dk>
+ *   Copyright 2024 Dan Leinir Turthra Jensen <admin@leinir.dk>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -15,25 +15,25 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick
-import QtQuick.Controls as QQC2
-import QtQuick.Layouts
-import org.kde.kirigami as Kirigami
+#ifndef GESTURESENSOR_H
+#define GESTURESENSOR_H
 
-ColumnLayout {
-    id: root;
-    property alias text: infoCardText.text;
-    property alias footer: card.footer;
-    width: parent.width;
-    height: card.height + Kirigami.Units.largeSpacing * 3;
-    Kirigami.Card {
-        id: card
-        Layout.fillWidth: true;
-        Layout.margins: Kirigami.Units.largeSpacing;
-        contentItem: QQC2.Label {
-            id: infoCardText;
-            padding: Kirigami.Units.smallSpacing;
-            wrapMode: Text.Wrap;
-        }
-    }
-}
+#include <QSensor>
+
+class GestureSensorPrivate;
+class GestureSensor : public QObject {
+    Q_OBJECT
+public:
+    explicit GestureSensor(QObject* parent = nullptr);
+    ~GestureSensor() override;
+
+    virtual QStringList recognizerSignals() const = 0;
+    virtual QString sensorId() const = 0;
+
+    virtual void startDetection() = 0;
+    virtual void stopDetection() = 0;
+
+    Q_SIGNAL void detected(const QString &signature);
+};
+
+#endif//GESTURESENSOR_H

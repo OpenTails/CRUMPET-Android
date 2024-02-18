@@ -1,5 +1,5 @@
 /*
- *   Copyright 2019 Dan Leinir Turthra Jensen <admin@leinir.dk>
+ *   Copyright 2024 Dan Leinir Turthra Jensen <admin@leinir.dk>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -15,25 +15,15 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick
-import QtQuick.Controls as QQC2
-import QtQuick.Layouts
-import org.kde.kirigami as Kirigami
+#include "GestureSensor.h"
 
-ColumnLayout {
-    id: root;
-    property alias text: infoCardText.text;
-    property alias footer: card.footer;
-    width: parent.width;
-    height: card.height + Kirigami.Units.largeSpacing * 3;
-    Kirigami.Card {
-        id: card
-        Layout.fillWidth: true;
-        Layout.margins: Kirigami.Units.largeSpacing;
-        contentItem: QQC2.Label {
-            id: infoCardText;
-            padding: Kirigami.Units.smallSpacing;
-            wrapMode: Text.Wrap;
-        }
-    }
+#include <QMetaMethod>
+
+GestureSensor::GestureSensor(QObject* parent)
+    : QObject(parent)
+{
+}
+
+GestureSensor::~GestureSensor()
+{
 }

@@ -16,25 +16,25 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.11
-import QtQuick.Controls 2.11
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     id: component;
     objectName: "gearGestures";
     title: i18nc("Title for the page for selecting what should happen when the controlling device/phone detects a gesture", "Gear Gestures");
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18nc("Button for returning Gear to the home position, on the page for selecting what should happen when the controlling device/phone detects a gesture", "Home Position");
             icon.name: "go-home";
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }
         }
-    }
+    ]
     property QtObject enabledGestures: Digitail.FilterProxyModel {
         sourceModel: Digitail.GestureDetectorModel;
         filterRole: Digitail.GestureDetectorModelTypes.SensorEnabledRole;
@@ -58,13 +58,12 @@ Kirigami.ScrollablePage {
                         color: Kirigami.Theme.textColor;
                         visible: model.index > 0
                     }
-                    Kirigami.BasicListItem {
+                    BasicListItem {
                         visible: model.firstInSensor === undefined ? false : model.firstInSensor;
                         Layout.fillWidth: true;
-                        separatorVisible: false;
                         bold: true;
-                        icon: model.sensorEnabled > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                        label: model.sensorName === undefined ? "" : model.sensorName;
+                        icon.source: model.sensorEnabled > 0 ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        text: model.sensorName === undefined ? "" : model.sensorName;
                         onClicked: {
                             if(!model.sensorEnabled && enabledGestures.count > 0) {
                                 applicationWindow().showMessageBox(i18nc("Title for the warning for having enabled multiple gestures at the same time, on the page for selecting what should happen when the controlling device/phone detects a gesture","Multiple Gestures"),

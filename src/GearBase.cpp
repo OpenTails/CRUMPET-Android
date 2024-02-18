@@ -74,16 +74,16 @@ GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
 {
     d->name = info.name();
     // Set the various device names to actually match the product name, instead of the bluetooth ID
-    if (d->name == "(!)Tail1") {
-        d->name = "DIGITAiL";
-    } else if (d->name == "EG2") {
-        d->name = "EarGear 2";
-    } else if (d->name == "mitail") {
-        d->name = "MiTail";
-    } else if (d->name == "minitail") {
-        d->name = "MiTail Mini";
-    } else if (d->name == "flutter") {
-        d->name = "FlutterWings";
+    if (d->name == QLatin1String{"(!)Tail1"}) {
+        d->name = QLatin1String{"DIGITAiL"};
+    } else if (d->name == QLatin1String{"EG2"}) {
+        d->name = QLatin1String{"EarGear 2"};
+    } else if (d->name == QLatin1String{"mitail"}) {
+        d->name = QLatin1String{"MiTail"};
+    } else if (d->name == QLatin1String{"minitail"}) {
+        d->name = QLatin1String{"MiTail Mini"};
+    } else if (d->name == QLatin1String{"flutter"}) {
+        d->name = QLatin1String{"FlutterWings"};
     }
     d->parentModel = parent;
 
@@ -106,10 +106,10 @@ GearBase::~GearBase()
 void GearBase::Private::load()
 {
     QSettings settings;
-    const QString commandFilesKey = QString("%1/enabledCommandFiles");
-    QStringList oldList = settings.value(QString{"enabledCommandFiles-%1"}.arg(q->deviceID())).toStringList();
+    const QString commandFilesKey = QLatin1String("%1/enabledCommandFiles");
+    QStringList oldList = settings.value(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID())).toStringList();
     if (oldList.isEmpty() == false) {
-        settings.remove(QString{"enabledCommandFiles-%1"}.arg(q->deviceID()));
+        settings.remove(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID()));
         settings.beginGroup("Gear");
         settings.setValue(commandFilesKey, oldList);
         settings.endGroup();
@@ -122,8 +122,8 @@ void GearBase::Private::load()
     QMetaEnum gearSensorEventEnum = GearBase::staticMetaObject.enumerator(GearBase::staticMetaObject.indexOfEnumerator("GearSensorEvent"));
     for (int enumKey = 0; enumKey < gearSensorEventEnum.keyCount(); ++enumKey) {
         GearSensorEvent eventKey = static_cast<GearSensorEvent>(gearSensorEventEnum.value(enumKey));
-        const QString detailsCommand = settings.value(QString("%1/%2/command").arg(q->deviceID()).arg(eventKey)).toString();
-        const QStringList detailsDevices = settings.value(QString("%1/%2/devices").arg(q->deviceID()).arg(eventKey)).toStringList();
+        const QString detailsCommand = settings.value(QString::fromUtf8("%1/%2/command").arg(q->deviceID()).arg(eventKey)).toString();
+        const QStringList detailsDevices = settings.value(QString::fromUtf8("%1/%2/devices").arg(q->deviceID()).arg(eventKey)).toStringList();
         gearSensorEvents[eventKey] = GearSensorEventDetails{detailsDevices, detailsCommand};
     }
     Q_EMIT q->gearSensorCommandDetailsChanged();
@@ -133,15 +133,15 @@ void GearBase::Private::load()
 void GearBase::Private::save()
 {
     QSettings settings;
-    settings.setValue(QString{"enabledCommandFiles-%1"}.arg(q->deviceID()), enabledCommandsFiles);
+    settings.setValue(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID()), enabledCommandsFiles);
     settings.beginGroup("Gear");
     QHashIterator<GearSensorEvent, GearSensorEventDetails> detailsIterator{gearSensorEvents};
     while(detailsIterator.hasNext()) {
         detailsIterator.next();
         const GearSensorEventDetails &details = detailsIterator.value();
-        const QString commandKey = QString("%1/%2/command").arg(q->deviceID()).arg(detailsIterator.key());
-        const QString devicesKey = QString("%1/%2/devices").arg(q->deviceID()).arg(detailsIterator.key());
-        if (details.command == "") {
+        const QString commandKey = QString::fromUtf8("%1/%2/command").arg(q->deviceID()).arg(detailsIterator.key());
+        const QString devicesKey = QString::fromUtf8("%1/%2/devices").arg(q->deviceID()).arg(detailsIterator.key());
+        if (details.command.isEmpty()) {
             settings.remove(commandKey);
             settings.remove(devicesKey);
         } else {
@@ -206,7 +206,7 @@ void GearBase::setName(const QString& name)
 {
     if (d->name != name) {
         d->name = name;
-        emit nameChanged(name);
+        Q_EMIT nameChanged(name);
     }
 }
 
@@ -230,7 +230,7 @@ QString GearBase::activeCommandTitles() const
     for(const CommandInfo& command : commandModel->allCommands()) {
         if (command.isRunning) {
             titles += separator + command.name;
-            separator = QString{", "};
+            separator = QLatin1String{", "};
         }
     }
     return titles;
@@ -245,14 +245,14 @@ void GearBase::setCommandsFileEnabledState(const QString& filename, bool enabled
 {
     if (enabled && !d->enabledCommandsFiles.contains(filename)) {
         d->enabledCommandsFiles.append(filename);
-        emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
+        Q_EMIT enabledCommandsFilesChanged(d->enabledCommandsFiles);
         if (isConnected()) {
             reloadCommands();
         }
     }
     else if (!enabled && d->enabledCommandsFiles.contains(filename)) {
         d->enabledCommandsFiles.removeAll(filename);
-        emit enabledCommandsFilesChanged(d->enabledCommandsFiles);
+        Q_EMIT enabledCommandsFilesChanged(d->enabledCommandsFiles);
         if (isConnected()) {
             reloadCommands();
         }
@@ -274,7 +274,7 @@ void GearBase::reloadCommands() {
                 commandModel->addCommand(command);
             }
             for (const CommandShorthand& shorthand : persistence.shorthands()) {
-                commandShorthands[shorthand.command] = shorthand.expansion.join(QChar{';'});
+                commandShorthands[shorthand.command] = shorthand.expansion.join(QChar::fromLatin1(';'));
             }
         }
         else {
@@ -295,7 +295,7 @@ void GearBase::loadFirmwareFile(const QString& filename)
         if (dataFile.open(QFile::ReadOnly)) {
             QByteArray firmwareData = dataFile.readAll();
             dataFile.close();
-            QString calculatedSum = QString(QCryptographicHash::hash(firmwareData, QCryptographicHash::Md5).toHex());
+            QString calculatedSum = QString::fromUtf8(QCryptographicHash::hash(firmwareData, QCryptographicHash::Md5).toHex());
             setOtaVersion(manuallyLoadedOtaVersion());
             setOTAData(calculatedSum, firmwareData);
         } else {

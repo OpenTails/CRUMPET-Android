@@ -16,22 +16,22 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     objectName: "tailLights";
     title: i18nc("Header for the page for the Glow Tips", "Glow Tips");
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18nc("Button for stopping the light patterns, on the page for the Glow Tips", "Stop Lights");
             icon.name: "flashlight-off";
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("LEDOFF", []);
             }
         }
-    }
+    ]
     BaseMovesComponent {
         width: parent.width;
         infoText: i18nc("Description for the list of light patterns, on the page for the Glow Tips", "The list below shows all the light patterns available to your gear. Tap any of them to send them off to any of your connected devices! If you have more than one connected, the little coloured dots show which you can send that light pattern to.");

@@ -59,7 +59,7 @@ DeviceModel::DeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private(this))
 {
-    d->fakeDevice = new GearFake(QBluetoothDeviceInfo(QBluetoothAddress(QString("FA:KE:TA:IL")), QString("FAKE"), 0), this);
+    d->fakeDevice = new GearFake(QBluetoothDeviceInfo(QBluetoothAddress(QLatin1String{"FA:KE:TA:IL"}), QLatin1String{"FAKE"}, 0), this);
 }
 
 DeviceModel::~DeviceModel()
@@ -311,7 +311,7 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                         if (gearSensorEventTranslations.contains(eventKey)) {
                             gestureTitles << gearSensorEventTranslations[eventKey];
                         } else {
-                            gestureTitles << gearSensorEventEnum.key(enumKey);
+                            gestureTitles << QString::fromUtf8(gearSensorEventEnum.key(enumKey));
                         }
                     }
                 }
@@ -346,36 +346,36 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case DeviceType:
                 if (device->inherits("GearDigitail")) {
-                    value = QString{"DiGITAIL"};
+                    value = QLatin1String{"DiGITAIL"};
                 } else if (device->inherits("GearMitail")) {
-                    value = QString{"MiTail"};
+                    value = QLatin1String{"MiTail"};
                 } else if (device->inherits("GearEars")) {
-                    value = QString{"EarGear"};
+                    value = QLatin1String{"EarGear"};
                 } else if (device->inherits("GearFlutterWings")) {
-                    value = QString{"FlutterWings"};
+                    value = QLatin1String{"FlutterWings"};
                 } else if (device->inherits("GearMitailMini")) {
-                    value = QString{"MiTail Mini"};
+                    value = QLatin1String{"MiTail Mini"};
                 } else if (device->inherits("GearFake")) {
-                    value = QString{"Fake Tail"};
+                    value = QLatin1String{"Fake Tail"};
                 } else {
-                    value = QString{"Unknown"};
+                    value = QLatin1String{"Unknown"};
                 }
                 break;
             case DeviceIcon:
                 if (device->inherits("GearDigitail")) {
-                    value = QString{":/images/tail.svg"};
+                    value = QLatin1String{":/images/tail.svg"};
                 } else if (device->inherits("GearMitail")) {
-                    value = QString{":/images/taildevice.svg"};
+                    value = QLatin1String{":/images/taildevice.svg"};
                 } else if (device->inherits("GearEars")) {
-                    value = QString{":/images/eargear.svg"};
+                    value = QLatin1String{":/images/eargear.svg"};
                 } else if (device->inherits("GearFlutterWings")) {
-                    value = QString{":/images/flutter.svg"};
+                    value = QLatin1String{":/images/flutter.svg"};
                 } else if (device->inherits("GearMitailMini")) {
-                    value = QString{":/images/mitailmini.svg"};
+                    value = QLatin1String{":/images/mitailmini.svg"};
                 } else if (device->inherits("GearFake")) {
-                    value = QString{":/images/taildevice.svg"};
+                    value = QLatin1String{":/images/taildevice.svg"};
                 } else {
-                    value = QString{":/images/logo.svg"};
+                    value = QLatin1String{":/images/logo.svg"};
                 }
                 break;
             default:
@@ -494,9 +494,9 @@ void DeviceModel::addDevice(GearBase* newDevice)
         connect(newDevice, &GearBase::deviceBlockingMessage, this, &DeviceModel::deviceBlockingMessage);
         connect(newDevice, &GearBase::isConnectedChanged, this, [this, newDevice](bool isConnected){
             if (isConnected) {
-                emit deviceConnected(newDevice);
+                Q_EMIT deviceConnected(newDevice);
             } else {
-                emit deviceDisconnected(newDevice);
+                Q_EMIT deviceDisconnected(newDevice);
             }
         });
         connect(newDevice, &GearBase::progressDescriptionChanged, this, [this, newDevice](){
@@ -533,7 +533,7 @@ void DeviceModel::addDevice(GearBase* newDevice)
         });
         connect(newDevice, &GearBase::isConnectedChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, IsConnected);
-            emit isConnectedChanged(isConnected());
+            Q_EMIT isConnectedChanged(isConnected());
         });
         connect(newDevice, &GearBase::nameChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, Name);
@@ -572,7 +572,7 @@ void DeviceModel::addDevice(GearBase* newDevice)
             int index = d->devices.indexOf(newDevice);
             if(index > -1) {
                 beginRemoveRows(QModelIndex(), index, index);
-                emit deviceRemoved(newDevice);
+                Q_EMIT deviceRemoved(newDevice);
                 d->devices.removeAll(newDevice);
                 endRemoveRows();
             }
@@ -590,8 +590,8 @@ void DeviceModel::addDevice(GearBase* newDevice)
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);
         d->readDeviceNames();
-        emit deviceAdded(newDevice);
-        emit countChanged();
+        Q_EMIT deviceAdded(newDevice);
+        Q_EMIT countChanged();
         endInsertRows();
     }
 }
@@ -601,10 +601,10 @@ void DeviceModel::removeDevice(GearBase* device)
     int idx = d->devices.indexOf(device);
     if (idx > -1) {
         beginRemoveRows(QModelIndex(), idx, idx);
-        emit deviceRemoved(device);
+        Q_EMIT deviceRemoved(device);
         device->disconnect(this);
         d->devices.removeAt(idx);
-        emit countChanged();
+        Q_EMIT countChanged();
         endRemoveRows();
     }
     if (device != d->fakeDevice) {
@@ -640,7 +640,7 @@ void DeviceModel::updateItem(const QString& deviceID)
     d->readDeviceNames();
     for(int idx = 0; idx < d->devices.count(); ++idx) {
         if(d->devices[idx]->deviceID() == deviceID) {
-            emit dataChanged(index(idx, 0), index(idx, 0));
+            Q_EMIT dataChanged(index(idx, 0), index(idx, 0));
         }
     }
 }

@@ -66,8 +66,6 @@
 
 int appMain(int argc, char *argv[])
 {
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 //The desktop QQC2 style needs it to be a QApplication
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
@@ -76,8 +74,8 @@ int appMain(int argc, char *argv[])
 #endif
     //qputenv("QML_IMPORT_TRACE", "1");
     PermissionsManager* permissionsManager = new PermissionsManager(&app);
-    permissionsManager->requestPermissionNow("WRITE_EXTERNAL_STORAGE");
-    if(!permissionsManager->hasPermission("WRITE_EXTERNAL_STORAGE")) {
+    permissionsManager->requestPermissionNow(QLatin1String{"WRITE_EXTERNAL_STORAGE"});
+    if(!permissionsManager->hasPermission(QLatin1String{"WRITE_EXTERNAL_STORAGE"})) {
         qCritical() << Q_FUNC_INFO << "We were not granted the external storage access.";
         app.quit();
     }
@@ -90,7 +88,7 @@ int appMain(int argc, char *argv[])
                                                 QtAndroid::androidActivity().object());
     qDebug() << Q_FUNC_INFO << "Service started, or already launched";
 #else
-    app.setApplicationVersion("Desktop");
+    app.setApplicationVersion(QLatin1String{"Desktop"});
 #endif
 
     KLocalizedString::setApplicationDomain("digitail");
@@ -101,7 +99,7 @@ int appMain(int argc, char *argv[])
         qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
     }
 #else
-    KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../locale").arg(app.applicationDirPath()));
+    KLocalizedString::addDomainLocaleDir("digitail", QString::fromUtf8("%1/../locale").arg(app.applicationDirPath()));
 #endif
 
     QIcon::setThemeSearchPaths({QStringLiteral(":/icons")});
@@ -115,7 +113,7 @@ int appMain(int argc, char *argv[])
 
     QFile file(QLatin1String(":/gplv3-license-text"));
     if(file.open(QIODevice::ReadOnly)) {
-        QString data(file.readAll());
+        const QString data = QString::fromUtf8(file.readAll());
         file.close();
         engine.rootContext()->setContextProperty(QLatin1String("GPLv3LicenseText"), data);
     }
@@ -147,7 +145,7 @@ int appMain(int argc, char *argv[])
         if (settingsReplica->languageOverride().isEmpty()) {
             KLocalizedString::clearLanguages();
         } else {
-            KLocalizedString::setLanguages(QStringList() << settingsReplica->languageOverride() << "en_US");
+            KLocalizedString::setLanguages(QStringList() << settingsReplica->languageOverride() << QLatin1String{"en_US"});
         }
     };
     QObject::connect(settingsReplica.data(), &AppSettingsProxyReplica::languageOverrideChanged, &app, retranslate);
@@ -174,23 +172,23 @@ int appMain(int argc, char *argv[])
         return gestureControllerReplica.data();
     });
 
-    QSharedPointer<QAbstractItemModelReplica> deviceModelReplica(repNode->acquireModel("DeviceModel"));
+    QSharedPointer<QAbstractItemModelReplica> deviceModelReplica(repNode->acquireModel(QLatin1String{"DeviceModel"}));
     qmlRegisterSingletonType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModel", [&deviceModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
         return deviceModelReplica.data();
     });
-    qmlRegisterUncreatableType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModelTypes", "Not createable, use the replicated object named DeviceModel");
+    qmlRegisterUncreatableType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModelTypes", QLatin1String{"Not createable, use the replicated object named DeviceModel"});
 
-    QSharedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel("CommandModel"));
+    QSharedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel(QLatin1String{"CommandModel"}));
     qmlRegisterSingletonType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModel", [&commandModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
         return commandModelReplica.data();
     });
-    qmlRegisterUncreatableType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModelTypes", "Not createable, use the replicated object named CommandModel");
+    qmlRegisterUncreatableType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModelTypes", QLatin1String{"Not createable, use the replicated object named CommandModel"});
 
-    QSharedPointer<QAbstractItemModelReplica> gestureDetectorModel(repNode->acquireModel("GestureDetectorModel"));
+    QSharedPointer<QAbstractItemModelReplica> gestureDetectorModel(repNode->acquireModel(QLatin1String{"GestureDetectorModel"}));
     qmlRegisterSingletonType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModel", [&gestureDetectorModel](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
         return gestureDetectorModel.data();
     });
-    qmlRegisterUncreatableType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModelTypes", "Not createable, use the replicated object named GestureDetectorModel");
+    qmlRegisterUncreatableType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModelTypes", QLatin1String{"Not createable, use the replicated object named GestureDetectorModel"});
 
     Utilities::getInstance()->setConnectionManager(btConnectionManagerReplica.data());
     Utilities::getInstance()->setParent(&app);
@@ -260,9 +258,9 @@ int serviceMain(int argc, char *argv[])
 #else
     QCoreApplication app(argc, argv);
 #endif
-    app.setOrganizationName("The Tail Company");
-    app.setOrganizationDomain("thetailcompany.com");
-    app.setApplicationName("DIGITAiL");
+    app.setOrganizationName(QLatin1String{"The Tail Company"});
+    app.setOrganizationDomain(QLatin1String{"thetailcompany.com"});
+    app.setApplicationName(QLatin1String{"DIGITAiL"});
     qInfo() << Q_FUNC_INFO << "Service starting...";
 
     KLocalizedString::setApplicationDomain("digitail");
@@ -273,7 +271,7 @@ int serviceMain(int argc, char *argv[])
         qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
     }
 #else
-    KLocalizedString::addDomainLocaleDir("digitail", QString("%1/../src/locale").arg(app.applicationDirPath()));
+    KLocalizedString::addDomainLocaleDir("digitail", QString::fromUtf8("%1/../src/locale").arg(app.applicationDirPath()));
 #endif
 
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
@@ -322,7 +320,7 @@ int serviceMain(int argc, char *argv[])
         for (int enumKey = 0; enumKey < deviceModelRolesEnum.keyCount(); ++enumKey) {
             roles << deviceModelRolesEnum.value(enumKey);
         }
-        srcNode.enableRemoting(deviceModel, "DeviceModel", roles);
+        srcNode.enableRemoting(deviceModel, QLatin1String{"DeviceModel"}, roles);
 
         qDebug() << Q_FUNC_INFO << "Getting command model";
         CommandModel * tailCommandModel = qobject_cast<CommandModel *>(btConnectionManager->commandModel());
@@ -332,7 +330,7 @@ int serviceMain(int argc, char *argv[])
         for (int enumKey = 0; enumKey < tailCommandModelRolesEnum.keyCount(); ++enumKey) {
             roles << tailCommandModelRolesEnum.value(enumKey);
         }
-        srcNode.enableRemoting(tailCommandModel, "CommandModel", roles);
+        srcNode.enableRemoting(tailCommandModel, QLatin1String{"CommandModel"}, roles);
 
         qDebug() << Q_FUNC_INFO << "Getting command queue";
         CommandQueue* commandQueue = qobject_cast<CommandQueue*>(btConnectionManager->commandQueue());
@@ -352,7 +350,7 @@ int serviceMain(int argc, char *argv[])
         for (int enumKey = 0; enumKey < gestureDetectorModelRolesEnum.keyCount(); ++enumKey) {
             roles << gestureDetectorModelRolesEnum.value(enumKey);
         }
-        srcNode.enableRemoting(gestureController->model(), "GestureDetectorModel", roles);
+        srcNode.enableRemoting(gestureController->model(), QLatin1String{"GestureDetectorModel"}, roles);
     });
 
     return app.exec();

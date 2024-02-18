@@ -82,8 +82,8 @@ void Alarm::setName(const QString& name)
 {
     if (d->name != name) {
         d->name = name;
-        emit nameChanged();
-        emit alarmChanged();
+        Q_EMIT nameChanged();
+        Q_EMIT alarmChanged();
     }
 }
 
@@ -96,8 +96,8 @@ void Alarm::setTime(const QDateTime& time)
 {
     if (d->time != time) {
         d->time = time;
-        emit timeChanged();
-        emit alarmChanged();
+        Q_EMIT timeChanged();
+        Q_EMIT alarmChanged();
     }
 }
 
@@ -109,38 +109,39 @@ QStringList Alarm::commands() const
 void Alarm::setCommands(const QStringList& commands)
 {
     d->commands = commands;
-    emit commandsChanged();
-    emit alarmChanged();
+    Q_EMIT commandsChanged();
+    Q_EMIT alarmChanged();
 }
 
 void Alarm::addCommand(int index, const QString& command)
 {
     d->commands.insert(index, command);
-    emit commandsChanged();
-    emit alarmChanged();
+    Q_EMIT commandsChanged();
+    Q_EMIT alarmChanged();
 }
 
 void Alarm::removeCommand(int index)
 {
     if (index < 0 || index >= d->commands.size()) {
-        qWarning() << QString("Unable to remvoe command from alarm '%1'. Index (%2) is out of the bounds.")
+        qWarning() << QString::fromUtf8("Unable to remvoe command from alarm '%1'. Index (%2) is out of the bounds.")
                       .arg(name())
                       .arg(index);
         return;
     }
 
     d->commands.removeAt(index);
-    emit commandsChanged();
-    emit alarmChanged();
+    Q_EMIT commandsChanged();
+    Q_EMIT alarmChanged();
 }
+
 
 QVariantMap Alarm::toVariantMap() const
 {
     QVariantMap result;
 
-    result["name"] = name();
-    result["time"] = time();
-    result["commands"] = commands();
+    result[QLatin1String{"name"}] = name();
+    result[QLatin1String{"time"}] = time();
+    result[QLatin1String{"commands"}] = commands();
 
     return result;
 }

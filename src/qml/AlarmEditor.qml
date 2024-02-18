@@ -15,10 +15,10 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4 as QQC2
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 BaseCommandListEditor {
     property var alarm: null;

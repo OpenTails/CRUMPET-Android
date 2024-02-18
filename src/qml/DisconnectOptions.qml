@@ -16,11 +16,11 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.11
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.OverlaySheet {
     id: root;
@@ -79,12 +79,12 @@ Kirigami.OverlaySheet {
             Repeater {
                 id: noPhoneModeGroupsRepeater
                 model: _private.noPhoneModeGroups
-                delegate: Kirigami.BasicListItem {
+                delegate: BasicListItem {
                     property bool categoryPicked: (model.index === 0)
                     property string categoryKey: model.index + 1
                     property string categoryValue: modelData
-                    icon: categoryPicked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                    label: categoryValue
+                    icon.source: categoryPicked ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    text: categoryValue
                     onClicked: {
                         categoryPicked = !categoryPicked;
                     }

@@ -59,9 +59,9 @@ public:
 
     QVariantMap toVariantMap() const;
 
-public slots:
+public Q_SLOTS:
 
-signals:
+Q_SIGNALS:
     void nameChanged();
     void timeChanged();
     void commandsChanged();

@@ -162,12 +162,12 @@ void AlarmList::addAlarm(Alarm* alarm)
 {
     if (d->list.contains(alarm)) {
         qWarning() << "The alarm already exists in Alarm List";
-        emit alarmExisted(alarm->name());
+        Q_EMIT alarmExisted(alarm->name());
         return;
     }
 
     if (exists(alarm->name())) {
-        emit alarmExisted(alarm->name());
+        Q_EMIT alarmExisted(alarm->name());
         return;
     }
 
@@ -177,7 +177,7 @@ void AlarmList::addAlarm(Alarm* alarm)
     connect(alarm, &Alarm::alarmChanged, this, &AlarmList::listChanged);
 
     d->list.insert(0, alarm);
-    emit listChanged();
+    Q_EMIT listChanged();
     endInsertRows();
 
     // Once we've added an alarm, start the timer
@@ -210,7 +210,7 @@ void AlarmList::removeAlarm(const QString& alarmName)
 void AlarmList::removeAlarmByIndex(int index)
 {
     if (index < 0 || index >= d->list.size()) {
-        qWarning() << QString("Unable to delete alarm with index %1").arg(index);
+        qWarning() << QString::fromUtf8("Unable to delete alarm with index %1").arg(index);
         return;
     }
 
@@ -221,7 +221,7 @@ void AlarmList::removeAlarmByIndex(int index)
     disconnect(alarm);
     alarm->deleteLater();
 
-    emit listChanged();
+    Q_EMIT listChanged();
     endRemoveRows();
 
     // When there are no more alarms, stop the timer
@@ -237,7 +237,7 @@ void AlarmList::changeAlarmName(const QString& oldName, const QString& newName)
     }
 
     if (exists(newName)) {
-        emit alarmExisted(newName);
+        Q_EMIT alarmExisted(newName);
         return;
     }
 
@@ -246,7 +246,7 @@ void AlarmList::changeAlarmName(const QString& oldName, const QString& newName)
     if (alarm) {
         alarm->setName(newName);
     } else {
-        emit alarmNotExisted(oldName);
+        Q_EMIT alarmNotExisted(oldName);
     }
 }
 
@@ -257,7 +257,7 @@ void AlarmList::setAlarmTime(const QString& alarmName, const QDateTime& time)
     if (alarm) {
         alarm->setTime(time);
     } else {
-        emit alarmNotExisted(alarmName);
+        Q_EMIT alarmNotExisted(alarmName);
     }
 }
 
@@ -268,7 +268,7 @@ void AlarmList::setAlarmCommands(const QString& alarmName, const QStringList& co
     if (alarm) {
         alarm->setCommands(commands);
     } else {
-        emit alarmNotExisted(alarmName);
+        Q_EMIT alarmNotExisted(alarmName);
     }
 }
 
@@ -279,7 +279,7 @@ void AlarmList::addAlarmCommand(const QString& alarmName, int index, const QStri
     if (alarm) {
         alarm->addCommand(index, command);
     } else {
-        emit alarmNotExisted(alarmName);
+        Q_EMIT alarmNotExisted(alarmName);
     }
 }
 
@@ -290,7 +290,7 @@ void AlarmList::removeAlarmCommand(const QString& alarmName, int index)
     if (alarm) {
         alarm->removeCommand(index);
     } else {
-        emit alarmNotExisted(alarmName);
+        Q_EMIT alarmNotExisted(alarmName);
     }
 }
 
@@ -316,7 +316,7 @@ QVariantMap AlarmList::getAlarmVariantMap(const QString& alarmName)
     if (alarm) {
         return alarm->toVariantMap();
     } else {
-        emit alarmNotExisted(alarmName);
+        Q_EMIT alarmNotExisted(alarmName);
         return QVariantMap();
     }
 }

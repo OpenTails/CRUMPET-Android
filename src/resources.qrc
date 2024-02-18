@@ -38,6 +38,7 @@
         <file>qml/DisconnectOptions.qml</file>
         <file>qml/TiltSettings.qml</file>
         <file>qml/ListenSettings.qml</file>
+        <file>qml/BasicListItem.qml</file>
         <file>audio/Sparkle-sound-effect.mp3</file>
         <file>commands/digitail-builtin.crumpet</file>
         <file>commands/mitail-builtin.crumpet</file>

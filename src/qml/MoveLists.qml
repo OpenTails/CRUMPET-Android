@@ -17,25 +17,25 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4 as QQC2
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     id: root;
     objectName: "moveLists";
     title: i18nc("Heading for the page for viewing Move Lists", "Move Lists");
 
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18nc("Label for the button for adding a new Move List, on the page for viewing Move Lists", "Add New Move List");
             icon.name: "list-add";
             onTriggered: {
                 namePicker.pickName();
             }
         }
-    }
+    ]
     Component {
         id: moveListDelegate;
         Kirigami.SwipeListItem {

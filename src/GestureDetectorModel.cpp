@@ -17,12 +17,12 @@
 
 #include "GestureDetectorModel.h"
 #include "GestureController.h"
+#include "GestureSensor.h"
 #include "BTConnectionManager.h"
 
 #include <KLocalizedString>
 
 #include <QSettings>
-#include <QSensorGesture>
 #include <QTimer>
 
 class GestureDetectorModel::Private {
@@ -74,7 +74,7 @@ QVariant GestureDetectorModel::data(const QModelIndex& index, int role) const
                 result.setValue(gesture->humanName());
                 break;
             case SensorIdRole:
-                result.setValue(gesture->sensor()->validIds().first());
+                result.setValue(gesture->sensor()->sensorId());
                 break;
             case SensorNameRole:
                 result.setValue(gesture->sensorName());
@@ -101,7 +101,7 @@ QVariant GestureDetectorModel::data(const QModelIndex& index, int role) const
             {
                 GestureDetails* previousGesture = index.row() > 0 ? d->entries.value(index.row() - 1) : nullptr;
                 if (previousGesture) {
-                    result.setValue(previousGesture->sensor()->validIds().first() != gesture->sensor()->validIds().first());
+                    result.setValue(previousGesture->sensor()->sensorId() != gesture->sensor()->sensorId());
                 } else {
                     result.setValue(true);
                 }
@@ -196,7 +196,7 @@ public:
     GestureController* controller;
     QString gestureId; // The ID used by the gesture manager to identify each gesture
     QString humanName; // A human readable name
-    QSensorGesture* sensor{nullptr}; // The sensor used for detection of this gesture
+    GestureSensor* sensor{nullptr}; // The sensor used for detection of this gesture
     QString sensorHumanName;
     QString command; // The command we will use to send to the devices when this gesture is recognised - if this is empty, recognition is turned off for this gesture
     QString defaultCommand; // The default command for this gesture (often empty, but not supposed to be used for clear, it's the sensor-wide revert)
@@ -212,7 +212,7 @@ void GestureDetectorModel::setGestureSensorPinned(int index, bool pinned)
     GestureDetails* gesture = d->entries.value(index);
     QSettings settings;
     settings.beginGroup("Sensors");
-    settings.setValue(QString("%1/pinned").arg(gesture->sensorName()), pinned);
+    settings.setValue(QString::fromUtf8("%1/pinned").arg(gesture->sensorName()), pinned);
     settings.endGroup();
     settings.sync();
 
@@ -238,7 +238,7 @@ void GestureDetectorModel::setGestureSensorEnabled(int index, bool enabled)
     GestureDetails* gesture = d->entries.value(index);
     QSettings settings;
     settings.beginGroup("Sensors");
-    settings.setValue(QString("%1/enabled").arg(gesture->sensorName()), enabled);
+    settings.setValue(QString::fromUtf8("%1/enabled").arg(gesture->sensorName()), enabled);
     settings.endGroup();
     settings.sync();
 
@@ -266,7 +266,7 @@ void GestureDetectorModel::setGestureSensorEnabled(GestureDetails *gesture, bool
     }
 }
 
-GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, GestureController* q)
+GestureDetails::GestureDetails(QString gestureId, GestureSensor* sensor, GestureController* q)
     : d(new Private)
 {
     static const QHash<QString, QString> sensorNames{
@@ -305,7 +305,7 @@ GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, Gestur
         d->controller->connectionManager()->message(i18nc("A message to inform the user a gesture recogniser has been on for too long and has been automatically disabled for the safety and health of their gear", "Disabled %1 detection after one hour. All animatronic gear needs a rest after long periods of use. Read our guide to responsible wagging in Settings for ways to keep your gear healthy.", d->humanName));
     });
 
-    d->humanName = QString("%1 gesture").arg(gestureId);
+    d->humanName = QString::fromUtf8("%1 gesture").arg(gestureId);
     const QString& humanName = sensorNames.value(gestureId);
     if (humanName.isEmpty()) {
         // Automagically capitalise the first letter if we've nothing better
@@ -315,7 +315,7 @@ GestureDetails::GestureDetails(QString gestureId, QSensorGesture* sensor, Gestur
     }
 
     d->sensor = sensor;
-    d->sensorHumanName = sensor->validIds().first();
+    d->sensorHumanName = sensor->sensorId();
     // Automagically capitalise the first letter
     d->sensorHumanName.replace(0, 1, d->sensorHumanName[0].toUpper());
 
@@ -338,12 +338,12 @@ void GestureDetails::load() {
 
     QSettings settings;
     settings.beginGroup("Gestures");
-    d->command = settings.value(QString("%1/command").arg(d->gestureId), d->defaultCommand).toString();
-    d->devices = settings.value(QString("%1/devices").arg(d->gestureId), QStringList{}).toStringList();
+    d->command = settings.value(QString::fromUtf8("%1/command").arg(d->gestureId), d->defaultCommand).toString();
+    d->devices = settings.value(QString::fromUtf8("%1/devices").arg(d->gestureId), QStringList{}).toStringList();
     settings.endGroup();
     settings.beginGroup("Sensors");
-    d->sensorPinned = settings.value(QString("%1/pinned").arg(sensorName()), defaultPinned.contains(d->sensor->validIds().first())).toBool();
-    d->sensorEnabled = settings.value(QString("%1/enabled").arg(sensorName()), false).toBool();
+    d->sensorPinned = settings.value(QString::fromUtf8("%1/pinned").arg(sensorName()), defaultPinned.contains(d->sensor->sensorId())).toBool();
+    d->sensorEnabled = settings.value(QString::fromUtf8("%1/enabled").arg(sensorName()), false).toBool();
     settings.endGroup();
     toggleSensor(this, d->sensorEnabled);
 }
@@ -351,20 +351,20 @@ void GestureDetails::load() {
 void GestureDetails::save() {
     QSettings settings;
     settings.beginGroup("Gestures");
-    settings.setValue(QString("%1/command").arg(d->gestureId), d->command);
-    settings.setValue(QString("%1/devices").arg(d->gestureId), d->devices);
+    settings.setValue(QString::fromUtf8("%1/command").arg(d->gestureId), d->command);
+    settings.setValue(QString::fromUtf8("%1/devices").arg(d->gestureId), d->devices);
     settings.endGroup();
     settings.sync();
 }
 
-QSensorGesture * GestureDetails::sensor() const
+GestureSensor * GestureDetails::sensor() const
 {
     return d->sensor;
 }
 
 QString GestureDetails::sensorName() const
 {
-    QString name = d->sensor->validIds().first().split(QStringLiteral(".")).last();
+    QString name = d->sensor->sensorId().split(QStringLiteral(".")).last();
     name.replace(0, 1, name[0].toUpper());
     return name;
 }

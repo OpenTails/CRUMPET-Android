@@ -70,22 +70,22 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     d->commandQueue = new CommandQueue(this);
 
     connect(d->commandQueue, &CommandQueue::countChanged,
-            this, [this](){ emit commandQueueCountChanged(d->commandQueue->count()); });
+            this, [this](){ Q_EMIT commandQueueCountChanged(d->commandQueue->count()); });
 
     connect(d->deviceModel, &DeviceModel::deviceMessage,
             this, [this](const QString& deviceID, const QString& deviceMessage){
                 GearBase* device = d->deviceModel->getDevice(deviceID);
                 if (device) {
-                    Q_EMIT emit message(QString("%1 says:\n%2").arg(device->name()).arg(deviceMessage));
+                    Q_EMIT message(QString::fromUtf8("%1 says:\n%2").arg(device->name()).arg(deviceMessage));
                 }
                 else {
-                    Q_EMIT emit message(QString("%1 says:\n%2").arg(deviceID).arg(deviceMessage));
+                    Q_EMIT message(QString::fromUtf8("%1 says:\n%2").arg(deviceID).arg(deviceMessage));
                 }
             });
     connect(d->deviceModel, &DeviceModel::deviceBlockingMessage, this, &BTConnectionManager::blockingMessage);
     connect(d->deviceModel, &DeviceModel::countChanged,
-            this, [this](){ emit deviceCountChanged(d->deviceModel->count()); });
-    connect(d->deviceModel, &DeviceModel::deviceConnected, this, [this](GearBase* device){ emit deviceConnected(device->deviceID()); });
+            this, [this](){ Q_EMIT deviceCountChanged(d->deviceModel->count()); });
+    connect(d->deviceModel, &DeviceModel::deviceConnected, this, [this](GearBase* device){ Q_EMIT deviceConnected(device->deviceID()); });
     connect(d->deviceModel, &DeviceModel::isConnectedChanged, this, &BTConnectionManager::isConnectedChanged);
 
     qDebug() << Q_FUNC_INFO << "Setting Command Model";
@@ -100,7 +100,7 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     connect(d->deviceDiscoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, [this](){
         qDebug() << "Device discovery completed";
         d->discoveryRunning = false;
-        emit discoveryRunningChanged(d->discoveryRunning);
+        Q_EMIT discoveryRunningChanged(d->discoveryRunning);
     });
 
     // FIXME This is disabled for now, because of a crash issue with the version of QtConnectivity we're using on Android 12 and above
@@ -144,7 +144,7 @@ void BTConnectionManager::setLocalBTDeviceState()
     bool changed = (newState != d->localBTDeviceState);
     d->localBTDeviceState = newState;
     if (changed) {
-        emit bluetoothStateChanged(newState);
+        Q_EMIT bluetoothStateChanged(newState);
     }
 }
 
@@ -152,15 +152,16 @@ void BTConnectionManager::startDiscovery()
 {
     if (!d->discoveryRunning) {
         d->discoveryRunning = true;
-        emit discoveryRunningChanged(d->discoveryRunning);
+        Q_EMIT discoveryRunningChanged(d->discoveryRunning);
         d->deviceDiscoveryAgent->start(QBluetoothDeviceDiscoveryAgent::supportedDiscoveryMethods());
     }
 }
 
 void BTConnectionManager::stopDiscovery()
 {
+    qDebug() << Q_FUNC_INFO;
     d->discoveryRunning = false;
-    emit discoveryRunningChanged(d->discoveryRunning);
+    Q_EMIT discoveryRunningChanged(d->discoveryRunning);
     d->deviceDiscoveryAgent->stop();
 }
 
@@ -198,7 +199,7 @@ void BTConnectionManager::disconnectDevice(const QString& deviceID)
         if (device && device->isConnected()) {
             device->disconnectDevice();
             d->commandQueue->clear(device->deviceID());
-            emit commandQueueChanged();
+            Q_EMIT commandQueueChanged();
         }
     }
 }
@@ -248,19 +249,29 @@ int BTConnectionManager::bluetoothState() const
     return d->localBTDeviceState;
 }
 
+static const QLatin1String emptyString{""};
+static const QLatin1String commandKey{"command"};
+static const QLatin1String pauseKey{"pause"};
+static const QLatin1String categoryKey{"category"};
+static const QLatin1String durationKey{"duration"};
+static const QLatin1String minimumCooldownKey{"minimumCooldown"};
+static const QLatin1String nameKey{"name"};
+static const QLatin1String pauseString{"Pause"};
+static const QLatin1Char comma{':'};
+
 void BTConnectionManager::setCommand(QVariantMap command)
 {
-    QString actualCommand = command["command"].toString();
-    if(actualCommand.startsWith("pause")) {
-        d->command["category"] = "";
-        d->command["command"] = actualCommand;
-        d->command["duration"] = actualCommand.split(':').last().toInt() * 1000;
-        d->command["minimumCooldown"] = 0;
-        d->command["name"] = "Pause";
+    QString actualCommand = command[commandKey].toString();
+    if(actualCommand.startsWith(pauseKey)) {
+        d->command[categoryKey] = emptyString;
+        d->command[commandKey] = actualCommand;
+        d->command[durationKey] = actualCommand.split(comma).last().toInt() * 1000;
+        d->command[minimumCooldownKey] = 0;
+        d->command[nameKey] = pauseString;
     } else {
-        d->command = getCommand(command["command"].toString());
+        d->command = getCommand(command[commandKey].toString());
     }
-    emit commandChanged(d->command);
+    Q_EMIT commandChanged(d->command);
 }
 
 QVariantMap BTConnectionManager::command() const
@@ -274,11 +285,11 @@ QVariantMap BTConnectionManager::getCommand(const QString& command)
     if(d->commandModel) {
         const CommandInfo& actualCommand = d->commandModel->getCommand(command);
         if(actualCommand.isValid()) {
-            info["category"] = actualCommand.category;
-            info["command"] = actualCommand.command;
-            info["duration"] = actualCommand.duration;
-            info["minimumCooldown"] = actualCommand.minimumCooldown;
-            info["name"] = actualCommand.name;
+            info[categoryKey] = actualCommand.category;
+            info[commandKey] = actualCommand.command;
+            info[durationKey] = actualCommand.duration;
+            info[minimumCooldownKey] = actualCommand.minimumCooldown;
+            info[nameKey] = actualCommand.name;
         }
     }
     return info;
@@ -296,7 +307,7 @@ void BTConnectionManager::setDeviceName(const QString& deviceID, const QString& 
 void BTConnectionManager::clearDeviceNames()
 {
     appSettings()->clearDeviceNames();
-    emit deviceNamesCleared();
+    Q_EMIT deviceNamesCleared();
 }
 
 void BTConnectionManager::setDeviceChecked(const QString& deviceID, bool checked)
@@ -354,6 +365,6 @@ void BTConnectionManager::callDeviceFunctionWithParameter(const QString& deviceI
         if (parameter.isValid()) {
             argument = QGenericArgument(parameter.typeName(), parameter.data());
         }
-        QMetaObject::invokeMethod(device, functionName.toUtf8(), argument);
+        QMetaObject::invokeMethod(device, functionName.toUtf8().data(), argument);
     }
 }

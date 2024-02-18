@@ -15,12 +15,11 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.11
-import QtQuick.Controls 2.4 as QQC2
-import QtQuick.Layouts 1.11
-import Qt.labs.calendar 1.0
-import QtQuick.Controls.Material 2.4
-import org.kde.kirigami 2.13 as Kirigami
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import QtQuick.Controls.Material
+import org.kde.kirigami as Kirigami
 
 Kirigami.OverlaySheet {
     id: control
@@ -149,7 +148,7 @@ Kirigami.OverlaySheet {
                 }
             }
 
-            DayOfWeekRow {
+            QQC2.DayOfWeekRow {
                 id: dayOfWeekRow
 
                 font.bold: false
@@ -167,7 +166,7 @@ Kirigami.OverlaySheet {
                 }
             }
 
-            WeekNumberColumn {
+            QQC2.WeekNumberColumn {
                 id: weekNumbers
 
                 visible: false
@@ -189,7 +188,7 @@ Kirigami.OverlaySheet {
                 }
             }
 
-            MonthGrid {
+            QQC2.MonthGrid {
                 id: monthGrid
 
                 month: displayMonth
@@ -208,7 +207,7 @@ Kirigami.OverlaySheet {
 
                     text: model.day
                     opacity: model.month === monthGrid.month ? 1 : 0.5
-                    color: pressed || isSelected ? "white" : (model.today ? Material.accent : Material.foreground)
+                    color: isSelected ? "white" : (model.today ? Material.accent : Material.foreground)
                     font.bold: model.today ? true : false
                     fontSizeMode: Text.Fit
                     minimumPointSize: 8
@@ -221,7 +220,7 @@ Kirigami.OverlaySheet {
                         height: width
                         radius: width / 2
                         color: Material.primary
-                        visible: pressed || parent.isSelected
+                        visible: parent.isSelected
                         anchors.centerIn: parent
                     }
                 }

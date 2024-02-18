@@ -41,7 +41,7 @@ class GearBase : public QObject
     Q_PROPERTY(QStringList enabledCommandsFiles READ enabledCommandsFiles NOTIFY enabledCommandsFilesChanged)
     Q_PROPERTY(bool supportsOTA READ supportsOTA NOTIFY supportsOTAChanged)
     Q_PROPERTY(bool hasAvailableOTA READ hasAvailableOTA NOTIFY hasAvailableOTAChanged)
-    Q_PROPERTY(QString otaVersion READ otaVersion NOTIFY hasAvailableOTAChanged);
+    Q_PROPERTY(QString otaVersion READ otaVersion NOTIFY hasAvailableOTAChanged)
     Q_PROPERTY(bool hasOTAData READ hasOTAData NOTIFY hasOTADataChanged)
     Q_PROPERTY(int deviceProgress READ deviceProgress NOTIFY deviceProgressChanged)
     Q_PROPERTY(QString progressDescription READ progressDescription NOTIFY progressDescriptionChanged)

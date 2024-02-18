@@ -16,11 +16,11 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.0 as QQC2
-import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.OverlaySheet {
     id: sheet;
@@ -79,10 +79,9 @@ Kirigami.OverlaySheet {
         id: deviceList;
         implicitWidth: Kirigami.Units.gridUnit * 30
         model: Digitail.DeviceModel;
-        delegate: Kirigami.AbstractListItem {
+        delegate: QQC2.ItemDelegate {
             height: Kirigami.Units.gridUnit * 6
-            hoverEnabled: false
-            RowLayout {
+            contentItem: RowLayout {
                 Kirigami.Icon {
                     source: model.deviceIcon
                     Layout.fillHeight: true

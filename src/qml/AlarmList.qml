@@ -16,11 +16,11 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4 as QQC2
-import org.kde.kirigami 2.13 as Kirigami
-import QtQuick.Layouts 1.11
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import QtQuick.Layouts
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     id: root;
@@ -28,25 +28,25 @@ Kirigami.ScrollablePage {
     objectName: "alarmList";
     title: i18nc("Title of the page which lists the alarms the user has set", "Alarms");
 
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18nc("Text for a button which will adds a new alarm to the list", "Add New Alarm");
             icon.name: "list-add";
             onTriggered: {
                 namePicker.pickName();
             }
         }
-    }
+    ]
 
     Connections {
         target: Digitail.AppSettings
 
-        onAlarmExisted: {
+        function onAlarmExisted() {
             showMessageBox(i18nc("Title for a message box warning the user an alarm with the chosen name already exists", "Select another name"),
                            i18nc("Main text for a message box warning the user an alarm with the chosen name already exists", "Unable to add the alarm because we already have an alarm with the same name.\n\nPlease select another name for the alarm."));
         }
 
-        onAlarmNotExisted: {
+        function onAlarmNotExisted(name) {
             showMessageBox(i18nc("Title for a message box informing the user the alarm they attempted to remove does not exist", "Alarm was removed"),
                            i18nc("Main text for a message box informing the user the alarm they attempted to remove does not exist", "Unable to find an alarm with the name '%1'. Maybe another application instance has removed it.", name));
         }

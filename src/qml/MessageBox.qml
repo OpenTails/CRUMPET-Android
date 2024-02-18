@@ -16,10 +16,10 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.11
-import QtQuick.Controls 2.4 as QQC2
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.13 as Kirigami
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 
 Kirigami.OverlaySheet {
     id: control;

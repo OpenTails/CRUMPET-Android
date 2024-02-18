@@ -16,11 +16,11 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4 as QQC2
-import org.kde.kirigami 2.13 as Kirigami
-import QtQuick.Layouts 1.11
-import QtMultimedia 5.8
+import QtQuick
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import QtQuick.Layouts
+import QtMultimedia
 
 Kirigami.ScrollablePage {
     objectName: "developerModePage";
@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
 
             Layout.fillWidth: true;
 
-            Audio {
+            MediaPlayer {
                 id: playSound
                 source: "qrc:/audio/Sparkle-sound-effect.mp3"
             }

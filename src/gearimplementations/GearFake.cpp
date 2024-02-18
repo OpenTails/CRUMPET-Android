@@ -29,8 +29,8 @@ public:
     int batteryLevel{-1};
     bool isCharging{false};
     QString currentCall;
-    QString deviceID{"FA:KE:TA:IL"};
-    QString version{"Fake V2"};
+    QLatin1String deviceID{"FA:KE:TA:IL"};
+    QLatin1String version{"Fake V2"};
 
     QTimer batteryTimer;
 };
@@ -63,7 +63,7 @@ GearFake::GearFake(const QBluetoothDeviceInfo& info, DeviceModel * parent)
             d->batteryLevel++;
         }
         setBatteryLevelPercent(d->batteryLevel * 25);
-        emit batteryLevelChanged(d->batteryLevel);
+        Q_EMIT batteryLevelChanged(d->batteryLevel);
     });
 }
 
@@ -101,7 +101,7 @@ void GearFake::connectDevice()
 {
     QTimer::singleShot(1000, this, [this](){
         d->isConnected = true;
-        emit isConnectedChanged(isConnected());
+        Q_EMIT isConnectedChanged(isConnected());
         reloadCommands();
         setKnownFirmwareMessage(i18nc("An example message to show people what the firmware message will look like for a real device", "This is a message that's supposed to inform people that there is something <b>important</b> going on with their firmware"));
         d->batteryTimer.start();
@@ -112,11 +112,11 @@ void GearFake::disconnectDevice()
 {
     d->batteryTimer.stop();
     d->batteryLevel = -1;
-    emit batteryLevelChanged(d->batteryLevel);
+    Q_EMIT batteryLevelChanged(d->batteryLevel);
     commandModel->clear();
     commandShorthands.clear();
     d->isConnected = false;
-    emit isConnectedChanged(d->isConnected);
+    Q_EMIT isConnectedChanged(d->isConnected);
 }
 
 void GearFake::sendMessage(const QString& message)
@@ -133,11 +133,11 @@ void GearFake::sendMessage(const QString& message)
     if(commandInfo.isValid()) {
         commandModel->setRunning(message, true);
         d->currentCall = message;
-        emit currentCallChanged(message);
+        Q_EMIT currentCallChanged(message);
         QTimer::singleShot(commandInfo.duration, this, [this, message](){
             d->currentCall.clear();
             commandModel->setRunning(message, false);
-            emit currentCallChanged(currentCall());
+            Q_EMIT currentCallChanged(currentCall());
         });
     }
 }

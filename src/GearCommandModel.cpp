@@ -111,7 +111,7 @@ void GearCommandModel::addCommand(const CommandInfo& command)
 {
     beginInsertRows(QModelIndex(), 0, 0);
     d->commands.insert(0, command);
-    emit commandAdded(command);
+    Q_EMIT commandAdded(command);
     endInsertRows();
 }
 
@@ -128,7 +128,7 @@ void GearCommandModel::removeCommand(const CommandInfo& command)
     }
     if (found) {
         beginRemoveRows(QModelIndex(), idx, idx);
-        emit commandRemoved(command);
+        Q_EMIT commandRemoved(command);
         d->commands.removeAt(idx);
         endRemoveRows();
     }
@@ -216,8 +216,9 @@ bool GearCommandModel::isRunning(const CommandInfo& cmd) const
 
 bool GearCommandModel::isAvailable(const CommandInfo& cmd) const
 {
+    static const QLatin1String tailHomeCommand{"TAILHM"};
     bool retVal{false};
-    if (cmd.command == "TAILHM") {
+    if (cmd.command == tailHomeCommand) {
         retVal = true;
     } else {
         for (const CommandInfo& ourCmd : d->commands) {

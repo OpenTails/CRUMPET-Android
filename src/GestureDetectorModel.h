@@ -67,16 +67,16 @@ private:
     Private* d;
 };
 
-class QSensorGesture;
+class GestureSensor;
 class GestureController;
 struct GestureDetails {
 public:
-    GestureDetails(QString gestureId, QSensorGesture* sensor, GestureController* q);
+    GestureDetails(QString gestureId, GestureSensor* sensor, GestureController* q);
     ~GestureDetails();
 
     void load();
     void save();
-    QSensorGesture* sensor() const;
+    GestureSensor* sensor() const;
     QString sensorName() const;
     QString gestureId() const;
     QString humanName() const;

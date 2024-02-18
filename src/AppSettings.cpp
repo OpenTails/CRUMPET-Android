@@ -37,7 +37,7 @@ class AppSettings::Private
 public:
     Private()
     {
-        idleCategories << "relaxed";
+        idleCategories << QLatin1String{"relaxed"};
     }
     ~Private() {}
 
@@ -62,6 +62,7 @@ public:
     bool isInitialized{false};
 };
 
+static const QLatin1Char semicolon{';'};
 AppSettings::AppSettings(QObject* parent)
     : AppSettingsProxySource(parent)
     , d(new Private)
@@ -82,7 +83,7 @@ AppSettings::AppSettings(QObject* parent)
     settings.beginGroup("MoveLists");
     QStringList moveLists = settings.allKeys();
     for(const QString& list : moveLists) {
-        d->moveLists[list] = settings.value(list).toString().split(';');
+        d->moveLists[list] = settings.value(list).toString().split(semicolon);
     }
     settings.endGroup();
 
@@ -92,7 +93,7 @@ AppSettings::AppSettings(QObject* parent)
         QMap<QString, QStringList>::const_iterator i = d->moveLists.constBegin();
         while(i != d->moveLists.constEnd()) {
             if(!i.key().isEmpty()) {
-                settings.setValue(i.key(), i.value().join(';'));
+                settings.setValue(i.key(), i.value().join(semicolon));
             }
             ++i;
         }
@@ -115,7 +116,7 @@ AppSettings::AppSettings(QObject* parent)
         QString data;
         QFile file(filename);
         if(file.open(QIODevice::ReadOnly)) {
-            data = file.readAll();
+            data = QString::fromUtf8(file.readAll());
         }
         else {
             qWarning() << "Failed to open the included resource containing the basic command setup for your gear, this is very much not a good thing";
@@ -131,7 +132,7 @@ AppSettings::AppSettings(QObject* parent)
         addCommandFile(filename, settings.value(filename).toString());
     }
     settings.endGroup();
-    emit commandFilesChanged(d->commandFiles);
+    Q_EMIT commandFilesChanged(d->commandFiles);
 
     d->isInitialized = true;
 }
@@ -162,7 +163,7 @@ void AppSettings::setAdvancedMode(bool newValue)
         d->advancedMode = newValue;
         QSettings settings;
         settings.setValue("advancedMode", d->advancedMode);
-        emit advancedModeChanged(newValue);
+        Q_EMIT advancedModeChanged(newValue);
     }
 }
 
@@ -178,7 +179,7 @@ void AppSettings::setDeveloperMode(bool newValue)
         d->developerMode = newValue;
         QSettings settings;
         settings.setValue("developerMode", d->developerMode);
-        emit developerModeChanged(newValue);
+        Q_EMIT developerModeChanged(newValue);
     }
 }
 
@@ -198,7 +199,7 @@ void AppSettings::setIdleMode(bool newValue)
         d->idleMode = newValue;
         QSettings settings;
         settings.setValue("idleMode", d->idleMode);
-        emit idleModeChanged(newValue);
+        Q_EMIT idleModeChanged(newValue);
 
         if (d->idleMode) {
             timer.setSingleShot(true);
@@ -208,7 +209,7 @@ void AppSettings::setIdleMode(bool newValue)
             connect(&timer, &QTimer::timeout, this, [this] {
                 qDebug() << "The Casual Mode timeout was reached";
                 setIdleMode(false);
-                emit idleModeTimeout();
+                Q_EMIT idleModeTimeout();
             });
         }
     }
@@ -226,7 +227,7 @@ void AppSettings::setAutoReconnect(bool newValue)
         d->autoReconnect = newValue;
         QSettings settings;
         settings.setValue("autoReconnect", d->autoReconnect);
-        emit autoReconnectChanged(newValue);
+        Q_EMIT autoReconnectChanged(newValue);
     }
 }
 
@@ -241,7 +242,7 @@ void AppSettings::setAlwaysSendToAll(bool alwaysSendToAll)
         d->alwaysSendToAll = alwaysSendToAll;
         QSettings settings;
         settings.setValue("alwaysSendToAll", d->alwaysSendToAll);
-        emit alwaysSendToAllChanged(alwaysSendToAll);
+        Q_EMIT alwaysSendToAllChanged(alwaysSendToAll);
     }
 }
 
@@ -257,7 +258,7 @@ void AppSettings::setIdleCategories(QStringList newCategories)
         d->idleCategories = newCategories;
         QSettings settings;
         settings.setValue("idleCategories", d->idleCategories);
-        emit idleCategoriesChanged(newCategories);
+        Q_EMIT idleCategoriesChanged(newCategories);
     }
 }
 
@@ -267,7 +268,7 @@ void AppSettings::addIdleCategory(const QString& category)
         d->idleCategories << category;
         QSettings settings;
         settings.setValue("idleCategories", d->idleCategories);
-        emit idleCategoriesChanged(d->idleCategories);
+        Q_EMIT idleCategoriesChanged(d->idleCategories);
     }
 }
 
@@ -277,7 +278,7 @@ void AppSettings::removeIdleCategory(const QString& category)
         d->idleCategories.removeAll(category);
         QSettings settings;
         settings.setValue("idleCategories", d->idleCategories);
-        emit idleCategoriesChanged(d->idleCategories);
+        Q_EMIT idleCategoriesChanged(d->idleCategories);
     }
 }
 
@@ -293,7 +294,7 @@ void AppSettings::setIdleMinPause(int pause)
         d->idleMinPause = pause;
         QSettings settings;
         settings.setValue("idleMinPause", d->idleMinPause);
-        emit idleMinPauseChanged(pause);
+        Q_EMIT idleMinPauseChanged(pause);
     }
 }
 
@@ -309,7 +310,7 @@ void AppSettings::setIdleMaxPause(int pause)
         d->idleMaxPause = pause;
         QSettings settings;
         settings.setValue("idleMaxPause", d->idleMaxPause);
-        emit idleMaxPauseChanged(pause);
+        Q_EMIT idleMaxPauseChanged(pause);
     }
 }
 
@@ -325,7 +326,7 @@ void AppSettings::setFakeTailMode(bool fakeTailMode)
         d->fakeTailMode = fakeTailMode;
         QSettings settings;
         settings.setValue("fakeTailMode", d->fakeTailMode);
-        emit fakeTailModeChanged(fakeTailMode);
+        Q_EMIT fakeTailModeChanged(fakeTailMode);
     }
 }
 
@@ -344,14 +345,14 @@ void AppSettings::addMoveList(const QString& moveListName)
 {
     if(!moveListName.isEmpty()) {
         d->moveLists.insert(moveListName, QStringList());
-        emit moveListsChanged(moveLists());
+        Q_EMIT moveListsChanged(moveLists());
     }
 }
 
 void AppSettings::removeMoveList(const QString& moveListName)
 {
     d->moveLists.remove(moveListName);
-    emit moveListsChanged(d->moveLists.keys());
+    Q_EMIT moveListsChanged(d->moveLists.keys());
 }
 
 QStringList AppSettings::moveList() const
@@ -362,7 +363,7 @@ QStringList AppSettings::moveList() const
 void AppSettings::setActiveMoveList(const QString& moveListName)
 {
     d->activeMoveListName = moveListName;
-    emit moveListChanged(moveList());
+    Q_EMIT moveListChanged(moveList());
 }
 
 void AppSettings::addMoveListEntry(int index, const QString& entry, QStringList devices)
@@ -370,7 +371,7 @@ void AppSettings::addMoveListEntry(int index, const QString& entry, QStringList 
     QStringList moveList = d->moveLists[d->activeMoveListName];
     moveList.insert(index, entry);
     d->moveLists[d->activeMoveListName] = moveList;
-    emit moveListChanged(this->moveList());
+    Q_EMIT moveListChanged(this->moveList());
 }
 
 void AppSettings::removeMoveListEntry(int index)
@@ -378,7 +379,7 @@ void AppSettings::removeMoveListEntry(int index)
     QStringList moveList = d->moveLists[d->activeMoveListName];
     moveList.removeAt(index);
     d->moveLists[d->activeMoveListName] = moveList;
-    emit moveListChanged(this->moveList());
+    Q_EMIT moveListChanged(this->moveList());
 }
 
 AlarmList * AppSettings::alarmListImpl() const
@@ -402,14 +403,14 @@ void AppSettings::setDeviceName(const QString& address, const QString& deviceNam
     settings.beginGroup("DeviceNameList");
     settings.setValue(address, deviceName);
     settings.endGroup();
-    emit deviceNamesChanged(deviceNames());
+    Q_EMIT deviceNamesChanged(deviceNames());
 }
 
 void AppSettings::clearDeviceNames()
 {
     QSettings settings;
     settings.remove("DeviceNameList");
-    emit deviceNamesChanged(deviceNames());
+    Q_EMIT deviceNamesChanged(deviceNames());
 }
 
 QVariantMap AppSettings::deviceNames() const
@@ -418,7 +419,7 @@ QVariantMap AppSettings::deviceNames() const
     QSettings settings;
     settings.beginGroup("DeviceNameList");
     QStringList keys = settings.childKeys();
-    foreach(QString key, keys) {
+    for(const QString &key : std::as_const(keys)) {
         namesMap[key] = settings.value(key).toString();
     }
     settings.endGroup();
@@ -432,10 +433,10 @@ QStringList AppSettings::availableLanguages() const
         QSet<QString> codes = KLocalizedString::availableApplicationTranslations();
         for (const QString& code : codes) {
             QLocale locale(code);
-            languages << QString("%1 (%2)").arg(locale.nativeLanguageName()).arg(code);
+            languages << QString::fromUtf8("%1 (%2)").arg(locale.nativeLanguageName()).arg(code);
         }
         languages.sort();
-        languages.prepend(QString("System Language"));
+        languages.prepend(QLatin1String{"System Language"});
     }
     return languages;
 }
@@ -445,13 +446,15 @@ QString AppSettings::languageOverride() const
     return d->languageOverride;
 }
 
+static const QLatin1String paranthesisStart{")"};
+static const QLatin1String paranthesisEnd{")"};
 void AppSettings::setLanguageOverride(QString languageOverride)
 {
     if (d->languageOverride != languageOverride) {
         QString languageCode = languageOverride;
-        if (languageOverride.endsWith(")")) {
-            int firstPos = languageCode.lastIndexOf("(") + 1;
-            int lastPos = languageCode.lastIndexOf(")");
+        if (languageOverride.endsWith(paranthesisEnd)) {
+            int firstPos = languageCode.lastIndexOf(paranthesisStart) + 1;
+            int lastPos = languageCode.lastIndexOf(paranthesisEnd);
             languageCode = languageCode.mid(firstPos, lastPos - firstPos);
         }
         d->languageOverride = languageCode;
@@ -461,7 +464,7 @@ void AppSettings::setLanguageOverride(QString languageOverride)
         if (d->languageOverride.isEmpty()) {
             KLocalizedString::clearLanguages();
         } else {
-            KLocalizedString::setLanguages(QStringList() << d->languageOverride << "en_US");
+            KLocalizedString::setLanguages(QStringList() << d->languageOverride << QLatin1String{"en_US"});
         }
     }
 }
@@ -480,38 +483,38 @@ void AppSettings::setActiveAlarmName(const QString &alarmName)
 {
     if (d->activeAlarmName != alarmName) {
         d->activeAlarmName = alarmName;
-        emit activeAlarmChanged(activeAlarm());
+        Q_EMIT activeAlarmChanged(activeAlarm());
     }
 }
 
 void AppSettings::changeAlarmName(const QString &newName)
 {
     d->alarmList->changeAlarmName(d->activeAlarmName, newName);
-    emit activeAlarmChanged(activeAlarm());
+    Q_EMIT activeAlarmChanged(activeAlarm());
 }
 
 void AppSettings::setAlarmTime(const QDateTime &time)
 {
     d->alarmList->setAlarmTime(d->activeAlarmName, time);
-    emit activeAlarmChanged(activeAlarm());
+    Q_EMIT activeAlarmChanged(activeAlarm());
 }
 
 void AppSettings::setAlarmCommands(const QStringList& commands)
 {
     d->alarmList->setAlarmCommands(d->activeAlarmName, commands);
-    emit activeAlarmChanged(activeAlarm());
+    Q_EMIT activeAlarmChanged(activeAlarm());
 }
 
 void AppSettings::addAlarmCommand(int index, const QString& command, QStringList devices)
 {
     d->alarmList->addAlarmCommand(d->activeAlarmName, index, command, devices);
-    emit activeAlarmChanged(activeAlarm());
+    Q_EMIT activeAlarmChanged(activeAlarm());
 }
 
 void AppSettings::removeAlarmCommand(int index)
 {
     d->alarmList->removeAlarmCommand(d->activeAlarmName, index);
-    emit activeAlarmChanged(activeAlarm());
+    Q_EMIT activeAlarmChanged(activeAlarm());
 }
 
 void AppSettings::loadAlarmList()
@@ -558,7 +561,7 @@ void AppSettings::saveAlarmList()
 void AppSettings::onAlarmListChanged()
 {
     saveAlarmList();
-    emit alarmListChanged(alarmList());
+    Q_EMIT alarmListChanged(alarmList());
 }
 
 void AppSettings::shutDownService()
@@ -571,12 +574,13 @@ QVariantMap AppSettings::commandFiles() const
     return d->commandFiles;
 }
 
+static const QLatin1String emptyString{""};
 void AppSettings::addCommandFile(const QString& filename, const QString& content)
 {
     QVariantMap fileMap;
-    fileMap[QLatin1String{"contents"}] = "";
-    fileMap[QLatin1String{"title"}] = "";
-    fileMap[QLatin1String{"description"}] = "";
+    fileMap[QLatin1String{"contents"}] = emptyString;
+    fileMap[QLatin1String{"title"}] = emptyString;
+    fileMap[QLatin1String{"description"}] = emptyString;
     fileMap[QLatin1String{"isEditable"}] = true;
     fileMap[QLatin1String{"isValid"}] = false;
     d->commandFiles[filename] = fileMap;
@@ -592,7 +596,7 @@ void AppSettings::removeCommandFile(const QString& filename)
         if (theFile.exists()) {
             theFile.remove();
         }
-        emit commandFilesChanged(d->commandFiles);
+        Q_EMIT commandFilesChanged(d->commandFiles);
     }
 }
 
@@ -629,7 +633,7 @@ void AppSettings::setCommandFileContents(const QString& filename, const QString&
             fileMap[QLatin1String{"isValid"}] = true;
         }
         d->commandFiles[filename] = fileMap;
-        emit commandFilesChanged(d->commandFiles);
+        Q_EMIT commandFilesChanged(d->commandFiles);
     }
 }
 
@@ -638,6 +642,6 @@ void AppSettings::renameCommandFile(const QString& filename, const QString& newF
     QVariantMap fileMap = d->commandFiles.take(filename).toMap();
     if (fileMap[QLatin1String{"isEditable"}].toBool()) {
         d->commandFiles[newFilename] = fileMap;
-        emit commandFilesChanged(d->commandFiles);
+        Q_EMIT commandFilesChanged(d->commandFiles);
     }
 }

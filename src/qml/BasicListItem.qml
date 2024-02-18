@@ -1,5 +1,6 @@
 /*
- *   Copyright 2019 Dan Leinir Turthra Jensen <admin@leinir.dk>
+ *   Copyright 2024 Dan Leinir Turthra Jensen <admin@leinir.dk>
+ *   This file based on sample code from Kirigami
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -16,24 +17,25 @@
  */
 
 import QtQuick
-import QtQuick.Controls as QQC2
+import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
-ColumnLayout {
-    id: root;
-    property alias text: infoCardText.text;
-    property alias footer: card.footer;
-    width: parent.width;
-    height: card.height + Kirigami.Units.largeSpacing * 3;
-    Kirigami.Card {
-        id: card
-        Layout.fillWidth: true;
-        Layout.margins: Kirigami.Units.largeSpacing;
-        contentItem: QQC2.Label {
-            id: infoCardText;
-            padding: Kirigami.Units.smallSpacing;
-            wrapMode: Text.Wrap;
+ItemDelegate {
+    id: component
+    property alias bold: textLabel.font.bold
+    contentItem: RowLayout {
+        spacing: Kirigami.Units.largeSpacing
+        Kirigami.Icon {
+            implicitHeight: Kirigami.Units.iconSizes.medium
+            implicitWidth: Kirigami.Units.iconSizes.medium
+            source: component.icon.source
+        }
+        Label {
+            id: textLabel
+            text: component.text
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignLeft
         }
     }
 }

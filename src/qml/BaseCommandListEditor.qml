@@ -17,11 +17,11 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4 as QQC2
-import QtQuick.Layouts 1.15
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 // Add in "edit" action for command entries, so a command can be swapped for another
 // Add in "edit" action for pause entries, so duration can be changed
@@ -37,17 +37,15 @@ Kirigami.ScrollablePage {
     signal insertCommand(int insertAt, string command, variant destinations);
     signal removeCommand(int index, string command);
 
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18nc("Label for the button for adding a move to the Move List", "Add Move To List");
             icon.name: "list-add";
             onTriggered: {
                 pickACommand.insertAt = commandListView.count;
                 pickACommand.pickCommand();
             }
-        }
-
-        right: Kirigami.Action {
+        }, Kirigami.Action {
             text: i18nc("Label for the button for adding a pause to the Move List", "Add Pause To List");
             icon.name: "accept_time_event";
             onTriggered: {
@@ -55,7 +53,7 @@ Kirigami.ScrollablePage {
                 commandPausePicker.pickDuration();
             }
         }
-    }
+    ]
 
     property var allDurations: []
     Component {
@@ -82,7 +80,7 @@ Kirigami.ScrollablePage {
             // Silly, yes, but we can't put it at the proper root of SwipeListItem, as it only wants QQuickItems there
             Connections {
                 target: Digitail.Utilities;
-                onCommandGotten: {
+                function onCommandGotten(command) {
                     if(command.command === modelData) {
                         listItem.command = command;
                         var durations = control.allDurations;

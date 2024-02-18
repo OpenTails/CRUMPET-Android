@@ -35,7 +35,7 @@ public:
     GearDigitail* q{nullptr};
     DeviceModel * parentModel{nullptr};
 
-    QString version{"(unknown)"};
+    QLatin1String version{"(unknown)"};
     QString currentCall;
     int batteryLevel{-1};
 
@@ -75,14 +75,14 @@ public:
     void serviceStateChanged(QLowEnergyService::ServiceState s)
     {
         switch (s) {
-        case QLowEnergyService::DiscoveringServices:
+        case QLowEnergyService::RemoteServiceDiscovering:
             qDebug() << q->name() << q->deviceID() << "Discovering services...";
             break;
-        case QLowEnergyService::ServiceDiscovered:
+        case QLowEnergyService::RemoteServiceDiscovered:
         {
             qDebug() << q->name() << q->deviceID() << "Service discovered.";
 
-            foreach(const QLowEnergyCharacteristic& leChar, tailService->characteristics()) {
+            for(const QLowEnergyCharacteristic& leChar : tailService->characteristics()) {
                 qDebug() << q->name() << q->deviceID() << "Characteristic:" << leChar.name() << leChar.uuid() << leChar.properties();
             }
             tailCharacteristic = tailService->characteristic(tailStateCharacteristicUuid);
@@ -96,12 +96,12 @@ public:
             q->commandModel->clear();
 
             // Get the descriptor, and turn on notifications
-            tailDescriptor = tailCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+            tailDescriptor = tailCharacteristic.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
             tailService->writeDescriptor(tailDescriptor, QByteArray::fromHex("0100"));
 
             reconnectThrottle = 0;
-            emit q->isConnectedChanged(q->isConnected());
-            q->sendMessage("VER"); // Ask for the tail version, and then react to the response...
+            Q_EMIT q->isConnectedChanged(q->isConnected());
+            q->sendMessage(QLatin1String{"VER"}); // Ask for the tail version, and then react to the response...
 
             break;
         }
@@ -119,27 +119,27 @@ public:
         if (tailStateCharacteristicUuid == characteristic.uuid()) {
             if (currentCall == QLatin1String("VER")) {
                 q->reloadCommands();
-                version = newValue;
-                emit q->versionChanged(newValue);
+                version = QLatin1String{newValue};
+                Q_EMIT q->versionChanged(version);
                 batteryTimer.start();
-                q->sendMessage("BATT");
+                q->sendMessage(QLatin1String{"BATT"});
             }
             else {
                 static const QLatin1String aBegin{"BEGIN"};
                 static const QLatin1String anEnd{"END"};
-                QString theValue(newValue);
-                QStringList stateResult = theValue.split(' ');
+                QString theValue = QString::fromUtf8(newValue);
+                QStringList stateResult = theValue.split(QLatin1Char{' '});
                 // Return value for BATT calls is BAT and a number, from 0 to 4,
                 // unfortunately without a space, so we have to specialcase it a bit
                 if(theValue.startsWith(QLatin1String("BAT"))) {
                     batteryLevel = theValue.right(1).toInt();
                     q->setBatteryLevelPercent(batteryLevel * 25);
-                    emit q->batteryLevelChanged(batteryLevel);
+                    Q_EMIT q->batteryLevelChanged(batteryLevel);
                 }
                 else if(stateResult.count() == 1 && !previousThing.isEmpty()) {
                     // See comment in the next bit to see what this is about
                     previousThing += stateResult[0];
-                    QStringList splitThing = previousThing.split(' ');
+                    QStringList splitThing = previousThing.split(QLatin1Char{' '});
                     previousThing.clear();
                     q->commandModel->setRunning(splitThing[1], (splitThing[0] == aBegin));
                     qDebug() << "We had a remainder, and the split is now" << splitThing;
@@ -164,7 +164,7 @@ public:
                     // Now let's just see whether that second thing is actually a full command or not (at which point
                     // we should be expecting another notification shortly)
                     bool fullCommand{false};
-                    for(const CommandInfo& cmd : qAsConst(q->commandModel->allCommands())) {
+                    for(const CommandInfo& cmd : std::as_const(q->commandModel->allCommands())) {
                         if (cmd.command == stateResult[2]) {
                             fullCommand = true;
                             break;
@@ -174,7 +174,7 @@ public:
                         q->commandModel->setRunning(stateResult[2], (startOrEnd == aBegin));
                         qDebug() << "Detected a complete squashed command, with the command" << theCommand << ", the type" << stateResult[0] << ", the startOrEnd" << startOrEnd << ", and the end command" << stateResult[2];
                     } else {
-                        previousThing = QString("%1 %2").arg(startOrEnd).arg(stateResult[2]);
+                        previousThing = QString::fromUtf8("%1 %2").arg(startOrEnd).arg(stateResult[2]);
                         qDebug() << "Detected an incomplete squashed command, with the command" << theCommand << ", the type" << stateResult[0] << ", and the remainder" << previousThing;
                     }
                 }
@@ -195,14 +195,14 @@ public:
             }
         }
         currentCall.clear();
-        emit q->currentCallChanged(currentCall);
+        Q_EMIT q->currentCallChanged(currentCall);
     }
 
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
         qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-        currentCall = newValue;
-        emit q->currentCallChanged(currentCall);
+        currentCall = QLatin1String{newValue};
+        Q_EMIT q->currentCallChanged(currentCall);
     }
 };
 
@@ -217,7 +217,7 @@ GearDigitail::GearDigitail(const QBluetoothDeviceInfo& info, DeviceModel * paren
     // out to be a problem that we pull the battery this often, we can
     // add a separate ping keepalive functon.
     connect(&d->batteryTimer, &QTimer::timeout,
-            [this](){ if(d->currentCall.isEmpty()) { sendMessage("BATT"); } });
+            [this](){ if(d->currentCall.isEmpty()) { sendMessage(QLatin1String{"BATT"}); } });
 
     d->batteryTimer.setTimerType(Qt::VeryCoarseTimer);
     d->batteryTimer.setInterval(60000 / 2);
@@ -255,7 +255,7 @@ void GearDigitail::connectDevice()
 
                 if (!service) {
                     qWarning() << "Cannot create QLowEnergyService for {0000ffe0-0000-1000-8000-00805f9b34fb}";
-                    emit deviceMessage(deviceID(), i18nc("Warning message when the main service was not found on the device", "An error occured while connecting to your DIGITAiL (the service object could not be created). If you feel this is in error, please try again!"));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning message when the main service was not found on the device", "An error occured while connecting to your DIGITAiL (the service object could not be created). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -267,19 +267,19 @@ void GearDigitail::connectDevice()
                 d->tailService->discoverDetails();
             });
 
-    connect(d->btControl, static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::error),
+    connect(d->btControl, &QLowEnergyController::errorOccurred,
         this, [this](QLowEnergyController::Error error) {
             qDebug() << name() << deviceID() << "Cannot connect to remote device." << error;
 
             switch(error) {
                 case QLowEnergyController::UnknownError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your DIGITAiL, make sure it is on and close to this device."));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your DIGITAiL, make sure it is on and close to this device."));
                     break;
                 case QLowEnergyController::RemoteHostClosedError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The DIGITAiL closed the connection."));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The DIGITAiL closed the connection."));
                     break;
                 case QLowEnergyController::ConnectionError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your DIGITAiL. Please try again (perhaps move it closer?)"));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your DIGITAiL. Please try again (perhaps move it closer?)"));
                     break;
                 default:
                     break;
@@ -299,7 +299,7 @@ void GearDigitail::connectDevice()
 
     connect(d->btControl, &QLowEnergyController::disconnected, this, [this]() {
         qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-        emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The DIGITAiL closed the connection, either by being turned off or losing power. Remember to charge your DIGITAiL!"));
+        Q_EMIT deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The DIGITAiL closed the connection, either by being turned off or losing power. Remember to charge your DIGITAiL!"));
         disconnectDevice();
     });
 
@@ -316,12 +316,12 @@ void GearDigitail::disconnectDevice()
     d->tailService = nullptr;
     commandModel->clear();
     commandShorthands.clear();
-//     emit commandModelChanged();
+//     Q_EMIT commandModelChanged();
 //     commandQueue->clear(); // FIXME Clear commands for this device only
-//     emit commandQueueChanged();
+//     Q_EMIT commandQueueChanged();
     d->batteryLevel = -1;
-    emit batteryLevelChanged(0);
-    emit isConnectedChanged(isConnected());
+    Q_EMIT batteryLevelChanged(0);
+    Q_EMIT isConnectedChanged(isConnected());
 }
 
 bool GearDigitail::isConnected() const
@@ -357,7 +357,7 @@ void GearDigitail::sendMessage(const QString &message)
     if (d->tailCharacteristic.isValid() && d->tailService) {
         d->tailService->writeCharacteristic(d->tailCharacteristic, message.toUtf8());
         d->currentCall = message;
-        emit currentCallChanged(message);
+        Q_EMIT currentCallChanged(message);
 
         // It is unfortunate, but we actually need to do this, as we will occasionally run into situations where we cannot trust
         // the tail to report correctly when a command starts and ends. In short, in stead of getting the expected "END commandname"

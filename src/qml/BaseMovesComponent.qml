@@ -14,15 +14,14 @@
  *   GNU Library General Public License for more details
  *
  *   You should have received a copy of the GNU Library General Public License
- *   along with this program; if not, see <https://www.gnu.org/licenses/>
+ *   along with this program; if not, see <httpsqrc://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.7
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Item {
     id: root;
@@ -272,13 +271,13 @@ Item {
                             return theIDs;
                         }
                     }
-                    Kirigami.BasicListItem {
+                    BasicListItem {
                         id: deviceListItem;
                         Layout.fillWidth: true;
                         visible: sendCommandToSelector.deviceIDs.includes(model.deviceID)
                         enabled: Digitail.AppSettings.alwaysSendToAll === false
                         text: model.name ? model.name : "";
-                        icon: model.checked ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        // icon.source: model.checked ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
                         property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
                         onItemIsCheckedChanged: { selectorDeviceModel.updateHasCheckedIDs(); }
                         onClicked: { Digitail.BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
@@ -294,10 +293,10 @@ Item {
                         }
                     }
                 }
-                Kirigami.BasicListItem {
+                BasicListItem {
                     Layout.fillWidth: true;
                     text: i18nc("Label for the checkbox which allows the user to remember the send to all devices option when selecting a command", "Always Send To All")
-                    icon: Digitail.AppSettings.alwaysSendToAll ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    icon.source: Digitail.AppSettings.alwaysSendToAll ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
                     onClicked: { Digitail.AppSettings.alwaysSendToAll = !Digitail.AppSettings.alwaysSendToAll; }
                 }
                 Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }

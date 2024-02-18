@@ -15,11 +15,11 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.11
-import QtQuick.Controls 2.11 as QQC2
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     id: component;
@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
         }
         Connections {
             target: component
-            onDeviceIDChanged: deviceFilterProxy.updateData();
+            function onDeviceIDChanged() { deviceFilterProxy.updateData(); }
         }
         Component.onCompleted: deviceFilterProxy.updateData();
         header: InfoCard {
@@ -61,13 +61,13 @@ Kirigami.ScrollablePage {
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing * 2;
                     Layout.minimumWidth: Kirigami.Units.iconSizes.small;
                     Layout.maximumWidth: Kirigami.Units.iconSizes.small;
-                    source: listItem.isEnabled ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    source: listItem.isEnabled ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
                 }
                 Kirigami.Icon {
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing * 2;
                     Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
                     Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
-                    source: ":/images/crumpet-head.svg";
+                    source: "qrc:/images/crumpet-head.svg";
                 }
                 QQC2.Label {
                     Layout.fillWidth: true;
@@ -119,8 +119,8 @@ Kirigami.ScrollablePage {
                     contentEditor.text = Digitail.AppSettings.commandFiles[editorPage.filename].contents;
                 }
 
-                actions {
-                    main: Kirigami.Action {
+                actions: [
+                    Kirigami.Action {
                         text: i18nc("Button for saving a Command Set, on the overlay for editing a Command Set, on the page for configuring Command Sets", "Save");
                         icon.name: "file-save";
                         onTriggered: {
@@ -130,7 +130,7 @@ Kirigami.ScrollablePage {
                             }
                         }
                     }
-                }
+                ]
 
                 TextEdit {
                     id: contentEditor;

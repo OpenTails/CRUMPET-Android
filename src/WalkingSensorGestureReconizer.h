@@ -18,35 +18,39 @@
 #ifndef WALKINGSENSORGESTURERECONIZER_H
 #define WALKINGSENSORGESTURERECONIZER_H
 
-#include <QSensorGestureRecognizer>
-#include <vector>
+#include "GestureSensor.h"
 
-class WalkingSensorGestureReconizer : public QSensorGestureRecognizer
+#include <QByteArray>
+
+class WalkingSensor;
+class WalkingSensorSignaller : public QObject
 {
     Q_OBJECT
 public:
-    WalkingSensorGestureReconizer(QObject *parent = Q_NULLPTR);
-    using ValueList = std::vector<qreal>;
-    void create() override;
-
-    QString id() const override;
-    bool start() override;
-    bool stop() override;
-    bool isActive() override;
-
-    ~WalkingSensorGestureReconizer();
-
+    explicit WalkingSensorSignaller(WalkingSensor *parent);
+    ~WalkingSensorSignaller() override;
 Q_SIGNALS:
-//     void zValueTick(qreal timeElapsed, qreal zValue);
     void walkingStarted();
     void walkingStopped();
     void stepDetected();
     void evenStepDetected();
     void oddStepDetected();
-
 private:
-    class Private;
-    Private* d;
+    Q_DISABLE_COPY(WalkingSensorSignaller)
 };
+
+class WalkingSensorPrivate;
+class WalkingSensor : public GestureSensor {
+    Q_OBJECT
+public:
+    explicit WalkingSensor(QObject *parent);
+    QStringList recognizerSignals() const override;
+    QString sensorId() const override;
+    void startDetection() override;
+    void stopDetection() override;
+private:
+    WalkingSensorPrivate* d{nullptr};
+};
+
 
 #endif // WALKINGSENSORGESTURERECONIZER_H

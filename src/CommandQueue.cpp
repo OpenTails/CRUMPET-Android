@@ -35,7 +35,7 @@ public:
         currentCommandTimerChecker->setInterval(100);
         q->connect(currentCommandTimer, &QTimer::timeout, [this](){
             currentCommandTimerChecker->stop();
-            emit q->currentCommandRemainingMSecondsChanged(0);
+            Q_EMIT q->currentCommandRemainingMSecondsChanged(0);
         });
     }
     ~Private() {}
@@ -70,13 +70,13 @@ public:
                 currentCommandTimer->setInterval(entry->command.duration + entry->command.minimumCooldown);
                 currentCommandTimer->start();
                 currentCommandTimerChecker->start();
-                emit q->currentCommandTotalDurationChanged(currentCommandTimer->interval());
-                emit q->currentCommandRemainingMSecondsChanged(currentCommandTimer->remainingTime());
+                Q_EMIT q->currentCommandTotalDurationChanged(currentCommandTimer->interval());
+                Q_EMIT q->currentCommandRemainingMSecondsChanged(currentCommandTimer->remainingTime());
             }
 
             popTimer->start(entry->command.duration + entry->command.minimumCooldown);
 
-            emit q->countChanged(q->count());
+            Q_EMIT q->countChanged(q->count());
             delete entry;
         }
     }
@@ -91,7 +91,7 @@ CommandQueue::CommandQueue(BTConnectionManager* connectionManager)
     connect(d->popTimer, &QTimer::timeout, this, [this](){ d->pop(); });
 
     connect(d->currentCommandTimerChecker, &QTimer::timeout, [this](){
-        emit currentCommandRemainingMSecondsChanged(d->currentCommandTimer->remainingTime());
+        Q_EMIT currentCommandRemainingMSecondsChanged(d->currentCommandTimer->remainingTime());
     });
 }
 
@@ -178,20 +178,21 @@ void CommandQueue::clear(const QString& deviceID)
         // Remove the command, but only if the command is requested for only that device
         // If the command is requested for other devices as well, remove this device from the list of requesting devices
     }
-    emit countChanged(count());
+    Q_EMIT countChanged(count());
 }
 
 void CommandQueue::pushPause(int durationMilliseconds, QStringList devices)
 {
     qDebug() << "Adding a pause to the queue of" << durationMilliseconds << "milliseconds";
     CommandInfo command;
-    command.name = "Pause";
+    static const QLatin1String pauseName{"Pause"};
+    command.name = pauseName;
     command.duration = durationMilliseconds;
 
     Private::Entry* entry = new Private::Entry(command);
     entry->deviceIDs = devices;
     d->commands.append(entry);
-    emit countChanged(count());
+    Q_EMIT countChanged(count());
 
     // If we have just pushed a command and the timer is not currently running,
     // let's fire one off now!
@@ -211,7 +212,7 @@ void CommandQueue::pushCommand(QString tailCommand, QStringList devices)
     Private::Entry* entry = new Private::Entry(command);
     entry->deviceIDs = devices;
     d->commands.append(entry);
-    emit countChanged(count());
+    Q_EMIT countChanged(count());
 
     // If we have just pushed a command and the timer is not currently running,
     // let's fire one off now!
@@ -228,7 +229,7 @@ void CommandQueue::pushCommands(CommandInfoList commands, QStringList devices)
             entry->deviceIDs = devices;
             d->commands.append(entry);
         }
-        emit countChanged(count());
+        Q_EMIT countChanged(count());
 
         // If we have just pushed some commands and the timer is not currently
         // running, let's fire one off now!
@@ -242,8 +243,10 @@ void CommandQueue::pushCommands(QStringList commands, QStringList devices)
 {
     qDebug() << commands;
     for (auto command : commands) {
-        if(command.startsWith("pause")) {
-            QStringList pauseCommand = command.split(':');
+        static const QLatin1String pauseString{"pause"};
+        if(command.startsWith(pauseString)) {
+            static const QLatin1Char comma = QLatin1Char{':'};
+            QStringList pauseCommand = command.split(comma);
             if(pauseCommand.count() == 2) {
                 pushPause(pauseCommand[1].toInt() * 1000, devices);
             }
@@ -256,7 +259,7 @@ void CommandQueue::pushCommands(QStringList commands, QStringList devices)
 void CommandQueue::removeEntry(int index)
 {
     d->commands.removeAt(index);
-    emit countChanged(count());
+    Q_EMIT countChanged(count());
 }
 
 void CommandQueue::swapEntries(int swapThis, int withThis)

@@ -17,35 +17,42 @@
 
 #include "WalkingSensorGestureReconizer.h"
 
+#include <QCoreApplication>
 #include <QAccelerometer>
 #include <QElapsedTimer>
 #include <QMutex>
 #include <QThread>
+#include <QTimer>
 
-#include <queue>
 #include <algorithm>
+#include <queue>
+#include <vector>
 
 #define SAMPLE_SIZE (50)
 
-using ValueList = WalkingSensorGestureReconizer::ValueList;
+using ValueList = std::vector<qreal>;
 
-class WalkingSensorGestureReconizer::Private {
+WalkingSensorSignaller::WalkingSensorSignaller(WalkingSensor* parent)
+    : QObject(parent)
+{ }
+
+WalkingSensorSignaller::~WalkingSensorSignaller() = default;
+
+class WalkingSensorPrivate {
 public:
-    Private(WalkingSensorGestureReconizer* qq)
-        : q(qq)
+    WalkingSensorPrivate(WalkingSensor *q)
+        : q(q)
         , zValue{9.8}
-        , workerThread(qq)
+        , workerThread(qApp)
         , stepCount{0}
     {
         accelerometer.setDataRate(30);
         accelerometer.setAccelerationMode(QAccelerometer::Combined);
-//         elapsedTimer.start();
     }
-    WalkingSensorGestureReconizer* q;
+    WalkingSensor* q{nullptr};
     QTimer timer;
     QAccelerometer accelerometer;
     qreal zValue;
-//     QElapsedTimer elapsedTimer;
     QThread workerThread;
     QMutex mutex;
 
@@ -126,23 +133,13 @@ static ValueList medianFiltering(ValueList& zValues)
     return filteredArray;
 }
 
-
-WalkingSensorGestureReconizer::WalkingSensorGestureReconizer(QObject *parent)
-    : QSensorGestureRecognizer(parent)
-    , d(new Private(this))
-{
-}
-
-WalkingSensorGestureReconizer::~WalkingSensorGestureReconizer()
-{
-    delete d;
-}
-
-void WalkingSensorGestureReconizer::create()
+WalkingSensor::WalkingSensor(QObject* parent)
+    : GestureSensor(parent)
+    , d(new WalkingSensorPrivate(this))
 {
     d->isWalkingTimer.setInterval(4000);
     QObject::connect(&d->isWalkingTimer, &QTimer::timeout, [this] {
-       Q_EMIT detected("walkingStopped");
+       Q_EMIT detected(QLatin1String{"walkingStopped"});
        d->stepCount = 0;
     });
     d->isWalkingTimer.setSingleShot(true);
@@ -161,7 +158,6 @@ void WalkingSensorGestureReconizer::create()
             ValueList tmp(d->zVals.end() - 1000, d->zVals.end());
             std::swap(d->zVals, tmp);
         }
-
         // Q_EMIT zValueTick(d->elapsedTimer.elapsed(), d->zValue - 9.8);
     });
 
@@ -175,34 +171,45 @@ void WalkingSensorGestureReconizer::create()
     d->workerThread.start();
 }
 
-bool WalkingSensorGestureReconizer::start()
+QStringList WalkingSensor::recognizerSignals() const
+{
+    static const QStringList signals{
+        QLatin1String{"walkingStarted"},
+        QLatin1String{"walkingStopped"},
+        QLatin1String{"stepDetected"},
+        QLatin1String{"evenStepDetected"},
+        QLatin1String{"oddStepDetected"},
+    };
+    return signals;
+}
+
+QString WalkingSensor::sensorId() const
+{
+    static const QLatin1String id{"Tailcompany.Walking"};
+    return id;
+}
+
+void WalkingSensor::startDetection()
 {
     QMetaObject::invokeMethod(&d->timer, "start", Qt::QueuedConnection);
 
     d->accelerometer.setActive(true);
     d->accelerometer.setAlwaysOn(true);
-    return d->timer.isActive();
 }
 
-bool WalkingSensorGestureReconizer::stop()
+void WalkingSensor::stopDetection()
 {
     QMetaObject::invokeMethod(&d->timer, "stop", Qt::QueuedConnection);
     d->accelerometer.setActive(false);
     d->accelerometer.setAlwaysOn(false);
-    return true;
 }
-
-bool WalkingSensorGestureReconizer::isActive()
+/*
+bool WalkingSensorReading::isActive()
 {
     return d->timer.isActive();
-}
+}*/
 
-QString WalkingSensorGestureReconizer::id() const
-{
-    return QString("QtSensors.Walking");
-}
-
-void WalkingSensorGestureReconizer::Private::countSteps()
+void WalkingSensorPrivate::countSteps()
 {
     if (zVals.size() < SAMPLE_SIZE) {
         return;
@@ -221,14 +228,14 @@ void WalkingSensorGestureReconizer::Private::countSteps()
                 auto val = deMeanedArray[j];
                 if (val > 0.3) {
                     stepCount += 1;
-                    Q_EMIT q->detected("stepDetected");
+                    Q_EMIT q->detected(QLatin1String{"stepDetected"});
                     if (stepCount % 2) {
-                        Q_EMIT q->detected("oddStepDetected");
+                        Q_EMIT q->detected(QLatin1String{"oddStepDetected"});
                     } else  {
-                        Q_EMIT q->detected("evenStepDetected");
+                        Q_EMIT q->detected(QLatin1String{"evenStepDetected"});
                     }
                     if (!isWalkingTimer.isActive()) {
-                        Q_EMIT q->detected("walkingStarted");
+                        Q_EMIT q->detected(QLatin1String{"walkingStarted"});
                     }
                     isWalkingTimer.start();
                     break;

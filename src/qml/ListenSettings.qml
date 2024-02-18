@@ -16,25 +16,25 @@
  *   along with this program; if not, see <https://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.14
-import QtQuick.Controls 2.11
-import QtQuick.Layouts 1.11
-import org.kde.kirigami 2.13 as Kirigami
-import org.thetailcompany.digitail 1.0 as Digitail
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.thetailcompany.digitail as Digitail
 
 Kirigami.ScrollablePage {
     id: component;
     objectName: "listenSettings";
     title: i18nc("Title for the page for selecting what should happen when a piece of gear detects a sound based event", "Listening Settings");
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             text: i18nc("Button for returning Gear to the home position, on the page for selecting what should happen when a piece of gear detects a sound based event", "Home Position");
             icon.name: "go-home";
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }
         }
-    }
+    ]
 
     ColumnLayout {
         width: component.width - Kirigami.Units.largeSpacing * 4
@@ -63,11 +63,10 @@ Kirigami.ScrollablePage {
                     color: Kirigami.Theme.textColor
                     visible: index > 0
                 }
-                Kirigami.BasicListItem {
+                BasicListItem {
                     Layout.fillWidth: true
-                    label: model.name
-                    icon: model.listeningState > 0 ? ":/icons/breeze-internal/emblems/16/checkbox-checked" : ":/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                    separatorVisible: false;
+                    text: model.name
+                    icon.source: model.listeningState > 0 ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
                     bold: true
                     onClicked: {
                         var newState = 0;

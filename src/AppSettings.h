@@ -120,7 +120,7 @@ private:
     void loadAlarmList();
     void saveAlarmList();
 
-private slots:
+private Q_SLOTS:
     void onAlarmListChanged();
 };
 

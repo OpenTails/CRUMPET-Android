@@ -42,7 +42,7 @@ public:
     DeviceModel * parentModel{nullptr};
 
     QHash<QString, QString> knownFirmwareMessages;
-    QString version{"(unknown)"};
+    QLatin1String version{"(unknown)"};
     int batteryLevel{-1};
 
     QString currentCall;
@@ -92,14 +92,14 @@ public:
     void serviceStateChanged(QLowEnergyService::ServiceState s)
     {
         switch (s) {
-        case QLowEnergyService::DiscoveringServices:
+        case QLowEnergyService::RemoteServiceDiscovering:
             qDebug() << q->name() << q->deviceID() << "Discovering services...";
             break;
-        case QLowEnergyService::ServiceDiscovered:
+        case QLowEnergyService::RemoteServiceDiscovered:
         {
             qDebug() << q->name() << q->deviceID() << "Service discovered.";
 
-            foreach(const QLowEnergyCharacteristic& leChar, deviceService->characteristics()) {
+            for(const QLowEnergyCharacteristic& leChar : deviceService->characteristics()) {
                 qDebug() << q->name() << q->deviceID() << "Characteristic:" << leChar.name() << leChar.uuid() << leChar.properties();
             }
 
@@ -122,7 +122,7 @@ public:
             q->commandModel->clear();
 
             // Get the descriptor, and turn on notifications
-            QLowEnergyDescriptor commandUpdateDescriptor = deviceCommandReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+            QLowEnergyDescriptor commandUpdateDescriptor = deviceCommandReadCharacteristic.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
             if (deviceCommandReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
                 deviceService->writeDescriptor(commandUpdateDescriptor, QByteArray::fromHex("0100"));
             }
@@ -131,7 +131,7 @@ public:
             }
 
             reconnectThrottle = 0;
-            emit q->isConnectedChanged(q->isConnected());
+            Q_EMIT q->isConnectedChanged(q->isConnected());
             deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, "VER"); // Ask for the version, and then react to the response...
 
             break;
@@ -147,39 +147,39 @@ public:
         qDebug() << q->name() << q->deviceID() << "Current call is supposed to be" << currentCall << "and characteristic" << characteristic.uuid() << "NOTIFIED value change" << newValue;
 
         if (deviceCommandReadCharacteristicUuid == characteristic.uuid()) {
-            QString theValue(newValue);
-            if (theValue.endsWith("\x00")) {
+            QString theValue = QString::fromUtf8(newValue);
+            if (theValue.endsWith(QLatin1String{"\x00"})) {
                 theValue = theValue.left(theValue.length());
             }
-            QStringList stateResult = theValue.split(' ');
+            QStringList stateResult = theValue.split(QLatin1Char{' '});
             if (theValue == QLatin1String{"System is busy now"}) {
                 // Postpone what we attempted to send a few moments before trying again, as the device is currently busy
                 QTimer::singleShot(1000, q, [this](){ q->sendMessage(currentSubCall); });
             }
             else if (stateResult[0] == QLatin1String{"VER"}) {
                 q->reloadCommands();
-                version = newValue;
-                emit q->versionChanged(newValue);
+                version = QLatin1String{newValue};
+                Q_EMIT q->versionChanged(version);
                 q->setKnownFirmwareMessage(knownFirmwareMessages.value(version, QLatin1String{}));
                 pingTimer.start();
                 if (firmwareProgress > -1) {
                     if (otaVersion == q->manuallyLoadedOtaVersion()) {
                         // We have no idea whether the update succeeded, tell the user they need to check themselves
                         q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a firmware update with an unknown outcome", "Reboot Completed"), i18nc("Message shown to the user after a reboot following a manual firmware upload", "The reboot following the firmware upload has completed and we have connected back to the device. The gear now reports %1, and we hope that is what you expected.", version));
-                    } else if (otaVersion == newValue) {
+                    } else if (otaVersion == QLatin1String{newValue}) {
                         // successful update get!
                         q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a successful firmware upgrade", "Upgrade Successful"), i18nc("Message shown to the user when a firmware update completed successfully", "Congratulations, your gear has been successfully updated to version %1!", version));
                     } else {
                         // sadface, update failed...
                         q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon an unsuccessful firmware upgrade", "Update Failed"), i18nc("Message shown to the user when a firmware update failed", "<p>Sorry, but the upgrade failed. Most often this is due to the transfer being corrupted during the upload process itself, which is why your gear has a safe fallback to just go back to your old firmware version upon a failure. You can try the update again by clicking the Install button gain.</p>"));
                     }
-                    q->setProgressDescription("");
+                    q->setProgressDescription(QLatin1String{""});
                     q->setDeviceProgress(-1);
                     firmwareProgress = -1;
                     firmwareChunk.clear();
                 } else {
                     // Logic here is, the user explicitly picks what to do when disconnecting the app from a tail
-                    q->sendMessage("STOPNPM");
+                    q->sendMessage(QLatin1String{"STOPNPM"});
                 }
             }
             else if (stateResult[0] == QLatin1String{"GLOWTIP"}) {
@@ -213,7 +213,7 @@ public:
                     int pauseDuration{0};
                     QString message = callQueue.takeFirst();
                     while (message.startsWith(QLatin1String{"PAUSE"})) {
-                        QStringList pauseCommand = message.split(QChar{' '});
+                        QStringList pauseCommand = message.split(QLatin1Char{' '});
                         int pause = pauseCommand.value(1).toInt();
                         pauseDuration += pause;
                         message = callQueue.takeFirst();
@@ -243,7 +243,7 @@ public:
             }
         }
         currentCall.clear();
-        emit q->currentCallChanged(currentCall);
+        Q_EMIT q->currentCallChanged(currentCall);
     }
 
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
@@ -262,8 +262,8 @@ public:
             }
         } else {
             qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-            currentCall = newValue;
-            emit q->currentCallChanged(currentCall);
+            currentCall = QLatin1String{newValue};
+            Q_EMIT q->currentCallChanged(currentCall);
         }
     }
 
@@ -323,9 +323,9 @@ public:
                 QJsonDocument document = QJsonDocument::fromJson(downloadedData);
                 if (document.isObject()) {
                     QJsonObject fwInfoObj = document.object();
-                    firmwareUrl = fwInfoObj.value("url").toString();
-                    firmwareMD5 = fwInfoObj.value("md5sum").toString();
-                    otaVersion = fwInfoObj.value("version").toString();
+                    firmwareUrl = QUrl{fwInfoObj.value(QLatin1String{"url"}).toString()};
+                    firmwareMD5 = fwInfoObj.value(QLatin1String{"md5sum"}).toString();
+                    otaVersion = fwInfoObj.value(QLatin1String{"version"}).toString();
                     if (otaVersion == version) {
                         q->deviceMessage(q->deviceID(), i18nc("Message shown to the user when they already have the newest firmware installed", "You already have the newest version of the firmware installed on your gear, congratulations!"));
                     }
@@ -368,7 +368,7 @@ GearFlutterWings::GearFlutterWings(const QBluetoothDeviceInfo& info, DeviceModel
     // out to be a problem that we pull the battery this often, we can
     // add a separate ping keepalive functon.
     connect(&d->pingTimer, &QTimer::timeout,
-            [this](){ if(d->currentCall.isEmpty() && d->firmwareProgress == -1) { sendMessage("PING"); } });
+            [this](){ if(d->currentCall.isEmpty() && d->firmwareProgress == -1) { sendMessage(QLatin1String{"PING"}); } });
 
     d->pingTimer.setTimerType(Qt::VeryCoarseTimer);
     d->pingTimer.setInterval(60000 / 2);
@@ -407,7 +407,7 @@ void GearFlutterWings::connectDevice()
                 d->deviceService = d->btControl->createServiceObject(d->deviceServiceUuid);
                 if (!d->deviceService) {
                     qWarning() << "Cannot create QLowEnergyService for " << d->deviceServiceUuid;
-                    emit deviceMessage(deviceID(), i18nc("Warning message when a fault occurred during a connection attempt", "An error occurred while connecting to your FlutterWings (the main service object could not be created). If you feel this is in error, please try again!"));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning message when a fault occurred during a connection attempt", "An error occurred while connecting to your FlutterWings (the main service object could not be created). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -415,7 +415,7 @@ void GearFlutterWings::connectDevice()
                 connect(d->deviceService, &QLowEnergyService::stateChanged, this, [this](QLowEnergyService::ServiceState newState){ d->serviceStateChanged(newState); });
                 connect(d->deviceService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic& info, const QByteArray& value){ d->characteristicChanged(info, value); });
                 connect(d->deviceService, &QLowEnergyService::characteristicWritten, this, [this](const QLowEnergyCharacteristic& info, const QByteArray& value){ d->characteristicWritten(info, value); });
-                connect(d->deviceService, QOverload<QLowEnergyService::ServiceError>::of(&QLowEnergyService::error), this, [this](QLowEnergyService::ServiceError newError){
+                connect(d->deviceService, &QLowEnergyService::errorOccurred, this, [this](QLowEnergyService::ServiceError newError){
                     qDebug() << name() << deviceID() << "Error occurred for service:" << newError;
                     if (newError == QLowEnergyService::CharacteristicWriteError && d->firmwareProgress > -1) {
                         // This will usually be the android error GATT_INVALID_ATTRIBUTE_LENGTH, which should not usually happen
@@ -423,7 +423,7 @@ void GearFlutterWings::connectDevice()
                         // have to... do a thing and ask people to report back for now.
                         QTimer::singleShot(10000, this, [this](){
                             setDeviceProgress(-1);
-                            setProgressDescription("");
+                            setProgressDescription(QLatin1String{""});
                         });
                         if (d->firmwareProgress < d->firmware.size()) {
                             setDeviceProgress(0);
@@ -436,10 +436,10 @@ void GearFlutterWings::connectDevice()
                 d->deviceService->discoverDetails();
 
                 // Battery service
-                d->batteryService = d->btControl->createServiceObject(QBluetoothUuid::BatteryService);
+                d->batteryService = d->btControl->createServiceObject(QBluetoothUuid::ServiceClassUuid::BatteryService);
                 if (!d->batteryService) {
                     qWarning() << "Failed to create battery service";
-                    emit deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on a device", "An error occurred while connecting to your FlutterWings (the battery service was not available). If you feel this is in error, please try again!"));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on a device", "An error occurred while connecting to your FlutterWings (the battery service was not available). If you feel this is in error, please try again!"));
                     disconnectDevice();
                     return;
                 }
@@ -449,16 +449,16 @@ void GearFlutterWings::connectDevice()
                             d->batteryLevel = (int)value.at(0) / 20;
                             setBatteryLevelPercent((int)value.at(0));
                             qDebug() << name() << deviceID() << "Updated battery to" << value;
-                            emit batteryLevelChanged(d->batteryLevel);
+                            Q_EMIT batteryLevelChanged(d->batteryLevel);
                         }
                     });
                     connect(d->batteryService, &QLowEnergyService::characteristicChanged, this, [this](const QLowEnergyCharacteristic& characteristic, const QByteArray& value){
                         if (characteristic.uuid() == d->deviceChargingReadCharacteristicUuid) {
-                            QString theValue(value);
-                            if (theValue.endsWith("\x00")) {
+                            QString theValue = QLatin1String{value};
+                            if (theValue.endsWith(QLatin1String{"\x00"})) {
                                 theValue = theValue.left(theValue.length());
                             }
-                            QStringList stateResult = theValue.split(' ');
+                            QStringList stateResult = theValue.split(QLatin1Char{' '});
                             if (stateResult[0] == QLatin1String{"CHARGING"}) {
                                 if (stateResult[1] == QLatin1String{"ON"}) {
                                     setChargingState(1);
@@ -473,24 +473,24 @@ void GearFlutterWings::connectDevice()
                             if (value.length() > 0) {
                                 d->batteryLevel = (int)value.at(0) / 20;
                                 setBatteryLevelPercent((int)value.at(0));
-                                emit batteryLevelChanged(d->batteryLevel);
+                                Q_EMIT batteryLevelChanged(d->batteryLevel);
                             }
                         }
                     });
                     connect(d->batteryService, &QLowEnergyService::stateChanged, this, [this](QLowEnergyService::ServiceState newState){
                         switch (newState) {
-                        case QLowEnergyService::DiscoveringServices:
+                        case QLowEnergyService::RemoteServiceDiscovering:
                             qDebug() << name() << deviceID() << "Discovering battery services...";
                             break;
-                        case QLowEnergyService::ServiceDiscovered:
+                        case QLowEnergyService::RemoteServiceDiscovered:
                         {
                             qDebug() << name() << deviceID() << "Battery service discovered";
 
-                            foreach(const QLowEnergyCharacteristic& leChar, d->batteryService->characteristics()) {
+                            for(const QLowEnergyCharacteristic& leChar : d->batteryService->characteristics()) {
                                 qDebug() << name() << deviceID() << "Characteristic:" << leChar.name() << leChar.uuid() << leChar.properties();
                             }
 
-                            d->batteryCharacteristic = d->batteryService->characteristic(QBluetoothUuid::BatteryLevel);
+                            d->batteryCharacteristic = d->batteryService->characteristic(QBluetoothUuid::CharacteristicType::BatteryLevel);
                             if (!d->batteryCharacteristic.isValid()) {
                                 qDebug() << name() << deviceID() << "FlutterWings battery level characteristic not found, this is bad";
                                 deviceMessage(deviceID(), i18nc("Warning message when the battery information is unavailable on the device", "It looks like this device is not a FlutterWings (could not find the battery level characteristic). If you are certain that it definitely is, please report this error to The Tail Company."));
@@ -499,7 +499,7 @@ void GearFlutterWings::connectDevice()
                             }
 
                             // Get the descriptor, and turn on notifications
-                            QLowEnergyDescriptor batteryDescriptor = d->batteryCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+                            QLowEnergyDescriptor batteryDescriptor = d->batteryCharacteristic.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
                             if (!batteryDescriptor.isValid()) {
                                 qDebug() << "This is bad, no battery descriptor...";
                             }
@@ -509,7 +509,7 @@ void GearFlutterWings::connectDevice()
                             if (!d->deviceChargingReadCharacteristic.isValid()) {
                                 qDebug() << name() << deviceID() << "Couldn't get the charging state characteristic - this is fine for old equipment, so not getting angry about this";
                             }
-                            batteryDescriptor = d->deviceChargingReadCharacteristic.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+                            batteryDescriptor = d->deviceChargingReadCharacteristic.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
                             if (d->deviceChargingReadCharacteristic.properties() & QLowEnergyCharacteristic::Notify) {
                                 d->batteryService->writeDescriptor(batteryDescriptor, QByteArray::fromHex("0100"));
                             }
@@ -527,20 +527,20 @@ void GearFlutterWings::connectDevice()
                 }
             });
 
-    connect(d->btControl, static_cast<void (QLowEnergyController::*)(QLowEnergyController::Error)>(&QLowEnergyController::error),
+    connect(d->btControl, &QLowEnergyController::errorOccurred,
         this, [this](QLowEnergyController::Error error) {
             qDebug() << name() << deviceID() << "Cannot connect to remote device." << error;
 
             switch(error) {
                 case QLowEnergyController::UnknownError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your FlutterWings, make sure it is on and close to this device."));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning that some unknown error happened", "An error occurred. If you are trying to connect to your FlutterWings, make sure it is on and close to this device."));
                     break;
                 case QLowEnergyController::RemoteHostClosedError:
-                    emit deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The FlutterWings closed the connection."));
+                    Q_EMIT deviceMessage(deviceID(), i18nc("Warning that the device disconnected itself", "The FlutterWings closed the connection."));
                     break;
                 case QLowEnergyController::ConnectionError:
                     if (d->firmwareProgress > -1) {
-                        emit deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your FlutterWings. Please try again (perhaps move it closer?)"));
+                        Q_EMIT deviceMessage(deviceID(), i18nc("Warning that some connection failure occurred (usually due to low signal strength)", "Failed to connect to your FlutterWings. Please try again (perhaps move it closer?)"));
                     } else {
                         QTimer::singleShot(2000, this, &GearFlutterWings::connectDevice);
                     }
@@ -575,7 +575,7 @@ void GearFlutterWings::connectDevice()
             setProgressDescription(i18nc("Message shown to the user after firmware upload has completed and the FlutterWings are expected to reboot", "Firmware upload complete, waiting for your gear to reboot automatically before attempting to reconnect..."));
         } else {
             qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
-            emit deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The FlutterWings closed the connection, either by being turned off or losing power. Remember to charge your gear!"));
+            Q_EMIT deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The FlutterWings closed the connection, either by being turned off or losing power. Remember to charge your gear!"));
         }
         disconnectDevice();
     });
@@ -601,12 +601,12 @@ void GearFlutterWings::disconnectDevice()
     }
     commandModel->clear();
     commandShorthands.clear();
-//     emit commandModelChanged();
+//     Q_EMIT commandModelChanged();
 //     commandQueue->clear(); // FIXME Clear commands for this device only
-//     emit commandQueueChanged();
+//     Q_EMIT commandQueueChanged();
     d->batteryLevel = -1;
-    emit batteryLevelChanged(0);
-    emit isConnectedChanged(isConnected());
+    Q_EMIT batteryLevelChanged(0);
+    Q_EMIT isConnectedChanged(isConnected());
 }
 
 bool GearFlutterWings::isConnected() const
@@ -629,6 +629,7 @@ QString GearFlutterWings::currentCall() const
     return d->currentCall;
 }
 
+static const QLatin1Char semicolon{';'};
 void GearFlutterWings::sendMessage(const QString &message)
 {
     if (d->firmwareProgress == -1) {
@@ -639,8 +640,8 @@ void GearFlutterWings::sendMessage(const QString &message)
 
         if (d->deviceCommandWriteCharacteristic.isValid() && d->deviceService) {
             QString actualCall{actualMessage};
-            if (actualMessage.contains(';')) {
-                d->callQueue = actualMessage.split(';');
+            if (actualMessage.contains(semicolon)) {
+                d->callQueue = actualMessage.split(semicolon);
                 actualCall = d->callQueue.takeFirst();
             }
             if (actualMessage != message) {
@@ -651,7 +652,7 @@ void GearFlutterWings::sendMessage(const QString &message)
             d->currentSubCall = actualCall;
             d->deviceService->writeCharacteristic(d->deviceCommandWriteCharacteristic, actualCall.toUtf8());
             d->currentCall = message;
-            emit currentCallChanged(message);
+            Q_EMIT currentCallChanged(message);
         }
     }
 }
@@ -673,7 +674,7 @@ void GearFlutterWings::checkOTA()
         Q_EMIT hasAvailableOTAChanged();
         Q_EMIT hasOTADataChanged();
         d->downloadOperation = Private::DownloadingOTAInformation;
-        QNetworkRequest request(QUrl("https://thetailcompany.com/fw/flutter"));
+        QNetworkRequest request(QUrl(QLatin1String{"https://thetailcompany.com/fw/flutter"}));
         d->networkReply = d->qnam.get(request);
         connect(d->networkReply.data(), &QNetworkReply::finished, this, [this]() { d->handleFinished(d->networkReply.data()); });
     }
@@ -716,7 +717,7 @@ void GearFlutterWings::downloadOTAData()
 
 void GearFlutterWings::setOTAData(const QString& md5sum, const QByteArray& firmware)
 {
-    QString calculatedSum = QString(QCryptographicHash::hash(firmware, QCryptographicHash::Md5).toHex());
+    QString calculatedSum = QString::fromUtf8(QCryptographicHash::hash(firmware, QCryptographicHash::Md5).toHex());
     if (md5sum == calculatedSum) {
         d->firmware = firmware;
     } else {
@@ -738,7 +739,7 @@ void GearFlutterWings::startOTA()
     setDeviceProgress(0);
     setProgressDescription(i18nc("Message shown during firmware update processes", "Uploading firmware to your gear. Please keep your devices very near each other, and make sure both have plenty of charge (or plug in a charger now). Once completed, your gear will restart and disconnect from this device. Once rebooted, you will be able to connect to it again."));
     // send "OTA (length of firmware in bytes) (md5sum)"
-    QString otaInitialiser = QString("OTA %1 %2").arg(d->firmware.length()).arg(d->firmwareMD5);
+    QString otaInitialiser = QString::fromUtf8("OTA %1 %2").arg(d->firmware.length()).arg(d->firmwareMD5);
     d->firmwareProgress = 0;
     d->deviceService->writeCharacteristic(d->deviceCommandWriteCharacteristic, otaInitialiser.toUtf8());
     // next step will happen in Private::characteristicChanged

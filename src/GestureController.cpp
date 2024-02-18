@@ -21,9 +21,11 @@
 #include "DeviceModel.h"
 #include "GearBase.h"
 #include "GestureDetectorModel.h"
+#include "GestureSensor.h"
 #include "WalkingSensorGestureReconizer.h"
 
-#include <QSensorGestureManager>
+// #include <QSensorGestureManager>
+#include <QSensorManager>
 #include <QSettings>
 #include <QTimer>
 
@@ -34,25 +36,14 @@ public:
         , connectionManager(nullptr)
     {
         model = new GestureDetectorModel(qq);
-        QSensorGestureManager manager;
 
-        auto walkingSensor = new WalkingSensorGestureReconizer;
-        manager.registerSensorGestureRecognizer(walkingSensor);
+        QList<GestureSensor*> gestureSensors;
+        gestureSensors << new WalkingSensor(q);
 
-        const QStringList gestureIds = manager.gestureIds();
-        for (const QString& gestureId : gestureIds) {
-            QSensorGesture* sensor = new QSensorGesture(QStringList{gestureId}, q);
-            // Old style connect statement, see QSensorGesture documentation about custom metaobjects
-            qq->connect(sensor, SIGNAL(detected(QString)), qq, SLOT(gestureDetected(QString)));
-
-            QStringList signalSignatures = manager.recognizerSignals(gestureId);
-            for (const QString& signalSignature : signalSignatures) {
-                if (signalSignature == QLatin1String("detected(QString)")) {
-                    // Skip the "detected" signal, that one's not really useful
-                    continue;
-                }
-                QString signalName = signalSignature.split(QLatin1String("(")).first();
-                GestureDetails* gesture = new GestureDetails(signalName, sensor, q);
+        for (GestureSensor *sensor : gestureSensors) {
+            QObject::connect(sensor, &GestureSensor::detected, qq, &GestureController::gestureDetected);
+            for (const QString& gestureName : sensor->recognizerSignals()) {
+                GestureDetails* gesture = new GestureDetails(gestureName, sensor, q);
                 model->addGesture(gesture);
             }
         }

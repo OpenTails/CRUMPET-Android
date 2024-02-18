@@ -4,16 +4,7 @@ include_directories(${CMAKE_BINARY_DIR}/src)
 # Make sure we can register the types from the static library
 add_definitions(-DKIRIGAMI_BUILD_TYPE_STATIC)
 
-qt5_generate_repc(replication_sources AppSettingsProxy.rep SOURCE)
-qt5_generate_repc(replication_sources BTConnectionManagerProxy.rep SOURCE)
-qt5_generate_repc(replication_sources BTConnectionManagerProxy.rep REPLICA)
-qt5_generate_repc(replication_sources CommandQueueProxy.rep SOURCE)
-qt5_generate_repc(replication_sources CommandQueueProxy.rep REPLICA)
-qt5_generate_repc(replication_sources AppSettingsProxy.rep REPLICA)
-qt5_generate_repc(replication_sources GestureControllerProxy.rep SOURCE)
-qt5_generate_repc(replication_sources GestureControllerProxy.rep REPLICA)
-
-add_executable(digitail ${replication_sources})
+add_executable(digitail)
 
 target_sources(digitail
     PRIVATE
@@ -29,6 +20,7 @@ target_sources(digitail
     FilterProxyModel.cpp
     GestureController.cpp
     GestureDetectorModel.cpp
+    GestureSensor.cpp
     IdleMode.cpp
     AppSettings.cpp
     Utilities.cpp
@@ -48,22 +40,45 @@ target_sources(digitail
     resources.qrc
     )
 
+qt_add_repc_sources(digitail
+    AppSettingsProxy.rep
+    BTConnectionManagerProxy.rep
+    CommandQueueProxy.rep
+    GestureControllerProxy.rep
+    )
+qt_add_repc_replicas(digitail
+    AppSettingsProxy.rep
+    BTConnectionManagerProxy.rep
+    CommandQueueProxy.rep
+    GestureControllerProxy.rep
+    )
+
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")
     set(digitail_EXTRA_LIBS
         OpenSSL::SSL
-        Qt5::AndroidExtras
-        Qt5::Gui
+        Qt6::Gui
         #FIXME: we shouldn't have to link to these but otherwise their libs won't be packaged on Android
-        Qt5::QuickControls2
-        Qt5::Svg
-        KF5::Kirigami2
+        Qt6::QuickControls2
+        Qt6::Svg
+        KF6::Kirigami2
         )
 # else ()
 #qstyle-based qqc2 style needs a QApplication
 #     set(digitail_EXTRA_LIBS )
 endif()
 
-target_link_libraries(digitail Qt5::Core Qt5::RemoteObjects Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Bluetooth Qt5::Sensors KF5::I18n ${digitail_EXTRA_LIBS})
+target_link_libraries(digitail
+    Qt6::Core
+    Qt6::RemoteObjects
+    Qt6::Widgets
+    Qt6::Qml
+    Qt6::Quick
+    Qt6::QuickControls2
+    Qt6::Bluetooth
+    Qt6::Sensors
+    KF6::I18n
+    ${digitail_EXTRA_LIBS}
+    )
 
 # Translations
 #add_custom_target(convert_translations_for_embedding
