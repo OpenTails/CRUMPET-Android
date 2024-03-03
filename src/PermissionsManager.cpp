@@ -55,7 +55,7 @@ public:
             for (const QString &requestThis : needRequesting) {
                 QtAndroidPrivate::PermissionResult result = QtAndroidPrivate::requestPermission(requestThis).result();
                 if (result == QtAndroidPrivate::PermissionResult::Denied) {
-                    qWarning() << Q_FUNC_INFO << "Permission actively denied for" << permissionsIterator.key();
+                    qWarning() << Q_FUNC_INFO << "Permission actively denied for" << requestThis;
                 }
                 invalidateKnownPermissions();
             }
