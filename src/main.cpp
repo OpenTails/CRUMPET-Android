@@ -31,6 +31,7 @@
 #include <QIcon>
 
 #ifdef Q_OS_ANDROID
+#include <QtCore/private/qandroidextras_p.h> // for QAndroidService
 // WindowManager.LayoutParams
 #define FLAG_TRANSLUCENT_STATUS 0x04000000
 #define FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS 0x80000000
@@ -236,7 +237,8 @@ int appMain(int argc, char *argv[])
 #ifdef Q_OS_ANDROID
     //HACK to color the system bar on Android, use qtandroidextras and call the appropriate Java methods
     QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() {
-        QJniObject window = QNativeInterface::QAndroidApplication::context().callObjectMethod("getWindow", "()Landroid/view/Window;");
+        QJniObject activity = QNativeInterface::QAndroidApplication::context();
+        QJniObject window = activity.callObjectMethod("getWindow", "()Landroid/view/Window;");
         window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);
         window.callMethod<void>("setStatusBarColor", "(I)V", QColor("#2196f3").rgba());

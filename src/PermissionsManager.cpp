@@ -46,7 +46,7 @@ public:
         QStringList needRequesting;
         for (const QString& permission : permissionsToRequest) {
             auto  result = QtAndroidPrivate::checkPermission(permission).result();
-            if(result != QtAndroidPrivate::PermissionResult::Granted) {
+            if(result != QtAndroidPrivate::Authorized) {
                 needRequesting << permission;
             }
         }
@@ -105,7 +105,7 @@ bool PermissionsManager::hasPermission(const QString& permission) const
     bool returnValue{false};
 #ifdef Q_OS_ANDROID
     auto  result = QtAndroidPrivate::checkPermission(QString::fromUtf8("android.permission.%1").arg(permission)).result();//QString("android.permission.BLUETOOTH_SCAN"));
-    if(result == QtAndroidPrivate::PermissionResult::Granted) {
+    if(result == QtAndroidPrivate::Authorized) {
         returnValue = true;
     } else {
         returnValue = false;
