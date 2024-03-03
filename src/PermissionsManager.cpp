@@ -119,7 +119,8 @@ bool PermissionsManager::hasPermission(const QString& permission) const
 
 QStringList bluetoothPermissionNames() {
 #ifdef Q_OS_ANDROID
-    return QNativeInterface::QAndroidApplication::sdkVersion() > 30 ? QStringList{QLatin1String{"BLUETOOTH_SCAN"}, QLatin1String{"BLUETOOTH_CONNECT"}} : QStringList{QLatin1String{"ACCESS_FINE_LOCATION"}, QLatin1String{"BLUETOOTH"}};
+    // The ACCESS_FINE_LOCATION should not be required above sdkVersion 30, but for whatever reason, Qt's Bluetooth implementation doesn't handle that gracefully, so... i guess we're asking
+    return QNativeInterface::QAndroidApplication::sdkVersion() > 30 ? QStringList{QLatin1String{"ACCESS_FINE_LOCATION"}, QLatin1String{"BLUETOOTH_SCAN"}, QLatin1String{"BLUETOOTH_CONNECT"}} : QStringList{QLatin1String{"ACCESS_FINE_LOCATION"}, QLatin1String{"BLUETOOTH"}};
 #else
     return QStringList{QLatin1String{"NOT_ANDROID_SO_NO_SCAN_PERMISSION"}};
 #endif
