@@ -71,12 +71,12 @@ Kirigami.AbstractCard {
         horizontalAlignment: Text.AlignHCenter;
         text: {
             if (!Digitail.PermissionsManager.hasBluetoothPermissions) {
-                if (Digitail.AppSettings.androidApiLevel > 30) {
-                    return i18nc("Message warning for missing scan permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to scan for nearby devices. Clicking the button below will show you a dialog that you need to press allow on.");
-                }
-                else {
+                // if (Digitail.AppSettings.androidApiLevel > 30) {
+                    // return i18nc("Message warning for missing scan permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to scan for nearby devices. Clicking the button below will show you a dialog that you need to press allow on.");
+                // }
+                // else {
                     return i18nc("Message warning for missing location permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to access your location. Clicking the button below will show you a dialog that you need to press allow on. We do not use this information for anything else (feel free to get in touch if you want proof of this).");
-                }
+                // }
             }
             else if (Digitail.BTConnectionManager.discoveryRunning === true) {
                 if (deviceFilterProxy.count === 0) {
@@ -102,12 +102,12 @@ Kirigami.AbstractCard {
             Layout.fillWidth: true; Layout.fillHeight: true;
             text: {
                 if (!Digitail.PermissionsManager.hasBluetoothPermissions) {
-                    if (Digitail.AppSettings.androidApiLevel > 30) {
-                        return i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Scan Permission...");
-                    }
-                    else {
+                    // if (Digitail.AppSettings.androidApiLevel > 30) {
+                        // return i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Scan Permission...");
+                    // }
+                    // else {
                         return i18nc("Label for button for opening the settings tab to fix missing location permissions, for the gear connecting card", "Get Location Permission...");
-                    }
+                    // }
                 } else if (deviceFilterProxy.count === 1) {
                     return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), Digitail.DeviceModelTypes.Name))
                 } else {
