@@ -31,7 +31,6 @@
 #include <QIcon>
 
 #ifdef Q_OS_ANDROID
-#include <QtAndroid>
 #include <QAndroidService>
 
 // WindowManager.LayoutParams
@@ -82,17 +81,17 @@ int appMain(int argc, char *argv[])
 
 #ifdef Q_OS_ANDROID
     qDebug() << Q_FUNC_INFO << "Starting service, if it isn't already...";
-    QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
+    QJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "startTailService",
                                                 "(Landroid/content/Context;)V",
-                                                QtAndroid::androidActivity().object());
+                                                QNativeInterface::QAndroidApplication::context());
     qDebug() << Q_FUNC_INFO << "Service started, or already launched";
 #else
     app.setApplicationVersion(QLatin1String{"Desktop"});
 #endif
 
     KLocalizedString::setApplicationDomain("digitail");
-#if defined(__ANDROID__)
+#ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
     QStringList languages{"cs_CZ", "da_DK", "de_DE", "de_FY", "en_FY", "es_ES", "it", "fr", "ja_JP", "nl_NL", "ru"};
     for (const QString& language : languages) {
@@ -223,10 +222,10 @@ int appMain(int argc, char *argv[])
 #ifdef Q_OS_ANDROID
             Q_UNUSED(settingsReplica);
             Q_UNUSED(settingsReplicaDestroyed);
-            QAndroidJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
+            QJniObject::callStaticMethod<void>("org/thetailcompany/digitail/TailService",
                                                 "stopTailService",
                                                 "(Landroid/content/Context;)V",
-                                                QtAndroid::androidActivity().object());
+                                                QNativeInterface::QAndroidApplication::context());
 #else
             if (!settingsReplicaDestroyed) {
                 settingsReplica->shutDownService();
@@ -238,8 +237,8 @@ int appMain(int argc, char *argv[])
     });
 #ifdef Q_OS_ANDROID
     //HACK to color the system bar on Android, use qtandroidextras and call the appropriate Java methods
-    QtAndroid::runOnAndroidThread([=]() {
-        QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod("getWindow", "()Landroid/view/Window;");
+    QNativeInterface::QAndroidApplication::runOnAndroidThread([=]() {
+        QJniObject window = QNativeInterface::QAndroidApplication::context().callObjectMethod("getWindow", "()Landroid/view/Window;");
         window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);
         window.callMethod<void>("setStatusBarColor", "(I)V", QColor("#2196f3").rgba());
@@ -254,7 +253,6 @@ int serviceMain(int argc, char *argv[])
 {
 #ifdef Q_OS_ANDROID
     QAndroidService app(argc, argv);
-
 #else
     QCoreApplication app(argc, argv);
 #endif
@@ -264,7 +262,7 @@ int serviceMain(int argc, char *argv[])
     qInfo() << Q_FUNC_INFO << "Service starting...";
 
     KLocalizedString::setApplicationDomain("digitail");
-#if defined(__ANDROID__)
+#ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
     QStringList languages{"cs_CZ", "da_DK", "es_ES", "fr", "ja_JP", "nl_NL", "ru"};
     for (const QString& language : languages) {
@@ -287,12 +285,12 @@ int serviceMain(int argc, char *argv[])
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
 #ifdef Q_OS_ANDROID
-        QAndroidJniObject androidService = QtAndroid::androidService();
+        QJniObject androidService = QNativeInterface::QAndroidApplication::context();
         if(androidService.isValid()) {
             if(isConnected) {
-                QtAndroid::runOnAndroidThread([=]() { androidService.callMethod<void>("acquireWakeLock"); });
+                QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() { androidService.callMethod<void>("acquireWakeLock"); });
             } else {
-                QtAndroid::runOnAndroidThread([=]() { androidService.callMethod<void>("releaseWakeLock"); });
+                QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() { androidService.callMethod<void>("releaseWakeLock"); });
             }
         }
 #else

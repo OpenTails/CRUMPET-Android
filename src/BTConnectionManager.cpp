@@ -29,10 +29,6 @@
 #include <QLowEnergyController>
 #include <QTimer>
 
-#ifdef Q_OS_ANDROID
-#include <QtAndroid>
-#endif
-
 class BTConnectionManager::Private {
 public:
     Private()
@@ -53,7 +49,7 @@ public:
 
     QVariantMap command;
 
-//     QBluetoothLocalDevice* localDevice{nullptr};
+    QBluetoothLocalDevice* localDevice{nullptr};
     int localBTDeviceState{0};
 };
 
@@ -104,12 +100,12 @@ BTConnectionManager::BTConnectionManager(AppSettings* appSettings, QObject* pare
     });
 
     // FIXME This is disabled for now, because of a crash issue with the version of QtConnectivity we're using on Android 12 and above
-    qWarning() << Q_FUNC_INFO << "Re-add the bluetooth state detection once the QtConnectivity crash issue is fixed";
-//     qDebug() << Q_FUNC_INFO << "Creating local bluetooth device";
-//     d->localDevice = new QBluetoothLocalDevice(this);
-//     qDebug() << Q_FUNC_INFO << "Local device created, hooking up";
-//     connect(d->localDevice, SIGNAL(hostModeStateChanged(QBluetoothLocalDevice::HostMode)), this, SLOT(setLocalBTDeviceState()));
-//     setLocalBTDeviceState();
+    // qWarning() << Q_FUNC_INFO << "Re-add the bluetooth state detection once the QtConnectivity crash issue is fixed";
+    qDebug() << Q_FUNC_INFO << "Creating local bluetooth device";
+    d->localDevice = new QBluetoothLocalDevice(this);
+    qDebug() << Q_FUNC_INFO << "Local device created, hooking up";
+    connect(d->localDevice, SIGNAL(hostModeStateChanged(QBluetoothLocalDevice::HostMode)), this, SLOT(setLocalBTDeviceState()));
+    setLocalBTDeviceState();
 }
 
 BTConnectionManager::~BTConnectionManager()
@@ -135,11 +131,11 @@ void BTConnectionManager::setLocalBTDeviceState()
     qDebug() << Q_FUNC_INFO;
     //TODO: use enum?
     int newState = 0;
-//     if (!d->localDevice->isValid()) {
-//         newState = -2;
-//     } else if (d->localDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff) {
-//         newState = -1;
-//     }
+    if (!d->localDevice->isValid()) {
+        newState = -2;
+    } else if (d->localDevice->hostMode() == QBluetoothLocalDevice::HostPoweredOff) {
+        newState = -1;
+    }
 
     bool changed = (newState != d->localBTDeviceState);
     d->localBTDeviceState = newState;
