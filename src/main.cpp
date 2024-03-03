@@ -91,7 +91,7 @@ int appMain(int argc, char *argv[])
     KLocalizedString::setApplicationDomain("digitail");
 #ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
-    QStringList languages{"cs_CZ", "da_DK", "de_DE", "de_FY", "en_FY", "es_ES", "it", "fr", "ja_JP", "nl_NL", "ru"};
+    QStringList languages{QLatin1String{"cs_CZ"}, QLatin1String{"da_DK"}, QLatin1String{"es_ES"}, QLatin1String{"fr"}, QLatin1String{"ja_JP"}, QLatin1String{"nl_NL"}, QLatin1String{"ru"}};
     for (const QString& language : languages) {
         qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
     }
@@ -235,7 +235,7 @@ int appMain(int argc, char *argv[])
     });
 #ifdef Q_OS_ANDROID
     //HACK to color the system bar on Android, use qtandroidextras and call the appropriate Java methods
-    QNativeInterface::QAndroidApplication::runOnAndroidThread([=]() {
+    QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() {
         QJniObject window = QNativeInterface::QAndroidApplication::context().callObjectMethod("getWindow", "()Landroid/view/Window;");
         window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);
@@ -262,7 +262,7 @@ int serviceMain(int argc, char *argv[])
     KLocalizedString::setApplicationDomain("digitail");
 #ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
-    QStringList languages{"cs_CZ", "da_DK", "es_ES", "fr", "ja_JP", "nl_NL", "ru"};
+    QStringList languages{QLatin1String{"cs_CZ"}, QLatin1String{"da_DK"}, QLatin1String{"es_ES"}, QLatin1String{"fr"}, QLatin1String{"ja_JP"}, QLatin1String{"nl_NL"}, QLatin1String{"ru"}};
     for (const QString& language : languages) {
         qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
     }
@@ -283,13 +283,20 @@ int serviceMain(int argc, char *argv[])
 
     QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
 #ifdef Q_OS_ANDROID
-        QJniObject androidService = QNativeInterface::QAndroidApplication::context();
-        if(androidService.isValid()) {
-            if(isConnected) {
-                QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() { androidService.callMethod<void>("acquireWakeLock"); });
-            } else {
-                QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() { androidService.callMethod<void>("releaseWakeLock"); });
-            }
+        if(isConnected) {
+            QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() {
+                QJniObject androidService = QNativeInterface::QAndroidApplication::context();
+                if(androidService.isValid()) {
+                    androidService.callMethod<void>("acquireWakeLock");
+                }
+            });
+        } else {
+            QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() {
+                QJniObject androidService = QNativeInterface::QAndroidApplication::context();
+                if(androidService.isValid()) {
+                    androidService.callMethod<void>("releaseWakeLock");
+                }
+            });
         }
 #else
     Q_UNUSED(isConnected)
