@@ -13,7 +13,7 @@ import android.app.NotificationManager;
 import android.app.NotificationChannel;
 import android.app.PendingIntent;
 import android.app.Service;
-import org.qtproject.qt5.android.bindings.QtService;
+import org.qtproject.qt.android.bindings.QtService;
 
 public class TailService extends QtService
 {
