@@ -117,8 +117,7 @@ Kirigami.ScrollablePage {
                             bottom: parent.bottom
                             margins: Kirigami.Units.largeSpacing;
                         }
-                        width: Kirigami.Units.iconSizes.small;
-                        height: width;
+                        width: height
                         source: "go-next";
                     }
                 }
@@ -186,22 +185,6 @@ Kirigami.ScrollablePage {
                         source: "go-next";
                     }
                 }
-//                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-//                     BasicListItem {
-//                         Layout.fillWidth: true
-//                         text: i18nc("Label for the button for opening the Poses page, on the welcome page", "Poses");
-//                         icon.source: "qrc:/images/tail.svg";
-//                         onClicked: {
-//                             showPassiveNotification(i18nc("Warning for the missing functionality of the Poses page", "Sorry, nothing yet..."), 1500);
-//                         }
-//                         Kirigami.Icon {
-//                             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight;
-//                             Layout.margins: Kirigami.Units.smallSpacing;
-//                             width: Kirigami.Units.iconSizes.small;
-//                             height: width;
-//                             source: "go-next";
-//                         }
-//                     }
             }
         }
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }

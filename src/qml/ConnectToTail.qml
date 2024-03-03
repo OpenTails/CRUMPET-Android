@@ -80,6 +80,7 @@ Kirigami.OverlaySheet {
         implicitWidth: Kirigami.Units.gridUnit * 30
         model: Digitail.DeviceModel;
         delegate: QQC2.ItemDelegate {
+            width: ListView.view.width
             height: Kirigami.Units.gridUnit * 6
             contentItem: RowLayout {
                 Kirigami.Icon {
