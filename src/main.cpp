@@ -31,8 +31,6 @@
 #include <QIcon>
 
 #ifdef Q_OS_ANDROID
-#include <QAndroidService>
-
 // WindowManager.LayoutParams
 #define FLAG_TRANSLUCENT_STATUS 0x04000000
 #define FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS 0x80000000

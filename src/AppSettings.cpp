@@ -28,10 +28,6 @@
 #include <QSettings>
 #include <QTimer>
 
-#ifdef Q_OS_ANDROID
-#include <QtAndroid>
-#endif
-
 class AppSettings::Private
 {
 public:
@@ -145,7 +141,7 @@ AppSettings::~AppSettings()
 int AppSettings::androidApiLevel() const
 {
 #ifdef Q_OS_ANDROID
-    return QtAndroid::androidSdkVersion();
+    return QNativeInterface::QAndroidApplication::sdkVersion();
 #else
     return 0;
 #endif
