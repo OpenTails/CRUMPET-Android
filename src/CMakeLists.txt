@@ -89,6 +89,9 @@ target_link_libraries(digitail
 #add_dependencies(digitail convert_translations_for_embedding)
 
 install(TARGETS digitail ${INSTALL_TARGETS_DEFAULT_ARGS})
+if (ANDROID)
+    ecm_add_android_apk(digitail ANDROID_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android)
+endif()
 
 ki18n_install(po)
 
