@@ -6,7 +6,7 @@ import android.util.Log;
 import android.content.Intent;
 import android.app.Activity;
 
-import org.qtproject.qt5.android.bindings.QtActivity;
+import org.qtproject.qt.android.bindings.QtActivity;
 
 public class TailActivity extends org.qtproject.qt.android.bindings.QtActivity
 {
