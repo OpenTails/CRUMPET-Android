@@ -153,6 +153,10 @@ Kirigami.ApplicationWindow {
         btConnection.checkBluetoothState();
     }
 
+    contextDrawer: Kirigami.ContextDrawer {
+        id: contextDrawer
+    }
+
     globalDrawer: Kirigami.GlobalDrawer {
         id: globalDrawer
 
