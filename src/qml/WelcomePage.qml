@@ -28,6 +28,15 @@ Kirigami.ScrollablePage {
     title: i18nc("Header for the welcome page", "Crumpet");
     actions: [
         Kirigami.Action {
+            text: i18nc("Label for the button for requesting bluetooth permissions on the welcome page", "Get Bluetooth Permissions")
+            icon.name: "network-connect";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
+            onTriggered: {
+                Digitail.PermissionsManager.requestBluetoothPermissions();
+            }
+            visible: Digitail.PermissionsManager.hasBluetoothPermissions === false
+        },
+        Kirigami.Action {
             text: Digitail.BTConnectionManager.isConnected ? i18nc("Label for the button for disconnecting gear, on the welcome page", "Disconnect") : i18nc("Label for the button for connecting gear, on the welcome page","Connect");
             icon.name: Digitail.BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
             displayHint: Kirigami.DisplayHint.KeepVisible;
@@ -49,15 +58,16 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
+            visible: Digitail.PermissionsManager.hasBluetoothPermissions
         },
         Kirigami.Action {
             text: i18nc("Label for the button for looking for additional gear, on the welcome page", "Look for gear");
             icon.name: "view-refresh";
-            displayHint: Kirigami.DisplayHint.KeepVisible;
+            displayHint:  Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 Digitail.BTConnectionManager.startDiscovery();
             }
-            visible: Digitail.BTConnectionManager.discoveryRunning === false
+            visible: Digitail.PermissionsManager.hasBluetoothPermissions && Digitail.BTConnectionManager.discoveryRunning === false
         },
         Kirigami.Action {
             text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");
@@ -66,7 +76,7 @@ Kirigami.ScrollablePage {
             onTriggered: {
                 connectToTail.open();
             }
-            visible: Digitail.BTConnectionManager.isConnected && allDevicesModel.count > 1
+            visible: Digitail.PermissionsManager.hasBluetoothPermissions && Digitail.BTConnectionManager.isConnected && allDevicesModel.count > 1
         }
     ]
     property QtObject allDevicesModel: Digitail.FilterProxyModel {
