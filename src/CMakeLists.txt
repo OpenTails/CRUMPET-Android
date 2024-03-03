@@ -56,13 +56,12 @@ qt_add_repc_replicas(digitail
 if (CMAKE_SYSTEM_NAME STREQUAL "Android")
     set(digitail_EXTRA_LIBS
         OpenSSL::SSL
+        Qt6::CorePrivate # for QAndroidService
         Qt6::Gui
         #FIXME: we shouldn't have to link to these but otherwise their libs won't be packaged on Android
         Qt6::QuickControls2
         Qt6::Svg
         KF6::Kirigami
-        PRIVATE
-        Qt6::CorePrivate # for QAndroidService
         )
 # else ()
 #qstyle-based qqc2 style needs a QApplication
