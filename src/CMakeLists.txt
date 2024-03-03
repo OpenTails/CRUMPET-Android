@@ -60,7 +60,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Android")
         #FIXME: we shouldn't have to link to these but otherwise their libs won't be packaged on Android
         Qt6::QuickControls2
         Qt6::Svg
-        KF6::Kirigami2
+        KF6::Kirigami
         )
 # else ()
 #qstyle-based qqc2 style needs a QApplication
