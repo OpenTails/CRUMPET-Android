@@ -211,6 +211,10 @@ int appMain(int argc, char *argv[])
     if (engine.rootObjects().isEmpty()) {
         qWarning() << Q_FUNC_INFO << "Failed to load the main qml file, exiting";
         return -1;
+#ifdef Q_OS_ANDROID
+    } else {
+        QNativeInterface::QAndroidApplication::hideSplashScreen();
+#endif
     }
 
     bool settingsReplicaDestroyed{false};
