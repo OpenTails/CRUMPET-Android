@@ -32,6 +32,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Text for a button which will adds a new alarm to the list", "Add New Alarm");
             icon.name: "list-add";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 namePicker.pickName();
             }
@@ -80,7 +81,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: i18nc("Text for an action which allows the user to pick what command the alarm will cause to be sent", "Edit Alarm Commands");
                     icon.name: "document-edit";
-
+                    displayHint: Kirigami.DisplayHint.KeepVisible;
                     onTriggered: {
                         pageStack.push(editorPage, { alarm: modelData });
                     }
@@ -89,7 +90,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: i18nc("Text for an action which allows the user to pick what time the alarm should fire", "Set Time To Alarm");
                     icon.name: "accept_time_event";
-
+                    displayHint: Kirigami.DisplayHint.KeepVisible;
                     onTriggered: {
                         Digitail.AppSettings.setActiveAlarmName(modelData["name"]);
 
@@ -111,7 +112,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: i18nc("Text for an action which allows the user to delete an alarm", "Delete this Alarm");
                     icon.name: "list-remove";
-
+                    displayHint: Kirigami.DisplayHint.KeepVisible;
                     onTriggered: {
                         showMessageBox(i18nc("Title for a message box which allows the user to delete a specific alarm", "Remove the Alarm"),
                                        i18nc("Main text for a message box which allows the user to delete a specific alarm", "Are you sure that you want to remove the alarm '%1'?", modelData["name"]),

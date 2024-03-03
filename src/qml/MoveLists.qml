@@ -31,6 +31,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Label for the button for adding a new Move List, on the page for viewing Move Lists", "Add New Move List");
             icon.name: "list-add";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 namePicker.pickName();
             }
@@ -56,6 +57,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: i18nc("Label for the button for editing a move list, on the page for viewing Move Lists", "Edit Move List");
                     icon.name: "document-edit";
+                    displayHint: Kirigami.DisplayHint.KeepVisible;
                     onTriggered: {
                         pageStack.push(editorPage, { moveListName: modelData });
                     }
@@ -64,7 +66,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: i18nc("Label for the button for deleting a move list, on the page for viewing Move Lists", "Delete this Move List");
                     icon.name: "list-remove";
-
+                    displayHint: Kirigami.DisplayHint.KeepVisible;
                     onTriggered: {
                         showMessageBox(i18nc("Heading for the prompt for confirming the action of deleting a list, on the page for viewing Move Lists", "Remove the Move List"),
                                        i18nc("Message for the prompt for confirming the action of deleting a list, on the page for viewing Move Lists", "Are you sure that you want to remove the Move List '%1'?", modelData),

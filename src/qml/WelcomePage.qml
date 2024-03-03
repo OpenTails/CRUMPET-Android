@@ -30,6 +30,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: Digitail.BTConnectionManager.isConnected ? i18nc("Label for the button for disconnecting gear, on the welcome page", "Disconnect") : i18nc("Label for the button for connecting gear, on the welcome page","Connect");
             icon.name: Digitail.BTConnectionManager.isConnected ? "network-disconnect" : "network-connect";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 if(Digitail.BTConnectionManager.isConnected) {
                     if(Digitail.BTConnectionManager.deviceCount === 1) {
@@ -52,6 +53,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Label for the button for looking for additional gear, on the welcome page", "Look for gear");
             icon.name: "view-refresh";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 Digitail.BTConnectionManager.startDiscovery();
             }
@@ -60,6 +62,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Label for the button for connecting additional gear, on the welcome page", "Connect More...");
             icon.name: "list-add";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 connectToTail.open();
             }

@@ -30,6 +30,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Button for returning Gear to the home position, on the page for selecting what should happen when a piece of gear detects a tilting motion", "Home Position");
             icon.name: "go-home";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }

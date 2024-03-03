@@ -27,6 +27,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Button for stopping the light patterns, on the page for the Glow Tips", "Stop Lights");
             icon.name: "flashlight-off";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("LEDOFF", []);
             }

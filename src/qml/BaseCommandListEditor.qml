@@ -41,6 +41,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Label for the button for adding a move to the Move List", "Add Move To List");
             icon.name: "list-add";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 pickACommand.insertAt = commandListView.count;
                 pickACommand.pickCommand();
@@ -48,6 +49,7 @@ Kirigami.ScrollablePage {
         }, Kirigami.Action {
             text: i18nc("Label for the button for adding a pause to the Move List", "Add Pause To List");
             icon.name: "accept_time_event";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 commandPausePicker.insertAt = commandListView.count;
                 commandPausePicker.pickDuration();

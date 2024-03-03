@@ -27,6 +27,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Button for returning the tail to its home position, on the Moves page", "Home Position");
             icon.name: "dialog-cancel";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }

@@ -29,6 +29,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("Button for returning the EarGear to the home position, on the page for selecting a pose for the EarGear", "Home Position");
             icon.name: "go-home";
+            displayHint: Kirigami.DisplayHint.KeepVisible;
             onTriggered: {
                 Digitail.BTConnectionManager.sendMessage("TAILHM", []);
             }

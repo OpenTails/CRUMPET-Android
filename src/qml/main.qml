@@ -208,6 +208,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Crumpet page, from the landing page", "Crumpet");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "welcomePage";
                 icon.name: "go-home";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 onTriggered: {
                     switchToPage(welcomePage);
                 }
@@ -216,6 +217,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Alarm page, from the landing page", "Alarm");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "alarmList" || pageStack.currentItem.objectName === "alarmListEditor");
                 icon.name: "qrc:/images/alarm.svg";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 onTriggered: {
                     if(!checked) {
                         switchToPage(alarmList);
@@ -226,6 +228,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Move List page, from the landing page", "Move Lists");
                 checked: pageStack.currentItem && (pageStack.currentItem.objectName === "moveLists" || pageStack.currentItem.objectName === "moveListEditor");
                 icon.name: "qrc:/images/movelist.svg";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 onTriggered: {
                     if(!checked) {
                         switchToPage(moveLists);
@@ -236,6 +239,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Tail Gear Moves page, from the landing page", "Moves");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailMoves";
                 icon.name: "qrc:/images/moves.svg";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(tailMoves);
@@ -245,6 +249,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the EarGear Poses page, from the landing page", "Ear Poses");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "earPoses";
                 icon.name: "qrc:/images/earposes.svg";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 visible: hasListeningModel.count > 0;
                 onTriggered: {
                     switchToPage(earPoses);
@@ -254,6 +259,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Glow Tips page, from the landing page", "Glow Tips");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "tailLights";
                 icon.name: "qrc:/images/glowtip.svg";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 visible: connectedDevicesModel.count > hasListeningModel.count;
                 onTriggered: {
                     switchToPage(tailLights);
@@ -263,6 +269,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the page for setting up the Casual Mode, from the landing page", "Casual Mode Settings");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "idleMode";
                 icon.name: "qrc:/images/casualmode.svg";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(idleModePage);
@@ -272,6 +279,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Gear Gestures page, from the landing page", "Gear Gestures");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "gearGestures";
                 icon.name: "qrc:/images/movelist.svg";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 visible: connectedDevicesModel.count > 0;
                 onTriggered: {
                     switchToPage(gearGestures);
@@ -281,6 +289,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Developer Mode page, from the landing page", "Developer Mode");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "developerModePage";
                 icon.name: "code-context";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 visible: Digitail.AppSettings !== null ? Digitail.AppSettings.developerMode : false;
 
                 onTriggered: {
@@ -296,6 +305,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the Settings Page, from the landing page", "Settings");
                 checked: pageStack.currentItem ? (pageStack.currentItem.objectName === "settingsPage"): "";
                 icon.name: "settings-configure";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
 
                 onTriggered: {
                     if(!checked) {
@@ -307,6 +317,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the About Us page, from the landing page", "About");
                 checked: pageStack.currentItem && pageStack.currentItem.objectName === "aboutPage";
                 icon.name: "help-about";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 onTriggered: {
                     switchToPage(aboutPage);
                 }
@@ -315,6 +326,7 @@ Kirigami.ApplicationWindow {
                 text: i18nc("Button for opening the TailCo website in a browser, from the landing page", "TheTailCompany.com");
                 checked: false;
                 icon.name: "internet-services";
+                displayHint: Kirigami.DisplayHint.KeepVisible;
                 onTriggered: {
                     Qt.openUrlExternally("https://thetailcompany.com/");
                 }
