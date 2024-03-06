@@ -137,6 +137,7 @@ int appMain(int argc, char *argv[])
         }
     }
     qmlRegisterSingletonType<AppSettings>("org.thetailcompany.digitail", 1, 0, "AppSettings", [&settingsReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(settingsReplica.data(), QQmlEngine::CppOwnership);
         return settingsReplica.data();
     });
     auto retranslate = [&settingsReplica](){
@@ -153,6 +154,7 @@ int appMain(int argc, char *argv[])
     res = btConnectionManagerReplica->waitForSource();
     if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for btConnectionManagerReplica failed to surface"; }
     qmlRegisterSingletonType<BTConnectionManager>("org.thetailcompany.digitail", 1, 0, "BTConnectionManager", [&btConnectionManagerReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(btConnectionManagerReplica.data(), QQmlEngine::CppOwnership);
         return btConnectionManagerReplica.data();
     });
 
@@ -160,6 +162,7 @@ int appMain(int argc, char *argv[])
     res = commandQueueReplica->waitForSource();
     if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for commandQueueReplica failed to surface"; }
     qmlRegisterSingletonType<CommandQueue>("org.thetailcompany.digitail", 1, 0, "CommandQueue", [&commandQueueReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(commandQueueReplica.data(), QQmlEngine::CppOwnership);
         return commandQueueReplica.data();
     });
 
@@ -167,23 +170,27 @@ int appMain(int argc, char *argv[])
     res = gestureControllerReplica->waitForSource();
     if(!res) { qCritical() << Q_FUNC_INFO << "Kapow! Replica for gestureControllerReplica failed to surface"; }
     qmlRegisterSingletonType<GestureController>("org.thetailcompany.digitail", 1, 0, "GestureController", [&gestureControllerReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(gestureControllerReplica.data(), QQmlEngine::CppOwnership);
         return gestureControllerReplica.data();
     });
 
     QSharedPointer<QAbstractItemModelReplica> deviceModelReplica(repNode->acquireModel(QLatin1String{"DeviceModel"}));
     qmlRegisterSingletonType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModel", [&deviceModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(deviceModelReplica.data(), QQmlEngine::CppOwnership);
         return deviceModelReplica.data();
     });
     qmlRegisterUncreatableType<DeviceModel>("org.thetailcompany.digitail", 1, 0, "DeviceModelTypes", QLatin1String{"Not createable, use the replicated object named DeviceModel"});
 
     QSharedPointer<QAbstractItemModelReplica> commandModelReplica(repNode->acquireModel(QLatin1String{"CommandModel"}));
     qmlRegisterSingletonType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModel", [&commandModelReplica](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(commandModelReplica.data(), QQmlEngine::CppOwnership);
         return commandModelReplica.data();
     });
     qmlRegisterUncreatableType<CommandModel>("org.thetailcompany.digitail", 1, 0, "CommandModelTypes", QLatin1String{"Not createable, use the replicated object named CommandModel"});
 
     QSharedPointer<QAbstractItemModelReplica> gestureDetectorModel(repNode->acquireModel(QLatin1String{"GestureDetectorModel"}));
     qmlRegisterSingletonType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModel", [&gestureDetectorModel](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(gestureDetectorModel.data(), QQmlEngine::CppOwnership);
         return gestureDetectorModel.data();
     });
     qmlRegisterUncreatableType<GestureDetectorModel>("org.thetailcompany.digitail", 1, 0, "GestureDetectorModelTypes", QLatin1String{"Not createable, use the replicated object named GestureDetectorModel"});
@@ -193,16 +200,18 @@ int appMain(int argc, char *argv[])
     qmlRegisterSingletonType<Utilities>("org.thetailcompany.digitail", 1, 0, "Utilities", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
         Q_UNUSED(engine)
         Q_UNUSED(scriptEngine)
+        QQmlEngine::setObjectOwnership(Utilities::getInstance(), QQmlEngine::CppOwnership);
         return Utilities::getInstance();
     });
 
-    QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, permissionsManager, [=](){
+    QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, btConnectionManagerReplica.data(), [=](){
         if(permissionsManager->hasBluetoothPermissions()) {
             // Don't launch the discovery immediately, let's give things a change to start up...
             QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
         }
     });
     qmlRegisterSingletonType<PermissionsManager>("org.thetailcompany.digitail", 1, 0, "PermissionsManager", [=](QQmlEngine */*engine*/, QJSEngine */*scriptEngine*/) -> QObject * {
+        QQmlEngine::setObjectOwnership(permissionsManager, QQmlEngine::CppOwnership);
         return permissionsManager;
     });
 
