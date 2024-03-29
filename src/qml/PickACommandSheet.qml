@@ -17,6 +17,7 @@
  */
 
 import QtQuick
+import QtQuick.Controls
 import org.kde.kirigami as Kirigami
 import org.thetailcompany.digitail as Digitail
 
@@ -29,6 +30,7 @@ Kirigami.OverlaySheet {
     signal commandPicked(string command, variant destinations);
     showCloseButton: true
     title: i18nc("Heading for the overlay for picking a command, for configuring a move list", "Pick a command");
+    parent: Overlay.overlay
     BaseMovesComponent {
         infoText: i18nc("Description for the overlay for picking a command, for configuring a move list", "The list below shows all the moves and light patterns available to your gear. Tap any of them to pick that command.");
         width: root.width;
