@@ -81,6 +81,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onDiscoveryRunningChanged() {
+            console.log("Discovery running changed to", Digitail.BTConnectionManager.discoveryRunning);
             if (Digitail.BTConnectionManager.discoveryRunning === false) {
                 if(Digitail.BTConnectionManager.deviceCount === 1 && connectToTail.opened === false) {
                     // only one bit of gear found? Well then, connect to that!
@@ -91,6 +92,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onIsConnectedChanged(isConnected) {
+            console.log("isConnected Changed to", isConnected);
             if (isConnected === true) {
                 if(root.pageToPush !== null) {
                     switchToPage(root.pageToPush);
@@ -100,7 +102,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onDeviceConnected(deviceID) {
-            console.debug("Connected to new device with ID: " + deviceID);
+            console.log("Connected to new device with ID: " + deviceID, "and we are connecting to", connectingToTail.connectingDevices, "devices");
             // Only pop up the name picker if we're connecting to a single device, otherwise show a little
             // message after having connected the last thing to say what people can do to rename things,
             // without getting in the way too much
@@ -411,6 +413,7 @@ Kirigami.ApplicationWindow {
 
     NamePicker {
         id: namePicker;
+        width: root.width - Kirigami.Units.largeSpacing * 2
 
         function checkDeviceName(deviceID, forcePicking = false) {
             if (deviceID && (forcePicking || Object.keys(Digitail.AppSettings.deviceNames).includes(deviceID) === false)) {
@@ -505,17 +508,6 @@ Kirigami.ApplicationWindow {
             running: connectingToTail.opacity > 0;
         }
     }
-
-    // Now it shows just at the top, so to use it widely we should setup InlineMessage more correctly
-    //    Kirigami.InlineMessage {
-    //        id: inlineMessageWithOkButton
-
-    //        actions: [
-    //            Kirigami.Action {
-    //                text: i18nc("Confirmation button for an inline message", "Ok")
-    //            }
-    //        ]
-    //    }
 
     MessageBox {
         id: messageBox;
