@@ -38,10 +38,8 @@ Kirigami.OverlaySheet {
         control.insertCommand(insertAt, "pause:" + duration);
     }
 
-    header: Kirigami.Heading {
-        text: i18nc("Heading for an overlay for picking the duration of a pause in the command list", "Pick the duration of your pause");
-        wrapMode: Text.Wrap;
-    }
+    showCloseButton: true
+    title: i18nc("Heading for an overlay for picking the duration of a pause in the command list", "Pick the duration of your pause");
 
     Column {
         QQC2.Slider {

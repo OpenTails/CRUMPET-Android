@@ -201,9 +201,7 @@ ColumnLayout {
             showCloseButton: true;
             property string command;
             property var deviceIDs: []
-            header: Kirigami.Heading {
-                text: i18nc("Header for the overlay for selecting the destination for a command", "Send where?");
-            }
+            title: i18nc("Header for the overlay for selecting the destination for a command", "Send where?");
             Item {
                 implicitWidth: Kirigami.Units.gridUnit * 30
                 height: childrenRect.height

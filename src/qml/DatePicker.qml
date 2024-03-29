@@ -44,6 +44,8 @@ Kirigami.OverlaySheet {
         displayYear = selectedDate.getFullYear()
     }
 
+    showCloseButton: true
+    title: i18nc("Title for the date picker", "Pick A Date")
     Item {
         width: calendarWidth
         height: calendarHeight

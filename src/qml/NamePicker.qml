@@ -25,7 +25,7 @@ import org.kde.kirigami as Kirigami
 Kirigami.OverlaySheet {
     id: control;
 
-    property alias headerText: textHeader.text;
+    property alias headerText: control.title
     property alias description: textDescription.text;
     property alias placeholderText: enteredName.placeholderText;
     property alias buttonOkText: buttonOk.text;
@@ -37,11 +37,8 @@ Kirigami.OverlaySheet {
         open();
     }
 
-    header: Kirigami.Heading {
-        id: textHeader;
-        text: i18nc("Text header for picking a name", "Pick a name");
-        wrapMode: Text.Wrap;
-    }
+    showCloseButton: true
+    title: i18nc("Text header for picking a name", "Pick a name");
 
     footer: QQC2.Button {
         id: buttonOk;

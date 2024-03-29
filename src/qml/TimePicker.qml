@@ -50,6 +50,8 @@ Kirigami.OverlaySheet {
         radioPm.checked = is12Hours && hours >= 12
     }
 
+    showCloseButton: true
+    title: i18nc("Title for the time picker", "Pick a Time")
     GridLayout {
         columns: 2
         rows: 4

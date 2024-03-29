@@ -26,21 +26,8 @@ Kirigami.OverlaySheet {
     id: sheet;
     property QtObject pageToPush: null;
     showCloseButton: true;
+    title: i18nc("Title on the popup for connecting to devices", "Connect To Gear")
     signal attemptToConnect(string deviceID, QtObject pageToPush);
-    header: RowLayout {
-        implicitWidth: Kirigami.Units.gridUnit * 30
-        Kirigami.Icon {
-            source: "network-connect"
-            width: Kirigami.Units.iconSizes.large
-            height: width
-        }
-        Kirigami.Heading {
-            Layout.fillWidth: true
-            Layout.minimumWidth: 0
-            wrapMode: Text.WordWrap
-            text: "Connect To Gear"
-        }
-    }
     footer: RowLayout {
         implicitWidth: Kirigami.Units.gridUnit * 30
         QQC2.Button {
