@@ -452,6 +452,7 @@ Kirigami.ApplicationWindow {
     }
     DisconnectOptions {
         id: disconnectionOptions;
+        width: root.width - Kirigami.Units.largeSpacing * 2
     }
 
     QtObject {
