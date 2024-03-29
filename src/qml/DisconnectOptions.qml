@@ -31,6 +31,7 @@ Kirigami.OverlaySheet {
     }
     property alias deviceID: relevantDeviceModel.filterString
 
+    parent: Overlay.overlay
     showCloseButton: true;
     title: i18nc("Heading for the overlay for picking options when disconnecting from a piece of gear", "Disconnect?");
 

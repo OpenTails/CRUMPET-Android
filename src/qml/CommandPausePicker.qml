@@ -38,6 +38,7 @@ Kirigami.OverlaySheet {
         control.insertCommand(insertAt, "pause:" + duration);
     }
 
+    parent: QQC2.Overlay.overlay
     showCloseButton: true
     title: i18nc("Heading for an overlay for picking the duration of a pause in the command list", "Pick the duration of your pause");
 

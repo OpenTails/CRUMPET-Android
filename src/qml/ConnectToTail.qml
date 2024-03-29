@@ -26,6 +26,7 @@ Kirigami.OverlaySheet {
     id: sheet;
     property QtObject pageToPush: null;
     showCloseButton: true;
+    parent: QQC2.Overlay.overlay
     title: i18nc("Title on the popup for connecting to devices", "Connect To Gear")
     signal attemptToConnect(string deviceID, QtObject pageToPush);
     footer: RowLayout {

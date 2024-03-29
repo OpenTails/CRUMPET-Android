@@ -36,6 +36,7 @@ Kirigami.OverlaySheet {
         open();
     }
 
+    parent: QQC2.Overlay.overlay
     header: Kirigami.Heading {
         id: textHeader;
         wrapMode: Text.Wrap;

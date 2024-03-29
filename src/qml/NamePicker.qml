@@ -37,6 +37,7 @@ Kirigami.OverlaySheet {
         open();
     }
 
+    parent: QQC2.Overlay.overlay
     showCloseButton: true
     title: i18nc("Text header for picking a name", "Pick a name");
 

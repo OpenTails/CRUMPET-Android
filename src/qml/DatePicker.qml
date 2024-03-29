@@ -44,6 +44,7 @@ Kirigami.OverlaySheet {
         displayYear = selectedDate.getFullYear()
     }
 
+    parent: QQC2.Overlay.overlay
     showCloseButton: true
     title: i18nc("Title for the date picker", "Pick A Date")
     Item {
