@@ -144,6 +144,7 @@ public:
 
             reconnectThrottle = 0;
             Q_EMIT q->isConnectedChanged(q->isConnected());
+            q->setIsConnecting(false);
             q->sendMessage(QLatin1String{"VER"}); // Ask for the version, and then react to the response...
 
             break;
@@ -515,6 +516,7 @@ GearEars::~GearEars()
 
 void GearEars::connectDevice()
 {
+    setIsConnecting(true);
     if(d->btControl) {
         disconnectDevice();
     }
@@ -683,6 +685,7 @@ void GearEars::disconnectDevice()
     d->batteryLevel = -1;
     Q_EMIT batteryLevelChanged(0);
     Q_EMIT isConnectedChanged(isConnected());
+    setIsConnecting(false);
 }
 
 bool GearEars::isConnected() const

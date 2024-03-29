@@ -53,6 +53,7 @@ public:
     QColor color;
     bool supportsOTA{false};
     bool checked{true};
+    bool isConnecting{false};
     bool hasLights{false};
     bool hasShutdown{false};
     bool hasNoPhoneMode{false};
@@ -195,6 +196,19 @@ void GearBase::setChecked(bool checked)
 {
     d->checked = checked;
     Q_EMIT checkedChanged(d->checked);
+}
+
+bool GearBase::isConnecting() const
+{
+    return d->isConnecting;
+}
+
+void GearBase::setIsConnecting(bool isConnecting)
+{
+    if (d->isConnecting != isConnecting) {
+        d->isConnecting = isConnecting;
+        Q_EMIT isConnectingChanged();
+    }
 }
 
 QString GearBase::name() const

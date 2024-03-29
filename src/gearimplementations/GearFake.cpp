@@ -99,9 +99,11 @@ QString GearFake::version() const
 
 void GearFake::connectDevice()
 {
+    setIsConnecting(true);
     QTimer::singleShot(1000, this, [this](){
         d->isConnected = true;
         Q_EMIT isConnectedChanged(isConnected());
+        setIsConnecting(false);
         reloadCommands();
         setKnownFirmwareMessage(i18nc("An example message to show people what the firmware message will look like for a real device", "This is a message that's supposed to inform people that there is something <b>important</b> going on with their firmware"));
         d->batteryTimer.start();
@@ -117,6 +119,7 @@ void GearFake::disconnectDevice()
     commandShorthands.clear();
     d->isConnected = false;
     Q_EMIT isConnectedChanged(d->isConnected);
+    setIsConnecting(false);
 }
 
 void GearFake::sendMessage(const QString& message)

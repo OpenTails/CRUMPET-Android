@@ -132,6 +132,7 @@ public:
 
             reconnectThrottle = 0;
             Q_EMIT q->isConnectedChanged(q->isConnected());
+            q->setIsConnecting(false);
             deviceService->writeCharacteristic(deviceCommandWriteCharacteristic, "VER"); // Ask for the version, and then react to the response...
 
             break;
@@ -382,6 +383,7 @@ GearFlutterWings::~GearFlutterWings()
 
 void GearFlutterWings::connectDevice()
 {
+    setIsConnecting(true);
     if(d->btControl) {
         disconnectDevice();
     }
@@ -607,6 +609,7 @@ void GearFlutterWings::disconnectDevice()
     d->batteryLevel = -1;
     Q_EMIT batteryLevelChanged(0);
     Q_EMIT isConnectedChanged(isConnected());
+    setIsConnecting(false);
 }
 
 bool GearFlutterWings::isConnected() const
