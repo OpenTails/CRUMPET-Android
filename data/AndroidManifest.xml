@@ -55,7 +55,7 @@
                         </intent-filter>
                         -->
                         <!-- Splash screen -->
-                        <meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/digitail"/>
+                        <meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/splash"/>
 
                         <meta-data android:name="android.app.lib_name" android:value="digitail"/>
                         <meta-data android:name="android.app.repository" android:value="default"/>
