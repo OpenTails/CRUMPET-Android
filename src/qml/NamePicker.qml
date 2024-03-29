@@ -19,6 +19,7 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 Kirigami.OverlaySheet {
@@ -44,7 +45,6 @@ Kirigami.OverlaySheet {
 
     footer: QQC2.Button {
         id: buttonOk;
-        width: parent.width;
 
         // The check below is done to ensure we do not have to wait for the text to be accepted
         // before enabling the button. The text will still be entered, but both need to be checked
@@ -57,19 +57,21 @@ Kirigami.OverlaySheet {
         }
     }
 
-    Column {
-        width: root.width - Kirigami.Units.largeSpacing * 4;
+    ColumnLayout {
+        Layout.fillWidth: true
         spacing: Kirigami.Units.smallSpacing;
-
         QQC2.Label {
             id: textDescription;
-            width: parent.width;
+            Layout.fillWidth: true
             wrapMode: Text.Wrap;
         }
-
         QQC2.TextField {
             id: enteredName;
-            width: parent.width;
+            Layout.fillWidth: true
+        }
+        Item {
+            Layout.fillWidth: true
+            Layout.minimumHeight: Kirigami.Units.smallSpacing
         }
     }
 }
