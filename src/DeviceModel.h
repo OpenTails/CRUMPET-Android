@@ -77,6 +77,7 @@ public:
         Color,                   // 292 - a colour value to match the device's ID
         DeviceType,              // 293 - A string name of the device's type (e.g. DiGITAIL, MiTail, EarGear, EarGear 2, MiTail Mini, FlutterWings
         DeviceIcon,              // 294 - A string containing the icon name for the device type
+        IsConnecting,            // 295 - Whether the device we are currently attempting to establish a connection to the device
     };
     Q_ENUM(Roles)
 

@@ -147,6 +147,7 @@ QHash< int, QByteArray > DeviceModel::roleNames() const
         {Color, "color"},
         {DeviceType, "deviceType"},
         {DeviceIcon, "deviceIcon"},
+        {IsConnecting, "isConnecting"},
     };
     return roles;
 }
@@ -378,6 +379,8 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                     value = QLatin1String{":/images/logo.svg"};
                 }
                 break;
+            case IsConnecting:
+                return device->isConnecting();
             default:
                 break;
         }
@@ -500,6 +503,9 @@ void DeviceModel::addDevice(GearBase* newDevice)
             }
             d->notifyDeviceDataChanged(newDevice, IsConnected);
             Q_EMIT isConnectedChanged(this->isConnected());
+        });
+        connect(newDevice, &GearBase::isConnectingChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, IsConnecting);
         });
         connect(newDevice, &GearBase::progressDescriptionChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, ProgressDescription);
