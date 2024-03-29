@@ -119,17 +119,25 @@ int appMain(int argc, char *argv[])
 
     qInfo() << Q_FUNC_INFO << "Connecting to service...";
     QRemoteObjectNode* repNode = new QRemoteObjectNode(&app);
+#ifdef Q_OS_ANDROID
+    repNode->connectToNode(QUrl(QStringLiteral("localabstract:digitail")));
+#else
     repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
+#endif
 
     qInfo() << Q_FUNC_INFO << "Connected, attempting to load replicas...";
     QSharedPointer<AppSettingsProxyReplica> settingsReplica(repNode->acquire<AppSettingsProxyReplica>());
     bool res = settingsReplica->waitForSource(500);
     if(!res) {
         qInfo() << Q_FUNC_INFO << "No service exists yet, so let's start it...";
+#ifdef Q_OS_ANDROID
+        repNode->connectToNode(QUrl(QStringLiteral("localabstract:digitail")));
+#else
         QProcess service;
         service.startDetached(app.applicationFilePath(), QStringList() << QStringLiteral("-service"));
         QCoreApplication::processEvents();
         repNode->connectToNode(QUrl(QStringLiteral("local:digitail")));
+#endif
         settingsReplica.reset(repNode->acquire<AppSettingsProxyReplica>());
         res = settingsReplica->waitForSource(500);
         if (!res) {
@@ -285,7 +293,11 @@ int serviceMain(int argc, char *argv[])
     KLocalizedString::addDomainLocaleDir("digitail", QString::fromUtf8("%1/../src/locale").arg(app.applicationDirPath()));
 #endif
 
+#ifdef Q_OS_ANDROID
+    QRemoteObjectHost srcNode(QUrl(QStringLiteral("localabstract:digitail")));
+#else
     QRemoteObjectHost srcNode(QUrl(QStringLiteral("local:digitail")));
+#endif
 
     qDebug() << Q_FUNC_INFO << "Creating application settings";
     AppSettings* appSettings = new AppSettings(&app);
