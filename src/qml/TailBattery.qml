@@ -26,11 +26,52 @@ import org.thetailcompany.digitail as Digitail
 ColumnLayout {
     id: batteryLayout
     enabled: visible;
-    visible: batteryRep.count > 0;
+    visible: batteryRep.count > 0 || connectingRep.count > 0;
+    Repeater {
+        id: connectingRep;
+        model: Digitail.FilterProxyModel {
+            sourceModel: Digitail.DeviceModel;
+            filterRole: Digitail.DeviceModelTypes.IsConnecting;
+            filterBoolean: true;
+        }
+        ColumnLayout {
+            RowLayout {
+                Layout.fillWidth: true
+                Kirigami.Icon {
+                    source: model.deviceIcon
+                    Layout.fillHeight: true
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.small
+                    Layout.minimumWidth: height
+                    Layout.maximumWidth: height
+                    Layout.alignment: Qt.AlignVCenter
+                    isMask: true
+                    color: model.color !== undefined ? model.color : "transparent"
+                }
+                Label {
+                    Layout.fillHeight: true
+                    verticalAlignment: Text.AlignVCenter
+                    text: typeof model.name !== "undefined" ? model.name : ""
+                }
+                Label {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignRight
+                    text: i18nc("Text shown beside a spinner indicating that we are currently attempting to connect to a piece of gear", "Connecting")
+                }
+                BusyIndicator {
+                    Layout.fillHeight: true
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.medium
+                    Layout.minimumWidth: height
+                    Layout.maximumWidth: height
+                    running: true
+                }
+            }
+        }
+    }
     Repeater {
         id: batteryRep;
         model: Digitail.FilterProxyModel {
-            id: deviceFilterProxy;
             sourceModel: Digitail.DeviceModel;
             filterRole: Digitail.DeviceModelTypes.IsConnected;
             filterBoolean: true;
