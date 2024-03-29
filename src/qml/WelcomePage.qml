@@ -92,6 +92,7 @@ Kirigami.ScrollablePage {
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
         Kirigami.AbstractCard {
             contentItem: ColumnLayout {
+                Layout.fillWidth: true
                 BasicListItem {
                     Layout.fillWidth: true
                     text: i18nc("Label for the button for opening the Moves page, on the welcome page", "Moves");
@@ -236,35 +237,20 @@ Kirigami.ScrollablePage {
                         icon.name: "go-next";
                     }
             }
-            Component {
-                id: casualModeSettingsListItem
+            contentItem: Column {
+                Layout.fillWidth: true;
+                height: childrenRect.height
+                spacing: 0
                 BasicListItem {
-                    Layout.fillWidth: true
+                    width: parent.width
                     text: i18nc("Label for the button for enabling the Casual Mode, on the welcome page", "Enable Casual Mode");
                     icon.source: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode) ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
                     onClicked: { Digitail.AppSettings.idleMode = !Digitail.AppSettings.idleMode; }
                 }
-            }
-            Component {
-                id: idlePauseRangePicker;
-                ColumnLayout {
-                    Layout.fillWidth: true;
-                    Loader {
-                        Layout.fillWidth: true;
-                        sourceComponent: casualModeSettingsListItem
-                    }
-                    IdlePauseRangePicker {
-                    }
+                IdlePauseRangePicker {
+                    visible: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode === true)
+                    width: parent.width
                 }
-            }
-            Component {
-                id: emptyNothing;
-                Loader {
-                    sourceComponent: casualModeSettingsListItem
-                }
-            }
-            contentItem: Loader {
-                sourceComponent: (Digitail.AppSettings !== null && Digitail.AppSettings.idleMode === true) ? idlePauseRangePicker : emptyNothing;
             }
         }
         Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
