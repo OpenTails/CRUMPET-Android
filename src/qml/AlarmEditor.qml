@@ -32,7 +32,7 @@ BaseCommandListEditor {
         Digitail.AppSettings.setActiveAlarmName(alarmName);
     }
 
-    onInsertCommand: {
+    onInsertCommand: function(insertAt, command, destinations) {
         if (!alarm) {
             return;
         }
@@ -40,7 +40,7 @@ BaseCommandListEditor {
         Digitail.AppSettings.addAlarmCommand(insertAt, command, destinations);
     }
 
-    onRemoveCommand: {
+    onRemoveCommand: function(index) {
         if (!alarm) {
             return;
         }

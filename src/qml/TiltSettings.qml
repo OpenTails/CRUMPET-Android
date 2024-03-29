@@ -78,7 +78,7 @@ Kirigami.ScrollablePage {
                         property string deviceID;
                         property int gestureId;
 
-                        onCommandPicked: {
+                        onCommandPicked: function(command, destinations) {
                             Digitail.BTConnectionManager.setDeviceGestureEventCommand(pickACommand.deviceID, pickACommand.gestureId, destinations, command);
                             pickACommand.close();
                         }

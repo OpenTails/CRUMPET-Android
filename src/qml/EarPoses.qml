@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-        onCommandActivated: {
+        onCommandActivated: function(command, destinations) {
             Digitail.CommandQueue.clear("");
             Digitail.CommandQueue.pushCommand(command, destinations);
         }

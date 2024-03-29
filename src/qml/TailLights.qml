@@ -36,7 +36,7 @@ Kirigami.ScrollablePage {
     BaseMovesComponent {
         width: parent.width;
         infoText: i18nc("Description for the list of light patterns, on the page for the Glow Tips", "The list below shows all the light patterns available to your gear. Tap any of them to send them off to any of your connected devices! If you have more than one connected, the little coloured dots show which you can send that light pattern to.");
-        onCommandActivated: {
+        onCommandActivated: function(command, destinations) {
             Digitail.CommandQueue.clear("");
             Digitail.CommandQueue.pushCommand(command, destinations);
         }

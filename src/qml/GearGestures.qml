@@ -126,7 +126,7 @@ Kirigami.ScrollablePage {
 
         property int gestureIndex;
 
-        onCommandPicked: {
+        onCommandPicked: function(command, destinations) {
             Digitail.GestureController.setGestureDetails(pickACommand.gestureIndex, command, destinations);
             pickACommand.close();
         }

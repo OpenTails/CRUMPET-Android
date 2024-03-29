@@ -159,7 +159,7 @@ Kirigami.ScrollablePage {
                             editorPage.flickable.contentY = rectToMakeVisible.y + rectToMakeVisible.height - editorPage.flickable.height;
                         }
                     }
-                    onCursorRectangleChanged: {
+                    onCursorRectangleChanged: function(cursorRectangle) {
                         ensureVisible(cursorRectangle);
                     }
                 }

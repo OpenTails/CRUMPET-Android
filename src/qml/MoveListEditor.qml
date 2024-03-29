@@ -40,14 +40,14 @@ BaseCommandListEditor {
         }
     }
 
-    onMoveListNameChanged: {
+    onMoveListNameChanged: function() {
         Digitail.AppSettings.setActiveMoveList(moveListName);
     }
 
-    onInsertCommand: {
+    onInsertCommand: function(insertAt, command, destinations) {
         Digitail.AppSettings.addMoveListEntry(insertAt, command, destinations);
     }
-    onRemoveCommand: {
+    onRemoveCommand: function(index) {
         showMessageBox(i18nc("Header for the confirmation prompt for removing a Move List Entry, on the Move List Editor page", "Remove Move List Entry?"),
                         i18nc("Message for the confirmation prompt for removing a Move List Entry, on the Move List Editor page", "Are you sure that you want to remove this entry from your move list?"),
                         function () {

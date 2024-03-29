@@ -35,7 +35,7 @@ Kirigami.OverlaySheet {
         infoText: i18nc("Description for the overlay for picking a command, for configuring a move list", "The list below shows all the moves and light patterns available to your gear. Tap any of them to pick that command.");
         width: root.width - Kirigami.Units.largeSpacing * 4;
         ignoreAvailability: true;
-        onCommandActivated: {
+        onCommandActivated: function(command, destinations) {
             pickACommand.commandPicked(command, destinations);
         }
         categoriesModel: connectedWithLightsModel.count > 0

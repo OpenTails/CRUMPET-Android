@@ -283,8 +283,8 @@ Kirigami.ScrollablePage {
 
     CommandPausePicker {
         id: commandPausePicker;
-
-        onDurationPicked: {
+        width: control.width - Kirigami.Units.largeSpacing * 2
+        onDurationPicked: function(duration) {
             control.insertCommand(insertAt, "pause:" + duration);
             commandPausePicker.close();
         }
@@ -295,7 +295,7 @@ Kirigami.ScrollablePage {
 
         property int insertAt;
 
-        onCommandPicked: {
+        onCommandPicked: function(command, destinations) {
             control.insertCommand(insertAt, "pause:15", destinations);
             control.insertCommand(insertAt, command, destinations);
             pickACommand.close();

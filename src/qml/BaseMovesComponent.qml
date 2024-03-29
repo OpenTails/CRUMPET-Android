@@ -216,6 +216,7 @@ Item {
     }
     Kirigami.OverlaySheet {
         id: sendCommandToSelector;
+        z: 9999
         function selectDestination(command, deviceIDs) {
             sendCommandToSelector.command = command;
             sendCommandToSelector.deviceIDs = deviceIDs;

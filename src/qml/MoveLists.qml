@@ -97,7 +97,7 @@ Kirigami.ScrollablePage {
         placeholderText: i18nc("Placeholder text for the textfield for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Enter your move list name here");
         buttonOkText: i18nc("Confirmating button for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Create");
 
-        onNamePicked: {
+        onNamePicked: function(name) {
             if (Digitail.AppSettings.moveLists.includes(name)) {
                 showMessageBox(i18nc("Header for the warning that a name is already in use, for the prompt for giving a name to a move list, on the page for viewing Move Lists", "Name Already Used"),
                                i18nc("Description for the warning that a name is already in use, for the prompt for giving a name to a move list, on the page for viewing Move Lists","You already have a move list with the name %1. Please pick another name, as that won't work.", name));

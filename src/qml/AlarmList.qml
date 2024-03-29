@@ -145,7 +145,7 @@ Kirigami.ScrollablePage {
         placeholderText: i18nc("Placeholder text for the text box in which the name of a new alarm must be written", "Enter your alarm name here");
         buttonOkText: i18nc("Text on a button which causes an alarm to be created", "Create");
 
-        onNamePicked: {
+        onNamePicked: function(name) {
             Digitail.AppSettings.addAlarm(name);
             namePicker.close();
         }

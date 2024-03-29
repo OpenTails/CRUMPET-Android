@@ -34,7 +34,7 @@ Kirigami.OverlaySheet {
         open();
     }
 
-    onDurationPicked: {
+    onDurationPicked: function(duration) {
         control.insertCommand(insertAt, "pause:" + duration);
     }
 
@@ -62,6 +62,7 @@ Kirigami.OverlaySheet {
         QQC2.Button {
             text: i18nc("Button for an overlay for picking the duration of a pause in the command list", "Add this pause");
 
+            width: control.width - Kirigami.Units.largeSpacing * 4;
             onClicked: {
                 control.durationPicked(durationSlider.value);
             }
