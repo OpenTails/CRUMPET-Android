@@ -34,7 +34,7 @@ Kirigami.OverlaySheet {
     showCloseButton: true;
     title: i18nc("Heading for the overlay for picking options when disconnecting from a piece of gear", "Disconnect?");
 
-    contentItem: ColumnLayout {
+    ColumnLayout {
         Layout.fillWidth: true;
         spacing: Kirigami.Units.largeSpacing;
         Label {
@@ -63,6 +63,16 @@ Kirigami.OverlaySheet {
                     Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
                     Layout.minimumHeight: Kirigami.Units.iconSizes.medium;
                     Layout.maximumHeight: Kirigami.Units.iconSizes.medium;
+                    icon.name: "settings-configure";
+                    onClicked: {
+                        noPhoneModeSettings.visible = !noPhoneModeSettings.visible;
+                    }
+                }
+                ToolButton {
+                    Layout.minimumWidth: Kirigami.Units.iconSizes.medium;
+                    Layout.maximumWidth: Kirigami.Units.iconSizes.medium;
+                    Layout.minimumHeight: Kirigami.Units.iconSizes.medium;
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.medium;
                     icon.name: "question";
                     onClicked: {
                         noPhoneModeDescription.visible = !noPhoneModeDescription.visible;
@@ -76,51 +86,56 @@ Kirigami.OverlaySheet {
                 wrapMode: Text.Wrap;
                 text: i18nc("Label above the list of options available for disconnecting from a piece of gear", "Pick this option to set up No Phone Mode and disconnect, so you can leave the phone off. This works like a basic Casual Mode, but without the phone to operate it. (Handy if you're costuming and have nowhere to stow your phone)");
             }
-            Repeater {
-                id: noPhoneModeGroupsRepeater
-                model: _private.noPhoneModeGroups
-                delegate: BasicListItem {
-                    property bool categoryPicked: (model.index === 0)
-                    property string categoryKey: model.index + 1
-                    property string categoryValue: modelData
-                    icon.source: categoryPicked ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                    text: categoryValue
-                    onClicked: {
-                        categoryPicked = !categoryPicked;
+            ColumnLayout {
+                id: noPhoneModeSettings
+                visible: false
+                Layout.fillWidth: true
+                Repeater {
+                    id: noPhoneModeGroupsRepeater
+                    model: _private.noPhoneModeGroups
+                    delegate: BasicListItem {
+                        property bool categoryPicked: (model.index === 0)
+                        property string categoryKey: model.index + 1
+                        property string categoryValue: modelData
+                        icon.source: categoryPicked ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        text: categoryValue
+                        onClicked: {
+                            categoryPicked = !categoryPicked;
+                        }
                     }
                 }
-            }
-            Label {
-                Layout.fillWidth: true;
-                wrapMode: Text.Wrap;
-                text: i18nc("Label for the slider which lets the user pick how long to wait between No Phone mode picks its commands", "No Phone Mode will wait between %1 and %2 seconds before picking its next move.", Math.floor(pauseRangeSlider.first.value), Math.floor(pauseRangeSlider.second.value));
-            }
-            RangeSlider {
-                id: pauseRangeSlider;
-
-                first.value: Digitail.AppSettings.idleMinPause;
-                second.value: Digitail.AppSettings.idleMaxPause;
-                from: 15;
-                to: 240;
-                stepSize: 1.0;
-                Layout.leftMargin: Kirigami.Units.largeSpacing;
-                Layout.fillWidth: true;
-
-                Component.onCompleted: {
-                    pauseRangeSlider.setValues(Digitail.AppSettings.idleMinPause, Digitail.AppSettings.idleMaxPause);
+                Label {
+                    Layout.fillWidth: true;
+                    wrapMode: Text.Wrap;
+                    text: i18nc("Label for the slider which lets the user pick how long to wait between No Phone mode picks its commands", "No Phone Mode will wait between %1 and %2 seconds before picking its next move.", Math.floor(pauseRangeSlider.first.value), Math.floor(pauseRangeSlider.second.value));
                 }
-            }
-            Label {
-                Layout.fillWidth: true;
-                wrapMode: Text.Wrap;
-                text: i18nc("Label for the slider which lets the user pick how long to wait before No Phone mode is fully activated", "No Phone Mode will wait %1 minute(s) before picking the first move.", noPhoneModeDelay.value);
-            }
-            Slider {
-                id: noPhoneModeDelay;
-                Layout.fillWidth: true;
-                from: 1;
-                to: 4;
-                stepSize: 1.0;
+                RangeSlider {
+                    id: pauseRangeSlider;
+
+                    first.value: Digitail.AppSettings.idleMinPause;
+                    second.value: Digitail.AppSettings.idleMaxPause;
+                    from: 15;
+                    to: 240;
+                    stepSize: 1.0;
+                    Layout.leftMargin: Kirigami.Units.largeSpacing;
+                    Layout.fillWidth: true;
+
+                    Component.onCompleted: {
+                        pauseRangeSlider.setValues(Digitail.AppSettings.idleMinPause, Digitail.AppSettings.idleMaxPause);
+                    }
+                }
+                Label {
+                    Layout.fillWidth: true;
+                    wrapMode: Text.Wrap;
+                    text: i18nc("Label for the slider which lets the user pick how long to wait before No Phone mode is fully activated", "No Phone Mode will wait %1 minute(s) before picking the first move.", noPhoneModeDelay.value);
+                }
+                Slider {
+                    id: noPhoneModeDelay;
+                    Layout.fillWidth: true;
+                    from: 1;
+                    to: 4;
+                    stepSize: 1.0;
+                }
             }
             Button {
                 text: i18nc("Label for the button in the disconnection options popup which puts the gear into autonomous, or no phone, mode", "Engage No Phone Mode");
@@ -240,7 +255,7 @@ Kirigami.OverlaySheet {
         }
         Item {
             Layout.fillWidth: true
-            Layout.minimumHeight: 150
+            Layout.minimumHeight: Kirigami.Units.largeSpacing
             QtObject {
                 id: _private
                 property bool hasNoPhoneMode: false
