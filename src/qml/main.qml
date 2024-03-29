@@ -454,12 +454,8 @@ Kirigami.ApplicationWindow {
         id: disconnectionOptions;
     }
 
-    Item {
+    QtObject {
         id: connectingToTail;
-        anchors.fill: parent;
-        visible: opacity > 0
-        opacity: connectingDevices > 0 ? 1 : 0;
-        Behavior on opacity { PropertyAnimation { duration: 250; } }
         property int connectingDevices: 0
         property bool connectingMultipleDevices: false
         onConnectingDevicesChanged: {
@@ -468,44 +464,6 @@ Kirigami.ApplicationWindow {
             } else if (connectingDevices === 0) {
                 connectingMultipleDevices = false;
             }
-        }
-        Rectangle {
-            color: "black";
-            opacity: 0.2;
-            anchors.fill: parent;
-        }
-        MouseArea {
-            anchors.fill: parent;
-            enabled: connectingToTail.opacity > 0;
-            onClicked: {}
-        }
-        Kirigami.AbstractCard {
-            anchors {
-                top: connectingLabel.top
-                left: connectingLabel.left
-                right: connectingLabel.right
-                bottom: connectingSpinner.bottom;
-                margins: -Kirigami.Units.largeSpacing;
-            }
-        }
-        Label {
-            id: connectingLabel
-            anchors {
-                bottom: parent.verticalCenter;
-                bottomMargin: Kirigami.Units.smallMargin;
-                horizontalCenter: parent.horizontalCenter;
-            }
-            visible: connectingToTail.connectingDevices > 0 // Just a small thing, otherwise we'll momentarily see 0, which is a bit ugly
-            text: i18ncp("Label for your gear that gets shown when attempting to connect to it", "Attempting to connect...", "Attempting to connect to %1 bits of gear...", connectingToTail.connectingDevices);
-        }
-        BusyIndicator {
-            id: connectingSpinner
-            anchors {
-                top: parent.verticalCenter;
-                topMargin: Kirigami.Units.smallMargin;
-                horizontalCenter: parent.horizontalCenter;
-            }
-            running: connectingToTail.opacity > 0;
         }
     }
 
