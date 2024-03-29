@@ -186,6 +186,8 @@ ColumnLayout {
         Kirigami.OverlaySheet {
             id: sendCommandToSelector;
             z: 9999
+            parent: Overlay.overlay
+            width: root.width - Kirigami.Units.largeSpacing * 4
             function selectDestination(command, deviceIDs) {
                 sendCommandToSelector.command = command;
                 sendCommandToSelector.deviceIDs = deviceIDs;
@@ -202,93 +204,89 @@ ColumnLayout {
             property string command;
             property var deviceIDs: []
             title: i18nc("Header for the overlay for selecting the destination for a command", "Send where?");
-            Item {
-                implicitWidth: Kirigami.Units.gridUnit * 30
-                height: childrenRect.height
-                ColumnLayout {
-                    spacing: 0;
-                    anchors { left: parent.left; right: parent.right; }
-                    InfoCard {
-                        text: i18nc("Text for the overlay for selecting the destination for a command", "Pick from the list below where you want to send the command.");
-                        Layout.fillWidth: true;
-                    }
-                    Repeater {
-                        model: Digitail.FilterProxyModel {
-                            id: selectorDeviceModel;
-                            sourceModel: Digitail.DeviceModel;
-                            filterRole: Digitail.DeviceModelTypes.IsConnected;
-                            filterBoolean: true;
-                            property bool hasCheckedIDs: true;
-                            function updateHasCheckedIDs() {
-                                var hasChecked = false;
-                                for (var i = 0; i < count; ++i) {
-                                    if(data(index(i, 0), Digitail.DeviceModelTypes.Checked) == true) { // if checked
-                                        hasChecked = true;
-                                        break;
-                                    }
+            ColumnLayout {
+                spacing: 0;
+                anchors { left: parent.left; right: parent.right; }
+                InfoCard {
+                    text: i18nc("Text for the overlay for selecting the destination for a command", "Pick from the list below where you want to send the command.");
+                    Layout.fillWidth: true;
+                }
+                Repeater {
+                    model: Digitail.FilterProxyModel {
+                        id: selectorDeviceModel;
+                        sourceModel: Digitail.DeviceModel;
+                        filterRole: Digitail.DeviceModelTypes.IsConnected;
+                        filterBoolean: true;
+                        property bool hasCheckedIDs: true;
+                        function updateHasCheckedIDs() {
+                            var hasChecked = false;
+                            for (var i = 0; i < count; ++i) {
+                                if(data(index(i, 0), Digitail.DeviceModelTypes.Checked) == true) { // if checked
+                                    hasChecked = true;
+                                    break;
                                 }
-                                hasCheckedIDs = hasChecked;
                             }
-                            function checkedIDs() {
-                                var theIDs = new Array();
-                                for (var i = 0; i < count; ++i) {
-                                    if(data(index(i, 0), Digitail.DeviceModelTypes.Checked) == true && sendCommandToSelector.deviceIDs.includes(data(index(i, 0), Digitail.DeviceModelTypes.DeviceID))) { // if checked and also in the device id list
-                                        theIDs.push(data(index(i, 0), Digitail.DeviceModelTypes.DeviceID)); // add the device ID
-                                    }
-                                }
-                                return theIDs;
-                            }
+                            hasCheckedIDs = hasChecked;
                         }
-                        BasicListItem {
-                            id: deviceListItem;
-                            Layout.fillWidth: true;
-                            visible: sendCommandToSelector.deviceIDs.includes(model.deviceID)
-                            enabled: Digitail.AppSettings.alwaysSendToAll === false
-                            text: model.name ? model.name : "";
-                            // icon.source: model.checked ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                            property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
-                            onItemIsCheckedChanged: { selectorDeviceModel.updateHasCheckedIDs(); }
-                            onClicked: { Digitail.BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
-                            Kirigami.Icon {
-                                source: model.deviceIcon
-                                Layout.fillHeight: true
-                                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium
-                                Layout.minimumWidth: height
-                                Layout.maximumWidth: height
-                                Layout.alignment: Qt.AlignVCenter
-                                isMask: true
-                                color: model.color !== undefined ? model.color : "transparent"
+                        function checkedIDs() {
+                            var theIDs = new Array();
+                            for (var i = 0; i < count; ++i) {
+                                if(data(index(i, 0), Digitail.DeviceModelTypes.Checked) == true && sendCommandToSelector.deviceIDs.includes(data(index(i, 0), Digitail.DeviceModelTypes.DeviceID))) { // if checked and also in the device id list
+                                    theIDs.push(data(index(i, 0), Digitail.DeviceModelTypes.DeviceID)); // add the device ID
+                                }
                             }
+                            return theIDs;
                         }
                     }
                     BasicListItem {
+                        id: deviceListItem;
                         Layout.fillWidth: true;
-                        text: i18nc("Label for the checkbox which allows the user to remember the send to all devices option when selecting a command", "Always Send To All")
-                        icon.source: Digitail.AppSettings.alwaysSendToAll ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
-                        onClicked: { Digitail.AppSettings.alwaysSendToAll = !Digitail.AppSettings.alwaysSendToAll; }
+                        visible: sendCommandToSelector.deviceIDs.includes(model.deviceID)
+                        enabled: Digitail.AppSettings.alwaysSendToAll === false
+                        text: model.name ? model.name : "";
+                        // icon.source: model.checked ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                        property bool itemIsChecked: model.checked !== undefined ? model.checked : false;
+                        onItemIsCheckedChanged: { selectorDeviceModel.updateHasCheckedIDs(); }
+                        onClicked: { Digitail.BTConnectionManager.setDeviceChecked(model.deviceID, !model.checked); }
+                        Kirigami.Icon {
+                            source: model.deviceIcon
+                            Layout.fillHeight: true
+                            Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium
+                            Layout.minimumWidth: height
+                            Layout.maximumWidth: height
+                            Layout.alignment: Qt.AlignVCenter
+                            isMask: true
+                            color: model.color !== undefined ? model.color : "transparent"
+                        }
+                    }
+                }
+                BasicListItem {
+                    Layout.fillWidth: true;
+                    text: i18nc("Label for the checkbox which allows the user to remember the send to all devices option when selecting a command", "Always Send To All")
+                    icon.source: Digitail.AppSettings.alwaysSendToAll ? "qrc:/icons/breeze-internal/emblems/16/checkbox-checked" : "qrc:/icons/breeze-internal/emblems/16/checkbox-unchecked";
+                    onClicked: { Digitail.AppSettings.alwaysSendToAll = !Digitail.AppSettings.alwaysSendToAll; }
+                }
+                Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+                RowLayout {
+                    Layout.fillWidth: true;
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
+                    Button {
+                        text: i18nc("Action for sending a command to the selected devices in a list", "Send To Selected");
+                        enabled: selectorDeviceModel.hasCheckedIDs && Digitail.AppSettings.alwaysSendToAll === false;
+                        onClicked: {
+                            root.commandActivated(sendCommandToSelector.command, selectorDeviceModel.checkedIDs());
+                            sendCommandToSelector.close();
+                        }
                     }
                     Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-                    RowLayout {
-                        Layout.fillWidth: true;
-                        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-                        Button {
-                            text: i18nc("Action for sending a command to the selected devices in a list", "Send To Selected");
-                            enabled: selectorDeviceModel.hasCheckedIDs && Digitail.AppSettings.alwaysSendToAll === false;
-                            onClicked: {
-                                root.commandActivated(sendCommandToSelector.command, selectorDeviceModel.checkedIDs());
-                                sendCommandToSelector.close();
-                            }
+                    Button {
+                        text: i18nc("Action for sending a command to all devices in a list", "Send To All");
+                        onClicked: {
+                            root.commandActivated(sendCommandToSelector.command, sendCommandToSelector.deviceIDs);
+                            sendCommandToSelector.close();
                         }
-                        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
-                        Button {
-                            text: i18nc("Action for sending a command to all devices in a list", "Send To All");
-                            onClicked: {
-                                root.commandActivated(sendCommandToSelector.command, sendCommandToSelector.deviceIDs);
-                                sendCommandToSelector.close();
-                            }
-                        }
-                        Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                     }
+                    Item { height: Kirigami.Units.smallSpacing; Layout.fillWidth: true; }
                 }
             }
         }
