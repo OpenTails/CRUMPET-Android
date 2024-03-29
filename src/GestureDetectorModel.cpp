@@ -332,7 +332,7 @@ void GestureDetails::load() {
         {QLatin1String("walkingStopped"), QLatin1String("TAILHM")}
     };
     static const QStringList defaultPinned{
-        QLatin1String{"QtSensors.Walking"}
+        QLatin1String{"Tailcompany.Walking"}
     };
     d->defaultCommand = defaultCommands.value(d->gestureId, QLatin1String{});
 
