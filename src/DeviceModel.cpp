@@ -498,6 +498,8 @@ void DeviceModel::addDevice(GearBase* newDevice)
             } else {
                 Q_EMIT deviceDisconnected(newDevice);
             }
+            d->notifyDeviceDataChanged(newDevice, IsConnected);
+            Q_EMIT isConnectedChanged(this->isConnected());
         });
         connect(newDevice, &GearBase::progressDescriptionChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, ProgressDescription);
@@ -530,10 +532,6 @@ void DeviceModel::addDevice(GearBase* newDevice)
         });
         connect(newDevice, &GearBase::versionChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, DeviceVersion);
-        });
-        connect(newDevice, &GearBase::isConnectedChanged, this, [this, newDevice](){
-            d->notifyDeviceDataChanged(newDevice, IsConnected);
-            Q_EMIT isConnectedChanged(isConnected());
         });
         connect(newDevice, &GearBase::nameChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, Name);
