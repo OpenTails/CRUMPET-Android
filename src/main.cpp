@@ -267,6 +267,16 @@ int appMain(int argc, char *argv[])
     });
 #endif
 
+    QTimer keepAliver;
+    keepAliver.setInterval(10000);
+    QObject::connect(&keepAliver, &QTimer::timeout, btConnectionManagerReplica.data(), [&btConnectionManagerReplica](){
+        // This is very extremely silly and i'd rather we didn't have to do this,
+        // but... since otherwise Android will kill the service, perform some
+        // kind of activity against that activity to stop it from being shut down
+        btConnectionManagerReplica->isConnected();
+    });
+    keepAliver.start();
+
     return app.exec();
 }
 
