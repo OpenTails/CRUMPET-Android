@@ -456,8 +456,8 @@ Kirigami.ApplicationWindow {
 
     ConnectToTail {
         id: connectToTail;
-        onAttemptToConnect: {
-            root.pageToPush = pageToPush;
+        onAttemptToConnect: function(deviceID) {
+            root.pageToPush = connectToTail.pageToPush;
             Digitail.BTConnectionManager.connectToDevice(deviceID);
             connectingToTail.connectingDevices += 1;
         }
