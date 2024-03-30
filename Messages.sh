@@ -17,7 +17,7 @@ echo "Done extracting messages"
 
 
 echo "Merging translations"
-catalogs=`find . -name '*.po'`
+catalogs=`find . -name '*.po' -not -path "./craft-*"`
 for cat in $catalogs; do
   echo $cat
   msgmerge -o $cat.new $cat ${PROJECT}.pot
