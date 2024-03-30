@@ -96,9 +96,12 @@ Kirigami.OverlaySheet {
                     }
                 }
                 QQC2.Button {
-                    text: model.isConnected ? 
-                        i18nc("Button for the action of disconnecting a device, in the prompt for connecting a device", "Disconnect") : 
-                        i18nc("Button for the action of connecting a device, in the prompt for connecting a device", "Connect")
+                    text: model.isConnecting
+                        ? i18nc("A label in the prompt for connecting to a device showing that the device is currently connecting", "Connecting...")
+                        : model.isConnected
+                            ? i18nc("Button for the action of disconnecting a device, in the prompt for connecting a device", "Disconnect")
+                            : i18nc("Button for the action of connecting a device, in the prompt for connecting a device", "Connect")
+                    enabled: model.isConnecting == false
                     onClicked: {
                         sheet.close();
                         if (model.isConnected) {
