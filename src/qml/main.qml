@@ -162,22 +162,10 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         id: globalDrawer
 
-        property int clicksCount: 0
-
-        // bannerVisible: true;
         // bannerImageSource: "qrc:/images/banner_image.png";
         // This is something of a hack... Can't access this properly as a property, so... this will have to do
         // Simply replacing the rectangle means we end up removing the handles and whatnot, so that's not cool
 //         Component.onCompleted: { background.color = "#3daee9"; }
-
-        // onBannerClicked: {
-        //     if (!clicksTimer.running) {
-        //         clicksCount = 0;
-        //         clicksTimer.start();
-        //     }
-        // 
-        //     clicksCount++;
-        // }
 
         Digitail.FilterProxyModel {
             id: connectedDevicesModel
@@ -193,20 +181,6 @@ Kirigami.ApplicationWindow {
             sourceModel: connectedDevicesModel;
             filterRole: Digitail.DeviceModelTypes.HasListening;
             filterBoolean: true;
-        }
-
-        Timer {
-            id: clicksTimer;
-            interval: 1500;
-
-            onTriggered: {
-                if (globalDrawer.clicksCount >= 5) {
-                    globalDrawer.close();
-                    Digitail.AppSettings.developerMode = !Digitail.AppSettings.developerMode;
-                } else {
-                    globalDrawer.clicksCount = 0;
-                }
-            }
         }
 
         actions: [
@@ -338,6 +312,44 @@ Kirigami.ApplicationWindow {
                 }
             }
         ]
+        content: ColumnLayout {
+            spacing: 0
+            Layout.fillHeight: true
+            Timer {
+                property int clicksCount: 0
+                id: clicksTimer;
+                interval: 1500;
+
+                onTriggered: {
+                    if (clicksTimer.clicksCount >= 5) {
+                        globalDrawer.close();
+                        Digitail.AppSettings.developerMode = !Digitail.AppSettings.developerMode;
+                    } else {
+                        clicksTimer.clicksCount = 0;
+                    }
+                }
+            }
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+            }
+            Image {
+                Layout.fillWidth: true
+                Layout.leftMargin: -globalDrawer.leftPadding
+                Layout.rightMargin: -globalDrawer.rightPadding
+                Layout.bottomMargin: -globalDrawer.bottomPadding
+                source: "qrc:/images/banner_image.png";
+                TapHandler {
+                    onTapped: {
+                        if (!clicksTimer.running) {
+                            clicksTimer.clicksCount = 0;
+                            clicksTimer.start();
+                        }
+                        clicksTimer.clicksCount++;
+                    }
+                }
+            }
+        }
     }
     Component {
         id: welcomePage;
