@@ -26,6 +26,7 @@
 #include "GearCommandModel.h"
 #include "DeviceModel.h"
 
+
 class GearBase : public QObject
 {
     Q_OBJECT
@@ -57,6 +58,9 @@ public:
     ~GearBase() override;
 
     QBluetoothDeviceInfo deviceInfo;
+
+    // Some convenient known messasges
+    constexpr static const QLatin1String SHUTDOWN_MESSAGE{"SHUTDOWN"};
 
     GearCommandModel* commandModel{new GearCommandModel(this)};
     QMap<QString, QString> commandShorthands;

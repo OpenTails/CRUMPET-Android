@@ -73,7 +73,7 @@ public:
     int reconnectThrottle{0};
     void reconnectDevice(QObject* context)
     {
-        QTimer::singleShot(0, context, [this] {
+        QTimer::singleShot(100, context, [this] {
             if (btControl) {
                 if (reconnectThrottle > 10) {
                     q->disconnectDevice();
@@ -584,6 +584,7 @@ void GearMitail::connectDevice()
         } else {
             qDebug() << name() << deviceID() << "LowEnergy controller disconnected";
             Q_EMIT deviceMessage(deviceID(), i18nc("Warning that the device itself disconnected during operation (usually due to turning off from low power)", "The MiTail closed the connection, either by being turned off or losing power. Remember to charge your tail!"));
+            deleteLater();
         }
         disconnectDevice();
     });
@@ -662,6 +663,9 @@ void GearMitail::sendMessage(const QString &message)
             d->deviceService->writeCharacteristic(d->deviceCommandWriteCharacteristic, actualCall.toUtf8());
             d->currentCall = message;
             Q_EMIT currentCallChanged(message);
+            if (message == SHUTDOWN_MESSAGE) {
+                deleteLater();
+            }
         }
     }
 }
