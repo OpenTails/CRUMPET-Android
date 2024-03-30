@@ -43,7 +43,6 @@ public:
     WalkingSensorPrivate(WalkingSensor *q)
         : q(q)
         , zValue{9.8}
-        , workerThread(qApp)
         , stepCount{0}
     {
         accelerometer.setDataRate(30);
@@ -53,8 +52,6 @@ public:
     QTimer timer;
     QAccelerometer accelerometer;
     qreal zValue;
-    QThread workerThread;
-    QMutex mutex;
 
     int stepCount;
     ValueList zVals;
@@ -144,13 +141,10 @@ WalkingSensor::WalkingSensor(QObject* parent)
     });
     d->isWalkingTimer.setSingleShot(true);
 
-    d->timer.moveToThread(&d->workerThread);
     d->timer.setInterval(16);
     d->timer.setSingleShot(false);
     connect(&d->timer, &QTimer::timeout,this, [this](){
-        d->mutex.lock();
         d->zVals.push_back(d->zValue);
-        d->mutex.unlock();
         if ((d->zVals.size() % SAMPLE_SIZE == 0) && (d->zVals.size() >= SAMPLE_SIZE)) {
             d->countSteps();
         }
@@ -163,12 +157,8 @@ WalkingSensor::WalkingSensor(QObject* parent)
 
     QObject::connect(&d->accelerometer, &QAccelerometer::readingChanged, this, [this](){
         auto value = d->accelerometer.reading();
-        d->mutex.lock();
         d->zValue = value->z();
-        d->mutex.unlock();
     });
-
-    d->workerThread.start();
 }
 
 QStringList WalkingSensor::recognizerSignals() const
