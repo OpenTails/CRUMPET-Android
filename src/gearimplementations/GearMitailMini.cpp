@@ -43,7 +43,7 @@ public:
     DeviceModel * parentModel{nullptr};
 
     QHash<QString, QString> knownFirmwareMessages;
-    QLatin1String version{"(unknown)"};
+    QString version = QLatin1String{"(unknown)"};
     int batteryLevel{-1};
 
     QString currentCall;
@@ -160,7 +160,7 @@ public:
             }
             else if (stateResult[0] == QLatin1String{"VER"}) {
                 q->reloadCommands();
-                version = QLatin1String{newValue};
+                version = QString::fromUtf8(newValue);
                 Q_EMIT q->versionChanged(version);
                 q->setKnownFirmwareMessage(knownFirmwareMessages.value(version, QLatin1String{}));
                 pingTimer.start();
@@ -168,7 +168,7 @@ public:
                     if (otaVersion == q->manuallyLoadedOtaVersion()) {
                         // We have no idea whether the update succeeded, tell the user they need to check themselves
                         q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a firmware update with an unknown outcome", "Reboot Completed"), i18nc("Message shown to the user after a reboot following a manual firmware upload", "The reboot following the firmware upload has completed and we have connected back to the device. The gear now reports %1, and we hope that is what you expected.", version));
-                    } else if (otaVersion == QLatin1String{newValue}) {
+                    } else if (otaVersion == QString::fromUtf8(newValue)) {
                         // successful update get!
                         q->deviceBlockingMessage(i18nc("Title of the message box shown to the user upon a successful firmware upgrade", "Upgrade Successful"), i18nc("Message shown to the user when a firmware update completed successfully", "Congratulations, your gear has been successfully updated to version %1!", version));
                     } else {
@@ -264,7 +264,7 @@ public:
             }
         } else {
             qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-            currentCall = QLatin1String{newValue};
+            currentCall = QString::fromUtf8(newValue);
             Q_EMIT q->currentCallChanged(currentCall);
         }
     }

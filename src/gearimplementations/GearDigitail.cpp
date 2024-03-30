@@ -35,7 +35,7 @@ public:
     GearDigitail* q{nullptr};
     DeviceModel * parentModel{nullptr};
 
-    QLatin1String version{"(unknown)"};
+    QString version = QLatin1String{"(unknown)"};
     QString currentCall;
     int batteryLevel{-1};
 
@@ -120,7 +120,7 @@ public:
         if (tailStateCharacteristicUuid == characteristic.uuid()) {
             if (currentCall == QLatin1String("VER")) {
                 q->reloadCommands();
-                version = QLatin1String{newValue};
+                version = QString::fromUtf8(newValue);
                 Q_EMIT q->versionChanged(version);
                 batteryTimer.start();
                 q->sendMessage(QLatin1String{"BATT"});
@@ -202,7 +202,7 @@ public:
     void characteristicWritten(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
     {
         qDebug() << q->name() << q->deviceID() << "Characteristic written:" << characteristic.uuid() << newValue;
-        currentCall = QLatin1String{newValue};
+        currentCall = QString::fromUtf8(newValue);
         Q_EMIT q->currentCallChanged(currentCall);
     }
 };

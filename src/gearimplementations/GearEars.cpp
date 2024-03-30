@@ -42,7 +42,7 @@ public:
     GearEars* q{nullptr};
     DeviceModel * parentModel{nullptr};
 
-    QLatin1String version{"(unknown)"};
+    QString version = QLatin1String{"(unknown)"};
     int batteryLevel{-1};
     bool micsSwapped{false};
     ListenMode listenMode{ListenModeOff};
@@ -196,8 +196,8 @@ public:
             }
             else if (stateResult[0] == QLatin1String{"VER"}) {
                 q->reloadCommands();
-                version = QLatin1String(newValue);
-                Q_EMIT q->versionChanged(QString::fromUtf8(newValue));
+                version = QString::fromUtf8(newValue);
+                Q_EMIT q->versionChanged(version);
                 Q_EMIT q->supportedTiltEventsChanged();
                 q->setListenMode(listenMode);
                 if (q->deviceInfo.name() == QLatin1String{"EarGear"}) {
