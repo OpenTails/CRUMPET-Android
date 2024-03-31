@@ -85,7 +85,7 @@ Kirigami.AboutPage {
                         "spdx" : "GPL-3.0"
                     }
                 ],
-        "copyrightStatement" : "© 2018-2022 The Tail Company Community",
+        "copyrightStatement" : "© 2018-2024 The Tail Company Community",
         "desktopFileName" : "org.thetailcompany.digitail"
     }
 }
