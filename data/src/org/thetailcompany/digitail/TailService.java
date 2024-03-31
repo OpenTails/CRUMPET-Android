@@ -39,22 +39,20 @@ public class TailService extends QtService
 
     public void acquireWakeLock() {
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-            "DIGITAiL::TailWakeLockTag");
+        mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "DIGITAiL::TailWakeLockTag");
         mWakeLock.acquire();
 
         // Start foregrounding the service and put up a notification saying we're alive
-        Intent notificationIntent = new Intent(this, TailActivity.class);
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent =
-                PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        Intent notificationIntent = new Intent(this, SplashActivity.class);
+        // notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channel = createChannel();
             Notification notification = new Notification.Builder(this, channel)
                 .setContentTitle(getText(R.string.notification_title))
                 .setContentText(getText(R.string.notification_message))
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_stat_notification_icon)
                 .setContentIntent(pendingIntent)
                 .setTicker(getText(R.string.ticker_text))
                 .build();
@@ -63,7 +61,7 @@ public class TailService extends QtService
             Notification notification = new Notification.Builder(this)
                 .setContentTitle(getText(R.string.notification_title))
                 .setContentText(getText(R.string.notification_message))
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_stat_notification_icon)
                 .setContentIntent(pendingIntent)
                 .setTicker(getText(R.string.ticker_text))
                 .build();
