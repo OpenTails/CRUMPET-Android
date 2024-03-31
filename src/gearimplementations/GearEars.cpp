@@ -381,7 +381,7 @@ public:
                     receivedBytes = tempVal;
                 }
                 if (firmwareProgress < firmware.size()) {
-                    static const int MTUSize{500}; // evil big size for a start, hopefully should be ok, but let's see if we get any reports...
+                    static const int MTUSize{512};
                     firmwareChunk = firmware.mid(firmwareProgress, MTUSize);
                     firmwareProgress += firmwareChunk.size();
                     earsService->writeCharacteristic(earsCommandWriteCharacteristic, firmwareChunk);
