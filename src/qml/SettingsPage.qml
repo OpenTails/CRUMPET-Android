@@ -18,6 +18,7 @@
  */
 
 import QtQuick
+import QtCore
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import QtQuick.Dialogs as QtDialogs
@@ -226,6 +227,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true;
                             text: i18nc("Label for a button which allows the user to pick a file to load the firmware from (this is only available in developer mode)", "Load From File");
                             onClicked: {
+                                firmwareFilePicker.visible = true;
                                 firmwareFilePicker.open();
                             }
                             QtDialogs.FileDialog {
@@ -233,7 +235,8 @@ Kirigami.ScrollablePage {
                                 title: i18nc("Title for a dialog which allows the user to pick a file to load as firmware (this is only available in developer mode)", "Pick Firmware File")
                                 nameFilters: ["Firmware Files (*.bin)", "All Files (*)"]
                                 selectedNameFilter.index: 0
-                                currentFolder: shortcuts.documents
+                                currentFolder: StandardPaths.standardLocations(StandardPaths.DocumentsLocation)[0]
+                                visible: false
                                 onAccepted: {
                                     Digitail.BTConnectionManager.callDeviceFunctionWithParameter(model.deviceID, "loadFirmwareFile", fileUrl.toString());
                                 }
