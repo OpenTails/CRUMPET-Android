@@ -213,7 +213,7 @@ int appMain(int argc, char *argv[])
     });
 
     QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, btConnectionManagerReplica.data(), [=](){
-        if(permissionsManager->hasBluetoothPermissions()) {
+        if(permissionsManager->hasBluetoothPermissions() && permissionsManager->hasNotificationPermissions()) {
             // Don't launch the discovery immediately, let's give things a change to start up...
             QTimer::singleShot(100, btConnectionManagerReplica.data(), &BTConnectionManagerProxyReplica::startDiscovery);
         }
@@ -318,26 +318,33 @@ int serviceMain(int argc, char *argv[])
     qDebug() << Q_FUNC_INFO << "Setting command queue on alarm list";
     appSettings->alarmListImpl()->setCommandQueue(qobject_cast<CommandQueue*>(btConnectionManager->commandQueue()));
 
-    QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [](bool isConnected) {
+    PermissionsManager* permissionsManager = new PermissionsManager(&app);
+    auto acquireWakeLock = [permissionsManager](){
+        if(permissionsManager->hasNotificationPermissions()) {
 #ifdef Q_OS_ANDROID
-        if(isConnected) {
             QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() {
                 QJniObject androidService = QNativeInterface::QAndroidApplication::context();
                 if(androidService.isValid()) {
                     androidService.callMethod<void>("acquireWakeLock");
                 }
             });
+#endif
+        }
+    };
+    QObject::connect(permissionsManager, &PermissionsManager::permissionsChanged, btConnectionManager, acquireWakeLock);
+    QObject::connect(btConnectionManager, &BTConnectionManager::isConnectedChanged, [&acquireWakeLock](bool isConnected) {
+        if(isConnected) {
+            acquireWakeLock();
         } else {
+#ifdef Q_OS_ANDROID
             QNativeInterface::QAndroidApplication::runOnAndroidMainThread([=]() {
                 QJniObject androidService = QNativeInterface::QAndroidApplication::context();
                 if(androidService.isValid()) {
                     androidService.callMethod<void>("releaseWakeLock");
                 }
             });
-        }
-#else
-    Q_UNUSED(isConnected)
 #endif
+        }
     });
 
     qDebug() << Q_FUNC_INFO << "Creating casual mode handler";

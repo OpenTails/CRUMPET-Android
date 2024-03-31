@@ -150,3 +150,15 @@ void PermissionsManager::requestBluetoothPermissions()
     d->requestDelay.start();
     qDebug() << Q_FUNC_INFO << "Delayed permissions request begun for" << bluetoothPermissionNames();
 }
+
+bool PermissionsManager::hasNotificationPermissions() const
+{
+    // For now, we don't need to request this (foreground services, which must use notifications, just end up shunted to the task manager if the permission is missing)
+    return true;
+    // return hasPermission(QLatin1String{"POST_NOTIFICATIONS"});
+}
+
+void PermissionsManager::requestNotificationPermissions()
+{
+    requestPermissionNow(QLatin1String{"POST_NOTIFICATIONS"});
+}

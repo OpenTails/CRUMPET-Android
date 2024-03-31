@@ -108,16 +108,21 @@ Kirigami.AbstractCard {
                     // else {
                         return i18nc("Label for button for opening the settings tab to fix missing location permissions, for the gear connecting card", "Get Location Permission...");
                     // }
+                } else if (!Digitail.PermissionsManager.hasNotificationPermissions) {
+                    return i18nc("Label for button for getting the missing notifications permission, for the gear connecting card", "Get Notification Permission...");
                 } else if (deviceFilterProxy.count === 1) {
                     return i18nc("Label for button for connecting to a specific piece of gear, for the gear connecting card", "Connect to %1", deviceFilterProxy.data(deviceFilterProxy.index(0, 0), Digitail.DeviceModelTypes.Name))
                 } else {
                     return i18nc("Label for button for showing a list of available gear, for the gear connecting card", "Show available gear...");
                 }
             }
-            visible: (!Digitail.PermissionsManager.hasBluetoothPermissions || deviceFilterProxy.count > 0)
+            visible: (!Digitail.PermissionsManager.hasBluetoothPermissions || !Digitail.PermissionsManager.hasNotificationPermissions || deviceFilterProxy.count > 0)
             onClicked: {
                 if (!Digitail.PermissionsManager.hasBluetoothPermissions) {
                     Digitail.PermissionsManager.requestBluetoothPermissions();
+                }
+                else if (!Digitail.PermissionsManager.hasNotificationPermissions) {
+                    Digitail.PermissionsManager.requestNotificationPermissions();
                 }
                 else if(deviceFilterProxy.count === 1) {
                     // Calling this will stop the discovery immediately and connect to the one tail that we've found
@@ -130,7 +135,7 @@ Kirigami.AbstractCard {
         }
         Button {
             Layout.fillWidth: true; Layout.fillHeight: true;
-            visible: !Digitail.BTConnectionManager.discoveryRunning && Digitail.PermissionsManager.hasBluetoothPermissions
+            visible: !Digitail.BTConnectionManager.discoveryRunning && Digitail.PermissionsManager.hasBluetoothPermissions && Digitail.PermissionsManager.hasNotificationPermissions
             text: i18nc("Label for button which causes the list of available gear to be refreshed, for the gear connecting card", "Look for gear")
             onClicked: {
                 Digitail.BTConnectionManager.startDiscovery();
