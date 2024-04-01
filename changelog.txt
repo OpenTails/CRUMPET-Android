@@ -1,3 +1,11 @@
+36:
+- Connecting to gear no longer requires you to wait
+- Disconnect dialog is less verbose until required to be so
+- Visual polish throughout, including new look buttons, better consistency, and better bottom toolbar
+- Improved startup, including both speed and visuals
+- A variety of small stability fixes
+- Port app to KDE Frameworks 6 and Qt 6
+
 35:
 - Gear now has colours and icons!
 - Many multi-gear improvements:
