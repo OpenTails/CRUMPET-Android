@@ -152,9 +152,9 @@ void GearBase::Private::load()
         settings.endGroup();
         settings.sync();
     }
-    settings.beginGroup("Gear");
     q->setAutoConnect(settings.value(QLatin1String("%1/autoConnect").arg(q->deviceID()), autoConnect).toBool());
     q->setIsKnown(settings.value(QLatin1String("%1/known").arg(q->deviceID()), false).toBool());
+    settings.beginGroup("Gear");
     enabledCommandsFiles = settings.value(commandFilesKey).toStringList();
     Q_EMIT q->enabledCommandsFilesChanged(enabledCommandsFiles);
     gearSensorEvents.clear();
