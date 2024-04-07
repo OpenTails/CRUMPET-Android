@@ -30,11 +30,12 @@ class BTConnectionManagerProxy {
     SLOT(void setDeviceChecked(const QString& deviceID, bool checked))
     SLOT(void setDeviceListeningState(const QString& deviceID, int listeningMode))
     SLOT(void setDeviceTiltState(const QString& deviceID, bool tiltState))
-    SLOT(void clearDeviceNames())
 
     // Use this to call a function on a specific device without digging too deeply (for example, call the checkOTA function)
     SLOT(void callDeviceFunction(const QString& deviceID, const QString& functionName))
     SLOT(void callDeviceFunctionWithParameter(const QString& deviceID, const QString& functionName, const QVariant &parameter))
+    // Use this to set a property on a specific device without digging too deeply (changes get tracked through the device model)
+    SLOT(void setDeviceProperty(const QString& deviceID, const QString& property, const QVariant& value))
 
     // Designed to fill up a map with information, based on the command found in the QVariantMap key "command"'s value
     PROP(QVariantMap command)
@@ -46,6 +47,5 @@ class BTConnectionManagerProxy {
     SIGNAL(messageReceived(const QString &sender, const QString &message))
     SIGNAL(message(const QString& message))
     SIGNAL(blockingMessage(const QString& title, const QString& message))
-    SIGNAL(deviceNamesCleared())
     SIGNAL(deviceConnected(const QString& deviceID))
 };

@@ -393,35 +393,6 @@ void AppSettings::addAlarm(const QString& alarmName)
     d->alarmList->addAlarm(alarmName);
 }
 
-void AppSettings::setDeviceName(const QString& address, const QString& deviceName)
-{
-    QSettings settings;
-    settings.beginGroup("DeviceNameList");
-    settings.setValue(address, deviceName);
-    settings.endGroup();
-    Q_EMIT deviceNamesChanged(deviceNames());
-}
-
-void AppSettings::clearDeviceNames()
-{
-    QSettings settings;
-    settings.remove("DeviceNameList");
-    Q_EMIT deviceNamesChanged(deviceNames());
-}
-
-QVariantMap AppSettings::deviceNames() const
-{
-    QVariantMap namesMap;
-    QSettings settings;
-    settings.beginGroup("DeviceNameList");
-    QStringList keys = settings.childKeys();
-    for(const QString &key : std::as_const(keys)) {
-        namesMap[key] = settings.value(key).toString();
-    }
-    settings.endGroup();
-    return namesMap;
-}
-
 QStringList AppSettings::availableLanguages() const
 {
     static QStringList languages;

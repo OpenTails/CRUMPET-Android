@@ -112,13 +112,6 @@ public:
      */
     void removeDevice(GearBase* device);
 
-    /**
-     * Cause the device model to request an update in the UI for the
-     * device with the passed ID.
-     * @param deviceID The ID of the device for which to request an update
-     */
-    void updateItem(const QString& deviceID);
-
     int count();
     Q_SIGNAL void countChanged();
 

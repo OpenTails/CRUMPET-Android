@@ -448,8 +448,8 @@ Kirigami.ApplicationWindow {
         placeholderText: i18nc("Placeholder text for the prompt for entering a name for your Gear", "Enter the new name for %1 here", namePicker.previousName === "" ? "(unnamed)" : namePicker.previousName);
         buttonOkText: i18nc("Button for confirming the save of your new name, for the prompt for entering a name for your Gear", "Save");
 
-        onNamePicked: {
-            Digitail.BTConnectionManager.setDeviceName(deviceID, name);
+        onNamePicked: function(name) {
+            Digitail.BTConnectionManager.setDeviceName(namePicker.deviceID, name);
             namePicker.close();
         }
     }

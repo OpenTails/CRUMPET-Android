@@ -28,7 +28,6 @@ class AppSettingsProxy {
     PROP(int idleMinPause READWRITE)
     PROP(int idleMaxPause READWRITE)
     PROP(bool fakeTailMode READWRITE)
-    PROP(QVariantMap deviceNames READONLY)
 
     PROP(QStringList availableLanguages READONLY)
     PROP(QString languageOverride READWRITE)

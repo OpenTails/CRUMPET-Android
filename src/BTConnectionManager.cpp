@@ -293,17 +293,10 @@ QVariantMap BTConnectionManager::getCommand(const QString& command)
 
 void BTConnectionManager::setDeviceName(const QString& deviceID, const QString& deviceName)
 {
-    const GearBase* device = d->deviceModel->getDevice(deviceID);
+    GearBase* device = d->deviceModel->getDevice(deviceID);
     if(device) {
-        d->appSettings->setDeviceName(deviceID, deviceName);
-        d->deviceModel->updateItem(deviceID);
+        device->setName(deviceName);
     }
-}
-
-void BTConnectionManager::clearDeviceNames()
-{
-    appSettings()->clearDeviceNames();
-    Q_EMIT deviceNamesCleared();
 }
 
 void BTConnectionManager::setDeviceChecked(const QString& deviceID, bool checked)
@@ -362,5 +355,13 @@ void BTConnectionManager::callDeviceFunctionWithParameter(const QString& deviceI
             argument = QGenericArgument(parameter.typeName(), parameter.data());
         }
         QMetaObject::invokeMethod(device, functionName.toUtf8().data(), argument);
+    }
+}
+
+void BTConnectionManager::setDeviceProperty(const QString& deviceID, const QString& property, const QVariant& value)
+{
+    GearBase* device = d->deviceModel->getDevice(deviceID);
+    if (device) {
+        device->setProperty(property.toStdString().c_str(), value);
     }
 }

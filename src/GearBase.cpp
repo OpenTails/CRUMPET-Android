@@ -66,6 +66,8 @@ public:
     QStringList enabledCommandsFiles;
     DeviceModel * parentModel{nullptr};
     QHash<GearBase::GearSensorEvent, GearSensorEventDetails> gearSensorEvents;
+
+    bool isLoading{false};
 };
 
 GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
@@ -96,6 +98,7 @@ GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
 
     d->load();
     connect(this, &GearBase::enabledCommandsFilesChanged, this, [this](){ d->save(); });
+    connect(this, &GearBase::nameChanged, this, [this](){ d->save(); });
     connect(this, &GearBase::gearSensorEvent, this, [this](const GearSensorEvent &event){ d->handleGearSensorEvent(event); });
 }
 
@@ -106,6 +109,7 @@ GearBase::~GearBase()
 
 void GearBase::Private::load()
 {
+    isLoading = true;
     QSettings settings;
     const QString commandFilesKey = QLatin1String("%1/enabledCommandFiles");
     QStringList oldList = settings.value(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID())).toStringList();
@@ -129,30 +133,43 @@ void GearBase::Private::load()
     }
     Q_EMIT q->gearSensorCommandDetailsChanged();
     settings.endGroup();
+    // Device name
+    settings.beginGroup("DeviceNameList");
+    q->setName(settings.value(q->deviceID(), name).toString());
+    settings.endGroup();
+    isLoading = false;
 }
 
 void GearBase::Private::save()
 {
-    QSettings settings;
-    settings.setValue(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID()), enabledCommandsFiles);
-    settings.beginGroup("Gear");
-    QHashIterator<GearSensorEvent, GearSensorEventDetails> detailsIterator{gearSensorEvents};
-    while(detailsIterator.hasNext()) {
-        detailsIterator.next();
-        const GearSensorEventDetails &details = detailsIterator.value();
-        const QString commandKey = QString::fromUtf8("%1/%2/command").arg(q->deviceID()).arg(detailsIterator.key());
-        const QString devicesKey = QString::fromUtf8("%1/%2/devices").arg(q->deviceID()).arg(detailsIterator.key());
-        if (details.command.isEmpty()) {
-            settings.remove(commandKey);
-            settings.remove(devicesKey);
-        } else {
-            settings.setValue(commandKey, details.command);
-            settings.setValue(devicesKey, details.targetDeviceIDs);
+    if (isLoading == false) {
+        QSettings settings;
+        settings.setValue(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID()), enabledCommandsFiles);
+        settings.beginGroup("Gear");
+        QHashIterator<GearSensorEvent, GearSensorEventDetails> detailsIterator{gearSensorEvents};
+        while(detailsIterator.hasNext()) {
+            detailsIterator.next();
+            const GearSensorEventDetails &details = detailsIterator.value();
+            const QString commandKey = QString::fromUtf8("%1/%2/command").arg(q->deviceID()).arg(detailsIterator.key());
+            const QString devicesKey = QString::fromUtf8("%1/%2/devices").arg(q->deviceID()).arg(detailsIterator.key());
+            if (details.command.isEmpty()) {
+                settings.remove(commandKey);
+                settings.remove(devicesKey);
+            } else {
+                settings.setValue(commandKey, details.command);
+                settings.setValue(devicesKey, details.targetDeviceIDs);
+            }
         }
+        settings.endGroup();
+        settings.beginGroup("DeviceNameList");
+        if (q->name().length() == 0) {
+            settings.remove(q->deviceID());
+        } else {
+            settings.setValue(q->deviceID(), q->name());
+        }
+        settings.endGroup();
+        settings.sync();
     }
-    settings.endGroup();
-    settings.sync();
-
 }
 
 void GearBase::Private::handleGearSensorEvent(const GearSensorEvent& event)

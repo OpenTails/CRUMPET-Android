@@ -73,7 +73,6 @@ public Q_SLOTS:
     QVariantMap getCommand(const QString& command) override;
     void setLocalBTDeviceState();
     void setDeviceName(const QString& deviceId, const QString& deviceName) override;
-    void clearDeviceNames() override;
 
     /**
      * Whether or not a device is marked in the device model
@@ -124,6 +123,13 @@ public Q_SLOTS:
      * @param parameter The parameter you wish to pass along
      */
     void callDeviceFunctionWithParameter ( const QString& deviceID, const QString& functionName, const QVariant &parameter ) override;
+    /**
+     * \brief Set the property of the given device to the given value
+     * @param deviceID The ID of the device on which you wish to set the value of a property
+     * @param property The name of the property whose value you wish to set
+     * @param value The value you wish to set the property to
+     */
+    void setDeviceProperty(const QString& deviceID, const QString& property, const QVariant& value) override;
 Q_SIGNALS:
     void connected(const QString &name);
     void disconnected();

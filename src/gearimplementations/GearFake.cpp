@@ -29,7 +29,6 @@ public:
     int batteryLevel{-1};
     bool isCharging{false};
     QString currentCall;
-    QLatin1String deviceID{"FA:KE:TA:IL"};
     QLatin1String version{"Fake V2"};
 
     QTimer batteryTimer;
@@ -85,11 +84,6 @@ int GearFake::batteryLevel() const
 QString GearFake::currentCall() const
 {
     return d->currentCall;
-}
-
-QString GearFake::deviceID() const
-{
-    return d->deviceID;
 }
 
 QString GearFake::version() const

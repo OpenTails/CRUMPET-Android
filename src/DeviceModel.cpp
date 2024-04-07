@@ -34,13 +34,10 @@ public:
     Private(DeviceModel * qq)
         : q(qq)
     {
-        readDeviceNames();
     }
     ~Private() {}
     DeviceModel * q{nullptr};
     GearBase* fakeDevice{nullptr};
-
-    void readDeviceNames();
 
     AppSettings* appSettings{nullptr};
     QList<GearBase*> devices;
@@ -59,29 +56,12 @@ DeviceModel::DeviceModel(QObject* parent)
     : QAbstractListModel(parent)
     , d(new Private(this))
 {
-    d->fakeDevice = new GearFake(QBluetoothDeviceInfo(QBluetoothAddress(QLatin1String{"FA:KE:TA:IL"}), QLatin1String{"FAKE"}, 0), this);
+    d->fakeDevice = new GearFake(QBluetoothDeviceInfo(QBluetoothAddress(QLatin1String{"00:00:FA:CE:7A:1E"}), QLatin1String{"FAKE"}, 0), this);
 }
 
 DeviceModel::~DeviceModel()
 {
     delete d;
-}
-
-void DeviceModel::Private::readDeviceNames()
-{
-    if (!appSettings) {
-        return;
-    }
-
-    const QVariantMap map = appSettings->deviceNames();
-    for (QVariantMap::const_iterator it = map.cbegin(); it != map.cend(); ++it) {
-        for (GearBase* device : devices) {
-            if (device->deviceID() == it.key()) {
-                device->setName(it.value().toString());
-                break;
-            }
-        }
-    }
 }
 
 AppSettings *DeviceModel::appSettings() const
@@ -92,8 +72,6 @@ AppSettings *DeviceModel::appSettings() const
 void DeviceModel::setAppSettings(AppSettings *appSettings)
 {
     d->appSettings = appSettings;
-    connect(d->appSettings, &AppSettings::deviceNamesChanged, this, [this](){ d->readDeviceNames(); });
-    d->readDeviceNames();
     connect(d->appSettings, &AppSettings::fakeTailModeChanged, this, [this](bool fakeTailMode){
         if (fakeTailMode && !d->devices.contains(d->fakeDevice)) {
             addDevice(d->fakeDevice);
@@ -593,7 +571,6 @@ void DeviceModel::addDevice(GearBase* newDevice)
 
         beginInsertRows(QModelIndex(), 0, 0);
         d->devices.insert(0, newDevice);
-        d->readDeviceNames();
         Q_EMIT deviceAdded(newDevice);
         Q_EMIT countChanged();
         endInsertRows();
@@ -637,16 +614,6 @@ GearBase * DeviceModel::getDeviceById ( int index ) const
         return d->devices[index];
     }
     return nullptr;
-}
-
-void DeviceModel::updateItem(const QString& deviceID)
-{
-    d->readDeviceNames();
-    for(int idx = 0; idx < d->devices.count(); ++idx) {
-        if(d->devices[idx]->deviceID() == deviceID) {
-            Q_EMIT dataChanged(index(idx, 0), index(idx, 0));
-        }
-    }
 }
 
 QString DeviceModel::getDeviceID(int deviceIndex) const

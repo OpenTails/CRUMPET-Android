@@ -82,7 +82,6 @@ public:
     void setAlarmCommands(const QStringList& commands) override;
     void addAlarmCommand(int index, const QString& command, QStringList devices) override;
     void removeAlarmCommand(int index) override;
-    virtual QVariantMap deviceNames() const override;
 
     QStringList availableLanguages() const override;
     QString languageOverride() const override;
@@ -103,14 +102,6 @@ public:
     // Changing the content will reset the title and description, but only if it is valid (or they will be retained in the current session)
     void setCommandFileContents(const QString& filename, const QString& content) override;
     void renameCommandFile(const QString& filename, const QString& newFilename) override;
-
-    /// We have access to this method only from the Service.
-    /// See BTConnectionManager::setDeviceName() method
-    void setDeviceName(const QString& address, const QString& deviceName);
-
-    /// We have access to this method only from the Service
-    /// See BTConnectionManager::clearDeviceNames() method
-    void clearDeviceNames();
 
     void shutDownService() override;
 private:

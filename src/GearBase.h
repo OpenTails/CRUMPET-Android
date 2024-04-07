@@ -114,7 +114,7 @@ public:
     virtual void connectDevice() = 0;
     virtual void disconnectDevice() = 0;
 
-    virtual QString deviceID() const { return deviceInfo.address().toString(); };
+    QString deviceID() const { return deviceInfo.address().toString(); };
 
     virtual void sendMessage(const QString &message) = 0;
 
