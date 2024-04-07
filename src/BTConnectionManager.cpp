@@ -177,6 +177,7 @@ void BTConnectionManager::connectToDevice(const QString& deviceID)
     if(device) {
         qDebug() << "Attempting to connect to device" << device->name();
         device->connectDevice();
+        device->setAutoConnect(d->appSettings->autoReconnect());
     }
 }
 

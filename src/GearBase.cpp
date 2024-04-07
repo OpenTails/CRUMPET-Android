@@ -53,6 +53,8 @@ public:
     QColor color;
     bool supportsOTA{false};
     bool checked{true};
+    bool autoConnect{false};
+    bool isKnown{false};
     bool isConnecting{false};
     bool hasLights{false};
     bool hasShutdown{false};
@@ -97,6 +99,8 @@ GearBase::GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent)
     connect(commandModel, &QAbstractItemModel::dataChanged, this, [timer](const QModelIndex& /*topLeft*/, const QModelIndex& /*bottomRight*/, const QVector< int >& /*roles*/){ timer->start(); });
 
     d->load();
+    connect(this, &GearBase::isKnownChanged, this, [this](){ d->save(); });
+    connect(this, &GearBase::autoConnectChanged, this, [this](){ d->save(); });
     connect(this, &GearBase::enabledCommandsFilesChanged, this, [this](){ d->save(); });
     connect(this, &GearBase::nameChanged, this, [this](){ d->save(); });
     connect(this, &GearBase::gearSensorEvent, this, [this](const GearSensorEvent &event){ d->handleGearSensorEvent(event); });
@@ -111,7 +115,7 @@ void GearBase::Private::load()
 {
     isLoading = true;
     QSettings settings;
-    const QString commandFilesKey = QLatin1String("%1/enabledCommandFiles");
+    const QString commandFilesKey = QLatin1String("enabledCommandFiles-%1").arg(q->deviceID());
     QStringList oldList = settings.value(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID())).toStringList();
     if (oldList.isEmpty() == false) {
         settings.remove(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID()));
@@ -121,6 +125,8 @@ void GearBase::Private::load()
         settings.sync();
     }
     settings.beginGroup("Gear");
+    q->setAutoConnect(settings.value(QLatin1String("%1/autoConnect").arg(q->deviceID()), autoConnect).toBool());
+    q->setIsKnown(settings.value(QLatin1String("%1/known").arg(q->deviceID()), false).toBool());
     enabledCommandsFiles = settings.value(commandFilesKey).toStringList();
     Q_EMIT q->enabledCommandsFilesChanged(enabledCommandsFiles);
     gearSensorEvents.clear();
@@ -144,6 +150,11 @@ void GearBase::Private::save()
 {
     if (isLoading == false) {
         QSettings settings;
+        if (isKnown) {
+            settings.setValue(QLatin1String("%1/known").arg(q->deviceID()), true);
+        } else {
+            settings.remove(QLatin1String("%1/known").arg(q->deviceID()));
+        }
         settings.setValue(QString::fromUtf8("enabledCommandFiles-%1").arg(q->deviceID()), enabledCommandsFiles);
         settings.beginGroup("Gear");
         QHashIterator<GearSensorEvent, GearSensorEventDetails> detailsIterator{gearSensorEvents};
@@ -213,6 +224,32 @@ void GearBase::setChecked(bool checked)
 {
     d->checked = checked;
     Q_EMIT checkedChanged(d->checked);
+}
+
+bool GearBase::autoConnect() const
+{
+    return d->autoConnect;
+}
+
+void GearBase::setAutoConnect(const bool& autoConnect)
+{
+    if (d->autoConnect != autoConnect) {
+        d->autoConnect = autoConnect;
+        Q_EMIT autoConnectChanged(autoConnect);
+    }
+}
+
+bool GearBase::isKnown() const
+{
+    return d->isKnown;
+}
+
+void GearBase::setIsKnown(const bool& isKnown)
+{
+    if (d->isKnown != isKnown) {
+        d->isKnown = isKnown;
+        Q_EMIT isKnownChanged();
+    }
 }
 
 bool GearBase::isConnecting() const

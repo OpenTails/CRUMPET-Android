@@ -126,6 +126,8 @@ QHash< int, QByteArray > DeviceModel::roleNames() const
         {DeviceType, "deviceType"},
         {DeviceIcon, "deviceIcon"},
         {IsConnecting, "isConnecting"},
+        {AutoConnect, "autoConnect"},
+        {IsKnown, "isKnown"},
     };
     return roles;
 }
@@ -359,6 +361,10 @@ QVariant DeviceModel::data(const QModelIndex& index, int role) const
                 break;
             case IsConnecting:
                 return device->isConnecting();
+            case AutoConnect:
+                return device->autoConnect();
+            case IsKnown:
+                return device->isKnown();
             default:
                 break;
         }
@@ -482,6 +488,12 @@ void DeviceModel::addDevice(GearBase* newDevice)
             d->notifyDeviceDataChanged(newDevice, IsConnected);
             Q_EMIT isConnectedChanged(this->isConnected());
         });
+        connect(newDevice, &GearBase::autoConnectChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, AutoConnect);
+        });
+        connect(newDevice, &GearBase::isKnownChanged, this, [this, newDevice](){
+            d->notifyDeviceDataChanged(newDevice, IsKnown);
+        });
         connect(newDevice, &GearBase::isConnectingChanged, this, [this, newDevice](){
             d->notifyDeviceDataChanged(newDevice, IsConnecting);
         });
@@ -574,6 +586,10 @@ void DeviceModel::addDevice(GearBase* newDevice)
         Q_EMIT deviceAdded(newDevice);
         Q_EMIT countChanged();
         endInsertRows();
+
+        if (newDevice->autoConnect()) {
+            newDevice->connectDevice();
+        }
     }
 }
 

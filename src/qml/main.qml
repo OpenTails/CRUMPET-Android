@@ -112,7 +112,18 @@ Kirigami.ApplicationWindow {
                 }
             } else {
                 showPassiveNotification(i18nc("Text for the notification upon connecting successfully to a device", "Connected successfully!"), 1000);
-                namePicker.checkDeviceName(deviceID);
+                let deviceIsKnown = false;
+                for(let i = 0; i < Digitail.BTConnectionManager.deviceCount; ++i) {
+                    let maybeNeedle = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.DeviceID);
+                    if (maybeNeedle == namePicker.deviceID) {
+                        deviceIsKnown = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.IsKnown);
+                        break;
+                    }
+                }
+                if (deviceIsKnown === false) {
+                    namePicker.checkDeviceName(deviceID);
+                    Digitail.BTConnectionManager.setDeviceProperty(deviceID, "isKnown", true);
+                }
             }
             connectingToTail.connectingDevices -= 1;
         }
@@ -428,15 +439,17 @@ Kirigami.ApplicationWindow {
         width: root.width - Kirigami.Units.largeSpacing * 2
 
         function checkDeviceName(deviceID, forcePicking = false) {
-            if (deviceID && (forcePicking || Object.keys(Digitail.AppSettings.deviceNames).includes(deviceID) === false)) {
-                namePicker.deviceID = deviceID;
-                for(var i = 0; i < Digitail.BTConnectionManager.deviceCount; ++i) {
-                    var deviceID = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.DeviceID);
-                    if (deviceID == namePicker.deviceID) {
-                        namePicker.previousName = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.Name);
-                        break;
-                    }
+            let deviceIsKnown = false;
+            for(let i = 0; i < Digitail.BTConnectionManager.deviceCount; ++i) {
+                let maybeNeedle = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.DeviceID);
+                if (maybeNeedle == deviceID) {
+                    deviceIsKnown = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.IsKnown);
+                    namePicker.previousName = Digitail.DeviceModel.data(Digitail.DeviceModel.index(i, 0), Digitail.DeviceModelTypes.Name);
+                    break;
                 }
+            }
+            if (deviceID && (forcePicking || deviceIsKnown === false)) {
+                namePicker.deviceID = deviceID;
                 namePicker.pickName();
             }
         }

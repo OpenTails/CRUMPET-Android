@@ -31,6 +31,8 @@ class GearBase : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool checked READ checked WRITE setChecked NOTIFY checkedChanged)
+    Q_PROPERTY(bool autoConnect READ autoConnect WRITE setAutoConnect NOTIFY autoConnectChanged)
+    Q_PROPERTY(bool isKnown READ isKnown WRITE setIsKnown NOTIFY isKnownChanged)
     Q_PROPERTY(bool isConnected READ isConnected NOTIFY isConnectedChanged)
     Q_PROPERTY(bool isConnecting READ isConnecting NOTIFY isConnectingChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
@@ -76,6 +78,14 @@ public:
     bool checked() const;
     void setChecked(bool checked);
     Q_SIGNAL void checkedChanged(bool checked);
+
+    bool autoConnect() const;
+    void setAutoConnect(const bool &autoConnect);
+    Q_SIGNAL void autoConnectChanged(bool autoConnect);
+
+    bool isKnown() const;
+    void setIsKnown(const bool &isKnown);
+    Q_SIGNAL void isKnownChanged();
 
     virtual bool isConnected() const = 0;
     Q_SIGNAL void isConnectedChanged(bool isConnected);
