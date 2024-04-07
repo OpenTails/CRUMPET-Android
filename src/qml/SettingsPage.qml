@@ -108,17 +108,17 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true;
                             text: model.name
                         }
-                        // QQC2.CheckBox {
-                        //     Layout.fillWidth: true;
-                        //     text: i18nc("A toggle for a single piece of gear on the settings page, allowing the user to change whether to automatically connect to it or not", "Connect Automatically To %1").arg(model.name);
-                        //     checked: model.autoConnect
-                        //     MouseArea {
-                        //         anchors.fill: parent
-                        //         onClicked: {
-                        //             Digitail.BTConnectionManager.setDeviceProperty(model.deviceID, "autoConnect", !model.autoConnect);
-                        //         }
-                        //     }
-                        // }
+                        QQC2.CheckBox {
+                            Layout.fillWidth: true;
+                            text: i18nc("A toggle for a single piece of gear on the settings page, allowing the user to change whether to automatically connect to it or not", "Connect Automatically To %1").arg(model.name);
+                            checked: (model.autoConnect !== undefined && model.autoConnect)
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    Digitail.BTConnectionManager.setDeviceProperty(model.deviceID, "autoConnect", !model.autoConnect);
+                                }
+                            }
+                        }
                         QQC2.Button {
                             Layout.fillWidth: true;
                             text: i18nc("A button on the settings page which allows the user to change the name they have given a piece of gear", "Rename %1...").arg(model.name);
