@@ -79,7 +79,7 @@ public:
         DeviceIcon,              // 294 - A string containing the icon name for the device type
         IsConnecting,            // 295 - Whether the device we are currently attempting to establish a connection to the device
         AutoConnect,             // 296 - Whether the device should be connected to automatically
-        IsKnown,           // 297 - Whether the device is known (we recognise a device as "known" if we have ever connected to it
+        IsKnown,                 // 297 - Whether the device is known (we recognise a device as "known" if we have ever connected to it
     };
     Q_ENUM(Roles)
 

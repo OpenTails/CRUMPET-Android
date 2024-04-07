@@ -130,6 +130,12 @@ public Q_SLOTS:
      * @param value The value you wish to set the property to
      */
     void setDeviceProperty(const QString& deviceID, const QString& property, const QVariant& value) override;
+
+    /**
+     * \brief Forcefully disconnect from and forget everything about the device matching the given device ID
+     * @param deviceID The ID of device to perform this action on
+     */
+    void forgetGear(const QString& deviceID) override;
 Q_SIGNALS:
     void connected(const QString &name);
     void disconnected();

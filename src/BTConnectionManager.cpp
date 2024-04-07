@@ -366,3 +366,11 @@ void BTConnectionManager::setDeviceProperty(const QString& deviceID, const QStri
         device->setProperty(property.toStdString().c_str(), value);
     }
 }
+
+void BTConnectionManager::forgetGear(const QString& deviceID)
+{
+    GearBase* device = d->deviceModel->getDevice(deviceID);
+    if (device) {
+        device->forget();
+    }
+}

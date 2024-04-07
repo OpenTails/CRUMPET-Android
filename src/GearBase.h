@@ -59,6 +59,8 @@ public:
     explicit GearBase(const QBluetoothDeviceInfo& info, DeviceModel * parent = nullptr);
     ~GearBase() override;
 
+    void forget();
+
     QBluetoothDeviceInfo deviceInfo;
 
     // Some convenient known messasges

@@ -111,6 +111,34 @@ GearBase::~GearBase()
     delete d;
 }
 
+void GearBase::forget()
+{
+    if (isConnected()) {
+        disconnectDevice();
+    }
+    QSettings settings;
+    settings.remove(QLatin1String("%1/known").arg(deviceID()));
+    settings.remove(QString::fromUtf8("enabledCommandFiles-%1").arg(deviceID()));
+    settings.beginGroup("Gear");
+    QHashIterator<GearSensorEvent, GearSensorEventDetails> detailsIterator{d->gearSensorEvents};
+    while(detailsIterator.hasNext()) {
+        detailsIterator.next();
+        const GearSensorEventDetails &details = detailsIterator.value();
+        const QString commandKey = QString::fromUtf8("%1/%2/command").arg(deviceID()).arg(detailsIterator.key());
+        const QString devicesKey = QString::fromUtf8("%1/%2/devices").arg(deviceID()).arg(detailsIterator.key());
+        if (details.command.isEmpty()) {
+            settings.remove(commandKey);
+            settings.remove(devicesKey);
+        }
+    }
+    settings.endGroup();
+    settings.beginGroup("DeviceNameList");
+    settings.remove(deviceID());
+    settings.endGroup();
+    settings.sync();
+    deleteLater();
+}
+
 void GearBase::Private::load()
 {
     isLoading = true;
@@ -150,6 +178,7 @@ void GearBase::Private::save()
 {
     if (isLoading == false) {
         QSettings settings;
+        settings.setValue(QLatin1String("%1/autoConnect").arg(q->deviceID()), autoConnect);
         if (isKnown) {
             settings.setValue(QLatin1String("%1/known").arg(q->deviceID()), true);
         } else {

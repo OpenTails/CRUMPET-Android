@@ -92,15 +92,52 @@ Kirigami.ScrollablePage {
         }
 
         SettingsCard {
-            headerText: i18nc("Header for the panel for changing gear names, on the settings page", "Gear Names");
-            descriptionText: i18nc("Description for the panel for changing gear names, on the settings page", "If you want to clear the names of any gear you have given a name, click the button below to make the app forget them all. If you just want to rename a piece of gear, you can do that by tapping on the gear's name in the list over on the home page.");
-            footer: QQC2.Button {
-                text: i18nc("Label for the button for clearing gear names, on the panel for changing gear names, on the settings page", "Forget Gear Names")
-                Layout.fillWidth: true
-                onClicked: {
-                    showMessageBox(i18nc("Header for the warning prompt for clearing gear names, on the panel for changing gear names, on the settings page", "Clear the names?"),
-                        i18nc("Text for the warning prompt for clearing gear names, on the panel for changing gear names, on the settings page", "Please confirm that you do, in fact, want to clear all your saved device names."),
-                        function () { Digitail.BTConnectionManager.clearDeviceNames(); });
+            headerText: i18nc("Header for the panel showing known gear, on the settings page", "Known Gear");
+            descriptionText: i18nc("Description for the panel showing known gear, on the settings page", "Below is a list of the gear you have previously connected to. You can use this list to perform a number of actions, such as explicitly toggling whether or not to automatically connect to it when it's found, to change its name, and even forgetting it. Forgetting it will disconnect (using the Just Disconnect method) from it, if you are currently connected.");
+            footer: ColumnLayout {
+                Repeater {
+                    id: knownGearRepeater
+                    model: Digitail.FilterProxyModel {
+                        sourceModel: Digitail.DeviceModel;
+                        filterRole: Digitail.DeviceModelTypes.IsKnown;
+                        filterBoolean: true;
+                    }
+                    delegate: ColumnLayout {
+                        id: knownGearDelegate
+                        Kirigami.Heading {
+                            Layout.fillWidth: true;
+                            text: model.name
+                        }
+                        // QQC2.CheckBox {
+                        //     Layout.fillWidth: true;
+                        //     text: i18nc("A toggle for a single piece of gear on the settings page, allowing the user to change whether to automatically connect to it or not", "Connect Automatically To %1").arg(model.name);
+                        //     checked: model.autoConnect
+                        //     MouseArea {
+                        //         anchors.fill: parent
+                        //         onClicked: {
+                        //             Digitail.BTConnectionManager.setDeviceProperty(model.deviceID, "autoConnect", !model.autoConnect);
+                        //         }
+                        //     }
+                        // }
+                        QQC2.Button {
+                            Layout.fillWidth: true;
+                            text: i18nc("A button on the settings page which allows the user to change the name they have given a piece of gear", "Rename %1...").arg(model.name);
+                            onClicked: {
+                                namePicker.deviceID = model.deviceID;
+                                namePicker.previousName = model.name;
+                                namePicker.pickName();
+                            }
+                        }
+                        QQC2.Button {
+                            Layout.fillWidth: true;
+                            text: i18nc("Label for the button which opens the dialog box which allows the user to disconnect from and remove all information about a given piece of gear", "Forget %1...").arg(model.name);
+                            onClicked: {
+                                showMessageBox(i18nc("Header for the message box asking whether to forget a piece of gear", "Forget about %1").arg(model.name),
+                                    i18nc("Text for the message box asking whether to forget a piece of gear", "Are you sure you want to forget about %1? If you are sure, click OK below to disconnect and forget. To get it back, you just need to look for more gear and connect to it again.").arg(model.name),
+                                    function() { Digitail.BTConnectionManager.forgetGear(model.deviceID); });
+                            }
+                        }
+                    }
                 }
             }
         }

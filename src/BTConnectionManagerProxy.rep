@@ -37,6 +37,9 @@ class BTConnectionManagerProxy {
     // Use this to set a property on a specific device without digging too deeply (changes get tracked through the device model)
     SLOT(void setDeviceProperty(const QString& deviceID, const QString& property, const QVariant& value))
 
+    // Use this to disconnect from and forget everything about a specific piece of gear
+    SLOT(void forgetGear(const QString& deviceID))
+
     // Designed to fill up a map with information, based on the command found in the QVariantMap key "command"'s value
     PROP(QVariantMap command)
     SLOT(QVariantMap getCommand(const QString& command))
