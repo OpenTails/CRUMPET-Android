@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-01-09 13:12+0000\n"
-"Last-Translator: Galaxy <galaxydragon9@yahoo.it>\n"
-"Language-Team: Italian <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/it/>\n"
+"PO-Revision-Date: 2024-04-10 14:13+0000\n"
+"Last-Translator: Maiiyu hiyako <fatinagameanimation@gmail.com>\n"
+"Language-Team: Italian <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -42,8 +42,8 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
-"Non si riescono a caricare i tuoi comandi, a causa di un errore al %1: %2\n"
-"Il codice porta all'errore \n"
+"Non si riescono a caricare i tuoi comandi a causa di un errore al %1: %2\n"
+"Codice errore: \n"
 "%3"
 
 #: CommandPersistence.cpp:176
@@ -65,7 +65,7 @@ msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr "Giralo a Sinistra"
+msgstr "Gira a Sinistra"
 
 #: DeviceModel.cpp:300
 msgctxt ""
@@ -114,7 +114,7 @@ msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "Livelli suoni ambientali"
 
 #: DeviceModel.cpp:307
 msgctxt ""
@@ -182,8 +182,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"E' stato riscontrato un errore. Se stai cercando di connetterti al tuo "
-"DIGITAiL, assicurati che siano accese e vicine al dispositivo."
+"E' stato riscontrato un errore. Se stai cercando di connetterti alla tua "
+"DIGITAiL, assicurati che sia accesa e vicina al dispositivo."
 
 #: gearimplementations/GearDigitail.cpp:281
 msgctxt "Warning that the device disconnected itself"
@@ -209,8 +209,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
-"DIGITAiL ha chiuso la connessione, perchè è stato spento ha finito la "
-"carica. Ricordati di caricare il tuo DIGITAiL!"
+"DIGITAiL ha chiuso la connessione, potrebbe essersi spenta o scaricata. "
+"Ricordati di caricare la tua DIGITAiL!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -246,7 +246,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "Riavvio completo"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -259,6 +259,9 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"Il riavvioa seguito dell'aggiornamento del firmware è stato completato e "
+"abbiamo riconnesso il dispositivo. Il gear ora riporta %1, e speriamo che "
+"sia il risultato aspettato."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -267,7 +270,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr "Upgrade effettuato con successo"
+msgstr "Aggiornamento effettuato con successo"
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -277,7 +280,7 @@ msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
 msgstr ""
-"Congraturalazioni, il tuo dispositivo è stato aggiornato con successo alla "
+"Congratulazioni, il tuo dispositivo è stato aggiornato con successo alla "
 "versione %1!"
 
 #: gearimplementations/GearEars.cpp:229
@@ -301,11 +304,11 @@ msgid ""
 "a safe fallback to just go back to your old firmware version upon a failure. "
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
-"<p>Spiacenti, ma l'aggiornamento non ha avuto successo. Di solito succede "
-"perché il trasferimento è stato corrotto durante il processo, ecco perchè il "
-"tuo dispositivo ha la possibilità di tornare all'ultima versione che hai "
-"aggiornato. Puoi provare nuovamente ad aggiornarlo cliccando il bottone "
-"Istalla qui.</p>"
+"<p>Spiacenti, ma l'aggiornamento non ha avuto successo. Questo solitamente "
+"accade perché il download si è corrotto durante il processo, ecco perché il "
+"tuo dispositivo è stato automaticamente riportato all'ultima versione "
+"utilizzata. Puoi provare nuovamente l'aggiornamento cliccando il bottone "
+"Installa qui.</p>"
 
 #: gearimplementations/GearEars.cpp:350
 msgctxt ""
@@ -325,8 +328,8 @@ msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
 msgstr ""
-"Hai già la versione più aggiornata del firmware istallata sul tuo "
-"dispositivo, congratulazioni!"
+"Hai già la versione più recente del firmware installata sul tuo dispositivo, "
+"congratulazioni!"
 
 #: gearimplementations/GearEars.cpp:470
 #: gearimplementations/GearFlutterWings.cpp:336
@@ -344,7 +347,7 @@ msgstr ""
 "Il file utilizzato per determinare informazioni riguardo le nuove versioni "
 "del firmware non conteneva il formato atteso di dati. Questo è probabilmente "
 "un errore temporaneo, oppure un problema legato alla connessione. Se il "
-"problema ti si ripresenta ancora, per favore faccelo sapere."
+"problema si ripresenta ancora, per favore faccelo sapere."
 
 #: gearimplementations/GearEars.cpp:474
 #: gearimplementations/GearFlutterWings.cpp:340
@@ -371,9 +374,9 @@ msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Si è verificato un errore mentre ti connettevi al tuo EarGear (la batteria "
-"non era disponibile). Se pensi che questo sia un errore per favore prova di "
-"nuovo!"
+"Si è verificato un errore mentre ti connettevi al tuo EarGear (le "
+"informazioni sulla batteria non erano disponibili). Se pensi che questo sia "
+"un errore per favore prova di nuovo!"
 
 #: gearimplementations/GearEars.cpp:594
 msgctxt ""
@@ -393,13 +396,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
-"E' stato riscontrato un errore. Se stai cercando di connettere le tue ears, "
-"assicurati che EarGear sia acceso e vicino al dispositivo."
+"E' stato riscontrato un errore. Se stai cercando di connettere le tue "
+"orecchie, assicurati che l'EarGear sia acceso e vicino al dispositivo."
 
 #: gearimplementations/GearEars.cpp:627
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr "EarGear ha chiuso la connessione."
+msgstr "L'EarGear ha chiuso la connessione."
 
 #: gearimplementations/GearEars.cpp:630
 msgctxt ""
@@ -408,8 +411,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
-"Non è stato possibile connettere il tuo EarGear. Per favore prova d nuovo "
-"(magari avvicinandoti?)"
+"Non è stato possibile connettere il tuo EarGear. Per favore prova di nuovo ("
+"magari avvicinandoti?)"
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
@@ -430,7 +433,7 @@ msgid ""
 msgstr ""
 "L'upload del firmware è stato completato, e il tuo dispositivo si è spento. "
 "Se non si è acceso di nuovo, chiudi questo messaggio, accendilo manualmente "
-"e connettiti. se si è riacceso di nuovo, puoi chiudere questo messaggio."
+"e connettiti. Se si è riacceso di nuovo, puoi chiudere questo messaggio."
 
 #: gearimplementations/GearEars.cpp:656
 msgctxt ""
@@ -440,8 +443,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
-"EarGear ha chiuso la connessione, si è spento o ha poca carica. Ricordati di "
-"caricare il tuo dispositivo!"
+"L'EarGear ha chiuso la connessione, potrebbe essersi spento o scaricato. "
+"Ricordati di caricare il tuo dispositivo!"
 
 #: gearimplementations/GearEars.cpp:824
 #: gearimplementations/GearFlutterWings.cpp:676
@@ -558,7 +561,7 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
-"Questo è un messaggio per informarti che c'è,sta accadendo qualcosa di "
+"Questo è un messaggio per informarti che sta accadendo qualcosa di "
 "<b>importante</b> con il tuo firmware"
 
 #: gearimplementations/GearFlutterWings.cpp:109
@@ -571,8 +574,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Sembra che il tuo dispositivo non sia un FlutterWings (non è stato possibile "
-"trovare le caratteristiche di writing del main device). Se sei certo che lo "
-"sia, per favore segnala questo errore a The Tail Company."
+"trovare le caratteristiche di scrittura del dispositivo ). Se sei certo che "
+"lo sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:117
 msgctxt ""
@@ -584,8 +587,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Sembra che il tuo dispositivo non sia un FlutterWings (non è stato possibile "
-"le caratteristiche di lettura del main device). Se sei certo che lo sia, per "
-"favore segnala questo errore a The Tail Company."
+"trovare le caratteristiche di lettura del dispositivo). Se sei certo che lo "
+"sia, per favore segnala questo errore a The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:412
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -671,7 +674,7 @@ msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr "Nuovo tentativo di connessione al tuo dispositivo..."
+msgstr "Tentativo di riconnessione al tuo dispositivo..."
 
 #: gearimplementations/GearFlutterWings.cpp:577
 msgctxt ""
@@ -681,8 +684,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
-"Upload del firmware completato, siamo in attesa che il tuo dispositivo si "
-"riavvii automaticamente prima di riconnettersi..."
+"Aggiornamento del firmware completato, siamo in attesa che il tuo "
+"dispositivo si riavvii automaticamente prima di riconnettersi..."
 
 #: gearimplementations/GearFlutterWings.cpp:580
 msgctxt ""
