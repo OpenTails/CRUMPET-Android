@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-02-18 22:13+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
-"Language-Team: German <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/de/>\n"
+"PO-Revision-Date: 2024-04-10 14:13+0000\n"
+"Last-Translator: SnowowlX <snowowl@susilauma.de>\n"
+"Language-Team: German <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -253,7 +253,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "Neustart abgeschlossen"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -266,6 +266,9 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"Der Neustart nach dem Hochladen der Firmware ist abgeschlossen und wir sind "
+"wieder mit dem Gerät verbunden. Das Gerät zeigt nun %1 und wir hoffen das "
+"dies ist, was Du erwartet hast."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -2672,14 +2675,14 @@ msgctxt ""
 "Label for a button which allows the user to pick a file to load the firmware "
 "from (this is only available in developer mode)"
 msgid "Load From File"
-msgstr ""
+msgstr "Von einer Datei laden"
 
 #: qml/SettingsPage.qml:233
 msgctxt ""
 "Title for a dialog which allows the user to pick a file to load as firmware "
 "(this is only available in developer mode)"
 msgid "Pick Firmware File"
-msgstr ""
+msgstr "Auswahl Firmware Datei"
 
 #: qml/SettingsPage.qml:245
 msgctxt ""
