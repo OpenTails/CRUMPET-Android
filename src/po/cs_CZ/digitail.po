@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-01-07 12:12+0000\n"
-"Last-Translator: Jakub Janousek <stegoceras@seznam.cz>\n"
-"Language-Team: Czech <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/cs/>\n"
+"PO-Revision-Date: 2024-04-11 17:23+0000\n"
+"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"Language-Team: Czech <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/cs/>\n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3.1\n"
+"X-Generator: Weblate 5.4.3\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -244,7 +244,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "Restartování dokončeno"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -2830,11 +2830,10 @@ msgid "Crumpet"
 msgstr "Crumpet"
 
 #: qml/WelcomePage.qml:31
-#, fuzzy
 msgctxt ""
 "Label for the button for requesting bluetooth permissions on the welcome page"
 msgid "Get Bluetooth Permissions"
-msgstr "Udělit povolení pro lokaci..."
+msgstr "Udělit povolení pro bluetooth"
 
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
