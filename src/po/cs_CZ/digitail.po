@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-04-11 17:23+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"PO-Revision-Date: 2024-04-11 20:56+0000\n"
+"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Czech <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/cs/>\n"
 "Language: cs_CZ\n"
@@ -257,6 +257,9 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"Restartování po nahrání firmwaru je dokončeno a jsme opět připojeni k "
+"zařízení. Zařízení nyní zobrazuje %1 a doufáme, že je to to, co jste "
+"očekávali."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -1336,10 +1339,9 @@ msgid "Add this pause"
 msgstr "Přidej pauzu"
 
 #: qml/ConnectToTail.qml:30
-#, fuzzy
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr "Připojit k %1"
+msgstr "Připojte zařízení"
 
 #: qml/ConnectToTail.qml:36
 msgctxt ""
@@ -1378,10 +1380,9 @@ msgid "Connect"
 msgstr "Připojit"
 
 #: qml/DatePicker.qml:49
-#, fuzzy
 msgctxt "Title for the date picker"
 msgid "Pick A Date"
-msgstr "Zvol jméno"
+msgstr "Zadejte datum"
 
 #: qml/DatePicker.qml:241
 msgctxt "Button for selecting the date of today, in a date picker"
@@ -2573,14 +2574,14 @@ msgctxt ""
 "Label for a button which allows the user to pick a file to load the firmware "
 "from (this is only available in developer mode)"
 msgid "Load From File"
-msgstr ""
+msgstr "Načíst ze souboru"
 
 #: qml/SettingsPage.qml:233
 msgctxt ""
 "Title for a dialog which allows the user to pick a file to load as firmware "
 "(this is only available in developer mode)"
 msgid "Pick Firmware File"
-msgstr ""
+msgstr "Vyberte soubor firmwaru"
 
 #: qml/SettingsPage.qml:245
 msgctxt ""
