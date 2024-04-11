@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-04-11 17:28+0000\n"
+"PO-Revision-Date: 2024-04-11 20:56+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -625,8 +625,8 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Het lijkt erop alsof het apparaat geen MiTail is (kan de batterij level "
-"parameter niet uitlezen). Als je zeker bent met het juiste apparaat te "
+"Het lijkt erop alsof het apparaat geen FlutterWings is (kan de batterij "
+"level parameter niet uitlezen). Als je zeker bent met het juiste apparaat te "
 "verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:538
@@ -1523,15 +1523,16 @@ msgid "Home Position"
 msgstr "Rustpositie"
 
 #: qml/EarPoses.qml:39
-#, fuzzy
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices! If you have more than one "
 "connected, the little coloured dots show which you can send that pose to."
 msgstr ""
-"Hier staan alle posities voor je Gear. Druk op een hiervan om dat naar je "
-"apparatuur te verzenden!"
+"In de volgende lijst vind je alle poses die beschikbaar zijn voor jouw "
+"apparaat. Tik op een pose om deze naar je verbonden apparaten te sturen! Als "
+"er meer dan één apparaat is aangesloten, geeft de kleine gekleurde stip aan "
+"naar welk apparaat de pose kan worden verzonden."
 
 #: qml/EarPoses.qml:42
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -2234,7 +2235,7 @@ msgstr "Lichtpatronen"
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
 msgid "Gear Command Sets"
-msgstr "Opdrachten"
+msgstr "Opdrachtsets voor apparaten"
 
 #: qml/SettingsCrumpetPicker.qml:51
 msgctxt ""
@@ -2255,22 +2256,22 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 #: qml/SettingsCrumpetPicker.qml:88
-#, fuzzy
 msgctxt ""
 "Header for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid "Remove Command Set?"
-msgstr "Opdrachten"
+msgstr "Opdrachtsets verwijderen voor apparaat?"
 
 #: qml/SettingsCrumpetPicker.qml:89
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
-msgstr "Weet je zeker dat je opdrachtenlijst '%1' wilt verwijderen?"
+msgstr ""
+"Weet u zeker dat u '%1' wilt verwijderen uit de verplaatsingslijst? Dit kan "
+"niet ongedaan worden gemaakt."
 
 #: qml/SettingsCrumpetPicker.qml:96
 msgctxt ""
@@ -2443,20 +2444,19 @@ msgid "Clear the names?"
 msgstr "Alle namen leegmaken?"
 
 #: qml/SettingsPage.qml:101
-#, fuzzy
 msgctxt ""
 "Text for the warning prompt for clearing gear names, on the panel for "
 "changing gear names, on the settings page"
 msgid ""
 "Please confirm that you do, in fact, want to clear all your saved device "
 "names."
-msgstr "Weet je zeker dat je *alle* namen wilt wissen uit je telefooon?"
+msgstr "Bevestig dat u de namen van uw opgeslagen apparaten wilt verwijderen."
 
 #: qml/SettingsPage.qml:108
 msgctxt ""
 "Header for the panel for adding commands to your gear, on the settings page"
 msgid "Gear Commands"
-msgstr "Opdrachten"
+msgstr "Opdrachten voor apparaten"
 
 #: qml/SettingsPage.qml:109
 msgctxt ""
@@ -2686,7 +2686,6 @@ msgid "Stop Lights"
 msgstr "Lichten stoppen"
 
 #: qml/TailLights.qml:38
-#, fuzzy
 msgctxt ""
 "Description for the list of light patterns, on the page for the Glow Tips"
 msgid ""
@@ -2695,8 +2694,10 @@ msgid ""
 "than one connected, the little coloured dots show which you can send that "
 "light pattern to."
 msgstr ""
-"Hier staan alle lichtpatronen voor je Gear. Druk op een hiervan om dat naar "
-"je apparatuur te verzenden!"
+"In de volgende lijst vind je alle lichteffecten die beschikbaar zijn voor je "
+"apparaat. Tik op een effect om het naar je verbonden apparaten te sturen! "
+"Als er meer dan één apparaat is aangesloten, geeft de kleine gekleurde stip "
+"aan naar welk apparaat het lichteffect kan worden verzonden."
 
 #: qml/TailLights.qml:45
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2714,15 +2715,16 @@ msgid "Home Position"
 msgstr "Rustpositie"
 
 #: qml/TailMoves.qml:37
-#, fuzzy
 msgctxt "Description for the list of moves, on the Moves page"
 msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
 "to send them off to any of your connected devices! If you have more than one "
 "connected, the little coloured dots show which you can send that move to."
 msgstr ""
-"Hier staan alle bewegingen voor je Gear. Druk op een hiervan om dat naar je "
-"apparatuur te verzenden!"
+"In de volgende lijst vind je alle bewegingen die beschikbaar zijn voor je "
+"apparaat. Tik op een beweging om deze naar je verbonden apparaten te sturen! "
+"Als er meer dan één apparaat is aangesloten, geeft de kleine gekleurde stip "
+"aan naar welk apparaat de beweging kan worden verzonden."
 
 #: qml/TailMoves.qml:44
 msgctxt ""
@@ -2826,11 +2828,10 @@ msgid "Crumpet"
 msgstr "Crumpet"
 
 #: qml/WelcomePage.qml:31
-#, fuzzy
 msgctxt ""
 "Label for the button for requesting bluetooth permissions on the welcome page"
 msgid "Get Bluetooth Permissions"
-msgstr "Verkrijg locatietoestemmingen..."
+msgstr "Lokalisatie toelaten"
 
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
@@ -2906,7 +2907,7 @@ msgctxt "Label for the checkbox for turning on Listening Mode"
 msgid ""
 "Turn this on to make your gear react to sounds around it for five minutes at "
 "a time."
-msgstr "Zet dit aan om je gear op geluiden te laten reageren (max: 5 minuten)."
+msgstr "Zet de reactie op geluiden vijf minuten aan."
 
 #: qml/WelcomePage.qml:361
 #, fuzzy
@@ -2917,7 +2918,7 @@ msgstr "Luistermodus"
 #: qml/WelcomePage.qml:387
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
-msgstr "Zet dit aan om je gear op geluiden te laten reageren (max: 5 minuten)."
+msgstr "Activeren om je apparaat te laten reageren op kantelingen."
 
 #: qml/WelcomePage.qml:427
 msgctxt ""
