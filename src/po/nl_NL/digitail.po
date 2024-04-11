@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-04-11 17:13+0000\n"
+"PO-Revision-Date: 2024-04-11 17:23+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -118,7 +118,7 @@ msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "Achtergrondniveau"
 
 #: DeviceModel.cpp:307
 msgctxt ""
@@ -268,6 +268,9 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"Het opnieuw opstarten na het uploaden van de firmware is voltooid en we zijn "
+"weer verbonden met het apparaat. Het apparaat toont nu %1 en we hopen dat "
+"dit is wat u verwachtte."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -276,7 +279,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr ""
+msgstr "Update succesvol"
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -1125,7 +1128,6 @@ msgid "Select another name"
 msgstr "Kies een andere naam"
 
 #: qml/AlarmList.qml:47
-#, fuzzy
 msgctxt ""
 "Main text for a message box warning the user an alarm with the chosen name "
 "already exists"
@@ -1134,7 +1136,10 @@ msgid ""
 "name.\n"
 "\n"
 "Please select another name for the alarm."
-msgstr "Deze naam is al in gebruik."
+msgstr ""
+"Kan het alarm niet toevoegen omdat we er al een hebben met dezelfde naam.\n"
+"\n"
+"Selecteer een andere naam voor het alarm."
 
 #: qml/AlarmList.qml:51
 msgctxt ""
@@ -1562,7 +1567,6 @@ msgid "Home Position"
 msgstr "Rustpositie"
 
 #: qml/GearGestures.qml:48
-#, fuzzy
 msgctxt ""
 "Info card for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1573,10 +1577,11 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"Zet een van de sensors aan om je Gear te laten reageren op zijn omgeving "
-"(mits die zich in ruststand bevind). Als voorbeeld: Laat je oren opfloppen "
-"wanneer je je telefoon oppakt, of begin met je staart te wapperen wanneer je "
-"begint te lopen."
+"Activeer een van de onderstaande sensoren zodat uw apparaten kunnen reageren "
+"op gebaren met uw mobiele apparaat als er niets anders gebeurt (dat wil "
+"zeggen dat er geen ander commando actief is). Prik bijvoorbeeld uw oren "
+"wanneer uw mobiele apparaat wordt opgepakt of kwispel met uw staart wanneer "
+"er een stap wordt gedetecteerd."
 
 #: qml/GearGestures.qml:70
 #, fuzzy
