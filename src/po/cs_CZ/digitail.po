@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-04-11 20:56+0000\n"
-"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
+"PO-Revision-Date: 2024-04-11 21:59+0000\n"
+"Last-Translator: Jakub Janousek <stegoceras@seznam.cz>\n"
 "Language-Team: Czech <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/cs/>\n"
 "Language: cs_CZ\n"
@@ -1358,12 +1358,11 @@ msgid "Connect All"
 msgstr "Připojit vše"
 
 #: qml/ConnectToTail.qml:100
-#, fuzzy
 msgctxt ""
 "A label in the prompt for connecting to a device showing that the device is "
 "currently connecting"
 msgid "Connecting..."
-msgstr "Připojit více..."
+msgstr "Připojování..."
 
 #: qml/ConnectToTail.qml:102
 msgctxt ""
@@ -2671,12 +2670,11 @@ msgid "Show Fake Tail"
 msgstr "Zobrazit falešný ocas"
 
 #: qml/TailBattery.qml:60
-#, fuzzy
 msgctxt ""
 "Text shown beside a spinner indicating that we are currently attempting to "
 "connect to a piece of gear"
 msgid "Connecting"
-msgstr "Připojit"
+msgstr "Připojování"
 
 #: qml/TailLights.qml:25
 msgctxt "Header for the page for the Glow Tips"
@@ -2784,10 +2782,9 @@ msgid "(no command)"
 msgstr "(žádný příkaz)"
 
 #: qml/TimePicker.qml:55
-#, fuzzy
 msgctxt "Title for the time picker"
 msgid "Pick a Time"
-msgstr "Zvol jméno"
+msgstr "Zvol čas"
 
 #: qml/TimePicker.qml:61
 msgctxt "Label for the Hours field on a time picker"
