@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-04-11 09:14+0000\n"
+"PO-Revision-Date: 2024-04-11 17:13+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -285,7 +285,7 @@ msgstr ""
 msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
-msgstr ""
+msgstr "Gefeliciteerd, uw apparaat is succesvol bijgewerkt naar versie %1!"
 
 #: gearimplementations/GearEars.cpp:229
 #: gearimplementations/GearFlutterWings.cpp:175
@@ -295,7 +295,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr ""
+msgstr "Update mislukt"
 
 #: gearimplementations/GearEars.cpp:229
 #: gearimplementations/GearFlutterWings.cpp:175
@@ -308,6 +308,11 @@ msgid ""
 "a safe fallback to just go back to your old firmware version upon a failure. "
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
+"<p>Het spijt ons, maar de update is mislukt. Meestal komt dit doordat er "
+"iets mis is gegaan tijdens de overdracht. Geen paniek: uw apparaat beschikt "
+"over een beveiligingsmodus die de oude firmware herstelt in geval van een "
+"fout. U kunt de update opnieuw proberen door nogmaals op Installeren te "
+"drukken</p>"
 
 #: gearimplementations/GearEars.cpp:350
 msgctxt ""
@@ -326,7 +331,7 @@ msgctxt ""
 msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
-msgstr ""
+msgstr "Gefeliciteerd, uw apparaat beschikt al over de nieuwste firmwareversie!"
 
 #: gearimplementations/GearEars.cpp:470
 #: gearimplementations/GearFlutterWings.cpp:336
@@ -341,6 +346,10 @@ msgid ""
 "connection issue. If you run into this problem repeatedly, please get in "
 "touch."
 msgstr ""
+"Het bestand met informatie over de nieuwe firmwareversie bevatte niet de "
+"relevante informatie. Waarschijnlijk hadden we gewoon een "
+"verbindingsprobleem. Probeer het later opnieuw en als de fout nog steeds "
+"optreedt, neem dan contact met ons op."
 
 #: gearimplementations/GearEars.cpp:474
 #: gearimplementations/GearFlutterWings.cpp:340
