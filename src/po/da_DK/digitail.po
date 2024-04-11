@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-04-11 17:13+0000\n"
+"PO-Revision-Date: 2024-04-11 17:23+0000\n"
 "Last-Translator: Frostbite <Bastiansoee@gmail.com>\n"
 "Language-Team: Danish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/da/>\n"
@@ -42,7 +42,7 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
-"Kunne ikke indlæse dine kommandoer grundet en parsefejl ved %1: %2\n"
+"Kunne ikke indlæse dine kommandoer på grund af en parsefejl ved %1: %2\n"
 "Koden som ledte op til fejlen:\n"
 "%3"
 
@@ -163,8 +163,8 @@ msgid ""
 "this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er en DIGITAiL (kunne ikke finde enhedens "
-"primære skrivekarakteristik). Hvis du er sikker på det er, tag kontakt til "
-"The Tail Company med denne fejl."
+"primære skrivekarakteristik). Hvis du er sikker på det er, vær sød og "
+"kontakte The Tail Company med denne fejl."
 
 #: gearimplementations/GearDigitail.cpp:260
 msgctxt "Warning message when the main service was not found on the device"
@@ -181,8 +181,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"Der opstod en fejl. Hvis du er ved at forsøge at forbinde til din DIGITAiL, "
-"vær sikker på, at den er tændt og tæt på denne enhed."
+"Der opstod en fejl. Hvis du er ved at forbinde til din DIGITAiL, vær sikker "
+"på, at den er tændt og tæt på denne enhed."
 
 #: gearimplementations/GearDigitail.cpp:281
 msgctxt "Warning that the device disconnected itself"
@@ -208,8 +208,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
-"Din DIGITAiL lukkede forbindelsen, enten ved at blive slukket, eller ved at "
-"løbe tør for strøm. Husk at oplade din hale!"
+"Din DIGITAiL frakoblet forbindelsen, enten fordi den blev slukket, eller ved "
+"at løbe tør for strøm. Husk at oplade din DIGITAIL!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -220,9 +220,9 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Det ser ud so om denne enhed ikke er en EarGear kontrolboks (kunne ikke "
+"Det ser ud som om denne enhed ikke er en EarGear kontrolboks (kunne ikke "
 "finde den primære øre skrivekarakkteristik). Hvis du er helt sikker på at "
-"den er, tag kontakt til The Tail Company og rapporter denne fejl."
+"den er, vær sød og kontakt The Tail Company og rapporter denne fejl."
 
 #: gearimplementations/GearEars.cpp:129
 msgctxt ""
@@ -233,9 +233,9 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Det ser ud so om denne enhed ikke er en EarGear kontrolboks (kunne ikke "
+"Det ser ud som om denne enhed ikke er en EarGear kontrolboks (kunne ikke "
 "finde den primære øre læsekarakkteristik). Hvis du er helt sikker på at den "
-"er, tag kontakt til The Tail Company og rapporter denne fejl."
+"er, vær sød og kontakte The Tail Company og rapporter denne fejl."
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -301,7 +301,7 @@ msgid ""
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
 "<p>Beklageligvis lykkedes opgraderingen af dit udstyr ikke. Det er oftest "
-"fordi der skete datafejl under overførslen til dit udstyr, hvilket er "
+"fordi der skete en datafejl under overførslen til dit udstyr, hvilket er "
 "grunden til at dit udstyr har et sikkert tilbagefald, som blot går tilbage "
 "til den version du allerede havde installeret hvis der opstår en fejl. Du "
 "kan genforsøge opdateringen ved at klikke på Installer igen.</p>"
@@ -311,7 +311,7 @@ msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr "Mikrofon genbalancering komplet"
+msgstr "Mikrofon genbalancering gennemført"
 
 #: gearimplementations/GearEars.cpp:465
 #: gearimplementations/GearFlutterWings.cpp:331
@@ -324,7 +324,7 @@ msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
 msgstr ""
-"Tillykke! Du har allerede den nyeste version af firmwaren isntalleret på dit "
+"Tillykke! Du har allerede den nyeste version af firmwaren installeret på dit "
 "udstyr!"
 
 #: gearimplementations/GearEars.cpp:470
@@ -360,7 +360,8 @@ msgid ""
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Der opstod en fejl mens vi forsøgte at forbinde til din EarGear (det primære "
-"service objekt kunne ikke skabes). Hvis du tror dette er en fejl, prøv igen!"
+"service objekt kunne ikke skabes). Hvis du tror dette er en fejl, venligst "
+"prøv igen!"
 
 #: gearimplementations/GearEars.cpp:559
 msgctxt ""
@@ -371,7 +372,7 @@ msgid ""
 msgstr ""
 "Der opstod en fejl mens vi forsøgte at forbinde til din EarGear (batteri "
 "informations servicen var ikke tilgængelig). Hvis du tror dette er en fejl, "
-"prøv igen!"
+"venligst prøv igen!"
 
 #: gearimplementations/GearEars.cpp:594
 msgctxt ""
@@ -381,9 +382,9 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"Det ser ud so om denne enhed ikke er en EarGear (kunne ikke finde batteri "
-"informations karakteristikken). Hvis du er helt sikker på at den er, tag "
-"kontakt til The Tail Company og rapporter denne fejl."
+"Det ser ud som om denne enhed ikke er en EarGear (kunne ikke finde batteri "
+"informations karakteristikken). Hvis du er helt sikker på at den er, vær sød "
+"og kontakte The Tail Company og rapporter denne fejl."
 
 #: gearimplementations/GearEars.cpp:624
 msgctxt "Warning that some unknown error happened"
@@ -406,7 +407,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
-"Der opstod en fejl under forbindelsen til din EarGear. Prøv igen (måske skal "
+"Der opstod en fejl under tilkobling til din EarGear. Prøv igen (måske skal "
 "de flyttes tættere på?)"
 
 #: gearimplementations/GearEars.cpp:651
@@ -427,9 +428,9 @@ msgid ""
 "just close this message."
 msgstr ""
 "Vi er færdige med at uploade den nye firmware, og dit udstyr har slukket sig "
-"selv. Hvis det har tændt sig selv ogen, luk da denne besked og tænd for det, "
-"hvorefter du kan tilslutte det igen. Hvis der allerede har tændt sig selv "
-"igen kan du bare lukke denne besked."
+"selv. Hvis den ikke har tændt sig selv igen, luk da denne besked og tænd for "
+"den, hvorefter du kan tilslutte den igen. Hvis den allerede har tændt sig "
+"selv igen kan du bare lukke denne besked."
 
 #: gearimplementations/GearEars.cpp:656
 msgctxt ""
@@ -459,9 +460,9 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
-"Dit udstyr siger det har en udgave af hardwaret vi ikke kender til. Dette "
-"betyder mest sandsyligt at din app er uddateret og trænger til en "
-"opgradering. Fortæl venligst The Tail Company om denne fejl."
+"Dit udstyr siger den har en udgave af hardwaret vi ikke kender til. Dette "
+"betyder mest sandsyligt at din app er uddateret og trænger til en opdateret. "
+"Fortæl venligst The Tail Company om denne fejl."
 
 #: gearimplementations/GearEars.cpp:845
 msgctxt ""
@@ -473,11 +474,12 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
-"Det er lykkedes dig at anskaffe en firmware version som ikke rapporterer "
-"dine øres hardware udgave, men som også ikke er kendt af os som en udgave "
-"som opfører sig sådan. Dette er en højst uvented situation og vi ville meget "
-"gerne, om du ville tage kontakt of fortælle os om det ved at tage direkte "
-"kontakt til contact@thetailcompany.com - på forhånd tak!"
+"Hvis du ser dette, Tilykke! Du har på en eller anden måde anskaffe dig en "
+"firmware version som ikke rapporterer dine øres hardware udgave, men som "
+"også ikke er kendt af os som en udgave som opfører sig sådan. Dette er en "
+"højst uvented situation og vi ville gerne vide mere om det, vær venlig og "
+"kontakt os direkte med denne mail, contact@thetailcompany.com - på forhånd "
+"tak!"
 
 #: gearimplementations/GearEars.cpp:879
 #: gearimplementations/GearFlutterWings.cpp:714
@@ -487,7 +489,7 @@ msgctxt ""
 "Message shown along a progress bar when downloading the firmware payload "
 "itself"
 msgid "Downloading firmware update from The Tail Company's website..."
-msgstr "Nedhenter firmware opdatering fra The Tail Companys hjemmeside..."
+msgstr "Downloader firmware opdatering fra The Tail Companys hjemmeside..."
 
 #: gearimplementations/GearEars.cpp:896
 #: gearimplementations/GearFlutterWings.cpp:731
@@ -500,10 +502,10 @@ msgid ""
 "should simply try again. If it continues to fail, please get in touch with "
 "us and we can try and work something out!"
 msgstr ""
-"Den nedhentede firmware opdatering indeholdte ikke hvad vi forventede. Dette "
-"er som regel fordi nedhentningen selv fejlede, og vil blive rettet ved at "
-"forsøge igen. Hvis dette bliver ved med at fejle, tag da kontakt til os "
-"direkte og vi kan forsøge at finde ud af, hvad det er galt!"
+"Den downloadet firmware opdatering indeholdte ikke hvad vi forventede. Dette "
+"er som regel fordi download processen fejlede, og blive normalt rettet ved "
+"at forsøge igen. dog Hvis det bliver ved med at fejle, kontakt os direkte og "
+"vi kan forsøge at finde ud af, hvad det er galt!"
 
 #: gearimplementations/GearEars.cpp:912
 msgctxt "Message shown during firmware update processes"
@@ -544,7 +546,7 @@ msgstr "Hurtig og Begejstret"
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr "Frustreret og Spændt"
+msgstr "Frustreret og Anspændt"
 
 #: gearimplementations/GearFake.cpp:108
 msgctxt ""
@@ -567,7 +569,7 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er FlutterWings (kunne ikke finde enhedens "
-"primære skrivekarakteristik). Hvis du er sikker på det er, tag kontakt til "
+"primære skrivekarakteristik). Hvis du er sikker på det er, venligst kontakt "
 "The Tail Company med denne fejl."
 
 #: gearimplementations/GearFlutterWings.cpp:117
@@ -580,8 +582,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er FlutterWings (kunne ikke finde enhedens "
-"primære læsekarakteristik). Hvis du er sikker på det er, tag kontakt til The "
-"Tail Company med denne fejl."
+"primære læsekarakteristik). Hvis du er sikker på det er, venligst kontakt "
+"The Tail Company med denne fejl."
 
 #: gearimplementations/GearFlutterWings.cpp:412
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -591,7 +593,7 @@ msgid ""
 msgstr ""
 "Der opstod en fejl mens vi forsøgte at forbinde til dine FLutterWings (det "
 "primære service objekt kunne ikke skabes). Hvis du tror dette er en fejl, "
-"prøv igen!"
+"venligst prøv igen!"
 
 #: gearimplementations/GearFlutterWings.cpp:432
 #: gearimplementations/GearMitail.cpp:438
@@ -609,8 +611,8 @@ msgstr ""
 "<p><b>Opdatering Mislykkedes!</b></p><p>Vi har forsøgt at sende det nye "
 "firmware til dit udstyr hurtigere end din enhed var i stand til at "
 "understøtte. Hvis du ser denne fejlbesked:</p><p>Først, slap helt af, dit "
-"udstyr er sikkert.</p><p>Dernæst, tag kontakt til os på info@thetailcompany."
-"com og fortæl os, at du fik denne fejl.</p>"
+"udstyr er sikkert.</p><p>Dernæst, kontakt os på info@thetailcompany.com og "
+"fortæl os, at du fik denne fejl.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:444
 msgctxt ""
@@ -619,9 +621,9 @@ msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Der opstod en fejl mens vi forsøgte at forbinde til dine FlutterWings "
-"(batteri informations servicen var ikke tilgængelig). Hvis du tror dette er "
-"en fejl, prøv igen!"
+"Der opstod en fejl mens vi forsøgte at forbinde til dine FlutterWings ("
+"batteri informations servicen var ikke tilgængelig). Hvis du tror dette er "
+"en fejl, venligst prøv igen!"
 
 #: gearimplementations/GearFlutterWings.cpp:498
 msgctxt ""
@@ -631,8 +633,8 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"Det ser ud som om dette ikke er FlutterWings (kunne ikke finde enhedens "
-"batteri karakteristik). Hvis du er sikker på det er, tag kontakt til The "
+"Det ser ud som om dette ikke er en FlutterWings (kunne ikke finde enhedens "
+"batteri karakteristik). Hvis du er sikker på det er, venligst kontakt The "
 "Tail Company med denne fejl."
 
 #: gearimplementations/GearFlutterWings.cpp:538
@@ -641,8 +643,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
-"Det opstod en fejl. Hvis du er ved at forsøge at forbinde til dine "
-"FlutterWings, vær sikker på, at de er tændt, og er tæt på denne enhed."
+"Det opstod en fejl. Hvis du forsøger at forbinde til dine FlutterWings, vær "
+"sikker på, at de er tændt, og er tæt på denne enhed."
 
 #: gearimplementations/GearFlutterWings.cpp:541
 msgctxt "Warning that the device disconnected itself"
@@ -806,7 +808,7 @@ msgid ""
 "report this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens primære "
-"skrivekarakteristik). Hvis du er sikker på det er, tag kontakt til The Tail "
+"skrivekarakteristik). Hvis du er sikker på det er, venligst kontakt The Tail "
 "Company med denne fejl."
 
 #: gearimplementations/GearMitail.cpp:123
@@ -819,7 +821,7 @@ msgid ""
 "report this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens primære "
-"læsekarakteristik). Hvis du er sikker på det er, tag kontakt til The Tail "
+"læsekarakteristik). Hvis du er sikker på det er, venligst kontakt The Tail "
 "Company med denne fejl."
 
 #: gearimplementations/GearMitail.cpp:418
@@ -829,7 +831,7 @@ msgid ""
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail (kunne ikke skabe det primære "
-"service objekt). Hvis du tror dette er en fejl, prøv igen!"
+"service objekt). Hvis du tror dette er en fejl, venligst prøv igen!"
 
 #: gearimplementations/GearMitail.cpp:450
 msgctxt ""
@@ -839,7 +841,7 @@ msgid ""
 "not available). If you feel this is in error, please try again!"
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail (batteri informations servicen var "
-"ikke tilgængelig). Hvis du tror dette er en fejl, prøv igen!"
+"ikke tilgængelig). Hvis du tror dette er en fejl, venligst prøv igen!"
 
 #: gearimplementations/GearMitail.cpp:504
 msgctxt ""
@@ -850,7 +852,7 @@ msgid ""
 "this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail (kunne ikke finde enhedens batteri "
-"karakteristik). Hvis du er sikker på det er, tag kontakt til The Tail "
+"karakteristik). Hvis du er sikker på det er, venligst kontakt The Tail "
 "Company med denne fejl."
 
 #: gearimplementations/GearMitail.cpp:544
@@ -859,8 +861,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
-"Der opstod en fejl. Hvis du er ved at forsøge at forbinde til din MiTail, "
-"vær sikker på, at den er tændt og tæt på denne enhed."
+"Der opstod en fejl. Hvis du forsøger at forbinde til din MiTail, vær sikker "
+"på, at den er tændt og tæt på denne enhed."
 
 #: gearimplementations/GearMitail.cpp:547
 msgctxt "Warning that the device disconnected itself"
@@ -874,7 +876,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
-"Kunne ikke forbinde til din MiTail. Forsøg igen (måske skal den tættere på?)"
+"Kunne ikke forbinde til din MiTail. venligst Forsøg igen (måske skal den "
+"tættere på?)"
 
 #: gearimplementations/GearMitail.cpp:583
 #: gearimplementations/GearMitailMini.cpp:576
@@ -924,7 +927,7 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail Mini (kunne ikke finde enhedens "
-"primære skrivekarakteristik). Hvis du er sikker på det er, tag kontakt til "
+"primære skrivekarakteristik). Hvis du er sikker på det er, venligst kontakte "
 "The Tail Company med denne fejl."
 
 #: gearimplementations/GearMitailMini.cpp:118
@@ -937,8 +940,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail Mini (kunne ikke finde enhedens "
-"primære læsekarakteristik). Hvis du er sikker på det er, tag kontakt til The "
-"Tail Company med denne fejl."
+"primære læsekarakteristik). Hvis du er sikker på det er, venligst kontakte "
+"The Tail Company med denne fejl."
 
 #: gearimplementations/GearMitailMini.cpp:413
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -947,7 +950,7 @@ msgid ""
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail Mini (kunne ikke skabe det primære "
-"service objekt). Hvis du tror dette er en fejl, prøv igen!"
+"service objekt). Hvis du tror dette er en fejl, venligst prøv igen!"
 
 #: gearimplementations/GearMitailMini.cpp:443
 msgctxt ""
@@ -957,7 +960,8 @@ msgid ""
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail Mini (batteri informations "
-"servicen var ikke tilgængelig). Hvis du tror dette er en fejl, prøv igen!"
+"servicen var ikke tilgængelig). Hvis du tror dette er en fejl, venligst prøv "
+"igen!"
 
 #: gearimplementations/GearMitailMini.cpp:497
 msgctxt ""
@@ -968,7 +972,7 @@ msgid ""
 "report this error to The Tail Company."
 msgstr ""
 "Det ser ud som om dette ikke er en MiTail Mini (kunne ikke finde enhedens "
-"batteri karakteristik). Hvis du er sikker på det er, tag kontakt til The "
+"batteri karakteristik). Hvis du er sikker på det er, venligst kontakt The "
 "Tail Company med denne fejl."
 
 #: gearimplementations/GearMitailMini.cpp:537
@@ -977,8 +981,8 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
-"Der opstod en fejl. Hvis du er ved at forsøge at forbinde til din MiTail "
-"Mini, vær sikker på, at den er tændt og tæt på denne enhed."
+"Der opstod en fejl. Hvis du forsøger at forbinde til din MiTail Mini, vær "
+"sikker på, at den er tændt og tæt på denne enhed."
 
 #: gearimplementations/GearMitailMini.cpp:540
 msgctxt "Warning that the device disconnected itself"
@@ -993,8 +997,8 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Kunne ikke forbinde til din MiTail Mini. Forsøg igen (måske skal den tættere "
-"på?)"
+"Kunne ikke forbinde til din MiTail Mini. Venligst forsøg igen (måske skal "
+"den tættere på?)"
 
 #: gearimplementations/GearMitailMini.cpp:579
 msgctxt ""
@@ -1010,7 +1014,7 @@ msgstr ""
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr "Dobbelt Tap"
+msgstr "Dobbelt Tryk"
 
 #: GestureDetectorModel.cpp:274
 msgctxt "The name of a sensor"
@@ -1020,7 +1024,7 @@ msgstr "Svæv"
 #: GestureDetectorModel.cpp:275
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr "Frifald"
+msgstr "Frit Fald"
 
 #: GestureDetectorModel.cpp:276
 msgctxt "The name of a sensor"
@@ -1090,12 +1094,12 @@ msgstr "Vend Om"
 #: GestureDetectorModel.cpp:289
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr "Gang Begyndt"
+msgstr "Gågang Begyndt"
 
 #: GestureDetectorModel.cpp:290
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr "Gang Endt"
+msgstr "Gågang Endt"
 
 #: GestureDetectorModel.cpp:291
 msgctxt "The name of a sensor"
@@ -1121,10 +1125,10 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
-"Afbrød %1 detektering efter en time. Alt animatronisk udstye har brug for en "
+"Afbrød %1 detektering efter en time. Alt animatronisk udstyr har brug for en "
 "pause efter at have været i brug i lange uafbrudte perioder. Kig i vores "
-"Guide To Responsible Wagging i indstillingspanelet for nogle tips til at "
-"holde dit udstyr ved godt helbred."
+"Guide To Responsible Wagging i indstillingspanelet for at få nogle tips til "
+"at holde dit udstyr ved godt helbred."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -1201,7 +1205,7 @@ msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr "Set Alarm Tid"
+msgstr "Sæt Alarm Tid"
 
 #: qml/AlarmList.qml:113
 msgctxt "Text for an action which allows the user to delete an alarm"
@@ -1227,7 +1231,7 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
-"Set en alarm her. Vælg en dato og en tid for din alarm, og sæt så en eller "
+"Sæt en alarm her. Vælg en dato og en tid for din alarm, og sæt så en eller "
 "flere bevægelser som du vil udføre, når du når den tid."
 
 #: qml/AlarmList.qml:144
@@ -1264,7 +1268,7 @@ msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
-msgstr "Tilføj Kommndo Efter"
+msgstr "Tilføj Kommando Efter"
 
 #: qml/BaseCommandListEditor.qml:177
 msgctxt ""
@@ -1320,7 +1324,7 @@ msgstr "Send hvortil?"
 #: qml/BaseMovesComponent.qml:211
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr "Vælg hvor du vil sende kommandoen til fra listen nedenunder."
+msgstr "Vælg fra listen nedenunder, hvor du vil sende kommandoen til."
 
 #: qml/BaseMovesComponent.qml:265
 msgctxt ""
@@ -1430,7 +1434,7 @@ msgstr "Udviklertilstand"
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr "MAX GLASH"
+msgstr "MAX GLASH!"
 
 #: qml/DisconnectOptions.qml:36
 msgctxt ""
@@ -1465,10 +1469,11 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
-"Vælg denne mulighed for at sætte Telefron Fri Tilstand (eller No Phone Mode) "
-"og kobl fra, så du kan efterlade din telefon eller slukke den. Dette virker "
-"som Afslapningstilstanden, men uden du har brug for at have telefonen "
-"nærved. (Godt, hvis du er i kostume og ikke har plads til din telefon)"
+"Vælg denne mulighed for at opsætte og starte Telefron Fri Tilstand (eller No "
+"Phone Mode) og kobl fra, så du kan efterlade din telefon eller slukke den. "
+"Dette virker som Afslapningstilstanden, men uden du har brug for at have "
+"telefonen nærved. (Godt, hvis du er i kostume og ikke har plads til din "
+"telefon)"
 
 #: qml/DisconnectOptions.qml:111
 msgctxt ""
@@ -1478,7 +1483,7 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
-"Telefron Fri Tilstand til vente mellem %1 og %2 sekonder før den vælger en "
+"Telefron Fri Tilstand vil vente imellem %1 og %2 sekonder før den vælger en "
 "ny bevægelse."
 
 #: qml/DisconnectOptions.qml:131
@@ -1889,7 +1894,7 @@ msgstr "Indstillinger"
 #: qml/main.qml:297
 msgctxt "Button for opening the About Us page, from the landing page"
 msgid "About"
-msgstr "Om"
+msgstr "OM OS"
 
 #: qml/main.qml:306
 msgctxt ""
@@ -1909,7 +1914,7 @@ msgid ""
 "\n"
 "Are you sure that you want to disconnect and quit?"
 msgstr ""
-"Du er stadig koblet til noget af dit udstyr.\n"
+"Du er stadig tilkoblet noget af dit udstyr.\n"
 "\n"
 "Er du sikker på, at du vil koble fra og lukke Crumpet ned?"
 
@@ -1965,14 +1970,15 @@ msgctxt ""
 "Header for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Remove Move List Entry?"
-msgstr "Fjern Bevægelsesliste?"
+msgstr "Fjern Bevægelse Fra Bevægelsesliste?"
 
 #: qml/MoveListEditor.qml:52
 msgctxt ""
 "Message for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Are you sure that you want to remove this entry from your move list?"
-msgstr "Er du sikker på, at du vil fjerne denne del af din bevægelsesliste?"
+msgstr ""
+"Er du sikker på, at du vil fjerne denne bevægelse fra din bevægelsesliste?"
 
 #: qml/MoveLists.qml:28
 msgctxt "Heading for the page for viewing Move Lists"
@@ -2066,7 +2072,7 @@ msgctxt ""
 "Header for the warning that a name is already in use, for the prompt for "
 "giving a name to a move list, on the page for viewing Move Lists"
 msgid "Name Already Used"
-msgstr "Navn Allerede Brugt"
+msgstr "Navn Allerede I Brug"
 
 #: qml/MoveLists.qml:103
 msgctxt ""
@@ -2225,7 +2231,7 @@ msgid ""
 "gear. Tap any of them to pick that command."
 msgstr ""
 "Listen nedenfor viser alle de kommandoer og lys-mønstre der er tilgængelige "
-"til dit udstyr. Tryk på dem for at lave et valg."
+"til dit udstyr. Tryk på dem for at vælge en Kommando."
 
 #: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
 msgctxt ""
@@ -2253,7 +2259,7 @@ msgctxt ""
 "Description for the category for the Tense Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Frustrated and Tense"
-msgstr "Frustreret og Spændt"
+msgstr "Frustreret og Anspændt"
 
 #: qml/PickACommandSheet.qml:64
 msgctxt ""
@@ -2265,7 +2271,7 @@ msgstr "LED-mønstre"
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
 msgid "Gear Command Sets"
-msgstr "Udstyrskommandosamlinger"
+msgstr "Udstyrskommando Sæt"
 
 #: qml/SettingsCrumpetPicker.qml:51
 msgctxt ""
@@ -2275,9 +2281,9 @@ msgid ""
 "add new ones, edit them, and remove them. You cannot edit the built-in "
 "lists, but you can duplicate them and then edit those."
 msgstr ""
-"Dette er alle de kommandosamlinger du har tilgængelige til %1. Du kan "
-"tilføje nye, redigere dem, og fjerne dem. Du kan ikke redigere de indbyggede "
-"samlinger, men du kan duplikere dem og redigere dem."
+"Dette er alle kommando sættene du har tilgængelige til %1. Du kan tilføje "
+"nye, redigere dem, og fjerne dem. Du kan ikke redigere de indbyggede lister, "
+"men du kan duplikere dem og redigere dem."
 
 #: qml/SettingsCrumpetPicker.qml:84
 msgctxt ""
@@ -2371,7 +2377,7 @@ msgstr "Download PDF:"
 msgctxt ""
 "Label for downloading the general guide for safe use of the various gear"
 msgid "Responsible Wagging Guide"
-msgstr "Responsible Wagging Guide"
+msgstr "Hvordan man ansvarligt logre med halen Guide"
 
 #: qml/SettingsPage.qml:53
 msgctxt "Label for downloading the instructions for the MiTail"
@@ -2401,7 +2407,7 @@ msgid ""
 "Ticking this option will ensure that the app will attempt to reconnect "
 "automatically when the connection is lost."
 msgstr ""
-"In nogle situationer vil appen tabe forbindelsen til dit udstyr. Tilvælg af "
+"I nogle situationer vil appen tabe forbindelsen til dit udstyr. Tilvælg af "
 "denne mulighed vil lade appen forsøge at genforbinde automatisk når "
 "forbindelsen bliver tabt."
 
@@ -2501,9 +2507,9 @@ msgid ""
 "to more easily use this, make sure to give your gear a name, so you can tell "
 "them apart more easily."
 msgstr ""
-"Selv om appen kommer med en bunke kommandoer, så kan dit udstyr flere mere "
+"Selv om appen kommer med en bunke kommandoer, så kan dit udstyr meget mere "
 "end det. Du kan ændre de kommandoer der bliver sendt til dit udstyr, og vi "
-"vil huske, hvilke du har valgt til hver enkel. For at gøre det nemmere at "
+"vil huske, hvilke du har valgt til hver eneste. For at gøre det nemmere at "
 "bruge, vær sikker på at du giver dit udstyr et navn, så det er nemmere at "
 "kende hvilken du bruger."
 
@@ -2542,12 +2548,12 @@ msgid ""
 "controller box either on the front or the back of your body, or upside down "
 "so the cable can run more gracefully)."
 msgstr ""
-"Hvis dit EarGear opfører sig som om det ikke kan høre ordentligt er det "
-"muligt, det skal have sin balance undersøgt. For at sørge for det virker "
+"Hvis dit EarGear opfører sig som om det ikke kan høre ordentligt, er det "
+"muligt at det skal have sin balance undersøgt. For at sørge for det virker "
 "bedst skal du helst være i et stille område før du trykker på "
 "genbalanceringsknappen nedenfor (sæt din musik på pause, luk døren til dit "
 "værelse og så viddere). Denne værdi er gemt på boksen, så du skulle generelt "
-"set ikke have brug for at gøre det mere end en gang. Det er muligt du har "
+"slet ikke have brug for at gøre det mere end en gang. Det er muligt du har "
 "brug for at bytte rundt på retningen (for eksempel, hvis du flytter "
 "kontrolboksen enten forpå eller bagpå din krop, eller på hovedet, så kablet "
 "kan blive ført mere yndefuldt)."
@@ -2589,8 +2595,8 @@ msgid ""
 "clicking the \"Check\" button below, and if there is one, you can then click "
 "the button underneath to download and install the update."
 msgstr ""
-"Hvis dit udstyr understøtter firmware updateringer kan du se efter nye ved "
-"at klikke på knapped \"Led\" nedenfor, og hvis der er en, kan du klikke på "
+"Hvis dit udstyr understøtter firmware updateringer kan du søge efter nye ved "
+"at klikke på knappen \"Led\" nedenfor, og hvis der er en, kan du klikke på "
 "knappen nedenfor for at nedhente og installere opdateringen."
 
 #: qml/SettingsPage.qml:204
@@ -2693,7 +2699,7 @@ msgid ""
 msgstr ""
 "Som regel vil Crumpet bruge det sprog din enhed bruger, eller Engelsk hvis "
 "dette sprog ikke er tilgængeligt. Hvis du hellere vil bruge et andet sprog "
-"kan du vælge det her, og bruge det sprog i stedet."
+"kan du vælge det her, og brug det nyvalgte sprog i stedet."
 
 #: qml/SettingsPage.qml:287
 msgctxt ""
@@ -2799,7 +2805,7 @@ msgstr "Hurtig og Begejstret"
 #: qml/TailMoves.qml:54
 msgctxt "Description for the category for the Tense Moveset, on the Moves page"
 msgid "Frustrated and Tense"
-msgstr "Frustreret og Spændt"
+msgstr "Frustreret og Anspændt"
 
 #: qml/TiltSettings.qml:28
 msgctxt ""
@@ -2854,7 +2860,7 @@ msgstr "Timer"
 #: qml/TimePicker.qml:73
 msgctxt "Label for the Minutes field on a time picker"
 msgid "Minutes"
-msgstr "Minuter"
+msgstr "Minutter"
 
 #: qml/TimePicker.qml:92
 msgctxt "Label for the AM option on a AM/PM selector of a time picker"
@@ -2908,7 +2914,7 @@ msgstr "Tilkobl"
 msgctxt ""
 "Label for the button for looking for additional gear, on the welcome page"
 msgid "Look for gear"
-msgstr "Se efter udstyr"
+msgstr "Søg efter udstyr"
 
 #: qml/WelcomePage.qml:73
 msgctxt ""
