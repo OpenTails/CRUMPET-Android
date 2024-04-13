@@ -41,6 +41,20 @@ Kirigami.ScrollablePage {
         filterRole: Digitail.GestureDetectorModelTypes.SensorEnabledRole;
         filterBoolean: true;
     }
+    function categoryName(category) {
+        if (category === "relaxed") {
+            return i18nc("A short name for the relaxed moves category shown on the gestures page", "Relaxed");
+        } else if (category === "excited") {
+            return i18nc("A short name for the excited moves category shown on the gestures page", "Excited");
+        } else if (category === "tense") {
+            return i18nc("A short name for the tense moves category shown on the gestures page", "Tense");
+        } else if (category === "eargearposes") {
+            return i18nc("A short name for the eargear poses category shown on the gestures page", "Pose");
+        } else if (category === "lights") {
+            return i18nc("A short name for the lights category shown on the gestures page", "Lights");
+        }
+        return "";
+    }
 
     ColumnLayout {
         width: component.width - Kirigami.Units.largeSpacing * 4
@@ -85,12 +99,37 @@ Kirigami.ScrollablePage {
                 RowLayout {
                     id: gestureDelegate;
                     Layout.fillWidth: true;
+                    property variant commandData: {
+                        "category": "",
+                        "name": "",
+                        "command": "",
+                        "minimumCooldown": 0,
+                        "duration": 0
+                    }
+                    property string theCommand: model.command !== undefined ? model.command : ""
+                    onTheCommandChanged: {
+                        Digitail.Utilities.getCommand(theCommand);
+                    }
+                    // Silly, yes, but we can't put it at the proper root of SwipeListItem, as it only wants QQuickItems there
+                    Connections {
+                        target: Digitail.Utilities;
+                        function onCommandGotten(theCommand) {
+                            if(theCommand.command === gestureDelegate.theCommand) {
+                                gestureDelegate.commandData = theCommand;
+                            }
+                        }
+                    }
+
                     Text {
                         Layout.fillWidth: true;
                         text: model.name === undefined ? "" : model.name;
                     }
                     Button {
-                        text: model.command === "" ? i18nc("Default text for the button for picking a command, for when no command has been selected, on the page for selecting what should happen when the controlling device/phone detects a gesture", "(no command)"): model.command;
+                        text: gestureDelegate.theCommand.length > 0
+                            ? gestureDelegate.theCommand === "TAILHM"
+                                ? i18nc("Command for returning any gear to its home position, on the gestures page", "Home Position")
+                                : "%1 %2".arg(component.categoryName(gestureDelegate.commandData["category"])).arg(gestureDelegate.commandData["name"])
+                            : i18nc("Default text for the button for picking a command, for when no command has been selected, on the page for selecting what should happen when the controlling device/phone detects a gesture", "(no command)");
                         onClicked: {
                             pickACommand.gestureIndex = model.index;
                             pickACommand.pickCommand();
