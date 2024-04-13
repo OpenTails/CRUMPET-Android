@@ -57,6 +57,20 @@ Kirigami.ScrollablePage {
         }
     ]
 
+    function categoryName(category) {
+        if (category === "relaxed") {
+            return i18nc("A short name for the relaxed moves category shown in move lists", "Relaxed");
+        } else if (category === "excited") {
+            return i18nc("A short name for the excited moves category shown in move lists", "Excited");
+        } else if (category === "tense") {
+            return i18nc("A short name for the tense moves category shown in move lists", "Tense");
+        } else if (category === "eargearposes") {
+            return i18nc("A short name for the eargear poses category shown in move lists", "Pose");
+        } else if (category === "lights") {
+            return i18nc("A short name for the lights category shown in move lists", "Lights");
+        }
+        return "";
+    }
     property var allDurations: []
     Component {
         id: commandListDelegate;
@@ -68,13 +82,14 @@ Kirigami.ScrollablePage {
             Layout.maximumHeight: Layout.minimumHeight;
 
             property variant command: {
+                "category": "",
                 "name": "",
                 "command": "",
                 "minimumCooldown": 0,
                 "duration": 0
             }
 
-            property string title: command["name"].length > 0 ? command["name"] : "(what?)";
+            property string title: command["name"].length > 0 ? "%1 %2".arg(control.categoryName(command["category"])).arg(command["name"]) : (modelData != "" ? modelData : "(unknown)");
 
             Component.onCompleted: {
                 Digitail.Utilities.getCommand(modelData);
