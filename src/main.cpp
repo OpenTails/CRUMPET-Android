@@ -89,13 +89,11 @@ int appMain(int argc, char *argv[])
     app.setApplicationVersion(QLatin1String{"Desktop"});
 #endif
 
-    KLocalizedString::setApplicationDomain("digitail");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("digitail"));
 #ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
-    QStringList languages{QLatin1String{"cs_CZ"}, QLatin1String{"da_DK"}, QLatin1String{"es_ES"}, QLatin1String{"fr"}, QLatin1String{"ja_JP"}, QLatin1String{"nl_NL"}, QLatin1String{"ru"}};
-    for (const QString& language : languages) {
-        qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
-    }
+    KLocalizedString::addDomainLocaleDir("digitail", QLatin1String{"assets:/share/locale/"});
+    qDebug() << Q_FUNC_INFO << "Available application translations:" << KLocalizedString::availableApplicationTranslations();
 #else
     KLocalizedString::addDomainLocaleDir("digitail", QString::fromUtf8("%1/../locale").arg(app.applicationDirPath()));
 #endif
@@ -292,13 +290,11 @@ int serviceMain(int argc, char *argv[])
     app.setApplicationName(QLatin1String{"DIGITAiL"});
     qInfo() << Q_FUNC_INFO << "Service starting...";
 
-    KLocalizedString::setApplicationDomain("digitail");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("digitail"));
 #ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
-    QStringList languages{QLatin1String{"cs_CZ"}, QLatin1String{"da_DK"}, QLatin1String{"es_ES"}, QLatin1String{"fr"}, QLatin1String{"ja_JP"}, QLatin1String{"nl_NL"}, QLatin1String{"ru"}};
-    for (const QString& language : languages) {
-        qDebug() << Q_FUNC_INFO << "App is translated into" << language << KLocalizedString::isApplicationTranslatedInto(language);
-    }
+    KLocalizedString::addDomainLocaleDir("digitail", QLatin1String{"assets:/share/locale/"});
+    qDebug() << Q_FUNC_INFO << "Available application translations:" << KLocalizedString::availableApplicationTranslations();
 #else
     KLocalizedString::addDomainLocaleDir("digitail", QString::fromUtf8("%1/../src/locale").arg(app.applicationDirPath()));
 #endif
