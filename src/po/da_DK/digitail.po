@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-03-30 11:07+0000\n"
-"PO-Revision-Date: 2024-04-11 17:28+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"PO-Revision-Date: 2024-04-14 10:44+0000\n"
+"Last-Translator: Dan <admin@leinir.dk>\n"
 "Language-Team: Danish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/da/>\n"
 "Language: da_DK\n"
@@ -245,7 +245,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "Genstart Gennemført"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -258,6 +258,9 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"Genstarten som følger en firmware upload er gennemført, og vi har "
+"genforbundet til enheden. Udstyret rapporterer nu %1, og vi håber det er "
+"det, du forventede."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -1275,7 +1278,7 @@ msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
-msgstr "Tilføj Kommando Efter"
+msgstr "Tilføj Pause Efter"
 
 #: qml/BaseCommandListEditor.qml:203
 msgctxt ""
@@ -1364,10 +1367,9 @@ msgid "Add this pause"
 msgstr "Tilføj denne pause"
 
 #: qml/ConnectToTail.qml:30
-#, fuzzy
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr "Forbind til %1"
+msgstr "Forbind til Udstyr"
 
 #: qml/ConnectToTail.qml:36
 msgctxt ""
@@ -1384,12 +1386,11 @@ msgid "Connect All"
 msgstr "Forbind Alle"
 
 #: qml/ConnectToTail.qml:100
-#, fuzzy
 msgctxt ""
 "A label in the prompt for connecting to a device showing that the device is "
 "currently connecting"
 msgid "Connecting..."
-msgstr "Tilkobl Flere..."
+msgstr "Forbinder..."
 
 #: qml/ConnectToTail.qml:102
 msgctxt ""
@@ -1406,10 +1407,9 @@ msgid "Connect"
 msgstr "Forbind"
 
 #: qml/DatePicker.qml:49
-#, fuzzy
 msgctxt "Title for the date picker"
 msgid "Pick A Date"
-msgstr "Vælg et navn"
+msgstr "Vælg En Dato"
 
 #: qml/DatePicker.qml:241
 msgctxt "Button for selecting the date of today, in a date picker"
@@ -1434,7 +1434,7 @@ msgstr "Udviklertilstand"
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr "MAX GLASH!"
+msgstr "MAX GLASH"
 
 #: qml/DisconnectOptions.qml:36
 msgctxt ""
@@ -1894,7 +1894,7 @@ msgstr "Indstillinger"
 #: qml/main.qml:297
 msgctxt "Button for opening the About Us page, from the landing page"
 msgid "About"
-msgstr "OM OS"
+msgstr "Om os"
 
 #: qml/main.qml:306
 msgctxt ""
@@ -2629,14 +2629,14 @@ msgctxt ""
 "Label for a button which allows the user to pick a file to load the firmware "
 "from (this is only available in developer mode)"
 msgid "Load From File"
-msgstr ""
+msgstr "Åben Fra Fil"
 
 #: qml/SettingsPage.qml:233
 msgctxt ""
 "Title for a dialog which allows the user to pick a file to load as firmware "
 "(this is only available in developer mode)"
 msgid "Pick Firmware File"
-msgstr ""
+msgstr "Vælg En Firmware Fil"
 
 #: qml/SettingsPage.qml:245
 msgctxt ""
@@ -2732,12 +2732,11 @@ msgid "Show Fake Tail"
 msgstr "Vis Falsk Hale"
 
 #: qml/TailBattery.qml:60
-#, fuzzy
 msgctxt ""
 "Text shown beside a spinner indicating that we are currently attempting to "
 "connect to a piece of gear"
 msgid "Connecting"
-msgstr "Forbind"
+msgstr "Forbinder"
 
 #: qml/TailLights.qml:25
 msgctxt "Header for the page for the Glow Tips"
@@ -2847,10 +2846,9 @@ msgid "(no command)"
 msgstr "(ingen kommando)"
 
 #: qml/TimePicker.qml:55
-#, fuzzy
 msgctxt "Title for the time picker"
 msgid "Pick a Time"
-msgstr "Vælg et navn"
+msgstr "Vælg En Tid"
 
 #: qml/TimePicker.qml:61
 msgctxt "Label for the Hours field on a time picker"
@@ -2894,11 +2892,10 @@ msgid "Crumpet"
 msgstr "Crumpet"
 
 #: qml/WelcomePage.qml:31
-#, fuzzy
 msgctxt ""
 "Label for the button for requesting bluetooth permissions on the welcome page"
 msgid "Get Bluetooth Permissions"
-msgstr "Giv Tilladelse Til Position..."
+msgstr "Giv Bluetooth Tilladelser"
 
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
