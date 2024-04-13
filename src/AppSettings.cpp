@@ -413,18 +413,20 @@ QString AppSettings::languageOverride() const
     return d->languageOverride;
 }
 
-static const QLatin1String paranthesisStart{")"};
+static const QLatin1String paranthesisStart{"("};
 static const QLatin1String paranthesisEnd{")"};
 void AppSettings::setLanguageOverride(QString languageOverride)
 {
     if (d->languageOverride != languageOverride) {
         QString languageCode = languageOverride;
         if (languageOverride.endsWith(paranthesisEnd)) {
-            int firstPos = languageCode.lastIndexOf(paranthesisStart) + 1;
-            int lastPos = languageCode.lastIndexOf(paranthesisEnd);
+            const int firstPos = languageCode.lastIndexOf(paranthesisStart) + 1;
+            const int lastPos = languageCode.lastIndexOf(paranthesisEnd);
             languageCode = languageCode.mid(firstPos, lastPos - firstPos);
+            qDebug() << Q_FUNC_INFO << "Setting language code to" << languageCode << "based on positions" << firstPos << "and" << lastPos;
         }
         d->languageOverride = languageCode;
+        qDebug() << Q_FUNC_INFO << "Setting new language override to" << languageCode << "based on" << languageOverride;
         QSettings settings;
         settings.setValue("languageOverride", d->languageOverride);
         Q_EMIT languageOverrideChanged(languageOverride);
