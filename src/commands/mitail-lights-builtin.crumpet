@@ -97,6 +97,78 @@
             "Group": 0,
             "MinimumCooldown": 1000,
             "Name": "Four"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDREC",
+            "Duration": 30300,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "BLINK"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDTRI",
+            "Duration": 30300,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "TRIANGLE"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDSAW",
+            "Duration": 30600,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "SAWTOOTH"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDSOS",
+            "Duration": 32450,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "MORSE"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDBEA",
+            "Duration": 30300,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "BEACON"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDFLA",
+            "Duration": 32800,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "FLAME"
+        },
+        {
+            "Category": "lights",
+            "Command": "LEDSTR",
+            "Duration": 35000,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "STROBE"
+        },
+        {
+            "Category": "",
+            "Command": "LEDON",
+            "Duration": 20200,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "On"
+        },
+        {
+            "Category": "",
+            "Command": "LEDOFF",
+            "Duration": 40,
+            "Group": 1,
+            "MinimumCooldown": 0,
+            "Name": "Off"
         }
     ]
 }

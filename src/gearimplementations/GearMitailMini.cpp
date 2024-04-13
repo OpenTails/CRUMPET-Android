@@ -190,6 +190,7 @@ public:
                 } else {
                     q->setHasLights(false);
                 }
+                q->reloadCommands();
             }
             else if (stateResult[0] == QLatin1String{"PONG"} || stateResult[0] == QLatin1String{"OK"}) {
                 if (currentCall != QLatin1String{"PING"}) {
@@ -665,7 +666,11 @@ void GearMitailMini::sendMessage(const QString &message)
 
 QStringList GearMitailMini::defaultCommandFiles() const
 {
-    return QStringList{QLatin1String{":/commands/mitailmini-builtin.crumpet"}};
+    if (hasLights()) {
+        return QStringList{QLatin1String{":/commands/mitailmini-lights-builtin.crumpet"}};
+    } else {
+        return QStringList{QLatin1String{":/commands/mitailmini-builtin.crumpet"}};
+    }
 }
 
 void GearMitailMini::checkOTA()

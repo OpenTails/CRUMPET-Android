@@ -141,5 +141,5 @@ void GearFake::sendMessage(const QString& message)
 
 QStringList GearFake::defaultCommandFiles() const
 {
-    return QStringList{QLatin1String{":/commands/mitail-builtin.crumpet"}};
+    return QStringList{QLatin1String{":/commands/mitail-lights-builtin.crumpet"}};
 }
