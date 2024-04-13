@@ -60,7 +60,6 @@ Kirigami.ApplicationWindow {
 
     visible: true;
     title: i18nc("Title of the application", "Crumpet");
-    pageStack.defaultColumnWidth: root.width;
 
     Connections {
         target: Digitail.PermissionsManager;
