@@ -313,11 +313,12 @@ Kirigami.ScrollablePage {
                     }
                     return found;
                 }
-                onActivated: {
-                    if (currentIndex == 0) {
+                onActivated: function(index) {
+                    // console.log("Change language to", index, "in", Digitail.AppSettings.availableLanguages, "which is", Digitail.AppSettings.availableLanguages[index]);
+                    if (index == 0) {
                         Digitail.AppSettings.languageOverride = "";
                     } else {
-                        Digitail.AppSettings.languageOverride = Digitail.AppSettings.availableLanguages[currentIndex];
+                        Digitail.AppSettings.languageOverride = Digitail.AppSettings.availableLanguages[index];
                     }
                 }
             }
