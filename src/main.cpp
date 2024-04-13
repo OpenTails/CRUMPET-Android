@@ -59,8 +59,8 @@
 #include "rep_CommandQueueProxy_replica.h"
 #include <rep_GestureControllerProxy_replica.h>
 
-#include <klocalizedcontext.h>
-#include <klocalizedstring.h>
+#include <KLocalizedContext>
+#include <KLocalizedString>
 
 int appMain(int argc, char *argv[])
 {
@@ -148,9 +148,12 @@ int appMain(int argc, char *argv[])
     });
     auto retranslate = [&settingsReplica](){
         if (settingsReplica->languageOverride().isEmpty()) {
+            qDebug() << Q_FUNC_INFO << "Clearing ki18n languages";
             KLocalizedString::clearLanguages();
         } else {
-            KLocalizedString::setLanguages(QStringList() << settingsReplica->languageOverride() << QLatin1String{"en_US"});
+            const QStringList languages{settingsReplica->languageOverride(), QLatin1String{"en_US"}};
+            qDebug() << Q_FUNC_INFO << "Setting ki18n language list to" << languages;
+            KLocalizedString::setLanguages(languages);
         }
     };
     QObject::connect(settingsReplica.data(), &AppSettingsProxyReplica::languageOverrideChanged, &app, retranslate);
