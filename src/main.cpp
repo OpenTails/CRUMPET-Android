@@ -92,7 +92,7 @@ int appMain(int argc, char *argv[])
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("digitail"));
 #ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
-    KLocalizedString::addDomainLocaleDir("digitail", QLatin1String{"assets:/share/locale/"});
+    KLocalizedString::addDomainLocaleDir("digitail", QLatin1String{"assets:/share/locale"});
     qDebug() << Q_FUNC_INFO << "Available application translations:" << KLocalizedString::availableApplicationTranslations();
 #else
     KLocalizedString::addDomainLocaleDir("digitail", QString::fromUtf8("%1/../locale").arg(app.applicationDirPath()));
@@ -296,7 +296,7 @@ int serviceMain(int argc, char *argv[])
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("digitail"));
 #ifdef Q_OS_ANDROID
     KLocalizedString::addDomainLocaleDir("digitail", QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/org.kde.ki18n/"));
-    KLocalizedString::addDomainLocaleDir("digitail", QLatin1String{"assets:/share/locale/"});
+    KLocalizedString::addDomainLocaleDir("digitail", QLatin1String{"assets:/share/locale"});
     qDebug() << Q_FUNC_INFO << "Available application translations:" << KLocalizedString::availableApplicationTranslations();
 #else
     KLocalizedString::addDomainLocaleDir("digitail", QString::fromUtf8("%1/../src/locale").arg(app.applicationDirPath()));
