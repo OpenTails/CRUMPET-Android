@@ -376,7 +376,7 @@ Kirigami.ApplicationWindow {
                                i18nc("Message for the confirmation popup for disconnecting your gear", "You are currently connected to some of your gear.\n\nAre you sure that you want to disconnect and quit?"),
                                function () {
                                    if(Digitail.BTConnectionManager.isConnected) {
-                                       Digitail.BTConnectionManager.disconnectDevice();
+                                       Digitail.BTConnectionManager.disconnectDevice("");
                                    }
 
                                    Qt.quit();
