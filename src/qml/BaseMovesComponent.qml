@@ -120,7 +120,7 @@ ColumnLayout {
                                     wrapMode: Text.Wrap;
                                     horizontalAlignment: Text.AlignHCenter;
                                     verticalAlignment: Text.AlignVCenter;
-                                    text: model.name ? model.name : "";
+                                    text: Digitail.Utilities.translateStaticString(model.name ? model.name : "");
                                     Kirigami.Theme.colorSet: Kirigami.Theme.Button
                                     Row {
                                         visible: selectorDeviceModel.count > 1
