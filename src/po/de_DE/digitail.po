@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-11 20:56+0000\n"
+"PO-Revision-Date: 2024-04-15 13:13+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
-"Language-Team: German <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/de/>\n"
+"Language-Team: German <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1301,7 +1301,7 @@ msgstr "Begeistert"
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "Angespannt"
 
 #: qml/BaseCommandListEditor.qml:68
 #, fuzzy
@@ -1670,7 +1670,7 @@ msgstr "Begeistert"
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
 msgid "Tense"
-msgstr ""
+msgstr "Angespannt"
 
 #: qml/GearGestures.qml:52
 #, fuzzy
@@ -2559,6 +2559,12 @@ msgid ""
 "name, and even forgetting it. Forgetting it will disconnect (using the Just "
 "Disconnect method) from it, if you are currently connected."
 msgstr ""
+"Unten ist eine Liste mit Geräten mit denen du früher verbunden warst. Du "
+"kannst mit dieser Liste mehrere Dinge tun, zum Beispiel explizit angeben, ob "
+"ein gefundenes Gerät automatisch verbunden wird, seinen Namen ändern oder es "
+"vergessen. Wenn ein Gerät vergessen wird, wird die Verbindung getrennt (Mit "
+"der einfach Verbindung unterbrechen Methode) falls du gerade damit verbunden "
+"bist."
 
 #: qml/SettingsPage.qml:113
 #, fuzzy
@@ -2573,19 +2579,19 @@ msgctxt ""
 "A button on the settings page which allows the user to change the name they "
 "have given a piece of gear"
 msgid "Rename %1..."
-msgstr ""
+msgstr "Benenne %1 um..."
 
 #: qml/SettingsPage.qml:133
 msgctxt ""
 "Label for the button which opens the dialog box which allows the user to "
 "disconnect from and remove all information about a given piece of gear"
 msgid "Forget %1..."
-msgstr ""
+msgstr "Vergiss %1..."
 
 #: qml/SettingsPage.qml:135
 msgctxt "Header for the message box asking whether to forget a piece of gear"
 msgid "Forget about %1"
-msgstr ""
+msgstr "Vergiss alles über %1"
 
 #: qml/SettingsPage.qml:136
 msgctxt "Text for the message box asking whether to forget a piece of gear"
@@ -2594,6 +2600,9 @@ msgid ""
 "disconnect and forget. To get it back, you just need to look for more gear "
 "and connect to it again."
 msgstr ""
+"Bist Du sicher du möchtest alles über %1 vergessen? Wenn du sicher bist, "
+"drücke OK unten um die Verbindung zu trennen und zu vergessen. Um das Gerät "
+"zurückzubekommen, muss es über Gerät finden wieder neu verbunden werden."
 
 #: qml/SettingsPage.qml:146
 msgctxt ""
@@ -2803,7 +2812,7 @@ msgctxt ""
 "Title for a message box warning that changing the language requires "
 "restarting the app"
 msgid "App Restart Required"
-msgstr ""
+msgstr "App Neustart notwendig"
 
 #: qml/SettingsPage.qml:325
 msgctxt ""
@@ -2814,6 +2823,9 @@ msgid ""
 "and so on is updated. To quit the app now, click OK, or click Cancel to not "
 "quit just now."
 msgstr ""
+"Wenn die Sprache gewechselt wird, muss die App neu gestartet werden damit "
+"alle Texte aktualisiert werden. Um die App jetzt zu beenden, klicke OK, oder "
+"klicke Abbrechen um es jetzt nicht zu tun."
 
 #: qml/SettingsPage.qml:338
 msgctxt ""
@@ -3105,47 +3117,47 @@ msgstr "Gestensteuerung"
 #: Utilities.cpp:86
 msgctxt "The name of the first entry in any of the categories of moves"
 msgid "One"
-msgstr ""
+msgstr "Eins"
 
 #: Utilities.cpp:88
 msgctxt "The name of the second entry in any of the categories of moves"
 msgid "Two"
-msgstr ""
+msgstr "Zwei"
 
 #: Utilities.cpp:90
 msgctxt "The name of the third entry in any of the categories of moves"
 msgid "Three"
-msgstr ""
+msgstr "Drei"
 
 #: Utilities.cpp:92
 msgctxt "The name of the fourth entry in any of the categories of moves"
 msgid "Four"
-msgstr ""
+msgstr "Vier"
 
 #: Utilities.cpp:94
 msgctxt "The name of the fifth entry in any of the categories of moves"
 msgid "Five"
-msgstr ""
+msgstr "Fünf"
 
 #: Utilities.cpp:96
 msgctxt "The name of the sixth entry in any of the categories of moves"
 msgid "Six"
-msgstr ""
+msgstr "Sechs"
 
 #: Utilities.cpp:98
 msgctxt "The name of the seventh entry in any of the categories of moves"
 msgid "Seven"
-msgstr ""
+msgstr "Sieben"
 
 #: Utilities.cpp:100
 msgctxt "The name of the eighth entry in any of the categories of moves"
 msgid "Eight"
-msgstr ""
+msgstr "Acht"
 
 #: Utilities.cpp:102
 msgctxt "The name of the ninth entry in any of the categories of moves"
 msgid "Nine"
-msgstr ""
+msgstr "Neun"
 
 #: Utilities.cpp:104
 #, fuzzy
@@ -3180,51 +3192,51 @@ msgstr "Beleuchtungs-Tipps"
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
 msgid "Blink"
-msgstr ""
+msgstr "Blinken"
 
 #: Utilities.cpp:116
 msgctxt ""
 "The name of the Triangle command in the lights category of gear commands"
 msgid "Triangle"
-msgstr ""
+msgstr "Dreieck"
 
 #: Utilities.cpp:118
 msgctxt ""
 "The name of the Sawtooth command in the lights category of gear commands"
 msgid "Sawtooth"
-msgstr ""
+msgstr "Sägezahn"
 
 #: Utilities.cpp:120
 msgctxt "The name of the Morse command in the lights category of gear commands"
 msgid "Morse"
-msgstr ""
+msgstr "Morsen"
 
 #: Utilities.cpp:122
 msgctxt ""
 "The name of the Beacon command in the lights category of gear commands"
 msgid "Beacon"
-msgstr ""
+msgstr "Signal"
 
 #: Utilities.cpp:124
 msgctxt "The name of the Flame command in the lights category of gear commands"
 msgid "Glame"
-msgstr ""
+msgstr "Flamme"
 
 #: Utilities.cpp:126
 msgctxt ""
 "The name of the Strobe command in the lights category of gear commands"
 msgid "Strobe"
-msgstr ""
+msgstr "Aufblitzen"
 
 #: Utilities.cpp:128
 msgctxt "The name of the On command in the lights category of gear commands"
 msgid "On"
-msgstr ""
+msgstr "Ein"
 
 #: Utilities.cpp:130
 msgctxt "The name of the Off command in the lights category of gear commands"
 msgid "Off"
-msgstr ""
+msgstr "Aus"
 
 #: WalkingSensorGestureReconizer.cpp:186
 #, fuzzy
