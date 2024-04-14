@@ -121,7 +121,7 @@ QString Utilities::translateStaticString(const QString& stringToTranslate) const
     } else if (stringToTranslate == stringBeacon) {
         return i18nc("The name of the Beacon command in the lights category of gear commands", "Beacon");
     } else if (stringToTranslate == stringFlame) {
-        return i18nc("The name of the Flame command in the lights category of gear commands", "Glame");
+        return i18nc("The name of the Flame command in the lights category of gear commands", "Flame");
     } else if (stringToTranslate == stringStrobe) {
         return i18nc("The name of the Strobe command in the lights category of gear commands", "Strobe");
     } else if (stringToTranslate == stringOn) {
