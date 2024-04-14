@@ -17,6 +17,8 @@
 
 #include "WalkingSensorGestureReconizer.h"
 
+#include <KLocalizedString>
+
 #include <QCoreApplication>
 #include <QAccelerometer>
 #include <QElapsedTimer>
@@ -177,6 +179,12 @@ QString WalkingSensor::sensorId() const
 {
     static const QLatin1String id{"Tailcompany.Walking"};
     return id;
+}
+
+QString WalkingSensor::humanName() const
+{
+    static const QString humanName{i18nc("The human readable name of the walking sensor", "Walking")};
+    return humanName;
 }
 
 void WalkingSensor::startDetection()

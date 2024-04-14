@@ -315,9 +315,7 @@ GestureDetails::GestureDetails(QString gestureId, GestureSensor* sensor, Gesture
     }
 
     d->sensor = sensor;
-    d->sensorHumanName = sensor->sensorId();
-    // Automagically capitalise the first letter
-    d->sensorHumanName.replace(0, 1, d->sensorHumanName[0].toUpper());
+    d->sensorHumanName = sensor->humanName();
 
     load();
 }
@@ -364,9 +362,7 @@ GestureSensor * GestureDetails::sensor() const
 
 QString GestureDetails::sensorName() const
 {
-    QString name = d->sensor->sensorId().split(QStringLiteral(".")).last();
-    name.replace(0, 1, name[0].toUpper());
-    return name;
+    return d->sensor->humanName();
 }
 
 QString GestureDetails::gestureId() const

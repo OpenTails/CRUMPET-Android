@@ -29,6 +29,7 @@ public:
 
     virtual QStringList recognizerSignals() const = 0;
     virtual QString sensorId() const = 0;
+    virtual QString humanName() const = 0;
 
     virtual void startDetection() = 0;
     virtual void stopDetection() = 0;

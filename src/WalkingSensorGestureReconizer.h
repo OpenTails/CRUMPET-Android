@@ -46,6 +46,7 @@ public:
     explicit WalkingSensor(QObject *parent);
     QStringList recognizerSignals() const override;
     QString sensorId() const override;
+    QString humanName() const override;
     void startDetection() override;
     void stopDetection() override;
 private:
