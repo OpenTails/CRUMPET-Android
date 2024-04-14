@@ -320,6 +320,16 @@ Kirigami.ScrollablePage {
                     } else {
                         Digitail.AppSettings.languageOverride = Digitail.AppSettings.availableLanguages[index];
                     }
+                    applicationWindow().showMessageBox(
+                        i18nc("Title for a message box warning that changing the language requires restarting the app", "App Restart Required"),
+                        i18nc("Body for a message box warning that changing the language requires restarting the app", "When switching languages, you need to restart the app to ensure all the text and so on is updated. To quit the app now, click OK, or click Cancel to not quit just now."),
+                        function() {
+                            if (Digitail.BTConnectionManager.isConnected) {
+                                Digitail.BTConnectionManager.disconnectDevice("");
+                            }
+                            Qt.quit();
+                        }
+                    );
                 }
             }
         }
