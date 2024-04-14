@@ -1,3 +1,9 @@
+37:
+- Automatically connect to known gear (unless told not to)
+- Ensure MiTail Minis with Glowtips have access to their lights
+- Move names should now be more pleasant in Move Lists
+- Translations should now work again - get in touch if you want to help out with your language!
+
 36:
 - Connecting to gear no longer requires you to wait
 - Disconnect dialog is less verbose until required to be so
