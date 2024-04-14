@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-14 10:44+0000\n"
+"PO-Revision-Date: 2024-04-14 12:51+0000\n"
 "Last-Translator: Dan <admin@leinir.dk>\n"
-"Language-Team: Danish <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/da/>\n"
+"Language-Team: Danish <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/da/>\n"
 "Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1267,33 +1267,29 @@ msgid "Add Pause To List"
 msgstr "Tilføj Pause Til Listen"
 
 #: qml/BaseCommandListEditor.qml:62
-#, fuzzy
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr "Rolig og Afslappet"
+msgstr "Rolig"
 
 #: qml/BaseCommandListEditor.qml:64
-#, fuzzy
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
-msgstr "Vær Begejstret"
+msgstr "Begejstret"
 
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "Spaendt"
 
 #: qml/BaseCommandListEditor.qml:68
-#, fuzzy
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
-msgstr "Positioner"
+msgstr "Position"
 
 #: qml/BaseCommandListEditor.qml:70
-#, fuzzy
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr "Stop Lys"
+msgstr "Lys"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
@@ -1635,36 +1631,32 @@ msgid "Home Position"
 msgstr "Hjemmeposition"
 
 #: qml/GearGestures.qml:46
-#, fuzzy
 msgctxt ""
 "A short name for the relaxed moves category shown on the gestures page"
 msgid "Relaxed"
-msgstr "Rolig og Afslappet"
+msgstr "Afslappet"
 
 #: qml/GearGestures.qml:48
-#, fuzzy
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr "Vær Begejstret"
+msgstr "Begejstret"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
 msgid "Tense"
-msgstr ""
+msgstr "Spændt"
 
 #: qml/GearGestures.qml:52
-#, fuzzy
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
-msgstr "Positioner"
+msgstr "Position"
 
 #: qml/GearGestures.qml:54
-#, fuzzy
 msgctxt "A short name for the lights category shown on the gestures page"
 msgid "Lights"
-msgstr "Stop Lys"
+msgstr "Lys"
 
 #: qml/GearGestures.qml:62
 msgctxt ""
@@ -2264,12 +2256,11 @@ msgid "Get Location Permission..."
 msgstr "Giv Tilladelse Til Position..."
 
 #: qml/NotConnectedCard.qml:112
-#, fuzzy
 msgctxt ""
 "Label for button for getting the missing notifications permission, for the "
 "gear connecting card"
 msgid "Get Notification Permission..."
-msgstr "Giv Tilladelse Til Position..."
+msgstr "Giv Tilladelse Til Notifikationer..."
 
 #: qml/NotConnectedCard.qml:114
 msgctxt ""
@@ -2525,10 +2516,9 @@ msgid "Always Send To All"
 msgstr "Send Altid Til Alle"
 
 #: qml/SettingsPage.qml:95
-#, fuzzy
 msgctxt "Header for the panel showing known gear, on the settings page"
 msgid "Known Gear"
-msgstr "Luk Udstyret Ned"
+msgstr "Kendt Udstyr"
 
 #: qml/SettingsPage.qml:96
 msgctxt "Description for the panel showing known gear, on the settings page"
