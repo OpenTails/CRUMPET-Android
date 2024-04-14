@@ -49,6 +49,14 @@ public:
 
     void setConnectionManager(BTConnectionManagerProxyReplica* connectionManagerProxy);
 
+    /**
+     * \brief Get the translated version of several strings used in our data files
+     * @note Adding strings to this function should be the last resort solution (basically, should only be used for things in .crumpet files)
+     * @param stringToTranslate The string that you wish to get a human-readable translated version of
+     * @return The translated version of the string, or the string itself if it was not recognised
+     */
+    Q_INVOKABLE QString translateStaticString(const QString &stringToTranslate) const;
+
 private:
     explicit Utilities(QObject* parent = nullptr);
     class Private;
