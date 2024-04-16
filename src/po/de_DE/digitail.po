@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-16 10:19+0000\n"
+"PO-Revision-Date: 2024-04-17 09:46+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de/>\n"
@@ -1302,7 +1302,6 @@ msgid "Tense"
 msgstr "Angespannt"
 
 #: qml/BaseCommandListEditor.qml:68
-#, fuzzy
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
 msgstr "Posen"
@@ -1668,7 +1667,6 @@ msgid "Tense"
 msgstr "Angespannt"
 
 #: qml/GearGestures.qml:52
-#, fuzzy
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
@@ -3150,25 +3148,21 @@ msgid "Nine"
 msgstr "Neun"
 
 #: Utilities.cpp:104
-#, fuzzy
 msgctxt "The name of the calm and relaxed category of gear moves"
 msgid "Calm and Relaxed"
 msgstr "Ruhig und Entspannt"
 
 #: Utilities.cpp:106
-#, fuzzy
 msgctxt "The name of the fast and excited category of gear moves"
 msgid "Fast and Excited"
 msgstr "Schnell und Aufgeregt"
 
 #: Utilities.cpp:108
-#, fuzzy
 msgctxt "The name of the frustrated and tense category of gear moves"
 msgid "Frustrated and Tense"
 msgstr "Frustriert und Angespannt"
 
 #: Utilities.cpp:110
-#, fuzzy
 msgctxt "The name of the poses category of gear commands"
 msgid "Poses"
 msgstr "Posen"
