@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-11 20:56+0000\n"
+"PO-Revision-Date: 2024-04-17 09:46+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
-"Language-Team: Dutch <http://weblate.stargazer.at/projects/the-tailcompany-"
-"app/digitail/nl/>\n"
+"Language-Team: Dutch <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/nl/>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -361,7 +361,7 @@ msgstr ""
 #: gearimplementations/GearMitailMini.cpp:342
 msgctxt "Message for when we are checking the downloaded firmware data"
 msgid "Checking integrity of the downloaded firmware data..."
-msgstr ""
+msgstr "Controleer de firmwaregegevens..."
 
 #: gearimplementations/GearEars.cpp:545
 #, fuzzy
@@ -430,7 +430,7 @@ msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Firmware-update voltooid"
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
@@ -442,6 +442,10 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"De firmware is met succes opgeladen naar je apparaat, dat zichzelf "
+"vervolgens heeft uitgeschakeld. Als het apparaat zichzelf niet heeft "
+"ingeschakeld en opnieuw verbinding heeft gemaakt, sluit dan dit bericht, "
+"schakel het apparaat zelf in en maak opnieuw verbinding."
 
 #: gearimplementations/GearEars.cpp:656
 #, fuzzy
@@ -462,7 +466,7 @@ msgstr ""
 msgctxt ""
 "Message shown alongside a progress bar when downloading update information"
 msgid "Downloading firmware update information"
-msgstr ""
+msgstr "Download de update-informatie"
 
 #: gearimplementations/GearEars.cpp:841
 msgctxt ""
@@ -472,6 +476,8 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Je apparaat heeft een onbekende hardware revisie gemeld. Dit betekent dat je "
+"app mogelijk verouderd is en moet worden bijgewerkt."
 
 #: gearimplementations/GearEars.cpp:845
 msgctxt ""
@@ -483,6 +489,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"Je hebt op de een of andere manier een firmware die de hardware revisie van "
+"je oortjes niet laat zien - een fout die niet zou mogen voorkomen. Dit is "
+"een zeer onverwachte situatie en we willen je vragen deze fout aan ons te "
+"melden op info@thetailcompany.com - bedankt!"
 
 #: gearimplementations/GearEars.cpp:879
 #: gearimplementations/GearFlutterWings.cpp:714
@@ -492,7 +502,7 @@ msgctxt ""
 "Message shown along a progress bar when downloading the firmware payload "
 "itself"
 msgid "Downloading firmware update from The Tail Company's website..."
-msgstr ""
+msgstr "Download de update van de website van Tail Company."
 
 #: gearimplementations/GearEars.cpp:896
 #: gearimplementations/GearFlutterWings.cpp:731
@@ -505,6 +515,10 @@ msgid ""
 "should simply try again. If it continues to fail, please get in touch with "
 "us and we can try and work something out!"
 msgstr ""
+"Het firmwarepakket bevat onverwachte gegevens. De gegevens zijn mogelijk "
+"beschadigd tijdens het downloaden. Probeer het later nog eens. Als de fout "
+"zich blijft voordoen, neem dan contact met ons op en dan zoeken we samen "
+"naar een oplossing!"
 
 #: gearimplementations/GearEars.cpp:912
 msgctxt "Message shown during firmware update processes"
@@ -515,6 +529,11 @@ msgid ""
 "disconnect from this device. Once it is started back up again, you will be "
 "able to connect to it again."
 msgstr ""
+"Laad de firmware op je apparaat. Houd de apparaten dicht bij elkaar en zorg "
+"ervoor dat zowel je smartphone als je apparaat voldoende stroom krijgen. "
+"Zodra het proces is voltooid, zal je apparaat opnieuw opstarten of "
+"uitschakelen. Zodra je apparaat weer is ingeschakeld, kun je de verbinding "
+"herstellen."
 
 #: gearimplementations/GearFake.cpp:47
 #: gearimplementations/GearFlutterWings.cpp:363
@@ -554,6 +573,8 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
+"Dit is een bericht om de gebruiker te informeren dat er iets <b>belangrijks</"
+"b> aan de hand is met de firmware"
 
 #: gearimplementations/GearFlutterWings.cpp:109
 msgctxt ""
@@ -605,6 +626,12 @@ msgid ""
 "contact us on info@thetailcompany.com and tell us that you got this error.</"
 "p>"
 msgstr ""
+"<p><b>Update mislukt</b></p><p>We probeerden de firmware te snel bij te "
+"werken voor uw apparaat en moesten dit annuleren. Als je dit ziet:</"
+"p><p>Geen paniek! Er is niets met je apparaat gebeurd.</p> <p>MAR: we zijn "
+"erg benieuwd hoe je dit voor elkaar hebt gekregen en willen je vragen "
+"contact met ons op te nemen via info@thetailcompany.com en ons te vertellen "
+"hoe dit is gebeurd.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:444
 #, fuzzy
@@ -676,6 +703,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Firmware succesvol geïnstalleerd. Het systeem wacht tot uw apparaat "
+"automatisch opnieuw is opgestart voordat het opnieuw wordt aangesloten..."
 
 #: gearimplementations/GearFlutterWings.cpp:580
 #, fuzzy
@@ -699,6 +728,10 @@ msgid ""
 "Once completed, your gear will restart and disconnect from this device. Once "
 "rebooted, you will be able to connect to it again."
 msgstr ""
+"Laad de firmware op je apparaat. Houd de apparaten dicht bij elkaar en zorg "
+"ervoor dat zowel je smartphone als je apparaat voldoende stroom krijgen ("
+"sluit de oplader aan). Als het proces is voltooid, start je apparaat opnieuw "
+"op. Zodra het weer beschikbaar is, kun je er weer verbinding mee maken."
 
 #: gearimplementations/GearMitail.cpp:39
 msgctxt ""
@@ -3094,10 +3127,9 @@ msgid "Frustrated and Tense"
 msgstr "Geirriteerd"
 
 #: Utilities.cpp:110
-#, fuzzy
 msgctxt "The name of the poses category of gear commands"
 msgid "Poses"
-msgstr "Poses"
+msgstr "Houdingen"
 
 #: Utilities.cpp:112
 #, fuzzy
