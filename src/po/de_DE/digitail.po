@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-15 13:13+0000\n"
+"PO-Revision-Date: 2024-04-16 10:19+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de/>\n"
@@ -1287,16 +1287,14 @@ msgid "Add Pause To List"
 msgstr "Pause zur Liste hinzufügen"
 
 #: qml/BaseCommandListEditor.qml:62
-#, fuzzy
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr "Ruhig und Entspannt"
+msgstr "Entspannt"
 
 #: qml/BaseCommandListEditor.qml:64
-#, fuzzy
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
-msgstr "Begeistert"
+msgstr "Aufgeregt"
 
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
@@ -1310,10 +1308,9 @@ msgid "Pose"
 msgstr "Posen"
 
 #: qml/BaseCommandListEditor.qml:70
-#, fuzzy
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr "Licht abschalten"
+msgstr "Lichter"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
@@ -1454,7 +1451,7 @@ msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
 msgid "Connect"
-msgstr "Verbinden"
+msgstr "Verbinde"
 
 #: qml/DatePicker.qml:49
 msgctxt "Title for the date picker"
@@ -1644,7 +1641,7 @@ msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
 msgid "Gear Gestures"
-msgstr "Bewegungen"
+msgstr "Gestenerkennung"
 
 #: qml/GearGestures.qml:31
 msgctxt ""
@@ -1654,18 +1651,16 @@ msgid "Home Position"
 msgstr "Ruheposition"
 
 #: qml/GearGestures.qml:46
-#, fuzzy
 msgctxt ""
 "A short name for the relaxed moves category shown on the gestures page"
 msgid "Relaxed"
-msgstr "Ruhig und Entspannt"
+msgstr "Entspannt"
 
 #: qml/GearGestures.qml:48
-#, fuzzy
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr "Begeistert"
+msgstr "Aufgeregt"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
@@ -1680,10 +1675,9 @@ msgid "Pose"
 msgstr "Posen"
 
 #: qml/GearGestures.qml:54
-#, fuzzy
 msgctxt "A short name for the lights category shown on the gestures page"
 msgid "Lights"
-msgstr "Licht abschalten"
+msgstr "Lichter"
 
 #: qml/GearGestures.qml:62
 msgctxt ""
@@ -1737,11 +1731,10 @@ msgid "Show On Welcome Page"
 msgstr "Auf der Startseite anzeigen"
 
 #: qml/GearGestures.qml:130
-#, fuzzy
 msgctxt ""
 "Command for returning any gear to its home position, on the gestures page"
 msgid "Home Position"
-msgstr "Ausgangsposition"
+msgstr "Ruheposition"
 
 #: qml/GearGestures.qml:132
 msgctxt ""
@@ -2284,12 +2277,11 @@ msgid "Get Location Permission..."
 msgstr "Ortsbestimmung erlauben..."
 
 #: qml/NotConnectedCard.qml:112
-#, fuzzy
 msgctxt ""
 "Label for button for getting the missing notifications permission, for the "
 "gear connecting card"
 msgid "Get Notification Permission..."
-msgstr "Ortsbestimmung erlauben..."
+msgstr "Benachrichtigungen erlauben..."
 
 #: qml/NotConnectedCard.qml:114
 msgctxt ""
@@ -2545,10 +2537,9 @@ msgid "Always Send To All"
 msgstr "Immer an alle senden"
 
 #: qml/SettingsPage.qml:95
-#, fuzzy
 msgctxt "Header for the panel showing known gear, on the settings page"
 msgid "Known Gear"
-msgstr "Geräte ausschalten"
+msgstr "Bekannte Geräte"
 
 #: qml/SettingsPage.qml:96
 msgctxt "Description for the panel showing known gear, on the settings page"
@@ -2567,12 +2558,11 @@ msgstr ""
 "bist."
 
 #: qml/SettingsPage.qml:113
-#, fuzzy
 msgctxt ""
 "A toggle for a single piece of gear on the settings page, allowing the user "
 "to change whether to automatically connect to it or not"
 msgid "Connect Automatically To %1"
-msgstr "Verbindung automatisch wiederherstellen"
+msgstr "Verbinde automatisch mit %1"
 
 #: qml/SettingsPage.qml:124
 msgctxt ""
@@ -3032,7 +3022,7 @@ msgstr "Verbindung trennen"
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for connecting gear, on the welcome page"
 msgid "Connect"
-msgstr "Verbinden"
+msgstr "Verbinde"
 
 #: qml/WelcomePage.qml:64
 msgctxt ""
@@ -3184,10 +3174,9 @@ msgid "Poses"
 msgstr "Posen"
 
 #: Utilities.cpp:112
-#, fuzzy
 msgctxt "The name of the lights category of gear commands"
 msgid "Glow Tip Patterns"
-msgstr "Beleuchtungs-Tipps"
+msgstr "Leuchtspitzen Muster"
 
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
@@ -3239,10 +3228,9 @@ msgid "Off"
 msgstr "Aus"
 
 #: WalkingSensorGestureReconizer.cpp:186
-#, fuzzy
 msgctxt "The human readable name of the walking sensor"
 msgid "Walking"
-msgstr "Gehen (Start)"
+msgstr "Gehen"
 
 #~ msgctxt "Header for the panel for changing gear names, on the settings page"
 #~ msgid "Gear Names"
