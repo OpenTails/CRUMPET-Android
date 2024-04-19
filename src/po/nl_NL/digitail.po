@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-17 09:46+0000\n"
+"PO-Revision-Date: 2024-04-20 09:13+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -743,6 +743,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Uw MiTail gebruikt momenteel firmwareversie 4.03, die nu verouderd is en een "
+"aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
+"naar de sectie firmware om de update te installeren."
 
 #: gearimplementations/GearMitail.cpp:40
 msgctxt ""
@@ -754,6 +758,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Uw MiTail gebruikt momenteel firmwareversie 4.02, die nu verouderd is en een "
+"aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
+"naar de sectie firmware om de update te installeren."
 
 #: gearimplementations/GearMitail.cpp:41
 msgctxt ""
@@ -765,6 +773,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Uw MiTail gebruikt momenteel firmwareversie 4.01, die nu verouderd is en een "
+"aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
+"naar de sectie firmware om de update te installeren."
 
 #: gearimplementations/GearMitail.cpp:42
 msgctxt ""
@@ -776,6 +788,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Uw MiTail gebruikt momenteel firmwareversie 4.00, die nu verouderd is en een "
+"aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
+"naar de sectie firmware om de update te installeren."
 
 #: gearimplementations/GearMitail.cpp:43
 msgctxt ""
@@ -787,6 +803,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Uw MiTail gebruikt momenteel firmwareversie 3.2.11, die nu verouderd is en "
+"een aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
+"naar de sectie firmware om de update te installeren."
 
 #: gearimplementations/GearMitail.cpp:44
 msgctxt ""
@@ -798,6 +818,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Uw MiTail gebruikt momenteel firmwareversie 3.2.10, die nu verouderd is en "
+"een aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
+"naar de sectie firmware om de update te installeren."
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -891,6 +915,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"De firmware is succesvol gedownload. Wacht nu tot uw apparaten opnieuw zijn "
+"opgestart voordat we proberen de verbinding te herstellen..."
 
 #: gearimplementations/GearMitail.cpp:587
 msgctxt ""
@@ -913,6 +939,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Uw MiTail Mini gebruikt momenteel firmwareversie 4.03, die nu verouderd is "
+"en een aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
+"naar de sectie firmware om de update te installeren."
 
 #: gearimplementations/GearMitailMini.cpp:110
 msgctxt ""
@@ -1129,6 +1159,9 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Deactiveer %1 na één uur. Uw apparaten hebben een korte pauze nodig na zo'n "
+"lange gebruiksperiode. Raadpleeg voor meer informatie onze gids "
+"\"Verantwoordelijke Wedeln\"."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -1279,7 +1312,7 @@ msgstr "Opgewonden"
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "Gespannen"
 
 #: qml/BaseCommandListEditor.qml:68
 #, fuzzy
@@ -1483,15 +1516,15 @@ msgctxt ""
 msgid "Please select how you would like to disconnect from %2."
 msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Selecteer hoe je de verbinding met %2 wilt verbreken."
+msgstr[1] "Selecteer hoe je de verbindingen met %2 wilt verbreken."
 
 #: qml/DisconnectOptions.qml:59
 msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Gebruik Gear zonder smartphone"
 
 #: qml/DisconnectOptions.qml:88
 msgctxt ""
@@ -1502,6 +1535,10 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
+"Selecteer de optie om de modus Geen telefoon te activeren en de verbinding "
+"te verbreken zodat je de verbinding met de telefoon kunt beëindigen. Deze "
+"modus werkt op dezelfde manier als de casual modus, maar dan zonder "
+"telefoon. (Handig als je de telefoon niet in je kostuum kunt opbergen)"
 
 #: qml/DisconnectOptions.qml:111
 msgctxt ""
@@ -1511,6 +1548,8 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
+"De modus No-Phone wacht tussen %1 en %2 seconden voordat de volgende "
+"beweging begint."
 
 #: qml/DisconnectOptions.qml:131
 msgctxt ""
@@ -1518,13 +1557,14 @@ msgctxt ""
 "Phone mode is fully activated"
 msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
 msgstr ""
+"De modus No-Phone wacht %1 minuut(en) voordat de eerste beweging begint."
 
 #: qml/DisconnectOptions.qml:142
 msgctxt ""
 "Label for the button in the disconnection options popup which puts the gear "
 "into autonomous, or no phone, mode"
 msgid "Engage No Phone Mode"
-msgstr ""
+msgstr "Schakel de modus Geen telefoon in"
 
 #: qml/DisconnectOptions.qml:179
 #, fuzzy
@@ -1541,6 +1581,8 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
+"Met deze optie kun je het apparaat loskoppelen zonder het uit te schakelen ("
+"handig als je het wilt opladen)."
 
 #: qml/DisconnectOptions.qml:200
 #, fuzzy
@@ -1555,7 +1597,7 @@ msgctxt ""
 "Header label for the section which lets you tell the gear to shut down "
 "before disconnecting"
 msgid "Disconnect and Shut Down"
-msgstr ""
+msgstr "Koppel de apparaten los en schakel ze uit"
 
 #: qml/DisconnectOptions.qml:242
 msgctxt ""
@@ -1564,13 +1606,15 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
+"Met deze optie kun je het apparaat loskoppelen zonder het uit te schakelen ("
+"handig als je het wilt opladen)"
 
 #: qml/DisconnectOptions.qml:245
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Shut Down Gear"
-msgstr ""
+msgstr "apparaten uitschakelen"
 
 #: qml/EarPoses.qml:27
 #, fuzzy
@@ -1600,7 +1644,7 @@ msgstr ""
 #: qml/EarPoses.qml:42
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
 msgid "Be Calm"
-msgstr ""
+msgstr "Wees kalm"
 
 #: qml/EarPoses.qml:50
 #, fuzzy
@@ -1648,7 +1692,7 @@ msgstr "Opgewonden"
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
 msgid "Tense"
-msgstr ""
+msgstr "Gespannen"
 
 #: qml/GearGestures.qml:52
 #, fuzzy
@@ -1966,7 +2010,7 @@ msgstr "Over ons"
 msgctxt ""
 "Button for opening the TailCo website in a browser, from the landing page"
 msgid "TheTailCompany.com"
-msgstr ""
+msgstr "TheTailCompany.com"
 
 #: qml/main.qml:375
 msgctxt "Title for the confirmation popup for disconnecting your gear"
@@ -2444,13 +2488,13 @@ msgstr ""
 #: qml/SettingsPage.qml:45
 msgctxt "Label showing all the items underneath are links to a PDF file"
 msgid "Download PDF:"
-msgstr ""
+msgstr "Download PDF:"
 
 #: qml/SettingsPage.qml:49
 msgctxt ""
 "Label for downloading the general guide for safe use of the various gear"
 msgid "Responsible Wagging Guide"
-msgstr ""
+msgstr "Handleiding voor verantwoord wedeln"
 
 #: qml/SettingsPage.qml:54
 #, fuzzy
@@ -2525,7 +2569,7 @@ msgstr "Verzend naar allen"
 #: qml/SettingsPage.qml:95
 msgctxt "Header for the panel showing known gear, on the settings page"
 msgid "Known Gear"
-msgstr ""
+msgstr "Bekende apparaten"
 
 #: qml/SettingsPage.qml:96
 msgctxt "Description for the panel showing known gear, on the settings page"
@@ -2550,19 +2594,19 @@ msgctxt ""
 "A button on the settings page which allows the user to change the name they "
 "have given a piece of gear"
 msgid "Rename %1..."
-msgstr ""
+msgstr "Hernoem %1..."
 
 #: qml/SettingsPage.qml:133
 msgctxt ""
 "Label for the button which opens the dialog box which allows the user to "
 "disconnect from and remove all information about a given piece of gear"
 msgid "Forget %1..."
-msgstr ""
+msgstr "Vergeet %1..."
 
 #: qml/SettingsPage.qml:135
 msgctxt "Header for the message box asking whether to forget a piece of gear"
 msgid "Forget about %1"
-msgstr ""
+msgstr "Vergeet alles over %1"
 
 #: qml/SettingsPage.qml:136
 msgctxt "Text for the message box asking whether to forget a piece of gear"
@@ -2681,7 +2725,7 @@ msgctxt ""
 "Label for the button which makes the app go online and check for the newest "
 "firmware available for the specific device"
 msgid "Check For New Firmware"
-msgstr ""
+msgstr "Controleer op nieuwe firmware"
 
 #: qml/SettingsPage.qml:251
 msgctxt ""
@@ -2697,21 +2741,21 @@ msgctxt ""
 "Label for the button which makes the app download the newest available "
 "firmware (only visible when updated firmware has been found)"
 msgid "Download"
-msgstr ""
+msgstr "Downloaden"
 
 #: qml/SettingsPage.qml:265
 msgctxt ""
 "Label for a button which allows the user to pick a file to load the firmware "
 "from (this is only available in developer mode)"
 msgid "Load From File"
-msgstr ""
+msgstr "Laden vanuit een bestand"
 
 #: qml/SettingsPage.qml:272
 msgctxt ""
 "Title for a dialog which allows the user to pick a file to load as firmware "
 "(this is only available in developer mode)"
 msgid "Pick Firmware File"
-msgstr ""
+msgstr "Kies Firmwarebestand"
 
 #: qml/SettingsPage.qml:285
 msgctxt ""
@@ -2741,12 +2785,12 @@ msgctxt ""
 "firmware (only visible when updated firmware has been downloaded "
 "successfully)"
 msgid "Install"
-msgstr ""
+msgstr "Installeren"
 
 #: qml/SettingsPage.qml:302
 msgctxt "Heading for the panel of the language selector, on the settings page"
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: qml/SettingsPage.qml:303
 msgctxt "Description of the language selection option on the settings page"
@@ -2761,7 +2805,7 @@ msgctxt ""
 "Title for a message box warning that changing the language requires "
 "restarting the app"
 msgid "App Restart Required"
-msgstr ""
+msgstr "Opnieuw opstarten van de app noodzakelijk"
 
 #: qml/SettingsPage.qml:325
 msgctxt ""
@@ -3066,47 +3110,47 @@ msgstr "Gear Gebaren"
 #: Utilities.cpp:86
 msgctxt "The name of the first entry in any of the categories of moves"
 msgid "One"
-msgstr ""
+msgstr "Een"
 
 #: Utilities.cpp:88
 msgctxt "The name of the second entry in any of the categories of moves"
 msgid "Two"
-msgstr ""
+msgstr "Twee"
 
 #: Utilities.cpp:90
 msgctxt "The name of the third entry in any of the categories of moves"
 msgid "Three"
-msgstr ""
+msgstr "Drie"
 
 #: Utilities.cpp:92
 msgctxt "The name of the fourth entry in any of the categories of moves"
 msgid "Four"
-msgstr ""
+msgstr "Vier"
 
 #: Utilities.cpp:94
 msgctxt "The name of the fifth entry in any of the categories of moves"
 msgid "Five"
-msgstr ""
+msgstr "Vijf"
 
 #: Utilities.cpp:96
 msgctxt "The name of the sixth entry in any of the categories of moves"
 msgid "Six"
-msgstr ""
+msgstr "Zes"
 
 #: Utilities.cpp:98
 msgctxt "The name of the seventh entry in any of the categories of moves"
 msgid "Seven"
-msgstr ""
+msgstr "Zeven"
 
 #: Utilities.cpp:100
 msgctxt "The name of the eighth entry in any of the categories of moves"
 msgid "Eight"
-msgstr ""
+msgstr "Acht"
 
 #: Utilities.cpp:102
 msgctxt "The name of the ninth entry in any of the categories of moves"
 msgid "Nine"
-msgstr ""
+msgstr "Negen"
 
 #: Utilities.cpp:104
 #, fuzzy
@@ -3140,51 +3184,51 @@ msgstr "Lichten"
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
 msgid "Blink"
-msgstr ""
+msgstr "Flash"
 
 #: Utilities.cpp:116
 msgctxt ""
 "The name of the Triangle command in the lights category of gear commands"
 msgid "Triangle"
-msgstr ""
+msgstr "Driehoek"
 
 #: Utilities.cpp:118
 msgctxt ""
 "The name of the Sawtooth command in the lights category of gear commands"
 msgid "Sawtooth"
-msgstr ""
+msgstr "Zaagtand"
 
 #: Utilities.cpp:120
 msgctxt "The name of the Morse command in the lights category of gear commands"
 msgid "Morse"
-msgstr ""
+msgstr "Morse code"
 
 #: Utilities.cpp:122
 msgctxt ""
 "The name of the Beacon command in the lights category of gear commands"
 msgid "Beacon"
-msgstr ""
+msgstr "Baken"
 
 #: Utilities.cpp:124
 msgctxt "The name of the Flame command in the lights category of gear commands"
 msgid "Glame"
-msgstr ""
+msgstr "Vlam"
 
 #: Utilities.cpp:126
 msgctxt ""
 "The name of the Strobe command in the lights category of gear commands"
 msgid "Strobe"
-msgstr ""
+msgstr "Stroboscoop"
 
 #: Utilities.cpp:128
 msgctxt "The name of the On command in the lights category of gear commands"
 msgid "On"
-msgstr ""
+msgstr "Aan"
 
 #: Utilities.cpp:130
 msgctxt "The name of the Off command in the lights category of gear commands"
 msgid "Off"
-msgstr ""
+msgstr "Uit"
 
 #: WalkingSensorGestureReconizer.cpp:186
 #, fuzzy
