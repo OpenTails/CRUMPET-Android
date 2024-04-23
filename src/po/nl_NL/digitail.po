@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-20 09:13+0000\n"
+"PO-Revision-Date: 2024-04-23 17:43+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4.3\n"
+"X-Generator: Weblate 5.5\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -62,28 +62,25 @@ msgid "Could not open the file %1 for writing"
 msgstr "Kon bestand %1 niet openen om te schrijven"
 
 #: DeviceModel.cpp:279
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr "Links draaien"
+msgstr "Kantel naar links"
 
 #: DeviceModel.cpp:280
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr "Rechts draaien"
+msgstr "Kantel naar rechts"
 
 #: DeviceModel.cpp:281
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr "Luistermodus"
+msgstr "Kantel naar voren"
 
 #: DeviceModel.cpp:282
 msgctxt ""
@@ -171,34 +168,30 @@ msgstr ""
 "dan contact op met The Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:260
-#, fuzzy
 msgctxt "Warning message when the main service was not found on the device"
 msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de staart (het main "
-"service object kon niet aangemaakt worden). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Er is iets misgegaan bij het verbinden met je DIGITAil (het service-object "
+"kon niet worden aangemaakt). Als u denkt dat dit een fout is, probeer het "
+"dan opnieuw!"
 
 #: gearimplementations/GearDigitail.cpp:278
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
-"Er is iets misgegaan. Als je probeerde met de MiTail te verbinden, zorg er "
-"dan voor dat die aanstaat en in de buurt is van je apparaat."
+"Er is iets misgegaan bij het verbinden met je DIGITAiL. Zorg ervoor dat je "
+"DIGITAiL is ingeschakeld en binnen bereik is."
 
 #: gearimplementations/GearDigitail.cpp:281
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr "De MiTail heeft de verbinding onderbroken."
+msgstr "De DIGITAiL heeft de verbinding verbroken."
 
 #: gearimplementations/GearDigitail.cpp:284
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -206,11 +199,10 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Verbinden met de MiTail mislukt. Probeer opnieuw (misschien dichterbij "
-"houden?)"
+"Mislukt om verbinding te maken met je DIGITAiL. Probeer het opnieuw ("
+"misschien dichterbij verplaatsen?)"
 
 #: gearimplementations/GearDigitail.cpp:304
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -218,8 +210,9 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
-"De MiTail heeft de verbinding onderbroken, doordat die is uitgeschakeld of "
-"de batterij leeg was. Vergeet niet je staart op te laden!"
+"The DIGITAiL heeft de verbinding verbroken, ofwel door uit te worden "
+"geschakeld of doordat de stroomtoevoer is onderbroken. Vergeet niet om je "
+"DIGITAiL op te laden!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -364,27 +357,25 @@ msgid "Checking integrity of the downloaded firmware data..."
 msgstr "Controleer de firmwaregegevens..."
 
 #: gearimplementations/GearEars.cpp:545
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your EarGear (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de EarGear box (het "
-"main service object kon niet aangemaakt worden). Als dit een fout is, "
-"probeer dan opnieuw!"
+"Er is een fout opgetreden bij het verbinden met je EarGear (het hoofdservice-"
+"object kon niet worden aangemaakt). Als je denkt dat dit een vergissing is, "
+"probeer het dan opnieuw!"
 
 #: gearimplementations/GearEars.cpp:559
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de EarGear box (de "
-"batterij kon niet worden aangesproken). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Er is een fout opgetreden bij het verbinden met je EarGear (de "
+"batterijservice was niet beschikbaar). Als je denkt dat dit een vergissing "
+"is, probeer het dan opnieuw!"
 
 #: gearimplementations/GearEars.cpp:594
 msgctxt ""
@@ -399,31 +390,28 @@ msgstr ""
 "apparaat te verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearEars.cpp:624
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
-"Er is iets misgegaan. Als je probeerde met de EarGear te verbinden, zorg er "
-"dan voor dat de Gear aanstaat en in de buurt is van je apparaat."
+"Er is een fout opgetreden. Als je probeert verbinding te maken met je oren, "
+"zorg er dan voor dat de EarGear is ingeschakeld en dicht bij dit apparaat is."
 
 #: gearimplementations/GearEars.cpp:627
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr "De EarGear heeft de verbinding onderbroken."
+msgstr "The EarGear heeft de verbinding verbroken."
 
 #: gearimplementations/GearEars.cpp:630
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
-"Verbinden met de EarGear mislukt. Probeer opnieuw (misschien dichterbij "
-"houden?)"
+"Verbinden met je EarGear mislukt. Probeer het opnieuw (misschien dichter bij "
+"het apparaat?)\""
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
@@ -448,7 +436,6 @@ msgstr ""
 "schakel het apparaat zelf in en maak opnieuw verbinding."
 
 #: gearimplementations/GearEars.cpp:656
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -456,8 +443,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
-"De EarGear heeft de verbinding onderbroken, doordat die is uitgeschakeld of "
-"de batterij leeg was. Vergeet niet je oren op te laden!"
+"Je EarGear heeft de verbinding verbroken. Ze zijn ofwel uitgeschakeld of de "
+"batterij is leeg. Vergeet niet om je EarGear weer op te laden!"
 
 #: gearimplementations/GearEars.cpp:824
 #: gearimplementations/GearFlutterWings.cpp:676
@@ -539,31 +526,28 @@ msgstr ""
 #: gearimplementations/GearFlutterWings.cpp:363
 #: gearimplementations/GearMitail.cpp:370
 #: gearimplementations/GearMitailMini.cpp:365
-#, fuzzy
 msgctxt ""
 "Name of the calm and relaxed group as used for no phone group selection"
 msgid "Calm and Relaxed"
-msgstr "Rustig en relax"
+msgstr "Rustig en ontspannen"
 
 #: gearimplementations/GearFake.cpp:48
 #: gearimplementations/GearFlutterWings.cpp:364
 #: gearimplementations/GearMitail.cpp:371
 #: gearimplementations/GearMitailMini.cpp:366
-#, fuzzy
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
-msgstr "Opgewonden"
+msgstr "Snel en opgewonden"
 
 #: gearimplementations/GearFake.cpp:49
 #: gearimplementations/GearFlutterWings.cpp:365
 #: gearimplementations/GearMitail.cpp:372
 #: gearimplementations/GearMitailMini.cpp:367
-#, fuzzy
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr "Geirriteerd"
+msgstr "Gefrustreerd en gespannen"
 
 #: gearimplementations/GearFake.cpp:102
 msgctxt ""
@@ -603,15 +587,14 @@ msgstr ""
 "dan contact op met The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:412
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de EarGear box (het "
-"main service object kon niet aangemaakt worden). Als dit een fout is, "
-"probeer dan opnieuw!"
+"Er is een fout opgetreden bij het verbinden met je FlutterWings (het "
+"hoofdservice-object kon niet worden aangemaakt). Als je denkt dat dit een "
+"vergissing is, probeer het dan opnieuw!"
 
 #: gearimplementations/GearFlutterWings.cpp:432
 #: gearimplementations/GearMitail.cpp:439
@@ -634,16 +617,15 @@ msgstr ""
 "hoe dit is gebeurd.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:444
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de EarGear box (de "
-"batterij kon niet worden aangesproken). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Er is een fout opgetreden bij het verbinden met je FlutterWings (de "
+"batterijservice was niet beschikbaar). Als je denkt dat dit een vergissing "
+"is, probeer het dan opnieuw!"
 
 #: gearimplementations/GearFlutterWings.cpp:498
 msgctxt ""
@@ -658,14 +640,13 @@ msgstr ""
 "verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:538
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
-"Er is iets misgegaan. Als je probeerde met de staart te verbinden, zorg er "
-"dan voor dat die aanstaat en in de buurt is van je apparaat."
+"Er is iets misgegaan bij het verbinden met je FlutterWings. Zorg ervoor dat "
+"je FlutterWings zijn ingeschakeld en binnen bereik zijn."
 
 #: gearimplementations/GearFlutterWings.cpp:541
 #, fuzzy
@@ -743,8 +724,8 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"Uw MiTail gebruikt momenteel firmwareversie 4.03, die nu verouderd is en een "
-"aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
+"Jouw MiTail gebruikt momenteel firmwareversie 4.03, die nu verouderd is en "
+"een aantal bugs bevat. We <b>raden sterk aan</b> de nieuwste firmware te "
 "installeren om deze problemen op te lossen. Ga naar de instellingen en zoek "
 "naar de sectie firmware om de update te installeren."
 
@@ -1867,6 +1848,13 @@ msgid ""
 "to if you have more than one (otherwise we'll just send it to itself). If "
 "you don't select any, the gear will just pick something to do on its own."
 msgstr ""
+"Activeer de geluidsdetectie zodat je apparaten gedurende vijf minuten naar "
+"geluiden luisteren. Als je het vakje naast de naam van het apparaat "
+"aanvinkt, zal dat apparaat reageren op geluiden. Je kunt ook individuele "
+"acties van je apparaten instellen - wat er gebeurt bij welk geluidsniveau of "
+"-richting - en dit geldt voor meerdere apparaten (indien je die hebt). Als "
+"je niets selecteert, zal het apparaat alleen actief worden en willekeurige "
+"bewegingen afspelen."
 
 #: qml/ListenSettings.qml:111
 #, fuzzy
@@ -1891,6 +1879,8 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"Succesvol verbonden!\n"
+"Om een apparaat een andere naam te geven, tik op de naam ervan"
 
 #: qml/main.qml:113
 msgctxt "Text for the notification upon connecting successfully to a device"
@@ -2556,6 +2546,9 @@ msgid ""
 "gear, or not. Check the box here to make that choice, or to undo the choice "
 "made in the dialogue itself."
 msgstr ""
+"Wanneer je een beweging naar een apparaat stuurt en je hebt meerdere "
+"apparaten verbonden, wil je misschien naar alle apparaten sturen - of juist "
+"niet. Hier kun je 'Naar alle verzenden' als standaard instellen."
 
 #: qml/SettingsPage.qml:86
 #, fuzzy
@@ -2580,6 +2573,12 @@ msgid ""
 "name, and even forgetting it. Forgetting it will disconnect (using the Just "
 "Disconnect method) from it, if you are currently connected."
 msgstr ""
+"Onderaan staat een lijst met apparaten waarmee je eerder verbonden was. Met "
+"deze lijst kun je verschillende dingen doen, zoals expliciet aangeven of een "
+"gevonden apparaat automatisch wordt verbonden, de naam ervan wijzigen of het "
+"vergeten. Als een apparaat wordt vergeten, wordt de verbinding verbroken ("
+"met de eenvoudige verbreekmethode) als je er op dat moment mee verbonden "
+"bent."
 
 #: qml/SettingsPage.qml:113
 #, fuzzy
@@ -2615,6 +2614,10 @@ msgid ""
 "disconnect and forget. To get it back, you just need to look for more gear "
 "and connect to it again."
 msgstr ""
+"Bent u zeker dat u alles over %1 wilt vergeten? Als u zeker bent, druk dan "
+"op OK hieronder om de verbinding te verbreken en te vergeten. Om het "
+"apparaat terug te krijgen, moet het opnieuw worden verbonden via 'Apparaat "
+"vinden'."
 
 #: qml/SettingsPage.qml:146
 msgctxt ""
@@ -2719,6 +2722,9 @@ msgid ""
 "clicking the \"Check\" button below, and if there is one, you can then click "
 "the button underneath to download and install the update."
 msgstr ""
+"Wanneer je apparaat firmware updates ondersteunt, kun je hier zoeken naar "
+"nieuwe firmware. Met de knop hieronder kun je zoeken naar updates en deze "
+"ook installeren."
 
 #: qml/SettingsPage.qml:242
 msgctxt ""
@@ -2735,6 +2741,7 @@ msgid ""
 "You currently have version %1 installed, and version %2 is available for you "
 "to install"
 msgstr ""
+"Je hebt momenteel versie %1 geïnstalleerd. Versie %2 is beschikbaar voor jou"
 
 #: qml/SettingsPage.qml:257
 msgctxt ""
@@ -2778,6 +2785,20 @@ msgid ""
 "app and reboot. This is quite normal! It should automatically reconnect, but "
 "in case it doesn't, just click the Connect button on the front page as usual."
 msgstr ""
+"Voordat je de apparaten van versie %1 naar %2 bijwerkt, zorg er alsjeblieft "
+"voor dat je:\n"
+"\n"
+"- De apparaat tijdens de hele update oplaadt via een USB-oplader.\n"
+"\n"
+"- De telefoon meer dan 50% is opgeladen voordat je begint.\n"
+"\n"
+"De update duurt ongeveer 3 minuten. Schakel geen van de apparaten uit "
+"terwijl de update bezig is!\n"
+"\n"
+"Na het voltooien van de update zullen je apparaten opnieuw opstarten. "
+"Hierbij wordt de verbinding met je telefoon kort onderbroken en automatisch "
+"hersteld. Mocht dit niet lukken, tik dan alsjeblieft op de \"Verbinden\" "
+"knop op het startscherm."
 
 #: qml/SettingsPage.qml:291
 msgctxt ""
@@ -2799,6 +2820,9 @@ msgid ""
 "that language is not available. However, if you wish to force some language, "
 "you can select it here, and we will use that language instead."
 msgstr ""
+"Normaal gesproken zal Crumpet de taal van je apparaat gebruiken - of Engels, "
+"als de gewenste taal niet beschikbaar is. Als je de app liever in een "
+"specifieke taal wilt gebruiken, kun je deze hier selecteren."
 
 #: qml/SettingsPage.qml:324
 msgctxt ""
@@ -2816,6 +2840,9 @@ msgid ""
 "and so on is updated. To quit the app now, click OK, or click Cancel to not "
 "quit just now."
 msgstr ""
+"Wanneer de taal wordt gewijzigd, moet de app opnieuw worden opgestart om "
+"alle teksten bij te werken. Om de app nu te sluiten, klik op OK, of klik op "
+"Annuleren om dit nu niet te doen."
 
 #: qml/SettingsPage.qml:338
 msgctxt ""
@@ -2951,6 +2978,11 @@ msgid ""
 "that move to if you have more than one (otherwise we'll just send it to "
 "itself)."
 msgstr ""
+"Activeer de kantelherkenning door het vakje naast de naam van het tandwiel "
+"aan te vinken waarbij je kantelingen wilt herkennen. Om te beslissen wat te "
+"doen wanneer een specifieke kanteling wordt gedetecteerd, selecteer de "
+"bewegingen en de apparaten waarnaar je deze beweging wilt sturen, als je "
+"meer dan één apparaat hebt (anders sturen we ze gewoon naar onszelf)."
 
 #: qml/TiltSettings.qml:100
 #, fuzzy
