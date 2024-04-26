@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-26 18:31+0000\n"
+"PO-Revision-Date: 2024-04-26 19:20+0000\n"
 "Last-Translator: Jakub Janousek <stegoceras@seznam.cz>\n"
 "Language-Team: Czech <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/cs/>\n"
@@ -1251,19 +1251,17 @@ msgstr "Nadšený"
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "Nervózní"
 
 #: qml/BaseCommandListEditor.qml:68
-#, fuzzy
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
-msgstr "Pózy"
+msgstr "Póza"
 
 #: qml/BaseCommandListEditor.qml:70
-#, fuzzy
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr "Vypnout světla"
+msgstr "Světla"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
@@ -1600,36 +1598,32 @@ msgid "Home Position"
 msgstr "Základní pozice"
 
 #: qml/GearGestures.qml:46
-#, fuzzy
 msgctxt ""
 "A short name for the relaxed moves category shown on the gestures page"
 msgid "Relaxed"
-msgstr "Klidný a Uvolněný"
+msgstr "Uvolněný"
 
 #: qml/GearGestures.qml:48
-#, fuzzy
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr "Buď nadšený"
+msgstr "Nadšený"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
 msgid "Tense"
-msgstr ""
+msgstr "Nervózní"
 
 #: qml/GearGestures.qml:52
-#, fuzzy
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
-msgstr "Pózy"
+msgstr "Póza"
 
 #: qml/GearGestures.qml:54
-#, fuzzy
 msgctxt "A short name for the lights category shown on the gestures page"
 msgid "Lights"
-msgstr "Vypnout světla"
+msgstr "Světla"
 
 #: qml/GearGestures.qml:62
 msgctxt ""
@@ -1682,7 +1676,6 @@ msgid "Show On Welcome Page"
 msgstr "Zobraz na uvítací stránce"
 
 #: qml/GearGestures.qml:130
-#, fuzzy
 msgctxt ""
 "Command for returning any gear to its home position, on the gestures page"
 msgid "Home Position"
@@ -2218,12 +2211,11 @@ msgid "Get Location Permission..."
 msgstr "Udělit povolení pro lokaci..."
 
 #: qml/NotConnectedCard.qml:112
-#, fuzzy
 msgctxt ""
 "Label for button for getting the missing notifications permission, for the "
 "gear connecting card"
 msgid "Get Notification Permission..."
-msgstr "Udělit povolení pro lokaci..."
+msgstr "Udělit povolení pro upozornění..."
 
 #: qml/NotConnectedCard.qml:114
 msgctxt ""
@@ -2475,10 +2467,9 @@ msgid "Always Send To All"
 msgstr "Vždy zaslat všem"
 
 #: qml/SettingsPage.qml:95
-#, fuzzy
 msgctxt "Header for the panel showing known gear, on the settings page"
 msgid "Known Gear"
-msgstr "Vypnout zařízení"
+msgstr "Známá zařízení"
 
 #: qml/SettingsPage.qml:96
 msgctxt "Description for the panel showing known gear, on the settings page"
@@ -2491,31 +2482,30 @@ msgid ""
 msgstr ""
 
 #: qml/SettingsPage.qml:113
-#, fuzzy
 msgctxt ""
 "A toggle for a single piece of gear on the settings page, allowing the user "
 "to change whether to automatically connect to it or not"
 msgid "Connect Automatically To %1"
-msgstr "Znovupřipojení automaticky"
+msgstr "Automaticky připojit k %1"
 
 #: qml/SettingsPage.qml:124
 msgctxt ""
 "A button on the settings page which allows the user to change the name they "
 "have given a piece of gear"
 msgid "Rename %1..."
-msgstr ""
+msgstr "Přejmenovat %1..."
 
 #: qml/SettingsPage.qml:133
 msgctxt ""
 "Label for the button which opens the dialog box which allows the user to "
 "disconnect from and remove all information about a given piece of gear"
 msgid "Forget %1..."
-msgstr ""
+msgstr "Zapomenout %1..."
 
 #: qml/SettingsPage.qml:135
 msgctxt "Header for the message box asking whether to forget a piece of gear"
 msgid "Forget about %1"
-msgstr ""
+msgstr "Zapomenout %1"
 
 #: qml/SettingsPage.qml:136
 msgctxt "Text for the message box asking whether to forget a piece of gear"
