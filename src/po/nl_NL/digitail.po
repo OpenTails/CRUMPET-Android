@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-23 17:43+0000\n"
+"PO-Revision-Date: 2024-05-01 03:47+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -649,13 +649,11 @@ msgstr ""
 "je FlutterWings zijn ingeschakeld en binnen bereik zijn."
 
 #: gearimplementations/GearFlutterWings.cpp:541
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr "De staart heeft de verbinding onderbroken."
+msgstr "De FlutterWings hebben de verbinding verbroken."
 
 #: gearimplementations/GearFlutterWings.cpp:545
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -663,18 +661,17 @@ msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Verbinden met de staart mislukt Probeer opnieuw (misschien dichterbij "
-"houden?)"
+"Fout bij het verbinden met uw FlutterWings. Probeer het opnieuw (misschien "
+"dichter bij het apparaat?)"
 
 #: gearimplementations/GearFlutterWings.cpp:572
 #: gearimplementations/GearMitail.cpp:579
 #: gearimplementations/GearMitailMini.cpp:572
-#, fuzzy
 msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr "Aan het verbinden..."
+msgstr "Probeer de verbinding te herstellen..."
 
 #: gearimplementations/GearFlutterWings.cpp:577
 msgctxt ""
@@ -688,7 +685,6 @@ msgstr ""
 "automatisch opnieuw is opgestart voordat het opnieuw wordt aangesloten..."
 
 #: gearimplementations/GearFlutterWings.cpp:580
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -696,8 +692,8 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
-"De staart heeft de verbinding onderbroken, doordat die is uitgeschakeld of "
-"de batterij leeg was. Vergeet niet je staart op te laden!"
+"Je FlutterWings hebben de verbinding verbroken. Of ze zijn uitgeschakeld of "
+"de batterij is leeg. Vergeet niet uw apparaten op te laden!"
 
 #: gearimplementations/GearFlutterWings.cpp:747
 #: gearimplementations/GearMitail.cpp:758
@@ -952,27 +948,24 @@ msgstr ""
 "contact op met The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:414
-#, fuzzy
 msgctxt "Warning message when a fault occurred during a connection attempt"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de MiTail (het main "
-"service object kon niet aangemaakt worden). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Er is iets misgegaan bij het verbinden met je MiTail Mini (het hoofd service "
+"object kon niet worden gemaakt). Probeer het opnieuw!"
 
 #: gearimplementations/GearMitailMini.cpp:444
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on a device"
 msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
-"Er is een probleem opgetreden tijdens het verbinden met de MiTail (de "
-"batterij kon niet worden aangesproken). Als dit een fout is, probeer dan "
-"opnieuw!"
+"Er is een fout opgetreden tijdens het verbinden met je MiTail Mini (de "
+"accuservice was niet beschikbaar). Als je denkt dat dit een fout is, probeer "
+"het dan opnieuw!"
 
 #: gearimplementations/GearMitailMini.cpp:498
 msgctxt ""
@@ -987,23 +980,20 @@ msgstr ""
 "verbinden, neem dan contact op met The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:538
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
-"Er is iets misgegaan. Als je probeerde met de MiTail te verbinden, zorg er "
-"dan voor dat die aanstaat en in de buurt is van je apparaat."
+"Er is iets misgegaan bij het verbinden met uw MiTail Mini Controleer of uw "
+"MiTail is ingeschakeld en binnen bereik is."
 
 #: gearimplementations/GearMitailMini.cpp:541
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr "De MiTail heeft de verbinding onderbroken."
+msgstr "Uw MiTail Mini heeft de verbinding verbroken."
 
 #: gearimplementations/GearMitailMini.cpp:545
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
@@ -1011,11 +1001,10 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Verbinden met de MiTail mislukt. Probeer opnieuw (misschien dichterbij "
-"houden?)"
+"Fout bij het verbinden met uw MiTail Mini. Probeer het opnieuw (misschien "
+"dichter bij het apparaat?)"
 
 #: gearimplementations/GearMitailMini.cpp:580
-#, fuzzy
 msgctxt ""
 "Warning that the device itself disconnected during operation (usually due to "
 "turning off from low power)"
@@ -1023,8 +1012,8 @@ msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
-"De MiTail heeft de verbinding onderbroken, doordat die is uitgeschakeld of "
-"de batterij leeg was. Vergeet niet je staart op te laden!"
+"Je MiTail Mini heeft de verbinding verbroken. Of hij is uitgeschakeld of de "
+"batterij is leeg. Vergeet niet je MiTail Mini op te laden!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
@@ -1279,13 +1268,11 @@ msgid "Add Pause To List"
 msgstr "Pauze toevoegen aan lijst"
 
 #: qml/BaseCommandListEditor.qml:62
-#, fuzzy
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr "Rustig en relax"
+msgstr "Relaxed"
 
 #: qml/BaseCommandListEditor.qml:64
-#, fuzzy
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
 msgstr "Opgewonden"
@@ -1296,16 +1283,14 @@ msgid "Tense"
 msgstr "Gespannen"
 
 #: qml/BaseCommandListEditor.qml:68
-#, fuzzy
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
-msgstr "Poses"
+msgstr "Houding"
 
 #: qml/BaseCommandListEditor.qml:70
-#, fuzzy
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr "Lichten stoppen"
+msgstr "Verlichting"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
@@ -1371,12 +1356,11 @@ msgid "Pick from the list below where you want to send the command."
 msgstr "Kies hier waar je de opdracht naar wil verzenden."
 
 #: qml/BaseMovesComponent.qml:265
-#, fuzzy
 msgctxt ""
 "Label for the checkbox which allows the user to remember the send to all "
 "devices option when selecting a command"
 msgid "Always Send To All"
-msgstr "Verzend naar allen"
+msgstr "Altijd naar iedereen verzenden"
 
 #: qml/BaseMovesComponent.qml:274
 msgctxt "Action for sending a command to the selected devices in a list"
@@ -1409,34 +1393,30 @@ msgid "Add this pause"
 msgstr "Voeg pause toe"
 
 #: qml/ConnectToTail.qml:30
-#, fuzzy
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr "Verbinden met %1"
+msgstr "Verbind het apparaat"
 
 #: qml/ConnectToTail.qml:36
-#, fuzzy
 msgctxt ""
 "Button for the action of disconnecting from all currently connected devices, "
 "in the popup for connecting to devices"
 msgid "Disconnect All"
-msgstr "Verbinding verbreken"
+msgstr "Alles loskoppelen"
 
 #: qml/ConnectToTail.qml:51
-#, fuzzy
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr "Verbinden"
+msgstr "Alles verbinden"
 
 #: qml/ConnectToTail.qml:100
-#, fuzzy
 msgctxt ""
 "A label in the prompt for connecting to a device showing that the device is "
 "currently connecting"
 msgid "Connecting..."
-msgstr "Meer verbinden..."
+msgstr "Verbinding wordt gemaakt..."
 
 #: qml/ConnectToTail.qml:102
 msgctxt ""
@@ -1453,10 +1433,9 @@ msgid "Connect"
 msgstr "Verbinden"
 
 #: qml/DatePicker.qml:49
-#, fuzzy
 msgctxt "Title for the date picker"
 msgid "Pick A Date"
-msgstr "Kies een naam"
+msgstr "Kies een datum"
 
 #: qml/DatePicker.qml:241
 msgctxt "Button for selecting the date of today, in a date picker"
@@ -1548,11 +1527,10 @@ msgid "Engage No Phone Mode"
 msgstr "Schakel de modus Geen telefoon in"
 
 #: qml/DisconnectOptions.qml:179
-#, fuzzy
 msgctxt ""
 "Label above the section that lets the user simply disconnect from the gear"
 msgid "Just Disconnect"
-msgstr "Verbinding verbreken"
+msgstr "Alleen ontkoppelen"
 
 #: qml/DisconnectOptions.qml:197
 msgctxt ""
@@ -1566,12 +1544,11 @@ msgstr ""
 "handig als je het wilt opladen)."
 
 #: qml/DisconnectOptions.qml:200
-#, fuzzy
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Disconnect"
-msgstr "Verbinding verbreken"
+msgstr "Ontkoppelen"
 
 #: qml/DisconnectOptions.qml:224
 msgctxt ""
@@ -1598,17 +1575,16 @@ msgid "Shut Down Gear"
 msgstr "apparaten uitschakelen"
 
 #: qml/EarPoses.qml:27
-#, fuzzy
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr "EarGear poses"
+msgstr "Oor Poses"
 
 #: qml/EarPoses.qml:30
 msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Startpositie"
 
 #: qml/EarPoses.qml:39
 msgctxt "Description for the page for selecting a pose for the EarGear"
@@ -1628,10 +1604,9 @@ msgid "Be Calm"
 msgstr "Wees kalm"
 
 #: qml/EarPoses.qml:50
-#, fuzzy
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
-msgstr "Opgewonden"
+msgstr "Opgewonden zijn"
 
 #: qml/EarPoses.qml:64
 msgctxt ""
@@ -1967,7 +1942,7 @@ msgstr "EarGear poses"
 #: qml/main.qml:249
 msgctxt "Button for opening the Glow Tips page, from the landing page"
 msgid "Glow Tips"
-msgstr "Lichten"
+msgstr "Gloed Tips"
 
 #: qml/main.qml:259
 msgctxt ""
@@ -3208,10 +3183,9 @@ msgid "Poses"
 msgstr "Houdingen"
 
 #: Utilities.cpp:112
-#, fuzzy
 msgctxt "The name of the lights category of gear commands"
 msgid "Glow Tip Patterns"
-msgstr "Lichten"
+msgstr "Gloed Tip Patronen"
 
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
