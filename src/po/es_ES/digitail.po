@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-04-17 09:46+0000\n"
-"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
+"PO-Revision-Date: 2024-05-02 07:15+0000\n"
+"Last-Translator: WölFi <wolfi@wolfi.es>\n"
 "Language-Team: Spanish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/es/>\n"
 "Language: es_ES\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4.3\n"
+"X-Generator: Weblate 5.5.2\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -60,20 +60,18 @@ msgid "Could not open the file %1 for writing"
 msgstr "No se ha podido abrir el fichero %1 para escritura"
 
 #: DeviceModel.cpp:279
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr "Girar a la izquierda"
+msgstr "Inclinar a la izquierda"
 
 #: DeviceModel.cpp:280
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr "Girar a la derecha"
+msgstr "Inclinar a la derecha"
 
 #: DeviceModel.cpp:281
 msgctxt ""
@@ -248,7 +246,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "Reinicio completado"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -261,6 +259,9 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"Se ha completado el reinicio posterior a la subida del firmware y nos hemos "
+"conectado de nuevo correctamente. El didpositivo ahora reporta %1, deseamos "
+"que sea lo que se esperaba."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -1277,33 +1278,29 @@ msgid "Add Pause To List"
 msgstr "Añadir pausa a la lista"
 
 #: qml/BaseCommandListEditor.qml:62
-#, fuzzy
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr "Tranquilo y Relajado"
+msgstr "Relajado"
 
 #: qml/BaseCommandListEditor.qml:64
-#, fuzzy
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
-msgstr "Más Animado"
+msgstr "Animado"
 
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "Tenso"
 
 #: qml/BaseCommandListEditor.qml:68
-#, fuzzy
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
-msgstr "Posiciones"
+msgstr "Poses"
 
 #: qml/BaseCommandListEditor.qml:70
-#, fuzzy
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr "Parar Luces"
+msgstr "Luces"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
@@ -1406,10 +1403,9 @@ msgid "Add this pause"
 msgstr "Añade esta pausa"
 
 #: qml/ConnectToTail.qml:30
-#, fuzzy
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr "Conectar a %1"
+msgstr "Conectar equipo"
 
 #: qml/ConnectToTail.qml:36
 msgctxt ""
@@ -1426,12 +1422,11 @@ msgid "Connect All"
 msgstr "Conectar todos"
 
 #: qml/ConnectToTail.qml:100
-#, fuzzy
 msgctxt ""
 "A label in the prompt for connecting to a device showing that the device is "
 "currently connecting"
 msgid "Connecting..."
-msgstr "Conectar Más..."
+msgstr "Conectando..."
 
 #: qml/ConnectToTail.qml:102
 msgctxt ""
@@ -1448,10 +1443,9 @@ msgid "Connect"
 msgstr "Conectar"
 
 #: qml/DatePicker.qml:49
-#, fuzzy
 msgctxt "Title for the date picker"
 msgid "Pick A Date"
-msgstr "Elige un nombre"
+msgstr "Elige una fecha"
 
 #: qml/DatePicker.qml:241
 msgctxt "Button for selecting the date of today, in a date picker"
@@ -1562,7 +1556,6 @@ msgstr ""
 "quieres cargar)."
 
 #: qml/DisconnectOptions.qml:200
-#, fuzzy
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
@@ -1635,7 +1628,6 @@ msgid "Poses"
 msgstr "Posiciones"
 
 #: qml/GearGestures.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1643,7 +1635,6 @@ msgid "Gear Gestures"
 msgstr "Gestos del equipo"
 
 #: qml/GearGestures.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when the controlling device/phone detects a gesture"
@@ -1651,39 +1642,34 @@ msgid "Home Position"
 msgstr "Posición inicial"
 
 #: qml/GearGestures.qml:46
-#, fuzzy
 msgctxt ""
 "A short name for the relaxed moves category shown on the gestures page"
 msgid "Relaxed"
-msgstr "Tranquilo y Relajado"
+msgstr "Relajado"
 
 #: qml/GearGestures.qml:48
-#, fuzzy
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr "Más Animado"
+msgstr "Animado"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
 msgid "Tense"
-msgstr ""
+msgstr "Tenso"
 
 #: qml/GearGestures.qml:52
-#, fuzzy
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
-msgstr "Posiciones"
+msgstr "Poses"
 
 #: qml/GearGestures.qml:54
-#, fuzzy
 msgctxt "A short name for the lights category shown on the gestures page"
 msgid "Lights"
-msgstr "Parar Luces"
+msgstr "Luces"
 
 #: qml/GearGestures.qml:62
-#, fuzzy
 msgctxt ""
 "Info card for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1702,7 +1688,6 @@ msgstr ""
 "cola cuando se detecte que has dado un paso."
 
 #: qml/GearGestures.qml:84
-#, fuzzy
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting what should happen when the controlling device/"
@@ -1711,7 +1696,6 @@ msgid "Multiple Gestures"
 msgstr "Múltiples gestos"
 
 #: qml/GearGestures.qml:85
-#, fuzzy
 msgctxt ""
 "Description for the warning for having enabled multiple gestures at the same "
 "time, on the page for selecting what should happen when the controlling "
@@ -1725,13 +1709,12 @@ msgid ""
 msgstr ""
 "Estas intentando activas más de un gesto al mismo tiempo. Esto puede "
 "provocar problemas en algunos casos, mayormente por ser confuso de gestionar "
-"(por ejemplo, al activar al mismo tiempo \"Caminar\" y \"Agitar\" es "
+"(por ejemplo, al activar al mismo tiempo \"Caminar\" y \"Sacudir\" es "
 "probable que ambos sean detectados). Si estás seguro de que esto es lo que "
 "quieres toca \"Aceptar\", o toca \"cancelar\" para que no se active este "
 "gesto."
 
 #: qml/GearGestures.qml:94
-#, fuzzy
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting what should happen when the controlling device/phone "
@@ -1740,14 +1723,12 @@ msgid "Show On Welcome Page"
 msgstr "Mostrar en la página de bienvenida"
 
 #: qml/GearGestures.qml:130
-#, fuzzy
 msgctxt ""
 "Command for returning any gear to its home position, on the gestures page"
 msgid "Home Position"
 msgstr "Posición inicial"
 
 #: qml/GearGestures.qml:132
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when the "
@@ -1756,13 +1737,11 @@ msgid "(no command)"
 msgstr "(ningún comando)"
 
 #: qml/IdleModePage.qml:26
-#, fuzzy
 msgctxt "Title for the Casual Mode settings page"
 msgid "Casual Mode Categories"
 msgstr "Categorías del modo casual"
 
 #: qml/IdleModePage.qml:46
-#, fuzzy
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Casual Mode "
 "settings page"
@@ -1770,7 +1749,6 @@ msgid "Calm and Relaxed"
 msgstr "Tranquilo y Relajado"
 
 #: qml/IdleModePage.qml:51
-#, fuzzy
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Casual Mode "
 "settings page"
@@ -1778,7 +1756,6 @@ msgid "Fast and Excited"
 msgstr "Rápido y Animado"
 
 #: qml/IdleModePage.qml:56
-#, fuzzy
 msgctxt ""
 "Description for the category for the Tense Moveset, on the Casual Mode "
 "settings page"
@@ -1786,7 +1763,6 @@ msgid "Frustrated and Tense"
 msgstr "Frustrado y Tenso"
 
 #: qml/IdleModePage.qml:61
-#, fuzzy
 msgctxt ""
 "Description for the category for the LED Patterns, on the Casual Mode "
 "settings page"
@@ -1794,7 +1770,6 @@ msgid "LED Patterns"
 msgstr "Patrones para el LED"
 
 #: qml/IdleModePage.qml:72
-#, fuzzy
 msgctxt ""
 "Infocard for selecting the pauses in between moves, on the Casual Mode "
 "settings page"
@@ -1806,12 +1781,11 @@ msgstr ""
 "de movimientos que se pueden llamar."
 
 #: qml/IdleModePage.qml:74
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the Casual Mode "
 "settings page"
 msgid "Enable Casual Mode"
-msgstr "Modo Casual"
+msgstr "Activar modo casual"
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
@@ -1820,15 +1794,13 @@ msgid "Range of pause between moves in seconds"
 msgstr "Rango de pausa entre movimientos en segundos"
 
 #: qml/ListenSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a sound based event"
 msgid "Listening Settings"
-msgstr "Modo de Escucha"
+msgstr "Ajustes de Escucha"
 
 #: qml/ListenSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a sound based event"
@@ -1847,9 +1819,14 @@ msgid ""
 "to if you have more than one (otherwise we'll just send it to itself). If "
 "you don't select any, the gear will just pick something to do on its own."
 msgstr ""
+"Activa la detección de sonido marcando la casilla junto al nombre de tu "
+"equipo pra que este reaccione al sonido durante cinco minutos. Para "
+"personalizar que hacer cuando se detecta un determinado nivel de sonido, "
+"elije los movimientos y a que equipo deben enviarse si tienes más de uno (si "
+"no, se lo enviaremos a el mismo). Si no elijes nada, el equipo decidirá que "
+"hacer por si mismo."
 
 #: qml/ListenSettings.qml:111
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
@@ -1871,6 +1848,8 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"Conectado exitosamente.\n"
+"Renombra el dispositivo tocando su nombre"
 
 #: qml/main.qml:113
 msgctxt "Text for the notification upon connecting successfully to a device"
@@ -1990,7 +1969,7 @@ msgstr "Sobre nosotros"
 msgctxt ""
 "Button for opening the TailCo website in a browser, from the landing page"
 msgid "TheTailCompany.com"
-msgstr ""
+msgstr "TheTailCompany.com"
 
 #: qml/main.qml:375
 msgctxt "Title for the confirmation popup for disconnecting your gear"
@@ -2009,16 +1988,14 @@ msgstr ""
 "¿Estás seguro de que deseas desconectarte y salir?"
 
 #: qml/main.qml:459
-#, fuzzy
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your gear"
-msgstr "Introduce un nombre para tu nuevo dispositivo"
+msgstr "Introduce un nombre para tu equipo"
 
 #: qml/main.qml:460
-#, fuzzy
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the new name for %1 here"
-msgstr "Introduce el nombre aquí"
+msgstr "Introduce el nombre para %1 aquí"
 
 #: qml/main.qml:461
 msgctxt ""
@@ -2210,7 +2187,6 @@ msgstr[1] "Múltiples piezas de equipamiento disponibles"
 #. }
 #. else {
 #: qml/NotConnectedCard.qml:78
-#, fuzzy
 msgctxt ""
 "Message warning for missing location permissions, for the gear connecting "
 "card"
@@ -2223,8 +2199,8 @@ msgstr ""
 "Para que podamos encontrar tu equipamiento, necesitamos que nos des permiso "
 "para acceder a tu ubicación. Haciendo click en el siguiente botón te "
 "mostrará un diálogo en el que nos debes dar permiso. No utilizamos esta "
-"información para nada más (por favor, ponte en contacto con nosotros si "
-"quieres pruebas de esto sin problemas)."
+"información para nada más (no dudes en ponte en contacto con nosotros si "
+"quieres pruebas de esto)."
 
 #: qml/NotConnectedCard.qml:83
 msgctxt ""
@@ -2282,7 +2258,6 @@ msgstr[1] ""
 #. }
 #. else {
 #: qml/NotConnectedCard.qml:109
-#, fuzzy
 msgctxt ""
 "Label for button for opening the settings tab to fix missing location "
 "permissions, for the gear connecting card"
@@ -2290,12 +2265,11 @@ msgid "Get Location Permission..."
 msgstr "Obtener permiso de ubicación..."
 
 #: qml/NotConnectedCard.qml:112
-#, fuzzy
 msgctxt ""
 "Label for button for getting the missing notifications permission, for the "
 "gear connecting card"
 msgid "Get Notification Permission..."
-msgstr "Obtener permiso de ubicación..."
+msgstr "Obtener permiso de notificaciónes..."
 
 #: qml/NotConnectedCard.qml:114
 msgctxt ""
@@ -2312,7 +2286,6 @@ msgid "Show available gear..."
 msgstr "Mostrar equipamiento disponible..."
 
 #: qml/NotConnectedCard.qml:139
-#, fuzzy
 msgctxt ""
 "Label for button which causes the list of available gear to be refreshed, "
 "for the gear connecting card"
@@ -2397,22 +2370,22 @@ msgid "Delete"
 msgstr "Eliminar"
 
 #: qml/SettingsCrumpetPicker.qml:88
-#, fuzzy
 msgctxt ""
 "Header for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid "Remove Command Set?"
-msgstr "Grupos de comandos para el equipo"
+msgstr "Eliminar grupo de comandos?"
 
 #: qml/SettingsCrumpetPicker.qml:89
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
-msgstr "¿Estás seguro de que deseas eliminar la lista de movimientos '%1'?"
+msgstr ""
+"¿Estás seguro de que deseas eliminar la lista de movimientos？Esta acción no "
+"se puede deshacer."
 
 #: qml/SettingsCrumpetPicker.qml:96
 msgctxt ""
@@ -2482,25 +2455,22 @@ msgstr "Descargar PDF:"
 msgctxt ""
 "Label for downloading the general guide for safe use of the various gear"
 msgid "Responsible Wagging Guide"
-msgstr ""
+msgstr "Guía de coleo responsable"
 
 #: qml/SettingsPage.qml:54
-#, fuzzy
 msgctxt "Label for downloading the instructions for the MiTail"
 msgid "MiTail Instructions"
-msgstr "Instrucciones"
+msgstr "Instrucciones para MiTail"
 
 #: qml/SettingsPage.qml:59
-#, fuzzy
 msgctxt "Label for downloading the instructions for the Digitail"
 msgid "Digitail Instructions"
-msgstr "Instrucciones"
+msgstr "Instrucciones para Digitail"
 
 #: qml/SettingsPage.qml:64
-#, fuzzy
 msgctxt "Label for downloading the instructions for EarGear"
 msgid "EarGear Instructions"
-msgstr "Instrucciones"
+msgstr "Instrucciones para EarGear"
 
 #: qml/SettingsPage.qml:71
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
@@ -2527,7 +2497,6 @@ msgid "Reconnect Automatically"
 msgstr "Reconectar Automáticamente"
 
 #: qml/SettingsPage.qml:83
-#, fuzzy
 msgctxt ""
 "Header for the panel for whether or not to always send to all connected "
 "devices, on the settings page"
@@ -2544,21 +2513,23 @@ msgid ""
 "gear, or not. Check the box here to make that choice, or to undo the choice "
 "made in the dialogue itself."
 msgstr ""
+"Cuando elijas enviar algo a tu equipo y tengas más de uno conectado al mismo "
+"tiempo, puedes elegir si enviar esto siempre o no a todos los equipos "
+"conectados. Marca o desmarca la siguiente casilla para configurar esta "
+"opción."
 
 #: qml/SettingsPage.qml:86
-#, fuzzy
 msgctxt ""
 "Checkbox for the option to always send any selected command to all connected "
 "devices, on the panel for whether or not to always send to all connected "
 "devices in the settings page"
 msgid "Always Send To All"
-msgstr "Enviar a todos"
+msgstr "Enviar siempre a todos"
 
 #: qml/SettingsPage.qml:95
-#, fuzzy
 msgctxt "Header for the panel showing known gear, on the settings page"
 msgid "Known Gear"
-msgstr "Apagar equipo"
+msgstr "Eqquips conocidos"
 
 #: qml/SettingsPage.qml:96
 msgctxt "Description for the panel showing known gear, on the settings page"
@@ -2569,33 +2540,37 @@ msgid ""
 "name, and even forgetting it. Forgetting it will disconnect (using the Just "
 "Disconnect method) from it, if you are currently connected."
 msgstr ""
+"A continuación esta el listado de equipos a los que te has conectado "
+"previamente. Puedes utilizar esta lista para realizar una serie de acciones "
+"como, por ejemplo, decidir explícitamente si conectar automáticamente a este "
+"cuando se encuentre, cambiar su nombre, o incluso olvidarlo. Olvidarlo hará "
+"que se deconecte de este si está conectado actualmente."
 
 #: qml/SettingsPage.qml:113
-#, fuzzy
 msgctxt ""
 "A toggle for a single piece of gear on the settings page, allowing the user "
 "to change whether to automatically connect to it or not"
 msgid "Connect Automatically To %1"
-msgstr "Reconectar Automáticamente"
+msgstr "Cconectar automáticamente a %1"
 
 #: qml/SettingsPage.qml:124
 msgctxt ""
 "A button on the settings page which allows the user to change the name they "
 "have given a piece of gear"
 msgid "Rename %1..."
-msgstr ""
+msgstr "Renombrar %1..."
 
 #: qml/SettingsPage.qml:133
 msgctxt ""
 "Label for the button which opens the dialog box which allows the user to "
 "disconnect from and remove all information about a given piece of gear"
 msgid "Forget %1..."
-msgstr ""
+msgstr "Olvidar %1..."
 
 #: qml/SettingsPage.qml:135
 msgctxt "Header for the message box asking whether to forget a piece of gear"
 msgid "Forget about %1"
-msgstr ""
+msgstr "Olvidarse de %1"
 
 #: qml/SettingsPage.qml:136
 msgctxt "Text for the message box asking whether to forget a piece of gear"
@@ -2604,6 +2579,9 @@ msgid ""
 "disconnect and forget. To get it back, you just need to look for more gear "
 "and connect to it again."
 msgstr ""
+"¿Estás seguro de que deseas olvidarte de %1? Si etas seguro, pulsa Aceptar "
+"para desonectar y olvidarlo. Para recuperarlo solo tienes que buscar equipos "
+"y conectarlo de nuevo."
 
 #: qml/SettingsPage.qml:146
 msgctxt ""
@@ -2743,14 +2721,14 @@ msgctxt ""
 "Label for a button which allows the user to pick a file to load the firmware "
 "from (this is only available in developer mode)"
 msgid "Load From File"
-msgstr ""
+msgstr "Cargar desde un archivo"
 
 #: qml/SettingsPage.qml:272
 msgctxt ""
 "Title for a dialog which allows the user to pick a file to load as firmware "
 "(this is only available in developer mode)"
 msgid "Pick Firmware File"
-msgstr ""
+msgstr "Selecciona el fichero del firmware"
 
 #: qml/SettingsPage.qml:285
 msgctxt ""
@@ -2819,7 +2797,7 @@ msgctxt ""
 "Title for a message box warning that changing the language requires "
 "restarting the app"
 msgid "App Restart Required"
-msgstr ""
+msgstr "Reinicio de la aplicación necesario"
 
 #: qml/SettingsPage.qml:325
 msgctxt ""
@@ -2830,6 +2808,9 @@ msgid ""
 "and so on is updated. To quit the app now, click OK, or click Cancel to not "
 "quit just now."
 msgstr ""
+"Para cambkar el idioma es neecsario reiniciar la aplicación para asegurar "
+"que todos los textos se actualizan. Para salir ahora, pulsa Aceptar, o pulsa "
+"Cancelar para hacerlo más tarde."
 
 #: qml/SettingsPage.qml:338
 msgctxt ""
@@ -2838,7 +2819,6 @@ msgid "Fake Tail"
 msgstr "Cola Falsa"
 
 #: qml/SettingsPage.qml:339
-#, fuzzy
 msgctxt ""
 "Description for the panel for the demo modus of the app, on the settings page"
 msgid ""
@@ -2850,9 +2830,9 @@ msgid ""
 "page."
 msgstr ""
 "Si acabas de descargar la aplicación, pro ejemplo, mientras esperas que "
-"llegue tu nuevo, flagrante y brillante DIGITAiL o EarGear, puedes querer "
-"explorar las características de la app. Puedes hacer en el siguiente botón "
-"para engañar la aplicación para que piense que hay una cola cerca, y te "
+"llegue tu nuevo, flagrante y brillante MiTail o EarGear, puedes querer "
+"explorar las características de la app. Puedes pulsar en el siguiente botón "
+"para engañar la aplicación para que piense que hay una cola cerca, así te "
 "permitirá explorar las opciones disponibles. Habilitando esta opción hará "
 "que una cola falsa aparezca en la página de bienvenida."
 
@@ -2864,12 +2844,11 @@ msgid "Show Fake Tail"
 msgstr "Mostrar Cola Falsa"
 
 #: qml/TailBattery.qml:60
-#, fuzzy
 msgctxt ""
 "Text shown beside a spinner indicating that we are currently attempting to "
 "connect to a piece of gear"
 msgid "Connecting"
-msgstr "Conectar"
+msgstr "Conectando"
 
 #: qml/TailLights.qml:25
 msgctxt "Header for the page for the Glow Tips"
@@ -2882,7 +2861,6 @@ msgid "Stop Lights"
 msgstr "Parar Luces"
 
 #: qml/TailLights.qml:38
-#, fuzzy
 msgctxt ""
 "Description for the list of light patterns, on the page for the Glow Tips"
 msgid ""
@@ -2892,8 +2870,9 @@ msgid ""
 "light pattern to."
 msgstr ""
 "La siguiente lista muestra todos los patrones luminosos disponibles para tu "
-"equipo. Toca cualquiera de ellos para enviarlos a tus dispositivos "
-"conectados!"
+"equipo. ¡Toca cualquiera de ellos para enviarlos a tus dispositivos "
+"conectados! Si tienes más de uno conectado, los pequeños.puntos coloreados "
+"te muestran a cual puedes enviar ese patron."
 
 #: qml/TailLights.qml:45
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2911,7 +2890,6 @@ msgid "Home Position"
 msgstr "Posición inicial"
 
 #: qml/TailMoves.qml:37
-#, fuzzy
 msgctxt "Description for the list of moves, on the Moves page"
 msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
@@ -2919,7 +2897,9 @@ msgid ""
 "connected, the little coloured dots show which you can send that move to."
 msgstr ""
 "La siguiente lista muestra todos los movimientos disponibles para tu equipo. "
-"Toca cualquiera de ellos para enviarlo a tus dispositivos conectados!"
+"¡Toca cualquiera de ellos para enviarlo a tus equipos conectados! Si tienes "
+"más de uno conectado, los pequeños puntos coloreados te muestran a cual le "
+"puedes enviar dicho movimiento."
 
 #: qml/TailMoves.qml:44
 msgctxt ""
@@ -2939,15 +2919,13 @@ msgid "Frustrated and Tense"
 msgstr "Frustrado y Tenso"
 
 #: qml/TiltSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a tilting motion"
 msgid "Tilt Settings"
-msgstr "Configuración"
+msgstr "Ajustes de inclinación"
 
 #: qml/TiltSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a tilting motion"
@@ -2965,9 +2943,13 @@ msgid ""
 "that move to if you have more than one (otherwise we'll just send it to "
 "itself)."
 msgstr ""
+"Activa la detección de inclinación marcando la caaj junto al equipo que "
+"quieres que la detecte. Para elegir que hacer cuando un tipo de inclinación "
+"sea detectado, elige los movimientos y a que dispositivos quieres que se "
+"envíe si tienes varios conectados (de lo contrario solo.se.lo.enviaremos a "
+"este)."
 
 #: qml/TiltSettings.qml:100
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
@@ -2976,10 +2958,9 @@ msgid "(no command)"
 msgstr "(ningún comando)"
 
 #: qml/TimePicker.qml:55
-#, fuzzy
 msgctxt "Title for the time picker"
 msgid "Pick a Time"
-msgstr "Elige un nombre"
+msgstr "Elige una hora"
 
 #: qml/TimePicker.qml:61
 msgctxt "Label for the Hours field on a time picker"
@@ -3023,11 +3004,10 @@ msgid "Crumpet"
 msgstr "Crumpet"
 
 #: qml/WelcomePage.qml:31
-#, fuzzy
 msgctxt ""
 "Label for the button for requesting bluetooth permissions on the welcome page"
 msgid "Get Bluetooth Permissions"
-msgstr "Obtener permiso de ubicación..."
+msgstr "Obtener permisos para el bluetooth"
 
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
@@ -3040,7 +3020,6 @@ msgid "Connect"
 msgstr "Conectar"
 
 #: qml/WelcomePage.qml:64
-#, fuzzy
 msgctxt ""
 "Label for the button for looking for additional gear, on the welcome page"
 msgid "Look for gear"
@@ -3087,11 +3066,10 @@ msgid "Casual Mode"
 msgstr "Modo Casual"
 
 #: qml/WelcomePage.qml:246
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the welcome page"
 msgid "Enable Casual Mode"
-msgstr "Modo Casual"
+msgstr "Activar modo Casual"
 
 #: qml/WelcomePage.qml:277
 msgctxt "Heading for the panel for turning on Listening Mode"
@@ -3108,18 +3086,16 @@ msgstr ""
 "alrededor durante cinco minutos cada vez."
 
 #: qml/WelcomePage.qml:361
-#, fuzzy
 msgctxt "Heading for the panel for turning on Tilt Mode"
 msgid "Tilt Mode"
-msgstr "Modo de Escucha"
+msgstr "Modo de Inclinación"
 
 #: qml/WelcomePage.qml:387
-#, fuzzy
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
 msgstr ""
-"Activa este modo para hacer que tu equipo reaccione a los sonidos a su "
-"alrededor durante cinco minutos cada vez."
+"Activa esta opción para hacer que tu equipo reaccione a los movimientos de "
+"inclinación."
 
 #: qml/WelcomePage.qml:427
 msgctxt ""
@@ -3130,132 +3106,126 @@ msgstr "Gestos de las Orejas"
 #: Utilities.cpp:86
 msgctxt "The name of the first entry in any of the categories of moves"
 msgid "One"
-msgstr ""
+msgstr "Uno"
 
 #: Utilities.cpp:88
 msgctxt "The name of the second entry in any of the categories of moves"
 msgid "Two"
-msgstr ""
+msgstr "Dos"
 
 #: Utilities.cpp:90
 msgctxt "The name of the third entry in any of the categories of moves"
 msgid "Three"
-msgstr ""
+msgstr "Tres"
 
 #: Utilities.cpp:92
 msgctxt "The name of the fourth entry in any of the categories of moves"
 msgid "Four"
-msgstr ""
+msgstr "Cuatro"
 
 #: Utilities.cpp:94
 msgctxt "The name of the fifth entry in any of the categories of moves"
 msgid "Five"
-msgstr ""
+msgstr "Cinco"
 
 #: Utilities.cpp:96
 msgctxt "The name of the sixth entry in any of the categories of moves"
 msgid "Six"
-msgstr ""
+msgstr "Seis"
 
 #: Utilities.cpp:98
 msgctxt "The name of the seventh entry in any of the categories of moves"
 msgid "Seven"
-msgstr ""
+msgstr "Siete"
 
 #: Utilities.cpp:100
 msgctxt "The name of the eighth entry in any of the categories of moves"
 msgid "Eight"
-msgstr ""
+msgstr "Ocho"
 
 #: Utilities.cpp:102
 msgctxt "The name of the ninth entry in any of the categories of moves"
 msgid "Nine"
-msgstr ""
+msgstr "Nueve"
 
 #: Utilities.cpp:104
-#, fuzzy
 msgctxt "The name of the calm and relaxed category of gear moves"
 msgid "Calm and Relaxed"
 msgstr "Tranquilo y Relajado"
 
 #: Utilities.cpp:106
-#, fuzzy
 msgctxt "The name of the fast and excited category of gear moves"
 msgid "Fast and Excited"
 msgstr "Rápido y Animado"
 
 #: Utilities.cpp:108
-#, fuzzy
 msgctxt "The name of the frustrated and tense category of gear moves"
 msgid "Frustrated and Tense"
 msgstr "Frustrado y Tenso"
 
 #: Utilities.cpp:110
-#, fuzzy
 msgctxt "The name of the poses category of gear commands"
 msgid "Poses"
-msgstr "Posiciones"
+msgstr "Poses"
 
 #: Utilities.cpp:112
-#, fuzzy
 msgctxt "The name of the lights category of gear commands"
 msgid "Glow Tip Patterns"
-msgstr "Puntas luminosas"
+msgstr "Patrones luminosos"
 
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
 msgid "Blink"
-msgstr ""
+msgstr "Parpadeo"
 
 #: Utilities.cpp:116
 msgctxt ""
 "The name of the Triangle command in the lights category of gear commands"
 msgid "Triangle"
-msgstr ""
+msgstr "Triángulo"
 
 #: Utilities.cpp:118
 msgctxt ""
 "The name of the Sawtooth command in the lights category of gear commands"
 msgid "Sawtooth"
-msgstr ""
+msgstr "Onda cuadrada"
 
 #: Utilities.cpp:120
 msgctxt "The name of the Morse command in the lights category of gear commands"
 msgid "Morse"
-msgstr ""
+msgstr "Morse"
 
 #: Utilities.cpp:122
 msgctxt ""
 "The name of the Beacon command in the lights category of gear commands"
 msgid "Beacon"
-msgstr ""
+msgstr "Baliza"
 
 #: Utilities.cpp:124
 msgctxt "The name of the Flame command in the lights category of gear commands"
 msgid "Glame"
-msgstr ""
+msgstr "Glamour"
 
 #: Utilities.cpp:126
 msgctxt ""
 "The name of the Strobe command in the lights category of gear commands"
 msgid "Strobe"
-msgstr ""
+msgstr "Estroboscópico"
 
 #: Utilities.cpp:128
 msgctxt "The name of the On command in the lights category of gear commands"
 msgid "On"
-msgstr ""
+msgstr "Encendido"
 
 #: Utilities.cpp:130
 msgctxt "The name of the Off command in the lights category of gear commands"
 msgid "Off"
-msgstr ""
+msgstr "Apagado"
 
 #: WalkingSensorGestureReconizer.cpp:186
-#, fuzzy
 msgctxt "The human readable name of the walking sensor"
 msgid "Walking"
-msgstr "Comienza a caminar"
+msgstr "Andando"
 
 #~ msgctxt "Header for the panel for changing gear names, on the settings page"
 #~ msgid "Gear Names"
