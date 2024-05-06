@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-05-01 03:47+0000\n"
+"PO-Revision-Date: 2024-05-07 04:09+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Dutch <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/nl/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.2\n"
+"X-Generator: Weblate 5.5.3\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -1270,7 +1270,7 @@ msgstr "Pauze toevoegen aan lijst"
 #: qml/BaseCommandListEditor.qml:62
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr "Relaxed"
+msgstr "Ontspannend"
 
 #: qml/BaseCommandListEditor.qml:64
 msgctxt "A short name for the excited moves category shown in move lists"
@@ -1616,34 +1616,30 @@ msgid "Poses"
 msgstr "Poses"
 
 #: qml/GearGestures.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
 msgid "Gear Gestures"
-msgstr "Gear Gebaren"
+msgstr "Gebaren herkennen"
 
 #: qml/GearGestures.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when the controlling device/phone detects a gesture"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Uitgangspositie"
 
 #: qml/GearGestures.qml:46
-#, fuzzy
 msgctxt ""
 "A short name for the relaxed moves category shown on the gestures page"
 msgid "Relaxed"
-msgstr "Rustig en relax"
+msgstr "Ontspannend"
 
 #: qml/GearGestures.qml:48
-#, fuzzy
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr "Opgewonden"
+msgstr "Opgewekt"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
@@ -1651,17 +1647,15 @@ msgid "Tense"
 msgstr "Gespannen"
 
 #: qml/GearGestures.qml:52
-#, fuzzy
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
-msgstr "Poses"
+msgstr "Houding"
 
 #: qml/GearGestures.qml:54
-#, fuzzy
 msgctxt "A short name for the lights category shown on the gestures page"
 msgid "Lights"
-msgstr "Lichten stoppen"
+msgstr "Verlichting"
 
 #: qml/GearGestures.qml:62
 msgctxt ""
@@ -1681,16 +1675,14 @@ msgstr ""
 "er een stap wordt gedetecteerd."
 
 #: qml/GearGestures.qml:84
-#, fuzzy
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting what should happen when the controlling device/"
 "phone detects a gesture"
 msgid "Multiple Gestures"
-msgstr "Meerdere Gebaren"
+msgstr "Meerdere bewegingen"
 
 #: qml/GearGestures.qml:85
-#, fuzzy
 msgctxt ""
 "Description for the warning for having enabled multiple gestures at the same "
 "time, on the page for selecting what should happen when the controlling "
@@ -1702,75 +1694,68 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
-"Je probeert meerdere gebaren tegelijk te activeren. Dit kan de Gear door de "
-"war brengen, doordat meerdere opdrachten dan kruislings kunnen lopen. Als je "
-"zeker weet wat je doet, druk dan op OK, druk anders op Annuleren."
+"Je probeert meerdere bewegingen tegelijk uit te voeren. Dit kan soms "
+"problemen veroorzaken, vooral omdat bewegingen zoals 'Schudden' en 'Lopen' "
+"beide bewegingen zijn en waarschijnlijk tegelijkertijd worden uitgevoerd. "
+"Als je zeker weet dat je dit wilt doen, tik dan op OK - of tik op Annuleren "
+"om dit gebaar niet te activeren."
 
 #: qml/GearGestures.qml:94
-#, fuzzy
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting what should happen when the controlling device/phone "
 "detects a gesture"
 msgid "Show On Welcome Page"
-msgstr "Laat op welkomstpagina zien"
+msgstr "Op de startpagina weergeven"
 
 #: qml/GearGestures.qml:130
-#, fuzzy
 msgctxt ""
 "Command for returning any gear to its home position, on the gestures page"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Uitgangspositie"
 
 #: qml/GearGestures.qml:132
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when the "
 "controlling device/phone detects a gesture"
 msgid "(no command)"
-msgstr "(geen opdracht)"
+msgstr "(geen actie)"
 
 #: qml/IdleModePage.qml:26
-#, fuzzy
 msgctxt "Title for the Casual Mode settings page"
 msgid "Casual Mode Categories"
-msgstr "Intelligente Modus categorieën"
+msgstr "Gelegenheidsgroepen"
 
 #: qml/IdleModePage.qml:46
-#, fuzzy
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Casual Mode "
 "settings page"
 msgid "Calm and Relaxed"
-msgstr "Rustig en relax"
+msgstr "Kalm en relaxed"
 
 #: qml/IdleModePage.qml:51
-#, fuzzy
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Casual Mode "
 "settings page"
 msgid "Fast and Excited"
-msgstr "Opgewonden"
+msgstr "Snel en opgewonden"
 
 #: qml/IdleModePage.qml:56
-#, fuzzy
 msgctxt ""
 "Description for the category for the Tense Moveset, on the Casual Mode "
 "settings page"
 msgid "Frustrated and Tense"
-msgstr "Geirriteerd"
+msgstr "Gefrustreerd en gespannen"
 
 #: qml/IdleModePage.qml:61
-#, fuzzy
 msgctxt ""
 "Description for the category for the LED Patterns, on the Casual Mode "
 "settings page"
 msgid "LED Patterns"
-msgstr "Lichtpatronen"
+msgstr "LED-patroon"
 
 #: qml/IdleModePage.qml:72
-#, fuzzy
 msgctxt ""
 "Infocard for selecting the pauses in between moves, on the Casual Mode "
 "settings page"
@@ -1778,16 +1763,15 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
-"Hier kan je de pauses tussen bewegingen inprogrammeren, en de types "
-"bewegingen kiezen."
+"Hier bepaal je de pauzes tussen de bewegingen en de groepen waaruit de "
+"bewegingen worden geselecteerd."
 
 #: qml/IdleModePage.qml:74
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the Casual Mode "
 "settings page"
 msgid "Enable Casual Mode"
-msgstr "Intelligente Modus"
+msgstr "De casual modus activeren"
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
@@ -1796,20 +1780,18 @@ msgid "Range of pause between moves in seconds"
 msgstr "Pausebereik tussen bewegingen, in seconden"
 
 #: qml/ListenSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a sound based event"
 msgid "Listening Settings"
-msgstr "Luistermodus"
+msgstr "Luisteren Instellingen"
 
 #: qml/ListenSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a sound based event"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Uitgangspositie"
 
 #: qml/ListenSettings.qml:43
 msgctxt ""
@@ -1832,13 +1814,12 @@ msgstr ""
 "bewegingen afspelen."
 
 #: qml/ListenSettings.qml:111
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
 "gear detects a sound based event"
 msgid "(no command)"
-msgstr "(geen opdracht)"
+msgstr "(geen actie)"
 
 #: qml/main.qml:62
 msgctxt "Title of the application"
@@ -1994,16 +1975,14 @@ msgstr ""
 "Weet je zeker dat je de verbinding wil verbreken en wil afsluiten?"
 
 #: qml/main.qml:459
-#, fuzzy
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your gear"
-msgstr "Vul een naam in voor je nieuwe Gear"
+msgstr "Voer een naam in voor je apparaat"
 
 #: qml/main.qml:460
-#, fuzzy
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the new name for %1 here"
-msgstr "Geef je Gear een naam"
+msgstr "Voer een nieuwe naam in voor %1"
 
 #: qml/main.qml:461
 msgctxt ""
@@ -2262,20 +2241,18 @@ msgstr[1] ""
 #. }
 #. else {
 #: qml/NotConnectedCard.qml:109
-#, fuzzy
 msgctxt ""
 "Label for button for opening the settings tab to fix missing location "
 "permissions, for the gear connecting card"
 msgid "Get Location Permission..."
-msgstr "Verkrijg locatietoestemmingen..."
+msgstr "Lokalisatie toestaan..."
 
 #: qml/NotConnectedCard.qml:112
-#, fuzzy
 msgctxt ""
 "Label for button for getting the missing notifications permission, for the "
 "gear connecting card"
 msgid "Get Notification Permission..."
-msgstr "Verkrijg locatietoestemmingen..."
+msgstr "Meldingen toestaan..."
 
 #: qml/NotConnectedCard.qml:114
 msgctxt ""
@@ -2292,12 +2269,11 @@ msgid "Show available gear..."
 msgstr "Laat gevonden Gear zien..."
 
 #: qml/NotConnectedCard.qml:139
-#, fuzzy
 msgctxt ""
 "Label for button which causes the list of available gear to be refreshed, "
 "for the gear connecting card"
 msgid "Look for gear"
-msgstr "Zoek naar Gear"
+msgstr "Naar apparaten zoeken"
 
 #: qml/PickACommandSheet.qml:32
 msgctxt ""
@@ -2462,22 +2438,19 @@ msgid "Responsible Wagging Guide"
 msgstr "Handleiding voor verantwoord wedeln"
 
 #: qml/SettingsPage.qml:54
-#, fuzzy
 msgctxt "Label for downloading the instructions for the MiTail"
 msgid "MiTail Instructions"
-msgstr "Handleiding"
+msgstr "MiTail instructies"
 
 #: qml/SettingsPage.qml:59
-#, fuzzy
 msgctxt "Label for downloading the instructions for the Digitail"
 msgid "Digitail Instructions"
-msgstr "Handleiding"
+msgstr "DIGITAiL instructies"
 
 #: qml/SettingsPage.qml:64
-#, fuzzy
 msgctxt "Label for downloading the instructions for EarGear"
 msgid "EarGear Instructions"
-msgstr "Handleiding"
+msgstr "EarGear instructies"
 
 #: qml/SettingsPage.qml:71
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
@@ -2504,12 +2477,11 @@ msgid "Reconnect Automatically"
 msgstr "Automatisch herverbinden"
 
 #: qml/SettingsPage.qml:83
-#, fuzzy
 msgctxt ""
 "Header for the panel for whether or not to always send to all connected "
 "devices, on the settings page"
 msgid "Send To All"
-msgstr "Verzend naar allen"
+msgstr "Verzenden naar alle"
 
 #: qml/SettingsPage.qml:84
 msgctxt ""
@@ -2526,13 +2498,12 @@ msgstr ""
 "niet. Hier kun je 'Naar alle verzenden' als standaard instellen."
 
 #: qml/SettingsPage.qml:86
-#, fuzzy
 msgctxt ""
 "Checkbox for the option to always send any selected command to all connected "
 "devices, on the panel for whether or not to always send to all connected "
 "devices in the settings page"
 msgid "Always Send To All"
-msgstr "Verzend naar allen"
+msgstr "Altijd naar iedereen verzenden"
 
 #: qml/SettingsPage.qml:95
 msgctxt "Header for the panel showing known gear, on the settings page"
@@ -2556,12 +2527,11 @@ msgstr ""
 "bent."
 
 #: qml/SettingsPage.qml:113
-#, fuzzy
 msgctxt ""
 "A toggle for a single piece of gear on the settings page, allowing the user "
 "to change whether to automatically connect to it or not"
 msgid "Connect Automatically To %1"
-msgstr "Automatisch herverbinden"
+msgstr "Automatisch verbinden met %1"
 
 #: qml/SettingsPage.qml:124
 msgctxt ""
@@ -2681,12 +2651,11 @@ msgid "Rebalance Microphones"
 msgstr "Microfoon kalibreren"
 
 #: qml/SettingsPage.qml:225
-#, fuzzy
 msgctxt ""
 "Heading for the panel for checking for and performing firmware updates for "
 "gear which supports this"
 msgid "Gear Firmware"
-msgstr "Gear namen"
+msgstr "Firmware voor apparaat"
 
 #: qml/SettingsPage.qml:226
 msgctxt ""
@@ -2826,7 +2795,6 @@ msgid "Fake Tail"
 msgstr "Nepstaart demomodus"
 
 #: qml/SettingsPage.qml:339
-#, fuzzy
 msgctxt ""
 "Description for the panel for the demo modus of the app, on the settings page"
 msgid ""
@@ -2837,11 +2805,10 @@ msgid ""
 "exist. Enabling this option will make a fake tail show up on the welcome "
 "page."
 msgstr ""
-"Als je net de app heb gedownload, bijvoorbeeld omdat je een brand-nieuwe "
-"MiTail DigiTail of EarGear heb besteld, kan je hiermee alvast de app "
-"uitproberen. Dan verschijnt er een virtuele staart uit de lucht, waar je "
-"alle functionaliteit op kan uitproberen! Alleen maar een beetje fantasie "
-"nodig..."
+"Als je de app hebt gedownload omdat je bijvoorbeeld zit te wachten op je "
+"nieuwe, supergave, helemaal coole MiTail of EarGear, kun je de wachttijd "
+"verkorten door rond te kijken in de app. Je kunt de knop hieronder gebruiken "
+"om een MiTail te simuleren zodat je de instelmogelijkheden kunt bekijken."
 
 #: qml/SettingsPage.qml:341
 msgctxt ""
@@ -2851,12 +2818,11 @@ msgid "Show Fake Tail"
 msgstr "Nepstaart laten zien"
 
 #: qml/TailBattery.qml:60
-#, fuzzy
 msgctxt ""
 "Text shown beside a spinner indicating that we are currently attempting to "
 "connect to a piece of gear"
 msgid "Connecting"
-msgstr "Verbinden"
+msgstr "Aansluiten"
 
 #: qml/TailLights.qml:25
 msgctxt "Header for the page for the Glow Tips"
@@ -2927,20 +2893,18 @@ msgid "Frustrated and Tense"
 msgstr "Geirriteerd"
 
 #: qml/TiltSettings.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a tilting motion"
 msgid "Tilt Settings"
-msgstr "Instellingen"
+msgstr "Kantelinstellingen"
 
 #: qml/TiltSettings.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a tilting motion"
 msgid "Home Position"
-msgstr "Rustpositie"
+msgstr "Uitgangspositie"
 
 #: qml/TiltSettings.qml:43
 msgctxt ""
@@ -2960,19 +2924,17 @@ msgstr ""
 "meer dan één apparaat hebt (anders sturen we ze gewoon naar onszelf)."
 
 #: qml/TiltSettings.qml:100
-#, fuzzy
 msgctxt ""
 "Default text for the button for picking a command, for when no command has "
 "been selected, on the page for selecting what should happen when a piece of "
 "gear detects a tilting motion"
 msgid "(no command)"
-msgstr "(geen opdracht)"
+msgstr "(geen actie)"
 
 #: qml/TimePicker.qml:55
-#, fuzzy
 msgctxt "Title for the time picker"
 msgid "Pick a Time"
-msgstr "Kies een naam"
+msgstr "Kies een tijd"
 
 #: qml/TimePicker.qml:61
 msgctxt "Label for the Hours field on a time picker"
@@ -3032,11 +2994,10 @@ msgid "Connect"
 msgstr "Verbinden"
 
 #: qml/WelcomePage.qml:64
-#, fuzzy
 msgctxt ""
 "Label for the button for looking for additional gear, on the welcome page"
 msgid "Look for gear"
-msgstr "Zoek naar Gear"
+msgstr "Naar apparaten zoeken"
 
 #: qml/WelcomePage.qml:73
 msgctxt ""
@@ -3079,11 +3040,10 @@ msgid "Casual Mode"
 msgstr "Intelligente Modus"
 
 #: qml/WelcomePage.qml:246
-#, fuzzy
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the welcome page"
 msgid "Enable Casual Mode"
-msgstr "Intelligente Modus"
+msgstr "De casual modus activeren"
 
 #: qml/WelcomePage.qml:277
 msgctxt "Heading for the panel for turning on Listening Mode"
@@ -3098,10 +3058,9 @@ msgid ""
 msgstr "Zet de reactie op geluiden vijf minuten aan."
 
 #: qml/WelcomePage.qml:361
-#, fuzzy
 msgctxt "Heading for the panel for turning on Tilt Mode"
 msgid "Tilt Mode"
-msgstr "Luistermodus"
+msgstr "Kantelmodus"
 
 #: qml/WelcomePage.qml:387
 msgctxt "Label for the checkbox for turning on Tilt Mode"
@@ -3160,22 +3119,19 @@ msgid "Nine"
 msgstr "Negen"
 
 #: Utilities.cpp:104
-#, fuzzy
 msgctxt "The name of the calm and relaxed category of gear moves"
 msgid "Calm and Relaxed"
-msgstr "Rustig en relax"
+msgstr "Kalm en relaxed"
 
 #: Utilities.cpp:106
-#, fuzzy
 msgctxt "The name of the fast and excited category of gear moves"
 msgid "Fast and Excited"
-msgstr "Opgewonden"
+msgstr "Snel en opgewonden"
 
 #: Utilities.cpp:108
-#, fuzzy
 msgctxt "The name of the frustrated and tense category of gear moves"
 msgid "Frustrated and Tense"
-msgstr "Geirriteerd"
+msgstr "Gefrustreerd en gespannen"
 
 #: Utilities.cpp:110
 msgctxt "The name of the poses category of gear commands"
@@ -3237,10 +3193,9 @@ msgid "Off"
 msgstr "Uit"
 
 #: WalkingSensorGestureReconizer.cpp:186
-#, fuzzy
 msgctxt "The human readable name of the walking sensor"
 msgid "Walking"
-msgstr "Beginnen met lopen"
+msgstr "Wandelen"
 
 #~ msgctxt "Header for the panel for changing gear names, on the settings page"
 #~ msgid "Gear Names"
