@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
 "PO-Revision-Date: 2024-05-14 16:53+0000\n"
-"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Japanese <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ja/>\n"
 "Language: ja_JP\n"
@@ -29,9 +29,8 @@ msgctxt ""
 "Error message for when there are no commands found in a command file "
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
-msgstr ""
-"このファイルにはコマンドがありません。これは可能ですが、一般的ではありませ"
-"ん。"
+msgstr "このファイルにはコマンドがありません。これは可能ですが、一般的ではありません"
+"。"
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -142,8 +141,7 @@ msgctxt ""
 msgid ""
 "Attempted to reconnect too many times to %1 (%2). To connect to it, please "
 "check that it is on, charged, and near enough."
-msgstr ""
-"1 (%2) への再接続を試行した回数が多すぎます。接続するには、電源が入っているこ"
+msgstr "1 (%2) への再接続を試行した回数が多すぎます。接続するには、電源が入っているこ"
 "と、充電されていること、近くにあることを確認してください。"
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
@@ -175,8 +173,7 @@ msgctxt "Warning message when the main service was not found on the device"
 msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
-msgstr ""
-"テールへの接続中にエラーが発生しました（サービスオブジェクトを作成できません"
+msgstr "テールへの接続中にエラーが発生しました（サービスオブジェクトを作成できません"
 "でした）。エラーと思われる場合は、もう一度お試しください。"
 
 #: gearimplementations/GearDigitail.cpp:278
@@ -185,8 +182,7 @@ msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
-msgstr ""
-"エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
+msgstr "エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
 "るか、本機に近づいているかを確認してください。"
 
 #: gearimplementations/GearDigitail.cpp:281
@@ -203,8 +199,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
-msgstr ""
-"MiTailへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
+msgstr "MiTailへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
 "くに移動できるかもしれません）。"
 
 #: gearimplementations/GearDigitail.cpp:304
@@ -215,8 +210,7 @@ msgctxt ""
 msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
-msgstr ""
-"MiTailは、電源を切るか、電源を失うかして、接続を閉じました。テールを充電する"
+msgstr "MiTailは、電源を切るか、電源を失うかして、接続を閉じました。テールを充電する"
 "ことを忘れないでください"
 
 #: gearimplementations/GearEars.cpp:112
@@ -229,8 +223,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "このデバイスはEarGearコントローラではないようです（メインの耳の書き込み特性が"
-"見つかりませんでした）。もし、間違いなくそうであると確信される場合は、このエ"
-"ラーをThe Tail Companyにご報告ください。"
+"見つかりませんでした）。もし、間違いなくそうであると確信される場合は、"
+"このエラーをThe Tail Companyにご報告ください。"
 
 #: gearimplementations/GearEars.cpp:129
 msgctxt ""
@@ -242,8 +236,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "このデバイスはEarGearコントローラではないようです（メインの耳読みの特性が見つ"
-"かりませんでした）。もし、間違いなくそうであると確信される場合は、このエラー"
-"をThe Tail Companyに報告してください。"
+"かりませんでした）。もし、間違いなくそうであると確信される場合は、"
+"このエラーをThe Tail Companyに報告してください。"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -283,8 +277,7 @@ msgstr "アップグレード成功"
 msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
-msgstr ""
-"おめでとうございます！お使いのギアはバージョン %1 に正常に更新されました。"
+msgstr "おめでとうございます！お使いのギアはバージョン %1 に正常に更新されました。"
 
 #: gearimplementations/GearEars.cpp:229
 #: gearimplementations/GearFlutterWings.cpp:175
@@ -307,11 +300,12 @@ msgid ""
 "a safe fallback to just go back to your old firmware version upon a failure. "
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
-"<p>申し訳ありませんが、アップグレードに失敗しました。ほとんどの場合、アップ"
-"ロード プロセス中に転送が破損したことが原因です。そのため、失敗したときに、古"
-"いファームウェア バージョンに戻るように安全なフォールバック機能が備わっていま"
-"す。インストールボタンをクリックすることで、再度アップデートを試みることがで"
-"きます。</p>"
+"<p>申し訳ありませんが、アップグレードに失敗しました。ほとんどの場合、"
+"アップロード "
+"プロセス中に転送が破損したことが原因です。そのため、失敗したときに、"
+"古いファームウェア バージョンに戻るように安全なフォールバック機能が備わってい"
+"ます。インストールボタンをクリックすることで、再度アップデートを試みることが"
+"できます。</p>"
 
 #: gearimplementations/GearEars.cpp:350
 msgctxt ""
@@ -330,8 +324,7 @@ msgctxt ""
 msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
-msgstr ""
-"すでに最新バージョンのファームウェアが機器にインストールされていますね、おめ"
+msgstr "すでに最新バージョンのファームウェアが機器にインストールされていますね、おめ"
 "でとうございます。"
 
 #: gearimplementations/GearEars.cpp:470
@@ -348,9 +341,9 @@ msgid ""
 "touch."
 msgstr ""
 "新しいファームウェアのバージョンに関する情報を判断するために使用されたファイ"
-"ルに、期待されるデータ形式が含まれていませんでした。これは、一時的なエラー"
-"か、接続の問題だと思われます。この問題が繰り返し発生する場合は、ご連絡くださ"
-"い。"
+"ルに、期待されるデータ形式が含まれていませんでした。これは、一時的なエラーか"
+"、接続の問題だと思われます。この問題が繰り返し発生する場合は、ご連絡ください"
+"。"
 
 #: gearimplementations/GearEars.cpp:474
 #: gearimplementations/GearFlutterWings.cpp:340
@@ -376,8 +369,7 @@ msgctxt ""
 msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
-msgstr ""
-"EarGearへの接続中にエラーが発生しました（バッテリーサービスを利用できませんで"
+msgstr "EarGearへの接続中にエラーが発生しました（バッテリーサービスを利用できませんで"
 "した）。エラーと思われる場合は、もう一度お試しください。"
 
 #: gearimplementations/GearEars.cpp:594
@@ -389,17 +381,16 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "このデバイスはEarGearコントローラではないようです（バッテリーレベルの特性が見"
-"つかりませんでした）。もし、間違いなくそうであると確信される場合は、このエ"
-"ラーをThe Tail Companyに報告してください。"
+"つかりませんでした）。もし、間違いなくそうであると確信される場合は、"
+"このエラーをThe Tail Companyに報告してください。"
 
 #: gearimplementations/GearEars.cpp:624
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
-msgstr ""
-"エラーが発生しました。耳に接続しようとしている場合、EarGearがオンになってお"
-"り、このデバイスに近づいていることを確認してください。"
+msgstr "エラーが発生しました。耳に接続しようとしている場合、EarGearがオンになっており"
+"、このデバイスに近づいていることを確認してください。"
 
 #: gearimplementations/GearEars.cpp:627
 msgctxt "Warning that the device disconnected itself"
@@ -412,8 +403,7 @@ msgctxt ""
 "strength)"
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
-msgstr ""
-"EarGearへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
+msgstr "EarGearへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
 "くに移動できるかも？）"
 
 #: gearimplementations/GearEars.cpp:651
@@ -444,8 +434,7 @@ msgctxt ""
 msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
-msgstr ""
-"EarGearは、電源を切るか、電源を失うかして、接続を閉じたのです。耳を充電するこ"
+msgstr "EarGearは、電源を切るか、電源を失うかして、接続を閉じたのです。耳を充電するこ"
 "とを忘れないでください"
 
 #: gearimplementations/GearEars.cpp:824
@@ -485,8 +474,7 @@ msgctxt ""
 "Message shown along a progress bar when downloading the firmware payload "
 "itself"
 msgid "Downloading firmware update from The Tail Company's website..."
-msgstr ""
-"テイルカンパニーのホームページからファームウェアのアップデートをダウンロード"
+msgstr "テイルカンパニーのホームページからファームウェアのアップデートをダウンロード"
 "する..."
 
 #: gearimplementations/GearEars.cpp:896
@@ -553,8 +541,7 @@ msgctxt ""
 msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
-msgstr ""
-"これは、ファームウェアに何か<b>重要な</b>ことが起こっていることを知らせるため"
+msgstr "これは、ファームウェアに何か<b>重要な</b>ことが起こっていることを知らせるため"
 "のメッセージです。"
 
 #: gearimplementations/GearFlutterWings.cpp:109
@@ -568,8 +555,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "このデバイスはMiTailではないようです（メインデバイスの書き込み特性が見つかり"
-"ませんでした）。もし、間違いなくMiTailであると確信される場合は、このエラーを"
-"The Tail Companyにご報告ください。"
+"ませんでした）。もし、間違いなくMiTailであると確信される場合は、"
+"このエラーをThe Tail Companyにご報告ください。"
 
 #: gearimplementations/GearFlutterWings.cpp:117
 #, fuzzy
@@ -582,8 +569,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "このデバイスはMiTailではないようです（メインデバイスの読み取り特性を見つけら"
-"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、このエ"
-"ラーをThe Tail Companyにご報告ください。"
+"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、"
+"このエラーをThe Tail Companyにご報告ください。"
 
 #: gearimplementations/GearFlutterWings.cpp:412
 #, fuzzy
@@ -623,8 +610,7 @@ msgctxt ""
 msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
-msgstr ""
-"EarGearへの接続中にエラーが発生しました（バッテリーサービスを利用できませんで"
+msgstr "EarGearへの接続中にエラーが発生しました（バッテリーサービスを利用できませんで"
 "した）。エラーと思われる場合は、もう一度お試しください。"
 
 #: gearimplementations/GearFlutterWings.cpp:498
@@ -646,8 +632,7 @@ msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
-msgstr ""
-"エラーが発生しました。テールに接続しようとしている場合、テールの電源が入って"
+msgstr "エラーが発生しました。テールに接続しようとしている場合、テールの電源が入って"
 "いて、このデバイスに近づいていることを確認してください。"
 
 #: gearimplementations/GearFlutterWings.cpp:541
@@ -664,8 +649,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
-msgstr ""
-"テールへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
+msgstr "テールへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
 "くに移動できるかも？）"
 
 #: gearimplementations/GearFlutterWings.cpp:572
@@ -685,8 +669,7 @@ msgctxt ""
 msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
-msgstr ""
-"ファームウェアのアップロードが完了し、再接続を試みる前に、機器が自動的に再起"
+msgstr "ファームウェアのアップロードが完了し、再接続を試みる前に、機器が自動的に再起"
 "動するのを待ちます..."
 
 #: gearimplementations/GearFlutterWings.cpp:580
@@ -697,8 +680,7 @@ msgctxt ""
 msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
-msgstr ""
-"テールが接続を閉じたのは、電源を切ったか、電源を失ったかのどちらかです。テー"
+msgstr "テールが接続を閉じたのは、電源を切ったか、電源を失ったかのどちらかです。テー"
 "ルの充電を忘れないようにしましょう"
 
 #: gearimplementations/GearFlutterWings.cpp:747
@@ -822,8 +804,8 @@ msgid ""
 "report this error to The Tail Company."
 msgstr ""
 "このデバイスはMiTailではないようです（メインデバイスの書き込み特性が見つかり"
-"ませんでした）。もし、間違いなくMiTailであると確信される場合は、このエラーを"
-"The Tail Companyにご報告ください。"
+"ませんでした）。もし、間違いなくMiTailであると確信される場合は、"
+"このエラーをThe Tail Companyにご報告ください。"
 
 #: gearimplementations/GearMitail.cpp:123
 msgctxt ""
@@ -835,8 +817,8 @@ msgid ""
 "report this error to The Tail Company."
 msgstr ""
 "このデバイスはMiTailではないようです（メインデバイスの読み取り特性を見つけら"
-"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、このエ"
-"ラーをThe Tail Companyにご報告ください。"
+"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、"
+"このエラーをThe Tail Companyにご報告ください。"
 
 #: gearimplementations/GearMitail.cpp:419
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -874,8 +856,7 @@ msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
-msgstr ""
-"エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
+msgstr "エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
 "るか、本機に近づいているかを確認してください。"
 
 #: gearimplementations/GearMitail.cpp:548
@@ -889,8 +870,7 @@ msgctxt ""
 "strength)"
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
-msgstr ""
-"MiTailへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
+msgstr "MiTailへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
 "くに移動できるかもしれません）。"
 
 #: gearimplementations/GearMitail.cpp:584
@@ -901,8 +881,7 @@ msgctxt ""
 msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
-msgstr ""
-"ファームウェアのアップロードが完了し、再接続を試みる前に、機器が自動的に再起"
+msgstr "ファームウェアのアップロードが完了し、再接続を試みる前に、機器が自動的に再起"
 "動するのを待ちます..."
 
 #: gearimplementations/GearMitail.cpp:587
@@ -912,8 +891,7 @@ msgctxt ""
 msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
-msgstr ""
-"MiTailは、電源を切るか、電源を失うかして、接続を閉じました。テールを充電する"
+msgstr "MiTailは、電源を切るか、電源を失うかして、接続を閉じました。テールを充電する"
 "ことを忘れないでください"
 
 #: gearimplementations/GearMitailMini.cpp:39
@@ -943,8 +921,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "このデバイスはMiTailではないようです（メインデバイスの書き込み特性が見つかり"
-"ませんでした）。もし、間違いなくMiTailであると確信される場合は、このエラーを"
-"The Tail Companyにご報告ください。"
+"ませんでした）。もし、間違いなくMiTailであると確信される場合は、"
+"このエラーをThe Tail Companyにご報告ください。"
 
 #: gearimplementations/GearMitailMini.cpp:118
 #, fuzzy
@@ -957,8 +935,8 @@ msgid ""
 "please report this error to The Tail Company."
 msgstr ""
 "このデバイスはMiTailではないようです（メインデバイスの読み取り特性を見つけら"
-"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、このエ"
-"ラーをThe Tail Companyにご報告ください。"
+"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、"
+"このエラーをThe Tail Companyにご報告ください。"
 
 #: gearimplementations/GearMitailMini.cpp:414
 #, fuzzy
@@ -1000,8 +978,7 @@ msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
-msgstr ""
-"エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
+msgstr "エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
 "るか、本機に近づいているかを確認してください。"
 
 #: gearimplementations/GearMitailMini.cpp:541
@@ -1018,8 +995,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
-msgstr ""
-"MiTailへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
+msgstr "MiTailへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
 "くに移動できるかもしれません）。"
 
 #: gearimplementations/GearMitailMini.cpp:580
@@ -1030,8 +1006,7 @@ msgctxt ""
 msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
-msgstr ""
-"MiTailは、電源を切るか、電源を失うかして、接続を閉じました。テールを充電する"
+msgstr "MiTailは、電源を切るか、電源を失うかして、接続を閉じました。テールを充電する"
 "ことを忘れないでください"
 
 #: GestureDetectorModel.cpp:273
@@ -1208,8 +1183,7 @@ msgctxt ""
 msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
-msgstr ""
-"名前 '%1' を持つアラームを見つけることができません。別のアプリケーション・イ"
+msgstr "名前 '%1' を持つアラームを見つけることができません。別のアプリケーション・イ"
 "ンスタンスによって削除された可能性があります。"
 
 #: qml/AlarmList.qml:82
@@ -1249,8 +1223,7 @@ msgctxt ""
 msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
-msgstr ""
-"ここでアラームを設定します。アラームの日付と時間を選び、その時間になったら実"
+msgstr "ここでアラームを設定します。アラームの日付と時間を選び、その時間になったら実"
 "行したい動きを1つまたは複数追加します。"
 
 #: qml/AlarmList.qml:144
@@ -1351,9 +1324,10 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
-"これは、コマンドのリストです。ムーブ、グロー、ポーズを含むことができます。ヒ"
-"ント : 新しいコマンドをリストの下に追加するには、そのエントリの累積タイムスタ"
-"ンプの上にあるプラスアイコンをクリックし、メニューのオプションを1つ選びます。"
+"これは、コマンドのリストです。ムーブ、グロー、ポーズを含むことができます。"
+"ヒント : 新しいコマンドをリストの下に追加するには、そのエントリの累積タイムス"
+"タンプの上にあるプラスアイコンをクリックし、メニューのオプションを1つ選びます"
+"。"
 
 #: qml/BaseCommandListEditor.qml:290
 msgctxt ""
@@ -1518,10 +1492,10 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
-"このオプションを選ぶと、ノーフォンモードが設定され、切断されるため、電話を"
-"切ったままにしておくことができます。これは、基本的なカジュアルモードと同じよ"
-"うに機能しますが、操作するための電話を使用しません。(コスチュームを着ていて、"
-"携帯電話を収納する場所がない場合に便利です。）"
+"このオプションを選ぶと、ノーフォンモードが設定され、切断されるため、電話を切"
+"ったままにしておくことができます。これは、基本的なカジュアルモードと同じよう"
+"に機能しますが、操作するための電話を使用しません。(コスチュームを着ていて、携"
+"帯電話を収納する場所がない場合に便利です。）"
 
 #: qml/DisconnectOptions.qml:111
 msgctxt ""
@@ -1530,8 +1504,7 @@ msgctxt ""
 msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
-msgstr ""
-"ノーフォンモードは、次の動作を選択する前に、%1秒から%2秒の間待機します。"
+msgstr "ノーフォンモードは、次の動作を選択する前に、%1秒から%2秒の間待機します。"
 
 #: qml/DisconnectOptions.qml:131
 msgctxt ""
@@ -1560,8 +1533,7 @@ msgctxt ""
 msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
-msgstr ""
-"このオプションを選択すると、ギアの電源を切らずに切断することができます（充電"
+msgstr "このオプションを選択すると、ギアの電源を切らずに切断することができます（充電"
 "する場合に便利です）。"
 
 #: qml/DisconnectOptions.qml:200
@@ -1584,8 +1556,7 @@ msgctxt ""
 msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
-msgstr ""
-"このオプションを選ぶと、単に接続を切るのではなく、ギアの電源を切ることができ"
+msgstr "このオプションを選ぶと、単に接続を切るのではなく、ギアの電源を切ることができ"
 "ます（すぐに片付ける場合に便利です）"
 
 #: qml/DisconnectOptions.qml:245
@@ -1724,9 +1695,9 @@ msgid ""
 msgstr ""
 "複数のジェスチャーを同時にオンにしようとしています。これは、主に管理を混乱さ"
 "せることによって、問題を引き起こすことがあります（たとえば、「歩く」と「シェ"
-"イク」の両方をオンにすると、両方が検出される可能性があります）。このジェス"
-"チャーを有効にする場合は「OK」を、無効にする場合は「キャンセル」をタップして"
-"ください。"
+"イク」の両方をオンにすると、両方が検出される可能性があります）。このジェスチ"
+"ャーを有効にする場合は「OK」を、無効にする場合は「キャンセル」をタップしてく"
+"ださい。"
 
 #: qml/GearGestures.qml:94
 #, fuzzy
@@ -2165,8 +2136,7 @@ msgctxt ""
 msgid ""
 "You already have a move list with the name %1. Please pick another name, as "
 "that won't work."
-msgstr ""
-"1 という名前の移動リストが既に存在します。うまくいかないので、他の名前を選ん"
+msgstr "1 という名前の移動リストが既に存在します。うまくいかないので、他の名前を選ん"
 "でください。"
 
 #: qml/NamePicker.qml:42
@@ -2233,8 +2203,7 @@ msgid ""
 msgid_plural ""
 "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
 "below."
-msgstr[0] ""
-"1件見つかりました。そのまま待つか、下の「接続」を押して操作してください。"
+msgstr[0] "1件見つかりました。そのまま待つか、下の「接続」を押して操作してください。"
 
 #: qml/NotConnectedCard.qml:91
 msgctxt ""
@@ -2257,9 +2226,8 @@ msgid ""
 msgid_plural ""
 "You are not currently connected to your gear, and we have found %1. Please "
 "push \"Show available gear...\" below to see what is available."
-msgstr[0] ""
-"あなたは現在、機材に接続されていませんが、私たちは1つ知っています。接続 \"を"
-"押して接続してください。"
+msgstr[0] "あなたは現在、機材に接続されていませんが、私たちは1つ知っています。接続 "
+"\"を押して接続してください。"
 
 #. i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Scan Permission...");
 #. }
@@ -2314,8 +2282,7 @@ msgctxt ""
 msgid ""
 "The list below shows all the moves and light patterns available to your "
 "gear. Tap any of them to pick that command."
-msgstr ""
-"下のリストは、ギアで使用できるすべての技と光のパターンを示しています。どれか"
+msgstr "下のリストは、ギアで使用できるすべての技と光のパターンを示しています。どれか"
 "をタップすると、そのコマンドが選択されます。"
 
 #: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
@@ -2450,8 +2417,8 @@ msgid ""
 "graphics showing you how."
 msgstr ""
 "下のリンクをクリックして、説明書をダウンロードし、お読みください。これには、"
-"しっぽや耳の付け方の説明と、その方法を示す素敵なグラフィックが含まれていま"
-"す。"
+"しっぽや耳の付け方の説明と、その方法を示す素敵なグラフィックが含まれています"
+"。"
 
 #: qml/SettingsPage.qml:45
 #, fuzzy
@@ -2497,8 +2464,8 @@ msgid ""
 "automatically when the connection is lost."
 msgstr ""
 "特定の状況下で、アプリがギアとの接続を失うことがあります。このオプションをオ"
-"ンにすると、接続が失われたときにアプリが自動的に再接続を試みるようになりま"
-"す。"
+"ンにすると、接続が失われたときにアプリが自動的に再接続を試みるようになります"
+"。"
 
 #: qml/SettingsPage.qml:74
 msgctxt ""
@@ -2689,9 +2656,9 @@ msgid ""
 "clicking the \"Check\" button below, and if there is one, you can then click "
 "the button underneath to download and install the update."
 msgstr ""
-"ファームウェアのアップデートに対応している機器では、下の「確認」ボタンをク"
-"リックして新しいファームウェアがあるかどうかを確認し、ある場合はその下のボタ"
-"ンをクリックしてアップデートをダウンロード、インストールすることが可能です。"
+"ファームウェアのアップデートに対応している機器では、下の「確認」ボタンをクリ"
+"ックして新しいファームウェアがあるかどうかを確認し、ある場合はその下のボタン"
+"をクリックしてアップデートをダウンロード、インストールすることが可能です。"
 
 #: qml/SettingsPage.qml:242
 msgctxt ""
@@ -2707,9 +2674,8 @@ msgctxt ""
 msgid ""
 "You currently have version %1 installed, and version %2 is available for you "
 "to install"
-msgstr ""
-"現在、バージョン %1 がインストールされていますが、バージョン %2 をインストー"
-"ルすることができます。"
+msgstr "現在、バージョン %1 がインストールされていますが、バージョン %2 "
+"をインストールすることができます。"
 
 #: qml/SettingsPage.qml:257
 msgctxt ""
@@ -2867,8 +2833,7 @@ msgid ""
 "of them to send them off to any of your connected devices! If you have more "
 "than one connected, the little coloured dots show which you can send that "
 "light pattern to."
-msgstr ""
-"下のリストは、あなたのギアで利用可能なすべての光のパターンを示しています。ど"
+msgstr "下のリストは、あなたのギアで利用可能なすべての光のパターンを示しています。ど"
 "れかをタップすると、接続されているすべてのデバイスに送信されます。"
 
 #: qml/TailLights.qml:45
@@ -2893,8 +2858,7 @@ msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
 "to send them off to any of your connected devices! If you have more than one "
 "connected, the little coloured dots show which you can send that move to."
-msgstr ""
-"下のリストは、あなたのギアで使用できるすべての技を表示しています。タップする"
+msgstr "下のリストは、あなたのギアで使用できるすべての技を表示しています。タップする"
 "と、接続されているすべてのデバイスに送信されます。"
 
 #: qml/TailMoves.qml:44
