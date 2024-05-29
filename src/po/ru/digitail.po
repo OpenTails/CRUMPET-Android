@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-05-14 16:53+0000\n"
-"Last-Translator: Daniel Maks <51930020a@gmail.com>\n"
+"PO-Revision-Date: 2024-05-29 09:31+0000\n"
+"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Russian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ru/>\n"
 "Language: ru\n"
@@ -1502,7 +1502,6 @@ msgid "Disconnect?"
 msgstr "Отключиться?"
 
 #: qml/DisconnectOptions.qml:44
-#, fuzzy
 msgctxt ""
 "Label above the list of options available for disconnecting from a piece of "
 "gear"
@@ -1511,7 +1510,7 @@ msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
 msgstr[0] "Выберите способ отключения от %1."
 msgstr[1] "Выберите способ отключения от %1."
-msgstr[2] "Выберите способ отключения от %1."
+msgstr[2] "Выберите способ отключения от %1 устройств."
 
 #: qml/DisconnectOptions.qml:59
 msgctxt ""
@@ -1623,7 +1622,6 @@ msgid "Home Position"
 msgstr "Исходное Положение"
 
 #: qml/EarPoses.qml:39
-#, fuzzy
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
@@ -1631,7 +1629,7 @@ msgid ""
 "connected, the little coloured dots show which you can send that pose to."
 msgstr ""
 "В списке ниже показаны все позы, доступные для вашего снаряжения. Коснитесь "
-"любого из них, чтобы отправить на конкретные подключенные устройства!"
+"любого из них, чтобы отправить на конкретные подключенные устройства."
 
 #: qml/EarPoses.qml:42
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -2420,22 +2418,22 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: qml/SettingsCrumpetPicker.qml:88
-#, fuzzy
 msgctxt ""
 "Header for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid "Remove Command Set?"
-msgstr "Набор команд снаряжения"
+msgstr "Набор команд снаряжения?"
 
 #: qml/SettingsCrumpetPicker.qml:89
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
-msgstr "Вы уверены, что хотите удалить список движений \"%1\"?"
+msgstr ""
+"Вы уверены, что хотите удалить этот набор команд \"%1\"? Обратите внимание: "
+"это действие нельзя отменить."
 
 #: qml/SettingsCrumpetPicker.qml:96
 msgctxt ""
@@ -2906,7 +2904,6 @@ msgid "Stop Lights"
 msgstr "Остановить Свечение"
 
 #: qml/TailLights.qml:38
-#, fuzzy
 msgctxt ""
 "Description for the list of light patterns, on the page for the Glow Tips"
 msgid ""
@@ -2917,7 +2914,7 @@ msgid ""
 msgstr ""
 "В приведенном ниже списке показаны все световые узоры, доступные для вашего "
 "снаряжения. Коснитесь любого из них, чтобы отправить на конкретные "
-"подключенные устройства!"
+"подключенные устройства."
 
 #: qml/TailLights.qml:45
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
@@ -2935,7 +2932,6 @@ msgid "Home Position"
 msgstr "Исходное Положение"
 
 #: qml/TailMoves.qml:37
-#, fuzzy
 msgctxt "Description for the list of moves, on the Moves page"
 msgid ""
 "The list below shows all the moves available to your gear. Tap any of them "
@@ -2944,7 +2940,7 @@ msgid ""
 msgstr ""
 "В приведенном ниже списке показаны все движения, доступные для вашего "
 "снаряжения. Коснитесь любого из них, чтобы отправить на конкретные "
-"подключенные устройства!"
+"подключенные устройства."
 
 #: qml/TailMoves.qml:44
 msgctxt ""
@@ -3048,11 +3044,10 @@ msgid "Crumpet"
 msgstr "Crumpet"
 
 #: qml/WelcomePage.qml:31
-#, fuzzy
 msgctxt ""
 "Label for the button for requesting bluetooth permissions on the welcome page"
 msgid "Get Bluetooth Permissions"
-msgstr "Получить разрешение на местоположение..."
+msgstr "Получить разрешение на местоположение"
 
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
