@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-05-29 09:50+0000\n"
-"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
+"PO-Revision-Date: 2024-05-29 21:30+0000\n"
+"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de/>\n"
 "Language: de_DE\n"
@@ -43,7 +43,7 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
-"Fehler beim Laden der Befehle. Durch einen Parser Fehler bei %1: %2\n"
+"Fehler beim Laden der Befehle durch einen Parser Fehler bei %1: %2\n"
 "Code, der zu dem Fehler führt:\n"
 "%3"
 
@@ -66,14 +66,14 @@ msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr "Linksdrehung"
+msgstr "Linksneigung"
 
 #: DeviceModel.cpp:280
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr "Rechtsdrehung"
+msgstr "Rechtsneigung"
 
 #: DeviceModel.cpp:281
 msgctxt ""
@@ -142,8 +142,8 @@ msgid ""
 "check that it is on, charged, and near enough."
 msgstr ""
 "Zu viele Versuche die Verbindung zu %1 (%2) herzustellen. Um eine Verbindung "
-"herzustellen, bitte stelle sicher, dass dein Gear eingeschaltet, aufgeladen "
-"und in Reichweite ist."
+"herzustellen, prüfe bitte, dass dein Gear eingeschaltet, aufgeladen und in "
+"Reichweite ist."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -165,8 +165,8 @@ msgid ""
 "this error to The Tail Company."
 msgstr ""
 "Es sieht so aus, als ob es sich bei diesem Gerät um keinen DIGITAiL handelt ("
-"Keine entsprechenden Funktionen gefunden). Wenn du dir sicher bist, dass es "
-"sich trotzdem um einen DIGITAiL handelt, melde diesen Fehler bitte an die "
+"Keine entsprechende Charakteristik gefunden). Wenn du dir sicher bist, dass "
+"es sich trotzdem um einen DIGITAiL handelt, melde diesen Fehler bitte an die "
 "Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:260
@@ -186,7 +186,7 @@ msgid ""
 "it is on and close to this device."
 msgstr ""
 "Beim Verbinden zu deinem DIGITAiL ist etwas schief gegangen Stelle bitte "
-"sicher, dass dein DIGITAiL eingeschaltet und in Reichreite ist."
+"sicher, dass dein DIGITAiL eingeschaltet und in Reichweite ist."
 
 #: gearimplementations/GearDigitail.cpp:281
 msgctxt "Warning that the device disconnected itself"
@@ -350,8 +350,8 @@ msgid ""
 "touch."
 msgstr ""
 "Die Datei, die Informationen über die neue Firmware-Version liefert, "
-"enthielt nicht die entsprechenden Informationen. Wahrscheinlich hatten wir "
-"nur ein Verbindungsproblem. Versuche es bitte später nochmals und wenn der "
+"enthielt nicht die erwarteten Informationen. Wahrscheinlich hatten wir nur "
+"ein Verbindungsproblem. Versuche es bitte später nochmals und wenn der "
 "Fehler immernoch auftritt, melde dich bitte bei uns."
 
 #: gearimplementations/GearEars.cpp:474
@@ -369,7 +369,7 @@ msgid ""
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Beim Verbinden zu deinem EarGear ist etwas schief gegangen (Fehler: Main "
-"Service). Bitte versuche es noch einmal!"
+"Service nicht angelegt). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearEars.cpp:559
 msgctxt ""
@@ -378,8 +378,8 @@ msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem EarGear ist etwas schief gegangen (Fehler: Batterie)"
-". Bitte versuche es noch einmal!"
+"Beim Verbinden zu deinem EarGear ist etwas schief gegangen (Fehler: "
+"Batterieservice nicht vorhanden). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearEars.cpp:594
 msgctxt ""
@@ -401,7 +401,7 @@ msgid ""
 "EarGear is on and close to this device."
 msgstr ""
 "Beim Verbinden zu deinem EarGear ist etwas schief gegangen Stelle bitte "
-"sicher, dass dein EarGear eingeschaltet und in Reichreite ist."
+"sicher, dass dein EarGear eingeschaltet und in Reichweite ist."
 
 #: gearimplementations/GearEars.cpp:627
 msgctxt "Warning that the device disconnected itself"
@@ -600,7 +600,7 @@ msgid ""
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Beim Verbinden zu deinen FlutterWings ist etwas schief gegangen (Fehler: "
-"Main Service). Bitte versuche es noch einmal!"
+"Main Service nicht angelegt). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearFlutterWings.cpp:432
 #: gearimplementations/GearMitail.cpp:439
@@ -630,7 +630,7 @@ msgid ""
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
 "Beim Verbinden zu deinen FlutterWings ist etwas schief gegangen (Fehler: "
-"Batterie). Bitte versuche es noch einmal!"
+"Batterieservice nicht vorhanden). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearFlutterWings.cpp:498
 msgctxt ""
@@ -652,7 +652,7 @@ msgid ""
 "sure it is on and close to this device."
 msgstr ""
 "Beim Verbinden zu deinen FlutterWings ist etwas schief gegangen Stelle bitte "
-"sicher, dass deine FlutterWings eingeschaltet und in Reichreite sind."
+"sicher, dass deine FlutterWings eingeschaltet und in Reichweite sind."
 
 #: gearimplementations/GearFlutterWings.cpp:541
 msgctxt "Warning that the device disconnected itself"
@@ -848,7 +848,7 @@ msgid ""
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
 "Beim Verbinden zu deinem MiTail ist etwas schief gegangen (Fehler: Main "
-"Service). Bitte versuche es noch einmal!"
+"Service nicht angelegt). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearMitail.cpp:451
 msgctxt ""
@@ -857,8 +857,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
-"Beim Verbinden zu deinem MiTail ist etwas schief gegangen (Fehler: Batterie)"
-". Bitte versuche es noch einmal!"
+"Beim Verbinden zu deinem MiTail ist etwas schief gegangen (Fehler: "
+"Batterieservice nicht vorhanden). Bitte versuche es noch einmal!"
 
 #: gearimplementations/GearMitail.cpp:505
 msgctxt ""
@@ -880,7 +880,7 @@ msgid ""
 "is on and close to this device."
 msgstr ""
 "Beim Verbinden zu deinem MiTail ist etwas schief gegangen Stelle bitte "
-"sicher, dass dein MiTail eingeschaltet und in Reichreite ist."
+"sicher, dass dein MiTail eingeschaltet und in Reichweite ist."
 
 #: gearimplementations/GearMitail.cpp:548
 msgctxt "Warning that the device disconnected itself"
@@ -1004,7 +1004,7 @@ msgid ""
 "sure it is on and close to this device."
 msgstr ""
 "Beim Verbinden zu deinem MiTail Mini ist etwas schief gegangen Stelle bitte "
-"sicher, dass dein MiTail eingeschaltet und in Reichreite ist."
+"sicher, dass dein MiTail eingeschaltet und in Reichweite ist."
 
 #: gearimplementations/GearMitailMini.cpp:541
 msgctxt "Warning that the device disconnected itself"
@@ -1213,7 +1213,7 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
-"Kann den Wecker mit dem Namen '%1' nicht finden. Vieleicht wurde er von "
+"Kann den Wecker mit dem Namen '%1' nicht finden. Vielleicht wurde er von "
 "einer weiteren Instanz dieser App entfernt."
 
 #: qml/AlarmList.qml:82
@@ -2386,7 +2386,6 @@ msgid "Remove Command Set?"
 msgstr "Befehlssätze für Gerät entfernen?"
 
 #: qml/SettingsCrumpetPicker.qml:89
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
@@ -2394,8 +2393,8 @@ msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
 msgstr ""
-"Bist du dir sicher, dass du '%1' vom Bewegungsablauf entfernen möchtest? "
-"Dies kann nicht rückgängig gemacht werden."
+"Bist du dir sicher, dass du Befehlssatz entfernen möchtest? Dies kann nicht "
+"rückgängig gemacht werden."
 
 #: qml/SettingsCrumpetPicker.qml:96
 msgctxt ""
