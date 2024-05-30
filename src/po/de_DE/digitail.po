@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-05-29 21:30+0000\n"
+"PO-Revision-Date: 2024-05-30 23:59+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de/>\n"
@@ -1037,7 +1037,7 @@ msgstr ""
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr "Doppelttippen"
+msgstr "Doppelt tippen"
 
 #: GestureDetectorModel.cpp:274
 msgctxt "The name of a sensor"
@@ -1127,7 +1127,7 @@ msgstr "Gehen (beendet)"
 #: GestureDetectorModel.cpp:291
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr "Schritte erkannt"
+msgstr "Schritt erkannt"
 
 #: GestureDetectorModel.cpp:292
 msgctxt "The name of a sensor"
@@ -1181,7 +1181,7 @@ msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
-msgstr "Suche dir bitte einen anderen Namen aus"
+msgstr "Wähle einen anderen Namen aus"
 
 #: qml/AlarmList.qml:47
 msgctxt ""
@@ -2192,7 +2192,7 @@ msgctxt ""
 msgid "One piece of gear available"
 msgid_plural "Multiple pieces of gear available"
 msgstr[0] "Ein Gerät gefunden"
-msgstr[1] "Es wurden mehrere Geräte gefunden"
+msgstr[1] "Mehrere Geräte gefunden"
 
 #. i18nc("Message warning for missing scan permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to scan for nearby devices. Clicking the button below will show you a dialog that you need to press allow on.");
 #. }
@@ -2207,8 +2207,8 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
-"Um deine Geräte zu finden benötigen wir die Berechtigung für die "
-"Ortsbestimmung. Tippe auf den Button unterhalb um eine Abfrage für diese "
+"Um deine Geräte zu finden, benötigen wir die Berechtigung für die "
+"Ortsbestimmung. Tippe auf den Button unterhalb, um eine Abfrage für diese "
 "Berechtigungen zu erhalten. Tippe dort auf \"Erlauben\". Wir verwenden diese "
 "Freigabe nicht um dir nachzuspionieren (Wenn du daran zweifelst, wende dich "
 "bitte an unseren Support, wo wir dir die Sache erklären)."
@@ -2286,7 +2286,7 @@ msgctxt ""
 "Label for button for connecting to a specific piece of gear, for the gear "
 "connecting card"
 msgid "Connect to %1"
-msgstr "Verbinde zu %1"
+msgstr "Verbinde mit %1"
 
 #: qml/NotConnectedCard.qml:116
 msgctxt ""
@@ -2401,7 +2401,7 @@ msgctxt ""
 "Button for duplicating a Command Set, on the page for configuring Command "
 "Sets"
 msgid "Duplicate"
-msgstr "Kopie erstellen"
+msgstr "Kopieren"
 
 #: qml/SettingsCrumpetPicker.qml:106
 msgctxt ""
@@ -2633,7 +2633,7 @@ msgctxt ""
 "Heading for the panel for adjusting microphone levels for the earGear, on "
 "the settings page"
 msgid "EarGear Hearing"
-msgstr "Akustik-Einstellungen"
+msgstr "Geräusch-Einstellungen"
 
 #: qml/SettingsPage.qml:188
 msgctxt ""
@@ -2653,7 +2653,8 @@ msgstr ""
 "du dir die Lautstärkeeinstellungen anschauen. Wenn du sie kalibrierst, "
 "stelle sicher dass du in einem ruhigen Raum bist um ein optimales Ergebnis "
 "zu bekommen. Möglicherweise musst du auch die Position der Controller-Box "
-"ändern."
+"ändern. Diese Einstellung wird gespeichert, es sollte normalerweise reichen, "
+"dies einmal durchzuführen."
 
 #: qml/SettingsPage.qml:204
 msgctxt ""
