@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Untitled project\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-05-29 09:31+0000\n"
+"PO-Revision-Date: 2024-06-03 14:24+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Japanese <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ja/>\n"
@@ -60,63 +60,60 @@ msgid "Could not open the file %1 for writing"
 msgstr "書き込みのためにファイル %1 を開くことができませんでした"
 
 #: DeviceModel.cpp:279
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr "ツイストレフト"
+msgstr "左傾き"
 
 #: DeviceModel.cpp:280
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr "ツイストライト"
+msgstr "右に傾ける"
 
 #: DeviceModel.cpp:281
-#, fuzzy
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr "チルトモード"
+msgstr "前に傾ける"
 
 #: DeviceModel.cpp:282
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "後ろに傾ける"
 
 #: DeviceModel.cpp:283
 msgctxt ""
 "Name for an event where the gear has been returned to an upright position "
 "from having been tilted"
 msgid "Return to Upright"
-msgstr ""
+msgstr "アップライトに戻る"
 
 #: DeviceModel.cpp:284
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr ""
+msgstr "左側の音が大きい"
 
 #: DeviceModel.cpp:285
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr ""
+msgstr "左の静かな音"
 
 #: DeviceModel.cpp:286
 msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "周囲の音のレベル"
 
 #: DeviceModel.cpp:287
 msgctxt ""
