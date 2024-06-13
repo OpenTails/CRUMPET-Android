@@ -8,21 +8,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-14 13:05+0000\n"
+"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
+"Language-Team: German (Switzerland) <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/de_CH/>\n"
 "Language: de_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5.5\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr ""
+msgstr "Das Verzeichnis für d'Speicherete Befehl chönnt nit erstellt werde"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
@@ -30,6 +32,8 @@ msgctxt ""
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
 msgstr ""
+"Es het en Fehler gäh und das Verzeichnis für d'Speicherige vo de Befehl het "
+"sich nid erstelle lah."
 
 #: CommandPersistence.cpp:123
 msgctxt ""
@@ -40,90 +44,94 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
+"Es het en Fehler gäh bi de Ladig vo dine Befehl, wäge ere Fähler bim Parsä "
+"vo %1: %2. \n"
+"Code vor em Fähler:\n"
+"%3"
 
 #: CommandPersistence.cpp:176
 msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Ich han kei Zuegriff uf d Datei %1 zum Läse"
 
 #: CommandPersistence.cpp:196
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "I cha d Datei %1 nöd zum Schribe öffne"
 
 #: DeviceModel.cpp:279
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr ""
+msgstr "Neig nach links"
 
 #: DeviceModel.cpp:280
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr ""
+msgstr "Neig nach rechts"
 
 #: DeviceModel.cpp:281
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr ""
+msgstr "Neig vorwärts"
 
 #: DeviceModel.cpp:282
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "Neig rückwärts"
 
 #: DeviceModel.cpp:283
 msgctxt ""
 "Name for an event where the gear has been returned to an upright position "
 "from having been tilted"
 msgid "Return to Upright"
-msgstr ""
+msgstr "Gah zrugg in d'Upright-Position"
 
 #: DeviceModel.cpp:284
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr ""
+msgstr "Loud Sound uf de linkä Siitä"
 
 #: DeviceModel.cpp:285
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr ""
+msgstr "Leisä Sound uf de linkä Siitä"
 
 #: DeviceModel.cpp:286
 msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "Umgebungsgeräusche-Niveau"
 
 #: DeviceModel.cpp:287
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr ""
+msgstr "Ruhiger Sound uf de rechte Syte"
 
 #: DeviceModel.cpp:288
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr ""
+msgstr "Lutere Sound uf de rechte Syte"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -135,6 +143,8 @@ msgid ""
 "Attempted to reconnect too many times to %1 (%2). To connect to it, please "
 "check that it is on, charged, and near enough."
 msgstr ""
+"Händ versuecht z'villmol, um sich mit %1 (%2) wider z'verbindä. Für "
+"d'Verbindig überprüef, ob's iigschaltet isch, glade isch und gnueg näbä isch."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -144,7 +154,7 @@ msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr ""
+msgstr "Verbindig verlore zu %1, versueche z'verbindä..."
 
 #: gearimplementations/GearDigitail.cpp:91
 msgctxt ""
@@ -155,6 +165,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Es scheinä, dass diesi Gerät kei DIGITAiL isch (kei the tail gfunde). Wänn "
+"du sicher bisch, dass es definitiv eins isch, bitte melde diese "
+"Fehlermeldung bim The Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:260
 msgctxt "Warning message when the main service was not found on the device"
@@ -162,6 +175,9 @@ msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Es isch en Fehler ufträte bim Verbindä mit dim DIGITAiL (s'Teildienst-Objekt "
+"het sich nid chönne erstelle). Wänn du dänksch, dass das en Fehler isch, "
+"bitte probier's no einisch!"
 
 #: gearimplementations/GearDigitail.cpp:278
 msgctxt "Warning that some unknown error happened"
@@ -169,11 +185,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
+"Es isch en Fehler ufträte. Wänn du probiersch, mit dim DIGITAiL z'verbindä, "
+"stell sicher, dass es igschaltet und in dr Nöchi vo dem Gerät isch."
 
 #: gearimplementations/GearDigitail.cpp:281
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr ""
+msgstr "Die DIGITAiL het d'Verbindig zuegmacht."
 
 #: gearimplementations/GearDigitail.cpp:284
 msgctxt ""
@@ -183,6 +201,8 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Fehlgeschlagen, um mit dim DIGITAiL z'verbinde. Probiere es bitte no einisch "
+"(vielleicht stellsch es öppis nächer?)"
 
 #: gearimplementations/GearDigitail.cpp:304
 msgctxt ""
@@ -192,6 +212,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
+"De DIGITAiL het d'Verbindig abbroche, entweder wäge abschalte oder "
+"Stromverluscht. Verghiss nöd, din DIGITAiL z'ladä!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -202,6 +224,9 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Es schient, dass dä Apparat kei EarGear-Steürig isch (händ d'Hauptmerkmäu vo "
+"de Ohre-Schribschrift nöd gfunde). Wänn du absolut sicher bisch, dass es "
+"doch en isch, bitte mäld die Fähler bim Tail Company."
 
 #: gearimplementations/GearEars.cpp:129
 msgctxt ""
@@ -212,6 +237,9 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Es schient, dass dä Apparat kei EarGear-Steürig isch (chöi d'Hauptmerkmale "
+"zum Läse vo de Ohre nöd finde). Wänn du absolut sicher bisch, dass es doch "
+"en isch, bitte mäld die Fähler bim Tail Company."
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -221,7 +249,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "Reboot Abgschlosse"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -234,6 +262,9 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"De Reboot no dem Firmware-Upload isch abgschlosse und mir hend wider "
+"Verbindung zum Gerät. Ds Gerät meldet jetzt %1 und mir hoffe, dass das isch, "
+"was du erwartet hesch."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -242,7 +273,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr ""
+msgstr "Upgrade erfolgreich"
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -252,6 +283,7 @@ msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
 msgstr ""
+"Gratuliere, dini Ausrüstig isch erfolgrich uf Version %1 aktualisiert worde!"
 
 #: gearimplementations/GearEars.cpp:229
 #: gearimplementations/GearFlutterWings.cpp:175
@@ -261,7 +293,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr ""
+msgstr "Update isch fehlgeschlage"
 
 #: gearimplementations/GearEars.cpp:229
 #: gearimplementations/GearFlutterWings.cpp:175
@@ -274,6 +306,11 @@ msgid ""
 "a safe fallback to just go back to your old firmware version upon a failure. "
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
+"<p> Tut mir leid, aber s'Upgrade isch fehlgschlage. Am meischte isch das "
+"dervo, dass d'Transferiärig währendem Upload sälber defekt gsi isch, drum "
+"het din Apparat e sichere Rückfall uf dini alte Firmware Version, wänn "
+"s'Upgrade nid glunge isch. Du chasch es no einisch versueche, indem du uf de "
+"Installiere-Knopf klicksch.</p>"
 
 #: gearimplementations/GearEars.cpp:350
 msgctxt ""
