@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-14 13:05+0000\n"
+"PO-Revision-Date: 2024-06-16 08:42+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German (Switzerland) <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de_CH/>\n"
@@ -317,7 +317,7 @@ msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr ""
+msgstr "Mikro-Balancing fertig"
 
 #: gearimplementations/GearEars.cpp:465
 #: gearimplementations/GearFlutterWings.cpp:331
@@ -330,6 +330,8 @@ msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
 msgstr ""
+"Du hesch scho d'neuscht Version vum Firmware uf dim G'rät installiert, "
+"gratuliere!"
 
 #: gearimplementations/GearEars.cpp:470
 #: gearimplementations/GearFlutterWings.cpp:336
@@ -344,6 +346,10 @@ msgid ""
 "connection issue. If you run into this problem repeatedly, please get in "
 "touch."
 msgstr ""
+"Das Datei wo mer Informatione über neu Firma Software Versione erfahre söll "
+"hend nit de erwarteti Datäiformat gha. Das isch wahrschinlich nur e "
+"vorübergehendi Fähler, oder es Verbindigsproblem. Falls das immer wieder "
+"passiert, mäld di bitte."
 
 #: gearimplementations/GearEars.cpp:474
 #: gearimplementations/GearFlutterWings.cpp:340
@@ -351,7 +357,7 @@ msgstr ""
 #: gearimplementations/GearMitailMini.cpp:342
 msgctxt "Message for when we are checking the downloaded firmware data"
 msgid "Checking integrity of the downloaded firmware data..."
-msgstr ""
+msgstr "Überprüefig vom ibrgehornne Firmware-Däta uf Zuekunft..."
 
 #: gearimplementations/GearEars.cpp:545
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -359,6 +365,9 @@ msgid ""
 "An error occurred while connecting to your EarGear (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Es isch en Fehler ufgtrete bi dr Verbindig zu dim EarGear (dr Hauptservice-"
+"Objekt chunt nit zustande). Falls du dänksch, das isch en Irrtum, probiers "
+"bitte no es Mool!"
 
 #: gearimplementations/GearEars.cpp:559
 msgctxt ""
@@ -367,6 +376,9 @@ msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"Es git es Problem bi de Verbundig zum EarGear (de Batterieservice isch nid "
+"verfüegbar). Wenn du glaubsch, dass da es Fehler isch, probiers doch bitte "
+"no einisch!"
 
 #: gearimplementations/GearEars.cpp:594
 msgctxt ""
@@ -376,6 +388,9 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Es sieht us, als wär das Gerät kei EarGear Controller (hä sötti d Batterie-"
+"Lädigscharakteristik nöd finde). Wänn du sicher bisch, dass es definitiv eso "
+"isch, meld das Problem bitte de Tail Company."
 
 #: gearimplementations/GearEars.cpp:624
 msgctxt "Warning that some unknown error happened"
@@ -383,11 +398,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
+"Es isch e Fehler uftrete. Wenn du versuechsch, di mit dim Ohre z'verbinde, "
+"sorg dass de EarGear a isch und nöch am Gerät isch."
 
 #: gearimplementations/GearEars.cpp:627
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr ""
+msgstr "De EarGear het d Verbindung zuegmacht."
 
 #: gearimplementations/GearEars.cpp:630
 msgctxt ""
@@ -396,13 +413,15 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
+"Chasch di nöd verbinde mit dim EarGear. Probiere es no einisch (vielleicht "
+"schiebsch es nächer?)"
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Firmware Update isch fertig"
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
@@ -414,6 +433,10 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"Die Firmware isch erfolgriich uf din Gerät gloa worde, wo sich denn "
+"abgschaltet het. Wenns sich nid vo selber agschaltet und wieder verbunde "
+"het, schliess dä Nachricht, Mach dis Gerät eifach sälber ah und stell "
+"d'Verbindig wider här."
 
 #: gearimplementations/GearEars.cpp:656
 msgctxt ""
@@ -423,6 +446,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
+"De EarGear het d'Verbindig zuegmacht, entweder wils usgschaltet worde isch "
+"oder dür Stomverluscht het. Denk dran, dini Ohre z'lade!"
 
 #: gearimplementations/GearEars.cpp:824
 #: gearimplementations/GearFlutterWings.cpp:676
@@ -431,7 +456,7 @@ msgstr ""
 msgctxt ""
 "Message shown alongside a progress bar when downloading update information"
 msgid "Downloading firmware update information"
-msgstr ""
+msgstr "Herunterlada vo Firmware-Aktualisierungs-Infos"
 
 #: gearimplementations/GearEars.cpp:841
 msgctxt ""
