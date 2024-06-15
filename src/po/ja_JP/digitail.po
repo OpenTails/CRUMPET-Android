@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Untitled project\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-03 14:24+0000\n"
+"PO-Revision-Date: 2024-06-16 08:42+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Japanese <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ja/>\n"
@@ -120,14 +120,14 @@ msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr ""
+msgstr "右側の静かな音"
 
 #: DeviceModel.cpp:288
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr ""
+msgstr "右側の音が大きい"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -173,19 +173,18 @@ msgstr "テールへの接続中にエラーが発生しました（サービス
 "でした）。エラーと思われる場合は、もう一度お試しください!"
 
 #: gearimplementations/GearDigitail.cpp:278
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
-msgstr "エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
-"るか、本機に近づいているかを確認してください。"
+msgstr ""
+"エラーが発生しました。DIGITAiL に接続しようとしている場合は、DIGITAiL "
+"がオンになっていて、このデバイスの近くにあることを確認してください。"
 
 #: gearimplementations/GearDigitail.cpp:281
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr "MiTailは接続を終了した。"
+msgstr "DIGITAiL は接続を閉じました。"
 
 #: gearimplementations/GearDigitail.cpp:284
 msgctxt ""
@@ -241,7 +240,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "再起動が完了しました"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -254,6 +253,8 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"ファームウェアのアップロード後の再起動が完了し、デバイスに再接続しました。"
+"ギアは現在 %1 を報告しており、これが期待どおりであることを願っています。"
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -448,6 +449,9 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"お使いの機器から、弊社が把握していないハードウェア リビジョンが報告されました"
+"。これは、アプリが古くなっている可能性があり、更新する必要があることを意味し"
+"ます。"
 
 #: gearimplementations/GearEars.cpp:845
 msgctxt ""
@@ -459,6 +463,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"何らかの理由で、耳のハードウェア リビジョンを報告しないファームウェア バージ"
+"ョンを入手しましたが、報告に失敗することはないとされています。これは非常に予"
+"期しない状況ですので、info@thetailcompany.com "
+"まで直接ご報告いただければ幸いです。ありがとうございます!"
 
 #: gearimplementations/GearEars.cpp:879
 #: gearimplementations/GearFlutterWings.cpp:714
@@ -538,7 +546,6 @@ msgstr "これは、ファームウェアに何か<b>重要な</b>ことが起�
 "のメッセージです"
 
 #: gearimplementations/GearFlutterWings.cpp:109
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -547,12 +554,12 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"このデバイスはMiTailではないようです（メインデバイスの書き込み特性が見つかり"
-"ませんでした）。もし、間違いなくMiTailであると確信される場合は、"
-"このエラーをThe Tail Companyにご報告ください。"
+"このデバイスは FlutterWings ではないようです "
+"(メインのデバイス書き込み特性が見つかりませんでした)。間違いなく "
+"FlutterWings であると確信できる場合は、このエラーを The Tail Company "
+"に報告してください。"
 
 #: gearimplementations/GearFlutterWings.cpp:117
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -561,9 +568,10 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"このデバイスはMiTailではないようです（メインデバイスの読み取り特性を見つけら"
-"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、"
-"このエラーをThe Tail Companyにご報告ください。"
+"このデバイスは FlutterWings ではないようです "
+"(メインのデバイス読み取り特性が見つかりませんでした)。間違いなく "
+"FlutterWings であると確信できる場合は、このエラーを The Tail Company "
+"に報告してください。"
 
 #: gearimplementations/GearFlutterWings.cpp:412
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -604,7 +612,6 @@ msgstr "EarGearへの接続中にエラーが発生しました（バッテリ�
 "した）。エラーと思われる場合は、もう一度お試しください!"
 
 #: gearimplementations/GearFlutterWings.cpp:498
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -612,35 +619,34 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"このデバイスはMiTailではないようです（バッテリーレベルの特性が見つかりません"
-"でした）。もし、間違いなくMiTailであると確信される場合は、このエラーをThe "
-"Tail Companyにご報告ください。"
+"このデバイスは FlutterWings ではないようです (バッテリー "
+"レベルの特性が見つかりませんでした)。間違いなく FlutterWings "
+"であると確信できる場合は、このエラーを The Tail Company に報告してください。"
 
 #: gearimplementations/GearFlutterWings.cpp:538
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
-msgstr "エラーが発生しました。テールに接続しようとしている場合、テールの電源が入って"
-"いて、このデバイスに近づいていることを確認してください。"
+msgstr ""
+"エラーが発生しました。FlutterWings に接続しようとしている場合は、"
+"FlutterWings "
+"がオンになっていて、このデバイスの近くにあることを確認してください。"
 
 #: gearimplementations/GearFlutterWings.cpp:541
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr "テールが接続を閉じた。"
+msgstr "FlutterWings は接続を閉じました。"
 
 #: gearimplementations/GearFlutterWings.cpp:545
-#, fuzzy
 msgctxt ""
 "Warning that some connection failure occurred (usually due to low signal "
 "strength)"
 msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
-msgstr "テールへの接続に失敗しました。もう一度お試しください（もしかしたら、もっと近"
-"くに移動できるかも？）"
+msgstr "FlutterWings に接続できませんでした。もう一度お試しください "
+"(近づけてみてください)"
 
 #: gearimplementations/GearFlutterWings.cpp:572
 #: gearimplementations/GearMitail.cpp:579
@@ -652,15 +658,14 @@ msgid "Attempting to reconnect to your gear..."
 msgstr "機材との再接続を試みる..."
 
 #: gearimplementations/GearFlutterWings.cpp:577
-#, fuzzy
 msgctxt ""
 "Message shown to the user after firmware upload has completed and the "
 "FlutterWings are expected to reboot"
 msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
-msgstr "ファームウェアのアップロードが完了し、再接続を試みる前に、機器が自動的に再起"
-"動するのを待ちます..."
+msgstr "ファームウェアのアップロードが完了しました。再接続を試みる前に、機器が自動的"
+"に再起動するのを待っています..."
 
 #: gearimplementations/GearFlutterWings.cpp:580
 msgctxt ""
@@ -688,7 +693,6 @@ msgstr ""
 "動すると、再び接続できるようになります。"
 
 #: gearimplementations/GearMitail.cpp:39
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.03 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -698,13 +702,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"お使いのテールには、現在バージョン4.03のファームウェアがインストールされてい"
-"ますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するた"
-"めに、最新のファームウェアにアップデートすることを<b>強くお勧めします。</b> "
-"ファームウェアセクションを探し、アップデートを実行します。"
+"MiTail には現在バージョン 4.03 のファームウェアがインストールされていますが、"
+"これは古く、既知の問題がいくつかあります。"
+"これらの問題を修正した最新のファームウェアに更新することを "
+"<b>強くお勧めします</b>。[設定] に移動して [ファームウェア] "
+"セクションを見つけ、更新を実行してください。"
 
 #: gearimplementations/GearMitail.cpp:40
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.02 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -714,13 +718,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"お使いのテールには、現在バージョン4.02のファームウェアがインストールされてい"
-"ますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するた"
-"めに、最新のファームウェアにアップデートすることを<b>強くお勧めします。</b> "
-"ファームウェアセクションを探し、アップデートを実行します。"
+"MiTail には現在バージョン 4.02 のファームウェアがインストールされていますが、"
+"これは古く、既知の問題がいくつかあります。"
+"これらの問題を修正した最新のファームウェアに更新することを "
+"<b>強くお勧めします</b>。[設定] に移動して [ファームウェア] "
+"セクションを見つけ、更新を実行してください。"
 
 #: gearimplementations/GearMitail.cpp:41
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.01 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -730,13 +734,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"お使いのテールには、現在バージョン4.01のファームウェアがインストールされてい"
-"ますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するた"
-"めに、最新のファームウェアにアップデートすることを<b>強くお勧めします。</b> "
-"ファームウェアセクションを探し、アップデートを実行します。"
+"MiTail には現在バージョン 4.01 のファームウェアがインストールされていますが、"
+"これは古く、既知の問題がいくつかあります。"
+"これらの問題を修正した最新のファームウェアに更新することを "
+"<b>強くお勧めします</b>。[設定] に移動して [ファームウェア] "
+"セクションを見つけ、更新を実行してください。"
 
 #: gearimplementations/GearMitail.cpp:42
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.00 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -746,13 +750,13 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
-"お使いのテールには、現在バージョン4.00のファームウェアがインストールされてい"
-"ますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するた"
-"めに、最新のファームウェアにアップデートすることを<b>強くお勧めします。</b> "
-"ファームウェアセクションを探し、アップデートを実行します。"
+"MiTail には現在、バージョン 4.00 のファームウェアがインストールされていますが"
+"、これは古く、既知の問題がいくつかあります。"
+"これらの問題を修正した最新のファームウェアに更新することを "
+"<b>強くお勧めします</b>。[設定] に移動して、[ファームウェア] "
+"セクションを見つけ、更新を実行してください。"
 
 #: gearimplementations/GearMitail.cpp:43
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.11 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -762,13 +766,13 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"お使いのテールには、現在バージョン3.2.11のファームウェアがインストールされて"
-"いますが、これは古く、いくつかの既知の問題があります。これらの問題を解決する"
-"ために、最新のファームウェアにアップデートすることを<b>強くお勧めします。</"
-"b> ファームウェアセクションを探し、アップデートを実行します。"
+"MiTail には現在、バージョン 3.2.11 のファームウェアがインストールされています"
+"が、これは古く、既知の問題がいくつかあります。"
+"これらの問題を修正した最新のファームウェアに更新することを "
+"<b>強くお勧めします</b>。[設定] に移動して、[ファームウェア] "
+"セクションを見つけて更新を実行してください。"
 
 #: gearimplementations/GearMitail.cpp:44
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 3.2.10 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -778,10 +782,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"お使いのテールには、現在バージョン3.2.10のファームウェアがインストールされて"
-"いますが、これは古く、いくつかの既知の問題があります。これらの問題を解決する"
-"ために、最新のファームウェアにアップデートすることを<b>強くお勧めします。</"
-"b> ファームウェアセクションを探し、アップデートを実行します。"
+"MiTail には現在、バージョン 3.2.10 のファームウェアがインストールされています"
+"が、これは古く、既知の問題がいくつかあります。"
+"これらの問題を修正した最新のファームウェアに更新することを "
+"<b>強くお勧めします</b>。[設定] に移動して、[ファームウェア] "
+"セクションを見つけて更新を実行してください。"
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -884,7 +889,6 @@ msgstr "MiTailは、電源を切るか、電源を失うかして、接続を閉
 "ことを忘れないでください!"
 
 #: gearimplementations/GearMitailMini.cpp:39
-#, fuzzy
 msgctxt ""
 "A message displayed to the user when firmware version 4.03 is installed on "
 "their gear, with a description of why they should upgrade, and how"
@@ -894,13 +898,13 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
-"お使いのテールには、現在バージョン4.03のファームウェアがインストールされてい"
-"ますが、これは古く、いくつかの既知の問題があります。これらの問題を解決するた"
-"めに、最新のファームウェアにアップデートすることを<b>強くお勧めします。</b> "
-"ファームウェアセクションを探し、アップデートを実行します。"
+"MiTail Mini には現在バージョン 4.03 のファームウェアがインストールされていま"
+"すが、これは古く、既知の問題がいくつかあります。"
+"これらの問題を修正した最新のファームウェアに更新することを "
+"<b>強くお勧めします</b>。[設定] に移動して [ファームウェア] "
+"セクションを見つけ、更新を実行してください。"
 
 #: gearimplementations/GearMitailMini.cpp:110
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -909,12 +913,11 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"このデバイスはMiTailではないようです（メインデバイスの書き込み特性が見つかり"
-"ませんでした）。もし、間違いなくMiTailであると確信される場合は、"
-"このエラーをThe Tail Companyにご報告ください。"
+"このデバイスは MiTail Mini ではないようです "
+"(メインデバイスの書き込み特性が見つかりませんでした)。間違いなく MiTail Mini "
+"であると確信できる場合は、このエラーを The Tail Company に報告してください。"
 
 #: gearimplementations/GearMitailMini.cpp:118
-#, fuzzy
 msgctxt ""
 "A message when sent when attempting to connect to a device which does not "
 "have a specific expected feature"
@@ -923,9 +926,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
-"このデバイスはMiTailではないようです（メインデバイスの読み取り特性を見つけら"
-"れませんでした）。もし、間違いなくMiTailであることが確認できましたら、"
-"このエラーをThe Tail Companyにご報告ください。"
+"このデバイスは MiTail Mini ではないようです "
+"(メインのデバイス読み取り特性が見つかりませんでした)。間違いなく MiTail Mini "
+"であると確信できる場合は、このエラーを The Tail Company に報告してください。"
 
 #: gearimplementations/GearMitailMini.cpp:414
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -947,7 +950,6 @@ msgstr ""
 "した）。エラーと思われる場合は、お手数ですが再度お試しください!"
 
 #: gearimplementations/GearMitailMini.cpp:498
-#, fuzzy
 msgctxt ""
 "Warning message when the battery information is unavailable on the device"
 msgid ""
@@ -955,24 +957,23 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
-"このデバイスはMiTailではないようです（バッテリーレベルの特性が見つかりません"
-"でした）。もし、間違いなくMiTailであると確信される場合は、このエラーをThe "
-"Tail Companyにご報告ください。"
+"このデバイスは MiTail Mini ではないようです (バッテリー "
+"レベルの特性が見つかりませんでした)。間違いなく MiTail Mini "
+"であると確信できる場合は、このエラーを The Tail Company に報告してください。"
 
 #: gearimplementations/GearMitailMini.cpp:538
-#, fuzzy
 msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
-msgstr "エラーが発生しました。MiTailに接続しようとしている場合、本機の電源が入ってい"
-"るか、本機に近づいているかを確認してください。"
+msgstr ""
+"エラーが発生しました。MiTail Mini に接続しようとしている場合は、MiTail Mini "
+"がオンになっていて、このデバイスの近くにあることを確認してください。"
 
 #: gearimplementations/GearMitailMini.cpp:541
-#, fuzzy
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr "MiTailは接続を終了した。"
+msgstr "MiTail Mini は接続を閉じました。"
 
 #: gearimplementations/GearMitailMini.cpp:545
 msgctxt ""
@@ -1108,6 +1109,9 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"1 時間後に %1 の検出が無効になりました。すべてのアニマトロニクス ギアは、長時"
+"間使用した後は休息が必要です。ギアを健全な状態に保つ方法については、設定の責"
+"任ある振れ方に関するガイドをお読みください。"
 
 #: qml/AboutPage.qml:33
 msgctxt ""
@@ -1241,33 +1245,29 @@ msgid "Add Pause To List"
 msgstr "ポーズをリストに追加"
 
 #: qml/BaseCommandListEditor.qml:62
-#, fuzzy
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr "落ち着きとくつろぎ"
+msgstr "リラックス"
 
 #: qml/BaseCommandListEditor.qml:64
-#, fuzzy
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
-msgstr "わくわくする"
+msgstr "興奮した"
 
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "時制"
 
 #: qml/BaseCommandListEditor.qml:68
-#, fuzzy
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
 msgstr "ポーズ"
 
 #: qml/BaseCommandListEditor.qml:70
-#, fuzzy
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr "ストップライト"
+msgstr "ライト"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
@@ -1332,12 +1332,11 @@ msgid "Pick from the list below where you want to send the command."
 msgstr "下のリストから、コマンドを送信する場所を選んでください。"
 
 #: qml/BaseMovesComponent.qml:265
-#, fuzzy
 msgctxt ""
 "Label for the checkbox which allows the user to remember the send to all "
 "devices option when selecting a command"
 msgid "Always Send To All"
-msgstr "すべてに送信する"
+msgstr "常に全員に送信"
 
 #: qml/BaseMovesComponent.qml:274
 msgctxt "Action for sending a command to the selected devices in a list"
@@ -1370,34 +1369,30 @@ msgid "Add this pause"
 msgstr "このポーズを追加する"
 
 #: qml/ConnectToTail.qml:30
-#, fuzzy
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr "1に接続する"
+msgstr "ギアに接続"
 
 #: qml/ConnectToTail.qml:36
-#, fuzzy
 msgctxt ""
 "Button for the action of disconnecting from all currently connected devices, "
 "in the popup for connecting to devices"
 msgid "Disconnect All"
-msgstr "ディスコネクト"
+msgstr "すべて切断"
 
 #: qml/ConnectToTail.qml:51
-#, fuzzy
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr "接続"
+msgstr "すべて接続"
 
 #: qml/ConnectToTail.qml:100
-#, fuzzy
 msgctxt ""
 "A label in the prompt for connecting to a device showing that the device is "
 "currently connecting"
 msgid "Connecting..."
-msgstr "もっと接続する..."
+msgstr "接続中..."
 
 #: qml/ConnectToTail.qml:102
 msgctxt ""
@@ -1414,10 +1409,9 @@ msgid "Connect"
 msgstr "接続"
 
 #: qml/DatePicker.qml:49
-#, fuzzy
 msgctxt "Title for the date picker"
 msgid "Pick A Date"
-msgstr "名前を決める"
+msgstr "日付を選択します"
 
 #: qml/DatePicker.qml:241
 msgctxt "Button for selecting the date of today, in a date picker"
@@ -1452,14 +1446,13 @@ msgid "Disconnect?"
 msgstr "ディスコネクト？"
 
 #: qml/DisconnectOptions.qml:44
-#, fuzzy
 msgctxt ""
 "Label above the list of options available for disconnecting from a piece of "
 "gear"
 msgid "Please select how you would like to disconnect from %2."
 msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
-msgstr[0] "1との接続を解除する方法を選択してください。"
+msgstr[0] "%2 から切断する方法を選択してください。"
 
 #: qml/DisconnectOptions.qml:59
 msgctxt ""
@@ -1624,7 +1617,7 @@ msgstr "わくわくする"
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
 msgid "Tense"
-msgstr ""
+msgstr "時制"
 
 #: qml/GearGestures.qml:52
 #, fuzzy
@@ -1799,6 +1792,12 @@ msgid ""
 "to if you have more than one (otherwise we'll just send it to itself). If "
 "you don't select any, the gear will just pick something to do on its own."
 msgstr ""
+"サウンド検出をオンにすると、音を聞きたいギアの名前の横にあるボックスにチェッ"
+"クを入れることで、ギアが一度に 5 分間サウンドに反応するようになります。"
+"特定のサウンド レベルが検出されたときに何を行うかを決めるには、動きと、"
+"ギアが複数ある場合はその動きを送信するギアの部分を選択します (ギアが複数ある"
+"場合は、ギア自体に送信されます)。何も選択しない場合は、ギアが自分で何かを選択"
+"します。"
 
 #: qml/ListenSettings.qml:111
 #, fuzzy
@@ -1823,6 +1822,8 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"接続に成功しました！\n"
+"ギアの名前をタップして名前を変更します"
 
 #: qml/main.qml:113
 msgctxt "Text for the notification upon connecting successfully to a device"
@@ -1940,7 +1941,7 @@ msgstr "約"
 msgctxt ""
 "Button for opening the TailCo website in a browser, from the landing page"
 msgid "TheTailCompany.com"
-msgstr ""
+msgstr "TheTailCompany.com"
 
 #: qml/main.qml:375
 msgctxt "Title for the confirmation popup for disconnecting your gear"
@@ -2412,7 +2413,7 @@ msgstr "PDFをダウンロード:"
 msgctxt ""
 "Label for downloading the general guide for safe use of the various gear"
 msgid "Responsible Wagging Guide"
-msgstr ""
+msgstr "責任ある尻尾のしつけガイド"
 
 #: qml/SettingsPage.qml:54
 #, fuzzy
@@ -2474,6 +2475,9 @@ msgid ""
 "gear, or not. Check the box here to make that choice, or to undo the choice "
 "made in the dialogue itself."
 msgstr ""
+"ギアに送信するものを選択するときに、複数のギアを同時に接続している場合は、常"
+"にすべてのギアに送信するかどうかを選択できます。その選択を行うには、ここのボ"
+"ックスをオンにします。または、ダイアログ自体で行った選択を元に戻します。"
 
 #: qml/SettingsPage.qml:86
 #, fuzzy
@@ -2499,6 +2503,10 @@ msgid ""
 "name, and even forgetting it. Forgetting it will disconnect (using the Just "
 "Disconnect method) from it, if you are currently connected."
 msgstr ""
+"以下は、以前に接続したギアのリストです。このリストを使用して、ギアが見つかっ"
+"たときに自動的に接続するかどうかを明示的に切り替えたり、ギアの名前を変更した"
+"り、ギアを忘れたりするなど、さまざまなアクションを実行できます。現在接続して"
+"いる場合は、ギアを忘れると、切断されます (Just Disconnect メソッドを使用)。"
 
 #: qml/SettingsPage.qml:113
 #, fuzzy
@@ -2513,19 +2521,19 @@ msgctxt ""
 "A button on the settings page which allows the user to change the name they "
 "have given a piece of gear"
 msgid "Rename %1..."
-msgstr ""
+msgstr "%1 の名前を変更..."
 
 #: qml/SettingsPage.qml:133
 msgctxt ""
 "Label for the button which opens the dialog box which allows the user to "
 "disconnect from and remove all information about a given piece of gear"
 msgid "Forget %1..."
-msgstr ""
+msgstr "%1 を忘れる..."
 
 #: qml/SettingsPage.qml:135
 msgctxt "Header for the message box asking whether to forget a piece of gear"
 msgid "Forget about %1"
-msgstr ""
+msgstr "%1を忘れる"
 
 #: qml/SettingsPage.qml:136
 msgctxt "Text for the message box asking whether to forget a piece of gear"
@@ -2534,6 +2542,8 @@ msgid ""
 "disconnect and forget. To get it back, you just need to look for more gear "
 "and connect to it again."
 msgstr ""
+"本当に %1 を忘れますか? よろしければ、下の [OK] をクリックして切断し、忘れて"
+"ください。元に戻すには、他の機器を探して再度接続するだけです。"
 
 #: qml/SettingsPage.qml:146
 msgctxt ""
@@ -2671,14 +2681,14 @@ msgctxt ""
 "Label for a button which allows the user to pick a file to load the firmware "
 "from (this is only available in developer mode)"
 msgid "Load From File"
-msgstr ""
+msgstr "ファイルから読み込む"
 
 #: qml/SettingsPage.qml:272
 msgctxt ""
 "Title for a dialog which allows the user to pick a file to load as firmware "
 "(this is only available in developer mode)"
 msgid "Pick Firmware File"
-msgstr ""
+msgstr "ファームウェアファイルを選択"
 
 #: qml/SettingsPage.qml:285
 msgctxt ""
@@ -2745,7 +2755,7 @@ msgctxt ""
 "Title for a message box warning that changing the language requires "
 "restarting the app"
 msgid "App Restart Required"
-msgstr ""
+msgstr "アプリの再起動が必要です"
 
 #: qml/SettingsPage.qml:325
 msgctxt ""
@@ -2756,6 +2766,9 @@ msgid ""
 "and so on is updated. To quit the app now, click OK, or click Cancel to not "
 "quit just now."
 msgstr ""
+"言語を切り替える場合は、すべてのテキストなどが更新されるようにアプリを再起動"
+"する必要があります。今すぐアプリを終了するには、[OK] "
+"をクリックします。今すぐ終了しない場合は、[キャンセル] をクリックします。"
 
 #: qml/SettingsPage.qml:338
 msgctxt ""
@@ -2887,6 +2900,10 @@ msgid ""
 "that move to if you have more than one (otherwise we'll just send it to "
 "itself)."
 msgstr ""
+"傾き検出をオンにするには、検出するギアの名前の横にあるボックスにチェックを入"
+"れます。特定の種類の傾きが検出されたときに何を行うかを決定するには、動きと、"
+"複数のギアがある場合はその動きを送信するギアの部分を選択します "
+"(そうでない場合は、そのギア自体に送信されます)。"
 
 #: qml/TiltSettings.qml:100
 #, fuzzy
@@ -3044,47 +3061,47 @@ msgstr "ギアジェスチャー"
 #: Utilities.cpp:86
 msgctxt "The name of the first entry in any of the categories of moves"
 msgid "One"
-msgstr ""
+msgstr "1つ"
 
 #: Utilities.cpp:88
 msgctxt "The name of the second entry in any of the categories of moves"
 msgid "Two"
-msgstr ""
+msgstr "二"
 
 #: Utilities.cpp:90
 msgctxt "The name of the third entry in any of the categories of moves"
 msgid "Three"
-msgstr ""
+msgstr "三つ"
 
 #: Utilities.cpp:92
 msgctxt "The name of the fourth entry in any of the categories of moves"
 msgid "Four"
-msgstr ""
+msgstr "四"
 
 #: Utilities.cpp:94
 msgctxt "The name of the fifth entry in any of the categories of moves"
 msgid "Five"
-msgstr ""
+msgstr "五"
 
 #: Utilities.cpp:96
 msgctxt "The name of the sixth entry in any of the categories of moves"
 msgid "Six"
-msgstr ""
+msgstr "六"
 
 #: Utilities.cpp:98
 msgctxt "The name of the seventh entry in any of the categories of moves"
 msgid "Seven"
-msgstr ""
+msgstr "セブン"
 
 #: Utilities.cpp:100
 msgctxt "The name of the eighth entry in any of the categories of moves"
 msgid "Eight"
-msgstr ""
+msgstr "八"
 
 #: Utilities.cpp:102
 msgctxt "The name of the ninth entry in any of the categories of moves"
 msgid "Nine"
-msgstr ""
+msgstr "九"
 
 #: Utilities.cpp:104
 #, fuzzy
@@ -3119,51 +3136,51 @@ msgstr "グローチップ"
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
 msgid "Blink"
-msgstr ""
+msgstr "瞬き"
 
 #: Utilities.cpp:116
 msgctxt ""
 "The name of the Triangle command in the lights category of gear commands"
 msgid "Triangle"
-msgstr ""
+msgstr "三角形"
 
 #: Utilities.cpp:118
 msgctxt ""
 "The name of the Sawtooth command in the lights category of gear commands"
 msgid "Sawtooth"
-msgstr ""
+msgstr "鋸歯状"
 
 #: Utilities.cpp:120
 msgctxt "The name of the Morse command in the lights category of gear commands"
 msgid "Morse"
-msgstr ""
+msgstr "モールス"
 
 #: Utilities.cpp:122
 msgctxt ""
 "The name of the Beacon command in the lights category of gear commands"
 msgid "Beacon"
-msgstr ""
+msgstr "ビーコン"
 
 #: Utilities.cpp:124
 msgctxt "The name of the Flame command in the lights category of gear commands"
 msgid "Glame"
-msgstr ""
+msgstr "炎"
 
 #: Utilities.cpp:126
 msgctxt ""
 "The name of the Strobe command in the lights category of gear commands"
 msgid "Strobe"
-msgstr ""
+msgstr "ストロボ"
 
 #: Utilities.cpp:128
 msgctxt "The name of the On command in the lights category of gear commands"
 msgid "On"
-msgstr ""
+msgstr "の上"
 
 #: Utilities.cpp:130
 msgctxt "The name of the Off command in the lights category of gear commands"
 msgid "Off"
-msgstr ""
+msgstr "オフ"
 
 #: WalkingSensorGestureReconizer.cpp:186
 #, fuzzy
