@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-07 19:42+0000\n"
+"PO-Revision-Date: 2024-06-16 08:42+0000\n"
 "Last-Translator: Pascaline <pascalinesarginson@ymail.com>\n"
 "Language-Team: French <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/fr/>\n"
@@ -1122,20 +1122,24 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Détection %1 désactivée après une heure. Tous les équipements d'animation "
+"électronique ont besoin de repos après de longues périodes d’utilisation. "
+"Merci de lire notre guide sur le mouvement responsable dans Paramètres pour "
+"optimiser la vie de ton équipement."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
 "A label which describes the hardware revision of the connected gear, when "
 "only one item is connected"
 msgid "The connected gear is version %1"
-msgstr "L'appareil connectée est version %1"
+msgstr "L'appareil connecté est la version %1"
 
 #: qml/AboutPage.qml:38
 msgctxt ""
 "A label which describes the hardware revision of a piece of connected gear, "
 "when more than one item is connected"
 msgid "The gear named %1 is version %2"
-msgstr "L'appareil nommée %1 est version %2"
+msgstr "L'appareil nommé %1 est la version %2"
 
 #: qml/AlarmList.qml:29
 msgctxt "Title of the page which lists the alarms the user has set"
@@ -1145,14 +1149,14 @@ msgstr "Alarmes"
 #: qml/AlarmList.qml:33
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr "Ajouter alarme"
+msgstr "Ajouter une nouvelle alarme"
 
 #: qml/AlarmList.qml:46
 msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
-msgstr "Veuillez choisir un autre nom"
+msgstr "Merci de choisir un autre nom"
 
 #: qml/AlarmList.qml:47
 msgctxt ""
@@ -1166,7 +1170,7 @@ msgid ""
 msgstr ""
 "Impossible d'ajouter l'alarme car le nom est déjà pris.\n"
 "\n"
-"Veuillez choisir un autre nom pour l'alarme."
+"Merci de choisir un autre nom pour l'alarme."
 
 #: qml/AlarmList.qml:51
 msgctxt ""
@@ -1183,8 +1187,8 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
-"Impossible de trouver l'alarme nommée '%1'. Peut-être qu'une autre instance "
-"d'application l'a supprimée."
+"Impossible de trouver une alarme avec le nom '%1'. Une autre instance de "
+"l'application l'a peut-être supprimée."
 
 #: qml/AlarmList.qml:82
 msgctxt ""
@@ -1198,12 +1202,12 @@ msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr "Programmer l'heure de l'alarme"
+msgstr "Règler l'heure de l'alarme"
 
 #: qml/AlarmList.qml:113
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
-msgstr "Supprimer l'alarme"
+msgstr "Supprimer cette alarme"
 
 #: qml/AlarmList.qml:117
 msgctxt ""
@@ -1215,7 +1219,7 @@ msgstr "Supprimer l'alarme"
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
-msgstr "Êtes-vous sûr de vouloir supprimer l'alarme '%1' ?"
+msgstr "Es-tu sûr de vouloir supprimer l'alarme '%1' ?"
 
 #: qml/AlarmList.qml:137
 msgctxt ""
@@ -1224,24 +1228,22 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
-"Ajoutez une alarme ici. Choisissez une date et une heure pour votre alarme, "
-"puis ajoutez un ou plusieurs mouvements que vous voulez exécuter à cette "
-"heure-là."
+"Règle une alarme ici. Choisis une date et une heure pour ton alarme, puis "
+"ajoute un ou plusieurs mouvements que tu veux effectuer à cette heure-là."
 
 #: qml/AlarmList.qml:144
 msgctxt ""
 "Descriptive text for a popup which allows the user to create a new, named "
 "alarm"
 msgid "Enter a name to use for your new alarm and click Create"
-msgstr ""
-"Saisissez un nom à utiliser pour votre nouvelle alarme puis cliquez sur Créer"
+msgstr "Saisis un nom pour ta nouvelle alarme puis clique sur Créer"
 
 #: qml/AlarmList.qml:145
 msgctxt ""
 "Placeholder text for the text box in which the name of a new alarm must be "
 "written"
 msgid "Enter your alarm name here"
-msgstr "Saisissez le nom de votre alarme ici"
+msgstr "Saisis le nom de ton alarme ici"
 
 #: qml/AlarmList.qml:146
 msgctxt "Text on a button which causes an alarm to be created"
@@ -1266,7 +1268,7 @@ msgstr "Relaxe"
 #: qml/BaseCommandListEditor.qml:64
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
-msgstr "Heureux"
+msgstr "Enthousiaste"
 
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
@@ -1288,14 +1290,14 @@ msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
-msgstr "Ajouter l'operation d'après"
+msgstr "Ajouter l'opération d'après"
 
 #: qml/BaseCommandListEditor.qml:192
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
-msgstr "Ajouter le pause d'après"
+msgstr "Ajouter la pause d'après"
 
 #: qml/BaseCommandListEditor.qml:218
 msgctxt ""
@@ -1306,7 +1308,7 @@ msgid ""
 "cooldown: %3 seconds</small>"
 msgstr ""
 "<strong>%1</strong><br/><small>%2 secondes</small><br/><small>Temps de "
-"refroidissement supplémentaire : %3 secondes</small>"
+"récupération supplémentaire : %3 secondes</small>"
 
 #: qml/BaseCommandListEditor.qml:219
 msgctxt ""
@@ -1323,11 +1325,11 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
-"Voici votre liste de commandes. Elle peut inclure des mouvements, des effets "
-"lumineux et des pauses.Astuce : pour ajouter une nouvelle commande sous une "
-"commande déjà présente dans la liste, cliquez sur l'icône + au-dessus de la "
-"chronologie cumulative pour cette entrée et choisissez l'une des options "
-"dans le menu."
+"Voici ta liste de commandes. Elle peut inclure des mouvements, des effets "
+"lumineux et des pauses. Astuce : pour ajouter une nouvelle sous-commande "
+"sous une déjà présente dans la liste, clique sur l'icône + au-dessus de la "
+"chronologie cumulative pour cette commande et choisis l'une des options dans "
+"le menu."
 
 #: qml/BaseCommandListEditor.qml:290
 msgctxt ""
@@ -1345,32 +1347,31 @@ msgstr "Selectionner destinataire"
 #: qml/BaseMovesComponent.qml:211
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr "Choisissez dans la liste ci-dessous la destinataire de votre commande."
+msgstr "Choisis dans la liste ci-dessous le/la destinataire de ta commande."
 
 #: qml/BaseMovesComponent.qml:265
-#, fuzzy
 msgctxt ""
 "Label for the checkbox which allows the user to remember the send to all "
 "devices option when selecting a command"
 msgid "Always Send To All"
-msgstr "Envoyer a tous les appareils"
+msgstr "Toujours envoyer à tous les appareils"
 
 #: qml/BaseMovesComponent.qml:274
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
-msgstr "Envoyer a l'appareil sélectionné"
+msgstr "Envoyer à l'appareil sélectionné"
 
 #: qml/BaseMovesComponent.qml:283
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
-msgstr "Envoyer a tous les appareils"
+msgstr "Envoyer à tous les appareils"
 
 #: qml/CommandPausePicker.qml:43
 msgctxt ""
 "Heading for an overlay for picking the duration of a pause in the command "
 "list"
 msgid "Pick the duration of your pause"
-msgstr "Choisissez la durée de cette pause"
+msgstr "Choisis la durée de cette pause"
 
 #: qml/CommandPausePicker.qml:58
 msgctxt ""
@@ -1386,10 +1387,9 @@ msgid "Add this pause"
 msgstr "Ajouter cette pause"
 
 #: qml/ConnectToTail.qml:30
-#, fuzzy
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr "Connecter à %1"
+msgstr "Connecter à l'appareil"
 
 #: qml/ConnectToTail.qml:36
 msgctxt ""
@@ -1470,15 +1470,16 @@ msgctxt ""
 msgid "Please select how you would like to disconnect from %2."
 msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
-msgstr[0] ""
+msgstr[0] "Merci de sélectionner la façon dont tu veux te déconnecter de %2."
 msgstr[1] ""
+"Merci de sélectionner la façon dont tu veux te déconnecter des appareils %2."
 
 #: qml/DisconnectOptions.qml:59
 msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Utiliser l'appareil sans mon téléphone"
 
 #: qml/DisconnectOptions.qml:88
 msgctxt ""
@@ -1489,6 +1490,10 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
+"Choisis cette option pour configurer le mode sans téléphone et déconnecter, "
+"afin que tu puisses laisser ton téléphone éteint. Ton appareil sera par "
+"défaut en mode décontracté. (Pratique si tu n'as pas de place pour ton "
+"téléphone)"
 
 #: qml/DisconnectOptions.qml:111
 msgctxt ""
@@ -1498,6 +1503,8 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
+"Aucun mode téléphone n’attendra entre %1 et %2 secondes avant de choisir son "
+"prochain mouvement."
 
 #: qml/DisconnectOptions.qml:131
 msgctxt ""
@@ -1505,13 +1512,15 @@ msgctxt ""
 "Phone mode is fully activated"
 msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
 msgstr ""
+"Aucun mode téléphone n’attendra %1 minute(s) avant de choisir le premier "
+"mouvement."
 
 #: qml/DisconnectOptions.qml:142
 msgctxt ""
 "Label for the button in the disconnection options popup which puts the gear "
 "into autonomous, or no phone, mode"
 msgid "Engage No Phone Mode"
-msgstr ""
+msgstr "Activer le mode sans téléphone"
 
 #: qml/DisconnectOptions.qml:179
 msgctxt ""
@@ -1527,6 +1536,8 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
+"Choisis cette option pour déconnecter l’appareil sans l’éteindre (pratique "
+"si tu veux le charger)."
 
 #: qml/DisconnectOptions.qml:200
 msgctxt ""
@@ -1549,18 +1560,20 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
+"Choisis cette option pour éteindre l'appareil plutôt que de simplement le "
+"déconnecter (pratique pour le ranger immédiatement)"
 
 #: qml/DisconnectOptions.qml:245
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Shut Down Gear"
-msgstr ""
+msgstr "Éteindre l'appareil"
 
 #: qml/EarPoses.qml:27
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr "Poses d'Oreilles"
+msgstr "Positions d'oreilles"
 
 #: qml/EarPoses.qml:30
 msgctxt ""
@@ -1576,35 +1589,34 @@ msgid ""
 "to send them off to any of your connected devices! If you have more than one "
 "connected, the little coloured dots show which you can send that pose to."
 msgstr ""
-"La liste ci-dessous présente toutes les Poses disponibles pour votre "
-"équipement. Touchez l'une d'entre elles pour les envoyer à l'un de vos "
-"appareils connectés ."
+"La liste ci-dessous présente toutes les positions disponibles pour ton "
+"équipement. Appuie sur l’une d’elles pour l'envoyer à un de tes appareils "
+"connectés ! Si tu en possèdes plusieurs, les petits points de couleur "
+"montrent à quel appareil tu peux envoyer cette position."
 
 #: qml/EarPoses.qml:42
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
 msgid "Be Calm"
-msgstr ""
+msgstr "Plus calme"
 
 #: qml/EarPoses.qml:50
-#, fuzzy
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
-msgstr "Rapide et excitée"
+msgstr "Plus enthousiaste"
 
 #: qml/EarPoses.qml:64
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
 msgid "Poses"
-msgstr "Poses"
+msgstr "Positions"
 
 #: qml/GearGestures.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
 msgid "Gear Gestures"
-msgstr "Gestes"
+msgstr "Reconnaissance de gestes"
 
 #: qml/GearGestures.qml:31
 msgctxt ""
@@ -1623,7 +1635,7 @@ msgstr "Relaxe"
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr "Content"
+msgstr "Enthousiaste"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
@@ -1642,7 +1654,6 @@ msgid "Lights"
 msgstr "Lumières"
 
 #: qml/GearGestures.qml:62
-#, fuzzy
 msgctxt ""
 "Info card for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1653,15 +1664,14 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"Activez l'un des capteurs ci-dessous pour que votre équipement réagisse aux "
+"Active l'un des capteurs ci-dessous pour que ton équipement réagisse aux "
 "gestes effectués sur cet appareil, si rien d'autre n'est en marche (c'est-à-"
-"dire, aucune commandes en cours, et une file d'attente de commandes vide). "
-"Par exemple, pour que vos oreilles se dressent lorsque votre smartphone "
-"reconnaît qu'il a été ramassé, ou que votre queue commence à s'agiter "
-"lorsqu'il détecte que vous avez fait un pas."
+"dire aucune commandes en cours, et une liste de commandes en attente vide). "
+"Tes oreilles peuvent par exemple se dresser quand ton smartphone reconnaît "
+"qu'il a été ramassé ou ta queue peut commencer à s'agiter lorsqu'elle "
+"détecte un pas."
 
 #: qml/GearGestures.qml:84
-#, fuzzy
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting what should happen when the controlling device/"
@@ -1682,15 +1692,16 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
-"Vous essayez d'allumer plusieurs gestes en même temps. Ceci cause "
-"occasionnellement des problèmes, principalement parce qu'il peut ce "
-"confondre des gestes (par exemple, si vous activez à la fois la marche et le "
-"secouage, les deux gestes seront probablement détectés simultanément). Si "
-"vous êtes sûr de vouloir le faire, appuyez sur Confirmer, sinon veuillez "
-"appuyer sur Annuler."
+"Tu essaie d'enclencher plusieurs gestes en même temps. \n"
+"\n"
+"Cela peut causer des problèmes, principalement parce qu'il peut ce confondre "
+"des gestes (par exemple si tu actives la marche et secouage, les deux gestes "
+"seront probablement détectés simultanément). \n"
+"\n"
+"Si tu es sûr de vouloir le faire, appuie sur Confirmer. Appuie sinon sur "
+"Annuler."
 
 #: qml/GearGestures.qml:94
-#, fuzzy
 msgctxt ""
 "Description for the checkbox for showing a gesture on the Welcome Page, on "
 "the page for selecting what should happen when the controlling device/phone "
@@ -1702,7 +1713,7 @@ msgstr "Afficher sur la page d'accueil"
 msgctxt ""
 "Command for returning any gear to its home position, on the gestures page"
 msgid "Home Position"
-msgstr "Position initiale"
+msgstr "Position de repos"
 
 #: qml/GearGestures.qml:132
 msgctxt ""
