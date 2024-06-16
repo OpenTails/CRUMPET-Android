@@ -8,9 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-16 22:27+0000\n"
+"Last-Translator: Paulina Karbauskytė <paulinakrb@gmail.com>\n"
+"Language-Team: Lithuanian <http://weblate.stargazer.at/projects/"
+"the-tailcompany-app/digitail/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
+"X-Generator: Weblate 5.5.5\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
 "Error message for when we could not create the path that command files are "
 "stored in"
 msgid "Failed to create the directory for the stored commands"
-msgstr ""
+msgstr "Nepavyko sukurti išsaugotų komandų katalogo"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
 "Error message for when there are no commands found in a command file "
 "(possible, but uncommon, so not a critical error)"
 msgid "There are no commands in this file. This is possible, but not common."
-msgstr ""
+msgstr "Šiame faile nėra jokių komandų. Tai įmanoma, bet ne įprasta."
 
 #: CommandPersistence.cpp:123
+#, fuzzy
 msgctxt ""
 "Error message when command file loading failed entirely caused by a parsing "
 "error, with details"
@@ -42,90 +45,93 @@ msgid ""
 "Code leading up to the error:\n"
 "%3"
 msgstr ""
+"Nepavyko įkelti komandų dėl analizės klaidos %1: %2\n"
+"Kodas, vedantis į klaidą:\n"
+"%3"
 
 #: CommandPersistence.cpp:176
 msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr ""
+msgstr "Nepavyko atidaryti failo %1 skaitymui"
 
 #: CommandPersistence.cpp:196
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr ""
+msgstr "Nepavyko atidaryti failo %1 rašymui"
 
 #: DeviceModel.cpp:279
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the left"
 msgid "Tilt Left"
-msgstr ""
+msgstr "Pakreipkite į kairę"
 
 #: DeviceModel.cpp:280
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted to "
 "the right"
 msgid "Tilt Right"
-msgstr ""
+msgstr "Pakreipkite į dešinę"
 
 #: DeviceModel.cpp:281
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "forward"
 msgid "Tilt Forward"
-msgstr ""
+msgstr "Pakreipkite į priekį"
 
 #: DeviceModel.cpp:282
 msgctxt ""
 "Name for an event where the gear has been detected as having been tilted "
 "backward"
 msgid "Tilt Backward"
-msgstr ""
+msgstr "Pakreipkite atgal"
 
 #: DeviceModel.cpp:283
 msgctxt ""
 "Name for an event where the gear has been returned to an upright position "
 "from having been tilted"
 msgid "Return to Upright"
-msgstr ""
+msgstr "Grįžkite į vertikalią ar stačią poziciją"
 
 #: DeviceModel.cpp:284
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr ""
+msgstr "Garsus garsas kairėje"
 
 #: DeviceModel.cpp:285
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr ""
+msgstr "Tylus garsus kairėje"
 
 #: DeviceModel.cpp:286
 msgctxt ""
 "Name for an event where the sound levels have been detected as returning to "
 "ambient after detecting a sound on one or the other side"
 msgid "Ambient Sound Levels"
-msgstr ""
+msgstr "Aplinkos garso lygiai"
 
 #: DeviceModel.cpp:287
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr ""
+msgstr "Tylus garsas dešinėje"
 
 #: DeviceModel.cpp:288
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr ""
+msgstr "Garsus garsas dešinėje"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
@@ -137,6 +143,8 @@ msgid ""
 "Attempted to reconnect too many times to %1 (%2). To connect to it, please "
 "check that it is on, charged, and near enough."
 msgstr ""
+"Bandyta per daug kartų prisijungti prie %1 (%2). Norėdami prie jo "
+"prisijungti, patikrinkite, ar jis įjungtas, įkrautas ir pakankamai arti."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -146,7 +154,7 @@ msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr ""
+msgstr "Nutrūko ryšys su % 1, bandoma prisijungti iš naujo..."
 
 #: gearimplementations/GearDigitail.cpp:91
 msgctxt ""
@@ -157,6 +165,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra DIGITAIL (nepavyko rasti uodegos "
+"charakteristikos). Jei esate tikri, kad taip yra, praneškite apie šią klaidą "
+"„The Tail Company“."
 
 #: gearimplementations/GearDigitail.cpp:260
 msgctxt "Warning message when the main service was not found on the device"
@@ -164,6 +175,8 @@ msgid ""
 "An error occured while connecting to your DIGITAiL (the service object could "
 "not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Prisijungiant prie DIGITAiL įvyko klaida (nepavyko sukurti paslaugos objekto)"
+". Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearDigitail.cpp:278
 msgctxt "Warning that some unknown error happened"
@@ -171,11 +184,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
 msgstr ""
+"Įvyko klaida. Jei bandote prisijungti prie DIGITAiL, įsitikinkite, kad "
+"prietaisas yra įjungtas ir arti šio įrenginio."
 
 #: gearimplementations/GearDigitail.cpp:281
 msgctxt "Warning that the device disconnected itself"
 msgid "The DIGITAiL closed the connection."
-msgstr ""
+msgstr "DIGITAiL nutraukė ryšį."
 
 #: gearimplementations/GearDigitail.cpp:284
 msgctxt ""
@@ -185,6 +200,8 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Nepavyko prisijungti prie jūsų DIGITAiL. Bandykite dar kartą (gal "
+"priartinkite?)"
 
 #: gearimplementations/GearDigitail.cpp:304
 msgctxt ""
@@ -194,6 +211,8 @@ msgid ""
 "The DIGITAiL closed the connection, either by being turned off or losing "
 "power. Remember to charge your DIGITAiL!"
 msgstr ""
+"DIGITAiL nutraukė ryšį, nes buvo išjungtas arba dingo maitinimas. "
+"Nepamirškite įkrauti savo DIGITAL!"
 
 #: gearimplementations/GearEars.cpp:112
 msgctxt ""
@@ -204,6 +223,9 @@ msgid ""
 "main ears writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra „EarGear“ valdiklis (nepavyko rasti "
+"pagrindinės ausų rašymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearEars.cpp:129
 msgctxt ""
@@ -214,6 +236,9 @@ msgid ""
 "main ears reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra „EarGear“ valdiklis (nepavyko rasti "
+"pagrindinės ausų skaitymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -223,7 +248,7 @@ msgctxt ""
 "Title of the message box shown to the user upon a firmware update with an "
 "unknown outcome"
 msgid "Reboot Completed"
-msgstr ""
+msgstr "Perkrovimas baigtas"
 
 #: gearimplementations/GearEars.cpp:223
 #: gearimplementations/GearFlutterWings.cpp:169
@@ -236,6 +261,8 @@ msgid ""
 "back to the device. The gear now reports %1, and we hope that is what you "
 "expected."
 msgstr ""
+"Perkrovimas po programinės įrangos įkėlimo baigtas ir mes vėl prisijungėme "
+"prie įrenginio. Prietaisas dabar praneša %1, ir tikimės, kad to tikėjotės."
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -244,7 +271,7 @@ msgstr ""
 msgctxt ""
 "Title of the message box shown to the user upon a successful firmware upgrade"
 msgid "Upgrade Successful"
-msgstr ""
+msgstr "Atnaujinimas sėkmingas"
 
 #: gearimplementations/GearEars.cpp:226
 #: gearimplementations/GearFlutterWings.cpp:172
@@ -253,7 +280,7 @@ msgstr ""
 msgctxt ""
 "Message shown to the user when a firmware update completed successfully"
 msgid "Congratulations, your gear has been successfully updated to version %1!"
-msgstr ""
+msgstr "Sveikiname, jūsų prietaisas sėkmingai atnaujintas iki %1 versijos!"
 
 #: gearimplementations/GearEars.cpp:229
 #: gearimplementations/GearFlutterWings.cpp:175
@@ -263,7 +290,7 @@ msgctxt ""
 "Title of the message box shown to the user upon an unsuccessful firmware "
 "upgrade"
 msgid "Update Failed"
-msgstr ""
+msgstr "Atnaujinimas nepavyko"
 
 #: gearimplementations/GearEars.cpp:229
 #: gearimplementations/GearFlutterWings.cpp:175
@@ -276,13 +303,18 @@ msgid ""
 "a safe fallback to just go back to your old firmware version upon a failure. "
 "You can try the update again by clicking the Install button gain.</p>"
 msgstr ""
+"<p>Atsiprašome, bet nepavyko atnaujinti. Dažniausiai taip nutinka dėl to, "
+"kad perkėlimas buvo sugadintas paties įkėlimo proceso metu, todėl jūsų "
+"įranga turi saugų atsarginį variantą, kad įvykus gedimui tiesiog sugrįžtų į "
+"seną programinės įrangos versiją. Galite pabandyti atnaujinti dar kartą "
+"spustelėdami mygtuką Įdiegti.</p>"
 
 #: gearimplementations/GearEars.cpp:350
 msgctxt ""
 "Informational message for when the microphone balancing operation has "
 "completed"
 msgid "Microphone balancing completed"
-msgstr ""
+msgstr "Mikrofono balansavimas baigtas"
 
 #: gearimplementations/GearEars.cpp:465
 #: gearimplementations/GearFlutterWings.cpp:331
@@ -295,6 +327,8 @@ msgid ""
 "You already have the newest version of the firmware installed on your gear, "
 "congratulations!"
 msgstr ""
+"Jūsų įrenginyje jau įdiegta naujausia programinės įrangos versija, "
+"sveikiname!"
 
 #: gearimplementations/GearEars.cpp:470
 #: gearimplementations/GearFlutterWings.cpp:336
@@ -309,6 +343,10 @@ msgid ""
 "connection issue. If you run into this problem repeatedly, please get in "
 "touch."
 msgstr ""
+"Faile, naudojama informacijai apie naujas programinės aparatinės įrangos "
+"versijas nustatyti, nebuvo numatyto duomenų formato. Tai greičiausiai "
+"laikina klaida arba ryšio problema. Jei su šia problema susiduriate "
+"pakartotinai, susisiekite."
 
 #: gearimplementations/GearEars.cpp:474
 #: gearimplementations/GearFlutterWings.cpp:340
@@ -316,7 +354,7 @@ msgstr ""
 #: gearimplementations/GearMitailMini.cpp:342
 msgctxt "Message for when we are checking the downloaded firmware data"
 msgid "Checking integrity of the downloaded firmware data..."
-msgstr ""
+msgstr "Tikrinamas atsisiųstų programinės įrangos duomenų vientisumas..."
 
 #: gearimplementations/GearEars.cpp:545
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -324,6 +362,8 @@ msgid ""
 "An error occurred while connecting to your EarGear (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Prisijungiant prie „EarGear“ įvyko klaida (nepavyko sukurti pagrindinio "
+"paslaugos objekto). Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearEars.cpp:559
 msgctxt ""
@@ -332,6 +372,8 @@ msgid ""
 "An error occurred while connecting to your EarGear (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"Jungiantis prie „EarGear“ įvyko klaida (baterijos paslauga nepasiekiama). "
+"Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearEars.cpp:594
 msgctxt ""
@@ -341,6 +383,9 @@ msgid ""
 "battery level characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra „EarGear“ valdiklis (nepavyko rasti "
+"akumuliatoriaus lygio charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearEars.cpp:624
 msgctxt "Warning that some unknown error happened"
@@ -348,11 +393,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your ears, make sure the "
 "EarGear is on and close to this device."
 msgstr ""
+"Įvyko klaida. Jei bandote prisijungti prie ausų, įsitikinkite, kad EarGear "
+"yra įjungtas ir arti šio įrenginio."
 
 #: gearimplementations/GearEars.cpp:627
 msgctxt "Warning that the device disconnected itself"
 msgid "The EarGear closed the connection."
-msgstr ""
+msgstr "EarGear uždarė ryšį."
 
 #: gearimplementations/GearEars.cpp:630
 msgctxt ""
@@ -361,13 +408,14 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
+"Nepavyko prisijungti prie „EarGear“. Bandykite dar kartą (gal priartinkite?)"
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
 "Title for a message box shown after the device disconnects after completing "
 "the firmware update"
 msgid "Firmware Update Completed"
-msgstr ""
+msgstr "Programinės įrangos atnaujinimas baigtas"
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
@@ -379,6 +427,10 @@ msgid ""
 "manually, and then connect to it. If it turned itself back on again, you can "
 "just close this message."
 msgstr ""
+"Programinės įrangos įkėlimas baigtas, o jūsų įranga išsijungė. Jei jis vėl "
+"neįsijungė, uždarykite šį pranešimą, įjunkite jį rankiniu būdu ir "
+"prisijunkite prie jo. Jei jis vėl įsijungė, galite tiesiog uždaryti šį "
+"pranešimą."
 
 #: gearimplementations/GearEars.cpp:656
 msgctxt ""
@@ -388,6 +440,8 @@ msgid ""
 "The EarGear closed the connection, either by being turned off or losing "
 "power. Remember to charge your ears!"
 msgstr ""
+"„EarGear“ nutraukė ryšį, kai buvo išjungtas arba dingo maitinimas. "
+"Nepamirškite įkrauti ausų!"
 
 #: gearimplementations/GearEars.cpp:824
 #: gearimplementations/GearFlutterWings.cpp:676
@@ -396,7 +450,7 @@ msgstr ""
 msgctxt ""
 "Message shown alongside a progress bar when downloading update information"
 msgid "Downloading firmware update information"
-msgstr ""
+msgstr "Atsisiunčiama programinės įrangos atnaujinimo informacija"
 
 #: gearimplementations/GearEars.cpp:841
 msgctxt ""
@@ -406,6 +460,8 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Jūsų įranga pranešė apie aparatinės įrangos versiją, kurios mes nežinome. "
+"Tai reiškia, kad jūsų programa gali būti pasenusi ir ją reikia atnaujinti."
 
 #: gearimplementations/GearEars.cpp:845
 msgctxt ""
@@ -417,6 +473,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"Jūs kažkokiu būdu gavote programinės aparatinės įrangos versiją, kuri "
+"nepraneša apie jūsų ausų aparatinės įrangos peržiūrą, tačiau nėra žinoma, "
+"kad ji to nepadarytų. Tai labai netikėta situacija ir būtume dėkingi, jei "
+"apie tai praneštumėte tiesiogiai mums adresu info@thetailcompany.com – ačiū!"
 
 #: gearimplementations/GearEars.cpp:879
 #: gearimplementations/GearFlutterWings.cpp:714
@@ -427,6 +487,8 @@ msgctxt ""
 "itself"
 msgid "Downloading firmware update from The Tail Company's website..."
 msgstr ""
+"Atsisiunčiamas programinės įrangos naujinimas iš „The Tail Company“ "
+"svetainės..."
 
 #: gearimplementations/GearEars.cpp:896
 #: gearimplementations/GearFlutterWings.cpp:731
@@ -439,6 +501,10 @@ msgid ""
 "should simply try again. If it continues to fail, please get in touch with "
 "us and we can try and work something out!"
 msgstr ""
+"Atsisiųstame programinės įrangos atnaujinime nebuvo to, ko tikėjomės. "
+"Dažniausiai taip nutinka dėl to, kad nepavyko atsisiųsti paties "
+"atsisiuntimo, todėl turėtumėte tiesiog pabandyti dar kartą. Jei ir toliau "
+"nepavyks, susisiekite su mumis ir pabandysime ką nors išspręsti!"
 
 #: gearimplementations/GearEars.cpp:912
 msgctxt "Message shown during firmware update processes"
@@ -449,6 +515,11 @@ msgid ""
 "disconnect from this device. Once it is started back up again, you will be "
 "able to connect to it again."
 msgstr ""
+"Įkeliama programinė įranga į jūsų įrangą. Laikykite įrenginius labai arti "
+"vienas kito ir įsitikinkite, kad abu yra pakankamai įkrauti (arba dabar "
+"prijunkite įkroviklį). Kai baigsite, jūsų įranga bus paleista iš naujo arba "
+"išsijungs ir atsijungs nuo šio įrenginio. Kai vėl bus paleistas, vėl "
+"galėsite prie jo prisijungti."
 
 #: gearimplementations/GearFake.cpp:47
 #: gearimplementations/GearFlutterWings.cpp:363
@@ -457,7 +528,7 @@ msgstr ""
 msgctxt ""
 "Name of the calm and relaxed group as used for no phone group selection"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Ramus ir atsipalaidavęs"
 
 #: gearimplementations/GearFake.cpp:48
 #: gearimplementations/GearFlutterWings.cpp:364
@@ -466,7 +537,7 @@ msgstr ""
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Greitas ir susijaudinęs"
 
 #: gearimplementations/GearFake.cpp:49
 #: gearimplementations/GearFlutterWings.cpp:365
@@ -475,7 +546,7 @@ msgstr ""
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Nusivylęs ir įsitempęs"
 
 #: gearimplementations/GearFake.cpp:102
 msgctxt ""
@@ -485,6 +556,8 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
+"Čia yra pranešimas, kuris turėtų informuoti žmones, kad kažkas <b>svarbaus</"
+"b> vyksta su jų programine įranga"
 
 #: gearimplementations/GearFlutterWings.cpp:109
 msgctxt ""
@@ -495,6 +568,9 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra „FlutterWings“ (nepavyko rasti pagrindinės "
+"įrenginio rašymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearFlutterWings.cpp:117
 msgctxt ""
@@ -505,6 +581,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra „FlutterWings“ (nepavyko rasti pagrindinės "
+"įrenginio skaitymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearFlutterWings.cpp:412
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -512,6 +591,8 @@ msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Prisijungiant prie „FlutterWings“ įvyko klaida (pagrindinio paslaugos "
+"objekto sukurti nepavyko). Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearFlutterWings.cpp:432
 #: gearimplementations/GearMitail.cpp:439
@@ -526,6 +607,11 @@ msgid ""
 "contact us on info@thetailcompany.com and tell us that you got this error.</"
 "p>"
 msgstr ""
+"<p><b>Atnaujinti nepavyko!</b></p><p>Bandėme per greitai atnaujinti jūsų "
+"įrenginio programinę-aparatinę įrangą ir turėjome nutraukti. Jei gaunate šią "
+"klaidą:</p><p>Pirma, nesijaudinkite, jūsų įranga yra saugi.</p><p>Antra, "
+"susisiekite su mumis adresu info@thetailcompany.com ir pasakykite, kad "
+"gavote šią klaidą.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:444
 msgctxt ""
@@ -534,6 +620,8 @@ msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"Jungiantis prie „FlutterWings“ įvyko klaida (baterijos paslauga nepasiekiama)"
+". Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearFlutterWings.cpp:498
 msgctxt ""
@@ -543,6 +631,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Panašu, kad šis įrenginys nėra „FlutterWings“ (nepavyko rasti "
+"akumuliatoriaus lygio charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearFlutterWings.cpp:538
 msgctxt "Warning that some unknown error happened"
@@ -550,11 +641,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
+"Įvyko klaida. Jei bandote prisijungti prie „FlutterWings“, įsitikinkite, kad "
+"jis įjungtas ir arti šio įrenginio."
 
 #: gearimplementations/GearFlutterWings.cpp:541
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr ""
+msgstr "„FlutterWings“ nutraukė ryšį."
 
 #: gearimplementations/GearFlutterWings.cpp:545
 msgctxt ""
@@ -564,6 +657,8 @@ msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Nepavyko prisijungti prie jūsų „FlutterWings“. Bandykite dar kartą (gal "
+"priartinkite?)"
 
 #: gearimplementations/GearFlutterWings.cpp:572
 #: gearimplementations/GearMitail.cpp:579
@@ -572,7 +667,7 @@ msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr ""
+msgstr "Bandoma iš naujo prisijungti prie jūsų įrangos..."
 
 #: gearimplementations/GearFlutterWings.cpp:577
 msgctxt ""
@@ -582,6 +677,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Programinės aparatinės įrangos įkėlimas baigtas, laukiama, kol jūsų įranga "
+"bus automatiškai paleista iš naujo, prieš bandant vėl prisijungti..."
 
 #: gearimplementations/GearFlutterWings.cpp:580
 msgctxt ""
@@ -591,6 +688,8 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
+"„FlutterWings“ nutraukė ryšį dėl išjungimo arba maitinimo praradimo. "
+"Nepamirškite įkrauti įrangos!"
 
 #: gearimplementations/GearFlutterWings.cpp:747
 #: gearimplementations/GearMitail.cpp:758
@@ -602,6 +701,11 @@ msgid ""
 "Once completed, your gear will restart and disconnect from this device. Once "
 "rebooted, you will be able to connect to it again."
 msgstr ""
+"Įkeliama programinė įranga į jūsų įrangą. Laikykite įrenginius labai arti "
+"vienas kito ir įsitikinkite, kad abu yra pakankamai įkrauti (arba dabar "
+"prijunkite įkroviklį). Kai baigsite, jūsų įranga bus paleista iš naujo ir "
+"atsijungs nuo šio įrenginio. Paleidę iš naujo, galėsite vėl prie jo "
+"prisijungti."
 
 #: gearimplementations/GearMitail.cpp:39
 msgctxt ""
@@ -613,6 +717,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Šiuo metu jūsų „MiTail“ įdiegta 4.03 programinės įrangos versija, kuri yra "
+"pasenusi ir turi žinomų problemų! Mes <b>ryžtingai rekomenduojame</b> "
+"atnaujinti į naujausią programinę-aparatinę įrangą, kuri juos ištaiso! "
+"Eikite į „Nustatymai“ ir raskite skyrių „Firmware“, kad atliktumėte "
+"atnaujinimą."
 
 #: gearimplementations/GearMitail.cpp:40
 msgctxt ""
@@ -624,6 +733,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Šiuo metu jūsų „MiTail“ įdiegta 4.02 programinės įrangos versija, kuri yra "
+"pasenusi ir turi žinomų problemų! Mes <b>ryžtingai rekomenduojame</b> "
+"atnaujinti į naujausią programinę-aparatinę įrangą, kuri juos ištaiso! "
+"Eikite į „Nustatymai“ ir raskite skyrių „Firmware“, kad atliktumėte "
+"atnaujinimą."
 
 #: gearimplementations/GearMitail.cpp:41
 msgctxt ""
@@ -635,6 +749,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Šiuo metu jūsų „MiTail“ įdiegta 4.01 programinės įrangos versija, kuri yra "
+"pasenusi ir turi žinomų problemų! Mes <b>ryžtingai rekomenduojame</b> "
+"1atnaujinti į naujausią programinę-aparatinę įrangą, kuri juos ištaiso! "
+"Eikite į „Nustatymai“ ir raskite skyrių „Firmware“, kad atliktumėte "
+"atnaujinimą."
 
 #: gearimplementations/GearMitail.cpp:42
 msgctxt ""
@@ -646,6 +765,11 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Šiuo metu jūsų „MiTail“ įdiegta 4.00 programinės įrangos versija, kuri yra "
+"pasenusi ir turi žinomų problemų! Mes <b>ryžtingai rekomenduojame</b> "
+"atnaujinti į naujausią programinę-aparatinę įrangą, kuri juos ištaiso! "
+"Eikite į „Nustatymai“ ir raskite skyrių „Firmware“, kad atliktumėte "
+"atnaujinimą."
 
 #: gearimplementations/GearMitail.cpp:43
 msgctxt ""
@@ -657,6 +781,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Šiuo metu jūsų „MiTail“ įdiegta 3.2.11 programinės įrangos versija, kuri yra "
+"pasenusi ir turi žinomų problemų! Mes <b>ryžtingai rekomenduojame</b> "
+"atnaujinti į naujausią programinę-aparatinę įrangą, kuri juos ištaiso! "
+"Eikite į „Nustatymai“ ir raskite skyrių „Firmware“, kad atliktumėte "
+"atnaujinimą."
 
 #: gearimplementations/GearMitail.cpp:44
 msgctxt ""
@@ -668,6 +797,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Šiuo metu jūsų „MiTail“ įdiegta 3.2.10 programinės įrangos versija, kuri yra "
+"pasenusi ir turi žinomų problemų! Mes <b>ryžtingai rekomenduojame</b> "
+"atnaujinti į naujausią programinę-aparatinę įrangą, kuri juos ištaiso! "
+"Eikite į „Nustatymai“ ir raskite skyrių „Firmware“, kad atliktumėte "
+"atnaujinimą."
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -678,6 +812,9 @@ msgid ""
 "writing characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra „MiTail“ (nepavyko rasti pagrindinės "
+"įrenginio rašymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearMitail.cpp:123
 msgctxt ""
@@ -688,6 +825,9 @@ msgid ""
 "reading characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Atrodo, kad šis įrenginys nėra „MiTail“ (nepavyko rasti pagrindinės "
+"įrenginio skaitymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearMitail.cpp:419
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -695,6 +835,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Prisijungiant prie „MiTail“ įvyko klaida (pagrindinio paslaugos objekto "
+"sukurti nepavyko). Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearMitail.cpp:451
 msgctxt ""
@@ -703,6 +845,8 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"Prisijungiant prie „MiTail“ įvyko klaida (baterijos paslauga nepasiekiama). "
+"Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearMitail.cpp:505
 msgctxt ""
@@ -712,6 +856,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Panašu, kad šis įrenginys nėra „MiTail“ (nepavyko rasti akumuliatoriaus "
+"lygio charakteristikos). Jei esate tikri, kad taip yra, praneškite apie šią "
+"klaidą „The Tail Company“."
 
 #: gearimplementations/GearMitail.cpp:545
 msgctxt "Warning that some unknown error happened"
@@ -719,11 +866,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Įvyko klaida. Jei bandote prisijungti prie savo MiTail, įsitikinkite, kad "
+"jis įjungtas ir arti šio įrenginio."
 
 #: gearimplementations/GearMitail.cpp:548
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
-msgstr ""
+msgstr "„MiTail“ nutraukė ryšį."
 
 #: gearimplementations/GearMitail.cpp:552
 msgctxt ""
@@ -732,6 +881,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
+"Nepavyko prisijungti prie „MiTail“. Bandykite dar kartą (gal priartinkite?)"
 
 #: gearimplementations/GearMitail.cpp:584
 #: gearimplementations/GearMitailMini.cpp:577
@@ -742,6 +892,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Programinės aparatinės įrangos įkėlimas baigtas, laukiama, kol jūsų įranga "
+"bus automatiškai paleista iš naujo, prieš bandant vėl prisijungti..."
 
 #: gearimplementations/GearMitail.cpp:587
 msgctxt ""
@@ -751,6 +903,8 @@ msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
+"„MiTail“ nutraukė ryšį, kai buvo išjungtas arba prarado maitinimą. "
+"Nepamirškite įkrauti uodegos!"
 
 #: gearimplementations/GearMitailMini.cpp:39
 msgctxt ""
@@ -762,6 +916,11 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Šiuo metu jūsų MiTail Mini įdiegta 4.03 programinės įrangos versija, kuri "
+"yra pasenusi ir turi žinomų problemų! Mes <b>ryžtingai rekomenduojame</b> "
+"atnaujinti į naujausią programinę-aparatinę įrangą, kuri juos ištaiso! "
+"Eikite į „Nustatymai“ ir raskite skyrių „Firmware“, kad atliktumėte "
+"atnaujinimą."
 
 #: gearimplementations/GearMitailMini.cpp:110
 msgctxt ""
@@ -772,6 +931,9 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Panašu, kad šis įrenginys nėra „MiTail Mini“ (nepavyko rasti pagrindinės "
+"įrenginio rašymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearMitailMini.cpp:118
 msgctxt ""
@@ -782,6 +944,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Panašu, kad šis įrenginys nėra „MiTail Mini“ (nepavyko rasti pagrindinės "
+"įrenginio skaitymo charakteristikos). Jei esate tikri, kad taip yra, "
+"praneškite apie šią klaidą „The Tail Company“."
 
 #: gearimplementations/GearMitailMini.cpp:414
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -789,6 +954,8 @@ msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Prisijungiant prie „MiTail Mini“ įvyko klaida (nepavyko sukurti pagrindinio "
+"paslaugos objekto). Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearMitailMini.cpp:444
 msgctxt ""
@@ -797,6 +964,8 @@ msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"Jungiantis prie „MiTail Mini“ įvyko klaida (baterijos paslauga nepasiekiama)"
+". Jei manote, kad tai klaida, bandykite dar kartą!"
 
 #: gearimplementations/GearMitailMini.cpp:498
 msgctxt ""
@@ -806,6 +975,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Panašu, kad šis įrenginys nėra „MiTail Mini“ (nepavyko rasti akumuliatoriaus "
+"lygio charakteristikos). Jei esate tikri, kad taip yra, praneškite apie šią "
+"klaidą „The Tail Company“."
 
 #: gearimplementations/GearMitailMini.cpp:538
 msgctxt "Warning that some unknown error happened"
@@ -813,11 +985,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
+"Įvyko klaida. Jei bandote prisijungti prie „MiTail Mini“, įsitikinkite, kad "
+"jis įjungtas ir arti šio įrenginio."
 
 #: gearimplementations/GearMitailMini.cpp:541
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr ""
+msgstr "„MiTail Mini“ nutraukė ryšį."
 
 #: gearimplementations/GearMitailMini.cpp:545
 msgctxt ""
@@ -827,6 +1001,8 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Nepavyko prisijungti prie „MiTail Mini“. Bandykite dar kartą (gal "
+"priartinkite?)"
 
 #: gearimplementations/GearMitailMini.cpp:580
 msgctxt ""
@@ -836,111 +1012,113 @@ msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
+"„MiTail Mini“ nutraukė ryšį, kai buvo išjungtas arba dingęs. Nepamirškite "
+"įkrauti įrangos!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr ""
+msgstr "Dukart paspausti"
 
 #: GestureDetectorModel.cpp:274
 msgctxt "The name of a sensor"
 msgid "Hover"
-msgstr ""
+msgstr "Pleventi"
 
 #: GestureDetectorModel.cpp:275
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr ""
+msgstr "Laisvas kritimas"
 
 #: GestureDetectorModel.cpp:276
 msgctxt "The name of a sensor"
 msgid "Landed"
-msgstr ""
+msgstr "Nusileido"
 
 #: GestureDetectorModel.cpp:277
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
-msgstr ""
+msgstr "Viršelio gestas"
 
 #: GestureDetectorModel.cpp:278
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr ""
+msgstr "Purtymo gestas"
 
 #: GestureDetectorModel.cpp:279
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr ""
+msgstr "Trankymo gestas"
 
 #: GestureDetectorModel.cpp:280
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr ""
+msgstr "Plakimo gestas"
 
 #: GestureDetectorModel.cpp:281
 msgctxt "The name of a sensor"
 msgid "Shake Left"
-msgstr ""
+msgstr "Pakratyti kairėn"
 
 #: GestureDetectorModel.cpp:282
 msgctxt "The name of a sensor"
 msgid "Shake Right"
-msgstr ""
+msgstr "Pakratyti dešinėn"
 
 #: GestureDetectorModel.cpp:283
 msgctxt "The name of a sensor"
 msgid "Shake Up"
-msgstr ""
+msgstr "Pakratyti aukštyn"
 
 #: GestureDetectorModel.cpp:284
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr ""
+msgstr "Pakratyti žemyn"
 
 #: GestureDetectorModel.cpp:285
 msgctxt "The name of a sensor"
 msgid "Twist Left"
-msgstr ""
+msgstr "Pasukti į kairę"
 
 #: GestureDetectorModel.cpp:286
 msgctxt "The name of a sensor"
 msgid "Twist Right"
-msgstr ""
+msgstr "Pasukti į dešinę"
 
 #: GestureDetectorModel.cpp:287
 msgctxt "The name of a sensor"
 msgid "Pick Up"
-msgstr ""
+msgstr "Paimti"
 
 #: GestureDetectorModel.cpp:288
 msgctxt "The name of a sensor"
 msgid "Turn Over"
-msgstr ""
+msgstr "Apversti"
 
 #: GestureDetectorModel.cpp:289
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr ""
+msgstr "Pradėti vaikščioti"
 
 #: GestureDetectorModel.cpp:290
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr ""
+msgstr "Sustoti vaikščioti"
 
 #: GestureDetectorModel.cpp:291
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr ""
+msgstr "Žingsnis aptiktas"
 
 #: GestureDetectorModel.cpp:292
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr ""
+msgstr "Aptiktas lyginis žingsnis"
 
 #: GestureDetectorModel.cpp:293
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr ""
+msgstr "Aptiktas nelyginis žingsnis"
 
 #: GestureDetectorModel.cpp:305
 msgctxt ""
@@ -951,39 +1129,43 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Išjungtas %1 aptikimas po vienos valandos. Visai animatroninei įrangai "
+"reikia pailsėti po ilgo naudojimo. Perskaitykite mūsų atsakingo vilkimo "
+"vadovą nustatymuose, kad sužinotumėte, kaip išlaikyti savo įrangą sveiką."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
 "A label which describes the hardware revision of the connected gear, when "
 "only one item is connected"
 msgid "The connected gear is version %1"
-msgstr ""
+msgstr "Prijungta įranga yra %1 versija"
 
 #: qml/AboutPage.qml:38
 msgctxt ""
 "A label which describes the hardware revision of a piece of connected gear, "
 "when more than one item is connected"
 msgid "The gear named %1 is version %2"
-msgstr ""
+msgstr "Įranga, pavadinta %1, yra %2 versija"
 
 #: qml/AlarmList.qml:29
 msgctxt "Title of the page which lists the alarms the user has set"
 msgid "Alarms"
-msgstr ""
+msgstr "Signalizacijos"
 
 #: qml/AlarmList.qml:33
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr ""
+msgstr "Pridėti naują signalą"
 
 #: qml/AlarmList.qml:46
 msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
-msgstr ""
+msgstr "Pasirinkti kitą pavadinimą"
 
 #: qml/AlarmList.qml:47
+#, fuzzy
 msgctxt ""
 "Main text for a message box warning the user an alarm with the chosen name "
 "already exists"
@@ -993,13 +1175,16 @@ msgid ""
 "\n"
 "Please select another name for the alarm."
 msgstr ""
+"Nepavyko pridėti signalo, nes jau turime signalą tokiu pačiu pavadinimu.\n"
+"\n"
+"Pasirinkite kitą signalo pavadinimą."
 
 #: qml/AlarmList.qml:51
 msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr ""
+msgstr "Signalas buvo pašalintas"
 
 #: qml/AlarmList.qml:52
 msgctxt ""
@@ -1009,37 +1194,39 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
+"Nepavyko rasti signalo pavadinimu '%1'. Galbūt kitas programos egzempliorius "
+"jį pašalino."
 
 #: qml/AlarmList.qml:82
 msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
-msgstr ""
+msgstr "Redaguoti signalo komandas"
 
 #: qml/AlarmList.qml:91
 msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr ""
+msgstr "Nustatyti laiką iki signalo"
 
 #: qml/AlarmList.qml:113
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
-msgstr ""
+msgstr "Ištrinti šį signalą"
 
 #: qml/AlarmList.qml:117
 msgctxt ""
 "Title for a message box which allows the user to delete a specific alarm"
 msgid "Remove the Alarm"
-msgstr ""
+msgstr "Pašalinti ši signalą"
 
 #: qml/AlarmList.qml:118
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
-msgstr ""
+msgstr "Ar tikrai norite pašalinti signalą '% 1'?"
 
 #: qml/AlarmList.qml:137
 msgctxt ""
@@ -1048,6 +1235,8 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
+"Čia nustatykite signalą. Pasirinkite signalo datą ir laiką, tada pridėkite "
+"vieną ar daugiau judesių, kuriuos norite atlikti, kai paspausite tą laiką."
 
 #: qml/AlarmList.qml:144
 msgctxt ""
@@ -1055,67 +1244,68 @@ msgctxt ""
 "alarm"
 msgid "Enter a name to use for your new alarm and click Create"
 msgstr ""
+"Įveskite pavadinimą, kurį naudosite naujam signalui, ir spustelėkite Sukurti"
 
 #: qml/AlarmList.qml:145
 msgctxt ""
 "Placeholder text for the text box in which the name of a new alarm must be "
 "written"
 msgid "Enter your alarm name here"
-msgstr ""
+msgstr "Įveskite čia savo signalo pavadinimą"
 
 #: qml/AlarmList.qml:146
 msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
-msgstr ""
+msgstr "Sukurti"
 
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
-msgstr ""
+msgstr "Pridėti judesį į sąrašą"
 
 #: qml/BaseCommandListEditor.qml:50
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
-msgstr ""
+msgstr "Pridėti pauzę į sąrašą"
 
 #: qml/BaseCommandListEditor.qml:62
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr ""
+msgstr "Atsipalaidavęs"
 
 #: qml/BaseCommandListEditor.qml:64
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
-msgstr ""
+msgstr "Susijaudinęs"
 
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "Įtemptas"
 
 #: qml/BaseCommandListEditor.qml:68
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
-msgstr ""
+msgstr "Poza"
 
 #: qml/BaseCommandListEditor.qml:70
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr ""
+msgstr "Šviesos"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
-msgstr ""
+msgstr "Po to pridėti komandą"
 
 #: qml/BaseCommandListEditor.qml:192
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
-msgstr ""
+msgstr "Po to pridėti pauzę"
 
 #: qml/BaseCommandListEditor.qml:218
 msgctxt ""
@@ -1125,13 +1315,15 @@ msgid ""
 "<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
 "cooldown: %3 seconds</small>"
 msgstr ""
+"<strong>%1</strong><br/><small>%2 sekundės</small><br/><small>Papildomas "
+"atvėsimas: %3 sekundės</small>"
 
 #: qml/BaseCommandListEditor.qml:219
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
-msgstr ""
+msgstr "<strong>%1</strong><br/><small>%2 sekundės</small>"
 
 #: qml/BaseCommandListEditor.qml:239
 msgctxt "Description for the Command List Editor"
@@ -1141,138 +1333,143 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
+"Tai yra jūsų komandų sąrašas. Tai gali apimti ir judesius, ir švytėjimą, ir "
+"pauzes. Patarimas: norėdami pridėti naują komandą po komanda, kurią jau "
+"turite sąraše, spustelėkite pliuso piktogramą virš to įrašo kaupiamosios "
+"laiko žymos ir pasirinkite vieną iš meniu parinkčių."
 
 #: qml/BaseCommandListEditor.qml:290
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bendra trukmė: %1 sekundė"
+msgstr[1] "Bendra trukmė: 1% sekundės"
+msgstr[2] "Bendra trukmė: %1 sekundės"
 
 #: qml/BaseMovesComponent.qml:206
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
-msgstr ""
+msgstr "Siųsti kur?"
 
 #: qml/BaseMovesComponent.qml:211
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr ""
+msgstr "Iš žemiau esančio sąrašo pasirinkite, kur norite siųsti komandą."
 
 #: qml/BaseMovesComponent.qml:265
 msgctxt ""
 "Label for the checkbox which allows the user to remember the send to all "
 "devices option when selecting a command"
 msgid "Always Send To All"
-msgstr ""
+msgstr "Visada siųsti visiems"
 
 #: qml/BaseMovesComponent.qml:274
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
-msgstr ""
+msgstr "Siųsti pasirinktam"
 
 #: qml/BaseMovesComponent.qml:283
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
-msgstr ""
+msgstr "Išsiųsti visiems"
 
 #: qml/CommandPausePicker.qml:43
 msgctxt ""
 "Heading for an overlay for picking the duration of a pause in the command "
 "list"
 msgid "Pick the duration of your pause"
-msgstr ""
+msgstr "Pasirinkite pauzės trukmę"
 
 #: qml/CommandPausePicker.qml:58
 msgctxt ""
 "A label which describes the slider for the duration of a pause, in the "
 "overlay for picking the duration of a pause, in a command list"
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 sekundės"
 
 #: qml/CommandPausePicker.qml:62
 msgctxt ""
 "Button for an overlay for picking the duration of a pause in the command list"
 msgid "Add this pause"
-msgstr ""
+msgstr "Pridėti šią pauzę"
 
 #: qml/ConnectToTail.qml:30
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr ""
+msgstr "Prijungti prie įrangos"
 
 #: qml/ConnectToTail.qml:36
 msgctxt ""
 "Button for the action of disconnecting from all currently connected devices, "
 "in the popup for connecting to devices"
 msgid "Disconnect All"
-msgstr ""
+msgstr "Atjungti visus"
 
 #: qml/ConnectToTail.qml:51
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr ""
+msgstr "Prijunkti visus"
 
 #: qml/ConnectToTail.qml:100
 msgctxt ""
 "A label in the prompt for connecting to a device showing that the device is "
 "currently connecting"
 msgid "Connecting..."
-msgstr ""
+msgstr "Jungiamasi..."
 
 #: qml/ConnectToTail.qml:102
 msgctxt ""
 "Button for the action of disconnecting a device, in the prompt for "
 "connecting a device"
 msgid "Disconnect"
-msgstr ""
+msgstr "Atsijungti"
 
 #: qml/ConnectToTail.qml:103
 msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
 msgid "Connect"
-msgstr ""
+msgstr "Prisijungti"
 
 #: qml/DatePicker.qml:49
 msgctxt "Title for the date picker"
 msgid "Pick A Date"
-msgstr ""
+msgstr "Pasirinkti datą"
 
 #: qml/DatePicker.qml:241
 msgctxt "Button for selecting the date of today, in a date picker"
 msgid "Today"
-msgstr ""
+msgstr "Šiandien"
 
 #: qml/DatePicker.qml:248
 msgctxt "Button for cancelling the selection of a date, in a date picker"
 msgid "Cancel"
-msgstr ""
+msgstr "Atšaukti"
 
 #: qml/DatePicker.qml:255
 msgctxt "Button for confirming the selection of a date, in a date picker"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: qml/DeveloperModePage.qml:27
 msgctxt "Header for the Developer Mode page"
 msgid "Developer Mode"
-msgstr ""
+msgstr "Kūrėjo režimas"
 
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr ""
+msgstr "MAKSIMALUS BLIZGESYS"
 
 #: qml/DisconnectOptions.qml:36
 msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr ""
+msgstr "Atsijungti?"
 
 #: qml/DisconnectOptions.qml:44
 msgctxt ""
@@ -1281,15 +1478,16 @@ msgctxt ""
 msgid "Please select how you would like to disconnect from %2."
 msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pasirinkite, kaip norite atsijungti nuo %2."
+msgstr[1] "Pasirinkite, kaip norite atsijungti nuo %1 įrenginių."
+msgstr[2] "Pasirinkite, kaip norite atsijungti nuo %1 įrenginių."
 
 #: qml/DisconnectOptions.qml:59
 msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Naudokite įrangą be telefono"
 
 #: qml/DisconnectOptions.qml:88
 msgctxt ""
@@ -1300,6 +1498,10 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
+"Pasirinkite šią parinktį, kad nustatytumėte režimą Be telefono ir "
+"atsijungtumėte, kad galėtumėte palikti telefoną išjungtą. Tai veikia kaip "
+"paprastas atsitiktinis režimas, tačiau be telefono, kad jį valdytų. (Patogu, "
+"jei apsirengiate ir neturite kur dėti telefono)"
 
 #: qml/DisconnectOptions.qml:111
 msgctxt ""
@@ -1309,6 +1511,8 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
+"Telefono režimas lauks nuo %1 iki %2 sekundžių prieš pasirinkdamas kitą "
+"žingsnį."
 
 #: qml/DisconnectOptions.qml:131
 msgctxt ""
@@ -1316,19 +1520,20 @@ msgctxt ""
 "Phone mode is fully activated"
 msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
 msgstr ""
+"Telefono režimas lauks %1 minutę(s) prieš pasirinkdamas pirmąjį žingsnį."
 
 #: qml/DisconnectOptions.qml:142
 msgctxt ""
 "Label for the button in the disconnection options popup which puts the gear "
 "into autonomous, or no phone, mode"
 msgid "Engage No Phone Mode"
-msgstr ""
+msgstr "Įjunkti režimą be telefono"
 
 #: qml/DisconnectOptions.qml:179
 msgctxt ""
 "Label above the section that lets the user simply disconnect from the gear"
 msgid "Just Disconnect"
-msgstr ""
+msgstr "Tiesiog atsijungti"
 
 #: qml/DisconnectOptions.qml:197
 msgctxt ""
@@ -1338,20 +1543,22 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
+"Pasirinkite šią parinktį, jei norite atsijungti nuo įrangos jos neišjungę ("
+"patogu, jei norite įkrauti)."
 
 #: qml/DisconnectOptions.qml:200
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Disconnect"
-msgstr ""
+msgstr "Atsijungti"
 
 #: qml/DisconnectOptions.qml:224
 msgctxt ""
 "Header label for the section which lets you tell the gear to shut down "
 "before disconnecting"
 msgid "Disconnect and Shut Down"
-msgstr ""
+msgstr "Atsijungti ir išjungti"
 
 #: qml/DisconnectOptions.qml:242
 msgctxt ""
@@ -1360,25 +1567,27 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
+"Pasirinkite šią parinktį, kad išjungtumėte įrangą, o ne tiesiog atjungtumėte "
+"(patogu, jei nedelsdami atidėsite)"
 
 #: qml/DisconnectOptions.qml:245
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Shut Down Gear"
-msgstr ""
+msgstr "Išjunkite įrangą"
 
 #: qml/EarPoses.qml:27
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr ""
+msgstr "Ausų pozos"
 
 #: qml/EarPoses.qml:30
 msgctxt ""
 "Button for returning the EarGear to the home position, on the page for "
 "selecting a pose for the EarGear"
 msgid "Home Position"
-msgstr ""
+msgstr "Pradinė padėtis"
 
 #: qml/EarPoses.qml:39
 msgctxt "Description for the page for selecting a pose for the EarGear"
@@ -1387,65 +1596,69 @@ msgid ""
 "to send them off to any of your connected devices! If you have more than one "
 "connected, the little coloured dots show which you can send that pose to."
 msgstr ""
+"Žemiau pateiktame sąraše rodomos visos pozos, kurias galima naudoti jūsų "
+"įrangai. Bakstelėkite bet kurį iš jų, kad išsiųstumėte juos į bet kurį "
+"prijungtą įrenginį! Jei esate prisijungę daugiau nei vieną, maži spalvoti "
+"taškeliai rodo, kam galite siųsti tą pozą."
 
 #: qml/EarPoses.qml:42
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
 msgid "Be Calm"
-msgstr ""
+msgstr "Nesijaudinti"
 
 #: qml/EarPoses.qml:50
 msgctxt "Label for the button for setting EarGear moves to run faster"
 msgid "Be Excited"
-msgstr ""
+msgstr "Susijaudinti"
 
 #: qml/EarPoses.qml:64
 msgctxt ""
 "Heading for the list of poses, on the page for selecting a pose for the "
 "EarGear"
 msgid "Poses"
-msgstr ""
+msgstr "Pozos"
 
 #: qml/GearGestures.qml:28
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Įrangos gestai"
 
 #: qml/GearGestures.qml:31
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when the controlling device/phone detects a gesture"
 msgid "Home Position"
-msgstr ""
+msgstr "Pradinė padėtis"
 
 #: qml/GearGestures.qml:46
 msgctxt ""
 "A short name for the relaxed moves category shown on the gestures page"
 msgid "Relaxed"
-msgstr ""
+msgstr "Atsipalaidavęs"
 
 #: qml/GearGestures.qml:48
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr ""
+msgstr "Susijaudinęs"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
 msgid "Tense"
-msgstr ""
+msgstr "Įtemptas"
 
 #: qml/GearGestures.qml:52
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
-msgstr ""
+msgstr "Poza"
 
 #: qml/GearGestures.qml:54
 msgctxt "A short name for the lights category shown on the gestures page"
 msgid "Lights"
-msgstr ""
+msgstr "Šviesos"
 
 #: qml/GearGestures.qml:62
 msgctxt ""
@@ -1458,6 +1671,11 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
+"Įjunkite vieną iš toliau pateiktų jutiklių, kad jūsų įranga reaguotų į "
+"gestus, atliekamus šiame įrenginyje, jei nevyksta nieko kito (ty nėra "
+"dabartinių komandų ir tuščia komandų eilė). Pavyzdžiui, pakelkite ausis, kai "
+"prietaisas atpažins, kad jis buvo pakeltas, arba pradėkite žvilgtelėti, kai "
+"nustato, kad žengėte žingsnį."
 
 #: qml/GearGestures.qml:84
 msgctxt ""
@@ -1465,7 +1683,7 @@ msgctxt ""
 "on the page for selecting what should happen when the controlling device/"
 "phone detects a gesture"
 msgid "Multiple Gestures"
-msgstr ""
+msgstr "Keli gestai"
 
 #: qml/GearGestures.qml:85
 msgctxt ""
@@ -1479,6 +1697,11 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
+"Vienu metu bandote įjungti daugiau nei vieną gestą. Kartais tai sukels "
+"problemų, visų pirma dėl to, kad bus sudėtinga valdyti (pavyzdžiui, įjungus "
+"ir vaikščiojimą, ir purtymą, gali būti aptikti abu). Jei esate tikri, kad "
+"norite tai padaryti, bakstelėkite Gerai arba bakstelėkite Atšaukti, kad "
+"neįjungtumėte šio gesto."
 
 #: qml/GearGestures.qml:94
 msgctxt ""
@@ -1486,13 +1709,13 @@ msgctxt ""
 "the page for selecting what should happen when the controlling device/phone "
 "detects a gesture"
 msgid "Show On Welcome Page"
-msgstr ""
+msgstr "Rodyti sveikinimo puslapyje"
 
 #: qml/GearGestures.qml:130
 msgctxt ""
 "Command for returning any gear to its home position, on the gestures page"
 msgid "Home Position"
-msgstr ""
+msgstr "Pradinė padėtis"
 
 #: qml/GearGestures.qml:132
 msgctxt ""
@@ -1500,40 +1723,40 @@ msgctxt ""
 "been selected, on the page for selecting what should happen when the "
 "controlling device/phone detects a gesture"
 msgid "(no command)"
-msgstr ""
+msgstr "(nėra komandos)"
 
 #: qml/IdleModePage.qml:26
 msgctxt "Title for the Casual Mode settings page"
 msgid "Casual Mode Categories"
-msgstr ""
+msgstr "Atsitiktinio režimo kategorijos"
 
 #: qml/IdleModePage.qml:46
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Casual Mode "
 "settings page"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Ramus ir atsipalaidavęs"
 
 #: qml/IdleModePage.qml:51
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Casual Mode "
 "settings page"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Greitas ir susijaudinęs"
 
 #: qml/IdleModePage.qml:56
 msgctxt ""
 "Description for the category for the Tense Moveset, on the Casual Mode "
 "settings page"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Nusivylęs ir įsitempęs"
 
 #: qml/IdleModePage.qml:61
 msgctxt ""
 "Description for the category for the LED Patterns, on the Casual Mode "
 "settings page"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED raštai"
 
 #: qml/IdleModePage.qml:72
 msgctxt ""
@@ -1543,33 +1766,35 @@ msgid ""
 "This is where you set the pauses in between moves, as well as the families "
 "of moves that can be called upon."
 msgstr ""
+"Čia galite nustatyti pauzes tarp judesių, taip pat judesių šeimas, kurias "
+"galima atlikti."
 
 #: qml/IdleModePage.qml:74
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the Casual Mode "
 "settings page"
 msgid "Enable Casual Mode"
-msgstr ""
+msgstr "Įgalinti atsitiktinį režimą"
 
 #: qml/IdlePauseRangePicker.qml:30
 msgctxt ""
 "Label for selecting the range of pauses in between moves in Casual Mode"
 msgid "Range of pause between moves in seconds"
-msgstr ""
+msgstr "Pauzės intervalas tarp judesių sekundėmis"
 
 #: qml/ListenSettings.qml:28
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a sound based event"
 msgid "Listening Settings"
-msgstr ""
+msgstr "Klausymosi nustatymai"
 
 #: qml/ListenSettings.qml:31
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a sound based event"
 msgid "Home Position"
-msgstr ""
+msgstr "Pradinė padėtis"
 
 #: qml/ListenSettings.qml:43
 msgctxt ""
@@ -1583,6 +1808,12 @@ msgid ""
 "to if you have more than one (otherwise we'll just send it to itself). If "
 "you don't select any, the gear will just pick something to do on its own."
 msgstr ""
+"Įjunkite garso aptikimą, kad jūsų įranga reaguotų į garsus penkias minutes "
+"vienu metu, pažymėdami varnelę šalia įrangos, kurio garsų norite klausytis, "
+"pavadinimo. Jei norite nuspręsti, ką daryti, kai aptinkamas tam tikras garso "
+"lygis, pasirinkite judesius ir į kokią įrangą norite siųsti tą judesį, jei "
+"turite daugiau nei vieną (kitaip mes tiesiog išsiųsime jį pačiam). Jei "
+"nepasirinksite jokios, pavara tiesiog pasirinks ką nors padaryti pati."
 
 #: qml/ListenSettings.qml:111
 msgctxt ""
@@ -1590,14 +1821,15 @@ msgctxt ""
 "been selected, on the page for selecting what should happen when a piece of "
 "gear detects a sound based event"
 msgid "(no command)"
-msgstr ""
+msgstr "(nėra komandos)"
 
 #: qml/main.qml:62
 msgctxt "Title of the application"
 msgid "Crumpet"
-msgstr ""
+msgstr "Crumpet"
 
 #: qml/main.qml:110
+#, fuzzy
 msgctxt ""
 "Text for the notification upon successfully connecting to the final device, "
 "after connecting to multiple devices simultaneously, informing the user that "
@@ -1606,252 +1838,258 @@ msgid ""
 "Connected successfully!\n"
 "Rename gear by tapping their name"
 msgstr ""
+"Prisijungta sėkmingai!\n"
+"Pervardykite įrangą paliesdami jos pavadinimą"
 
 #: qml/main.qml:113
 msgctxt "Text for the notification upon connecting successfully to a device"
 msgid "Connected successfully!"
-msgstr ""
+msgstr "Prisijungta sėkmingai!"
 
 #: qml/main.qml:137
 msgctxt "Title for the warning for having Bluetooth disabled"
 msgid "Warning"
-msgstr ""
+msgstr "Įspėjimas"
 
 #: qml/main.qml:137
 msgctxt "Message for the warning for having Bluetooth disabled"
 msgid "Bluetooth is disabled"
-msgstr ""
+msgstr "Bluetooth išjungtas"
 
 #: qml/main.qml:139
 msgctxt "Title for the warning for not having detected any Bluetooth devices"
 msgid "Warning"
-msgstr ""
+msgstr "Įspėjimas"
 
 #: qml/main.qml:139
 msgctxt "Message for the warning for not having detected any Bluetooth devices"
 msgid "No Bluetooth Device"
-msgstr ""
+msgstr "Nėra Bluetooth įrenginio"
 
 #: qml/main.qml:152
 msgctxt "Title for the popup for having enabled Developer Mode"
 msgid "Developer mode"
-msgstr ""
+msgstr "Kūrėjo režimas"
 
 #: qml/main.qml:152
 msgctxt "Message for the popup for having enabled Developer Mode"
 msgid "Developer mode is enabled"
-msgstr ""
+msgstr "Kūrėjo režimas įjungtas"
 
 #: qml/main.qml:154
 msgctxt "Title for the popup for having disabled Developer Mode"
 msgid "Developer mode"
-msgstr ""
+msgstr "Kūrėjo režimas"
 
 #: qml/main.qml:154
 msgctxt "Message for the popup for having disabled Developer Mode"
 msgid "Developer mode is disabled"
-msgstr ""
+msgstr "Kūrėjo režimas išjungtas"
 
 #: qml/main.qml:159
 msgctxt "Title for the popup for getting a timeout for Casual Mode"
 msgid "Casual Mode is Off"
-msgstr ""
+msgstr "Atsitiktinis režimas išjungtas"
 
 #: qml/main.qml:159
 msgctxt "Message for the popup for getting a timeout for Casual Mode"
 msgid "Maybe its time for a rest... Let your tail or ears have a power-nap."
-msgstr ""
+msgstr "Galbūt laikas pailsėti... Tegul jūsų uodega ar ausys nusnūsta."
 
 #: qml/main.qml:198
 msgctxt "Button for opening the Crumpet page, from the landing page"
 msgid "Crumpet"
-msgstr ""
+msgstr "Crumpet"
 
 #: qml/main.qml:207
 msgctxt "Button for opening the Alarm page, from the landing page"
 msgid "Alarm"
-msgstr ""
+msgstr "Signalizacija"
 
 #: qml/main.qml:218
 msgctxt "Button for opening the Move List page, from the landing page"
 msgid "Move Lists"
-msgstr ""
+msgstr "Perkelti sąrašus"
 
 #: qml/main.qml:229
 msgctxt "Button for opening the Tail Gear Moves page, from the landing page"
 msgid "Moves"
-msgstr ""
+msgstr "Judesiai"
 
 #: qml/main.qml:239
 msgctxt "Button for opening the EarGear Poses page, from the landing page"
 msgid "Ear Poses"
-msgstr ""
+msgstr "Ausų pozos"
 
 #: qml/main.qml:249
 msgctxt "Button for opening the Glow Tips page, from the landing page"
 msgid "Glow Tips"
-msgstr ""
+msgstr "Švytintys antgaliai"
 
 #: qml/main.qml:259
 msgctxt ""
 "Button for opening the page for setting up the Casual Mode, from the landing "
 "page"
 msgid "Casual Mode Settings"
-msgstr ""
+msgstr "Įprasto režimo nustatymai"
 
 #: qml/main.qml:269
 msgctxt "Button for opening the Gear Gestures page, from the landing page"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Įrangos gestai"
 
 #: qml/main.qml:279
 msgctxt "Button for opening the Developer Mode page, from the landing page"
 msgid "Developer Mode"
-msgstr ""
+msgstr "Kūrėjo režimas"
 
 #: qml/main.qml:295
 msgctxt "Button for opening the Settings Page, from the landing page"
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #: qml/main.qml:307
 msgctxt "Button for opening the About Us page, from the landing page"
 msgid "About"
-msgstr ""
+msgstr "Apie"
 
 #: qml/main.qml:316
 msgctxt ""
 "Button for opening the TailCo website in a browser, from the landing page"
 msgid "TheTailCompany.com"
-msgstr ""
+msgstr "TheTailCompany.com"
 
 #: qml/main.qml:375
 msgctxt "Title for the confirmation popup for disconnecting your gear"
 msgid "Your gear is currently connected"
-msgstr ""
+msgstr "Šiuo metu jūsų įranga prijungta"
 
 #: qml/main.qml:376
+#, fuzzy
 msgctxt "Message for the confirmation popup for disconnecting your gear"
 msgid ""
 "You are currently connected to some of your gear.\n"
 "\n"
 "Are you sure that you want to disconnect and quit?"
 msgstr ""
+"Šiuo metu esate prisijungę prie tam tikros įrangos.\n"
+"\n"
+"Ar tikrai norite atsijungti ir išeiti?"
 
 #: qml/main.qml:459
 msgctxt "Description for the prompt for entering a name for your Gear"
 msgid "Enter a name to use for your gear"
-msgstr ""
+msgstr "Įveskite savo įrangos pavadinimą"
 
 #: qml/main.qml:460
 msgctxt "Placeholder text for the prompt for entering a name for your Gear"
 msgid "Enter the new name for %1 here"
-msgstr ""
+msgstr "Čia įveskite naują %1 pavadinimą"
 
 #: qml/main.qml:461
 msgctxt ""
 "Button for confirming the save of your new name, for the prompt for entering "
 "a name for your Gear"
 msgid "Save"
-msgstr ""
+msgstr "Išsaugoti"
 
 #: qml/MessageBox.qml:49
 msgctxt "Confirmation button for a generic message"
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: qml/MessageBox.qml:68
 msgctxt "Cancel button for a generic message"
 msgid "Cancel"
-msgstr ""
+msgstr "Atšaukti"
 
 #: qml/MoveListEditor.qml:32
 msgctxt ""
 "Label for the button for running a Move List, on the Move List Editor page"
 msgid "Run Move List"
-msgstr ""
+msgstr "Vykdyti judėjimo sąrašą"
 
 #: qml/MoveListEditor.qml:35
 msgctxt ""
 "Heading for the confirmation prompt for running a Move List, on the Move "
 "List Editor page"
 msgid "Run this list?"
-msgstr ""
+msgstr "Vykdyti šį sąrašą?"
 
 #: qml/MoveListEditor.qml:36
 msgctxt ""
 "Message for the confirmation prompt for running a Move List, on the Move "
 "List Editor page"
 msgid "Do you want to run this list?"
-msgstr ""
+msgstr "Ar norite paleisti šį sąrašą?"
 
 #: qml/MoveListEditor.qml:51
 msgctxt ""
 "Header for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Remove Move List Entry?"
-msgstr ""
+msgstr "Pašalinti perkėlimo sąrašo įrašą?"
 
 #: qml/MoveListEditor.qml:52
 msgctxt ""
 "Message for the confirmation prompt for removing a Move List Entry, on the "
 "Move List Editor page"
 msgid "Are you sure that you want to remove this entry from your move list?"
-msgstr ""
+msgstr "Ar tikrai norite pašalinti šį įrašą iš savo perkėlimo sąrašo?"
 
 #: qml/MoveLists.qml:28
 msgctxt "Heading for the page for viewing Move Lists"
 msgid "Move Lists"
-msgstr ""
+msgstr "Perkelti sąrašus"
 
 #: qml/MoveLists.qml:32
 msgctxt ""
 "Label for the button for adding a new Move List, on the page for viewing "
 "Move Lists"
 msgid "Add New Move List"
-msgstr ""
+msgstr "Pridėti naują judėsių sąrašą"
 
 #: qml/MoveLists.qml:50
 msgctxt ""
 "Heading for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Run this list?"
-msgstr ""
+msgstr "Vykdyti šį sąrašą?"
 
 #: qml/MoveLists.qml:51
 msgctxt ""
 "Message for the prompt for confirming the action of running a list, on the "
 "page for viewing Move Lists"
 msgid "Do you want to run the list %1?"
-msgstr ""
+msgstr "Ar norite paleisti sąrašą %1?"
 
 #: qml/MoveLists.qml:58
 msgctxt ""
 "Label for the button for editing a move list, on the page for viewing Move "
 "Lists"
 msgid "Edit Move List"
-msgstr ""
+msgstr "Redaguoti judesių sąrašą"
 
 #: qml/MoveLists.qml:67
 msgctxt ""
 "Label for the button for deleting a move list, on the page for viewing Move "
 "Lists"
 msgid "Delete this Move List"
-msgstr ""
+msgstr "Ištrinkite šį judesių sąrašą"
 
 #: qml/MoveLists.qml:71
 msgctxt ""
 "Heading for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Remove the Move List"
-msgstr ""
+msgstr "Pašalinti judesių sąrašą"
 
 #: qml/MoveLists.qml:72
 msgctxt ""
 "Message for the prompt for confirming the action of deleting a list, on the "
 "page for viewing Move Lists"
 msgid "Are you sure that you want to remove the Move List '%1'?"
-msgstr ""
+msgstr "Ar tikrai norite pašalinti judesių sąrašą '% 1'?"
 
 #: qml/MoveLists.qml:89
 msgctxt "Description for the page for viewing Move Lists"
@@ -1860,6 +2098,10 @@ msgid ""
 "you have created, tap it and pick OK. To perform actions on the ones you've "
 "created, like editing or even removing them entirely, swipe left on the item."
 msgstr ""
+"Sukurkite judesių, švytėjimo ir pauzių sąrašus, kuriuos galite siųsti į savo "
+"įrangą. Norėdami išsiųsti sukurtą sąrašą, bakstelėkite jį ir pasirinkite "
+"Gerai. Norėdami atlikti veiksmus su sukurtais, pvz., redaguoti ar net "
+"visiškai juos pašalinti, perbraukite elementu kairėn."
 
 #: qml/MoveLists.qml:96
 msgctxt ""
@@ -1867,27 +2109,29 @@ msgctxt ""
 "viewing Move Lists"
 msgid "Enter a name to use for your new move list and click Create"
 msgstr ""
+"Įveskite pavadinimą, kurį naudosite naujam judesių sąrašui, ir spustelėkite "
+"Sukurti"
 
 #: qml/MoveLists.qml:97
 msgctxt ""
 "Placeholder text for the textfield for the prompt for giving a name to a "
 "move list, on the page for viewing Move Lists"
 msgid "Enter your move list name here"
-msgstr ""
+msgstr "Čia įveskite savo judesių sąrašo pavadinimą"
 
 #: qml/MoveLists.qml:98
 msgctxt ""
 "Confirmating button for the prompt for giving a name to a move list, on the "
 "page for viewing Move Lists"
 msgid "Create"
-msgstr ""
+msgstr "Sukurti"
 
 #: qml/MoveLists.qml:102
 msgctxt ""
 "Header for the warning that a name is already in use, for the prompt for "
 "giving a name to a move list, on the page for viewing Move Lists"
 msgid "Name Already Used"
-msgstr ""
+msgstr "Pavadinimas jau buvo naudotas"
 
 #: qml/MoveLists.qml:103
 msgctxt ""
@@ -1897,36 +2141,39 @@ msgid ""
 "You already have a move list with the name %1. Please pick another name, as "
 "that won't work."
 msgstr ""
+"Jau turite judesių sąrašą pavadinimu %1. Pasirinkite kitą pavadinimą, nes "
+"jis neveiks."
 
 #: qml/NamePicker.qml:42
 msgctxt "Text header for picking a name"
 msgid "Pick a name"
-msgstr ""
+msgstr "Pasirinkite pavadinimą"
 
 #: qml/NotConnectedCard.qml:38
 msgctxt ""
 "Header warning for missing scan permissions, for the gear connecting card"
 msgid "Let us look for your gear"
-msgstr ""
+msgstr "Leiskite mums paieškoti jūsų įrangos"
 
 #: qml/NotConnectedCard.qml:41
 msgctxt "Header for whilst scanning, for the gear connecting card"
 msgid "Searching for gear..."
-msgstr ""
+msgstr "Ieškoma įranga..."
 
 #: qml/NotConnectedCard.qml:45
 msgctxt ""
 "Header warning that no gear has been found, for the gear connecting card"
 msgid "No gear found"
-msgstr ""
+msgstr "Įranga nerasta"
 
 #: qml/NotConnectedCard.qml:48
 msgctxt ""
 "Header notifying that gear has been found, for the gear connecting card"
 msgid "One piece of gear available"
 msgid_plural "Multiple pieces of gear available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Galimas vienas įrenginys"
+msgstr[1] "Galimi keli įrenginiai"
+msgstr[2] "Galimi keli įrenginiai"
 
 #. i18nc("Message warning for missing scan permissions, for the gear connecting card", "To be able to find your gear, we need you to grant permission to scan for nearby devices. Clicking the button below will show you a dialog that you need to press allow on.");
 #. }
@@ -1941,13 +2188,17 @@ msgid ""
 "press allow on. We do not use this information for anything else (feel free "
 "to get in touch if you want proof of this)."
 msgstr ""
+"Kad galėtume rasti jūsų įrangą, turime suteikti leidimą pasiekti jūsų vietą. "
+"Spustelėjus toliau esantį mygtuką, bus parodytas dialogo langas, kurį "
+"turėsite paspausti leisti. Mes nenaudojame šios informacijos niekam kitam ("
+"jei norite tai įrodyti, susisiekite su mumis)."
 
 #: qml/NotConnectedCard.qml:83
 msgctxt ""
 "Message whilst scanning warning that no gear has been found, for the gear "
 "connecting card"
 msgid "None found yet..."
-msgstr ""
+msgstr "Dar nerasta..."
 
 #: qml/NotConnectedCard.qml:86
 msgctxt ""
@@ -1959,7 +2210,14 @@ msgid_plural ""
 "Found %1 pieces of gear so far. To see them, push \"Show available gear...\" "
 "below."
 msgstr[0] ""
+"Rastas 1 vienetas Įrangos. Tiesiog palaukite arba paspauskite žemiau esantį "
+"mygtuką „Prisijungti“, kad jį valdytumėte."
 msgstr[1] ""
+"Iki šiol rasta %1 įrenginių. Norėdami juos pamatyti, toliau paspauskite „"
+"Rodyti turimą įrangą...“."
+msgstr[2] ""
+"Iki šiol rasta %1 įrenginių. Norėdami juos pamatyti, toliau paspauskite „"
+"Rodyti turimą įrangą...“."
 
 #: qml/NotConnectedCard.qml:91
 msgctxt ""
@@ -1969,6 +2227,8 @@ msgid ""
 "We were unable to find any gear. Please ensure that yours is nearby and "
 "switched on."
 msgstr ""
+"Mums nepavyko rasti jokios įrangos. Įsitikinkite, kad jūsų yra netoliese ir "
+"įjungta."
 
 #: qml/NotConnectedCard.qml:94
 msgctxt ""
@@ -1981,7 +2241,16 @@ msgid_plural ""
 "You are not currently connected to your gear, and we have found %1. Please "
 "push \"Show available gear...\" below to see what is available."
 msgstr[0] ""
+"Šiuo metu nesate prisijungę prie savo įrangos, bet mes žinome vieną. "
+"Norėdami prisijungti prie jo, paspauskite „Prisijungti“."
 msgstr[1] ""
+"Šiuo metu nesate prisijungę prie savo įrangos ir mes radome %1. Paspauskite "
+"žemiau esantį mygtuką „Rodyti turimą įrangą...“, kad pamatytumėte, kas yra "
+"prieinama."
+msgstr[2] ""
+"Šiuo metu nesate prisijungę prie savo įrangos ir mes radome %1. Paspauskite "
+"žemiau esantį mygtuką „Rodyti turimą įrangą...“, kad pamatytumėte, kas yra "
+"prieinama."
 
 #. i18nc("Label for button for opening the settings tab to fix missing scan permissions, for the gear connecting card", "Get Scan Permission...");
 #. }
@@ -1991,41 +2260,41 @@ msgctxt ""
 "Label for button for opening the settings tab to fix missing location "
 "permissions, for the gear connecting card"
 msgid "Get Location Permission..."
-msgstr ""
+msgstr "Gauti vietos leidimą..."
 
 #: qml/NotConnectedCard.qml:112
 msgctxt ""
 "Label for button for getting the missing notifications permission, for the "
 "gear connecting card"
 msgid "Get Notification Permission..."
-msgstr ""
+msgstr "Gauti pranešimo leidimą..."
 
 #: qml/NotConnectedCard.qml:114
 msgctxt ""
 "Label for button for connecting to a specific piece of gear, for the gear "
 "connecting card"
 msgid "Connect to %1"
-msgstr ""
+msgstr "Prisijungti prie %1"
 
 #: qml/NotConnectedCard.qml:116
 msgctxt ""
 "Label for button for showing a list of available gear, for the gear "
 "connecting card"
 msgid "Show available gear..."
-msgstr ""
+msgstr "Rodyti turimą įrangą..."
 
 #: qml/NotConnectedCard.qml:139
 msgctxt ""
 "Label for button which causes the list of available gear to be refreshed, "
 "for the gear connecting card"
 msgid "Look for gear"
-msgstr ""
+msgstr "Ieškoti įrangos"
 
 #: qml/PickACommandSheet.qml:32
 msgctxt ""
 "Heading for the overlay for picking a command, for configuring a move list"
 msgid "Pick a command"
-msgstr ""
+msgstr "Pasirinkti komandą"
 
 #: qml/PickACommandSheet.qml:35
 msgctxt ""
@@ -2035,46 +2304,48 @@ msgid ""
 "The list below shows all the moves and light patterns available to your "
 "gear. Tap any of them to pick that command."
 msgstr ""
+"Žemiau pateiktame sąraše rodomi visi jūsų įrangai prieinami judesiai ir "
+"šviesos modeliai. Bakstelėkite bet kurį iš jų, kad pasirinktumėte tą komandą."
 
 #: qml/PickACommandSheet.qml:44 qml/PickACommandSheet.qml:71
 msgctxt ""
 "Description for the category for the Ear Gear poses, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Poses"
-msgstr ""
+msgstr "Pozos"
 
 #: qml/PickACommandSheet.qml:49 qml/PickACommandSheet.qml:76
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Ramus ir atsipalaidavęs"
 
 #: qml/PickACommandSheet.qml:54 qml/PickACommandSheet.qml:81
 msgctxt ""
 "Description for the category for the Excited Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Greitas ir susijaudinęs"
 
 #: qml/PickACommandSheet.qml:59 qml/PickACommandSheet.qml:86
 msgctxt ""
 "Description for the category for the Tense Moveset, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Nusivylęs ir įsitempęs"
 
 #: qml/PickACommandSheet.qml:64
 msgctxt ""
 "Description for the category for the LED Patterns, on the overlay for "
 "picking a command, for configuring a move list"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED raštai"
 
 #: qml/SettingsCrumpetPicker.qml:26
 msgctxt "Heading for the page for configuring command Sets"
 msgid "Gear Command Sets"
-msgstr ""
+msgstr "Įrangos komandų rinkiniai"
 
 #: qml/SettingsCrumpetPicker.qml:51
 msgctxt ""
@@ -2084,19 +2355,22 @@ msgid ""
 "add new ones, edit them, and remove them. You cannot edit the built-in "
 "lists, but you can duplicate them and then edit those."
 msgstr ""
+"Tai yra visi komandų rinkiniai, kuriuos galite įjungti %1. Galite pridėti "
+"naujų, juos redaguoti ir pašalinti. Negalite redaguoti integruotų sąrašų, "
+"bet galite juos kopijuoti ir tada redaguoti."
 
 #: qml/SettingsCrumpetPicker.qml:84
 msgctxt ""
 "Button for deleting a Command Set, on the page for configuring Command Sets"
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"
 
 #: qml/SettingsCrumpetPicker.qml:88
 msgctxt ""
 "Header for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid "Remove Command Set?"
-msgstr ""
+msgstr "Pašalinti komandų rinkinį?"
 
 #: qml/SettingsCrumpetPicker.qml:89
 msgctxt ""
@@ -2106,33 +2380,35 @@ msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
 msgstr ""
+"Ar tikrai norite pašalinti šį komandų rinkinį? Atminkite, kad to negalima "
+"anuliuoti."
 
 #: qml/SettingsCrumpetPicker.qml:96
 msgctxt ""
 "Button for duplicating a Command Set, on the page for configuring Command "
 "Sets"
 msgid "Duplicate"
-msgstr ""
+msgstr "Dublikuoti"
 
 #: qml/SettingsCrumpetPicker.qml:106
 msgctxt ""
 "Button for editing a Command Set, on the page for configuring Command Sets"
 msgid "Edit Commands"
-msgstr ""
+msgstr "Redaguoti komandas"
 
 #: qml/SettingsCrumpetPicker.qml:119
 msgctxt ""
 "Header for the overlay for editing a Command Set, on the page for "
 "configuring Command Sets"
 msgid "Edit Commands"
-msgstr ""
+msgstr "Redaguoti komandas"
 
 #: qml/SettingsCrumpetPicker.qml:127
 msgctxt ""
 "Button for saving a Command Set, on the overlay for editing a Command Set, "
 "on the page for configuring Command Sets"
 msgid "Save"
-msgstr ""
+msgstr "Išsaugoti"
 
 #: qml/SettingsCrumpetPicker.qml:142
 msgctxt ""
@@ -2142,16 +2418,18 @@ msgid ""
 "(this is where the content of the crumpet file goes,\n"
 "because we'll just have that here for now...)"
 msgstr ""
+"(čia eina crumpet failo turinys,\n"
+"nes kol kas tai tiesiog turėsime čia...)"
 
 #: qml/SettingsPage.qml:31
 msgctxt "Title for the settings page"
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #: qml/SettingsPage.qml:38
 msgctxt "Header for the instruction panel, on the settings page"
 msgid "Instructions"
-msgstr ""
+msgstr "Instrukcijos"
 
 #: qml/SettingsPage.qml:39
 msgctxt "Description for the instruction panel on the settings page"
@@ -2160,37 +2438,40 @@ msgid ""
 "includes instructions on how to wear your tail or ears, along with some nice "
 "graphics showing you how."
 msgstr ""
+"Atsisiųskite ir perskaitykite instrukcijas spustelėdami toliau pateiktą "
+"nuorodą. Tai apima instrukcijas, kaip dėvėti uodegą ar ausis, ir gražią "
+"grafiką, rodančią, kaip tai padaryti."
 
 #: qml/SettingsPage.qml:45
 msgctxt "Label showing all the items underneath are links to a PDF file"
 msgid "Download PDF:"
-msgstr ""
+msgstr "Atsisiųskite PDF:"
 
 #: qml/SettingsPage.qml:49
 msgctxt ""
 "Label for downloading the general guide for safe use of the various gear"
 msgid "Responsible Wagging Guide"
-msgstr ""
+msgstr "Atsakingo vizginimo vadovas"
 
 #: qml/SettingsPage.qml:54
 msgctxt "Label for downloading the instructions for the MiTail"
 msgid "MiTail Instructions"
-msgstr ""
+msgstr "Mitail instrukcijos"
 
 #: qml/SettingsPage.qml:59
 msgctxt "Label for downloading the instructions for the Digitail"
 msgid "Digitail Instructions"
-msgstr ""
+msgstr "Digitail instrukcijos"
 
 #: qml/SettingsPage.qml:64
 msgctxt "Label for downloading the instructions for EarGear"
 msgid "EarGear Instructions"
-msgstr ""
+msgstr "EarGear instrukcijos"
 
 #: qml/SettingsPage.qml:71
 msgctxt "Header for the panel on automatic reconnection, on the settings page"
 msgid "Automatic Reconnection"
-msgstr ""
+msgstr "Automatinis pakartotinis prisijungimas"
 
 #: qml/SettingsPage.qml:72
 msgctxt ""
@@ -2200,20 +2481,23 @@ msgid ""
 "Ticking this option will ensure that the app will attempt to reconnect "
 "automatically when the connection is lost."
 msgstr ""
+"Tam tikromis aplinkybėmis programa gali prarasti ryšį su jūsų įranga. "
+"Pažymėjus šią parinktį, programa bandys automatiškai prisijungti iš naujo, "
+"kai ryšys nutrūks."
 
 #: qml/SettingsPage.qml:74
 msgctxt ""
 "Checkbox for enabling automatic reconnection, on the automatic reconnection "
 "panel in the settings page"
 msgid "Reconnect Automatically"
-msgstr ""
+msgstr "Iš naujo prisijungti automatiškai"
 
 #: qml/SettingsPage.qml:83
 msgctxt ""
 "Header for the panel for whether or not to always send to all connected "
 "devices, on the settings page"
 msgid "Send To All"
-msgstr ""
+msgstr "Išsiųsti visiems"
 
 #: qml/SettingsPage.qml:84
 msgctxt ""
@@ -2225,6 +2509,10 @@ msgid ""
 "gear, or not. Check the box here to make that choice, or to undo the choice "
 "made in the dialogue itself."
 msgstr ""
+"Kai pasirenkate ką nors siųsti į savo įrangą ir vienu metu esate prijungę "
+"daugiau nei vieną, galbūt norėsite visada siųsti į visą įrangą arba ne. "
+"Pažymėkite čia esantį langelį, kad pasirinktumėte arba anuliuotumėte "
+"pasirinkimą, padarytą pačiame dialoge."
 
 #: qml/SettingsPage.qml:86
 msgctxt ""
@@ -2232,12 +2520,12 @@ msgctxt ""
 "devices, on the panel for whether or not to always send to all connected "
 "devices in the settings page"
 msgid "Always Send To All"
-msgstr ""
+msgstr "Visada siųsti visiems"
 
 #: qml/SettingsPage.qml:95
 msgctxt "Header for the panel showing known gear, on the settings page"
 msgid "Known Gear"
-msgstr ""
+msgstr "Žinoma įranga"
 
 #: qml/SettingsPage.qml:96
 msgctxt "Description for the panel showing known gear, on the settings page"
@@ -2248,32 +2536,37 @@ msgid ""
 "name, and even forgetting it. Forgetting it will disconnect (using the Just "
 "Disconnect method) from it, if you are currently connected."
 msgstr ""
+"Toliau pateikiamas įrankių, prie kurių anksčiau buvote prisijungę, sąrašas. "
+"Šį sąrašą galite naudoti norėdami atlikti daugybę veiksmų, pvz., aiškiai "
+"perjungti, ar automatiškai prisijungti prie jo, kai jis randamas, pakeisti "
+"jo pavadinimą ir net pamiršti. Pamiršus jį bus atsijungta (naudojant „Just "
+"Disconnect“ metodą), jei šiuo metu esate prisijungę."
 
 #: qml/SettingsPage.qml:113
 msgctxt ""
 "A toggle for a single piece of gear on the settings page, allowing the user "
 "to change whether to automatically connect to it or not"
 msgid "Connect Automatically To %1"
-msgstr ""
+msgstr "Automatiškai prisijungti prie %1"
 
 #: qml/SettingsPage.qml:124
 msgctxt ""
 "A button on the settings page which allows the user to change the name they "
 "have given a piece of gear"
 msgid "Rename %1..."
-msgstr ""
+msgstr "Pervardyti % 1..."
 
 #: qml/SettingsPage.qml:133
 msgctxt ""
 "Label for the button which opens the dialog box which allows the user to "
 "disconnect from and remove all information about a given piece of gear"
 msgid "Forget %1..."
-msgstr ""
+msgstr "Pamiršti %1..."
 
 #: qml/SettingsPage.qml:135
 msgctxt "Header for the message box asking whether to forget a piece of gear"
 msgid "Forget about %1"
-msgstr ""
+msgstr "Pamiršti apie %1"
 
 #: qml/SettingsPage.qml:136
 msgctxt "Text for the message box asking whether to forget a piece of gear"
@@ -2282,12 +2575,15 @@ msgid ""
 "disconnect and forget. To get it back, you just need to look for more gear "
 "and connect to it again."
 msgstr ""
+"Ar tikrai norite pamiršti apie %1? Jei esate tikri, toliau spustelėkite "
+"Gerai, kad atsijungtumėte ir pamirštumėte. Norėdami jį susigrąžinti, "
+"tereikia ieškoti papildomos įrangos ir vėl prie jos prisijungti."
 
 #: qml/SettingsPage.qml:146
 msgctxt ""
 "Header for the panel for adding commands to your gear, on the settings page"
 msgid "Gear Commands"
-msgstr ""
+msgstr "Įrangos komandos"
 
 #: qml/SettingsPage.qml:147
 msgctxt ""
@@ -2300,27 +2596,32 @@ msgid ""
 "to more easily use this, make sure to give your gear a name, so you can tell "
 "them apart more easily."
 msgstr ""
+"Nors programėlė pristatoma su daugybe komandų rinkinių, tai dar ne viskas, "
+"ką gali padaryti jūsų įranga. Galite modifikuoti, kas siunčiama į jūsų "
+"įrangą, ir mes atsiminsime, kurias komandas norite naudoti kiekvienai iš jų. "
+"Kad galėtumėte tai lengviau naudoti, būtinai suteikite savo įrankiui "
+"pavadinimą, kad galėtumėte lengviau juos atskirti."
 
 #: qml/SettingsPage.qml:151
 msgctxt ""
 "Checkbox for hiding non-connected gear, on the panel for adding commands to "
 "your gear, on the settings page"
 msgid "Only Show Connected Gear"
-msgstr ""
+msgstr "Rodyti tik prijungtą įrangą"
 
 #: qml/SettingsPage.qml:163
 msgctxt ""
 "Warning for the list of configurable gear being empty, on the panel for "
 "adding commands to your gear, on the settings page"
 msgid "No gear to configure..."
-msgstr ""
+msgstr "Nėra įrangos konfigūravimui..."
 
 #: qml/SettingsPage.qml:187
 msgctxt ""
 "Heading for the panel for adjusting microphone levels for the earGear, on "
 "the settings page"
 msgid "EarGear Hearing"
-msgstr ""
+msgstr "EarGear klausa"
 
 #: qml/SettingsPage.qml:188
 msgctxt ""
@@ -2336,34 +2637,42 @@ msgid ""
 "controller box either on the front or the back of your body, or upside down "
 "so the cable can run more gracefully)."
 msgstr ""
+"Jei jūsų EarGear veikia taip, lyg negirdėtų, gali reikėti patikrinti jos "
+"balansą. Kad įsitikintumėte, jog tai veikia geriausiai, norėsite būti "
+"tylioje patalpoje, kol bakstelėsite toliau esantį balanso mygtuką ("
+"pristabdykite muziką, uždarykite miegamojo duris ir pan.). Ši reikšmė "
+"saugoma dėžutėje, todėl paprastai to nereikėtų daryti daugiau nei vieną "
+"kartą. Taip pat gali tekti pakeisti kryptį (pavyzdžiui, valdiklio dėžutę "
+"galite pastatyti kūno priekyje arba gale, arba apversti aukštyn kojomis, kad "
+"laidas veiktų grakščiau)."
 
 #: qml/SettingsPage.qml:204
 msgctxt ""
 "Label for the button for unswapping left and right, on the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Unswap left and right"
-msgstr ""
+msgstr "Sukeisti kairėn ir dešinėn"
 
 #: qml/SettingsPage.qml:205
 msgctxt ""
 "Label for the button for swapping left and right, the panel for adjusting "
 "microphone levels for the earGear, on the settings page"
 msgid "Swap left and right"
-msgstr ""
+msgstr "Sukeisti į kairę ir į dešinę"
 
 #: qml/SettingsPage.qml:212
 msgctxt ""
 "Label for the button for rebalancing microphone levels, the panel for "
 "adjusting microphone levels for the earGear, on the settings page"
 msgid "Rebalance Microphones"
-msgstr ""
+msgstr "Subalansuoti mikrofonus"
 
 #: qml/SettingsPage.qml:225
 msgctxt ""
 "Heading for the panel for checking for and performing firmware updates for "
 "gear which supports this"
 msgid "Gear Firmware"
-msgstr ""
+msgstr "Įrangos programinė įranga"
 
 #: qml/SettingsPage.qml:226
 msgctxt ""
@@ -2374,13 +2683,17 @@ msgid ""
 "clicking the \"Check\" button below, and if there is one, you can then click "
 "the button underneath to download and install the update."
 msgstr ""
+"Jei jūsų įranga palaiko programinės aparatinės įrangos naujinimus, galite "
+"patikrinti, ar nėra naujų, spustelėdami toliau esantį mygtuką „Tikrinti“, o "
+"jei toks yra, galite spustelėti apačioje esantį mygtuką, kad atsisiųstumėte "
+"ir įdiegtumėte naujinimą."
 
 #: qml/SettingsPage.qml:242
 msgctxt ""
 "Label for the button which makes the app go online and check for the newest "
 "firmware available for the specific device"
 msgid "Check For New Firmware"
-msgstr ""
+msgstr "Patikrinkite, ar nėra naujos programinės aparatinės įrangos"
 
 #: qml/SettingsPage.qml:251
 msgctxt ""
@@ -2389,30 +2702,31 @@ msgctxt ""
 msgid ""
 "You currently have version %1 installed, and version %2 is available for you "
 "to install"
-msgstr ""
+msgstr "Šiuo metu turite įdiegtą versiją %1, o versiją %2 galite įdiegti"
 
 #: qml/SettingsPage.qml:257
 msgctxt ""
 "Label for the button which makes the app download the newest available "
 "firmware (only visible when updated firmware has been found)"
 msgid "Download"
-msgstr ""
+msgstr "Parsisiųsti"
 
 #: qml/SettingsPage.qml:265
 msgctxt ""
 "Label for a button which allows the user to pick a file to load the firmware "
 "from (this is only available in developer mode)"
 msgid "Load From File"
-msgstr ""
+msgstr "Įkelti iš failo"
 
 #: qml/SettingsPage.qml:272
 msgctxt ""
 "Title for a dialog which allows the user to pick a file to load as firmware "
 "(this is only available in developer mode)"
 msgid "Pick Firmware File"
-msgstr ""
+msgstr "Pasirinkite programinės aparatinės įrangos failą"
 
 #: qml/SettingsPage.qml:285
+#, fuzzy
 msgctxt ""
 "Label giving a set of instructions and warnings that users should be aware "
 "of before attempting to install new firmware"
@@ -2433,6 +2747,23 @@ msgid ""
 "app and reboot. This is quite normal! It should automatically reconnect, but "
 "in case it doesn't, just click the Connect button on the front page as usual."
 msgstr ""
+"Prieš atnaujindami savo įrangą iš %1 į %2, įsitikinkite, kad atlikote šiuos "
+"veiksmus:\n"
+"\n"
+"- Prijunkite įrangą prie USB įkroviklio ir įsitikinkite, kad ji kraunasi. "
+"Atnaujindami programinę-aparatinę įrangą, laikykite jį prijungtą prie "
+"maitinimo šaltinio.\n"
+"\n"
+"- Taip pat prieš pradėdami naujinimo procesą įsitikinkite, kad jūsų "
+"telefonas yra įkrautas daugiau nei 50%.\n"
+"\n"
+"Įrangos atnaujinimas trunka apie 3 minutes. Negalite išjungti pavaros ar "
+"telefono, kol jis veikia!\n"
+"\n"
+"Kai nauja programinė įranga bus perduota į jūsų įrangą, ji atsijungs nuo "
+"programos ir paleis iš naujo. Tai visai normalu! Jis turėtų automatiškai "
+"prisijungti iš naujo, bet jei taip neatsitiks, tiesiog spustelėkite mygtuką "
+"Prisijungti priekiniame puslapyje, kaip įprasta."
 
 #: qml/SettingsPage.qml:291
 msgctxt ""
@@ -2440,12 +2771,12 @@ msgctxt ""
 "firmware (only visible when updated firmware has been downloaded "
 "successfully)"
 msgid "Install"
-msgstr ""
+msgstr "Diegti"
 
 #: qml/SettingsPage.qml:302
 msgctxt "Heading for the panel of the language selector, on the settings page"
 msgid "Language"
-msgstr ""
+msgstr "Kalba"
 
 #: qml/SettingsPage.qml:303
 msgctxt "Description of the language selection option on the settings page"
@@ -2454,13 +2785,16 @@ msgid ""
 "that language is not available. However, if you wish to force some language, "
 "you can select it here, and we will use that language instead."
 msgstr ""
+"Paprastai Crumpet naudos kalbą, kurią naudoja jūsų įrenginys, arba anglų "
+"kalbą, jei ta kalba nepasiekiama. Tačiau jei norite priverstinai įvesti "
+"kokią nors kalbą, galite ją pasirinkti čia ir mes naudosime tą kalbą."
 
 #: qml/SettingsPage.qml:324
 msgctxt ""
 "Title for a message box warning that changing the language requires "
 "restarting the app"
 msgid "App Restart Required"
-msgstr ""
+msgstr "Būtina iš naujo paleisti programą"
 
 #: qml/SettingsPage.qml:325
 msgctxt ""
@@ -2471,12 +2805,15 @@ msgid ""
 "and so on is updated. To quit the app now, click OK, or click Cancel to not "
 "quit just now."
 msgstr ""
+"Perjungdami kalbas, turite iš naujo paleisti programą, kad įsitikintumėte, "
+"jog visas tekstas ir pan. Norėdami uždaryti programą dabar, spustelėkite "
+"Gerai arba spustelėkite Atšaukti, kad neišeitumėte tik dabar."
 
 #: qml/SettingsPage.qml:338
 msgctxt ""
 "Heading for the panel for the demo modus of the app, on the settings page"
 msgid "Fake Tail"
-msgstr ""
+msgstr "Netikra uodega"
 
 #: qml/SettingsPage.qml:339
 msgctxt ""
@@ -2489,30 +2826,36 @@ msgid ""
 "exist. Enabling this option will make a fake tail show up on the welcome "
 "page."
 msgstr ""
+"Jei ką tik atsisiuntėte programą, pavyzdžiui, tikėdamiesi, kad pasirodys "
+"visiškai naujas, ypač blizgus „MiTail“ arba „EarGear“, galbūt norėsite "
+"ištirti, ką programa gali padaryti. Galite spustelėti toliau esantį mygtuką, "
+"kad apgautumėte programą, kad ji manytų, jog netoliese yra uodega, ir "
+"leiskite ištirti, kokios yra galimybės. Įgalinus šią parinktį pasveikinimo "
+"puslapyje bus rodoma netikra uodega."
 
 #: qml/SettingsPage.qml:341
 msgctxt ""
 "Label for the checkbox for showing a fake tail inside the app, on the panel "
 "for the demo modus of the app, on the settings page"
 msgid "Show Fake Tail"
-msgstr ""
+msgstr "Rodyti netikrą uodegą"
 
 #: qml/TailBattery.qml:60
 msgctxt ""
 "Text shown beside a spinner indicating that we are currently attempting to "
 "connect to a piece of gear"
 msgid "Connecting"
-msgstr ""
+msgstr "Prisijungiama"
 
 #: qml/TailLights.qml:25
 msgctxt "Header for the page for the Glow Tips"
 msgid "Glow Tips"
-msgstr ""
+msgstr "Švytintys antgaliai"
 
 #: qml/TailLights.qml:28
 msgctxt "Button for stopping the light patterns, on the page for the Glow Tips"
 msgid "Stop Lights"
-msgstr ""
+msgstr "Sustabdyti šviesą"
 
 #: qml/TailLights.qml:38
 msgctxt ""
@@ -2523,21 +2866,25 @@ msgid ""
 "than one connected, the little coloured dots show which you can send that "
 "light pattern to."
 msgstr ""
+"Toliau pateiktame sąraše rodomi visi jūsų įrangai galimi šviesos modeliai. "
+"Bakstelėkite bet kurį iš jų, kad išsiųstumėte juos į bet kurį prijungtą "
+"įrenginį! Jei prijungtas daugiau nei vienas, maži spalvoti taškeliai rodo, "
+"kam galite nusiųsti tą šviesos raštą."
 
 #: qml/TailLights.qml:45
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
 msgid "LED Patterns"
-msgstr ""
+msgstr "LED raštai"
 
 #: qml/TailMoves.qml:25
 msgctxt "Heading for the Moves page"
 msgid "Moves"
-msgstr ""
+msgstr "Judesiai"
 
 #: qml/TailMoves.qml:28
 msgctxt "Button for returning the tail to its home position, on the Moves page"
 msgid "Home Position"
-msgstr ""
+msgstr "Pradinė padėtis"
 
 #: qml/TailMoves.qml:37
 msgctxt "Description for the list of moves, on the Moves page"
@@ -2546,37 +2893,41 @@ msgid ""
 "to send them off to any of your connected devices! If you have more than one "
 "connected, the little coloured dots show which you can send that move to."
 msgstr ""
+"Žemiau esančiame sąraše rodomi visi jūsų įrangos judesiai. Bakstelėkite bet "
+"kurį iš jų, kad išsiųstumėte juos į bet kurį prijungtą įrenginį! Jei esate "
+"prijungę daugiau nei vieną, maži spalvoti taškai rodo, kam galite nusiųsti "
+"tą judesį."
 
 #: qml/TailMoves.qml:44
 msgctxt ""
 "Description for the category for the Relaxed Moveset, on the Moves page"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Ramus ir atsipalaidavęs"
 
 #: qml/TailMoves.qml:49
 msgctxt ""
 "Description for the category for the Excited Moveset, on the Moves page"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Greitas ir susijaudinęs"
 
 #: qml/TailMoves.qml:54
 msgctxt "Description for the category for the Tense Moveset, on the Moves page"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Nusivylęs ir įsitempęs"
 
 #: qml/TiltSettings.qml:28
 msgctxt ""
 "Title for the page for selecting what should happen when a piece of gear "
 "detects a tilting motion"
 msgid "Tilt Settings"
-msgstr ""
+msgstr "Pakreipimo nustatymai"
 
 #: qml/TiltSettings.qml:31
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when a piece of gear detects a tilting motion"
 msgid "Home Position"
-msgstr ""
+msgstr "Pradinė padėtis"
 
 #: qml/TiltSettings.qml:43
 msgctxt ""
@@ -2589,6 +2940,11 @@ msgid ""
 "that move to if you have more than one (otherwise we'll just send it to "
 "itself)."
 msgstr ""
+"Įjunkite pasvirimo aptikimą pažymėdami langelį šalia įrangos, kurią norite "
+"aptikti, pavadinimo. Jei norite nuspręsti, ką daryti, kai aptinkamas tam "
+"tikros rūšies posvyris, pasirinkite judesius ir į kokias pavarų dalis norite "
+"siųsti tą judesį, jei turite daugiau nei vieną (kitaip mes tiesiog išsiųsime "
+"jį pačiam)."
 
 #: qml/TiltSettings.qml:100
 msgctxt ""
@@ -2596,126 +2952,126 @@ msgctxt ""
 "been selected, on the page for selecting what should happen when a piece of "
 "gear detects a tilting motion"
 msgid "(no command)"
-msgstr ""
+msgstr "(nėra komandos)"
 
 #: qml/TimePicker.qml:55
 msgctxt "Title for the time picker"
 msgid "Pick a Time"
-msgstr ""
+msgstr "Pasirinkti laiką"
 
 #: qml/TimePicker.qml:61
 msgctxt "Label for the Hours field on a time picker"
 msgid "Hours"
-msgstr ""
+msgstr "Valandos"
 
 #: qml/TimePicker.qml:73
 msgctxt "Label for the Minutes field on a time picker"
 msgid "Minutes"
-msgstr ""
+msgstr "Minutės"
 
 #: qml/TimePicker.qml:92
 msgctxt "Label for the AM option on a AM/PM selector of a time picker"
 msgid "AM"
-msgstr ""
+msgstr "Valanda ryto"
 
 #: qml/TimePicker.qml:98
 msgctxt "Label for the PM option on a AM/PM selector of a time picker"
 msgid "PM"
-msgstr ""
+msgstr "Valanda vakaro"
 
 #: qml/TimePicker.qml:110
 msgctxt ""
 "Button for resetting a time field to the current time, on a time picker"
 msgid "Now"
-msgstr ""
+msgstr "Dabar"
 
 #: qml/TimePicker.qml:124
 msgctxt "Button for cancelling the time entry, on a time picker"
 msgid "Cancel"
-msgstr ""
+msgstr "Atšaukti"
 
 #: qml/TimePicker.qml:132
 msgctxt "Button for confirming the time entry, on a time picker"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: qml/WelcomePage.qml:28
 msgctxt "Header for the welcome page"
 msgid "Crumpet"
-msgstr ""
+msgstr "Crumpet"
 
 #: qml/WelcomePage.qml:31
 msgctxt ""
 "Label for the button for requesting bluetooth permissions on the welcome page"
 msgid "Get Bluetooth Permissions"
-msgstr ""
+msgstr "Gauti Bluetooth leidimus"
 
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for disconnecting gear, on the welcome page"
 msgid "Disconnect"
-msgstr ""
+msgstr "Atjungti"
 
 #: qml/WelcomePage.qml:40
 msgctxt "Label for the button for connecting gear, on the welcome page"
 msgid "Connect"
-msgstr ""
+msgstr "Prisijungti"
 
 #: qml/WelcomePage.qml:64
 msgctxt ""
 "Label for the button for looking for additional gear, on the welcome page"
 msgid "Look for gear"
-msgstr ""
+msgstr "Ieškoti įrangos"
 
 #: qml/WelcomePage.qml:73
 msgctxt ""
 "Label for the button for connecting additional gear, on the welcome page"
 msgid "Connect More..."
-msgstr ""
+msgstr "Prisijunkti daugiau..."
 
 #: qml/WelcomePage.qml:98
 msgctxt "Label for the button for opening the Moves page, on the welcome page"
 msgid "Moves"
-msgstr ""
+msgstr "Judėsiai"
 
 #: qml/WelcomePage.qml:119
 msgctxt ""
 "Label for the button for opening the Ear Poses page, on the welcome page"
 msgid "Ear Poses"
-msgstr ""
+msgstr "Ausų pozos"
 
 #: qml/WelcomePage.qml:140
 msgctxt ""
 "Label for the button for opening the Glow Tips page, on the welcome page"
 msgid "Glow Tips"
-msgstr ""
+msgstr "Švytintys antgaliai"
 
 #: qml/WelcomePage.qml:168
 msgctxt "Label for the button for opening the Alarms page, on the welcome page"
 msgid "Alarm"
-msgstr ""
+msgstr "Signalizacija"
 
 #: qml/WelcomePage.qml:186
 msgctxt ""
 "Label for the button for opening the Move List page, on the welcome page"
 msgid "Move List"
-msgstr ""
+msgstr "Judesių sąrašas"
 
 #: qml/WelcomePage.qml:224
 msgctxt ""
 "Label for the button for opening the Casual Mode page, on the welcome page"
 msgid "Casual Mode"
-msgstr ""
+msgstr "Atsitiktinis režimas"
 
 #: qml/WelcomePage.qml:246
 msgctxt ""
 "Label for the button for enabling the Casual Mode, on the welcome page"
 msgid "Enable Casual Mode"
-msgstr ""
+msgstr "Įjungti atsitiktinį režimą"
 
 #: qml/WelcomePage.qml:277
 msgctxt "Heading for the panel for turning on Listening Mode"
 msgid "Listening Mode"
-msgstr ""
+msgstr "Klausymosi režimas"
 
 #: qml/WelcomePage.qml:309
 msgctxt "Label for the checkbox for turning on Listening Mode"
@@ -2723,143 +3079,145 @@ msgid ""
 "Turn this on to make your gear react to sounds around it for five minutes at "
 "a time."
 msgstr ""
+"Įjunkite šį režimą, kad jūsų įranga penkias minutes reaguotų į aplinkinius "
+"garsus."
 
 #: qml/WelcomePage.qml:361
 msgctxt "Heading for the panel for turning on Tilt Mode"
 msgid "Tilt Mode"
-msgstr ""
+msgstr "Pakreipimo režimas"
 
 #: qml/WelcomePage.qml:387
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
-msgstr ""
+msgstr "Įjunkite tai, kad jūsų įranga reaguotų į pasvirusius judesius."
 
 #: qml/WelcomePage.qml:427
 msgctxt ""
 "Label for the button for opening the Gear Gestures page, on the welcome page"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Įrangos gestai"
 
 #: Utilities.cpp:86
 msgctxt "The name of the first entry in any of the categories of moves"
 msgid "One"
-msgstr ""
+msgstr "Vienas"
 
 #: Utilities.cpp:88
 msgctxt "The name of the second entry in any of the categories of moves"
 msgid "Two"
-msgstr ""
+msgstr "Du"
 
 #: Utilities.cpp:90
 msgctxt "The name of the third entry in any of the categories of moves"
 msgid "Three"
-msgstr ""
+msgstr "Trys"
 
 #: Utilities.cpp:92
 msgctxt "The name of the fourth entry in any of the categories of moves"
 msgid "Four"
-msgstr ""
+msgstr "Keturi"
 
 #: Utilities.cpp:94
 msgctxt "The name of the fifth entry in any of the categories of moves"
 msgid "Five"
-msgstr ""
+msgstr "Penki"
 
 #: Utilities.cpp:96
 msgctxt "The name of the sixth entry in any of the categories of moves"
 msgid "Six"
-msgstr ""
+msgstr "Šeši"
 
 #: Utilities.cpp:98
 msgctxt "The name of the seventh entry in any of the categories of moves"
 msgid "Seven"
-msgstr ""
+msgstr "Septyni"
 
 #: Utilities.cpp:100
 msgctxt "The name of the eighth entry in any of the categories of moves"
 msgid "Eight"
-msgstr ""
+msgstr "Aštuoni"
 
 #: Utilities.cpp:102
 msgctxt "The name of the ninth entry in any of the categories of moves"
 msgid "Nine"
-msgstr ""
+msgstr "Devyni"
 
 #: Utilities.cpp:104
 msgctxt "The name of the calm and relaxed category of gear moves"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Ramus ir atsipalaidavęs"
 
 #: Utilities.cpp:106
 msgctxt "The name of the fast and excited category of gear moves"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Greitas ir susijaudinęs"
 
 #: Utilities.cpp:108
 msgctxt "The name of the frustrated and tense category of gear moves"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Nusivylęs ir įsitempęs"
 
 #: Utilities.cpp:110
 msgctxt "The name of the poses category of gear commands"
 msgid "Poses"
-msgstr ""
+msgstr "Pozos"
 
 #: Utilities.cpp:112
 msgctxt "The name of the lights category of gear commands"
 msgid "Glow Tip Patterns"
-msgstr ""
+msgstr "Švytinčių galiukų raštai"
 
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
 msgid "Blink"
-msgstr ""
+msgstr "Mirksėti"
 
 #: Utilities.cpp:116
 msgctxt ""
 "The name of the Triangle command in the lights category of gear commands"
 msgid "Triangle"
-msgstr ""
+msgstr "Trikampis"
 
 #: Utilities.cpp:118
 msgctxt ""
 "The name of the Sawtooth command in the lights category of gear commands"
 msgid "Sawtooth"
-msgstr ""
+msgstr "Pjūklas"
 
 #: Utilities.cpp:120
 msgctxt "The name of the Morse command in the lights category of gear commands"
 msgid "Morse"
-msgstr ""
+msgstr "Morzė"
 
 #: Utilities.cpp:122
 msgctxt ""
 "The name of the Beacon command in the lights category of gear commands"
 msgid "Beacon"
-msgstr ""
+msgstr "Švyturys"
 
 #: Utilities.cpp:124
 msgctxt "The name of the Flame command in the lights category of gear commands"
 msgid "Glame"
-msgstr ""
+msgstr "Blizgesys"
 
 #: Utilities.cpp:126
 msgctxt ""
 "The name of the Strobe command in the lights category of gear commands"
 msgid "Strobe"
-msgstr ""
+msgstr "Strobe"
 
 #: Utilities.cpp:128
 msgctxt "The name of the On command in the lights category of gear commands"
 msgid "On"
-msgstr ""
+msgstr "Įjungta"
 
 #: Utilities.cpp:130
 msgctxt "The name of the Off command in the lights category of gear commands"
 msgid "Off"
-msgstr ""
+msgstr "Išjungta"
 
 #: WalkingSensorGestureReconizer.cpp:186
 msgctxt "The human readable name of the walking sensor"
 msgid "Walking"
-msgstr ""
+msgstr "Vaikščiojimas"
