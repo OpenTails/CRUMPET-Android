@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-16 22:27+0000\n"
-"Last-Translator: Paulina Karbauskytė <paulinakrb@gmail.com>\n"
+"PO-Revision-Date: 2024-06-17 16:46+0000\n"
+"Last-Translator: Viktoria Rei Bauer <vbauer@stargazer.at>\n"
 "Language-Team: Lithuanian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/lt/>\n"
 "Language: lt\n"
@@ -36,7 +36,6 @@ msgid "There are no commands in this file. This is possible, but not common."
 msgstr "Šiame faile nėra jokių komandų. Tai įmanoma, bet ne įprasta."
 
 #: CommandPersistence.cpp:123
-#, fuzzy
 msgctxt ""
 "Error message when command file loading failed entirely caused by a parsing "
 "error, with details"
@@ -1165,7 +1164,6 @@ msgid "Select another name"
 msgstr "Pasirinkti kitą pavadinimą"
 
 #: qml/AlarmList.qml:47
-#, fuzzy
 msgctxt ""
 "Main text for a message box warning the user an alarm with the chosen name "
 "already exists"
@@ -1829,7 +1827,6 @@ msgid "Crumpet"
 msgstr "Crumpet"
 
 #: qml/main.qml:110
-#, fuzzy
 msgctxt ""
 "Text for the notification upon successfully connecting to the final device, "
 "after connecting to multiple devices simultaneously, informing the user that "
@@ -1965,7 +1962,6 @@ msgid "Your gear is currently connected"
 msgstr "Šiuo metu jūsų įranga prijungta"
 
 #: qml/main.qml:376
-#, fuzzy
 msgctxt "Message for the confirmation popup for disconnecting your gear"
 msgid ""
 "You are currently connected to some of your gear.\n"
@@ -2726,7 +2722,6 @@ msgid "Pick Firmware File"
 msgstr "Pasirinkite programinės aparatinės įrangos failą"
 
 #: qml/SettingsPage.qml:285
-#, fuzzy
 msgctxt ""
 "Label giving a set of instructions and warnings that users should be aware "
 "of before attempting to install new firmware"
