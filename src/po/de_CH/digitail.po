@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-16 08:42+0000\n"
+"PO-Revision-Date: 2024-06-16 22:27+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German (Switzerland) <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de_CH/>\n"
@@ -466,6 +466,9 @@ msgid ""
 "Your gear has reported a hardware revision that we do not know of. This "
 "means that your app is likely to be out of date and needs to be updated."
 msgstr ""
+"Diini Ustrüstig het e Hardware-Revision rapportiert, wo vo mir ned bi alt "
+"wüßed. Das bedeutet, dass dini App wahrschiinlich veraltet isch und "
+"aktualisiert werde muess."
 
 #: gearimplementations/GearEars.cpp:845
 msgctxt ""
@@ -477,6 +480,10 @@ msgid ""
 "a highly unexpected situation and we would appreciate it if you reported it "
 "directly to us at info@thetailcompany.com - thank you!"
 msgstr ""
+"Du hesch irgendiwi e Firmware-Version, wo ned d'Hardware-Revision vo dine "
+"Ohre mäudet, aber wo uso ned bekannt isch, nid z'versage. Das isch es höchst "
+"unerwartets Situationund mir wärde's schätze, wenn du's direkt a üs melde "
+"würd'sch bi info@thetailcompany.com Merci viu mau!"
 
 #: gearimplementations/GearEars.cpp:879
 #: gearimplementations/GearFlutterWings.cpp:714
@@ -486,7 +493,7 @@ msgctxt ""
 "Message shown along a progress bar when downloading the firmware payload "
 "itself"
 msgid "Downloading firmware update from The Tail Company's website..."
-msgstr ""
+msgstr "Mir lade grad s'Firmware-Update vo de Website vo The Tail Company ab..."
 
 #: gearimplementations/GearEars.cpp:896
 #: gearimplementations/GearFlutterWings.cpp:731
@@ -499,6 +506,11 @@ msgid ""
 "should simply try again. If it continues to fail, please get in touch with "
 "us and we can try and work something out!"
 msgstr ""
+"De Firmware-Aktualisierung, wo mer os abeglade hend, het nöd das glüüdigt, "
+"was mer erwartet hend. Das isch normalerwies eifach es Problem mitem "
+"Download selber gsi, wo nid funktioniert het, und du söttisch eifach no "
+"einisch probiere. Falls es no immer ned chlappt, lüt doch bitte bi uns aa "
+"und mir chöi öpis zäme uusgrüble!"
 
 #: gearimplementations/GearEars.cpp:912
 msgctxt "Message shown during firmware update processes"
