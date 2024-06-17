@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-16 22:27+0000\n"
+"PO-Revision-Date: 2024-06-17 16:46+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German (Switzerland) <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de_CH/>\n"
@@ -521,6 +521,11 @@ msgid ""
 "disconnect from this device. Once it is started back up again, you will be "
 "able to connect to it again."
 msgstr ""
+"Firmware uf diini Gerät lade. Bitte halet üre Gärätschaftä sehr nöch "
+"biiänand und stellt sicher, dass baidi gnueg Akku händ (oder lueged, dass "
+"ihr jetzt es Ladegerät aastöcket). Nach em Abschluss wird diini Apparatur "
+"entweder neu storte oder sich uusschalte und vo däm Gerät abschtecke.Wänn s "
+"wieder agluftet wird, chasch du dich wieder mit ihm verbinde."
 
 #: gearimplementations/GearFake.cpp:47
 #: gearimplementations/GearFlutterWings.cpp:363
@@ -529,7 +534,7 @@ msgstr ""
 msgctxt ""
 "Name of the calm and relaxed group as used for no phone group selection"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "Gmüetlich und entspannt"
 
 #: gearimplementations/GearFake.cpp:48
 #: gearimplementations/GearFlutterWings.cpp:364
@@ -538,7 +543,7 @@ msgstr ""
 msgctxt ""
 "Name of the fast and excited group as used for no phone group selection"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Schnäll und ufgrägt"
 
 #: gearimplementations/GearFake.cpp:49
 #: gearimplementations/GearFlutterWings.cpp:365
@@ -547,7 +552,7 @@ msgstr ""
 msgctxt ""
 "Name of the frustrated and tense group as used for no phone group selection"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Verzagt und ufgeregt"
 
 #: gearimplementations/GearFake.cpp:102
 msgctxt ""
@@ -557,6 +562,8 @@ msgid ""
 "This is a message that's supposed to inform people that there is something "
 "<b>important</b> going on with their firmware"
 msgstr ""
+"Das isch en Nachricht, wo de Lüt mitteile sött, dass öppis <b>wichtiges</b> "
+"mit ihrer Firmware passiert"
 
 #: gearimplementations/GearFlutterWings.cpp:109
 msgctxt ""
@@ -567,6 +574,9 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Es sieht us, dass das Gerät kei FlutterWings isch (häi d "
+"Hauptgerätschaftscharakteristik ned gfunde). Wenn du sicher bisch, dass es "
+"defintiv so isch, bitte melde dä Fehler a d Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:117
 msgctxt ""
@@ -577,6 +587,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Es sieht us, dass das Gerät kei FlutterWings isch (häi d "
+"Hauptgerätschaftscharakteristik ned gfunde). Wenn du sicher bisch, dass es "
+"defiinitiv eso isch, denn meld das Fähler bitte de The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:412
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -584,6 +597,9 @@ msgid ""
 "An error occurred while connecting to your FlutterWings (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Es isch es Problem bim Verbinde mit dine FlutterWings ufgetrete (das "
+"Hauptservice-Objekt cha ned erstellt werde). Wenn du das für mi im Fehler "
+"hältst, probier's bitte no einisch!"
 
 #: gearimplementations/GearFlutterWings.cpp:432
 #: gearimplementations/GearMitail.cpp:439
@@ -598,6 +614,11 @@ msgid ""
 "contact us on info@thetailcompany.com and tell us that you got this error.</"
 "p>"
 msgstr ""
+"<p><b>Update isch nid erfolgri!</b></p><p>Mir händ gversuecht, dini Firmware "
+"z'ha schnell z'update für dii Maschine und mänd müsse abbräche. Wenn du dä "
+"Fehler bstoochisch:</p><p>Erschtens, mach dr kai Suure, diinee Brocchascht "
+"isch sicher.</p><p>Zwüschens, bitt ich di, mir z'kontaktiere uuf info@"
+"thetailcompany.com und seisch üs, dass du das Fähler becho hesch.</p>"
 
 #: gearimplementations/GearFlutterWings.cpp:444
 msgctxt ""
@@ -606,6 +627,9 @@ msgid ""
 "An error occurred while connecting to your FlutterWings (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"E Fehler isch ufträte bi dr Verbindung zu ihre FlutterWings (d Batterie-"
+"Dienst isch nöd verfüegbar). Falls du dä Meinig bisch, dass das en Fehler "
+"isch, probiers bitte no einisch!"
 
 #: gearimplementations/GearFlutterWings.cpp:498
 msgctxt ""
@@ -615,6 +639,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Es schient, als ob diesen Apparat kes FlutterWings isch (kei Batteri-Stand-"
+"Charakteristik chönne finde). Falls du sicher bisch dass es definitiv so "
+"isch, bitte mäld die Fehler bim The Tail Company."
 
 #: gearimplementations/GearFlutterWings.cpp:538
 msgctxt "Warning that some unknown error happened"
@@ -622,11 +649,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your FlutterWings, make "
 "sure it is on and close to this device."
 msgstr ""
+"Es het en Fehler geh! Wenn du versuegsch, di mit dim FlutterWings "
+"z'verbünde, sicher sii, dass es ah isch und nää an däm Gerät dran isch."
 
 #: gearimplementations/GearFlutterWings.cpp:541
 msgctxt "Warning that the device disconnected itself"
 msgid "The FlutterWings closed the connection."
-msgstr ""
+msgstr "Die FlutterWings hend d Verbindung zuegmacht."
 
 #: gearimplementations/GearFlutterWings.cpp:545
 msgctxt ""
@@ -636,6 +665,8 @@ msgid ""
 "Failed to connect to your FlutterWings. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Nid cho verbinde mit dine FlutterWings. Probiere es no einisch (vielleicht "
+"chöntsch es no chli nächer as Nähei bewege?)"
 
 #: gearimplementations/GearFlutterWings.cpp:572
 #: gearimplementations/GearMitail.cpp:579
@@ -644,7 +675,7 @@ msgctxt ""
 "Message shown to the user when a firmware upload has completed and the "
 "device has rebooted itself"
 msgid "Attempting to reconnect to your gear..."
-msgstr ""
+msgstr "Versueche, wieder mit dim Geraet verbunde z'werde..."
 
 #: gearimplementations/GearFlutterWings.cpp:577
 msgctxt ""
@@ -2799,139 +2830,139 @@ msgstr ""
 #: qml/WelcomePage.qml:361
 msgctxt "Heading for the panel for turning on Tilt Mode"
 msgid "Tilt Mode"
-msgstr ""
+msgstr "Neigungsmode"
 
 #: qml/WelcomePage.qml:387
 msgctxt "Label for the checkbox for turning on Tilt Mode"
 msgid "Turn this on to make your gear react to tilting movements."
-msgstr ""
+msgstr "Schalt das i, damit dini Ausrüstig uf Kippige reagiert."
 
 #: qml/WelcomePage.qml:427
 msgctxt ""
 "Label for the button for opening the Gear Gestures page, on the welcome page"
 msgid "Gear Gestures"
-msgstr ""
+msgstr "Chleider-Gesten"
 
 #: Utilities.cpp:86
 msgctxt "The name of the first entry in any of the categories of moves"
 msgid "One"
-msgstr ""
+msgstr "Ess"
 
 #: Utilities.cpp:88
 msgctxt "The name of the second entry in any of the categories of moves"
 msgid "Two"
-msgstr ""
+msgstr "Zwoo"
 
 #: Utilities.cpp:90
 msgctxt "The name of the third entry in any of the categories of moves"
 msgid "Three"
-msgstr ""
+msgstr "Drüü"
 
 #: Utilities.cpp:92
 msgctxt "The name of the fourth entry in any of the categories of moves"
 msgid "Four"
-msgstr ""
+msgstr "Vier"
 
 #: Utilities.cpp:94
 msgctxt "The name of the fifth entry in any of the categories of moves"
 msgid "Five"
-msgstr ""
+msgstr "Füüff"
 
 #: Utilities.cpp:96
 msgctxt "The name of the sixth entry in any of the categories of moves"
 msgid "Six"
-msgstr ""
+msgstr "Sechs"
 
 #: Utilities.cpp:98
 msgctxt "The name of the seventh entry in any of the categories of moves"
 msgid "Seven"
-msgstr ""
+msgstr "Sibni"
 
 #: Utilities.cpp:100
 msgctxt "The name of the eighth entry in any of the categories of moves"
 msgid "Eight"
-msgstr ""
+msgstr "Achti"
 
 #: Utilities.cpp:102
 msgctxt "The name of the ninth entry in any of the categories of moves"
 msgid "Nine"
-msgstr ""
+msgstr "Nüni"
 
 #: Utilities.cpp:104
 msgctxt "The name of the calm and relaxed category of gear moves"
 msgid "Calm and Relaxed"
-msgstr ""
+msgstr "ruhig und locker"
 
 #: Utilities.cpp:106
 msgctxt "The name of the fast and excited category of gear moves"
 msgid "Fast and Excited"
-msgstr ""
+msgstr "Schnäll und ufgrägt"
 
 #: Utilities.cpp:108
 msgctxt "The name of the frustrated and tense category of gear moves"
 msgid "Frustrated and Tense"
-msgstr ""
+msgstr "Frustriert und gspannt"
 
 #: Utilities.cpp:110
 msgctxt "The name of the poses category of gear commands"
 msgid "Poses"
-msgstr ""
+msgstr "Haltige"
 
 #: Utilities.cpp:112
 msgctxt "The name of the lights category of gear commands"
 msgid "Glow Tip Patterns"
-msgstr ""
+msgstr "Lüütspitz-Muster"
 
 #: Utilities.cpp:114
 msgctxt "The name of the Blink command in the lights category of gear commands"
 msgid "Blink"
-msgstr ""
+msgstr "Blinkle"
 
 #: Utilities.cpp:116
 msgctxt ""
 "The name of the Triangle command in the lights category of gear commands"
 msgid "Triangle"
-msgstr ""
+msgstr "Dreyeck"
 
 #: Utilities.cpp:118
 msgctxt ""
 "The name of the Sawtooth command in the lights category of gear commands"
 msgid "Sawtooth"
-msgstr ""
+msgstr "Sägizahn"
 
 #: Utilities.cpp:120
 msgctxt "The name of the Morse command in the lights category of gear commands"
 msgid "Morse"
-msgstr ""
+msgstr "Morsa"
 
 #: Utilities.cpp:122
 msgctxt ""
 "The name of the Beacon command in the lights category of gear commands"
 msgid "Beacon"
-msgstr ""
+msgstr "Leuchtfeuer"
 
 #: Utilities.cpp:124
 msgctxt "The name of the Flame command in the lights category of gear commands"
 msgid "Glame"
-msgstr ""
+msgstr "gläme"
 
 #: Utilities.cpp:126
 msgctxt ""
 "The name of the Strobe command in the lights category of gear commands"
 msgid "Strobe"
-msgstr ""
+msgstr "Blitzlicht"
 
 #: Utilities.cpp:128
 msgctxt "The name of the On command in the lights category of gear commands"
 msgid "On"
-msgstr ""
+msgstr "An"
 
 #: Utilities.cpp:130
 msgctxt "The name of the Off command in the lights category of gear commands"
 msgid "Off"
-msgstr ""
+msgstr "Usga"
 
 #: WalkingSensorGestureReconizer.cpp:186
 msgctxt "The human readable name of the walking sensor"
 msgid "Walking"
-msgstr ""
+msgstr "Schlänndere"
