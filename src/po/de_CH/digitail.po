@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-17 16:46+0000\n"
+"PO-Revision-Date: 2024-06-18 13:45+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: German (Switzerland) <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de_CH/>\n"
@@ -685,6 +685,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Firmware upload komplett, wartä bis dyni Uusrüstig sich vo söttou ab neu "
+"starte und ersch denn wiiders probiere es eso verbiitet.."
 
 #: gearimplementations/GearFlutterWings.cpp:580
 msgctxt ""
@@ -694,6 +696,8 @@ msgid ""
 "The FlutterWings closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
+"D FläggerWings hend d Verbindung zuegmacht, entweder indem sie abgschaltet "
+"worde sind oder stromlos worde sind. Nimm dini Ausrüstig lad uf!"
 
 #: gearimplementations/GearFlutterWings.cpp:747
 #: gearimplementations/GearMitail.cpp:758
@@ -705,6 +709,10 @@ msgid ""
 "Once completed, your gear will restart and disconnect from this device. Once "
 "rebooted, you will be able to connect to it again."
 msgstr ""
+"Übertrage d Firmware uf di Geräti. Bitte halt d Geräti ganz nah "
+"bimeneinander und sorg dafür, dass beidi gnueg Akku hend (oder stöckijet "
+"jetzt en Ladegerät i). Wenn das fertig isch, wird dini Apparat neustartä und "
+"sich vo dem Gerät abmelde. Nachem Reboot chasch wieder verbinde."
 
 #: gearimplementations/GearMitail.cpp:39
 msgctxt ""
@@ -716,6 +724,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Din MiTail hett aktuell d Version 4.03 Firmware installiert, wo veralteter "
+"isch und einigi bekannti Problem het! Mir würded euch <b>stark rat</b>, uf "
+"die neuscht Firmware z'update, wo das Problem behöbelet! Go mol in "
+"d'Einstellige und such d'Firmware-Abteilig, um d'Update z'mache."
 
 #: gearimplementations/GearMitail.cpp:40
 msgctxt ""
@@ -727,6 +739,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Din MiTail hett aktuell d Version 4.02 Firmware installiert, wo veralteter "
+"isch und einigi bekannti Problem het! Mir würded euch <b>stark rat</b>, uf "
+"die neuscht Firmware z'update, wo das Problem behöbelet! Go mol in "
+"d'Einstellige und such d'Firmware-Abteilig, um d'Update z'mache."
 
 #: gearimplementations/GearMitail.cpp:41
 msgctxt ""
@@ -738,6 +754,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Din MiTail hett aktuell d Version 4.01 Firmware installiert, wo veralteter "
+"isch und einigi bekannti Problem het! Mir würded euch <b>stark rat</b>, uf "
+"die neuscht Firmware z'update, wo das Problem behöbelet! Go mol in "
+"d'Einstellige und such d'Firmware-Abteilig, um d'Update z'mache."
 
 #: gearimplementations/GearMitail.cpp:42
 msgctxt ""
@@ -749,6 +769,10 @@ msgid ""
 "the newest firmware which fixes them! Head over to Settings and find the "
 "Firmware section to perform the update."
 msgstr ""
+"Din MiTail hett aktuell d Version 4.00 Firmware installiert, wo veralteter "
+"isch und einigi bekannti Problem het! Mir würded euch <b>stark rat</b>, uf "
+"die neuscht Firmware z'update, wo das Problem behöbelet! Go mol in "
+"d'Einstellige und such d'Firmware-Abteilig, um d'Update z'mache."
 
 #: gearimplementations/GearMitail.cpp:43
 msgctxt ""
@@ -760,6 +784,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Din MiTail hett aktuell d Version 3.2.11 Firmware installiert, wo veralteter "
+"isch und einigi bekannti Problem het! Mir würded euch <b>stark rat</b>, uf "
+"die neuscht Firmware z'update, wo das Problem behöbelet! Go mol in "
+"d'Einstellige und such d'Firmware-Abteilig, um d'Update z'mache."
 
 #: gearimplementations/GearMitail.cpp:44
 msgctxt ""
@@ -771,6 +799,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Din MiTail hett aktuell d Version 3.2.10 Firmware installiert, wo veralteter "
+"isch und einigi bekannti Problem het! Mir würded euch <b>stark rat</b>, uf "
+"die neuscht Firmware z'update, wo das Problem behöbelet! Go mol in "
+"d'Einstellige und such d'Firmware-Abteilig, um d'Update z'mache."
 
 #: gearimplementations/GearMitail.cpp:115
 msgctxt ""
@@ -781,6 +813,9 @@ msgid ""
 "writing characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Es gseht us, dass das Gerät kei MiTail isch (hets hauptsächlich "
+"Schribcharakteristik nid gfunde). Wenn du sicher bisch, dass es definitiv "
+"eso isch, meld das Fähler bitte dr Tail Company."
 
 #: gearimplementations/GearMitail.cpp:123
 msgctxt ""
@@ -791,6 +826,9 @@ msgid ""
 "reading characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Es schind emal us, dass das Gerät kei MiTail isch (cha d Hauptdevice-"
+"Liesigseigenschaft ned finde). Wenn du sicher bisch, dass es defenitiv so "
+"isch, meld dis Error bitte de Tail Company."
 
 #: gearimplementations/GearMitail.cpp:419
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -798,6 +836,9 @@ msgid ""
 "An error occurred while connecting to your MiTail (the main service object "
 "could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"E Fehler isch ufgetrete biem Verbinde mit dim MiTail (das Hauptobscht isch "
+"nid chönne erstellt werde). Falls du glaubsch dass das en Fehler isch, "
+"versuechs bitte no einisch!"
 
 #: gearimplementations/GearMitail.cpp:451
 msgctxt ""
@@ -806,6 +847,9 @@ msgid ""
 "An error occurred while connecting to your MiTail (the battery service was "
 "not available). If you feel this is in error, please try again!"
 msgstr ""
+"Es isch en Fähler ufgtrete bi dr Verbindig zu dim MiTail (de Batterieservice "
+"isch nöd verfüegbar). Falls du glaubsch dass das en Fehler isch, versuechs "
+"bitte no einisch!"
 
 #: gearimplementations/GearMitail.cpp:505
 msgctxt ""
@@ -815,6 +859,9 @@ msgid ""
 "characteristic). If you are certain that it definitely is, please report "
 "this error to The Tail Company."
 msgstr ""
+"Es scheint, dass das Gerät kei MiTail isch (cha d Batterielevel-"
+"Charakteristik nid finde). Wenn du sicher bisch, dass es bestimmt so isch, "
+"bitte melde dä Fähler a d'Tail Company."
 
 #: gearimplementations/GearMitail.cpp:545
 msgctxt "Warning that some unknown error happened"
@@ -822,11 +869,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail, make sure it "
 "is on and close to this device."
 msgstr ""
+"Es isch e Fähler uftrete. Wenn du versuechscht di mit dim MiTail z'verbinde, "
+"stell sicher dass es an isch und nöch bi dem Gerät isch."
 
 #: gearimplementations/GearMitail.cpp:548
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail closed the connection."
-msgstr ""
+msgstr "De MiTail het d'Verbindung zuegmacht."
 
 #: gearimplementations/GearMitail.cpp:552
 msgctxt ""
@@ -835,6 +884,8 @@ msgctxt ""
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
 msgstr ""
+"MiTail nid cha verbii werde. Probiere es no einisch (vielleicht schiebsch es "
+"nöcher?)"
 
 #: gearimplementations/GearMitail.cpp:584
 #: gearimplementations/GearMitailMini.cpp:577
@@ -845,6 +896,8 @@ msgid ""
 "Firmware upload complete, waiting for your gear to reboot automatically "
 "before attempting to reconnect..."
 msgstr ""
+"Firmware-Upload abgschlosse, wartend uf dini Geräte bis se sich zäme "
+"startet, bevor du versuechsch di wieder z'verbinde..."
 
 #: gearimplementations/GearMitail.cpp:587
 msgctxt ""
@@ -854,6 +907,8 @@ msgid ""
 "The MiTail closed the connection, either by being turned off or losing "
 "power. Remember to charge your tail!"
 msgstr ""
+"D MiTail hand d Verbindig zuegmacht, entweder wiä si abgschaltet worde isch "
+"oder wege Stromusfall. Nid vergässe, di Muäpp z'lade!"
 
 #: gearimplementations/GearMitailMini.cpp:39
 msgctxt ""
@@ -865,6 +920,10 @@ msgid ""
 "updating to the newest firmware which fixes them! Head over to Settings and "
 "find the Firmware section to perform the update."
 msgstr ""
+"Din MiTail Mini het aktuell di Version 4.03 Firmware installiert, wod isch "
+"veraltet und het bekannti Probläm! Mir würdä <b>dringend empfehle</b>, uf "
+"s'neuscht Firmware upzdate, wo d'Fähler korrigiert! Goh zu de Einstellige "
+"und suech de Firmware-Beräich, um s'Update druchzfüäre."
 
 #: gearimplementations/GearMitailMini.cpp:110
 msgctxt ""
@@ -875,6 +934,9 @@ msgid ""
 "device writing characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Es gseht us, dass das Gerät kei MiTail Mini isch (konnte ned d Hauptgerät-"
+"Schriftzug finde). Wänn du sicher bisch, dass es bestimmt eso isch, mälde dä "
+"Fähler bitte dr Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:118
 msgctxt ""
@@ -885,6 +947,9 @@ msgid ""
 "device reading characteristic). If you are certain that it definitely is, "
 "please report this error to The Tail Company."
 msgstr ""
+"Es sieht us, dass das Gerät kei MiTail Mini isch (hän d Hauptmerkmale vom "
+"Hauptgerät nid gfunde). Wenn du dir sicher bisch, dass es sicher isch, meld "
+"den Fehler bitte em The Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:414
 msgctxt "Warning message when a fault occurred during a connection attempt"
@@ -892,6 +957,9 @@ msgid ""
 "An error occurred while connecting to your MiTail Mini (the main service "
 "object could not be created). If you feel this is in error, please try again!"
 msgstr ""
+"Es het en Fehler geh bi dr Verbindung zu dim MiTail Mini (das "
+"Hauptdingbehältnisobjekt het ned chönne erstellt werde). Falls du dänkt, "
+"dass das en Irrtum isch, bitte probiere no einisch!"
 
 #: gearimplementations/GearMitailMini.cpp:444
 msgctxt ""
@@ -900,6 +968,9 @@ msgid ""
 "An error occurred while connecting to your MiTail Mini (the battery service "
 "was not available). If you feel this is in error, please try again!"
 msgstr ""
+"Es het en Fehler geh gäh, wänn mer mit dim MiTail Mini verbinde händ (de "
+"Batterie-Dienst isch nid verfüegbar). Fallsch du findsch, dass da en Fehler "
+"isch, versuechs doch no einisch!"
 
 #: gearimplementations/GearMitailMini.cpp:498
 msgctxt ""
@@ -909,6 +980,9 @@ msgid ""
 "level characteristic). If you are certain that it definitely is, please "
 "report this error to The Tail Company."
 msgstr ""
+"Es schiint, dass dä Gricht nit es MiTail Mini isch (d'Batterie-Stufe-"
+"Eigenschaft chani nit finde). Wenn du sicher bisch, dass es bestimmt so "
+"isch, bitte meld diesen Fehler de Tail Company."
 
 #: gearimplementations/GearMitailMini.cpp:538
 msgctxt "Warning that some unknown error happened"
@@ -916,11 +990,13 @@ msgid ""
 "An error occurred. If you are trying to connect to your MiTail Mini, make "
 "sure it is on and close to this device."
 msgstr ""
+"Es het en Fehler geh. Wenn du versuechscht di mit dim MiTail Mini "
+"z'verbinde, sorg dafuer dass es ah isch und nah bi dem Gerät."
 
 #: gearimplementations/GearMitailMini.cpp:541
 msgctxt "Warning that the device disconnected itself"
 msgid "The MiTail Mini closed the connection."
-msgstr ""
+msgstr "De MiTail Mini het d Verbindung zuegmacht."
 
 #: gearimplementations/GearMitailMini.cpp:545
 msgctxt ""
@@ -930,6 +1006,8 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
+"Chasch nöd mit dim MiTail Mini verbindä. Versuchs no einisch (vielleicht "
+"schiebäs es bitz nächer?)"
 
 #: gearimplementations/GearMitailMini.cpp:580
 msgctxt ""
@@ -939,111 +1017,114 @@ msgid ""
 "The MiTail Mini closed the connection, either by being turned off or losing "
 "power. Remember to charge your gear!"
 msgstr ""
+"Der MiTail Mini het d'Verbindig zuegmacht, entweder will er usgschaltet "
+"worde isch oder kei Power me het. Vergiss ned, diini Gerätschafte z'lade!"
 
 #: GestureDetectorModel.cpp:273
 msgctxt "The name of a sensor"
 msgid "Double Tap"
-msgstr ""
+msgstr "Zwei Schlöge"
 
 #: GestureDetectorModel.cpp:274
 msgctxt "The name of a sensor"
 msgid "Hover"
-msgstr ""
+msgstr "Fliege"
 
 #: GestureDetectorModel.cpp:275
 msgctxt "The name of a sensor"
 msgid "Freefall"
-msgstr ""
+msgstr "absturz"
 
 #: GestureDetectorModel.cpp:276
 msgctxt "The name of a sensor"
 msgid "Landed"
-msgstr ""
+msgstr "Uflandet"
 
 #: GestureDetectorModel.cpp:277
+#, fuzzy
 msgctxt "The name of a sensor"
 msgid "Cover Gesture"
-msgstr ""
+msgstr "Titel Geste"
 
 #: GestureDetectorModel.cpp:278
 msgctxt "The name of a sensor"
 msgid "Shake Gesture"
-msgstr ""
+msgstr "Schüttelbewegig"
 
 #: GestureDetectorModel.cpp:279
 msgctxt "The name of a sensor"
 msgid "Slam Gesture"
-msgstr ""
+msgstr "Klatsch Geste"
 
 #: GestureDetectorModel.cpp:280
 msgctxt "The name of a sensor"
 msgid "Whip Gesture"
-msgstr ""
+msgstr "Peitschegeste"
 
 #: GestureDetectorModel.cpp:281
 msgctxt "The name of a sensor"
 msgid "Shake Left"
-msgstr ""
+msgstr "Zuck nache links"
 
 #: GestureDetectorModel.cpp:282
 msgctxt "The name of a sensor"
 msgid "Shake Right"
-msgstr ""
+msgstr "Zuck nache Rächts"
 
 #: GestureDetectorModel.cpp:283
 msgctxt "The name of a sensor"
 msgid "Shake Up"
-msgstr ""
+msgstr "Ufeschüttele"
 
 #: GestureDetectorModel.cpp:284
 msgctxt "The name of a sensor"
 msgid "Shake Down"
-msgstr ""
+msgstr "Nidere schüttle"
 
 #: GestureDetectorModel.cpp:285
 msgctxt "The name of a sensor"
 msgid "Twist Left"
-msgstr ""
+msgstr "Drehig nach lins"
 
 #: GestureDetectorModel.cpp:286
 msgctxt "The name of a sensor"
 msgid "Twist Right"
-msgstr ""
+msgstr "Drehig nach Rächts"
 
 #: GestureDetectorModel.cpp:287
 msgctxt "The name of a sensor"
 msgid "Pick Up"
-msgstr ""
+msgstr "Ufhebe"
 
 #: GestureDetectorModel.cpp:288
 msgctxt "The name of a sensor"
 msgid "Turn Over"
-msgstr ""
+msgstr "Umkeera"
 
 #: GestureDetectorModel.cpp:289
 msgctxt "The name of a sensor"
 msgid "Walking Started"
-msgstr ""
+msgstr "Uf'em Finalangeh"
 
 #: GestureDetectorModel.cpp:290
 msgctxt "The name of a sensor"
 msgid "Walking Stopped"
-msgstr ""
+msgstr "Gah Stopp"
 
 #: GestureDetectorModel.cpp:291
 msgctxt "The name of a sensor"
 msgid "Step Detected"
-msgstr ""
+msgstr "Schritt gspürt"
 
 #: GestureDetectorModel.cpp:292
 msgctxt "The name of a sensor"
 msgid "Even-numbered Step Detected"
-msgstr ""
+msgstr "Schritt mitgerade Nummere festgstellt"
 
 #: GestureDetectorModel.cpp:293
 msgctxt "The name of a sensor"
 msgid "Odd-numbered Step Detected"
-msgstr ""
+msgstr "Ungerade Schritt eruiert"
 
 #: GestureDetectorModel.cpp:305
 msgctxt ""
@@ -1054,37 +1135,41 @@ msgid ""
 "after long periods of use. Read our guide to responsible wagging in Settings "
 "for ways to keep your gear healthy."
 msgstr ""
+"Nach ere Stund wird d'Erkennig vo %1 abgstellt. Alli Animatronic-"
+"Gerätschafte müend sich nach langem Benutze erholen. Liesch eusi Aaleitig "
+"zum verantwortigs Wiibele in de Idschtellige für Möglichschte, din Gscht ine "
+"guete Zuestand z'halte."
 
 #: qml/AboutPage.qml:33
 msgctxt ""
 "A label which describes the hardware revision of the connected gear, when "
 "only one item is connected"
 msgid "The connected gear is version %1"
-msgstr ""
+msgstr "Das connected Gerät Version %1"
 
 #: qml/AboutPage.qml:38
 msgctxt ""
 "A label which describes the hardware revision of a piece of connected gear, "
 "when more than one item is connected"
 msgid "The gear named %1 is version %2"
-msgstr ""
+msgstr "Das Gerät namens %1 esch Version %2"
 
 #: qml/AlarmList.qml:29
 msgctxt "Title of the page which lists the alarms the user has set"
 msgid "Alarms"
-msgstr ""
+msgstr "Alarmzeichen"
 
 #: qml/AlarmList.qml:33
 msgctxt "Text for a button which will adds a new alarm to the list"
 msgid "Add New Alarm"
-msgstr ""
+msgstr "Füege nöie Alarm hii"
 
 #: qml/AlarmList.qml:46
 msgctxt ""
 "Title for a message box warning the user an alarm with the chosen name "
 "already exists"
 msgid "Select another name"
-msgstr ""
+msgstr "Wähle en andere Name"
 
 #: qml/AlarmList.qml:47
 msgctxt ""
@@ -1096,13 +1181,17 @@ msgid ""
 "\n"
 "Please select another name for the alarm."
 msgstr ""
+"Nöd möglech es Alarm z'hinzufüege, will mer scho es Alarm mit em gliiche "
+"Name händ.\n"
+"\n"
+"Bitte wähl en andere Name für de Alarm us."
 
 #: qml/AlarmList.qml:51
 msgctxt ""
 "Title for a message box informing the user the alarm they attempted to "
 "remove does not exist"
 msgid "Alarm was removed"
-msgstr ""
+msgstr "Alarm isch abgstellt worde"
 
 #: qml/AlarmList.qml:52
 msgctxt ""
@@ -1112,37 +1201,39 @@ msgid ""
 "Unable to find an alarm with the name '%1'. Maybe another application "
 "instance has removed it."
 msgstr ""
+"Nid in Alarm mit em Name '%1' chönne finde. Vielleicht het es anderi "
+"Applikation ihn entfernt."
 
 #: qml/AlarmList.qml:82
 msgctxt ""
 "Text for an action which allows the user to pick what command the alarm will "
 "cause to be sent"
 msgid "Edit Alarm Commands"
-msgstr ""
+msgstr "Änder Alarm-Befähl"
 
 #: qml/AlarmList.qml:91
 msgctxt ""
 "Text for an action which allows the user to pick what time the alarm should "
 "fire"
 msgid "Set Time To Alarm"
-msgstr ""
+msgstr "Stell d'Uhr für d'Alarm ii"
 
 #: qml/AlarmList.qml:113
 msgctxt "Text for an action which allows the user to delete an alarm"
 msgid "Delete this Alarm"
-msgstr ""
+msgstr "Lösche dä Alarm"
 
 #: qml/AlarmList.qml:117
 msgctxt ""
 "Title for a message box which allows the user to delete a specific alarm"
 msgid "Remove the Alarm"
-msgstr ""
+msgstr "De Alarm uusmache"
 
 #: qml/AlarmList.qml:118
 msgctxt ""
 "Main text for a message box which allows the user to delete a specific alarm"
 msgid "Are you sure that you want to remove the alarm '%1'?"
-msgstr ""
+msgstr "Bisch du sicher, dass du de Alarm '%1' wöllsch entferne?"
 
 #: qml/AlarmList.qml:137
 msgctxt ""
@@ -1151,74 +1242,77 @@ msgid ""
 "Set an alarm here. Pick a date and time for your alarm, and then add one or "
 "more moves you want to perform when you hit that time."
 msgstr ""
+"Stell do ein Alarm i. Wähl e Datum und e Ziit für din Alarm us, und denn "
+"füeg eini oder meh Bewegige derzue, wo du mache wotsch, wenn de Alarm "
+"losgohd."
 
 #: qml/AlarmList.qml:144
 msgctxt ""
 "Descriptive text for a popup which allows the user to create a new, named "
 "alarm"
 msgid "Enter a name to use for your new alarm and click Create"
-msgstr ""
+msgstr "Tippe en Name für di neu Alarm ii und druck uf Erstellä"
 
 #: qml/AlarmList.qml:145
 msgctxt ""
 "Placeholder text for the text box in which the name of a new alarm must be "
 "written"
 msgid "Enter your alarm name here"
-msgstr ""
+msgstr "Gib do dä Name vo dim Wiiecker ii"
 
 #: qml/AlarmList.qml:146
 msgctxt "Text on a button which causes an alarm to be created"
 msgid "Create"
-msgstr ""
+msgstr "Wiicher mache"
 
 #: qml/BaseCommandListEditor.qml:42
 msgctxt "Label for the button for adding a move to the Move List"
 msgid "Add Move To List"
-msgstr ""
+msgstr "Füeg Bewegig zur Listä bi"
 
 #: qml/BaseCommandListEditor.qml:50
 msgctxt "Label for the button for adding a pause to the Move List"
 msgid "Add Pause To List"
-msgstr ""
+msgstr "Füeg Pause zur Liste hinzue"
 
 #: qml/BaseCommandListEditor.qml:62
 msgctxt "A short name for the relaxed moves category shown in move lists"
 msgid "Relaxed"
-msgstr ""
+msgstr "Locker"
 
 #: qml/BaseCommandListEditor.qml:64
 msgctxt "A short name for the excited moves category shown in move lists"
 msgid "Excited"
-msgstr ""
+msgstr "ufgregt"
 
 #: qml/BaseCommandListEditor.qml:66
 msgctxt "A short name for the tense moves category shown in move lists"
 msgid "Tense"
-msgstr ""
+msgstr "Gespannt"
 
 #: qml/BaseCommandListEditor.qml:68
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
-msgstr ""
+msgstr "Haltig"
 
 #: qml/BaseCommandListEditor.qml:70
 msgctxt "A short name for the lights category shown in move lists"
 msgid "Lights"
-msgstr ""
+msgstr "Liächtli"
 
 #: qml/BaseCommandListEditor.qml:183
 msgctxt ""
 "Label for the button for adding a command after the selected element of a "
 "move list"
 msgid "Add command after"
-msgstr ""
+msgstr "Füg Befehl nach Aane hinäzu"
 
 #: qml/BaseCommandListEditor.qml:192
 msgctxt ""
 "Label for the button for adding a pause after the selected element of a move "
 "list"
 msgid "Add pause after"
-msgstr ""
+msgstr "Füg e Pause I"
 
 #: qml/BaseCommandListEditor.qml:218
 msgctxt ""
@@ -1228,13 +1322,15 @@ msgid ""
 "<strong>%1</strong><br/><small>%2 seconds</small><br/><small>Additional "
 "cooldown: %3 seconds</small>"
 msgstr ""
+"<strong>%1</strong><br/><small>%2 Sekunde</small><br/><small>Zusätzliche "
+"Abkühligsziit: %3 Sekunde</small>"
 
 #: qml/BaseCommandListEditor.qml:219
 msgctxt ""
 "Label for the cooldown period when it is equal to 0, on the Command List "
 "editor"
 msgid "<strong>%1</strong><br/><small>%2 seconds</small>"
-msgstr ""
+msgstr "<strong>%1</strong><br/><small>%2 Sekunde</small>"
 
 #: qml/BaseCommandListEditor.qml:239
 msgctxt "Description for the Command List Editor"
@@ -1244,138 +1340,142 @@ msgid ""
 "the plus icon above the cumulative timestamp for that entry and pick one of "
 "the options in the menu."
 msgstr ""
+"Das isch dini Lischt vo Befehl. Si chan beides enthalte, Bewegige, Glühlig "
+"und Pausen. Um e neue Befehl unterem vo dere Liste z'füege, klicksch uf s "
+"Plus-Symbol obe bim kumuliertä Timestamp für dä Einträg und wählisch öppis "
+"us de Menuoptione us."
 
 #: qml/BaseCommandListEditor.qml:290
 msgctxt ""
 "Label for the cumulative duration of a Command on the Command List Editor"
 msgid "Total duration: %1 second"
 msgid_plural "Total duration: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ganz dauer: %1 Sekunde"
+msgstr[1] "Ganze Dauer: %1 Sekunden"
 
 #: qml/BaseMovesComponent.qml:206
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
-msgstr ""
+msgstr "Wohin söll i's schicke?"
 
 #: qml/BaseMovesComponent.qml:211
 msgctxt "Text for the overlay for selecting the destination for a command"
 msgid "Pick from the list below where you want to send the command."
-msgstr ""
+msgstr "Wähl us dr Liste underwo du wosch, dass d' Befehl gschickt wird."
 
 #: qml/BaseMovesComponent.qml:265
 msgctxt ""
 "Label for the checkbox which allows the user to remember the send to all "
 "devices option when selecting a command"
 msgid "Always Send To All"
-msgstr ""
+msgstr "Uf alli immer schicke"
 
 #: qml/BaseMovesComponent.qml:274
 msgctxt "Action for sending a command to the selected devices in a list"
 msgid "Send To Selected"
-msgstr ""
+msgstr "Gschick Zu Aagwählte"
 
 #: qml/BaseMovesComponent.qml:283
 msgctxt "Action for sending a command to all devices in a list"
 msgid "Send To All"
-msgstr ""
+msgstr "Sänd an alli"
 
 #: qml/CommandPausePicker.qml:43
 msgctxt ""
 "Heading for an overlay for picking the duration of a pause in the command "
 "list"
 msgid "Pick the duration of your pause"
-msgstr ""
+msgstr "Wähl d'Längi vo dim Halt aus"
 
 #: qml/CommandPausePicker.qml:58
 msgctxt ""
 "A label which describes the slider for the duration of a pause, in the "
 "overlay for picking the duration of a pause, in a command list"
 msgid "%1 seconds"
-msgstr ""
+msgstr "%1 Sekunden"
 
 #: qml/CommandPausePicker.qml:62
 msgctxt ""
 "Button for an overlay for picking the duration of a pause in the command list"
 msgid "Add this pause"
-msgstr ""
+msgstr "Füeg dä Pause ine"
 
 #: qml/ConnectToTail.qml:30
 msgctxt "Title on the popup for connecting to devices"
 msgid "Connect To Gear"
-msgstr ""
+msgstr "Chömmet di mit dr Ausrüschig verbinde"
 
 #: qml/ConnectToTail.qml:36
 msgctxt ""
 "Button for the action of disconnecting from all currently connected devices, "
 "in the popup for connecting to devices"
 msgid "Disconnect All"
-msgstr ""
+msgstr "Alles abklemme"
 
 #: qml/ConnectToTail.qml:51
 msgctxt ""
 "Button for the action of connecting to all found devices, in the popup for "
 "connecting to devices"
 msgid "Connect All"
-msgstr ""
+msgstr "Verbinde alli"
 
 #: qml/ConnectToTail.qml:100
 msgctxt ""
 "A label in the prompt for connecting to a device showing that the device is "
 "currently connecting"
 msgid "Connecting..."
-msgstr ""
+msgstr "Am Verbiendä..."
 
 #: qml/ConnectToTail.qml:102
 msgctxt ""
 "Button for the action of disconnecting a device, in the prompt for "
 "connecting a device"
 msgid "Disconnect"
-msgstr ""
+msgstr "D'Verbindig unterbreche"
 
 #: qml/ConnectToTail.qml:103
 msgctxt ""
 "Button for the action of connecting a device, in the prompt for connecting a "
 "device"
 msgid "Connect"
-msgstr ""
+msgstr "Verbinded"
 
 #: qml/DatePicker.qml:49
 msgctxt "Title for the date picker"
 msgid "Pick A Date"
-msgstr ""
+msgstr "Wähl es Datum"
 
 #: qml/DatePicker.qml:241
 msgctxt "Button for selecting the date of today, in a date picker"
 msgid "Today"
-msgstr ""
+msgstr "Hüüt"
 
 #: qml/DatePicker.qml:248
 msgctxt "Button for cancelling the selection of a date, in a date picker"
 msgid "Cancel"
-msgstr ""
+msgstr "Abrächa"
 
 #: qml/DatePicker.qml:255
 msgctxt "Button for confirming the selection of a date, in a date picker"
 msgid "OK"
-msgstr ""
+msgstr "Okay"
 
 #: qml/DeveloperModePage.qml:27
 msgctxt "Header for the Developer Mode page"
 msgid "Developer Mode"
-msgstr ""
+msgstr "Entwicklermodus"
 
 #: qml/DeveloperModePage.qml:34
 msgctxt "Button with a sound effect for the Developer Mode Page"
 msgid "MAX GLASH"
-msgstr ""
+msgstr "MAX GLASCH"
 
 #: qml/DisconnectOptions.qml:36
 msgctxt ""
 "Heading for the overlay for picking options when disconnecting from a piece "
 "of gear"
 msgid "Disconnect?"
-msgstr ""
+msgstr "Verbindig unterbroche?"
 
 #: qml/DisconnectOptions.qml:44
 msgctxt ""
@@ -1384,15 +1484,15 @@ msgctxt ""
 msgid "Please select how you would like to disconnect from %2."
 msgid_plural ""
 "Please select how you would like to disconnect from the %1 pieces of gear."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bitte wähl us, wie du dich vo %2 abmelde möchtsch."
+msgstr[1] "Bitte wähl wie du dich vo de %1 Geräte abmelde möchsch."
 
 #: qml/DisconnectOptions.qml:59
 msgctxt ""
 "Label above the section that lets you set up the gear for use without a "
 "phone and then disconnect"
 msgid "Use Gear Without Your Phone"
-msgstr ""
+msgstr "Nutze d Gerät ohni dime Nate"
 
 #: qml/DisconnectOptions.qml:88
 msgctxt ""
@@ -1403,6 +1503,10 @@ msgid ""
 "the phone off. This works like a basic Casual Mode, but without the phone to "
 "operate it. (Handy if you're costuming and have nowhere to stow your phone)"
 msgstr ""
+"Wähle d'Option, um de No Phone Modus izrichte und de abtrenne, so dass du's "
+"Telefon usschalte chasch. Das funktioniert so wie en eifache Lässig Modus, "
+"aber ohni s'Telefon zum bediene. (Natel wenn du am verkleide bisch und kei "
+"Ort häsch zum de Handy verstecke.)"
 
 #: qml/DisconnectOptions.qml:111
 msgctxt ""
@@ -1412,26 +1516,28 @@ msgid ""
 "No Phone Mode will wait between %1 and %2 seconds before picking its next "
 "move."
 msgstr ""
+"Im No Phone Modus wird zwiische %1 und %2 Sekunde warte, bevor es s' "
+"Nächschti macht."
 
 #: qml/DisconnectOptions.qml:131
 msgctxt ""
 "Label for the slider which lets the user pick how long to wait before No "
 "Phone mode is fully activated"
 msgid "No Phone Mode will wait %1 minute(s) before picking the first move."
-msgstr ""
+msgstr "De No-Phone-Modus wartet %1 Minute(n), bevor er de erste Zug macht."
 
 #: qml/DisconnectOptions.qml:142
 msgctxt ""
 "Label for the button in the disconnection options popup which puts the gear "
 "into autonomous, or no phone, mode"
 msgid "Engage No Phone Mode"
-msgstr ""
+msgstr "Aktivier kei Telefonmodus"
 
 #: qml/DisconnectOptions.qml:179
 msgctxt ""
 "Label above the section that lets the user simply disconnect from the gear"
 msgid "Just Disconnect"
-msgstr ""
+msgstr "Eifach abschtöpsle"
 
 #: qml/DisconnectOptions.qml:197
 msgctxt ""
@@ -1441,20 +1547,22 @@ msgid ""
 "Pick this option to disconnect from the gear without turning it off (handy "
 "if you want to charge it)."
 msgstr ""
+"Wähl dä Option us, um vo dä Achtig disch z' trenne ohni's afz'schalte ("
+"praktisch, wenn du's möchte ladde)."
 
 #: qml/DisconnectOptions.qml:200
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Disconnect"
-msgstr ""
+msgstr "Trenne d'Verbindung"
 
 #: qml/DisconnectOptions.qml:224
 msgctxt ""
 "Header label for the section which lets you tell the gear to shut down "
 "before disconnecting"
 msgid "Disconnect and Shut Down"
-msgstr ""
+msgstr "Trenne und schalt ab"
 
 #: qml/DisconnectOptions.qml:242
 msgctxt ""
@@ -1463,18 +1571,20 @@ msgid ""
 "Pick this option to turn off the gear rather than simply disconnecting "
 "(handy if you're putting it away immediately)"
 msgstr ""
+"Wähle Option is, um ds Grät abzschalte statt eifach z'deruuschte (praktisch "
+"wenn du's grad wegglei packsch)"
 
 #: qml/DisconnectOptions.qml:245
 msgctxt ""
 "Label for the button in the disconnection options popup which only "
 "disconnects the gear"
 msgid "Shut Down Gear"
-msgstr ""
+msgstr "Abschalte Ausrüstig"
 
 #: qml/EarPoses.qml:27
 msgctxt "Title for the page for selecting a pose for the EarGear"
 msgid "Ear Poses"
-msgstr ""
+msgstr "Ohrhaltigge"
 
 #: qml/EarPoses.qml:30
 msgctxt ""
@@ -2826,6 +2936,8 @@ msgid ""
 "Turn this on to make your gear react to sounds around it for five minutes at "
 "a time."
 msgstr ""
+"Schalt das i, damit diini Ausrüschig uf Töni um sich i reagiere für fünf "
+"Minute am Stück."
 
 #: qml/WelcomePage.qml:361
 msgctxt "Heading for the panel for turning on Tilt Mode"
