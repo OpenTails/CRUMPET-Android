@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-05-29 09:31+0000\n"
+"PO-Revision-Date: 2024-06-17 16:46+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: English (Pirate) <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/en@pirate/>\n"
@@ -142,7 +142,7 @@ msgid ""
 "check that it is on, charged, and near enough."
 msgstr ""
 "Avast ye, we tried and failed, to connect to %1 (%2). Are ye three sheets to "
-"wind, sonny?"
+"wind, sonny? Fresh up."
 
 #: gearimplementations/GearDigitail.cpp:62 gearimplementations/GearEars.cpp:82
 #: gearimplementations/GearFlutterWings.cpp:79
@@ -152,7 +152,7 @@ msgctxt ""
 "A status message sent when the connection to a device has been lost, and we "
 "are attempting to connect again automatically"
 msgid "Connection lost to %1, attempting to reconnect..."
-msgstr "Tis the plank for %1, though Ill give ye a second go"
+msgstr "Tis the plank for %1, though Ill give ye a second go..."
 
 #: gearimplementations/GearDigitail.cpp:91
 msgctxt ""
@@ -164,7 +164,7 @@ msgid ""
 "this error to The Tail Company."
 msgstr ""
 "Hang the jib, this be no DIGITAiL! If you think Im a biscuit eater, parler "
-"with Master Pirates at The Tail Company"
+"with Master Pirates at The Tail Company."
 
 #: gearimplementations/GearDigitail.cpp:260
 msgctxt "Warning message when the main service was not found on the device"
@@ -180,7 +180,7 @@ msgctxt "Warning that some unknown error happened"
 msgid ""
 "An error occurred. If you are trying to connect to your DIGITAiL, make sure "
 "it is on and close to this device."
-msgstr "Mutiny! Your tail needs to be closer than the Jolly Roger"
+msgstr "Mutiny! Your tail needs to be closer than the Jolly Roger."
 
 #: gearimplementations/GearDigitail.cpp:281
 msgctxt "Warning that the device disconnected itself"
