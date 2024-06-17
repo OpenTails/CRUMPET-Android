@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-16 08:42+0000\n"
-"Last-Translator: Pascaline <pascalinesarginson@ymail.com>\n"
+"PO-Revision-Date: 2024-06-17 16:46+0000\n"
+"Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: French <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/fr/>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgctxt ""
 "stored in"
 msgid "Failed to create the directory for the stored commands"
 msgstr ""
-"La création du répertoire pour les commandes enregistrées n'est pas possible."
+"La création du répertoire pour les commandes enregistrées n'est pas possible"
 
 #: CommandPersistence.cpp:117
 msgctxt ""
@@ -54,14 +54,14 @@ msgctxt ""
 "Error message when attempting to load commands and the file could not be "
 "accessed for reading purposes"
 msgid "Could not open the file %1 for reading"
-msgstr "Impossible d'ouvrir le fichier %1 pour la lecture."
+msgstr "Impossible d'ouvrir le fichier %1 pour la lecture"
 
 #: CommandPersistence.cpp:196
 msgctxt ""
 "Error message when attempting to save commands and the file could not be "
 "accessed for writing purposes"
 msgid "Could not open the file %1 for writing"
-msgstr "Impossible d'ouvrir le fichier %1 pour l'écriture."
+msgstr "Impossible d'ouvrir le fichier %1 pour l'écriture"
 
 #: DeviceModel.cpp:279
 msgctxt ""
@@ -201,7 +201,7 @@ msgid ""
 "Failed to connect to your DIGITAiL. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"Échec de la connexion à ta DIGITAiL. Merci de la rapprocher et réessayer."
+"Échec de la connexion à ta DIGITAiL. Merci de la rapprocher et réessayer"
 
 #: gearimplementations/GearDigitail.cpp:304
 msgctxt ""
@@ -408,7 +408,7 @@ msgctxt ""
 msgid ""
 "Failed to connect to your EarGear. Please try again (perhaps move it closer?)"
 msgstr ""
-"La connexion à ton EarGear a échoué. Merci de le rapprocher et réessayer."
+"La connexion à ton EarGear a échoué. Merci de le rapprocher et réessayer"
 
 #: gearimplementations/GearEars.cpp:651
 msgctxt ""
@@ -449,7 +449,7 @@ msgstr ""
 msgctxt ""
 "Message shown alongside a progress bar when downloading update information"
 msgid "Downloading firmware update information"
-msgstr "Téléchargement des informations de la dernière mise à jour en cours..."
+msgstr "Téléchargement des informations de la dernière mise à jour en cours"
 
 #: gearimplementations/GearEars.cpp:841
 msgctxt ""
@@ -556,7 +556,7 @@ msgid ""
 "<b>important</b> going on with their firmware"
 msgstr ""
 "Ceci est un message censé informer les utilisateurs que quelque chose "
-"<b>d’important</b> se passe avec leur logiciel."
+"<b>d’important</b> se passe avec leur logiciel"
 
 #: gearimplementations/GearFlutterWings.cpp:109
 msgctxt ""
@@ -656,7 +656,7 @@ msgid ""
 "closer?)"
 msgstr ""
 "La connexion à tes FlutterWings a échoué. Merci de les rapprocher et "
-"réessayer."
+"réessayer"
 
 #: gearimplementations/GearFlutterWings.cpp:572
 #: gearimplementations/GearMitail.cpp:579
@@ -875,7 +875,7 @@ msgctxt ""
 "strength)"
 msgid ""
 "Failed to connect to your MiTail. Please try again (perhaps move it closer?)"
-msgstr "La connexion à ta MiTail a échoué. Merci de la rapprocher et réessayer."
+msgstr "La connexion à ta MiTail a échoué. Merci de la rapprocher et réessayer"
 
 #: gearimplementations/GearMitail.cpp:584
 #: gearimplementations/GearMitailMini.cpp:577
@@ -995,7 +995,7 @@ msgid ""
 "Failed to connect to your MiTail Mini. Please try again (perhaps move it "
 "closer?)"
 msgstr ""
-"La connexion à ta MiTail Mini a échoué. Merci de la rapprocher et réessayer."
+"La connexion à ta MiTail Mini a échoué. Merci de la rapprocher et réessayer"
 
 #: gearimplementations/GearMitailMini.cpp:580
 msgctxt ""
@@ -1342,7 +1342,7 @@ msgstr[1] "Durée totale : %1 secondes"
 #: qml/BaseMovesComponent.qml:206
 msgctxt "Header for the overlay for selecting the destination for a command"
 msgid "Send where?"
-msgstr "Selectionner destinataire"
+msgstr "Envoyer où ?"
 
 #: qml/BaseMovesComponent.qml:211
 msgctxt "Text for the overlay for selecting the destination for a command"
@@ -1646,7 +1646,7 @@ msgstr "Tendu"
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
-msgstr "Positions"
+msgstr "Position"
 
 #: qml/GearGestures.qml:54
 msgctxt "A short name for the lights category shown on the gestures page"
@@ -1680,7 +1680,6 @@ msgid "Multiple Gestures"
 msgstr "Gestes multiples"
 
 #: qml/GearGestures.qml:85
-#, fuzzy
 msgctxt ""
 "Description for the warning for having enabled multiple gestures at the same "
 "time, on the page for selecting what should happen when the controlling "
@@ -1692,14 +1691,11 @@ msgid ""
 "be detected). If you are sure you want to do this, tap OK, or tap Cancel to "
 "not enable this gesture."
 msgstr ""
-"Tu essaie d'enclencher plusieurs gestes en même temps. \n"
-"\n"
-"Cela peut causer des problèmes, principalement parce qu'il peut ce confondre "
-"des gestes (par exemple si tu actives la marche et secouage, les deux gestes "
-"seront probablement détectés simultanément). \n"
-"\n"
-"Si tu es sûr de vouloir le faire, appuie sur Confirmer. Appuie sinon sur "
-"Annuler."
+"Tu essaie d'enclencher plusieurs gestes en même temps. Cela peut causer des "
+"problèmes, principalement parce qu'il peut ce confondre des gestes (par "
+"exemple si tu actives la marche et secouage, les deux gestes seront "
+"probablement détectés simultanément). Si tu es sûr de vouloir le faire, "
+"appuie sur Confirmer. Appuie sinon sur Annuler."
 
 #: qml/GearGestures.qml:94
 msgctxt ""
