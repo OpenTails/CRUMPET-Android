@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-05-29 09:31+0000\n"
+"PO-Revision-Date: 2024-06-17 16:46+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Italian <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/it/>\n"
@@ -2394,14 +2394,15 @@ msgid "Remove Command Set?"
 msgstr "Set di comandi dell'ingranaggio?"
 
 #: qml/SettingsCrumpetPicker.qml:89
-#, fuzzy
 msgctxt ""
 "Message for the confirmation prompt for removing a command set, on the Gear "
 "Command Sets page"
 msgid ""
 "Are you sure that you want to remove this command set? Note this cannot be "
 "undone."
-msgstr "Sei sicuro di voler rimuovere l'Elenco mosse '%1'?"
+msgstr ""
+"Sei sicuro di voler rimuovere questo set di comandi? Tieni presente che "
+"questa operazione non può essere annullata."
 
 #: qml/SettingsCrumpetPicker.qml:96
 msgctxt ""
@@ -2871,7 +2872,6 @@ msgid "Stop Lights"
 msgstr "Luci di arresto"
 
 #: qml/TailLights.qml:38
-#, fuzzy
 msgctxt ""
 "Description for the list of light patterns, on the page for the Glow Tips"
 msgid ""
@@ -2881,8 +2881,9 @@ msgid ""
 "light pattern to."
 msgstr ""
 "L'elenco seguente mostra tutti i modelli di luce disponibili per la tua "
-"attrezzatura. Tocca uno di essi per inviarli a uno qualsiasi dei tuoi "
-"dispositivi collegati!"
+"attrezzatura. Toccane uno qualsiasi per inviarlo a uno qualsiasi dei tuoi "
+"dispositivi connessi! Se ne hai più di uno connesso, i piccoli punti "
+"colorati mostrano a chi puoi inviare lo schema luminoso."
 
 #: qml/TailLights.qml:45
 msgctxt "List element for the light patterns, on the page for the Glow Tips"
