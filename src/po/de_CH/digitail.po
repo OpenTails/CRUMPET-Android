@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-07-18 12:41+0000\n"
+"PO-Revision-Date: 2024-07-19 18:43+0000\n"
 "Last-Translator: Lord Benjamin <nimajneBrM@gmail.com>\n"
 "Language-Team: German (Switzerland) <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/de_CH/>\n"
@@ -101,14 +101,14 @@ msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "left hand side of the gear"
 msgid "Loud Sound on the Left"
-msgstr "Loud Sound uf de linkä Siitä"
+msgstr "Lutige Lärm vo linka Siita"
 
 #: DeviceModel.cpp:285
 msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the left hand side of the gear"
 msgid "Quiet Sound on the Left"
-msgstr "Leisä Sound uf de linkä Siitä"
+msgstr "Leisi Grüsch vo linka Siita"
 
 #: DeviceModel.cpp:286
 msgctxt ""
@@ -122,14 +122,14 @@ msgctxt ""
 "Name for an event where a small, but detectable amount of sound has been "
 "detected on the right hand side of the gear"
 msgid "Quiet Sound on the Right"
-msgstr "Ruhiger Sound uf de rechte Syte"
+msgstr "Leisi Grüsch vo rächti Siita"
 
 #: DeviceModel.cpp:288
 msgctxt ""
 "Name for an event where a large amount of sound has been detected on the "
 "right hand side of the gear"
 msgid "Loud Sound on the Right"
-msgstr "Lutere Sound uf de rechte Syte"
+msgstr "Lutige Lärm vo rächti Siita"
 
 #: gearimplementations/GearDigitail.cpp:58 gearimplementations/GearEars.cpp:78
 #: gearimplementations/GearFlutterWings.cpp:75
