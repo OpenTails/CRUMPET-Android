@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-17 16:46+0000\n"
+"PO-Revision-Date: 2024-11-13 05:33+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Spanish <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/es/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.8.3\n"
 
 #: CommandPersistence.cpp:57
 msgctxt ""
@@ -1295,7 +1295,7 @@ msgstr "Tenso"
 #: qml/BaseCommandListEditor.qml:68
 msgctxt "A short name for the eargear poses category shown in move lists"
 msgid "Pose"
-msgstr "Poses"
+msgstr "Pose"
 
 #: qml/BaseCommandListEditor.qml:70
 msgctxt "A short name for the lights category shown in move lists"
@@ -1661,7 +1661,7 @@ msgstr "Tenso"
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
-msgstr "Poses"
+msgstr "Pose"
 
 #: qml/GearGestures.qml:54
 msgctxt "A short name for the lights category shown on the gestures page"
