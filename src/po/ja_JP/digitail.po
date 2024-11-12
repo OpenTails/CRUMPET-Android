@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Untitled project\n"
 "Report-Msgid-Bugs-To: https://github.com/MasterTailer/CRUMPET/issues\n"
 "POT-Creation-Date: 2024-04-14 13:40+0100\n"
-"PO-Revision-Date: 2024-06-16 08:42+0000\n"
+"PO-Revision-Date: 2024-11-13 05:33+0000\n"
 "Last-Translator: Jörg Dahm <snowowl@susilauma.de>\n"
 "Language-Team: Japanese <http://weblate.stargazer.at/projects/"
 "the-tailcompany-app/digitail/ja/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.8.3\n"
 "X-Loco-Source-Locale: en-JP\n"
 "X-Loco-Project-Id: 128344\n"
 "X-Loco-Api-Version: 1.0.26 20220328-1\n"
@@ -1557,15 +1557,15 @@ msgid "Home Position"
 msgstr "ホームポジション"
 
 #: qml/EarPoses.qml:39
-#, fuzzy
 msgctxt "Description for the page for selecting a pose for the EarGear"
 msgid ""
 "The list below shows all the poses available to your gear. Tap any of them "
 "to send them off to any of your connected devices! If you have more than one "
 "connected, the little coloured dots show which you can send that pose to."
 msgstr ""
-"下のリストには、あなたのギアで利用できるすべてのポーズが表示されます。ポーズ"
-"をタップすると、接続されているすべてのデバイスにポーズが送信されます。"
+"以下のリストには、ギアで使用できるすべてのポーズが表示されます。いずれかをタ"
+"ップすると、接続されたデバイスに送信されます。複数のデバイスが接続されている"
+"場合、小さな色付きのドットがそのポーズを送信できるデバイスを示します。"
 
 #: qml/EarPoses.qml:42
 msgctxt "Label for the button for setting EarGear moves to run more slowly"
@@ -1585,7 +1585,6 @@ msgid "Poses"
 msgstr "ポーズ"
 
 #: qml/GearGestures.qml:28
-#, fuzzy
 msgctxt ""
 "Title for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1593,7 +1592,6 @@ msgid "Gear Gestures"
 msgstr "ギアジェスチャー"
 
 #: qml/GearGestures.qml:31
-#, fuzzy
 msgctxt ""
 "Button for returning Gear to the home position, on the page for selecting "
 "what should happen when the controlling device/phone detects a gesture"
@@ -1601,18 +1599,16 @@ msgid "Home Position"
 msgstr "ホームポジション"
 
 #: qml/GearGestures.qml:46
-#, fuzzy
 msgctxt ""
 "A short name for the relaxed moves category shown on the gestures page"
 msgid "Relaxed"
-msgstr "落ち着きとくつろぎ"
+msgstr "リラックス"
 
 #: qml/GearGestures.qml:48
-#, fuzzy
 msgctxt ""
 "A short name for the excited moves category shown on the gestures page"
 msgid "Excited"
-msgstr "わくわくする"
+msgstr "興奮した"
 
 #: qml/GearGestures.qml:50
 msgctxt "A short name for the tense moves category shown on the gestures page"
@@ -1620,20 +1616,17 @@ msgid "Tense"
 msgstr "時制"
 
 #: qml/GearGestures.qml:52
-#, fuzzy
 msgctxt ""
 "A short name for the eargear poses category shown on the gestures page"
 msgid "Pose"
 msgstr "ポーズ"
 
 #: qml/GearGestures.qml:54
-#, fuzzy
 msgctxt "A short name for the lights category shown on the gestures page"
 msgid "Lights"
-msgstr "ストップライト"
+msgstr "ライト"
 
 #: qml/GearGestures.qml:62
-#, fuzzy
 msgctxt ""
 "Info card for the page for selecting what should happen when the controlling "
 "device/phone detects a gesture"
@@ -1644,19 +1637,19 @@ msgid ""
 "perk up when the device recognises that is has been picked up, or start "
 "wagging when it detects that you have taken a step."
 msgstr ""
-"以下のセンサーのいずれかをオンにすると、他に何もしていない（つまり、現在のコ"
-"マンドがなく、コマンドキューが空である）場合に、このデバイスで行われたジェス"
-"チャーにギアを反応させることができます。例えば、抱き上げられたことを認識する"
-"と耳をピクピクさせたり、一歩踏み出したことを検出すると体を揺らしたりします。"
+"他に何も起こっていない場合 (つまり、現在コマンドがなく、コマンド キューが空の"
+"場合)、以下のセンサーのいずれかをオンにすると、このデバイスで実行されたジェス"
+"チャーにギアが反応するようになります。たとえば、デバイスが持ち上げられたこと"
+"を認識すると耳がぴくっと動いたり、歩いたことを検出したときに耳を振ったりしま"
+"す。"
 
 #: qml/GearGestures.qml:84
-#, fuzzy
 msgctxt ""
 "Title for the warning for having enabled multiple gestures at the same time, "
 "on the page for selecting what should happen when the controlling device/"
 "phone detects a gesture"
 msgid "Multiple Gestures"
-msgstr "マルチジェスチャー"
+msgstr "複数のジェスチャー"
 
 #: qml/GearGestures.qml:85
 #, fuzzy
